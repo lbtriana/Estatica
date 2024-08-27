@@ -250,19 +250,19 @@ def rta_EQ_V2D_M_P1(F1x, F1y, F2x, F2y, calc, a1,a2):
 
     $\\textbf{{\\small 1. Descomposición de los vectores F1 y F2:}}$
 
-    ${{\hspace{{4mm}} F1_x = F1*cos(\\alpha_1) = {F1x*calc[f'cos{a1}']:.2f} }}$  
-    ${{\hspace{{4mm}} F1_y = F1*sen(\\alpha_1) = {F1y*calc[f'sin{a1}']:.2f} }}$  
-    ${{\hspace{{4mm}} F2_x = F2*cos(\\alpha_2) = {F2x*calc[f'cos{a2}']:.2f} }}$  
-    ${{\hspace{{4mm}} F2_y = F2*sen(\\alpha_2) = {F2y*calc[f'sin{a2}']:.2f} }}$  
+    ${{\hspace{{4mm}} F1_x = F1*cos(\\alpha_1) = {F1x*calc[f'cos{a1}']:.2f} \\text{{ kN}} }}$  
+    ${{\hspace{{4mm}} F1_y = F1*sen(\\alpha_1) = {F1y*calc[f'sin{a1}']:.2f} \\text{{ kN}} }}$  
+    ${{\hspace{{4mm}} F2_x = F2*cos(\\alpha_2) = {F2x*calc[f'cos{a2}']:.2f} \\text{{ kN}} }}$  
+    ${{\hspace{{4mm}} F2_y = F2*sen(\\alpha_2) = {F2y*calc[f'sin{a2}']:.2f} \\text{{ kN}} }}$  
 	    
     $\\textbf{{\\small 2. Sumatoria en X y Y:}}$  
 
-    ${{\hspace{{4mm}} \\sum{{F_x}} = F_{{RX}}= F1_x + F2_x = {F1x*calc[f'cos{a1}']+F2x*calc[f'cos{a2}']:.2f} }}$  
-    ${{\hspace{{4mm}} \\sum{{F_y}} = F_{{RY}} = F1_y + F2_y = {F1y*calc[f'sin{a1}']+F2y*calc[f'sin{a2}']:.2f} }}$  
+    ${{\hspace{{4mm}} \\sum{{F_x}} = F_{{RX}} = F1_x + F2_x = {F1x*calc[f'cos{a1}']+F2x*calc[f'cos{a2}']:.2f} \\text{{ kN}} }}$  
+    ${{\hspace{{4mm}} \\sum{{F_y}} = F_{{RY}} = F1_y + F2_y = {F1y*calc[f'sin{a1}']+F2y*calc[f'sin{a2}']:.2f} \\text{{ kN}} }}$  
        
     $\\textbf{{\\small 3. Cálculo de la magnitud:}}$
 
-    ${{\hspace{{4mm}} |F_R|=\\sqrt{{F_{{RX}}^2+F_{{RY}}^2}} = {Calculations.magnitude(F1x*calc[f'cos{a1}']+F2x*calc[f'cos{a2}'],F1y*calc[f'sin{a1}']+F2y*calc[f'sin{a2}']):.2f} \\text{{ kN}}}}$
+    ${{\hspace{{4mm}} |\\overrightarrow{{F_R}}|=\\sqrt{{F_{{RX}}^2+F_{{RY}}^2}} = {Calculations.magnitude(F1x*calc[f'cos{a1}']+F2x*calc[f'cos{a2}'],F1y*calc[f'sin{a1}']+F2y*calc[f'sin{a2}']):.2f} \\text{{ kN}}}}$
 
     $\\textbf{{\\small 4. Cálculo de la dirección:}}$
 
@@ -282,23 +282,23 @@ def rta_EQ_V2D_M_P2(F1x, F1y, F2x, F2y, calc, a1,a2):
 
     $\\textbf{{\\small 1. Descomposición de los vectores F1 y F2:}}$
 
-    ${{\hspace{{4mm}} F1_x = F1*sen(\\alpha_1) = {F1x*calc[f'sin{a2}']:.2f} }}$  
-    ${{\hspace{{4mm}} F1_y = F1*cos(\\alpha_1) = {F1y*calc[f'cos{a2}']:.2f} }}$  
-    ${{\hspace{{4mm}} F2_x = F2*cos(\\alpha_2) = {F2x*calc[f'cos{a1}']:.2f} }}$  
-    ${{\hspace{{4mm}} F2_y = F2*sen(\\alpha_2) = {F2y*calc[f'sin{a1}']:.2f} }}$  
+    ${{\hspace{{4mm}} F1_x = F1*sen(\\alpha_1) = {F1x*calc[f'sin{a2}']:.2f} \\text{{ kN}} }}$  
+    ${{\hspace{{4mm}} F1_y = F1*cos(\\alpha_1) = {F1y*calc[f'cos{a2}']:.2f} \\text{{ kN}} }}$  
+    ${{\hspace{{4mm}} F2_x = F2*cos(\\alpha_2) = {F2x*calc[f'cos{a1}']:.2f} \\text{{ kN}} }}$  
+    ${{\hspace{{4mm}} F2_y = F2*sen(\\alpha_2) = {F2y*calc[f'sin{a1}']:.2f} \\text{{ kN}} }}$  
 	    
     $\\textbf{{\\small 2. Sumatoria en X y Y:}}$  
 
-    ${{\hspace{{4mm}} \\sum{{F_x}} = F_{{RX}} = F1_x + F2_x = {F1x*calc[f'sin{a2}']+F2x*calc[f'cos{a1}']:.2f} }}$  
-    ${{\hspace{{4mm}} \\sum{{F_y}} = F_{{RY}} = F1_y + F2_y = {F1y*calc[f'cos{a2}']+F2y*calc[f'sin{a1}']:.2f} }}$  
+    ${{\hspace{{4mm}} \\sum{{F_x}} = F_{{RX}} = F1_x + F2_x = {F1x*calc[f'sin{a2}']+F2x*calc[f'cos{a1}']:.2f} \\text{{ kN}} }}$  
+    ${{\hspace{{4mm}} \\sum{{F_y}} = F_{{RY}} = F1_y + F2_y = {F1y*calc[f'cos{a2}']+F2y*calc[f'sin{a1}']:.2f} \\text{{ kN}} }}$  
        
     $\\textbf{{\\small 3. Cálculo de la magnitud:}}$
 
-    ${{\hspace{{4mm}} |F_R|=\\sqrt{{F_{{RX}}^2+F_{{RY}}^2}} = {Calculations.magnitude(F1x*calc[f'sin{a2}']+F2x*calc[f'cos{a1}'],F1y*calc[f'cos{a2}']+F2y*calc[f'sin{a1}']):.2f} }}$
+    ${{\hspace{{4mm}} |\\overrightarrow{{F_R}}|=\\sqrt{{F_{{RX}}^2+F_{{RY}}^2}} = {Calculations.magnitude(F1x*calc[f'sin{a2}']+F2x*calc[f'cos{a1}'],F1y*calc[f'cos{a2}']+F2y*calc[f'sin{a1}']):.2f} \\text{{ kN}}}}$
 
     $\\textbf{{\\small 4. Cálculo de la dirección:}}$
 
-     ${{\hspace{{4mm}} \\alpha_R ={Calculations.define_angle(F1x*calc[f'sin{a2}']+F2x*calc[f'cos{a1}'],F1y*calc[f'cos{a2}']+F2y*calc[f'sin{a1}']):.2f} }}$
+     ${{\hspace{{4mm}} \\alpha_R ={Calculations.define_angle(F1x*calc[f'sin{a2}']+F2x*calc[f'cos{a1}'],F1y*calc[f'cos{a2}']+F2y*calc[f'sin{a1}']):.2f}° }}$
 
     El cálculo del ángulo respecto al eje x positivo depende del cuadrante en el que se encuentra el vector:
 

@@ -272,11 +272,11 @@ if authenticate_user():
                         if version_no == 1:
                             st.image(image_paths[12],width=300)
                         elif version_no == 2:
-                            st.image(image_paths[13])
+                            st.image(image_paths[13],width=300)
                         elif version_no == 3:
-                            st.image(image_paths[14])
+                            st.image(image_paths[14],width=300)
                         elif version_no == 4:
-                            st.image(image_paths[15])
+                            st.image(image_paths[15],width=300)
                     
                     if pregunta_no == 3:
                         st.image(image_paths[16],width=330)

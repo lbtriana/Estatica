@@ -25,7 +25,7 @@ conceptuales = [
     #-------------------------------------------------          11#           ---------------------------------------------------
 
     Questionary(#1
-        code = 111,
+        code = 1100010, #Tema #Subtema #Nivel de dificultad (0) #No. pregunta (001) #no_version (0)
         no_pregunta = 1,
         topic = "Equilibrio de partículas",
         subtopic = "Vectores",
@@ -35,9 +35,6 @@ conceptuales = [
         opcion_3 = "",
         opcion_4 = "",
         opcion_correcta = "",
-        ayuda_1 = "",
-        ayuda_2 = "",
-        ayuda_3 = "",
         respuesta_P1 = "",
         respuesta_P2 = "",
         ),
