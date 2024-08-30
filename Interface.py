@@ -7,6 +7,7 @@ import random as rd
 import math
 import secrets
 from Class_Preguntas import Questionary, preguntas
+from Class_Teoria import Theory, conceptuales
 from Imagenes import *
 
 #=========================Configuration of the page============================
@@ -14,6 +15,8 @@ from Imagenes import *
 st.set_page_config(layout="wide") #centered
 
 col_1, col_2, col_3 = st.columns(3)
+
+#====================================Login=======================================
 
 #Read credentials of users and create a dictionary
 datos_usuarios = pd.read_excel("C:/Users/Luisa/Videos/Estatica/Usuarios.xlsx")
@@ -115,8 +118,17 @@ if authenticate_user():
     st.sidebar.markdown("<h1 style='font-size:36px;'>StaticGenius</h1>", unsafe_allow_html=True)
     way=st.sidebar.radio("Seleccione su método de estudio",options=["Práctica","Teoría"])
     respuesta_usuario = {}
+    respuesta_usuario['way'] = way
+
     if way=="Teoría":
         st.sidebar.header("Teoría")
+        topic=st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Momento"])
+        respuesta_usuario['topic'] = topic
+
+        if topic=="Equilibrio de partículas":
+            subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Vectores","Equilibrio"])
+            respuesta_usuario['subtopic'] = subtopic
+
     else:
         st.sidebar.header("Práctica")
         complexity=st.sidebar.radio("Nivel de dificultad",options=["Fácil","Medio","Díficil"]) 
@@ -144,19 +156,24 @@ if authenticate_user():
         #    subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Vigas","Presión hidrostática","Empuje de suelo"])
         #elif topic=="Fuerzas internas":
         #    subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Fuerzas internas en un punto","Diagramas: Método analítico","Diagramas: Método simplificado"])
+        respuesta_usuario['subtopic'] = subtopic
 
-    #Storage the user's selection
-    respuesta_usuario['subtopic'] = subtopic
-    complexity_user=respuesta_usuario['complexity']
-    topic_user=respuesta_usuario['topic']
-    subtopic_user=respuesta_usuario['subtopic']
+    #Storage the user's selection  
+    topic_user = respuesta_usuario.get('topic', None)
+    subtopic_user = respuesta_usuario.get('subtopic', None)
+    complexity_user = respuesta_usuario.get('complexity', None)  
+    #complexity_user = respuesta_usuario['complexity']
+    #topic_user = respuesta_usuario['topic']
+    #subtopic_user = respuesta_usuario['subtopic']
 
 
-    #List filtrered of questions according to the user's selection
+    #List filtrered of calculation questions according to the user's selection
     preguntas_filtradas = Questionary.filtrar_preguntas(preguntas, topic_user, subtopic_user, complexity_user)
 
+    #List filtrered of theory questions according to the user's selection
+    conceptuales_filtradas = Theory.filtrar_preguntas_teoria(conceptuales, topic_user, subtopic_user)
 
-    #=========================Functions to generate the questions============================
+    #=========================Functions to generate the calculation questions============================
 
     #Function to create the boxes for the user's answers
     def render_input_widgets(preguntas_filtradas, pregunta_actual):
@@ -410,16 +427,14 @@ if authenticate_user():
         
         #Create butttons
         respuesta_pressed, ayuda_pressed, repetir_pressed, nuevo_pressed = st.columns(4)
-        respuesta_clicked = respuesta_pressed.button("Verificar respuesta", key=f"respuesta_button_{st.session_state.pregunta_actual}", help="Explicación de la respuesta", use_container_width=True)
+        respuesta_clicked = respuesta_pressed.button("Verificar respuesta", key=f"respuesta_button_{st.session_state.pregunta_actual}", help="Verificación de la respuesta", use_container_width=True)
         ayuda_clicked = ayuda_pressed.button("Ayuda", key=f"ayuda_button_{st.session_state.pregunta_actual}", help="Ayuda para la solución", use_container_width=True)
         repetir_pressed.button("Nueva versión", key="nueva_version_button", help="Genera una nueva versión del problema", use_container_width=True, on_click=nueva_version_callback)
         nuevo_pressed.button("Siguiente problema", key=f"nuevo_problema_button{st.session_state.pregunta_actual}", help="Genera un nuevo problema", use_container_width=True, on_click=nuevo_problema_callback)
 
         return response1, response2, response3, respuesta_clicked, ayuda_clicked
-
-    #Function main
-    def main():
-        
+    
+    def main_calculation_questions():
         response1, response2, response3, respuesta_clicked, ayuda_clicked = generate_questions()
 
         # "Verificar respuesta" button - Evaluation of the validity of the result input by user
@@ -441,6 +456,63 @@ if authenticate_user():
         # "Ayuda" button - It shows helps 
         if ayuda_clicked:    
             butt_ayuda(preguntas_filtradas,st.session_state.pregunta_actual,ayuda_clicked)
+
+
+    #=========================Functions to generate the theory questions============================
+    def opciones_respuesta():
+        opcion_seleccionada = st.radio("",options=[conceptuales_filtradas[st.session_state.pregunta_actual].opcion_1, conceptuales_filtradas[st.session_state.pregunta_actual].opcion_2, conceptuales_filtradas[st.session_state.pregunta_actual].opcion_3, conceptuales_filtradas[st.session_state.pregunta_actual].opcion_4]) 
+        return opcion_seleccionada
+    
+    #Function to evaluate the user's answers
+    def evaluacion_respuesta_teoria(conceptuales_filtradas, opcion_seleccionada, pregunta_actual):
+        respuesta_correcta = conceptuales_filtradas[pregunta_actual].opcion_correcta
+        
+        text_respuesta = ""
+        contador = 0
+        if respuesta_correcta == opcion_seleccionada:
+            text_respuesta = "Felicitaciones!!!! La respuesta es correcta."
+            contador = 1
+        else:
+            text_respuesta = "La respuesta no es correcta, intente de nuevo."
+        return text_respuesta, contador
+        
+    
+    # Function to Generate a New Problem
+    def nuevo_problema_teoria_callback():
+        nuevo_problema_teoria = st.session_state.pregunta_actual + 1
+        while nuevo_problema_teoria < len(conceptuales_filtradas) and conceptuales_filtradas[nuevo_problema_teoria].no_pregunta == conceptuales_filtradas[st.session_state.pregunta_actual].no_pregunta:
+            nuevo_problema_teoria += 1
+        if nuevo_problema_teoria >= len(conceptuales_filtradas):
+            nuevo_problema_teoria = 0
+        st.session_state.pregunta_actual = nuevo_problema_teoria
+
+    def generate_theory_questions():
+        st.markdown('<h3 style="font-size:18px;">Pregunta</h3>', unsafe_allow_html=True) #Title Pregunta
+        st.write(conceptuales_filtradas[st.session_state.pregunta_actual].enunciado) #Write the statement question
+        #Answer options
+        opcion_seleccionada = opciones_respuesta()
+        
+        #Buttons
+        verificar_pressed, siguiente_pressed, col_3, col_4 = st.columns(4)
+        verificar_clicked = verificar_pressed.button("Verificar respuesta",key=f"verificar_respuesta_teoria_button{st.session_state.pregunta_actual}", use_container_width=True, help="Verificación la respuesta")
+        sproblema_clicked = siguiente_pressed.button("Siguiente problema", key=f"nuevo_problema_button{st.session_state.pregunta_actual}", help="Genera un nuevo problema", use_container_width=True, on_click=nuevo_problema_teoria_callback)
+
+        # "Verificar respuesta" button - Evaluation of the validity of the result input by user
+        if verificar_clicked:
+            text_respuesta, is_correct = evaluacion_respuesta_teoria(conceptuales_filtradas, opcion_seleccionada, st.session_state.pregunta_actual)
+            st.write(text_respuesta)
+            if is_correct == 1:
+                st.write(conceptuales_filtradas[st.session_state.pregunta_actual].respuesta_P1)
+
+
+    #Function main
+    def main():
+        
+        if way == "Práctica":
+            main_calculation_questions()
+        elif way == "Teoría":
+            generate_theory_questions()
+        
 
     if __name__ == '__main__':
         main()

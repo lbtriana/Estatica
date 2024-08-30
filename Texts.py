@@ -17,6 +17,7 @@ V2D = "Vectores 2D"
 V3D = "Vectores 3D"
 VU = "Vector unitario"
 E2D = "Equilibrio 2D"
+M2D = "Momento en un punto 2D"
 
 
 #------------------------- Nombres de las respuestas ----------------------------

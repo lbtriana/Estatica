@@ -2927,4 +2927,68 @@ Questionary(#1_1
         calculos='operations'
         ),
 
+
+    #=================================================EQUILIBRIO DE PARTÍCULAS===================================================
+    #-------------------------------------------------     Momento en un punto en 2D      ---------------------------------------------------
+    #-------------------------------------------------       Nivel fácil      ---------------------------------------------------
+    #-------------------------------------------------       Code: 1610011    ---------------------------------------------------
+
+    Questionary(#1_1
+        code = 1610011,
+        no_pregunta = 1,
+        complexity = F,
+        topic = EQ,
+        subtopic = M2D,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine el momento en el punto A de la fuerza F1 y F2. Considere que $\\F_1 = {f[0]:.0f} \\text{{ lb}}$, $\\F_2 = {f[1]:.0f} \\text{{ lb}}$, $\\alpha_1 = {a[0]:.0f}°$, $X_1 = {d[0]:.0f} \\text{{ ft}}$,  $X_2 = {d[3]:.0f}  \\text{{ ft}}$ y $X_3 = {d[6]:.0f} \\text{{ ft}}$.",
+        no_answers = 2,
+        a1_name = "Momento en A de la fuerza F1 [$lb \\cdot ft$]",
+        a2_name = "Momento en A de la fuerza F2 [$lb \\cdot ft$]",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(-f[0]*d[0],2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(-f[1]*calc['sin1']*(d[0]+d[3]),2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = "El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{r}}$. El vector posición $\\overrightarrow{{r}} se calcula desde el punto en el que se evalúa el momento a la línea de acción de la fuerza.",
+        ayuda2 = "Para calcular el momento en el punto de evaluación, primero obtenga las componentes del vector fuerza $\\overrightarrow{{F}}$ y el vector posición $\\overrightarrow{{r}}$. Luego, identifique la componente de la fuerza que es perpendicular al vector de posición. El momento se calcula como la multiplicación de esta componente perpendicular de la fuerza por la distancia desde el punto de evaluación.",      
+        ayuda3 = "Recuerde utilizar la regla de la mano derecha para definir el signo del momento.",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{r}}$. En 2 dimensiones es más fácil calcular el momento como la multiplicación de las componentes de la fuerza perpendiculares a las componentes del vector. A continuación, se presenta la solución sugerida para el ejercicio:  
+
+        $\\textbf{{\\small 1. Decomposición de las fuerzas F1 y F2:}}$
+
+        $\\underline{{Fuerza F1}}$: La fuerza F1 solo tiene componente en Y y es igual a su magnitud. 
+
+        $\\underline{{Fuerza F2}}$  
+
+        ${{\hspace{{4mm}} F2_x = 0 }}$  
+        ${{\hspace{{4mm}} \\sum{{F_y}} = F1_y + F2_y = F1*sen(\\alpha_2)-F2*sen(\\alpha_1) = 0}}$
+        
+
+        $\\textbf{{\\small 2. Descomposición del vector posición:}}$
+
+        Para simplificar el proceso de despeje, se busca formar una tangente. Al hacer esto, se reduce el número de términos en las ecuaciones. Dado lo anteior, se despeja F1 de la Ecuación 1 y se reemplaza en la Ecuación 2 para despejar F2. Con el valor de F2 obtenido, se halla F1.
+
+        De la ecuación 1 se despeja F1:  
+
+        ${{\hspace{{4mm}} F1 = \\dfrac{{-F2*cos(\\alpha_1)+F3}}{{cos(\\alpha_2)}}}}$
+
+        Se reemplaza F1 en la ecuación 2:
+
+        ${{\hspace{{4mm}} \\left(\\dfrac{{-F2*cos(\\alpha_1)+F3}}{{cos(\\alpha_2)}}\\right)*sen(\\alpha_2)-F2*sen(\\alpha_1) = 0}}$
+        ${{\hspace{{4mm}} -F2*cos(\\alpha_1)*tan(\\alpha_2) + F3*tan(\\alpha_2) - F2*sen(\\alpha_1) = 0}}$
+        ${{\hspace{{4mm}} F3*tan(\\alpha_2) = F2*sen(\\alpha_1) + F2*cos(\\alpha_1)*tan(\\alpha_2)}}$
+        ${{\hspace{{4mm}} F3*tan(\\alpha_2) = F2(sen(\\alpha_1) + cos(\\alpha_1)*tan(\\alpha_2))}}$  
+        ${{\hspace{{4mm}} F2 = \\dfrac{{F3*tan(\\alpha_2)}}{{sen(\\alpha_1) + cos(\\alpha_1)*tan(\\alpha_2)}}}}$ 
+        ${{\hspace{{4mm}} F2 = {(f[0]*calc['tan5']/(calc['sin1']+calc['cos1']*calc['tan5'])):.2f}}} \\text{{kN}}$
+
+        Con el valor de F2 se calcula F1:  
+        ${{\hspace{{4mm}} F1 = {((-(f[0]*calc['tan5']/(calc['sin1']+calc['cos1']*calc['tan5']))*calc['cos1']+f[0])/calc['cos5']):.2f}}} \\text{{kN}}$
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ), 
+
+
+
 ]
