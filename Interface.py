@@ -10,9 +10,17 @@ from Class_Preguntas import Questionary, preguntas
 from Class_Teoria import Theory, conceptuales
 from Imagenes import *
 
+
 #=========================Configuration of the page============================
 #Width of the content
 st.set_page_config(layout="wide") #centered
+
+hide = """
+    <style>
+        #MainMenu {visibility: hidden;}
+    </style>
+"""
+st.markdown(hide, unsafe_allow_html=True)
 
 col_1, col_2, col_3 = st.columns(3)
 
