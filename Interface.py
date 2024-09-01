@@ -399,25 +399,25 @@ if authenticate_user():
         preguntas_filtradas = Questionary.filtrar_preguntas(preguntas, topic_user, subtopic_user, complexity_user)
         conceptuales_filtradas = Theory.filtrar_preguntas_teoria(conceptuales, topic_user, subtopic_user)
         
-        #=========================Funciones para generar las preguntas============================
+    #=========================Funciones para generar las preguntas============================
 
-        #Función para crear las cajas para las respuestas del usuario
-        def render_input_widgets(preguntas_filtradas, pregunta_actual):
-            col1, col2, col3 = st.columns(3)
-            if preguntas_filtradas[pregunta_actual].no_answers == 1:
-                response1 = col1.number_input(f"{preguntas_filtradas[pregunta_actual].a1_name}", key=f"response1_{preguntas_filtradas[pregunta_actual]}", value=0.00)
-                response2 = 0.0
-                response3 = 0.0
-            elif preguntas_filtradas[pregunta_actual].no_answers == 2:
-                response1 = col1.number_input(f"{preguntas_filtradas[pregunta_actual].a1_name}", key=f"response1_{preguntas_filtradas[pregunta_actual]}", value=0.00)
-                response2 = col2.number_input(f"{preguntas_filtradas[pregunta_actual].a2_name}", key=f"response2_{preguntas_filtradas[pregunta_actual]}", value=0.00)
-                response3 = 0.0
-            elif preguntas_filtradas[pregunta_actual].no_answers == 3:
-                response1 = col1.number_input(f"{preguntas_filtradas[pregunta_actual].a1_name}", key=f"response1_{preguntas_filtradas[pregunta_actual]}", value=0.00)
-                response2 = col2.number_input(f"{preguntas_filtradas[pregunta_actual].a2_name}", key=f"response2_{preguntas_filtradas[pregunta_actual]}", value=0.00)
-                response3 = col3.number_input(f"{preguntas_filtradas[pregunta_actual].a3_name}", key=f"response3_{preguntas_filtradas[pregunta_actual]}", value=0.00)
+    #Función para crear las cajas para las respuestas del usuario
+    def render_input_widgets(preguntas_filtradas, pregunta_actual):
+        col1, col2, col3 = st.columns(3)
+        if preguntas_filtradas[pregunta_actual].no_answers == 1:
+            response1 = col1.number_input(f"{preguntas_filtradas[pregunta_actual].a1_name}", key=f"response1_{preguntas_filtradas[pregunta_actual]}", value=0.00)
+            response2 = 0.0
+            response3 = 0.0
+        elif preguntas_filtradas[pregunta_actual].no_answers == 2:
+            response1 = col1.number_input(f"{preguntas_filtradas[pregunta_actual].a1_name}", key=f"response1_{preguntas_filtradas[pregunta_actual]}", value=0.00)
+            response2 = col2.number_input(f"{preguntas_filtradas[pregunta_actual].a2_name}", key=f"response2_{preguntas_filtradas[pregunta_actual]}", value=0.00)
+            response3 = 0.0
+        elif preguntas_filtradas[pregunta_actual].no_answers == 3:
+            response1 = col1.number_input(f"{preguntas_filtradas[pregunta_actual].a1_name}", key=f"response1_{preguntas_filtradas[pregunta_actual]}", value=0.00)
+            response2 = col2.number_input(f"{preguntas_filtradas[pregunta_actual].a2_name}", key=f"response2_{preguntas_filtradas[pregunta_actual]}", value=0.00)
+            response3 = col3.number_input(f"{preguntas_filtradas[pregunta_actual].a3_name}", key=f"response3_{preguntas_filtradas[pregunta_actual]}", value=0.00)
         
-            return response1, response2, response3
+        return response1, response2, response3
 
     #Función para evaluar las respuestas del usuario
     def resultado(preguntas_filtradas, response1, response2, response3, pregunta_actual):
@@ -474,7 +474,7 @@ if authenticate_user():
             
         return outxt, cont
 
-    #Function to Generate the Question Image 
+    #Función para mostrar la imagen de la pregunta
     def filtrar_imagenes_preguntas(pregunta_no, version_no, subtopic, difficulty):
         left_col, center_col, right_col = st.columns(3)
         with center_col:
@@ -548,7 +548,7 @@ if authenticate_user():
                             
         return
 
-    #Function to Generate the Answer Image 
+    #Función para mostrar la imagen de la respuesta
     def filtrar_imagenes_respuestas_P1(pregunta_no, version_no, subtopic, difficulty):
         left_col, center_col, right_col = st.columns(3)
 
@@ -571,7 +571,7 @@ if authenticate_user():
                             st.image(rtas_paths[5])
         return
 
-    #Function to create "Ayuda" button, it shows the helps sequentially
+    #Función para que el botón "Ayuda" muestre secuencialmente las ayudas
     def butt_ayuda(preguntas_filtradas, pregunta_actual, ayuda_clicked):
         ayudas = [preguntas_filtradas[st.session_state.pregunta_actual].ayuda1, preguntas_filtradas[st.session_state.pregunta_actual].ayuda2, preguntas_filtradas[st.session_state.pregunta_actual].ayuda3]
                 
@@ -590,7 +590,7 @@ if authenticate_user():
                         })
 
 
-    # Function to Generate a New Version of the Question  
+    #Función para generar una nueva versión de la pregunta
     def nueva_version_callback():
         no_pregunta_actual = preguntas_filtradas[st.session_state.pregunta_actual].no_pregunta
         preguntas_actuales = [pregunta for pregunta in preguntas_filtradas if pregunta.no_pregunta == no_pregunta_actual]
@@ -617,7 +617,7 @@ if authenticate_user():
             "new_version": st.session_state.version_actual
                 })
                         
-    # Function to Generate a New Problem
+    #Función para generar un nuevo problema
     def nuevo_problema_callback():
         nuevo_problema = st.session_state.pregunta_actual + 1
         while nuevo_problema < len(preguntas_filtradas) and preguntas_filtradas[nuevo_problema].no_pregunta == preguntas_filtradas[st.session_state.pregunta_actual].no_pregunta:
