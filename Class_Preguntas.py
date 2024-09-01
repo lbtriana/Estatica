@@ -105,10 +105,10 @@ preguntas = [
     #=================================================EQUILIBRIO DE PARTÍCULAS===================================================
     #-------------------------------------------------     Vectores 2D        ---------------------------------------------------
     #-------------------------------------------------     Nivel fácil        ---------------------------------------------------
-    #-------------------------------------------------     Code: 111##        ---------------------------------------------------
+    #-------------------------------------------------     Code: 111####      ---------------------------------------------------
     
     Questionary(#1_1
-        code = 11111,
+        code = 1110011,
         no_pregunta = 1,
         complexity = F,
         topic = EQ,
@@ -132,7 +132,7 @@ preguntas = [
         ),
 
     Questionary(#1_2
-        code = 11112,
+        code = 1110012,
         no_pregunta = 1,
         complexity = F,
         topic = EQ,
@@ -156,7 +156,7 @@ preguntas = [
         ),
     
     Questionary(#1_3
-        code = 11113,
+        code = 1110013,
         no_pregunta = 1,
         complexity = F,
         topic = EQ,
@@ -180,7 +180,7 @@ preguntas = [
         ),
 
     Questionary(#1_4
-        code = 11114,
+        code = 1110014,
         no_pregunta = 1,
         complexity = F,
         topic = EQ,
@@ -204,7 +204,7 @@ preguntas = [
         ),
 
     Questionary(#2_1
-        code = 11121,
+        code = 1110021,
         no_pregunta = 2,
         complexity = F,
         topic = EQ,
@@ -228,7 +228,7 @@ preguntas = [
         ),
 
     Questionary(#2_2
-        code = 11122,
+        code = 1110022,
         no_pregunta = 2,
         complexity = F,
         topic = EQ,
@@ -252,7 +252,7 @@ preguntas = [
         ), 
 
     Questionary(#2_3
-        code = 11123,
+        code = 1110023,
         no_pregunta = 2,
         complexity = F,
         topic = EQ,
@@ -276,7 +276,7 @@ preguntas = [
         ),
 
     Questionary(#2_4
-        code = 11124,
+        code = 1110024,
         no_pregunta = 2,
         complexity = F,
         topic = EQ,
@@ -300,7 +300,7 @@ preguntas = [
         ),
 
     Questionary(#3_1
-        code = 11131,
+        code = 1110031,
         no_pregunta = 3,
         complexity = F,
         topic = EQ,
@@ -324,7 +324,7 @@ preguntas = [
         ),
 
     Questionary(#3_2
-        code = 11132,
+        code = 1110032,
         no_pregunta = 3,
         complexity = F,
         topic = EQ,
@@ -348,7 +348,7 @@ preguntas = [
         ),
 
     Questionary(#3_3
-        code = 11133,
+        code = 1110033,
         no_pregunta = 3,
         complexity = F,
         topic = EQ,
@@ -372,7 +372,7 @@ preguntas = [
         ),
 
     Questionary(#3_4
-        code = 11134,
+        code = 1110034,
         no_pregunta = 3,
         complexity = F,
         topic = EQ,
@@ -396,7 +396,7 @@ preguntas = [
         ),
 
     Questionary(#4_1
-        code = 11141,
+        code = 1110041,
         no_pregunta = 4,
         complexity = F,
         topic = EQ,
@@ -420,7 +420,7 @@ preguntas = [
         ),
 
     Questionary(#4_2
-        code = 11142,
+        code = 1110042,
         no_pregunta = 4,
         complexity = F,
         topic = EQ,
@@ -444,7 +444,7 @@ preguntas = [
         ),
 
     Questionary(#4_3
-        code = 11143,
+        code = 1110043,
         no_pregunta = 4,
         complexity = F,
         topic = EQ,
@@ -468,7 +468,7 @@ preguntas = [
         ),
 
     Questionary(#4_4
-        code = 11144,
+        code = 1110044,
         no_pregunta = 4,
         complexity = F,
         topic = EQ,
@@ -492,13 +492,13 @@ preguntas = [
         ),
 
     Questionary(#5_1
-        code = 11151,
+        code = 1110051,
         no_pregunta = 5,
         complexity = F,
         topic = EQ,
         subtopic = V2D,
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud y la dirección respecto al eje X positivo del vector cartesiano [({c[0]:.0f}) i + ({c[1]:.0f}) j] N.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud y la dirección respecto al eje X positivo del vector cartesiano $[({c[0]:.0f}) i + ({c[1]:.0f}) j] N$.",
         no_answers = 2,
         a1_name = Mag,
         a2_name = Dir,
@@ -537,10 +537,10 @@ preguntas = [
     #=================================================EQUILIBRIO DE PARTÍCULAS===================================================
     #-------------------------------------------------     Vectores 2D        ---------------------------------------------------
     #-------------------------------------------------     Nivel medio        ---------------------------------------------------
-    #-------------------------------------------------     Code: 112##        ---------------------------------------------------
+    #-------------------------------------------------     Code: 112####      ---------------------------------------------------
 
     Questionary(#1_1
-        code = 11211,
+        code = 1120011,
         no_pregunta = 1,
         complexity = M,
         topic = EQ,
@@ -564,7 +564,7 @@ preguntas = [
         ),
 
     Questionary(#1_2
-        code = 11212,
+        code = 1120012,
         no_pregunta = 1,
         complexity = M,
         topic = EQ,
@@ -588,7 +588,7 @@ preguntas = [
         ),
     
     Questionary(#1_3
-        code = 11213,
+        code = 1120013,
         no_pregunta = 1,
         complexity = M,
         topic = EQ,
@@ -612,7 +612,7 @@ preguntas = [
         ),
     
     Questionary(#1_4
-        code = 11214,
+        code = 1120014,
         no_pregunta = 1,
         complexity = M,
         topic = EQ,
@@ -636,7 +636,7 @@ preguntas = [
         ),
 
     Questionary(#2_1
-        code = 11221,
+        code = 1120021,
         no_pregunta = 2,
         complexity = M,
         topic = EQ,
@@ -660,7 +660,7 @@ preguntas = [
         ),
 
     Questionary(#2_2
-        code = 11222,
+        code = 1120022,
         no_pregunta = 2,
         complexity = M,
         topic = EQ,
@@ -684,7 +684,7 @@ preguntas = [
         ),
 
     Questionary(#2_3
-        code = 11223,
+        code = 1120023,
         no_pregunta = 2,
         complexity = M,
         topic = EQ,
@@ -708,7 +708,7 @@ preguntas = [
         ),
     
     Questionary(#2_4
-        code = 11224,
+        code = 1120024,
         no_pregunta = 2,
         complexity = M,
         topic = EQ,
@@ -732,7 +732,7 @@ preguntas = [
         ),
 
     Questionary(#3_1
-        code = 11231,
+        code = 1120031,
         no_pregunta = 3,
         complexity = M,
         topic = EQ,
@@ -776,7 +776,7 @@ preguntas = [
         ),
 
     Questionary(#3_2
-        code = 11232,
+        code = 1120032,
         no_pregunta = 3,
         complexity = M,
         topic = EQ,
@@ -820,7 +820,7 @@ preguntas = [
         ),
 
     Questionary(#4_1
-        code = 11241,
+        code = 1120041,
         no_pregunta = 4,
         complexity = M,
         topic = EQ,
@@ -885,7 +885,7 @@ preguntas = [
         ),
 
     Questionary(#4_2
-        code = 11242,
+        code = 1120042,
         no_pregunta = 4,
         complexity = M,
         topic = EQ,
@@ -947,7 +947,7 @@ preguntas = [
         ),
 
     Questionary(#5_1
-        code = 11251,
+        code = 1120051,
         no_pregunta = 5,
         complexity = M,
         topic = EQ,
@@ -996,10 +996,10 @@ preguntas = [
     #=================================================EQUILIBRIO DE PARTÍCULAS===================================================
     #-------------------------------------------------     Vectores 2D        ---------------------------------------------------
     #-------------------------------------------------    Nivel díficil       ---------------------------------------------------
-    #-------------------------------------------------     Code: 113##        ---------------------------------------------------
+    #-------------------------------------------------     Code: 113####      ---------------------------------------------------
 
     Questionary(#1_1
-        code = 11311,
+        code = 1130011,
         no_pregunta = 1,
         complexity = D,
         topic = EQ,
@@ -1023,7 +1023,7 @@ preguntas = [
         ),
 
     Questionary(#2_1
-        code = 11321,
+        code = 1130021,
         no_pregunta = 2,
         complexity = D,
         topic = EQ,
@@ -1047,7 +1047,7 @@ preguntas = [
         ),
     
     Questionary(#3_1
-        code = 11331,
+        code = 1130031,
         no_pregunta = 3,
         complexity = D,
         topic = EQ,
@@ -1071,7 +1071,7 @@ preguntas = [
         ),
     
     Questionary(#4_1
-        code = 11341,
+        code = 1130041,
         no_pregunta = 4,
         complexity = D,
         topic = EQ,
@@ -1095,7 +1095,7 @@ preguntas = [
         ),
 
     Questionary(#5_1
-        code = 11351,
+        code = 1130051,
         no_pregunta = 5,
         complexity = D,
         topic = EQ,
@@ -1122,10 +1122,10 @@ preguntas = [
     #=================================================EQUILIBRIO DE PARTÍCULAS===================================================
     #-------------------------------------------------       Vectores 3D       ---------------------------------------------------
     #-------------------------------------------------       Nivel fácil       ---------------------------------------------------
-    #-------------------------------------------------     Code: 121##        ---------------------------------------------------
+    #-------------------------------------------------     Code: 121####       ---------------------------------------------------
 
     Questionary(#1_1
-        code = 12111,
+        code = 1210011,
         no_pregunta = 1,
         complexity = F,
         topic = EQ,
@@ -1166,7 +1166,7 @@ preguntas = [
         ),
 
     Questionary(#2_1
-        code = 12121,
+        code = 1210021,
         no_pregunta = 2,
         complexity = F,
         topic = EQ,
@@ -1204,7 +1204,7 @@ preguntas = [
         ),
 
     Questionary(#3_1
-        code = 12131,
+        code = 1210031,
         no_pregunta = 3,
         complexity = F,
         topic = EQ,
@@ -1238,7 +1238,7 @@ preguntas = [
         ),
 
     Questionary(#4_1
-        code = 12141,
+        code = 1210041,
         no_pregunta = 4,
         complexity ="Fácil",
         topic = "Equilibrio de partículas",
@@ -1274,7 +1274,7 @@ preguntas = [
         ),
 
     Questionary(#5_1
-        code = 12151,
+        code = 1210051,
         no_pregunta = 5,
         complexity = F,
         topic = EQ,
@@ -1309,10 +1309,10 @@ preguntas = [
     #=================================================EQUILIBRIO DE PARTÍCULAS===================================================
     #-------------------------------------------------       Vectores 3D       --------------------------------------------------
     #-------------------------------------------------       Nivel medio       --------------------------------------------------
-    #-------------------------------------------------     Code: 122##        ---------------------------------------------------
+    #-------------------------------------------------     Code: 122####       ---------------------------------------------------
 
     Questionary(#1_1
-        code = 12211,
+        code = 1220011,
         no_pregunta = 1,
         complexity = M,
         topic = EQ,
@@ -1350,7 +1350,7 @@ preguntas = [
         ),
 
     Questionary(#2_1
-        code = 12221,
+        code = 1220021,
         no_pregunta = 2,
         complexity = M,
         topic = EQ,
@@ -1394,7 +1394,7 @@ preguntas = [
         ),
 
     Questionary(#3_1
-        code = 12231,
+        code = 1220031,
         no_pregunta = 3,
         complexity = M,
         topic = EQ,
@@ -1450,7 +1450,7 @@ preguntas = [
         ),
 
     Questionary(#4_1
-        code = 12241,
+        code = 1220041,
         no_pregunta = 4,
         complexity = M,
         topic = EQ,
@@ -1488,7 +1488,7 @@ preguntas = [
         ),
 
     Questionary(#5_1
-        code = 12251,
+        code = 1220051,
         no_pregunta = 5,
         complexity = M,
         topic = EQ,
@@ -1533,7 +1533,7 @@ preguntas = [
     #-------------------------------------------------     Code: 123##        ---------------------------------------------------
 
     Questionary(#1_1
-        code = 12311,
+        code = 1230011,
         no_pregunta = 1,
         complexity = D,
         topic = EQ,
@@ -1613,7 +1613,7 @@ preguntas = [
     #    ),
 
     Questionary(#3_1
-        code = 12331,
+        code = 1230031,
         no_pregunta = 3,
         complexity = M,
         topic = EQ,
@@ -1651,7 +1651,7 @@ preguntas = [
         ),
 
     Questionary(#4_1
-        code = 12341,
+        code = 1230041,
         no_pregunta = 4,
         complexity = M,
         topic = EQ,
@@ -1685,7 +1685,7 @@ preguntas = [
         ),
 
     Questionary(#5_1
-        code = 12351,
+        code = 1230051,
         no_pregunta = 5,
         complexity = M,
         topic = EQ,
@@ -1730,7 +1730,7 @@ preguntas = [
     #-------------------------------------------------     Code: 131##        ---------------------------------------------------
 
     Questionary(#1_1
-        code = 13111,
+        code = 1310011,
         no_pregunta = 1,
         complexity = F,
         topic = EQ,
@@ -1754,7 +1754,7 @@ preguntas = [
         ),
     
     Questionary(#1_2
-        code = 13112,
+        code = 1310012,
         no_pregunta = 1,
         complexity ="Fácil",
         topic = "Equilibrio de partículas",
@@ -1778,7 +1778,7 @@ preguntas = [
         ),
 
     Questionary(#1_3
-        code = 13113,
+        code = 1310013,
         no_pregunta = 1,
         complexity ="Fácil",
         topic = "Equilibrio de partículas",
@@ -1802,7 +1802,7 @@ preguntas = [
         ),
 
     Questionary(#1_4
-        code = 13114,
+        code = 1310014,
         no_pregunta = 1,
         complexity ="Fácil",
         topic = "Equilibrio de partículas",
@@ -1826,7 +1826,7 @@ preguntas = [
         ),
 
     Questionary(#2_1
-        code = 13121,
+        code = 1310021,
         no_pregunta = 2,
         complexity ="Fácil",
         topic = "Equilibrio de partículas",
@@ -1863,7 +1863,7 @@ preguntas = [
         ),
 
     Questionary(#2_2
-        code = 13122,
+        code = 1310022,
         no_pregunta = 2,
         complexity ="Fácil",
         topic = "Equilibrio de partículas",
@@ -1900,7 +1900,7 @@ preguntas = [
         ),
 
     Questionary(#2_3
-        code = 13123,
+        code = 1310023,
         no_pregunta = 2,
         complexity ="Fácil",
         topic = "Equilibrio de partículas",
@@ -1937,7 +1937,7 @@ preguntas = [
         ),
 
     Questionary(#2_4
-        code = 13124,
+        code = 1310024,
         no_pregunta = 2,
         complexity ="Fácil",
         topic = "Equilibrio de partículas",
@@ -1974,7 +1974,7 @@ preguntas = [
         ),
 
     Questionary(#3_1
-        code = 13131,
+        code = 1310031,
         no_pregunta = 3,
         complexity ="Fácil",
         topic = "Equilibrio de partículas",
@@ -2017,7 +2017,7 @@ preguntas = [
         ),
 
     Questionary(#3_2
-        code = 13132,
+        code = 1310032,
         no_pregunta = 3,
         complexity ="Fácil",
         topic = "Equilibrio de partículas",
@@ -2060,7 +2060,7 @@ preguntas = [
         ),
 
     Questionary(#3_3
-        code = 13133,
+        code = 1310033,
         no_pregunta = 3,
         complexity ="Fácil",
         topic = "Equilibrio de partículas",
@@ -2103,7 +2103,7 @@ preguntas = [
         ),
 
     Questionary(#3_4
-        code = 13134,
+        code = 1310034,
         no_pregunta = 3,
         complexity ="Fácil",
         topic = "Equilibrio de partículas",
@@ -2146,7 +2146,7 @@ preguntas = [
         ),
 
     Questionary(#4_4
-        code = 13144,
+        code = 1310044,
         no_pregunta = 4,
         complexity ="Fácil",
         topic = "Equilibrio de partículas",
@@ -2189,7 +2189,7 @@ preguntas = [
         ),
 
     Questionary(#5_1
-        code = 13151,
+        code = 1310051,
         no_pregunta = 5,
         complexity ="Fácil",
         topic = "Equilibrio de partículas",
@@ -2227,12 +2227,12 @@ preguntas = [
         ),
     
     #=================================================EQUILIBRIO DE PARTÍCULAS===================================================
-    #-------------------------------------------------     Vector unitario     ---------------------------------------------------
+    #-------------------------------------------------     Vector unitario    ---------------------------------------------------
     #-------------------------------------------------       Nivel medio      ---------------------------------------------------
-    #-------------------------------------------------       Code: 132##      ---------------------------------------------------
+    #-------------------------------------------------       Code: 132####    ---------------------------------------------------
 
     Questionary(#1_1
-        code = 13211,
+        code = 1320011,
         no_pregunta = 1,
         complexity = M,
         topic = EQ,
@@ -2267,7 +2267,7 @@ preguntas = [
         ),
     
     Questionary(#2_1
-        code = 13221,
+        code = 1320021,
         no_pregunta = 2,
         complexity = M,
         topic = EQ,
@@ -2310,7 +2310,7 @@ preguntas = [
         ),
 
     Questionary(#3_1
-        code = 13231,
+        code = 1320031,
         no_pregunta = 3,
         complexity = M,
         topic = EQ,
@@ -2352,7 +2352,7 @@ preguntas = [
         ),
  
     Questionary(#4_1
-        code = 13241,
+        code = 1320041,
         no_pregunta = 4,
         complexity = M,
         topic = EQ,
@@ -2395,7 +2395,7 @@ preguntas = [
         ),
 
     Questionary(#5_1 
-        code = 13251, 
+        code = 1320051, 
         no_pregunta = 5, 
         complexity = M, 
         topic = EQ, 
@@ -2446,7 +2446,7 @@ preguntas = [
     #-------------------------------------------------       Code: 133##      ---------------------------------------------------
 
     Questionary(#1_1
-        code = 13311,
+        code = 1330011,
         no_pregunta = 1,
         complexity = D,
         topic = EQ,
@@ -2495,7 +2495,7 @@ preguntas = [
         ),
     
     Questionary(#2_1
-        code = 13321,
+        code = 1330021,
         no_pregunta = 2,
         complexity = D,
         topic = EQ,
@@ -2557,7 +2557,7 @@ preguntas = [
         ),
 
     Questionary(#3_1
-        code = 13311,
+        code = 1330031,
         no_pregunta = 3,
         complexity = D,
         topic = EQ,
@@ -2597,7 +2597,7 @@ preguntas = [
         ), 
 
     Questionary(#4_1
-        code = 13341,
+        code = 1330041,
         no_pregunta = 4,
         complexity = D,
         topic = EQ,
@@ -2649,7 +2649,7 @@ preguntas = [
     #-------------------------------------------------       Code: 141##      ---------------------------------------------------
 
     Questionary(#1_1
-        code = 14111,
+        code = 1410011,
         no_pregunta = 1,
         complexity = F,
         topic = EQ,
@@ -2708,7 +2708,7 @@ preguntas = [
         ), 
 
     Questionary(#2_1
-        code = 14121,
+        code = 1410021,
         no_pregunta = 2,
         complexity = F,
         topic = EQ,
@@ -2767,7 +2767,7 @@ preguntas = [
         ),  
 
     Questionary(#3_1
-        code = 14131,
+        code = 1410031,
         no_pregunta = 3,
         complexity = F,
         topic = EQ,
@@ -2799,7 +2799,7 @@ preguntas = [
         ), 
 
     Questionary(#4_1
-        code = 14141,
+        code = 1410041,
         no_pregunta = 4,
         complexity = F,
         topic = EQ,
@@ -2834,7 +2834,7 @@ preguntas = [
         ),  
     
     Questionary(#5_1
-        code = 14151,
+        code = 1410051,
         no_pregunta = 5,
         complexity = F,
         topic = EQ,
@@ -2880,8 +2880,8 @@ preguntas = [
     #-------------------------------------------------       Nivel medio      ---------------------------------------------------
     #-------------------------------------------------       Code: 142##      ---------------------------------------------------
 
-Questionary(#1_1
-        code = 14211,
+    Questionary(#1_1
+        code = 1420011,
         no_pregunta = 1,
         complexity = M,
         topic = EQ,
@@ -2938,10 +2938,10 @@ Questionary(#1_1
     #=================================================EQUILIBRIO DE PARTÍCULAS===================================================
     #--------------------------------------------     Momento en un punto en 2D      --------------------------------------------
     #-------------------------------------------------       Nivel fácil      ---------------------------------------------------
-    #-------------------------------------------------       Code: 1610011    ---------------------------------------------------
+    #-------------------------------------------------       Code: 2110011    ---------------------------------------------------
 
     Questionary(#1_1
-        code = 1610011,
+        code = 2110011,
         no_pregunta = 1,
         complexity = F,
         topic = MO,
@@ -3000,7 +3000,7 @@ Questionary(#1_1
 
     Questionary(#1_2 
 
-        code = 1610012, 
+        code = 2110012, 
         no_pregunta = 1, 
         complexity = F, 
         topic = MO, 
@@ -3065,7 +3065,7 @@ Questionary(#1_1
         ), 
    
     Questionary(#1_3 
-        code = 1610013, 
+        code = 2110013, 
         no_pregunta = 1, 
         complexity = F, 
         topic = MO, 
@@ -3129,7 +3129,7 @@ Questionary(#1_1
         ),
     
     Questionary(#1_4 
-        code = 1610014, 
+        code = 2110014, 
         no_pregunta = 1, 
         complexity = F, 
         topic = MO, 
@@ -3208,7 +3208,7 @@ Questionary(#1_1
         ), 
     
     Questionary(#2_1
-        code = 1610021,
+        code = 2110021,
         no_pregunta = 2,
         complexity = F,
         topic = MO,
@@ -3269,7 +3269,7 @@ Questionary(#1_1
         ),
   
     Questionary(#3_1
-        code = 1610031,
+        code = 2110031,
         no_pregunta = 3,
         complexity = F,
         topic = MO,
@@ -3336,7 +3336,7 @@ Questionary(#1_1
         ),
     
     Questionary(#4_1
-        code = 1610041,
+        code = 2110041,
         no_pregunta = 4,
         complexity = F,
         topic = MO,
@@ -3400,10 +3400,10 @@ Questionary(#1_1
     #=================================================EQUILIBRIO DE PARTÍCULAS===================================================
     #--------------------------------------------     Momento en un punto en 2D      --------------------------------------------
     #-------------------------------------------------       Nivel medio      ---------------------------------------------------
-    #-------------------------------------------------       Code: 1620011    ---------------------------------------------------
+    #-------------------------------------------------       Code: 2120011    ---------------------------------------------------
 
     Questionary(#1_1
-        code = 1620011,
+        code = 2120011,
         no_pregunta = 1,
         complexity = M,
         topic = MO,
@@ -3496,7 +3496,7 @@ Questionary(#1_1
         ), 
    
     Questionary(#2_1
-        code = 1620021,
+        code = 2120021,
         no_pregunta = 2,
         complexity = M,
         topic = MO,
@@ -3581,7 +3581,7 @@ Questionary(#1_1
         ), 
    
     Questionary(#3_1
-        code = 1620031,
+        code = 2120031,
         no_pregunta = 3,
         complexity = M,
         topic = MO,
