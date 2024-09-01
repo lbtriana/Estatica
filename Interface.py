@@ -346,6 +346,9 @@ if authenticate_user():
     #Initialize the version of the question to show    
     if 'version_actual' not in st.session_state:    
         st.session_state.version_actual = 1
+    # Inicializa el método
+    if 'way' not in st.session_state:
+        st.session_state.way = "Práctica"
     # Inicializa el nivel de dificultad
     if 'complexity' not in st.session_state:
         st.session_state.complexity = "Fácil"
@@ -425,7 +428,7 @@ if authenticate_user():
     conceptuales_filtradas = Theory.filtrar_preguntas_teoria(conceptuales, topic_user, subtopic_user)
         
     #Reinicia el número de la pregunta cuando se cambia de tema, subtema o nivel de dificulta
-    if st.session_state.topic != topic or st.session_state.subtopic != subtopic or st.session_state.complexity != complexity:
+    if st.session_state.way != way or st.session_state.topic != topic or st.session_state.subtopic != subtopic or st.session_state.complexity != complexity:
         st.session_state.pregunta_actual = 0  
 
 
@@ -608,16 +611,16 @@ if authenticate_user():
         ayudas_no_vacias = [ayuda for ayuda in ayudas if ayuda.strip() != ""]
         if 'ayuda_index' not in st.session_state:
             st.session_state.ayuda_index = 0 
-            if ayuda_clicked:
-                if ayudas_no_vacias:
-                    help_text_placeholder = st.empty() 
-                    help_text_placeholder.write(ayudas[st.session_state.ayuda_index])
-                    st.session_state.ayuda_index = (st.session_state.ayuda_index + 1) % len(ayudas_no_vacias)
-                    if st.session_state.get("consent", False):
-                        log_event(st.session_state["username"], "help_requested", {
-                        "question_id": preguntas_filtradas[pregunta_actual].no_pregunta,
-                        "help_index": st.session_state.ayuda_index
-                        })
+        if ayuda_clicked:
+            if ayudas_no_vacias:
+                help_text_placeholder = st.empty() 
+                help_text_placeholder.write(ayudas[st.session_state.ayuda_index])
+                st.session_state.ayuda_index = (st.session_state.ayuda_index + 1) % len(ayudas_no_vacias)
+                if st.session_state.get("consent", False):
+                    log_event(st.session_state["username"], "help_requested", {
+                    "question_id": preguntas_filtradas[pregunta_actual].no_pregunta,
+                    "help_index": st.session_state.ayuda_index
+                    })
 
 
     #Función para generar una nueva versión de la pregunta
@@ -639,7 +642,7 @@ if authenticate_user():
                 if pregunta.no_pregunta == no_pregunta_actual and pregunta.version == st.session_state.version_actual:
                     st.session_state.pregunta_actual = i
                     st.session_state.Intento = 0
-                break
+                #break
             
         if st.session_state.get("consent", False):
             log_event(st.session_state["username"], "new_version_generated", {
@@ -654,6 +657,7 @@ if authenticate_user():
             nuevo_problema += 1
         if nuevo_problema >= len(preguntas_filtradas):
             nuevo_problema = 0
+
         st.session_state.pregunta_actual = nuevo_problema
         st.session_state.version_actual = 1 
         st.session_state.Intento = 0
@@ -693,7 +697,7 @@ if authenticate_user():
             
         #Create butttons
         respuesta_pressed, ayuda_pressed, repetir_pressed, nuevo_pressed = st.columns(4)
-        respuesta_clicked = respuesta_pressed.button("Verificar respuesta", key=f"respuesta_button_{st.session_state.pregunta_actual}", help="Explicación de la respuesta", use_container_width=True)
+        respuesta_clicked = respuesta_pressed.button("Verificar respuesta", key=f"respuesta_button_{st.session_state.pregunta_actual}", help="Verificación de la respuesta", use_container_width=True)
         ayuda_clicked = ayuda_pressed.button("Ayuda", key=f"ayuda_button_{st.session_state.pregunta_actual}", help="Ayuda para la solución", use_container_width=True)
         repetir_pressed.button("Nueva versión", key="nueva_version_button", help="Genera una nueva versión del problema", use_container_width=True, on_click=nueva_version_callback)
         nuevo_pressed.button("Siguiente problema", key=f"nuevo_problema_button{st.session_state.pregunta_actual}", help="Genera un nuevo problema", use_container_width=True, on_click=nuevo_problema_callback)
@@ -740,10 +744,10 @@ if authenticate_user():
                 mostrar_respuesta()
                 st.session_state.mostrar_respuesta = False
                             
-            # "Ayuda" button - It shows helps 
-            if ayuda_clicked:    
-                butt_ayuda(preguntas_filtradas, st.session_state.pregunta_actual, ayuda_clicked)
-                st.session_state.ayuda_used = True
+        # "Ayuda" button - It shows helps 
+        if ayuda_clicked:    
+            butt_ayuda(preguntas_filtradas, st.session_state.pregunta_actual, ayuda_clicked)
+            st.session_state.ayuda_used = True
     
     #=========================Functions to generate the theory questions============================
     def opciones_respuesta():
