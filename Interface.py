@@ -9,6 +9,17 @@ from Class_Preguntas import Questionary, preguntas
 from Class_Teoria import Theory, conceptuales
 from Imagenes import *
 
+# Nuevas importaciones
+import sqlite3
+from datetime import datetime, timedelta
+import cv2
+import pyautogui
+import base64
+import threading
+import time
+import os
+import json
+import plotly.express as px
 
 #=========================Configuration of the page============================
 #Width of the content
