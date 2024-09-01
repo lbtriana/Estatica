@@ -1,11 +1,11 @@
 import streamlit as st
+import streamlit_authenticator as stauth
 import uuid
 import numpy as np
 import pandas as pd
 import random as rd
 import math
 from Class_Preguntas import Questionary, preguntas
-from Class_Teoria import Theory, conceptuales
 from Imagenes import *
 
 # Nuevas importaciones
@@ -20,13 +20,10 @@ import os
 import json
 import plotly.express as px
 
-#=========================Configuration of the page============================
-#Width of the content
-st.set_page_config(layout="wide") #centered
+#=========================Configuración de la página============================
+st.set_page_config(layout="wide")
 
 col_1, col_2, col_3 = st.columns(3)
-
-#====================================Login=======================================
 
 #Leer credenciales de usuarios y crear un diccionario
 datos_usuarios = pd.read_excel("./Usuarios.xlsx")
@@ -336,68 +333,79 @@ if authenticate_user():
 
     #Creación de la barra lateral
     st.sidebar.markdown("<h1 style='font-size:36px;'>StaticGenius</h1>", unsafe_allow_html=True)
-    way=st.sidebar.radio("Seleccione su método de estudio",options=["Práctica","Teoría"])
-    respuesta_usuario = {}
-    if way=="Teoría":
+    way = st.sidebar.radio("Seleccione su método de estudio", options=["Práctica", "Teoría", "Estadísticas"])
+    
+    if way == "Estadísticas":
+        st.header("Estadísticas de Usuario")
+        
+        username = st.session_state.get("username", "unknown_user")
+        study_time_df, exercises_df, points_df = get_user_statistics(username)
+        
+        # Display total statistics
+        total_stats = calculate_total_statistics(study_time_df, exercises_df, points_df)
+        col1, col2, col3, col4 = st.columns(4)
+        col1.metric("Tiempo Total de Estudio", f"{total_stats['total_study_time']} min")
+        col2.metric("Ejercicios Totales", total_stats['total_exercises'])
+        col3.metric("Ejercicios Correctos", total_stats['total_correct'])
+        col4.metric("Puntos Totales", total_stats['total_points'])
+        
+        # Display charts
+        st.plotly_chart(create_study_time_chart(study_time_df))
+        st.plotly_chart(create_exercises_chart(exercises_df))
+        st.plotly_chart(create_points_chart(points_df))
+        
+        if consent:
+            log_event(username, "statistics_viewed", {})
+    
+    elif way == "Teoría":
         st.sidebar.header("Teoría")
+        if consent:
+            log_event(st.session_state["username"], "theory_section_accessed", {})
+        # Aquí puedes añadir el contenido de la sección de teoría
+        st.write("Contenido de la sección de teoría aún no implementado.")
     else:
         st.sidebar.header("Práctica")
-        complexity=st.sidebar.radio("Nivel de dificultad",options=["Fácil","Medio","Díficil"]) 
-        respuesta_usuario['complexity'] = complexity
+        complexity = st.sidebar.radio("Nivel de dificultad", options=["Fácil", "Medio", "Díficil"])
+        topic = st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas"])
         
-        topic=st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas"])
-        #topic=st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas","Momento","Incertidumbre","Sistemas equivalentes","Apoyos y reacciones","Armaduras","Centroides","Fuerzas distribuidas","Fuerzas internas"])
-        respuesta_usuario['topic'] = topic
+        if topic == "Equilibrio de partículas":
+            subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Vectores 2D", "Vectores 3D", "Vector unitario", "Equilibrio 2D", "Equilibrio 3D"])
         
-        if topic=="Equilibrio de partículas":
-            subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Vectores 2D","Vectores 3D","Vector unitario","Equilibrio 2D","Equilibrio 3D"])
-        #elif topic=="Momento":
-        #    subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Momento en un punto 2D","Momento en un punto 3D","Momento alrededor de un eje","Momentos pares"])
-        #elif topic=="Incertidumbre":
-        #    subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Equilibrio de partículas","Momento","Apoyos y reacciones","Armaduras","Centroides","Fuerzas distribuidas","Fuerzas internas"])
-        #elif topic=="Sistemas equivalentes":
-        #    subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Sistemas equivalentes 2D","Sistemas equivalentes 3D"])
-        #elif topic=="Apoyos y reacciones":
-        #    subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Apoyos","Reacciones"])
-        #elif topic=="Armaduras":
-        #    subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Cerchas: Método de los nodos","Cerchas: Elementos de fuerza cero","Cerchas: Método de las secciones","Marcos"])
-        #elif topic=="Centroides":
-        #    subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Centroides","Centro de gravedad","Centro de masa"])
-        #elif topic=="Fuerzas distribuidas":
-        #    subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Vigas","Presión hidrostática","Empuje de suelo"])
-        #elif topic=="Fuerzas internas":
-        #    subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Fuerzas internas en un punto","Diagramas: Método analítico","Diagramas: Método simplificado"])
+        if consent:
+            log_event(st.session_state["username"], "practice_options_selected", {
+                "complexity": complexity,
+                "topic": topic,
+                "subtopic": subtopic
+            })
 
-    #Storage the user's selection
-    respuesta_usuario['subtopic'] = subtopic
-    complexity_user=respuesta_usuario['complexity']
-    topic_user=respuesta_usuario['topic']
-    subtopic_user=respuesta_usuario['subtopic']
+        #Almacenar la selección del usuario
+        respuesta_usuario = {'complexity': complexity, 'topic': topic, 'subtopic': subtopic}
+        complexity_user = respuesta_usuario['complexity']
+        topic_user = respuesta_usuario['topic']
+        subtopic_user = respuesta_usuario['subtopic']
 
+        #Lista filtrada de preguntas según la selección del usuario
+        preguntas_filtradas = Questionary.filtrar_preguntas(preguntas, topic_user, subtopic_user, complexity_user)
 
-    #List filtrered of questions according to the user's selection
-    preguntas_filtradas = Questionary.filtrar_preguntas(preguntas, topic_user, subtopic_user, complexity_user)
+        #=========================Funciones para generar las preguntas============================
 
-
-    #=========================Functions to generate the questions============================
-
-    #Function to create the boxes for the user's answers
-    def render_input_widgets(preguntas_filtradas, pregunta_actual):
-        col1, col2, col3 = st.columns(3)
-        if preguntas_filtradas[pregunta_actual].no_answers == 1:
-            response1 = col1.number_input(f"{preguntas_filtradas[pregunta_actual].a1_name}", key=f"response1_{preguntas_filtradas[pregunta_actual]}", value=0.00)
-            response2 = 0.0
-            response3 = 0.0
-        elif preguntas_filtradas[pregunta_actual].no_answers == 2:
-            response1 = col1.number_input(f"{preguntas_filtradas[pregunta_actual].a1_name}", key=f"response1_{preguntas_filtradas[pregunta_actual]}", value=0.00)
-            response2 = col2.number_input(f"{preguntas_filtradas[pregunta_actual].a2_name}", key=f"response2_{preguntas_filtradas[pregunta_actual]}", value=0.00)
-            response3 = 0.0
-        elif preguntas_filtradas[pregunta_actual].no_answers == 3:
-            response1 = col1.number_input(f"{preguntas_filtradas[pregunta_actual].a1_name}", key=f"response1_{preguntas_filtradas[pregunta_actual]}", value=0.00)
-            response2 = col2.number_input(f"{preguntas_filtradas[pregunta_actual].a2_name}", key=f"response2_{preguntas_filtradas[pregunta_actual]}", value=0.00)
-            response3 = col3.number_input(f"{preguntas_filtradas[pregunta_actual].a3_name}", key=f"response3_{preguntas_filtradas[pregunta_actual]}", value=0.00)
-    
-        return response1, response2, response3
+        #Función para crear las cajas para las respuestas del usuario
+        def render_input_widgets(preguntas_filtradas, pregunta_actual):
+            col1, col2, col3 = st.columns(3)
+            if preguntas_filtradas[pregunta_actual].no_answers == 1:
+                response1 = col1.number_input(f"{preguntas_filtradas[pregunta_actual].a1_name}", key=f"response1_{preguntas_filtradas[pregunta_actual]}", value=0.00)
+                response2 = 0.0
+                response3 = 0.0
+            elif preguntas_filtradas[pregunta_actual].no_answers == 2:
+                response1 = col1.number_input(f"{preguntas_filtradas[pregunta_actual].a1_name}", key=f"response1_{preguntas_filtradas[pregunta_actual]}", value=0.00)
+                response2 = col2.number_input(f"{preguntas_filtradas[pregunta_actual].a2_name}", key=f"response2_{preguntas_filtradas[pregunta_actual]}", value=0.00)
+                response3 = 0.0
+            elif preguntas_filtradas[pregunta_actual].no_answers == 3:
+                response1 = col1.number_input(f"{preguntas_filtradas[pregunta_actual].a1_name}", key=f"response1_{preguntas_filtradas[pregunta_actual]}", value=0.00)
+                response2 = col2.number_input(f"{preguntas_filtradas[pregunta_actual].a2_name}", key=f"response2_{preguntas_filtradas[pregunta_actual]}", value=0.00)
+                response3 = col3.number_input(f"{preguntas_filtradas[pregunta_actual].a3_name}", key=f"response3_{preguntas_filtradas[pregunta_actual]}", value=0.00)
+        
+            return response1, response2, response3
 
     #Función para evaluar las respuestas del usuario
     def resultado(preguntas_filtradas, response1, response2, response3, pregunta_actual):
@@ -480,31 +488,31 @@ if authenticate_user():
                         elif version_no == 4:
                             st.image(image_paths[7], width=200)
 
-            
-            if difficulty == "Medio":
-                if subtopic == "Vectores 2D":
-                    if pregunta_no == 1:
-                        if version_no == 1:
-                            st.image(image_paths[8],width=250)
-                        elif version_no == 2:
-                            st.image(image_paths[9],width=250)
-                        elif version_no == 3:
-                            st.image(image_paths[10],width=250)
-                        elif version_no == 4:
-                            st.image(image_paths[11],width=250)
-                    
-                    if pregunta_no == 2:
-                        if version_no == 1:
-                            st.image(image_paths[12],width=300)
-                        elif version_no == 2:
-                            st.image(image_paths[13])
-                        elif version_no == 3:
-                            st.image(image_paths[14])
-                        elif version_no == 4:
-                            st.image(image_paths[15])
-                    
-                    if pregunta_no == 3:
-                        st.image(image_paths[16],width=330)
+                
+                if difficulty == "Medio":
+                    if subtopic == "Vectores 2D":
+                        if pregunta_no == 1:
+                            if version_no == 1:
+                                st.image(image_paths[8], width=250)
+                            elif version_no == 2:
+                                st.image(image_paths[9], width=250)
+                            elif version_no == 3:
+                                st.image(image_paths[10], width=250)
+                            elif version_no == 4:
+                                st.image(image_paths[11], width=250)
+                        
+                        if pregunta_no == 2:
+                            if version_no == 1:
+                                st.image(image_paths[12], width=300)
+                            elif version_no == 2:
+                                st.image(image_paths[13])
+                            elif version_no == 3:
+                                st.image(image_paths[14])
+                            elif version_no == 4:
+                                st.image(image_paths[15])
+                        
+                        if pregunta_no == 3:
+                            st.image(image_paths[16], width=330)
 
                         if pregunta_no == 4:
                             st.image(image_paths[17], width=180)
@@ -653,21 +661,27 @@ if authenticate_user():
         st.markdown('<p style="font-size: 14px;">Ingrese sus respuestas con dos decimales</p>', unsafe_allow_html=True) #Title of instructions
         response1, response2, response3 = render_input_widgets(preguntas_filtradas,st.session_state.pregunta_actual) #Create boxes to the user's answers
 
-        st.markdown('<h3 style="font-size:18px;">Acciones</h3>', unsafe_allow_html=True) #Title Acciones
-        
-        #Create butttons
-        respuesta_pressed, ayuda_pressed, repetir_pressed, nuevo_pressed = st.columns(4)
-        respuesta_clicked = respuesta_pressed.button("Verificar respuesta", key=f"respuesta_button_{st.session_state.pregunta_actual}", help="Explicación de la respuesta", use_container_width=True)
-        ayuda_clicked = ayuda_pressed.button("Ayuda", key=f"ayuda_button_{st.session_state.pregunta_actual}", help="Ayuda para la solución", use_container_width=True)
-        repetir_pressed.button("Nueva versión", key="nueva_version_button", help="Genera una nueva versión del problema", use_container_width=True, on_click=nueva_version_callback)
-        nuevo_pressed.button("Siguiente problema", key=f"nuevo_problema_button{st.session_state.pregunta_actual}", help="Genera un nuevo problema", use_container_width=True, on_click=nuevo_problema_callback)
+            st.markdown('<h3 style="font-size:18px;">Acciones</h3>', unsafe_allow_html=True) #Title Acciones
+            
+            #Create butttons
+            respuesta_pressed, ayuda_pressed, repetir_pressed, nuevo_pressed = st.columns(4)
+            respuesta_clicked = respuesta_pressed.button("Verificar respuesta", key=f"respuesta_button_{st.session_state.pregunta_actual}", help="Explicación de la respuesta", use_container_width=True)
+            ayuda_clicked = ayuda_pressed.button("Ayuda", key=f"ayuda_button_{st.session_state.pregunta_actual}", help="Ayuda para la solución", use_container_width=True)
+            repetir_pressed.button("Nueva versión", key="nueva_version_button", help="Genera una nueva versión del problema", use_container_width=True, on_click=nueva_version_callback)
+            nuevo_pressed.button("Siguiente problema", key=f"nuevo_problema_button{st.session_state.pregunta_actual}", help="Genera un nuevo problema", use_container_width=True, on_click=nuevo_problema_callback)
 
-        return response1, response2, response3, respuesta_clicked, ayuda_clicked
+            if st.session_state.get("consent", False):
+                log_event(st.session_state["username"], "question_viewed", {
+                    "question_id": preguntas_filtradas[st.session_state.pregunta_actual].no_pregunta,
+                    "version": preguntas_filtradas[st.session_state.pregunta_actual].version
+                })
 
-    #Function main
-    def main():
-        
-        response1, response2, response3, respuesta_clicked, ayuda_clicked = generate_questions()
+            return response1, response2, response3, respuesta_clicked, ayuda_clicked
+
+        #Function main
+        def main():
+            
+            response1, response2, response3, respuesta_clicked, ayuda_clicked = generate_questions()
 
         # "Verificar respuesta" button - Evaluation of the validity of the result input by user
         if respuesta_clicked:
@@ -703,5 +717,19 @@ if authenticate_user():
                 butt_ayuda(preguntas_filtradas, st.session_state.pregunta_actual, ayuda_clicked)
                 st.session_state.ayuda_used = True
 
-    if __name__ == '__main__':
-        main()
+        if __name__ == '__main__':
+            main()
+            # Cleanup
+            if st.session_state.get("screen_record_consent", False):
+                username = st.session_state.get("username", "unknown_user")
+                stop_screen_recording(username)
+            
+            if st.session_state.get("consent", False):
+                study_duration = int((datetime.now() - st.session_state.get("session_start_time", datetime.now())).total_seconds() / 60)
+                log_event(st.session_state["username"], "study_time", study_duration)
+                log_event(st.session_state["username"], "session_end", {})
+
+        # Don't forget to set the session start time when the user logs in:
+        if "authenticated" in st.session_state and st.session_state["authenticated"]:
+            if "session_start_time" not in st.session_state:
+                st.session_state.session_start_time = datetime.now()
