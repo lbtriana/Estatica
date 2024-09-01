@@ -142,14 +142,15 @@ if authenticate_user():
         complexity=st.sidebar.radio("Nivel de dificultad",options=["Fácil","Medio","Díficil"]) 
         respuesta_usuario['complexity'] = complexity
         
-        topic=st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas"])
+        topic=st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Momento"])
         #topic=st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas","Momento","Incertidumbre","Sistemas equivalentes","Apoyos y reacciones","Armaduras","Centroides","Fuerzas distribuidas","Fuerzas internas"])
         respuesta_usuario['topic'] = topic
         
         if topic=="Equilibrio de partículas":
             subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Vectores 2D","Vectores 3D","Vector unitario","Equilibrio 2D","Equilibrio 3D"])
-        #elif topic=="Momento":
-        #    subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Momento en un punto 2D","Momento en un punto 3D","Momento alrededor de un eje","Momentos pares"])
+        elif topic=="Momento":
+            subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Momento en un punto 2D"])
+        #subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Momento en un punto 2D","Momento en un punto 3D","Momento alrededor de un eje","Momentos pares"])
         #elif topic=="Incertidumbre":
         #    subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Equilibrio de partículas","Momento","Apoyos y reacciones","Armaduras","Centroides","Fuerzas distribuidas","Fuerzas internas"])
         #elif topic=="Sistemas equivalentes":
