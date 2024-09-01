@@ -391,6 +391,7 @@ if authenticate_user():
 
         #Almacenar la selección del usuario
         respuesta_usuario = {'complexity': complexity, 'topic': topic, 'subtopic': subtopic}
+    
     topic_user = respuesta_usuario.get('topic', None)
     subtopic_user = respuesta_usuario.get('subtopic', None)
     complexity_user = respuesta_usuario.get('complexity', None)  
@@ -690,8 +691,8 @@ if authenticate_user():
 
             return response1, response2, response3, respuesta_clicked, ayuda_clicked
 
-    #Function main
-    def main_calculation_questions():
+    
+    def generate_calculation_questions():
             
         response1, response2, response3, respuesta_clicked, ayuda_clicked = generate_questions()
 
@@ -777,12 +778,13 @@ if authenticate_user():
 
     def main():
         if way == "Práctica":
-            main_calculation_questions()
+            generate_calculation_questions()
         elif way == "Teoría":
             generate_theory_questions()
     
 
-    if __name__ == '__main__':   
+    if __name__ == '__main__':  
+        main() 
         # Cleanup
         if st.session_state.get("screen_record_consent", False):
             username = st.session_state.get("username", "unknown_user")
