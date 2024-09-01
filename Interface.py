@@ -373,7 +373,7 @@ if authenticate_user():
         if consent:
             log_event(st.session_state["username"], "theory_section_accessed", {})
         # Aquí puedes añadir el contenido de la sección de teoría
-        st.write("Contenido de la sección de teoría aún no implementado.")
+        #st.write("Contenido de la sección de teoría aún no implementado.")
     else:
         st.sidebar.header("Práctica")
         complexity = st.sidebar.radio("Nivel de dificultad", options=["Fácil", "Medio", "Díficil"])
@@ -391,13 +391,13 @@ if authenticate_user():
 
         #Almacenar la selección del usuario
         respuesta_usuario = {'complexity': complexity, 'topic': topic, 'subtopic': subtopic}
-        topic_user = respuesta_usuario.get('topic', None)
-        subtopic_user = respuesta_usuario.get('subtopic', None)
-        complexity_user = respuesta_usuario.get('complexity', None)  
+    topic_user = respuesta_usuario.get('topic', None)
+    subtopic_user = respuesta_usuario.get('subtopic', None)
+    complexity_user = respuesta_usuario.get('complexity', None)  
 
-        #Lista filtrada de preguntas según la selección del usuario
-        preguntas_filtradas = Questionary.filtrar_preguntas(preguntas, topic_user, subtopic_user, complexity_user)
-        conceptuales_filtradas = Theory.filtrar_preguntas_teoria(conceptuales, topic_user, subtopic_user)
+    #Lista filtrada de preguntas según la selección del usuario
+    preguntas_filtradas = Questionary.filtrar_preguntas(preguntas, topic_user, subtopic_user, complexity_user)
+    conceptuales_filtradas = Theory.filtrar_preguntas_teoria(conceptuales, topic_user, subtopic_user)
         
     #=========================Funciones para generar las preguntas============================
 
@@ -775,21 +775,23 @@ if authenticate_user():
             if is_correct == 1:
                 st.write(conceptuales_filtradas[st.session_state.pregunta_actual].respuesta_P1)
 
-        if __name__ == '__main__':
-            if way == "Práctica":
-                main_calculation_questions()
-            elif way == "Teoría":
-                generate_theory_questions()
+    def main():
+        if way == "Práctica":
+            main_calculation_questions()
+        elif way == "Teoría":
+            generate_theory_questions()
+    
 
-            # Cleanup
-            if st.session_state.get("screen_record_consent", False):
-                username = st.session_state.get("username", "unknown_user")
-                stop_screen_recording(username)
-            
-            if st.session_state.get("consent", False):
-                study_duration = int((datetime.now() - st.session_state.get("session_start_time", datetime.now())).total_seconds() / 60)
-                log_event(st.session_state["username"], "study_time", study_duration)
-                log_event(st.session_state["username"], "session_end", {})
+    if __name__ == '__main__':   
+        # Cleanup
+        if st.session_state.get("screen_record_consent", False):
+            username = st.session_state.get("username", "unknown_user")
+            stop_screen_recording(username)
+                
+        if st.session_state.get("consent", False):
+            study_duration = int((datetime.now() - st.session_state.get("session_start_time", datetime.now())).total_seconds() / 60)
+            log_event(st.session_state["username"], "study_time", study_duration)
+            log_event(st.session_state["username"], "session_end", {})
 
         # Don't forget to set the session start time when the user logs in:
         if "authenticated" in st.session_state and st.session_state["authenticated"]:
