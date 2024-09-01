@@ -4,7 +4,6 @@ import numpy as np
 import pandas as pd
 import random as rd
 import math
-import secrets
 from Class_Preguntas import Questionary, preguntas
 from Class_Teoria import Theory, conceptuales
 from Imagenes import *
@@ -19,7 +18,7 @@ import threading
 import time
 import os
 import json
-import plotly.express as px
+import plotly.express as px
 
 #=========================Configuration of the page============================
 #Width of the content
@@ -400,86 +399,86 @@ if authenticate_user():
     
         return response1, response2, response3
 
-        #Función para evaluar las respuestas del usuario
-        def resultado(preguntas_filtradas, response1, response2, response3, pregunta_actual):
-            respx1 = preguntas_filtradas[pregunta_actual].answer1
-            respx2 = preguntas_filtradas[pregunta_actual].answer2
-            respx3 = preguntas_filtradas[pregunta_actual].answer3
+    #Función para evaluar las respuestas del usuario
+    def resultado(preguntas_filtradas, response1, response2, response3, pregunta_actual):
+        respx1 = preguntas_filtradas[pregunta_actual].answer1
+        respx2 = preguntas_filtradas[pregunta_actual].answer2
+        respx3 = preguntas_filtradas[pregunta_actual].answer3
 
-            outxt = 'Error'
-            cont = 0
-            if preguntas_filtradas[pregunta_actual].no_answers == 1:
-                if abs(respx1 - response1) < 0.1:
+        outxt = 'Error'
+        cont = 0
+        if preguntas_filtradas[pregunta_actual].no_answers == 1:
+            if abs(respx1 - response1) < 0.1:
+                outxt = 'Felicitaciones!!!! La respuesta es correcta.'
+                cont = 1
+            else:
+                outxt = 'La respuesta no es correcta, presione el boton de "Ayuda", o trate de nuevo.'
+        elif preguntas_filtradas[pregunta_actual].no_answers == 2:
+            if abs(respx1 - response1) > 0.1 and abs(respx2 - response2) > 0.1:
+                outxt = 'Las respuestas no son correctas, presione el boton de "Ayuda", o trate de nuevo.'
+            else:
+                if abs(respx1 - response1) < 0.1 and abs(respx2 - response2) < 0.1:
+                    outxt = 'Felicitaciones!!!! La respuesta es correcta.'
+                    cont = 1
+                elif abs(respx1 - response1) < 0.1 and abs(respx2 - response2) > 0.1:
+                    outxt = 'Solamente la primera respuesta es correcta, presione el boton de "Ayuda", o trate de nuevo.'
+                elif abs(respx1 - response1) > 0.1 and abs(respx2 - response2) < 0.1:
+                    outxt = 'Solamente la segunda respuesta es correcta, presione el boton de "Ayuda", o trate de nuevo.'
+        elif preguntas_filtradas[pregunta_actual].no_answers == 3:
+            if abs(respx1 - response1) > 0.1 and abs(respx2 - response2) > 0.1 and abs(respx3 - response3) > 0.1:
+                outxt = 'Las respuestas no son correctas, presione el boton de "Ayuda", o trate de nuevo.'
+            else:
+                if abs(respx1 - response1) < 0.1 and abs(respx2 - response2) < 0.1 and abs(respx3 - response3) < 0.1:
                     outxt = 'Felicitaciones!!!! La respuesta es correcta.'
                     cont = 1
                 else:
-                    outxt = 'La respuesta no es correcta, presione el boton de "Ayuda", o trate de nuevo.'
-            elif preguntas_filtradas[pregunta_actual].no_answers == 2:
-                if abs(respx1 - response1) > 0.1 and abs(respx2 - response2) > 0.1:
-                    outxt = 'Las respuestas no son correctas, presione el boton de "Ayuda", o trate de nuevo.'
-                else:
-                    if abs(respx1 - response1) < 0.1 and abs(respx2 - response2) < 0.1:
-                        outxt = 'Felicitaciones!!!! La respuesta es correcta.'
-                        cont = 1
-                    elif abs(respx1 - response1) < 0.1 and abs(respx2 - response2) > 0.1:
-                        outxt = 'Solamente la primera respuesta es correcta, presione el boton de "Ayuda", o trate de nuevo.'
-                    elif abs(respx1 - response1) > 0.1 and abs(respx2 - response2) < 0.1:
-                        outxt = 'Solamente la segunda respuesta es correcta, presione el boton de "Ayuda", o trate de nuevo.'
-            elif preguntas_filtradas[pregunta_actual].no_answers == 3:
-                if abs(respx1 - response1) > 0.1 and abs(respx2 - response2) > 0.1 and abs(respx3 - response3) > 0.1:
-                    outxt = 'Las respuestas no son correctas, presione el boton de "Ayuda", o trate de nuevo.'
-                else:
-                    if abs(respx1 - response1) < 0.1 and abs(respx2 - response2) < 0.1 and abs(respx3 - response3) < 0.1:
-                        outxt = 'Felicitaciones!!!! La respuesta es correcta.'
-                        cont = 1
-                    else:
-                        correct_answers = []
-                        if abs(respx1 - response1) < 0.1:
-                            correct_answers.append("primera")
-                        if abs(respx2 - response2) < 0.1:
-                            correct_answers.append("segunda")
-                        if abs(respx3 - response3) < 0.1:
-                            correct_answers.append("tercera")
+                    correct_answers = []
+                    if abs(respx1 - response1) < 0.1:
+                        correct_answers.append("primera")
+                    if abs(respx2 - response2) < 0.1:
+                        correct_answers.append("segunda")
+                    if abs(respx3 - response3) < 0.1:
+                        correct_answers.append("tercera")
                         
-                        if len(correct_answers) == 1:
-                            outxt = f'Solamente la {correct_answers[0]} respuesta es correcta, presione el boton de "Ayuda", o trate de nuevo.'
-                        elif len(correct_answers) == 2:
-                            outxt = f'Solamente la {correct_answers[0]} y la {correct_answers[1]} respuestas son correctas, presione el boton de "Ayuda", o trate de nuevo.'
+                    if len(correct_answers) == 1:
+                        outxt = f'Solamente la {correct_answers[0]} respuesta es correcta, presione el boton de "Ayuda", o trate de nuevo.'
+                    elif len(correct_answers) == 2:
+                        outxt = f'Solamente la {correct_answers[0]} y la {correct_answers[1]} respuestas son correctas, presione el boton de "Ayuda", o trate de nuevo.'
             
-            if st.session_state.get("consent", False):
-                log_event(st.session_state["username"], "answer_submitted", {
-                    "question_id": preguntas_filtradas[pregunta_actual].no_pregunta,
-                    "version": preguntas_filtradas[pregunta_actual].version,
-                    "is_correct": cont == 1
-                })
+        if st.session_state.get("consent", False):
+            log_event(st.session_state["username"], "answer_submitted", {
+            "question_id": preguntas_filtradas[pregunta_actual].no_pregunta,
+            "version": preguntas_filtradas[pregunta_actual].version,
+            "is_correct": cont == 1
+            })
             
-            return outxt, cont
+        return outxt, cont
 
-        #Function to Generate the Question Image 
-        def filtrar_imagenes_preguntas(pregunta_no, version_no, subtopic, difficulty):
-            left_col, center_col, right_col = st.columns(3)
-            with center_col:
-                if difficulty == "Fácil":
-                    if subtopic == "Vectores 2D" or subtopic == "Vector unitario":
-                        if pregunta_no <= 2: #Vectores 2D y Vector unitario
-                            if version_no == 1:
-                                st.image(image_paths[0], width=325) 
-                            elif version_no == 2:
-                                st.image(image_paths[1], width=350)
-                            elif version_no == 3:
-                                st.image(image_paths[2], width=350)
-                            elif version_no == 4:
-                                st.image(image_paths[3], width=350)   
+    #Function to Generate the Question Image 
+    def filtrar_imagenes_preguntas(pregunta_no, version_no, subtopic, difficulty):
+        left_col, center_col, right_col = st.columns(3)
+        with center_col:
+            if difficulty == "Fácil":
+                if subtopic == "Vectores 2D" or subtopic == "Vector unitario":
+                    if pregunta_no <= 2: #Vectores 2D y Vector unitario
+                        if version_no == 1:
+                            st.image(image_paths[0], width=325) 
+                        elif version_no == 2:
+                            st.image(image_paths[1], width=350)
+                        elif version_no == 3:
+                            st.image(image_paths[2], width=350)
+                        elif version_no == 4:
+                            st.image(image_paths[3], width=350)   
                             
-                        elif pregunta_no > 2 and pregunta_no <= 4: #Vectores 2D y Vector unitario
-                            if version_no == 1:
-                                st.image(image_paths[4], width=200)
-                            elif version_no == 2:
-                                st.image(image_paths[5], width=200)
-                            elif version_no == 3:
-                                st.image(image_paths[6], width=200)
-                            elif version_no == 4:
-                                st.image(image_paths[7], width=200)
+                    elif pregunta_no > 2 and pregunta_no <= 4: #Vectores 2D y Vector unitario
+                        if version_no == 1:
+                            st.image(image_paths[4], width=200)
+                        elif version_no == 2:
+                            st.image(image_paths[5], width=200)
+                        elif version_no == 3:
+                            st.image(image_paths[6], width=200)
+                        elif version_no == 4:
+                            st.image(image_paths[7], width=200)
 
             
             if difficulty == "Medio":
@@ -510,149 +509,149 @@ if authenticate_user():
                         if pregunta_no == 4:
                             st.image(image_paths[17], width=180)
                 
-                if difficulty == "Díficil":
-                    if subtopic == "Vectores 2D":
-                        if pregunta_no == 1 or pregunta_no == 2:
-                            if version_no == 1:
-                                st.image(image_paths[18])
-                            elif version_no == 2:
-                                st.image(image_paths[19], width=250)
-                            elif version_no == 3:
-                                st.image(image_paths[20], width=250)
-                            elif version_no == 4:
-                                st.image(image_paths[21], width=250)
-                        if pregunta_no == 3:
-                            if version_no == 1:
-                                st.image(image_paths[22], width=250)
-                            elif version_no == 2:
-                                st.image(image_paths[23], width=250)
+            if difficulty == "Díficil":
+                if subtopic == "Vectores 2D":
+                    if pregunta_no == 1 or pregunta_no == 2:
+                        if version_no == 1:
+                            st.image(image_paths[18])
+                        elif version_no == 2:
+                            st.image(image_paths[19], width=250)
+                        elif version_no == 3:
+                            st.image(image_paths[20], width=250)
+                        elif version_no == 4:
+                            st.image(image_paths[21], width=250)
+                    if pregunta_no == 3:
+                        if version_no == 1:
+                            st.image(image_paths[22], width=250)
+                        elif version_no == 2:
+                            st.image(image_paths[23], width=250)
                             
-            return
+        return
 
-        #Function to Generate the Answer Image 
-        def filtrar_imagenes_respuestas_P1(pregunta_no, version_no, subtopic, difficulty):
-            left_col, center_col, right_col = st.columns(3)
+    #Function to Generate the Answer Image 
+    def filtrar_imagenes_respuestas_P1(pregunta_no, version_no, subtopic, difficulty):
+        left_col, center_col, right_col = st.columns(3)
 
-            with left_col:
-                if difficulty == "Díficil":
-                    if subtopic == "Vectores 2D":
-                        if pregunta_no == 1 or pregunta_no == 2: 
-                            if version_no == 1:
-                                st.image(rtas_paths[0], width=600) 
-                            elif version_no == 2:
-                                st.image(rtas_paths[1])
-                            elif version_no == 3:
-                                st.image(rtas_paths[2])
-                            elif version_no == 4:
-                                st.image(rtas_paths[3])
-                        if pregunta_no == 3: 
-                            if version_no == 1:
-                                st.image(rtas_paths[4]) 
-                            elif version_no == 2:
-                                st.image(rtas_paths[5])
-            return
+        with left_col:
+            if difficulty == "Díficil":
+                if subtopic == "Vectores 2D":
+                    if pregunta_no == 1 or pregunta_no == 2: 
+                        if version_no == 1:
+                            st.image(rtas_paths[0], width=600) 
+                        elif version_no == 2:
+                            st.image(rtas_paths[1])
+                        elif version_no == 3:
+                            st.image(rtas_paths[2])
+                        elif version_no == 4:
+                            st.image(rtas_paths[3])
+                    if pregunta_no == 3: 
+                        if version_no == 1:
+                            st.image(rtas_paths[4]) 
+                        elif version_no == 2:
+                            st.image(rtas_paths[5])
+        return
 
-        #Function to create "Ayuda" button, it shows the helps sequentially
-        def butt_ayuda(preguntas_filtradas, pregunta_actual, ayuda_clicked):
-                ayudas = [preguntas_filtradas[st.session_state.pregunta_actual].ayuda1, preguntas_filtradas[st.session_state.pregunta_actual].ayuda2, preguntas_filtradas[st.session_state.pregunta_actual].ayuda3]
+    #Function to create "Ayuda" button, it shows the helps sequentially
+    def butt_ayuda(preguntas_filtradas, pregunta_actual, ayuda_clicked):
+        ayudas = [preguntas_filtradas[st.session_state.pregunta_actual].ayuda1, preguntas_filtradas[st.session_state.pregunta_actual].ayuda2, preguntas_filtradas[st.session_state.pregunta_actual].ayuda3]
                 
-                ayudas_no_vacias = [ayuda for ayuda in ayudas if ayuda.strip() != ""]
-                if 'ayuda_index' not in st.session_state:
-                    st.session_state.ayuda_index = 0 
-                if ayuda_clicked:
-                    if ayudas_no_vacias:
-                        help_text_placeholder = st.empty() 
-                        help_text_placeholder.write(ayudas[st.session_state.ayuda_index])
-                        st.session_state.ayuda_index = (st.session_state.ayuda_index + 1) % len(ayudas_no_vacias)
-                        if st.session_state.get("consent", False):
-                            log_event(st.session_state["username"], "help_requested", {
-                                "question_id": preguntas_filtradas[pregunta_actual].no_pregunta,
-                                "help_index": st.session_state.ayuda_index
-                            })
+        ayudas_no_vacias = [ayuda for ayuda in ayudas if ayuda.strip() != ""]
+        if 'ayuda_index' not in st.session_state:
+            st.session_state.ayuda_index = 0 
+            if ayuda_clicked:
+                if ayudas_no_vacias:
+                    help_text_placeholder = st.empty() 
+                    help_text_placeholder.write(ayudas[st.session_state.ayuda_index])
+                    st.session_state.ayuda_index = (st.session_state.ayuda_index + 1) % len(ayudas_no_vacias)
+                    if st.session_state.get("consent", False):
+                        log_event(st.session_state["username"], "help_requested", {
+                        "question_id": preguntas_filtradas[pregunta_actual].no_pregunta,
+                        "help_index": st.session_state.ayuda_index
+                        })
 
-        # Function to Generate a New Version of the Question  
-       # Function to Generate a New Version of the Question  
-        def nueva_version_callback():
-            no_pregunta_actual = preguntas_filtradas[st.session_state.pregunta_actual].no_pregunta
-            preguntas_actuales = [pregunta for pregunta in preguntas_filtradas if pregunta.no_pregunta == no_pregunta_actual]
-            versiones = sorted(set([pregunta.version for pregunta in preguntas_actuales]))
-            
-            if len(versiones) == 1:
-                misma_pregunta = preguntas_filtradas[st.session_state.pregunta_actual]
-                misma_pregunta.regenerate_values()
-                st.session_state.Intento = 0
-            else:
-                indice_version_actual = versiones.index(st.session_state.version_actual)
-                siguiente_version = (indice_version_actual + 1) % len(versiones)
-                st.session_state.version_actual = versiones[siguiente_version]
 
-                for i, pregunta in enumerate(preguntas_filtradas):
-                    if pregunta.no_pregunta == no_pregunta_actual and pregunta.version == st.session_state.version_actual:
-                        st.session_state.pregunta_actual = i
-                        st.session_state.Intento = 0
-                        break
+    # Function to Generate a New Version of the Question  
+    def nueva_version_callback():
+        no_pregunta_actual = preguntas_filtradas[st.session_state.pregunta_actual].no_pregunta
+        preguntas_actuales = [pregunta for pregunta in preguntas_filtradas if pregunta.no_pregunta == no_pregunta_actual]
+        versiones = sorted(set([pregunta.version for pregunta in preguntas_actuales]))
             
-            if st.session_state.get("consent", False):
-                log_event(st.session_state["username"], "new_version_generated", {
-                    "question_id": no_pregunta_actual,
-                    "new_version": st.session_state.version_actual
+        if len(versiones) == 1:
+            misma_pregunta = preguntas_filtradas[st.session_state.pregunta_actual]
+            misma_pregunta.regenerate_values()
+            st.session_state.Intento = 0
+        else:
+            indice_version_actual = versiones.index(st.session_state.version_actual)
+            siguiente_version = (indice_version_actual + 1) % len(versiones)
+            st.session_state.version_actual = versiones[siguiente_version]
+
+            for i, pregunta in enumerate(preguntas_filtradas):
+                if pregunta.no_pregunta == no_pregunta_actual and pregunta.version == st.session_state.version_actual:
+                    st.session_state.pregunta_actual = i
+                    st.session_state.Intento = 0
+                break
+            
+        if st.session_state.get("consent", False):
+            log_event(st.session_state["username"], "new_version_generated", {
+            "question_id": no_pregunta_actual,
+            "new_version": st.session_state.version_actual
                 })
                         
-        # Function to Generate a New Problem
-        def nuevo_problema_callback():
-            nuevo_problema = st.session_state.pregunta_actual + 1
-            while nuevo_problema < len(preguntas_filtradas) and preguntas_filtradas[nuevo_problema].no_pregunta == preguntas_filtradas[st.session_state.pregunta_actual].no_pregunta:
-                nuevo_problema += 1
-            if nuevo_problema >= len(preguntas_filtradas):
-                nuevo_problema = 0
-            st.session_state.pregunta_actual = nuevo_problema
-            st.session_state.version_actual = 1 
-            st.session_state.Intento = 0
+    # Function to Generate a New Problem
+    def nuevo_problema_callback():
+        nuevo_problema = st.session_state.pregunta_actual + 1
+        while nuevo_problema < len(preguntas_filtradas) and preguntas_filtradas[nuevo_problema].no_pregunta == preguntas_filtradas[st.session_state.pregunta_actual].no_pregunta:
+            nuevo_problema += 1
+        if nuevo_problema >= len(preguntas_filtradas):
+            nuevo_problema = 0
+        st.session_state.pregunta_actual = nuevo_problema
+        st.session_state.version_actual = 1 
+        st.session_state.Intento = 0
             
-            if st.session_state.get("consent", False):
-                log_event(st.session_state["username"], "new_problem_generated", {
-                    "new_question_id": preguntas_filtradas[st.session_state.pregunta_actual].no_pregunta
-                })
+        if st.session_state.get("consent", False):
+            log_event(st.session_state["username"], "new_problem_generated", {
+            "new_question_id": preguntas_filtradas[st.session_state.pregunta_actual].no_pregunta
+            })
 
-        #Initialize the "Intento" Variable to Count the Number of User's Attempts to Verify Their Answer
-        if 'Intento' not in st.session_state:
-            st.session_state.Intento = 0
-        #Initialize the State for the "mostrar_respuesta" Function When the User Verifies Their Answer
-        if 'mostrar_respuesta' not in st.session_state:
-            st.session_state.mostrar_respuesta = False
-        #Initialize the questions to show
-        if 'pregunta_actual' not in st.session_state:
-            st.session_state.pregunta_actual = 0 
-        #Initialize the version of the question to show    
-        if 'version_actual' not in st.session_state:    
-            st.session_state.version_actual = 1
+    #Initialize the "Intento" Variable to Count the Number of User's Attempts to Verify Their Answer
+    if 'Intento' not in st.session_state:
+        st.session_state.Intento = 0
+    #Initialize the State for the "mostrar_respuesta" Function When the User Verifies Their Answer
+    if 'mostrar_respuesta' not in st.session_state:
+        st.session_state.mostrar_respuesta = False
+    #Initialize the questions to show
+    if 'pregunta_actual' not in st.session_state:
+        st.session_state.pregunta_actual = 0 
+    #Initialize the version of the question to show    
+    if 'version_actual' not in st.session_state:    
+        st.session_state.version_actual = 1
 
-        #Function to Display the Answer Explanation
-        def mostrar_respuesta():
-            st.write(preguntas_filtradas[st.session_state.pregunta_actual].respuesta_P1)
-            filtrar_imagenes_respuestas_P1(preguntas_filtradas[st.session_state.pregunta_actual].no_pregunta, preguntas_filtradas[st.session_state.pregunta_actual].version, preguntas_filtradas[st.session_state.pregunta_actual].subtopic, preguntas_filtradas[st.session_state.pregunta_actual].complexity)
-            st.write(preguntas_filtradas[st.session_state.pregunta_actual].respuesta_P2) 
+    #Function to Display the Answer Explanation
+    def mostrar_respuesta():
+        st.write(preguntas_filtradas[st.session_state.pregunta_actual].respuesta_P1)
+        filtrar_imagenes_respuestas_P1(preguntas_filtradas[st.session_state.pregunta_actual].no_pregunta, preguntas_filtradas[st.session_state.pregunta_actual].version, preguntas_filtradas[st.session_state.pregunta_actual].subtopic, preguntas_filtradas[st.session_state.pregunta_actual].complexity)
+        st.write(preguntas_filtradas[st.session_state.pregunta_actual].respuesta_P2) 
             
-            if st.session_state.get("consent", False):
-                log_event(st.session_state["username"], "answer_revealed", {
-                    "question_id": preguntas_filtradas[st.session_state.pregunta_actual].no_pregunta
-                })
+        if st.session_state.get("consent", False):
+            log_event(st.session_state["username"], "answer_revealed", {
+            "question_id": preguntas_filtradas[st.session_state.pregunta_actual].no_pregunta
+            })
 
-        #Function to display the Answer Explanation for the "Quiero ver la respuesta" button
-        def on_button_click():
-            st.session_state.mostrar_respuesta = True
+    #Function to display the Answer Explanation for the "Quiero ver la respuesta" button
+    def on_button_click():
+        st.session_state.mostrar_respuesta = True
 
-        #Function to generate the questions
-        def generate_questions():
+    #Function to generate the questions
+    def generate_questions():
         
-            st.markdown('<h3 style="font-size:18px;">Pregunta</h3>', unsafe_allow_html=True) #Title Pregunta
-            st.write(preguntas_filtradas[st.session_state.pregunta_actual].pregunta) #Write the statement question
-            filtrar_imagenes_preguntas(preguntas_filtradas[st.session_state.pregunta_actual].no_pregunta, preguntas_filtradas[st.session_state.pregunta_actual].version, preguntas_filtradas[st.session_state.pregunta_actual].subtopic, preguntas_filtradas[st.session_state.pregunta_actual].complexity) #Select the image
-            
+        st.markdown('<h3 style="font-size:18px;">Pregunta</h3>', unsafe_allow_html=True) #Title Pregunta
+        st.write(preguntas_filtradas[st.session_state.pregunta_actual].pregunta) #Write the statement question
+        filtrar_imagenes_preguntas(preguntas_filtradas[st.session_state.pregunta_actual].no_pregunta, preguntas_filtradas[st.session_state.pregunta_actual].version, preguntas_filtradas[st.session_state.pregunta_actual].subtopic, preguntas_filtradas[st.session_state.pregunta_actual].complexity) #Select the image
+         
 
-            st.markdown('<h3 style="font-size:18px;">Respuestas</h3>', unsafe_allow_html=True) #Title Respuestas
-            st.markdown('<p style="font-size: 14px;">Ingrese sus respuestas con dos decimales</p>', unsafe_allow_html=True) #Title of instructions
-            response1, response2, response3 = render_input_widgets(preguntas_filtradas,st.session_state.pregunta_actual) #Create boxes to the user's answers
+        st.markdown('<h3 style="font-size:18px;">Respuestas</h3>', unsafe_allow_html=True) #Title Respuestas
+        st.markdown('<p style="font-size: 14px;">Ingrese sus respuestas con dos decimales</p>', unsafe_allow_html=True) #Title of instructions
+        response1, response2, response3 = render_input_widgets(preguntas_filtradas,st.session_state.pregunta_actual) #Create boxes to the user's answers
 
         st.markdown('<h3 style="font-size:18px;">Acciones</h3>', unsafe_allow_html=True) #Title Acciones
         
@@ -670,29 +669,29 @@ if authenticate_user():
         
         response1, response2, response3, respuesta_clicked, ayuda_clicked = generate_questions()
 
-            # "Verificar respuesta" button - Evaluation of the validity of the result input by user
-            if respuesta_clicked:
-                st.session_state.Intento += 1
-                outputx, is_correct = resultado(preguntas_filtradas, response1, response2, response3, st.session_state.pregunta_actual)
-                st.write(outputx)
+        # "Verificar respuesta" button - Evaluation of the validity of the result input by user
+        if respuesta_clicked:
+            st.session_state.Intento += 1
+            outputx, is_correct = resultado(preguntas_filtradas, response1, response2, response3, st.session_state.pregunta_actual)
+            st.write(outputx)
                 
-                difficulty = preguntas_filtradas[st.session_state.pregunta_actual].complexity
-                used_help = st.session_state.get('ayuda_used', False)
-                points_earned = calculate_points(difficulty, st.session_state.Intento, used_help)
+            difficulty = preguntas_filtradas[st.session_state.pregunta_actual].complexity
+            used_help = st.session_state.get('ayuda_used', False)
+            points_earned = calculate_points(difficulty, st.session_state.Intento, used_help)
                 
-                if is_correct == 1:
-                    st.session_state.mostrar_respuesta = True
-                    log_event(st.session_state["username"], "points_earned", {"points": points_earned})
-                elif is_correct == 0:
-                    if st.session_state.Intento > 3:
-                        st.button(":pensive: Quiero ver la respuesta", key=f"ver_respuesta_button{st.session_state.pregunta_actual}", help="Permite ver la respuesta", on_click=on_button_click)
+            if is_correct == 1:
+                st.session_state.mostrar_respuesta = True
+                log_event(st.session_state["username"], "points_earned", {"points": points_earned})
+            elif is_correct == 0:
+                if st.session_state.Intento > 3:
+                    st.button(":pensive: Quiero ver la respuesta", key=f"ver_respuesta_button{st.session_state.pregunta_actual}", help="Permite ver la respuesta", on_click=on_button_click)
                 
-                if st.session_state.get("consent", False):
-                    log_event(st.session_state["username"], "answer_submitted", {
-                        "question_id": preguntas_filtradas[st.session_state.pregunta_actual].no_pregunta,
-                        "attempt": st.session_state.Intento,
-                        "is_correct": is_correct,
-                        "points_earned": points_earned
+            if st.session_state.get("consent", False):
+                log_event(st.session_state["username"], "answer_submitted", {
+                    "question_id": preguntas_filtradas[st.session_state.pregunta_actual].no_pregunta,
+                    "attempt": st.session_state.Intento,
+                    "is_correct": is_correct,
+                    "points_earned": points_earned
                     })
             
             if st.session_state.mostrar_respuesta:
