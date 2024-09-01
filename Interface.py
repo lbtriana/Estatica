@@ -332,7 +332,31 @@ if authenticate_user():
     st.session_state["consent"] = consent
     st.session_state["screen_record_consent"] = screen_record_consent
 
-    #Creación de la barra lateral
+#-------------------------------Inicialización de variables con sesión de estado-----------------------------------------
+
+    #Initialize the "Intento" Variable to Count the Number of User's Attempts to Verify Their Answer
+    if 'Intento' not in st.session_state:
+        st.session_state.Intento = 0
+    #Initialize the State for the "mostrar_respuesta" Function When the User Verifies Their Answer
+    if 'mostrar_respuesta' not in st.session_state:
+        st.session_state.mostrar_respuesta = False
+    #Initialize the questions to show
+    if 'pregunta_actual' not in st.session_state:
+        st.session_state.pregunta_actual = 0 
+    #Initialize the version of the question to show    
+    if 'version_actual' not in st.session_state:    
+        st.session_state.version_actual = 1
+    # Inicializa el nivel de dificultad
+    if 'complexity' not in st.session_state:
+        st.session_state.complexity = "Fácil"
+    # Inicializa el tema
+    if 'topic' not in st.session_state:
+        st.session_state.topic = "Equilibrio de partículas"
+    # Inicializa el subtema
+    if 'subtopic' not in st.session_state:
+        st.session_state.subtopic = "Vectores 2D"
+
+    #-------------------------------------------Creación de la barra lateral-------------------------------------
     st.sidebar.markdown("<h1 style='font-size:36px;'>StaticGenius</h1>", unsafe_allow_html=True)
     way = st.sidebar.radio("Seleccione su método de estudio", options=["Práctica", "Teoría", "Estadísticas"])
     respuesta_usuario = {}
@@ -400,6 +424,11 @@ if authenticate_user():
     preguntas_filtradas = Questionary.filtrar_preguntas(preguntas, topic_user, subtopic_user, complexity_user)
     conceptuales_filtradas = Theory.filtrar_preguntas_teoria(conceptuales, topic_user, subtopic_user)
         
+    #Reinicia el número de la pregunta cuando se cambia de tema, subtema o nivel de dificulta
+    if st.session_state.topic != topic or st.session_state.subtopic != subtopic or st.session_state.complexity != complexity:
+        st.session_state.pregunta_actual = 0  
+
+
     #=========================Funciones para generar las preguntas============================
 
     #Función para crear las cajas para las respuestas del usuario
@@ -634,19 +663,6 @@ if authenticate_user():
             "new_question_id": preguntas_filtradas[st.session_state.pregunta_actual].no_pregunta
             })
 
-    #Initialize the "Intento" Variable to Count the Number of User's Attempts to Verify Their Answer
-    if 'Intento' not in st.session_state:
-        st.session_state.Intento = 0
-    #Initialize the State for the "mostrar_respuesta" Function When the User Verifies Their Answer
-    if 'mostrar_respuesta' not in st.session_state:
-        st.session_state.mostrar_respuesta = False
-    #Initialize the questions to show
-    if 'pregunta_actual' not in st.session_state:
-        st.session_state.pregunta_actual = 0 
-    #Initialize the version of the question to show    
-    if 'version_actual' not in st.session_state:    
-        st.session_state.version_actual = 1
-
     #Function to Display the Answer Explanation
     def mostrar_respuesta():
         st.write(preguntas_filtradas[st.session_state.pregunta_actual].respuesta_P1)
@@ -664,7 +680,6 @@ if authenticate_user():
 
     #Function to generate the questions
     def generate_questions():
-        
         st.markdown('<h3 style="font-size:18px;">Pregunta</h3>', unsafe_allow_html=True) #Title Pregunta
         st.write(preguntas_filtradas[st.session_state.pregunta_actual].pregunta) #Write the statement question
         filtrar_imagenes_preguntas(preguntas_filtradas[st.session_state.pregunta_actual].no_pregunta, preguntas_filtradas[st.session_state.pregunta_actual].version, preguntas_filtradas[st.session_state.pregunta_actual].subtopic, preguntas_filtradas[st.session_state.pregunta_actual].complexity) #Select the image
