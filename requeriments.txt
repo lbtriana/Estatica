@@ -1,3 +1,7 @@
-streamlit==1.10.0
-pyautogui
+streamlit
 streamlit-authenticator
+numpy
+pandas
+opencv-python
+pyautogui
+plotly
