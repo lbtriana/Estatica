@@ -182,13 +182,13 @@ T1 = f"""
 
         $\\textbf{{\\small 1. Aplicación de la Ley del paralelogramo o la Regla del triángulo:}}$
 
-        ${{\hspace{{4mm}}\\alpha_3 = 180 - \\alpha_1 - \\alpha_2}}$
+        El ángulo $\\alpha_3$ corresponde a${{\hspace{{4mm}}\\alpha_3 = 180 - \\alpha_1 - \\alpha_2}}$
     """
 
 T2 = f"""
         A continuación se presenta la solución sugerida para el ejercicio:   
 
-        $\\textbf{{\\small 1. Cálculo del ángulo $\\alpha_2$:}}$
+        $\\textbf{{\\small 1. Cálculo del ángulo:}}$
 
         Primero, se aplica la regla del triángulo y se plantea mediante la ley de senos la ecuación para hallar F2:
     """
@@ -317,74 +317,90 @@ def rta_EQ_V2D_D_P1(f, a, calc):
     return f"""
     $\\textbf{{\\small 2. Aplicación de la Ley de senos para hallar las componentes:}}$  
 
-    $\\underline{{Componente u}}$  
+    $\\underline{{Componente \\hspace{{2mm}} u}}$    
 
-    ${{\hspace{{4mm}} \\dfrac{{F_u}}{{sen(\\alpha_1)}} = \\dfrac{{F}}{{sen(\\alpha_3)}}}}$
-    ${{\hspace{{4mm}} F_u = \\dfrac{{F*sen(\\alpha_1)}}{{sen(\\alpha_3)}}}}$
-    ${{\hspace{{4mm}} F_u = {(f[0]*calc['sin1'])/Calculations.sine(180-a[0]-a[4]):.2f}}}$
+    ${{\hspace{{4mm}} \\dfrac{{F_u}}{{sen(\\alpha_1)}} = \\dfrac{{F}}{{sen(\\alpha_3)}}}}$      
 
-    $\\underline{{Componente v}}$  
+    ${{\hspace{{4mm}} F_u = \\dfrac{{F*sen(\\alpha_1)}}{{sen(\\alpha_3)}}}}$    
 
-    ${{\hspace{{4mm}} \\dfrac{{F_v}}{{sen(\\alpha_2)}} = \\dfrac{{F}}{{sen(180-\\alpha_1-\\alpha_2)}}}}$
-    ${{\hspace{{4mm}} F_v = \\dfrac{{F*sen(\\alpha_2)}}{{sen(180-\\alpha_1-\\alpha_2)}}}}$
-    ${{\hspace{{4mm}} F_v = {(f[0]*calc['sin5'])/Calculations.sine(180-a[0]-a[4]):.2f}}}$
+    ${{\hspace{{4mm}} F_u = {(f[0]*calc['sin1'])/Calculations.sine(180-a[0]-a[4]):.2f} \\text{{kN}}}}$       
+
+    $\\underline{{Componente \\hspace{{2mm}} v}}$     
+
+    ${{\hspace{{4mm}} \\dfrac{{F_v}}{{sen(\\alpha_2)}} = \\dfrac{{F}}{{sen(180-\\alpha_1-\\alpha_2)}}}}$   
+
+    ${{\hspace{{4mm}} F_v = \\dfrac{{F*sen(\\alpha_2)}}{{sen(180-\\alpha_1-\\alpha_2)}}}}$     
+
+    ${{\hspace{{4mm}} F_v = {(f[0]*calc['sin5'])/Calculations.sine(180-a[0]-a[4]):.2f} \\text{{kN}} }}$    
     """
 
 def rta_EQ_V2D_D_P2(f, a, calc):
     return f"""
     $\\textbf{{\\small 2. Aplicación de la Ley de senos para hallar la magnitud de F y la componente desconocida:}}$  
 
-    $\\underline{{Magnitud F}}$  
+    $\\underline{{Magnitud \\hspace{{2mm}} F}}$  
 
     ${{\hspace{{4mm}} \\dfrac{{F}}{{sen(\\alpha_3)}} = \\dfrac{{F_v}}{{sen(\\alpha_2)}}}}$
-    ${{\hspace{{4mm}} F = \\dfrac{{F_v*sen(\\alpha_3)}}{{sen(\\alpha_2)}}}}$
-    ${{\hspace{{4mm}} F = {(f[0]*Calculations.sine(180-a[0]-a[4]))/calc['sin5']:.2f}}}$
 
-    $\\underline{{Componente $u$}}$  
+    ${{\hspace{{4mm}} F = \\dfrac{{F_v*sen(\\alpha_3)}}{{sen(\\alpha_2)}}}}$
+
+    ${{\hspace{{4mm}} F = {(f[0]*Calculations.sine(180-a[0]-a[4]))/calc['sin5']:.2f} \\text{{ kN}}}}$
+
+    $\\underline{{Componente \\hspace{{2mm}} u}}$  
 
     ${{\hspace{{4mm}} \\dfrac{{F_u}}{{sen(\\alpha_1)}} = \\dfrac{{F_v}}{{sen(\\alpha_2)}}}}$
+
     ${{\hspace{{4mm}} F_u = \\dfrac{{F_v*sen(\\alpha_1)}}{{sen(\\alpha_2)}}}}$
-    ${{\hspace{{4mm}} F_u = {(f[0]*calc['sin1'])/calc['sin5']:.2f}}}$
+
+    ${{\hspace{{4mm}} F_u = {(f[0]*calc['sin1'])/calc['sin5']:.2f} \\text{{ kN}}}}$
     """
 
 def rta_EQ_V2D_D_P3(f, a, calc):
     return f"""
     $\\textbf{{\\small 2. Aplicación de la Ley de senos para hallar la magnitud de F:}}$  
 
-    ${{\hspace{{4mm}} \\dfrac{{F_u}}{{sen(\\alpha_v)}} = \\dfrac{{F}}{{sen(\\alpha_w)}}}}$
+    ${{\hspace{{4mm}} \\dfrac{{F_u}}{{sen(\\alpha_v)}} = \\dfrac{{F}}{{sen(\\alpha_w)}}}}$   
+
     ${{\hspace{{4mm}} F = \\dfrac{{F_u*sen(\\alpha_w)}}{{sen(\\alpha_v)}}}}$
-    ${{\hspace{{4mm}} F = {(f[0]*Calculations.sine(180-a[0]-a[9]))/calc['sin10']:.2f}}}$
+
+    ${{\hspace{{4mm}} F = {(f[0]*Calculations.sine(180-a[0]-a[8]))/calc['sin9']:.2f} \\text{{ kN}}}}$
 
     $\\textbf{{\\small 3. Cálculo de las componentes X y Y:}}$
 
-    ${{\hspace{{4mm}} F_x = F*sen(\\alpha_Y) = {((f[0]*Calculations.sine(180-a[0]-a[9]))/calc['sin10'])*calc['sin5']:.2f}}}$
-    ${{\hspace{{4mm}} F_y = F*cos(\\alpha_Y) = {((f[0]*Calculations.sine(180-a[0]-a[9]))/calc['sin10'])*calc['cos5']:.2f}}}$
+    ${{\hspace{{4mm}} F_x = F*sen(\\alpha_Y) = {((f[0]*Calculations.sine(180-a[0]-a[8]))/calc['sin9'])*calc['sin5']:.2f} \\text{{kN}}}}$
+
+    ${{\hspace{{4mm}} F_y = F*cos(\\alpha_Y) = {((f[0]*Calculations.sine(180-a[0]-a[8]))/calc['sin9'])*calc['cos5']:.2f} \\text{{kN}}}}$
     """
 
 def rta_EQ_V2D_D_P4(f, a, calc):
     return f"""
     ${{\hspace{{4mm}} \\dfrac{{FR}}{{sen(\\alpha_3)}} = \\dfrac{{F2}}{{sen(\\alpha_1)}}}}$
+
     ${{\hspace{{4mm}} F2 = \\dfrac{{FR*sen(\\alpha_1)}}{{sen(\\alpha_3)}}}}$
 
     Al analizar la fórmula F2 para despejar F2, se observa que a medida que el denominador disminuye, F2 se convierte en un máximo. Por tanto, es necesario maximizar el denominador, en este caso es 1, esto se logra cuando $\\alpha_3$ es 90°. 
     De lo anterior, se concluye que F2 es mínima cuando F1 y F2 son perpendiculares. Teniendo en cuenta esto $\\alpha_3$ se calcula como:
 
-    ${{\hspace{{4mm}} \\alpha_2 = 180° - \\alpha_3 - \\alpha_1 = {180-a[0]-90:.0f}}}$
+    ${{\hspace{{4mm}} \\alpha_2 = 180° - \\alpha_3 - \\alpha_1 = {180-a[0]-90:.0f}°}}$
 
 
     $\\textbf{{\\small 2. Cálculo de las magnitudes F1 y F2:}}$  
 
-    $\\underline{{Magnitud F1}}$  
+    $\\underline{{Magnitud \\hspace{{2mm}} F1}}$  
 
     ${{\hspace{{4mm}} \\dfrac{{F1}}{{sen(\\alpha_2)}} = \\dfrac{{FR}}{{sen(\\alpha_3)}}}}$
-    ${{\hspace{{4mm}} F1 = \\dfrac{{FR*sen(\\alpha_2)}}{{sen(90)}}}}$
-    ${{\hspace{{4mm}} F1 = {(f[0]*Calculations.sine(180-a[0]-90)):.2f}}}$
 
-    $\\underline{{Magnitud F2}}$  
+    ${{\hspace{{4mm}} F1 = \\dfrac{{FR*sen(\\alpha_2)}}{{sen(90)}}}}$
+
+    ${{\hspace{{4mm}} F1 = {(f[0]*Calculations.sine(180-a[0]-90)):.2f} \\text{{kN}}}}$
+
+    $\\underline{{Magnitud \\hspace{{2mm}} F2}}$  
 
     ${{\hspace{{4mm}} \\dfrac{{FR}}{{sen(\\alpha_3)}} = \\dfrac{{F2}}{{sen(\\alpha_1)}}}}$
+
     ${{\hspace{{4mm}} F2 = \\dfrac{{FR*sen(\\alpha_1)}}{{sen(\\alpha_3)}}}}$
-    ${{\hspace{{4mm}} F2 = {(f[0]*Calculations.sine(a[0])):.2f}}}$
+
+    ${{\hspace{{4mm}} F2 = {(f[0]*Calculations.sine(a[0])):.2f} \\text{{kN}}}}$
     """
 
 def rta_EQ_V2D_D_P5_P1(fx1, fy1, a): #Pregunta Equilibrio de partículas, vectores 2D, nivel de complejidad díficil, pregunta 5, parte 1
@@ -393,35 +409,39 @@ def rta_EQ_V2D_D_P5_P1(fx1, fy1, a): #Pregunta Equilibrio de partículas, vector
     
     $\\textbf{{\\small 1. Cálculo de la magnitud de la fuerza resultante entre F1 y F3:}}$
 
-    ${{\hspace{{4mm}}  |\\overrightarrow{{FR'}}| = \\sqrt{{(F1_x + F3_x)^2+(F1_y + F3_y)^2}}}}$
-    ${{\hspace{{4mm}}  |\\overrightarrow{{FR'}}| = {Calculations.magnitude(fx1,fy1):.2f} }}$
+    ${{\hspace{{4mm}}  |\\overrightarrow{{FR'}}| = \\sqrt{{(F1_x + F3_x)^2+(F1_y + F3_y)^2}}}}$    
+    ${{\hspace{{4mm}}  |\\overrightarrow{{FR'}}| = {Calculations.magnitude(fx1,fy1):.2f} \\text{{ kN}} }}$
 
-    $\\textbf{{\\small 2. Cálculo de la dirección $\\tetha$ de la fuerza resultante entre F1 y F3:}}$
+    $\\textbf{{\\small 2. Cálculo de la dirección de la fuerza resultante entre F1 y F3:}}$
 
-    ${{\hspace{{4mm}} $\\etha$ = tan^{{-1}} \\left(\\dfrac{{F1_y + F3_y}}{{F1_x + F3_x}}\\right)}}$
-    ${{\hspace{{4mm}} $\\tetha$ = {Calculations.define_angle(fx1,fy1):.2f}}}$
+    ${{\hspace{{4mm}} \\theta = tan^{{-1}} \\left(\\dfrac{{F1_y + F3_y}}{{F1_x + F3_x}}\\right)}}$     
+    ${{\hspace{{4mm}} \\theta = {Calculations.define_angle(fx1,fy1):.2f}°}}$
 
     $\\textbf{{\\small 3. Construcción de la regla del triángulo:}}$
 
-    Para el cálculo de lo ángulos internos considere que:
-    ${{\hspace{{4mm}} $\\tetha_1$ = 180-$\\tetha_2$-$\\tetha_3$}}={180-90-(a[0]+Calculations.define_angle(fx1,fy1)):.0f}°$
-    ${{\hspace{{4mm}} $\\tetha_2$ = 90°}} \\text{{. La fuerza resultante mínima es perpendicular a una de las fuerzas de la sumatoria.}}$
-    ${{\hspace{{4mm}} $\\tetha_3$ = \\alpha_1 + \\tetha = {a[0]+Calculations.define_angle(fx1,fy1):.0f}}}°$
+    Para el cálculo de los ángulos internos considere que:     
+    ${{\hspace{{4mm}} \\theta_1 = 180-\\theta_2-\\theta_3}}={180-90-85:.0f}°$
+    ${{\hspace{{4mm}} \\theta_2 = 90°}} \\text{{. La fuerza resultante mínima es perpendicular a una de las fuerzas de la sumatoria.}}$
+    ${{\hspace{{4mm}} \\theta_3 = \\alpha_1 + \\theta = {85:.0f}}}°$
     """
 
 def rta_EQ_V2D_D_P5_P2(fx1, fy1, a): #Pregunta Equilibrio de partículas, vectores 2D, nivel de complejidad díficil, pregunta 5, parte 2
     return f"""
     $\\textbf{{\\small 4. Cálculo de la magnitud de la fuerza resultante entre F1 y F3:}}$
 
-    ${{\hspace{{4mm}} \\dfrac{{FR}}{{sen(\\tetha_3)}} = \\dfrac{{FR'}}{{sen(\\tetha_2)}}}}$
-    ${{\hspace{{4mm}} FR = \\dfrac{{FR'*sen(\\tetha_3)}}{{sen(\\tetha_2)}}}}$
-    ${{\hspace{{4mm}} FR = {Calculations.magnitude(fx1,fy1)*Calculations.sine(a[0]+Calculations.define_angle(fx1,fy1)):.2f}}}$
+    ${{\hspace{{4mm}} \\dfrac{{FR}}{{sen(\\theta_3)}} = \\dfrac{{FR'}}{{sen(\\theta_2)}}}}$
+
+    ${{\hspace{{4mm}} FR = \\dfrac{{FR'*sen(\\theta_3)}}{{sen(\\theta_2)}}}}$
+
+    ${{\hspace{{4mm}} FR = {Calculations.magnitude(fx1,fy1)*Calculations.sine(85):.2f} \\text{{ kN}}}}$
 
     $\\textbf{{\\small 5. Cálculo de la magnitud de F2:}}$
 
-    ${{\hspace{{4mm}} \\dfrac{{F2}}{{sen(\\tetha_1)}} = \\dfrac{{FR'}}{{sen(\\tetha_2)}}}}$
-    ${{\hspace{{4mm}} F2 = \\dfrac{{FR'*sen(\\tetha_1)}}{{sen(\\tetha_2)}}}}$
-    ${{\hspace{{4mm}} F2 = {Calculations.magnitude(fx1,fy1)*Calculations.sine(180-90-(a[0]+Calculations.define_angle(fx1,fy1))):.2f}}}$
+    ${{\hspace{{4mm}} \\dfrac{{F2}}{{sen(\\theta_1)}} = \\dfrac{{FR'}}{{sen(\\theta_2)}}}}$
+
+    ${{\hspace{{4mm}} F2 = \\dfrac{{FR'*sen(\\theta_1)}}{{sen(\\theta_2)}}}}$
+
+    ${{\hspace{{4mm}} F2 = {Calculations.magnitude(fx1,fy1)*Calculations.sine(180-90-85):.2f} \\text{{ kN}}}}$
     """
 
 

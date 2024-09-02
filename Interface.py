@@ -582,9 +582,20 @@ if authenticate_user():
                             st.image(image_paths[21], width=350)
                     if pregunta_no == 3:
                         if version_no == 1:
-                            st.image(image_paths[22], width=250)
-                        elif version_no == 2:
                             st.image(image_paths[23], width=250)
+                        elif version_no == 2:
+                            st.image(image_paths[24], width=250)
+                    if pregunta_no == 4:
+                        st.image(image_paths[22], width=350)
+                    if pregunta_no == 5:
+                        if version_no == 1:
+                            st.image(image_paths[25], width=250)
+                        elif version_no == 2:
+                            st.image(image_paths[26], width=250)
+                        elif version_no == 3:
+                            st.image(image_paths[27], width=250)
+                        elif version_no == 4:
+                            st.image(image_paths[28], width=250)
                             
         return
 
@@ -597,18 +608,25 @@ if authenticate_user():
                 if subtopic == "Vectores 2D":
                     if pregunta_no == 1 or pregunta_no == 2: 
                         if version_no == 1:
-                            st.image(rtas_paths[0], width=600) 
+                            st.image(rtas_paths[0], width=550) 
                         elif version_no == 2:
-                            st.image(rtas_paths[1])
+                            st.image(rtas_paths[1], width=550)
                         elif version_no == 3:
-                            st.image(rtas_paths[2])
+                            st.image(rtas_paths[2], width=550)
                         elif version_no == 4:
-                            st.image(rtas_paths[3])
+                            st.image(rtas_paths[3], width=550)
                     if pregunta_no == 3: 
                         if version_no == 1:
-                            st.image(rtas_paths[4]) 
+                            st.image(rtas_paths[4], width=550) 
                         elif version_no == 2:
-                            st.image(rtas_paths[5])
+                            st.image(rtas_paths[5], width=550)
+                    if pregunta_no == 5: 
+                        if version_no == 1 or version_no == 2:
+                            st.image(rtas_paths[6], width=250) 
+                        elif version_no == 3 or version_no == 4:
+                            st.image(rtas_paths[7], width=250)
+                      
+                    
         return
 
     #Función para que el botón "Ayuda" muestre secuencialmente las ayudas
