@@ -63,7 +63,7 @@ A8 = "¿Qué representan dx y dy?"
 A9 = "Calcule la pendiente como: $m = \\dfrac{{dy}}{{dx}}$. ¿Qué signica el signo?"
 A10 = "Calcule la magnitud de F1 como: $|F1| = \\sqrt{dx^2 + dy^2}$."
 A11 = "$i$ representa la componente paralela al eje X y $j$ a la componente paralela a Y"
-A12 = "Calcule la magnitud como: $\\sqrt{F_x^2 + F_y^2}"
+A12 = "Calcule la magnitud como: $\\sqrt{F_x^2 + F_y^2}$"
 A13 =  """
 El cálculo del ángulo respecto al eje x positivo depende del cuadrante en el que se encuentra el vector:
 

@@ -844,12 +844,12 @@ preguntas = [
 
         Se analiza de acuerdo con lo requerido en el enunciado a que equivale cada sumatoria.
 
-        $\\underline{{Ecuación \\hspace{{1mm}} 1}}$  
+        $\\underline{{Ecuación \\hspace{{2mm}} 1}}$  
 
         ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$  
         ${{\hspace{{4mm}} \\sum{{F_x}} = F1_x + F2_x = -F1*sen(\\alpha_1) + F2*sen(\\alpha_2) = 0}}$
 
-        $\\underline{{Ecuación 2}}$  
+        $\\underline{{Ecuación \\hspace{{2mm}} 2}}$  
 
         ${{\hspace{{4mm}} \\sum{{F_y}} = -F_R }}$  
         ${{\hspace{{4mm}} \\sum{{F_y}} = F1_y + F2_y = -F1*cos(\\alpha_1)-F2*cos(\\alpha_2) = -F_R}}$
@@ -891,13 +891,13 @@ preguntas = [
         topic = EQ,
         subtopic = V2D,
         version = 2,
-        pregunta = lambda f, a, calc, c, d, m: f"Para el descenso del globo aerostático mostrado en la figura se requiere una fuerza vertical de $FR={f[0]:.0f} \\text{{ KN}}$. Determine la magnitud de F1 y el ángulo $\\alpha_1$, si $F2 = {f[1]:.0f} \\text{{ KN}}$ $\\alpha_2 = {a[4]:.0f}°$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Para el descenso del globo aerostático mostrado en la figura se requiere una fuerza vertical de $FR={f[0]:.0f} \\text{{ kN}}$. Determine la magnitud de $F1$ y el ángulo $\\alpha_1$, si $F2 = {f[1]:.0f} \\text{{ kN}}$ y $\\alpha_2 = {a[4]:.0f}°$.",
         no_answers = 2,
-        a1_name = "Magnitud F1 [kN]",
+        a1_name = "Magnitud $F1$ [kN]",
         a2_name = "Ángulo $\\alpha_1$",
         a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round(((f[1]*calc['sin5'])/Calculations.define_angle(((f[1]*calc['cos5'])-f[0]), -f[1]*calc['sin5'])),2),
-        answer2 = lambda f, a, calc, c, d, m: np.round(Calculations.define_angle((f[1]*calc['cos5'])-f[0], -f[1]*calc['sin5']),2),
+        answer1 = lambda f, a, calc, c, d, m: np.round((f[0]-f[1]*calc['cos5'])/Calculations.cosine(Calculations.define_angle(f[0]-(f[1]*calc['cos5']), f[1]*calc['sin5'])),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(Calculations.define_angle(f[0]-(f[1]*calc['cos5']), f[1]*calc['sin5']),2),
         answer3 = lambda f, a, calc, c, d, m: 0,
         ayuda1 = A17,
         ayuda2 = A20,
@@ -909,17 +909,17 @@ preguntas = [
 
         Se analiza de acuerdo con lo requerido en el enunciado a que equivale cada sumatoria.
 
-        $\\underline{{Ecuación 1}}$  
+        $\\underline{{Ecuación \\hspace{{2mm}} 1}}$  
 
         ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$  
         ${{\hspace{{4mm}} \\sum{{F_x}} = F1_x + F2_x = -F1*sen(\\alpha_1) + F2*sen(\\alpha_2) = 0}}$
 
-        $\\underline{{Ecuación 2}}$  
+        $\\underline{{Ecuación \\hspace{{2mm}} 2}}$  
 
         ${{\hspace{{4mm}} \\sum{{F_y}} = F_R }}$  
         ${{\hspace{{4mm}} \\sum{{F_y}} = F1_y + F2_y = -F1*cos(\\alpha_1)-F2*cos(\\alpha_2) = -F_R}}$
         
-        $\\textbf{{\\small 2. Despejar el ángulo \\alpha_1:}}$
+        $\\textbf{{\\small 2. Despeje del ángulo:}}$
 
         Para simplificar el proceso de despeje, se busca formar una tangente. Al hacer esto, se obtiene una expresión para hallar el ángulo desconocido.
 
@@ -930,16 +930,19 @@ preguntas = [
         Se reemplaza F1 en la ecuación 1:
 
         ${{\hspace{{4mm}} F1 = -\\left(\\dfrac{{-F2*cos(\\alpha_2)-FR}}{{cos(\\alpha_1)}}\\right)*sen(\\alpha_1)+F2*sen(\\alpha_2) = 0}}$
+
         ${{\hspace{{4mm}} F1 = -({{-F2*cos(\\alpha_2)+FR}})*tan(\\alpha_1)=-F2*sen(\\alpha_2)}}$
-        ${{\hspace{{4mm}} \\alpha_1 = tan^{-1}\\left(\\dfrac{{-F2*sen(\\alpha_2)}}{{F2*cos(\\alpha_2)+FR}}\\right)}}$
-        ${{\hspace{{4mm}} \\alpha_1 ={Calculations.define_angle((f[1]*calc['cos5'])-f[0], -f[1]*calc['sin5']):.2f}}}$
+
+        ${{\hspace{{4mm}} \\alpha_1 = tan^{-1}\\left(\\dfrac{{-F2*sen(\\alpha_2)}}{{F2*cos(\\alpha_2)+FR}}\\right)}}$    
+
+        ${{\hspace{{4mm}} \\alpha_1 ={Calculations.define_angle(f[0]-(f[1]*calc['cos5']), f[1]*calc['sin5']):.2f} °}}$
 
         $\\textbf{{\\small 3. Despejar la magnitud:}}$
 
         Se puede retomar la ecuación de F1 mostrada en el paso anterior o despejarla de la ecuación 1:
 
-        ${{\hspace{{4mm}} F1 = \\dfrac{{F2*sen(\\alpha_2)+F_R}}{{sen(\\alpha_1)}}}}$
-        ${{\hspace{{4mm}} F1 = {(f[1]*calc['sin5'])/Calculations.define_angle(((f[1]*calc['cos5'])-f[0]), -f[1]*calc['sin5']):.2f}}}$
+        ${{\hspace{{4mm}} F1 = \\dfrac{{F2*sen(\\alpha_2)+F_R}}{{sen(\\alpha_1)}}}}$  
+        ${{\hspace{{4mm}} F1 = {(f[0]-f[1]*calc['cos5'])/Calculations.cosine(Calculations.define_angle(f[0]-(f[1]*calc['cos5']), f[1]*calc['sin5'])):.2f} \\text{{ kN}}}}$
        """,
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",

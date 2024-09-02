@@ -348,16 +348,16 @@ if authenticate_user():
         st.session_state.version_actual = 1
     # Inicializa el método
     if 'way' not in st.session_state:
-        st.session_state.way = "Práctica"
+        st.session_state.way = ""
     # Inicializa el nivel de dificultad
     if 'complexity' not in st.session_state:
-        st.session_state.complexity = "Fácil"
+        st.session_state.complexity = ""
     # Inicializa el tema
     if 'topic' not in st.session_state:
-        st.session_state.topic = "Equilibrio de partículas"
+        st.session_state.topic = ""
     # Inicializa el subtema
     if 'subtopic' not in st.session_state:
-        st.session_state.subtopic = "Vectores 2D"
+        st.session_state.subtopic = ""
 
     #-------------------------------------------Creación de la barra lateral-------------------------------------
     st.sidebar.markdown("<h1 style='font-size:36px;'>StaticGenius</h1>", unsafe_allow_html=True)
@@ -428,8 +428,15 @@ if authenticate_user():
     conceptuales_filtradas = Theory.filtrar_preguntas_teoria(conceptuales, topic_user, subtopic_user)
         
     #Reinicia el número de la pregunta cuando se cambia de tema, subtema o nivel de dificulta
-    if st.session_state.way != way or st.session_state.topic != topic or st.session_state.subtopic != subtopic or st.session_state.complexity != complexity:
-        st.session_state.pregunta_actual = 0  
+   # Verificar si se ha cambiado alguna de las opciones
+    if (st.session_state.way != way or st.session_state.topic != topic or st.session_state.subtopic != subtopic or st.session_state.complexity != complexity):
+        # Actualizar el estado de sesión con las nuevas selecciones
+        st.session_state.way = way
+        st.session_state.topic = topic
+        st.session_state.subtopic = subtopic
+        st.session_state.complexity = complexity 
+        # Reiniciar el número de la pregunta
+        st.session_state.pregunta_actual = 0
 
 
     #=========================Funciones para generar las preguntas============================
@@ -534,45 +541,45 @@ if authenticate_user():
                             st.image(image_paths[7], width=200)
 
                 
-                if difficulty == "Medio":
-                    if subtopic == "Vectores 2D":
-                        if pregunta_no == 1:
-                            if version_no == 1:
-                                st.image(image_paths[8], width=250)
-                            elif version_no == 2:
-                                st.image(image_paths[9], width=250)
-                            elif version_no == 3:
-                                st.image(image_paths[10], width=250)
-                            elif version_no == 4:
-                                st.image(image_paths[11], width=250)
+            if difficulty == "Medio":
+                if subtopic == "Vectores 2D":
+                    if pregunta_no == 1:
+                        if version_no == 1:
+                            st.image(image_paths[8], width=250)
+                        elif version_no == 2:
+                            st.image(image_paths[9], width=250)
+                        elif version_no == 3:
+                            st.image(image_paths[10], width=250)
+                        elif version_no == 4:
+                            st.image(image_paths[11], width=250)
                         
-                        if pregunta_no == 2:
-                            if version_no == 1:
-                                st.image(image_paths[12], width=300)
-                            elif version_no == 2:
-                                st.image(image_paths[13])
-                            elif version_no == 3:
-                                st.image(image_paths[14])
-                            elif version_no == 4:
-                                st.image(image_paths[15])
+                    if pregunta_no == 2:
+                        if version_no == 1:
+                            st.image(image_paths[12], width=300)
+                        elif version_no == 2:
+                            st.image(image_paths[13])
+                        elif version_no == 3:
+                            st.image(image_paths[14])
+                        elif version_no == 4:
+                            st.image(image_paths[15])
                         
-                        if pregunta_no == 3:
-                            st.image(image_paths[16], width=330)
+                    if pregunta_no == 3:
+                        st.image(image_paths[16], width=330)
 
-                        if pregunta_no == 4:
-                            st.image(image_paths[17], width=180)
+                    if pregunta_no == 4:
+                        st.image(image_paths[17], width=180)
                 
             if difficulty == "Díficil":
                 if subtopic == "Vectores 2D":
                     if pregunta_no == 1 or pregunta_no == 2:
                         if version_no == 1:
-                            st.image(image_paths[18])
+                            st.image(image_paths[18], width=350)
                         elif version_no == 2:
-                            st.image(image_paths[19], width=250)
+                            st.image(image_paths[19], width=350)
                         elif version_no == 3:
-                            st.image(image_paths[20], width=250)
+                            st.image(image_paths[20], width=350)
                         elif version_no == 4:
-                            st.image(image_paths[21], width=250)
+                            st.image(image_paths[21], width=350)
                     if pregunta_no == 3:
                         if version_no == 1:
                             st.image(image_paths[22], width=250)
@@ -740,9 +747,9 @@ if authenticate_user():
                 "points_earned": points_earned
                 })
                 
-            if st.session_state.mostrar_respuesta:
-                mostrar_respuesta()
-                st.session_state.mostrar_respuesta = False
+        if st.session_state.mostrar_respuesta:
+            mostrar_respuesta()
+            st.session_state.mostrar_respuesta = False
                             
         # "Ayuda" button - It shows helps 
         if ayuda_clicked:    

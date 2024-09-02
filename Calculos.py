@@ -6,9 +6,18 @@ import pandas as pd
 #=========================Functions to generate the variables============================
 
 #Function to calculate variables associated with forces
-def calcular_fuerzas():
+def calcular_fuerzas(num_fuerzas=16, rango=(10,300)):
+    rangos = (rango[0], rango[1])
+
     fuerzas=[]
-    fuerzas = [rd.randint(10,300) for _ in range(16)]
+    
+    for i in range(num_fuerzas):
+        fuerza = rd.randint(rangos[0], rangos[1])
+        fuerzas.append(fuerza)
+
+    if fuerzas[0] <= fuerzas[1]:
+        fuerzas[0] = rd.randint(rangos[0]+1, rangos[1])
+        fuerzas[1] = rd.randint(rangos[0], fuerzas[0]-1)
     return fuerzas
 
 #Function to calculate variables associated with angles
