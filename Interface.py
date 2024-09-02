@@ -745,6 +745,7 @@ if authenticate_user():
 
     #Function to generate the questions
     def generate_questions():
+        st.write(preguntas_filtradas[st.session_state.pregunta_actual].topic) #Write the statement question
         st.markdown('<h3 style="font-size:18px;">Pregunta</h3>', unsafe_allow_html=True) #Title Pregunta
         st.write(preguntas_filtradas[st.session_state.pregunta_actual].pregunta) #Write the statement question
         filtrar_imagenes_preguntas(preguntas_filtradas[st.session_state.pregunta_actual].no_pregunta, preguntas_filtradas[st.session_state.pregunta_actual].version, preguntas_filtradas[st.session_state.pregunta_actual].subtopic, preguntas_filtradas[st.session_state.pregunta_actual].complexity) #Select the image
