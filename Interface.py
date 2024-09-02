@@ -838,9 +838,26 @@ if authenticate_user():
             nuevo_problema_teoria = 0
         st.session_state.pregunta_actual = nuevo_problema_teoria
 
+    #Función para mostrar la imagen de la pregunta de teoría
+    def filtrar_imagenes_teoria(pregunta_no, subtopic):
+        left_col, center_col, right_col = st.columns(3)
+        with center_col:
+            if subtopic == "Vectores":
+                    if pregunta_no == 2 or pregunta_no == 3: 
+                        st.image(teoria_preguntas[0], width=200)
+                    if pregunta_no == 4: 
+                        st.image(teoria_preguntas[1], width=300)  
+                    if pregunta_no == 7: 
+                        st.image(teoria_preguntas[2], width=250)
+                    if pregunta_no == 8: 
+                        st.image(teoria_preguntas[3], width=250)  
+        return
+
+
     def generate_theory_questions():
         st.markdown('<h3 style="font-size:18px;">Pregunta</h3>', unsafe_allow_html=True) #Title Pregunta
         st.write(conceptuales_filtradas[st.session_state.pregunta_actual].enunciado) #Write the statement question
+        filtrar_imagenes_teoria(conceptuales_filtradas[st.session_state.pregunta_actual].no_pregunta, conceptuales_filtradas[st.session_state.pregunta_actual].subtopic)
         #Answer options
         opcion_seleccionada = opciones_respuesta()
 

@@ -133,3 +133,10 @@ rtas_paths= [
 "./Imagenes/Respuestas/EQ/V2D/R_EQ_V2D_D_5a.png", #[6] 
 "./Imagenes/Respuestas/EQ/V2D/R_EQ_V2D_D_5b.png", #[7] 
 ]
+
+teoria_preguntas =[
+"./Imagenes/Teoria_Preguntas/EQ/V/T_EQ_V_1.png", #[0] 
+"./Imagenes/Teoria_Preguntas/EQ/V/T_EQ_V_2.png", #[1] 
+"./Imagenes/Teoria_Preguntas/EQ/V/T_EQ_V_3.png", #[2] 
+"./Imagenes/Teoria_Preguntas/EQ/V/T_EQ_V_4.png", #[3] 
+]
