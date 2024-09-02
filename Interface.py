@@ -539,6 +539,26 @@ if authenticate_user():
                             st.image(image_paths[6], width=200)
                         elif version_no == 4:
                             st.image(image_paths[7], width=200)
+                if subtopic == "Vectores 3D":
+                    if pregunta_no == 1 or pregunta_no == 2:
+                        if version_no == 1:
+                            st.image(image_paths[29], width=325) 
+                        elif version_no == 2:
+                            st.image(image_paths[30], width=350)
+                        elif version_no == 3:
+                            st.image(image_paths[31], width=350)
+                        elif version_no == 4:
+                            st.image(image_paths[32], width=350)
+                    if pregunta_no == 3 or pregunta_no == 4:
+                        if version_no == 1:
+                            st.image(image_paths[33], width=325) 
+                        elif version_no == 2:
+                            st.image(image_paths[34], width=350)
+                        elif version_no == 3:
+                            st.image(image_paths[35], width=350)
+                        elif version_no == 4:
+                            st.image(image_paths[36], width=350) 
+                        
 
                 
             if difficulty == "Medio":
@@ -551,8 +571,7 @@ if authenticate_user():
                         elif version_no == 3:
                             st.image(image_paths[10], width=250)
                         elif version_no == 4:
-                            st.image(image_paths[11], width=250)
-                        
+                            st.image(image_paths[11], width=250)    
                     if pregunta_no == 2:
                         if version_no == 1:
                             st.image(image_paths[12], width=300)
@@ -561,13 +580,21 @@ if authenticate_user():
                         elif version_no == 3:
                             st.image(image_paths[14])
                         elif version_no == 4:
-                            st.image(image_paths[15])
-                        
+                            st.image(image_paths[15])   
                     if pregunta_no == 3:
                         st.image(image_paths[16], width=330)
-
                     if pregunta_no == 4:
                         st.image(image_paths[17], width=180)
+                if subtopic == "Vectores 3D":
+                    if pregunta_no == 1 or pregunta_no==2 or pregunta_no == 3:
+                        if version_no == 1:
+                            st.image(image_paths[37], width=350)
+                        elif version_no == 2:
+                            st.image(image_paths[38], width=350)
+                        elif version_no == 3:
+                            st.image(image_paths[39], width=350)
+                        elif version_no == 4:
+                            st.image(image_paths[40], width=350) 
                 
             if difficulty == "Díficil":
                 if subtopic == "Vectores 2D":
@@ -624,9 +651,7 @@ if authenticate_user():
                         if version_no == 1 or version_no == 2:
                             st.image(rtas_paths[6], width=250) 
                         elif version_no == 3 or version_no == 4:
-                            st.image(rtas_paths[7], width=250)
-                      
-                    
+                            st.image(rtas_paths[7], width=250)                    
         return
 
     #Función para que el botón "Ayuda" muestre secuencialmente las ayudas

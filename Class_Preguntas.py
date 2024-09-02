@@ -1152,14 +1152,14 @@ preguntas = [
 
         Se recomienda primero proyectar el vector F en el plano XY y luego utilizar la trigonometría para determinar sus componentes.
 
-        ${{\hspace{{4mm}}\\text{{Componente en X (i):}}}} F*sen(\\theta_1)*sen(\\theta_2) = {f[0]*calc['sin1']*calc['sin5']:.2f} {{\\text{{ i N}}}}$
-        ${{\hspace{{4mm}}\\text{{Componente en Y (j):}}}} F*sen(\\theta_1)*cos(\\theta_2) = {f[0]*calc['sin1']*calc['cos5']:.2f} {{\\text{{ j N}}}}$
+        ${{\\text{{Componente en X (i):}}}} F*sen(\\theta_1)*sen(\\theta_2) = [{f[0]*calc['sin1']*calc['sin5']:.2f} {{\\text{{ i] N}}}}$     
+        ${{\\text{{Componente en Y (j):}}}} F*sen(\\theta_1)*cos(\\theta_2) = [{f[0]*calc['sin1']*calc['cos5']:.2f} {{\\text{{ j] N}}}}$       
 
         $\\textbf{{\\small 2. Cálculo de la componente Z (k):}}$
 
         El ángulo $\\theta_1$ permite encontrar directamente la componente en Z.
 
-        ${{\hspace{{4mm}} \\text{{Componente en Z:}}}} F*cos(\\theta_1) = {f[0]*calc['cos1']:.2f} {{\\text{{ k N}}}}$
+        ${{\\text{{Componente en Z:}}}} F*cos(\\theta_1) = [{f[0]*calc['cos1']:.2f} {{\\text{{ k] N}}}}$
 
         De acuerdo con lo anterior el vector cartesiano de $F1$ es $[{f[0]*calc['sin1']*calc['sin5']:.2f} i + {f[0]*calc['sin1']*calc['cos5']:.2f} j + {f[0]*calc['cos1']:.2f} k]\\text{{ N}}$.       
         """,   
@@ -1180,9 +1180,9 @@ preguntas = [
         a1_name = A3X,
         a2_name = A3Y,
         a3_name = A3Z,
-        answer1=lambda f, a, calc, c, d, m: np.round(calc['sin1']*calc['sin5'],2),
-        answer2=lambda f, a, calc, c, d, m: np.round(calc['sin1']*calc['cos5'],2),
-        answer3=lambda f, a, calc, c, d, m: np.round(calc['cos1'],2),
+        answer1=lambda f, a, calc, c, d, m: np.round(Calculations.arccosine(f[0]*calc['sin1']*calc['sin5'],f[0]),2),
+        answer2=lambda f, a, calc, c, d, m: np.round(Calculations.arccosine(f[0]*calc['sin1']*calc['cos5'],f[0]),2),
+        answer3=lambda f, a, calc, c, d, m: np.round(Calculations.arccosine(f[0]*calc['cos1'],f[0]),2),
         ayuda1 = A36,
         ayuda2 = A37 ,
         ayuda3 = A38,
@@ -1191,9 +1191,9 @@ preguntas = [
         
         $\\textbf{{\\small 1. Cálculo de las componentes X, Y y Z:}}$
 
-        ${{\hspace{{4mm}}\\text{{Componente en X:}}}} F*sen(\\theta_1)*sen(\\theta_2) = {f[0]*calc['sin1']*calc['sin5']:.2f}°$
-        ${{\hspace{{4mm}}\\text{{Componente en Y:}}}} F*sen(\\theta_1)*cos(\\theta_2) = {f[0]*calc['sin1']*calc['cos5']:.2f}°$
-        ${{\hspace{{4mm}} \\text{{Componente en Z:}}}} F*cos(\\theta_1) = {f[0]*calc['cos1']:.2f}°$
+        ${{\hspace{{4mm}}\\text{{Componente en X: }}}} F*sen(\\theta_1)*sen(\\theta_2) = {f[0]*calc['sin1']*calc['sin5']:.2f} \\text{{ N}}$     
+        ${{\hspace{{4mm}}\\text{{Componente en Y: }}}} F*sen(\\theta_1)*cos(\\theta_2) = {f[0]*calc['sin1']*calc['cos5']:.2f} \\text{{ N}}$      
+        ${{\hspace{{4mm}} \\text{{Componente en Z: }}}} F*cos(\\theta_1) = {f[0]*calc['cos1']:.2f} \\text{{ N}}$    
 
         $\\textbf{{\\small 2. Cálculo de los ángulos directores coordenados:}}$
 
@@ -1213,7 +1213,7 @@ preguntas = [
         topic = EQ,
         subtopic = V3D,
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud del vector F si $F_x = {f[0]:.0f}\\text{{N}}$, $F_y = {f[1]:.0f}\\text{{N}}$ y $F_z = {f[2]:.0f}\\text{{N}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud del vector $\\overrightarrow{{F}}$ si $F_x = {f[0]:.0f}\\text{{ N}}$, $F_y = {f[1]:.0f}\\text{{ N}}$ y $F_z = {f[2]:.0f}\\text{{ N}}$.",
         no_answers = 1,
         a1_name = "Magnitud [N]]",
         a2_name = "",
@@ -1229,7 +1229,7 @@ preguntas = [
 
         $\\textbf{{\\small 1. Definir el vector cartesiano:}}$
 
-        El vector cartesiano de F es $[{f[0]:.0f}i+{f[1]:.0f}j-{f[2]:.0f}K]N$. Recuerde que las componentes $i, j, k$ se extienden a lo largo de los ejes X, Y y Z, respectivamente. 
+        El vector cartesiano de $\\overrightarrow{{F}}$ es $[{f[0]:.0f}i+{f[1]:.0f}j-{f[2]:.0f}K]N$. Recuerde que las componentes $i, j, k$ se extienden a lo largo de los ejes X, Y y Z, respectivamente. 
         
         $\\textbf{{\\small 2. Cálculo de la magnitud:}}$
 
@@ -1259,7 +1259,7 @@ preguntas = [
         ayuda2 = A39,
         ayuda3 = A40,
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-        Para determinar los ángulos directores del vector, se calcula el arcocoseno de cada una de sus componentes divididas por la magnitud del vector F.
+        Para determinar los ángulos directores del vector, se calcula el arcocoseno de cada una de sus componentes divididas por la magnitud del vector $\\overrightarrow{{F}}$.
         
         $\\textbf{{\\small 1. Cálculo de la magnitud:}}$
 
@@ -1283,7 +1283,7 @@ preguntas = [
         topic = EQ,
         subtopic = V3D,
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Halle las componentes del vector F si su magnitud es {f[0]:.0f} y sus ángulos coordenados son $\\alpha_x = {a[0]:.0f}°$, $\\betha_y = {a[5]:.0f}°$ y $\\gamma_z = {a[4]:.0f}°$  ",
+        pregunta = lambda f, a, calc, c, d, m: f"Halle las componentes del vector $\\overrightarrow{{F}}$ si su magnitud es ${f[0]:.0f} \\text{{ N}}$ y sus ángulos coordenados son $\\alpha_x = {a[0]:.0f}°$, $\\beta_y = {a[5]:.0f}°$ y $\\gamma_z = {a[4]:.0f}°$  ",
         no_answers = 3,
         a1_name = Ci,
         a2_name = Cj,
@@ -1298,11 +1298,12 @@ preguntas = [
         Para calcular las componentes se multiplica la magnitud del vector F con el coseno del ángulo que forma la fuerza con el eje.
         
         $\\textbf{{\\small 1. Cálculo de las componentes:}}$
-        ${{\hspace{{4mm}} \\text{{Componente en X: }} F_x = F*cos(\\alpha_x)={f[0]*Calculations.cosine(a[0]):.2f}°}}$
-        ${{\hspace{{4mm}} \\text{{Componente en Y: }} F_y = F*cos(\\betha_y)={f[0]*Calculations.cosine(a[5]):.2f}°}}$
-        ${{\hspace{{4mm}} \\text{{Componente en Z: }} F_z = F*cos(\\gamma_z)={f[0]*Calculations.cosine(a[4]):.2f}°}}$
+
+        ${{\hspace{{4mm}} \\text{{Componente en X: }} F_x = F*cos(\\alpha_x)={f[0]*Calculations.cosine(a[0]):.2f} \\text{{ N}}}}$
+        ${{\hspace{{4mm}} \\text{{Componente en Y: }} F_y = F*cos(\\beta_y)={f[0]*Calculations.cosine(a[5]):.2f} \\text{{ N}}}}$
+        ${{\hspace{{4mm}} \\text{{Componente en Z: }} F_z = F*cos(\\gamma_z)={f[0]*Calculations.cosine(a[4]):.2f} \\text{{ N}}}}$
         
-        De acuerdo con lo anterior el vector cartesiano de F es:  $\\overrightarrow{{F}} = ({f[0]*Calculations.cosine(a[0])})i + ({f[0]*Calculations.cosine(a[5])})$ j + + ({f[0]*Calculations.cosine(a[4])})$ k.
+        De acuerdo con lo anterior el vector cartesiano de F es:  $\\overrightarrow{{F}} = [({f[0]*Calculations.cosine(a[0]):.2f})i + ({f[0]*Calculations.cosine(a[5]):.2f}) j + ({f[0]*Calculations.cosine(a[4]):.2f}) k] N$.
         """, 
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"", 
@@ -1618,7 +1619,7 @@ preguntas = [
     Questionary(#3_1
         code = 1230031,
         no_pregunta = 3,
-        complexity = M,
+        complexity = D,
         topic = EQ,
         subtopic = V3D,
         version = 1,
@@ -1656,7 +1657,7 @@ preguntas = [
     Questionary(#4_1
         code = 1230041,
         no_pregunta = 4,
-        complexity = M,
+        complexity = D,
         topic = EQ,
         subtopic = V3D,
         version = 1,
@@ -1690,7 +1691,7 @@ preguntas = [
     Questionary(#5_1
         code = 1230051,
         no_pregunta = 5,
-        complexity = M,
+        complexity = D,
         topic = EQ,
         subtopic = V3D,
         version = 1,
