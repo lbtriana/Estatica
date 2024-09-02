@@ -429,14 +429,25 @@ if authenticate_user():
         
     #Reinicia el número de la pregunta cuando se cambia de tema, subtema o nivel de dificulta
    # Verificar si se ha cambiado alguna de las opciones
-    if (st.session_state.way != way or st.session_state.topic != topic or st.session_state.subtopic != subtopic or st.session_state.complexity != complexity):
+    if way == "Práctica":
+        if (st.session_state.way != way or st.session_state.topic != topic or st.session_state.subtopic != subtopic or st.session_state.complexity != complexity):
         # Actualizar el estado de sesión con las nuevas selecciones
-        st.session_state.way = way
-        st.session_state.topic = topic
-        st.session_state.subtopic = subtopic
-        st.session_state.complexity = complexity 
-        # Reiniciar el número de la pregunta
-        st.session_state.pregunta_actual = 0
+            st.session_state.way = way
+            st.session_state.topic = topic
+            st.session_state.subtopic = subtopic
+            st.session_state.complexity = complexity 
+            # Reiniciar el número de la pregunta
+            st.session_state.pregunta_actual = 0
+    elif way == "Teoría":
+        if (st.session_state.way != way or st.session_state.topic != topic or st.session_state.subtopic != subtopic):
+        # Actualizar el estado de sesión con las nuevas selecciones
+            st.session_state.way = way
+            st.session_state.topic = topic
+            st.session_state.subtopic = subtopic
+            # Reiniciar el número de la pregunta
+            st.session_state.pregunta_actual = 0
+
+
 
 
     #=========================Funciones para generar las preguntas============================
