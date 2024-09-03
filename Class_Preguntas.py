@@ -1691,7 +1691,7 @@ preguntas = [
     Questionary(#5_1
         code = 1230051,
         no_pregunta = 5,
-        complexity = D,
+        complexity = M,
         topic = EQ,
         subtopic = V3D,
         version = 1,
@@ -2938,11 +2938,10 @@ preguntas = [
         calculos='operations'
         ),
 
-
-    #=================================================EQUILIBRIO DE PARTÍCULAS===================================================
+    #========================================================MOMENTO============================================================
     #--------------------------------------------     Momento en un punto en 2D      --------------------------------------------
     #-------------------------------------------------       Nivel fácil      ---------------------------------------------------
-    #-------------------------------------------------       Code: 2110011    ---------------------------------------------------
+    #-------------------------------------------------       Code: 21100##    ---------------------------------------------------
 
     Questionary(#1_1
         code = 2110011,
@@ -2967,19 +2966,19 @@ preguntas = [
 
         $\\textbf{{\\small 1. Descomposición de las fuerzas F1 y F2:}}$
 
-        $\\underline{{Fuerza F1 :}}$ La fuerza F1 solo tiene componente en Y y es igual a su magnitud. 
+        $\\underline{{Fuerza \\hspace{{2mm}} F1 :}}$ La fuerza F1 solo tiene componente en Y y es igual a su magnitud. 
 
-        $\\underline{{Fuerza F2 :}}$ 
+        $\\underline{{Fuerza  \\hspace{{2mm}} F2 :}}$ 
 
-        ${{\hspace{{4mm}} F2_x = |\\overrightarrow{{F2}}| \\cdot \\cos(\\alpha_1) \\text{{ = }}}}{f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['cos1']:.2f}{{\\text{{ = }}}}{f[1]*calc['cos1']:.2f}{{ \\text{{ lb}}}}$   
-        ${{\hspace{{4mm}} F2_y = |\\overrightarrow{{F2}}| \\cdot \\sin(\\alpha_1) \\text{{ = }}}}{f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['sin1']:.2f}{{\\text{{ = }}}}{f[1]*calc['sin1']:.2f}{{ \\text{{ lb}}}}$  
+        ${{\hspace{{4mm}} F2_x = |\\overrightarrow{{F2}}| \\cdot \\cos(\\alpha_1) = {f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['cos1']:.2f} = {f[1]*calc['cos1']:.2f}{{ \\text{{ lb}}}}}}$     
+        ${{\hspace{{4mm}} F2_y = |\\overrightarrow{{F2}}| \\cdot \\sin(\\alpha_1) = {f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['sin1']:.2f} = {f[1]*calc['sin1']:.2f}{{ \\text{{ lb}}}}}}$    
 
         $\\textbf{{\\small 2. Obtención del vector posición:}}$ 
 
         En este caso los vectores posición solo tiene componente en X y es igual a la magnitud de las distancias de A al punto de acción de la fuerza. Considerando: 
 
-        ${{\hspace{{4mm}} r1 \\text{{ = }} X_1 \\text{{ = }}}}{d[0]:.0f}{{ \\text{{ ft}}}}$ 
-        ${{\hspace{{4mm}} r2 \\text{{ = }} X_1 + X_2 \\text{{ = }}}}{(d[0]+d[3]):.0f}{{ \\text{{ ft}}}}$ 
+        ${{\hspace{{4mm}} r1 \\text{{ = }} X_1 = {d[0]:.0f}{{ \\text{{ ft}}}}}}$     
+        ${{\hspace{{4mm}} r2 \\text{{ = }} X_1 + X_2 = {(d[0]+d[3]):.0f}{{ \\text{{ ft}}}}}}$     
 
         Ahora solo es necesario operar utilizando la ecuación de momento segun las componentes necesarias y denotando el signo acorde a la $\\textit{{Regla de la mano de derecha}}$: 
 
@@ -2987,21 +2986,21 @@ preguntas = [
 
         Teniendo en cuenta que el vector posición y la fuerza F1 ya son perpendiculares entre sí, y que, por la $\\textit{{Regla de la mano de derecha}}$ el momento es negativo. Podemos evaluar de la siguiente manera: 
 
-        ${{\hspace{{4mm}} M1 \\text{{ = - }} |\\overrightarrow{{r1}}| \\cdot |\\overrightarrow{{F1}}| \\text{{ = - }}}}{d[0]:.0f}{{ \\text{{ ft}}}} \\cdot\\hspace{{1mm}}{f[0]:.0f}{{\\text{{ lb }}}}$  
-        ${{\hspace{{4mm}} M1 \\text{{ = }}}}{-f[0]*d[0]:.2f}{{\\text{{ lb}} \\cdot\\text{{ft}}}}$ 
+        ${{\hspace{{4mm}} M1 = - |\\overrightarrow{{r1}}| \\cdot |\\overrightarrow{{F1}}| = -{d[0]:.0f}{{ \\text{{ ft}}}} \\cdot\\hspace{{1mm}}{f[0]:.0f}{{\\text{{ lb }}}}}}$     
+        ${{\hspace{{4mm}} M1 = {-f[0]*d[0]:.2f}{{\\text{{ lb}} \\cdot\\text{{ ft}}}}}}$     
 
         $\\textbf{{\\small 3.2 Momento de la fuerza F2: }}$ 
 
-        En el momento de la fuerza F2, notamos que la componente de la fuerza que es perpendicular al vector posición es F2_y, y por la $\\textit{{Regla de la mano de derecha}}$ el momento es negativo. Tal que podemos considerar: 
+        En el momento de la fuerza F2, notamos que la componente de la fuerza que es perpendicular al vector posición es $F2_y4, y por la $\\textit{{Regla de la mano de derecha}}$ el momento es negativo. Tal que podemos considerar: 
 
-        ${{\hspace{{4mm}} M2 \\text{{ = }} \\overrightarrow{{r2}} X \\overrightarrow{{F2}} \\text{{ = - }}}} r2 \\cdot\\hspace{{1mm}} F2_y \\text{{ = - }}{(d[3]+d[0]):.0f}{{ \\text{{ ft}}}} \\cdot\\hspace{{1mm}}{f[1]*calc['sin1']:.2f}{{\\text{{ lb}}}}$ 
-        ${{\hspace{{4mm}} M2 \\text{{ = }}}}{-(f[1]*calc['sin1']*(d[0]+d[3])):.2f}{{\\text{{ lb}} \\cdot \\text{{ft}}}}$  
+        ${{\hspace{{4mm}} M2 = \\overrightarrow{{r2}} X \\overrightarrow{{F2}} = -r2 \\cdot\\hspace{{1mm}} F2_y = - {(d[3]+d[0]):.0f}{{ \\text{{ ft}}}} \\cdot\\hspace{{1mm}}{f[1]*calc['sin1']:.2f}{{\\text{{ lb}}}}}}$      
+        ${{\hspace{{4mm}} M2 = {-(f[1]*calc['sin1']*(d[0]+d[3])):.2f}{{\\text{{ lb}} \\cdot \\text{{ft}}}}}}$  
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),
-
+    
     Questionary(#1_2 
 
         code = 2110012, 
@@ -3026,41 +3025,41 @@ preguntas = [
 
         $\\textbf{{\\small 1. Decomposición de las fuerzas F1 y F2:}}$ 
 
-        $\\underline{{Fuerza F1: }}$ La fuerza F1 solo tiene componente en Y y es igual a su magnitud.  
+        $\\underline{{Fuerza  \\hspace{{2mm}} F1: }}$ La fuerza F1 solo tiene componente en Y y es igual a su magnitud.  
 
-        $\\underline{{Fuerza F2: }}$    
+        $\\underline{{Fuerza  \\hspace{{2mm}} F2: }}$    
 
-        ${{\hspace{{4mm}} F2_x = |\\overrightarrow{{F2}}| \\cdot \\frac{3}{5} \\text{{ = }}}}{f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{(3/5):.2f}{{\\text{{ = }}}}{f[1]*(3/5):.2f}{{ \\text{{  lb}}}}$   
-        ${{\hspace{{4mm}} F2_y = |\\overrightarrow{{F2}}| \\cdot \\frac{4}{5} \\text{{ = }}}}{f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{(4/5):.2f}{{\\text{{ = }}}}{f[1]*(4/5):.2f}{{ \\text{{ lb}}}}$  
+        ${{\hspace{{4mm}} F2_x = |\\overrightarrow{{F2}}| \\cdot \\frac{3}{5} = {f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{(3/5):.2f} = {f[1]*(3/5):.2f}{{ \\text{{ lb}}}}}}$         
+        ${{\hspace{{4mm}} F2_y = |\\overrightarrow{{F2}}| \\cdot \\frac{4}{5} = {f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{(4/5):.2f} = {f[1]*(4/5):.2f}{{ \\text{{ lb}}}}}}$         
 
         $\\textbf{{\\small 2. Obtención del vector posición:}}$ 
 
-        $\\underline{{Vector de posición r1: }}$ 
+        $\\underline{{Vector Posición \\hspace{{2mm}} r1: }}$ 
 
-        ${{\hspace{{4mm}} r1_x \\text{{ = }} X_1 \\text{{ = }}}}{d[0]:.0f}{{ \\text{{ ft}}}}$ 
-        ${{\hspace{{4mm}} r1_y \\text{{ = }} x_3 \\text{{ = }}}}{d[6]:.0f}{{ \\text{{ ft}}}}$ 
-
-        $\\underline{{Vector de posición r2: }}$         
+        ${{\hspace{{4mm}} r1_x =  X_1 = {d[0]:.0f}{{ \\text{{ ft}}}}}}$         
+        ${{\hspace{{4mm}} r1_y =  x_3 = {d[6]:.0f}{{ \\text{{ ft}}}}}}$         
+        
+        $\\underline{{Vector Posición \\hspace{{2mm}} r2: }}$         
 
         En este caso el vector posición $\\overrightarrow{{r2}}$ solo tiene componente en X y es igual a la magnitud de la distancia de A al punto de acción de la fuerza. Considerando: 
 
-        ${{\hspace{{4mm}} r2 \\text{{ = }} X_1 + X_2 \\text{{ = }}}}{d[0]+d[3]:.0f}{{ \\text{{ ft}}}}$ 
+        ${{\hspace{{4mm}} r2 = X_1 + X_2 ={d[0]+d[3]:.0f}{{ \\text{{ ft}}}}}}$     
 
         Ahora solo es necesario operar utilizando la ecuación de momento segun las componentes necesarias y denotando el signo acorde a la $\\textit{{Regla de la mano de derecha}}$: 
 
         $\\textbf{{\\small 3.1 Momento de la fuerza F1: }}$ 
 
-        Se tiene en cuenta r1_x al ser perpendicular a la fuerza F1, y por la $\\textit{{Regla de la mano de derecha}}$ el momento es negativo. Tal que podemos evaluar de la siguiente manera: 
+        Se tiene en cuenta $r1_x$ al ser perpendicular a la fuerza F1, y por la $\\textit{{Regla de la mano de derecha}}$ el momento es negativo. Tal que podemos evaluar de la siguiente manera: 
 
-        ${{\hspace{{4mm}} M1 \\text{{ = - }} |\\overrightarrow{{r1}}| \\cdot |\\overrightarrow{{F1}}| \\text{{ = - }}}}{d[0]:.0f}{{ \\text{{ ft}}}} \\cdot\\hspace{{1mm}}{f[0]:.0f}{{\\text{{ lb }}}}$  
-        ${{\hspace{{4mm}} M1 \\text{{ = - }}}}{f[0]*d[0]:.2f}{{\\text{{ lb}} \\cdot\\text{{ft}}}}$ 
+        ${{\hspace{{4mm}} M1 = -|\\overrightarrow{{r1}}| \\cdot |\\overrightarrow{{F1}}| = -{d[0]:.0f}{{ \\text{{ ft}}}} \\cdot\\hspace{{1mm}}{f[0]:.0f}{{\\text{{ lb }}}}}}$       
+        ${{\hspace{{4mm}} M1 = {-f[0]*d[0]:.2f}{{\\text{{ lb}} \\cdot\\text{{ ft}}}}}}$ 
 
         $\\textbf{{\\small 3.2 Momento de la fuerza F2: }}$ 
 
-        En el momento de la fuerza F2, notamos que la componente de la fuerza que es perpendicular al vector posición es F2_y, y por la $\\textit{{Regla de la mano de derecha}}$ el momento es negativo. Tal que podemos considerar: 
+        En el momento de la fuerza F2, notamos que la componente de la fuerza que es perpendicular al vector posición es $F2_y$, y por la $\\textit{{Regla de la mano de derecha}}$ el momento es negativo. Tal que podemos considerar: 
 
-        ${{\hspace{{4mm}} M2 \\text{{ = }} \\overrightarrow{{r2}} X \\overrightarrow{{F2}} \\text{{ = - }}}} r2 \\cdot\\hspace{{1mm}} F2_y \\text{{ = - }}{(d[3]+d[0]):.0f}{{ \\text{{ ft}}}} \\cdot\\hspace{{1mm}}{f[1]*(4/5):.2f}{{\\text{{ lb}}}}$ 
-        ${{\hspace{{4mm}} M2 \\text{{ = - }}}}{(f[1]*(4/5)*(d[0]+d[3])):.2f}{{\\text{{ lb}} \\cdot\\text{{ft}}}}$ 
+        ${{\hspace{{4mm}} M2 = \\overrightarrow{{r2}} X \\overrightarrow{{F2}} = -r2 \\cdot\\hspace{{1mm}} F2_y = -{(d[3]+d[0]):.0f}{{ \\text{{ ft}}}} \\cdot\\hspace{{1mm}}{f[1]*(4/5):.2f}{{\\text{{ lb}}}}}}$     
+        ${{\hspace{{4mm}} M2 ={-(f[1]*(4/5)*(d[0]+d[3])):.2f}{{\\text{{ lb}} \\cdot\\text{{ ft}}}}}}$ 
         """,    
         respuesta_P2 = lambda f, a, calc, c, d, m: f"", 
         respuesta_P3 = lambda f, a, calc, c, d, m: f"", 
@@ -3091,49 +3090,49 @@ preguntas = [
 
         $\\textbf{{\\small 1. Decomposición de las fuerzas F1 y F2:}}$ 
 
-        $\\underline{{Fuerza F1: }}$ La fuerza F1 solo tiene componente en X y es igual a su magnitud.  
+        $\\underline{{Fuerza \\hspace{{2mm}} F1: }}$ La fuerza F1 solo tiene componente en X y es igual a su magnitud.  
 
-        $\\underline{{Fuerza F2: }}$    
+        $\\underline{{Fuerza \\hspace{{2mm}} F2: }}$    
 
-        ${{\hspace{{4mm}} F2_x = |\\overrightarrow{{F2}}| \\cdot \\cos(\\alpha_1) \\text{{ = }}}}{f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['cos1']:.2f}{{\\text{{ = }}}}{f[1]*calc['cos1']:.2f}{{ \\text{{ lb}}}}$   
-        ${{\hspace{{4mm}} F2_y = |\\overrightarrow{{F2}}| \\cdot \\sin(\\alpha_1) \\text{{ = }}}}{f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['sin1']:.2f}{{\\text{{ = }}}}{f[1]*calc['sin1']:.2f}{{ \\text{{ lb}}}}$  
+        ${{\hspace{{4mm}} F2_x = |\\overrightarrow{{F2}}| \\cdot \\cos(\\alpha_1) = {f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['cos1']:.2f} = {f[1]*calc['cos1']:.2f}{{ \\text{{ lb}}}}}}$      
+        ${{\hspace{{4mm}} F2_y = |\\overrightarrow{{F2}}| \\cdot \\sin(\\alpha_1) = {f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['sin1']:.2f} = {f[1]*calc['sin1']:.2f}{{ \\text{{ lb}}}}}}$      
 
         $\\textbf{{\\small 2. Obtención del vector posición:}}$ 
 
-        $\\underline{{Vector de posición r1: }}$ 
+        $\\underline{{Vector Posición \\hspace{{2mm}} r1: }}$ 
 
-        ${{\hspace{{4mm}} r1_x \\text{{ = }} X_1 + X_2 \\text{{ = }}}}{d[0]+d[3]:.0f}{{ \\text{{ ft}}}}$ 
-        ${{\hspace{{4mm}} r1_y \\text{{ = }} x_3 \\text{{ = }}}}{d[6]:.0f}{{ \\text{{ ft}}}}$ 
+        ${{\hspace{{4mm}} r1_x = X_1 + X_2 = {d[0]+d[3]:.0f}{{ \\text{{ ft}}}}}}$     
+        ${{\hspace{{4mm}} r1_y = x_3 = {d[6]:.0f}{{ \\text{{ ft}}}}}}$     
 
-        $\\underline{{Vector de posición r2: }}$         
+        $\\underline{{Vector Posición \\hspace{{2mm}} r2: }}$         
 
         En este caso el vector posición $\\overrightarrow{{r2}}$ solo tiene componente en X y es igual a la magnitud de la distancia de A al punto de acción de la fuerza. Considerando:         
 
-        ${{\hspace{{4mm}} r2 \\text{{ = }} X_1 \\text{{ = }}}}{d[0]:.0f}{{ \\text{{ ft}}}}$       
+        ${{\hspace{{4mm}} r2 = X_1 = {d[0]:.0f}{{ \\text{{ ft}}}}}}$       
 
         Ahora solo es necesario operar utilizando la ecuación de momento segun las componentes necesarias y denotando el signo acorde a la $\\textit{{Regla de la mano de derecha}}$: 
 
         $\\textbf{{\\small 3.1 Momento de la fuerza F1: }}$ 
 
-        Para la obtención de este momento vamos a tener solo en consideración r1_y, la cual es la componente perpendicular de la posición a la fuerza F1. Así mimsmo, por la $\\textit{{Regla de la mano de derecha}}$ el momento es positivo. Tal que podemos evaluar de la siguiente manera: 
+        Para la obtención de este momento vamos a tener solo en consideración $r1_y$, la cual es la componente perpendicular de la posición a la fuerza F1. Así mimsmo, por la $\\textit{{Regla de la mano de derecha}}$ el momento es positivo. Tal que podemos evaluar de la siguiente manera: 
 
-        ${{\hspace{{4mm}} M1 \\text{{ = }} \\overrightarrow{{r1}} X \\overrightarrow{{F1}} \\text{{ = }}}}{d[6]:.0f}{{ \\text{{ ft}}}} \\cdot\\hspace{{1mm}}{f[0]:.0f}{{\\text{{ lb }}}}$  
-        ${{\hspace{{4mm}} M1 \\text{{ = }}}}{f[0]*d[6]:.2f}{{\\text{{ lb}} \\cdot\\text{{ft}}}}$ 
+        ${{\hspace{{4mm}} M1 = \\overrightarrow{{r1}} X \\overrightarrow{{F1}} = {d[6]:.0f}{{ \\text{{ ft}}}} \\cdot\\hspace{{1mm}}{f[0]:.0f}{{\\text{{ lb.}}}}}}$       
+        ${{\hspace{{4mm}} M1 = {f[0]*d[6]:.2f}{{\\text{{ lb}} \\cdot\\text{{ ft.}}}}}}$       
 
         $\\textbf{{\\small 3.2 Momento de la fuerza F2: }}$ 
 
-        En el momento de la fuerza F2, notamos que la componente de la fuerza que es perpendicular al vector posición r2 es F2_y, y por la $\\textit{{Regla de la mano de derecha}}$ el momento es negativo. Tal que podemos considerar: 
+        En el momento de la fuerza F2, notamos que la componente de la fuerza que es perpendicular al vector posición r2 es $F2_y$, y por la $\\textit{{Regla de la mano de derecha}}$ el momento es negativo. Tal que podemos considerar: 
 
-        ${{\hspace{{4mm}} M2 \\text{{ = }} \\overrightarrow{{r2}} X \\overrightarrow{{F2}} \\text{{ = - }}}} r2 \\cdot\\hspace{{1mm}} F2_y \\text{{ = - }}{(d[0]):.0f}{{ \\text{{ ft}}}} \\cdot\\hspace{{1mm}}{f[1]*calc['sin1']:.2f}{{\\text{{ lb}}}}$ 
-        ${{\hspace{{4mm}} M2 \\text{{ = - }}}}{(f[1]*calc['sin1']*(d[0])):.2f}{{\\text{{ lb}} \\cdot\\text{{ft}}}}$ 
+        ${{\hspace{{4mm}} M2 = \\overrightarrow{{r2}} X \\overrightarrow{{F2}} =  -r2 \\cdot\\hspace{{1mm}} F2_y = {-(d[0]):.0f}{{ \\text{{ ft}}}} \\cdot\\hspace{{1mm}}{f[1]*calc['sin1']:.2f}{{\\text{{ lb}}}}}}$       
+        ${{\hspace{{4mm}} M2 = {-(f[1]*calc['sin1']*(d[0])):.2f}{{\\text{{ lb}} \\cdot\\text{{ ft}}}}}}$   
         """,    
         respuesta_P2 = lambda f, a, calc, c, d, m: f"", 
         respuesta_P3 = lambda f, a, calc, c, d, m: f"", 
         calculos='operations' 
         ),
-    
+
     Questionary(#1_4 
-        code = 2110014, 
+        code = 12110014, 
         no_pregunta = 1, 
         complexity = F, 
         topic = MO, 
@@ -3155,62 +3154,62 @@ preguntas = [
 
         $\\textbf{{\\small 1. Decomposición de las fuerzas F1 y F2:}}$ 
 
-        $\\underline{{Fuerza F1: }}$ La fuerza F1 solo tiene componente en Y y es igual a su magnitud.  
+        $\\underline{{Fuerza \\hspace{{2mm}} F1: }}$ La fuerza F1 solo tiene componente en Y y es igual a su magnitud.  
 
-        $\\underline{{Fuerza F2: }}$    
+        $\\underline{{Fuerza \\hspace{{2mm}} F2: }}$    
 
-        ${{\hspace{{4mm}} F2_x = |\\overrightarrow{{F2}}| \\cdot \\sin(\\alpha_1) \\text{{ = }}}}{f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['sin1']:.2f}{{\\text{{ = }}}}{f[1]*calc['sin1']:.2f}{{ \\text{{ lb}}}}$  
-        ${{\hspace{{4mm}} F2_y = |\\overrightarrow{{F2}}| \\cdot \\cos(\\alpha_1) \\text{{ = }}}}{f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['cos1']:.2f}{{\\text{{ = }}}}{f[1]*calc['cos1']:.2f}{{ \\text{{ lb}}}}$   
+        ${{\hspace{{4mm}} F2_x = |\\overrightarrow{{F2}}| \\cdot \\sin(\\alpha_1) = {f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['sin1']:.2f} = {f[1]*calc['sin1']:.2f}{{ \\text{{ lb}}}}}}$        
+        ${{\hspace{{4mm}} F2_y = |\\overrightarrow{{F2}}| \\cdot \\cos(\\alpha_1) = {f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['cos1']:.2f} = {f[1]*calc['cos1']:.2f}{{ \\text{{ lb}}}}}}$       
 
         $\\textbf{{\\small 2. Obtención del vector posición:}}$          
 
-        $\\underline{{Vector de posición r1: }}$                 
+        $\\underline{{Vector Posición \\hspace{{2mm}} r1: }}$                 
 
-        ${{\hspace{{4mm}} r1_x \\text{{ = }} X_2 \\text{{ = }}}}{d[3]:.0f}{{ \\text{{ ft}}}}$ 
-        ${{\hspace{{4mm}} r1_y \\text{{ = }} x_1 \\text{{ = }}}}{d[0]:.0f}{{ \\text{{ ft}}}}$ 
+        ${{\hspace{{4mm}} r1_x = X_2 = {d[3]:.0f}{{ \\text{{ ft}}}}}}$      
+        ${{\hspace{{4mm}} r1_y = x_1 = {d[0]:.0f}{{ \\text{{ ft}}}}}}$      
 
-        $\\underline{{Vector de posición r2: }}$            
+        $\\underline{{Vector Posición \\hspace{{2mm}} r2: }}$            
 
-        ${{\hspace{{4mm}} r2_x \\text{{ = }} X_2 \\text{{ = }}}}{d[3]:.0f}{{ \\text{{ ft}}}}$ 
-        ${{\hspace{{4mm}} r2_y \\text{{ = }} x_1 + X_3 \\text{{ = }}}}{d[0] + d[6]:.0f}{{ \\text{{ ft}}}}$ 
+        ${{\hspace{{4mm}} r2_x = X_2 = {d[3]:.0f}{{ \\text{{ ft}}}}}}$      
+        ${{\hspace{{4mm}} r2_y = x_1 + X_3 = {d[0] + d[6]:.0f}{{ \\text{{ ft}}}}}}$      
 
-        Ahora solo es necesario operar utilizando la ecuación de momento segun las componentes necesarias y denotando el signo acorde a la $\\textit{{Regla de la mano de derecha}}$: 
+        Ahora solo es necesario operar utilizando la ecuación de momento según las componentes necesarias y denotando el signo acorde a la $\\textit{{Regla de la mano de derecha}}$: 
 
         $\\textbf{{\\small 3.1 Momento de la fuerza F1: }}$ 
 
-        Para la obtención de este momento vamos a tener solo en consideración r1_x, la cual es la componente perpendicular de la posición a la fuerza F1. Así mimsmo, por la $\\textit{{Regla de la mano de derecha}}$ el momento es positivo. Tal que podemos evaluar de la siguiente manera: 
+        Para la obtención de este momento vamos a tener solo en consideración $r1_x$, la cual es la componente perpendicular de la posición a la fuerza F1. Así mimsmo, por la $\\textit{{Regla de la mano de derecha}}$ el momento es positivo. Tal que podemos evaluar de la siguiente manera: 
 
-        ${{\hspace{{4mm}} M1 \\text{{ = }} \\overrightarrow{{r1}} X \\overrightarrow{{F1}} \\text{{ = }}}}{d[6]:.0f}{{ \\text{{ ft}}}} \\cdot\\hspace{{1mm}}{f[0]:.0f}{{\\text{{ lb }}}}$  
-        ${{\hspace{{4mm}} M1 \\text{{ = }}}}{f[0]*d[3]:.2f}{{\\text{{ lb}} \\cdot\\text{{ft}}}}$ 
+        ${{\hspace{{4mm}} M1 = \\overrightarrow{{r1}} X \\overrightarrow{{F1}} = {d[6]:.0f}{{ \\text{{ ft}}}} \\cdot\\hspace{{1mm}}{f[0]:.0f}{{\\text{{ lb }}}}}}$      
+        ${{\hspace{{4mm}} M1 = {f[0]*d[3]:.2f}{{\\text{{ lb}} \\cdot\\text{{ft}}}}}}$      
 
         $\\textbf{{\\small 3.2 Momento de la fuerza F2: }}$ 
 
         Para calcular el momento de la fuerza F2, vemos que podemos hacer la suma del momento en D que producen sus compenentes. Tal que: 
 
-        $\\underline{{Momento de F2_x: }}$        
+        $\\underline{{Momento \\hspace{{2mm}} F2_x: }}$        
 
-        Con la componente en X de F2 es apreciable que la componente perpendicular del vector posicion seria r2_y. Además, notamos que por $\\textit{{Regla de la mano de derecha}}$ este momento es negativo:          
+        Con la componente en X de F2 es apreciable que la componente perpendicular del vector posicion seria $r2_y$. Además, notamos que por $\\textit{{Regla de la mano de derecha}}$ este momento es negativo:          
 
-        ${{\hspace{{4mm}} M2_1 \\text{{ = - }}}} r2_y \\cdot\\hspace{{1mm}} F2_x \\text{{ = - }}{(d[0]+d[6]):.0f}{{ \\text{{ ft}}}} \\cdot\\hspace{{1mm}}{f[1]*calc['sin1']:.2f}{{\\text{{ lb}}}}$ 
-        ${{\hspace{{4mm}} M2_1 \\text{{ = }}}}{-(f[1]*calc['sin1']*(d[0]+d[6])):.2f}{{\\text{{ lb}} \\cdot\\text{{ ft}}}}$        
+        ${{\hspace{{4mm}} M2_1 = -r2_y \\cdot\\hspace{{1mm}} F2_x = - {(d[0]+d[6]):.0f}{{ \\text{{ ft}}}} \\cdot\\hspace{{1mm}}{f[1]*calc['sin1']:.2f}{{\\text{{ lb}}}}}}$ 
+        ${{\hspace{{4mm}} M2_1 = {-(f[1]*calc['sin1']*(d[0]+d[6])):.2f}{{\\text{{ lb}} \\cdot\\text{{ ft}}}}}}$        
 
-        $\\underline{{Momento de F2_y: }}$ 
+        $\\underline{{Momento \\hspace{{2mm}} F2_y: }}$ 
 
-        Con la componente en Y de F2 es apreciable que la componente perpendicular del vector posicion seria r2_x. Además, notamos que por $\\textit{{Regla de la mano de derecha}}$ este momento tambíen es negativo: 
+        Con la componente en Y de F2 es apreciable que la componente perpendicular del vector posicion seria $r2_x$. Además, notamos que por $\\textit{{Regla de la mano de derecha}}$ este momento tambíen es negativo: 
 
-        ${{\hspace{{4mm}} M2_2 \\text{{ = - }}}} r2_x \\cdot\\hspace{{1mm}} F2_y \\text{{ = - }}{(d[3]):.0f}{{ \\text{{ ft}}}} \\cdot\\hspace{{1mm}}{f[1]*calc['cos1']:.2f}{{\\text{{ lb}}}}$ 
-        ${{\hspace{{4mm}} M2_2 \\text{{ = }}}}{-(f[1]*calc['cos1']*(d[3])):.2f}{{\\text{{ lb}} \\cdot\\text{{ ft}}}}$ 
+        ${{\hspace{{4mm}} M2_2 = -r2_x \\cdot\\hspace{{1mm}} F2_y = -{(d[3]):.0f}{{ \\text{{ ft}}}} \\cdot\\hspace{{1mm}}{f[1]*calc['cos1']:.2f}{{\\text{{ lb}}}}}}$       
+        ${{\hspace{{4mm}} M2_2 = {-(f[1]*calc['cos1']*(d[3])):.2f}{{\\text{{ lb}} \\cdot\\text{{ ft}}}}}}$       
 
         Finalmente el momento en el punto D de la fuerza F2 sería: 
 
-        ${{\hspace{{4mm}} M2 = M2_1 + M2_2 \\text{{ = }}}}{(-f[1]*calc['sin1']*(d[0]+d[6])):.2f}{{\\text{{ lb}} \\cdot\\text{{ ft }}}}{(-f[1]*calc['cos1']*(d[3])):.2f}{{\\text{{ lb}} \\cdot\\text{{ ft}}}}$ 
-        ${{\hspace{{4mm}} M2 \\text{{ = }}}}{-((f[1]*calc['sin1']*(d[0]+d[6]))+(f[1]*calc['cos1']*d[3])):.2f}{{\\text{{ lb}} \\cdot\\text{{ ft}}}}$ 
+        ${{\hspace{{4mm}} M2 = M2_1 + M2_2 = {(-f[1]*calc['sin1']*(d[0]+d[6])):.2f}{{\\text{{ lb}} \\cdot\\text{{ ft }}}}{(-f[1]*calc['cos1']*(d[3])):.2f}{{\\text{{ lb}} \\cdot\\text{{ ft}}}}}}$       
+        ${{\hspace{{4mm}} M2 = {-((f[1]*calc['sin1']*(d[0]+d[6]))+(f[1]*calc['cos1']*d[3])):.2f}{{\\text{{ lb}} \\cdot\\text{{ ft}}}}}}$       
         """,    
         respuesta_P2 = lambda f, a, calc, c, d, m: f"", 
         respuesta_P3 = lambda f, a, calc, c, d, m: f"", 
         calculos='operations' 
         ), 
-    
+
     Questionary(#2_1
         code = 2110021,
         no_pregunta = 2,
@@ -3218,7 +3217,7 @@ preguntas = [
         topic = MO,
         subtopic = M2D,
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de las fuerzas F1 y F2, si en el punto D: El momento de F1 debe ser de ${m[0]:.2f}{{\\text{{ ft}} \\cdot\\text{{ lb}}}}$, y el momento de F2 debe ser de ${-m[1]:.2f}{{\\text{{ ft}} \\cdot\\text{{ lb}}}}$. Considere que $\\alpha_1 = {a[0]:.0f}°$, $X_1 = {d[0]:.0f} \\text{{ ft}}$,  $X_2 = {d[3]:.0f}  \\text{{ ft}}$ y $X_3 = {d[6]:.0f} \\text{{ ft}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de las fuerzas F1 y F2, si en el punto D: El momento de F1 debe ser de ${m[0]:.2f}{{\\text{{ lb}} \\cdot\\text{{ ft}}}}$, y el momento de F2 debe ser de ${-m[1]:.2f}{{\\text{{ lb}} \\cdot\\text{{ ft}}}}$. Considere que $\\alpha_1 = {a[0]:.0f}°$, $X_1 = {d[0]:.0f} \\text{{ ft}}$,  $X_2 = {d[3]:.0f}  \\text{{ ft}}$ y $X_3 = {d[6]:.0f} \\text{{ ft}}$.",
         no_answers = 2,
         a1_name = "Fuerza F1 [lb]",
         a2_name = "Fuerza F2 [lb]",
@@ -3236,44 +3235,44 @@ preguntas = [
         
         En este caso los vectores posición solo tiene componente en X y es igual a la magnitud de las distancias de D al punto de acción de la fuerza. Considerando: 
 
-        ${{\hspace{{4mm}} r1 \\text{{ = }} X_2 + X_3 \\text{{ = }}}}{d[3] + d[6]:.0f}{{\\text{{ ft}}}}$    
-        ${{\hspace{{4mm}} r2 \\text{{ = }} X_3\\text{{ = }}}}{(d[6]):.0f}{{\\text{{ ft}}}}$
+        ${{\hspace{{4mm}} r1 = X_2 + X_3 = {d[3] + d[6]:.0f}{{\\text{{ ft}}}}}}$       
+        ${{\hspace{{4mm}} r2 = X_3 = {(d[6]):.0f}{{\\text{{ ft}}}}}}$      
         
         $\\textbf{{\\small 2. Descomposición de las fuerzas F1 y F2: }}$
        
-        $\\underline{{Fuerza F1 :}}$ La fuerza F1 solo tiene componente en Y y es igual a su magnitud. 
+        $\\underline{{Fuerza \\hspace{{2mm}} F1 :}}$ La fuerza F1 solo tiene componente en Y y es igual a su magnitud. 
 
-        $\\underline{{Fuerza F2 :}}$ 
+        $\\underline{{Fuerza \\hspace{{2mm}} F2 :}}$ 
 
-        ${{\hspace{{4mm}} F2_x = |\\overrightarrow{{F2}}| \\cdot \\cos(\\alpha_1)}}$   
-        ${{\hspace{{4mm}} F2_y = |\\overrightarrow{{F2}}| \\cdot \\sin(\\alpha_1)}}$  
+        ${{\hspace{{4mm}} F2_x = |\\overrightarrow{{F2}}| \\cdot \\cos(\\alpha_1)}}$       
+        ${{\hspace{{4mm}} F2_y = |\\overrightarrow{{F2}}| \\cdot \\sin(\\alpha_1)}}$       
         
         $\\textbf{{\\small 3.1 Obtención de fuerza F1: }}$ 
         
         Definimos la ecuación de momento en D de la fuerza F1. También es necesario considerar que por la $\\textit{{Regla de la mano de derecha}}$ el momento es positivo, lo cual va acorde con el dato que nos dieron.
         
-        ${{\hspace{{4mm}} M1_D  \\text{{ = }} \\overrightarrow{{r1}} X \\overrightarrow{{F1}}}}{{\\text{{ = }} |\\overrightarrow{{r1}}| \\cdot |\\overrightarrow{{F1}}|}}$
-        ${{\hspace{{4mm}} F1 \\text{{ = }} \\frac{{M1_D}}{{r}}}}$
-        ${{\hspace{{4mm}} F1 \\text{{ = }} ( \\frac{{{m[0]:.0f}{{\\text{{ ft}} \\cdot\\text{{ lb}}}}}}{{{d[3]+d[6]:.0f}{{\\text{{ ft}}}}}} ) }}$
-        ${{\hspace{{4mm}} |F1|  \\text{{ = }}{(m[0])/(d[3]+d[6]):.2f}{{\\text{{ lb}}}}}}$
+        ${{\hspace{{4mm}} M1_D  = \\overrightarrow{{r1}} X \\overrightarrow{{F1}} = |\\overrightarrow{{r1}}| \\cdot |\\overrightarrow{{F1}}|}}$     
+        ${{\hspace{{4mm}} F1 = \\dfrac{{M1_D}}{{r}}}}$      
+        ${{\hspace{{4mm}} F1 = ( \\dfrac{{{m[0]:.0f}{{\\text{{ lb}} \\cdot\\text{{ ft}}}}}}{{{d[3]+d[6]:.0f}{{\\text{{ ft}}}}}} ) }}$      
+        ${{\hspace{{4mm}} F1  = {(m[0])/(d[3]+d[6]):.2f}{{\\text{{ lb}}}}}}$      
         
-        $\\textbf{{\\small . Obtención de fuerza F2: }}$ 
+        $\\textbf{{\\small 3.2 Obtención de fuerza F2: }}$ 
         
-        Igual que con F1, definimos la ecuación de momento en D de la fuerza F2. También es necesario considerar que por la $\\textit{{Regla de la mano de derecha}}$ el momento es positivo, lo cual va acorde con el dato que nos dieron.
+        Igual que con F1, definimos la ecuación de momento en D de la fuerza F2. También es necesario considerar que por la $\\textit{{Regla de la mano de derecha}}$ el momento es negativo, lo cual va acorde con el dato que nos dieron.
         
-        ${{\hspace{{4mm}} M2_D  \\text{{ = }} \\overrightarrow{{r2}} X \\overrightarrow{{F2}}}}{{\\text{{ = }} |\\overrightarrow{{r2}}| \\cdot |\\overrightarrow{{F2}}| \\cdot \\sin(\\alpha_1)}}$
-        ${{\hspace{{4mm}} F2 \\text{{ = }} \\frac{{M2_D}}{{r2 \\cdot \\sin(\\alpha_1)}}}}$
-        ${{\hspace{{4mm}} F2 \\text{{ = -}} ( \\frac{{{-m[1]:.0f}{{\\text{{ ft}} \\cdot\\text{{ lb}}}}}}{{{d[6]*calc['sin1']:.2f}{{\\text{{ ft}}}}}} ) }}$
-        ${{\hspace{{4mm}} F2  \\text{{ = }}{(m[1])/(d[6]*calc['sin1']):.2f}{{\\text{{ lb}}}}}}$
+        ${{\hspace{{4mm}} M2_D  = \\overrightarrow{{r2}} X \\overrightarrow{{F2}} = |\\overrightarrow{{r2}}| \\cdot |\\overrightarrow{{F2}}| \\cdot \\sin(\\alpha_1)}}$      
+        ${{\hspace{{4mm}} F2 = \\dfrac{{M2_D}}{{r2 \\cdot \\sin(\\alpha_1)}}}}$      
+        ${{\hspace{{4mm}} F2 = -( \\dfrac{{{-m[1]:.0f}{{\\text{{ lb}} \\cdot\\text{{ ft}}}}}}{{{d[6]*calc['sin1']:.2f}{{\\text{{ ft}}}}}} ) }}$      
+        ${{\hspace{{4mm}} F2  = {(m[1])/(d[6]*calc['sin1']):.2f}{{\\text{{ lb}}}}}}$      
         
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),
-  
+
     Questionary(#3_1
-        code = 2110031,
+        code = 1610031,
         no_pregunta = 3,
         complexity = F,
         topic = MO,
@@ -3284,9 +3283,9 @@ preguntas = [
         a1_name = "Momento en B de la fuerza F1 [$lb \\cdot ft$]",
         a2_name = "Momento en B de la fuerza F2 [$lb \\cdot ft$]",
         a3_name = "Momento en C de la fuerza F2 [$lb \\cdot ft$]",
-        answer1 = lambda f, a, calc, c, d, m: np.round(-f[0]*d[0],2),
-        answer2 = lambda f, a, calc, c, d, m: np.round(-f[1]*calc['sin1']*(d[0]+d[3]),2),
-        answer3 = lambda f, a, calc, c, d, m: 0,
+        answer1 = lambda f, a, calc, c, d, m: np.round(-f[0]*d[3],2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(-f[1]*calc['cos1']*(d[0]),2),
+        answer3 = lambda f, a, calc, c, d, m: np.round(-(f[1]*calc['cos1']*(d[0]+d[3])),2),
         ayuda1 = "El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. El vector posición $\\overrightarrow{{r}} se calcula desde el punto en el que se evalúa el momento a la línea de acción de la fuerza.",
         ayuda2 = "Para calcular el momento en el punto de evaluación, primero obtenga las componentes del vector fuerza $\\overrightarrow{{F}}$ y el vector posición $\\overrightarrow{{r}}$. Luego, identifique la componente de la fuerza que es perpendicular al vector de posición. El momento se calcula como la multiplicación de esta componente perpendicular de la fuerza por la distancia desde el punto de evaluación.",      
         ayuda3 = "Recuerde utilizar la regla de la mano derecha para definir el signo del momento.",
@@ -3295,20 +3294,20 @@ preguntas = [
 
         $\\textbf{{\\small 1. Descomposición de las fuerzas F1 y F2:}}$
 
-        $\\underline{{Fuerza F1 :}}$ La fuerza F1 solo tiene componente en Y y es igual a su magnitud. 
+        $\\underline{{Fuerza \\hspace{{2mm}} F1 :}}$ La fuerza F1 solo tiene componente en Y y es igual a su magnitud. 
 
-        $\\underline{{Fuerza F2 :}}$ 
+        $\\underline{{Fuerza \\hspace{{2mm}} F2 :}}$ 
         
-        ${{\hspace{{4mm}} F2_x = |\\overrightarrow{{F2}}| \\cdot \\sin(\\alpha_1) \\text{{ = }}}}{f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['sin1']:.2f}{{\\text{{ = }}}}{f[1]*calc['sin1']:.2f}{{ \\text{{ lb}}}}$  
-        ${{\hspace{{4mm}} F2_y = |\\overrightarrow{{F2}}| \\cdot \\cos(\\alpha_1) \\text{{ = }}}}{f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['cos1']:.2f}{{\\text{{ = }}}}{f[1]*calc['cos1']:.2f}{{ \\text{{ lb}}}}$   
+        ${{\hspace{{4mm}} F2_x = |\\overrightarrow{{F2}}| \\cdot \\sin(\\alpha_1) = {f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['sin1']:.2f} = {f[1]*calc['sin1']:.2f}{{ \\text{{ lb}}}}}}$       
+        ${{\hspace{{4mm}} F2_y = |\\overrightarrow{{F2}}| \\cdot \\cos(\\alpha_1) = {f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['cos1']:.2f} = {f[1]*calc['cos1']:.2f}{{ \\text{{ lb}}}}}}$          
         
         $\\textbf{{\\small 2. Obtención del vector posición:}}$ 
 
         En este caso los vectores posición solo tiene componente en X y es igual a la magnitud de las distancias desde el punto de consideración del momento al punto de acción de la fuerza. Considerando: 
 
-        ${{\hspace{{4mm}} r1_B \\text{{ = }} X_2 \\text{{ = }}}}{d[3]:.0f}{{ \\text{{ ft}}}}$ 
-        ${{\hspace{{4mm}} r2_B \\text{{ = }} X_1 \\text{{ = }}}}{d[0]:.0f}{{ \\text{{ ft}}}}$
-        ${{\hspace{{4mm}} r2_C \\text{{ = }} X_1 + X_2 \\text{{ = }}}}{d[0] +d[3]:.0f}{{ \\text{{ ft}}}}$ 
+        ${{\hspace{{4mm}} r1_B = X_2 = {d[3]:.0f}{{ \\text{{ ft}}}}}}$      
+        ${{\hspace{{4mm}} r2_B = X_1 = {d[0]:.0f}{{ \\text{{ ft}}}}}}$      
+        ${{\hspace{{4mm}} r2_C = X_1 + X_2 = {d[0] +d[3]:.0f}{{ \\text{{ ft}}}}}}$       
 
         Ahora solo es necesario operar utilizando la ecuación de momento segun las componentes necesarias y denotando el signo acorde a la $\\textit{{Regla de la mano de derecha}}$: 
 
@@ -3316,21 +3315,21 @@ preguntas = [
 
         Teniendo en cuenta que el vector posición y la fuerza F1 ya son perpendiculares entre sí, y que, por la $\\textit{{Regla de la mano de derecha}}$ el momento es negativo. Podemos evaluar de la siguiente manera: 
 
-        ${{\hspace{{4mm}} M1_B \\text{{ = - }} |\\overrightarrow{{r1_B}}| \\cdot |\\overrightarrow{{F1}}| \\text{{ = - }}}}{d[3]:.0f}{{ \\text{{ ft}}}} \\cdot\\hspace{{1mm}}{f[0]:.0f}{{\\text{{ lb }}}}$  
-        ${{\hspace{{4mm}} M1_B \\text{{ = }}}}{-f[0]*d[3]:.2f}{{\\text{{ lb}} \\cdot\\text{{ ft}}}}$ 
+        ${{\hspace{{4mm}} M1_B = -|\\overrightarrow{{r1_B}}| \\cdot |\\overrightarrow{{F1}}| = -{d[3]:.0f}{{ \\text{{ ft}}}} \\cdot\\hspace{{1mm}}{f[0]:.0f}{{\\text{{ lb}}}}}}$       
+        ${{\hspace{{4mm}} M1_B = {-f[0]*d[3]:.2f}{{\\text{{ lb}} \\cdot\\text{{ ft}}}}}}$     
 
         $\\textbf{{\\small 3.2 Momento en B de la fuerza F2: }}$ 
 
-        En el momento en B de la fuerza F2, notamos que la componente de la fuerza que es perpendicular al vector posición es F2_y, y por la $\\textit{{Regla de la mano de derecha}}$ el momento es positivo. Tal que podemos considerar: 
+        En el momento en B de la fuerza F2, notamos que la componente de la fuerza que es perpendicular al vector posición es $F2_y$, y por la $\\textit{{Regla de la mano de derecha}}$ el momento es negativo. Tal que podemos considerar: 
 
-        ${{\hspace{{4mm}} M2_B \\text{{ = }} \\overrightarrow{{r2_B}} X \\overrightarrow{{F2}} \\text{{ = }}}} r2_B \\cdot\\hspace{{1mm}} F2_y \\text{{ = - }}{(d[0]):.0f}{{ \\text{{ ft}}}} \\cdot\\hspace{{1mm}}{f[1]*calc['cos1']:.2f}{{\\text{{ lb}}}}$ 
-        ${{\hspace{{4mm}} M2_B \\text{{ = }}}}{(f[1]*calc['cos1']*(d[0])):.2f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}$
+        ${{\hspace{{4mm}} M2_B = \\overrightarrow{{r2_B}} X \\overrightarrow{{F2}} = r2_B \\cdot\\hspace{{1mm}} F2_y = -{(d[0]):.0f}{{ \\text{{ ft}}}} \\cdot\\hspace{{1mm}}{f[1]*calc['cos1']:.2f}{{\\text{{ lb}}}}}}$      
+        ${{\hspace{{4mm}} M2_B = {-(f[1]*calc['cos1']*(d[0])):.2f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$    
         
         $\\textbf{{\\small 3.3 Momento en C de la fuerza F2: }}$
-        De igual forma que en B, en el momento en C de la fuerza F2, notamos que la componente de la fuerza que es perpendicular al vector posición es F2_y, y por la $\\textit{{Regla de la mano de derecha}}$ el momento es positivo. Tal que podemos considerar:  
+        De igual forma que en B, en el momento en C de la fuerza F2, notamos que la componente de la fuerza que es perpendicular al vector posición es $F2_y$, y por la $\\textit{{Regla de la mano de derecha}}$ el momento es negativo. Tal que podemos considerar:  
         
-        ${{\hspace{{4mm}} M2_C \\text{{ = }} \\overrightarrow{{r2_C}} X \\overrightarrow{{F2}} \\text{{ = }}}} r2_C \\cdot\\hspace{{1mm}} F2_y \\text{{ = - }}{(d[0]+d[3]):.0f}{{ \\text{{ ft}}}} \\cdot\\hspace{{1mm}}{f[1]*calc['cos1']:.2f}{{\\text{{ lb}}}}$ 
-        ${{\hspace{{4mm}} M2_C \\text{{ = }}}}{(f[1]*calc['cos1']*(d[0]+d[3])):.2f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}$
+        ${{\hspace{{4mm}} M2_C = \\overrightarrow{{r2_C}} X \\overrightarrow{{F2}} = r2_C \\cdot\\hspace{{1mm}} F2_y = -{(d[0]+d[3]):.0f}{{ \\text{{ ft}}}} \\cdot\\hspace{{1mm}}{f[1]*calc['cos1']:.2f}{{\\text{{ lb}}}}}}$      
+        ${{\hspace{{4mm}} M2_C = {-(f[1]*calc['cos1']*(d[0]+d[3])):.2f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$    
         
         Igualmente, es importante aclarar que la fuerza F1 no genera momento en el punto C, dado que la linea de acción de esta fuerza corta o concuerda con el punto del cual estamos evaluando.
         """,   
@@ -3338,7 +3337,7 @@ preguntas = [
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),
-    
+
     Questionary(#4_1
         code = 2110041,
         no_pregunta = 4,
@@ -3346,7 +3345,7 @@ preguntas = [
         topic = MO,
         subtopic = M2D,
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza F1 y la distancia X1, si en el punto B: El momento de F1 debe ser de ${-m[0]:.2f}{{\\text{{ ft}} \\cdot\\text{{ lb}}}}$, y el momento de F2 debe ser de ${-m[1]:.2f}{{\\text{{ ft}} \\cdot\\text{{ lb}}}}$. Considere que $\\alpha_1 = {a[0]:.0f}°$, $F_2 = {f[1]:.0f} \\text{{ lb}}$,  $X_2 = {d[3]:.0f}  \\text{{ ft}}$ y $X_3 = {d[6]:.0f} \\text{{ ft}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza F1 y la distancia X1, si en el punto B: El momento de F1 debe ser de ${-m[0]:.2f}{{\\text{{ lb}} \\cdot\\text{{ ft}}}}$, y el momento de F2 debe ser de ${-m[1]:.2f}{{\\text{{ ft}} \\cdot\\text{{ lb}}}}$. Considere que $\\alpha_1 = {a[0]:.0f}°$, $F_2 = {f[1]:.0f} \\text{{ lb}}$,  $X_2 = {d[3]:.0f}  \\text{{ ft}}$ y $X_3 = {d[6]:.0f} \\text{{ ft}}$.",
         no_answers = 2,
         a1_name = "Fuerza F1 [lb]",
         a2_name = "Distancia X1 [ft]",
@@ -3366,42 +3365,42 @@ preguntas = [
         
         En este caso los vectores posición solo tiene componente en X y es igual a la magnitud de las distancias de B al punto de acción de la fuerza. Considerando: 
 
-        ${{\hspace{{4mm}} r1 \\text{{ = }} X_2 \\text{{ = }}}}{d[3]:.0f}{{\\text{{ ft}}}}$ 
-        ${{\hspace{{4mm}} r2 \\text{{ = }} X_1}}$
+        ${{\hspace{{4mm}} r1 = X_2 = {d[3]:.0f}{{\\text{{ ft}}}}}}$ 
+        ${{\hspace{{4mm}} r2 = X_1}}$
         
         $\\textbf{{\\small 2. Descomposición de las fuerzas F1 y F2: }}$
        
-        $\\underline{{Fuerza F1 :}}$ La fuerza F1 solo tiene componente en Y y es igual a su magnitud. 
+        $\\underline{{Fuerza \\hspace{{2mm}} F1 :}}$ La fuerza F1 solo tiene componente en Y y es igual a su magnitud. 
 
-        $\\underline{{Fuerza F2 :}}$ 
+        $\\underline{{Fuerza \\hspace{{2mm}} F2 :}}$ 
 
-        ${{\hspace{{4mm}} F2_x = |\\overrightarrow{{F2}}| \\cdot \\sin(\\alpha_1) \\text{{ = }}}}{f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['sin1']:.2f}{{\\text{{ = }}}}{f[1]*calc['sin1']:.2f}{{ \\text{{ lb}}}}$  
-        ${{\hspace{{4mm}} F2_y = |\\overrightarrow{{F2}}| \\cdot \\cos(\\alpha_1) \\text{{ = }}}}{f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['cos1']:.2f}{{\\text{{ = }}}}{f[1]*calc['cos1']:.2f}{{ \\text{{ lb}}}}$ 
+        ${{\hspace{{4mm}} F2_x = |\\overrightarrow{{F2}}| \\cdot \\sin(\\alpha_1) = {f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['sin1']:.2f} = {f[1]*calc['sin1']:.2f}{{ \\text{{ lb}}}}}}$      
+        ${{\hspace{{4mm}} F2_y = |\\overrightarrow{{F2}}| \\cdot \\cos(\\alpha_1) = {f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['cos1']:.2f} = {f[1]*calc['cos1']:.2f}{{ \\text{{ lb}}}}}}$     
         
         $\\textbf{{\\small 3.1 Obtención de fuerza F1: }}$ 
         
         Definimos la ecuación de momento en B de la fuerza F1. También es necesario considerar que por la $\\textit{{Regla de la mano de derecha}}$ el momento es negativo, lo cual va acorde con el dato que nos dieron.
         
-        ${{\hspace{{4mm}} M1_B  \\text{{ = }} \\overrightarrow{{r1}} X \\overrightarrow{{F1}}}}{{\\text{{ = - }} |\\overrightarrow{{r1}}| \\cdot |\\overrightarrow{{F1}}|}}$
-        ${{\hspace{{4mm}} F1 \\text{{ = -}} \\frac{{M1_d}}{{r1}}}}$
-        ${{\hspace{{4mm}} F1 \\text{{ = -}} ( \\frac{{{-m[0]:.0f}{{\\text{{ ft}} \\cdot\\text{{ lb}}}}}}{{{d[3]:.0f}{{\\text{{ ft}}}}}} ) }}$
-        ${{\hspace{{4mm}} F1  \\text{{ = }}{(m[0])/d[3]:.2f}{{\\text{{ lb}}}}}}$
+        ${{\hspace{{4mm}} M1_B  = \\overrightarrow{{r1}} X \\overrightarrow{{F1}} = - |\\overrightarrow{{r1}}| \\cdot |\\overrightarrow{{F1}}| }}$      
+        ${{\hspace{{4mm}} F1 = -\\dfrac{{M1_d}}{{r1}}}}$      
+        ${{\hspace{{4mm}} F1 = -( \\dfrac{{{-m[0]:.0f}{{\\text{{ lb}} \\cdot\\text{{ ft}}}}}}{{{d[3]:.0f}{{\\text{{ ft}}}}}} ) }}$     
+        ${{\hspace{{4mm}} F1  = {(m[0])/d[3]:.2f}{{\\text{{ lb}}}}}}$     
         
-        $\\textbf{{\\small . Obtención de fuerza F2: }}$ 
+        $\\textbf{{\\small 3.2 Obtención de fuerza F2: }}$ 
         
         Igual que con F1, definimos la ecuación de momento en B de la fuerza F2. También es necesario considerar que por la $\\textit{{Regla de la mano de derecha}}$ el momento es negativo, lo cual va acorde con el dato que nos dieron.
         
-        ${{\hspace{{4mm}} M2_B  \\text{{ = }} \\overrightarrow{{r2}} X \\overrightarrow{{F2}}}}{{\\text{{ = - }} |\\overrightarrow{{r2}}| \\cdot |\\overrightarrow{{F2}}| \\cdot \\cos(\\alpha_1)}}$
-        ${{\hspace{{4mm}} X1 = r2 \\text{{ = -}} \\frac{{M2_B}}{{F2 \\cdot \\cos(\\alpha_1)}}}}$
-        ${{\hspace{{4mm}} X1 \\text{{ = -}} ( \\frac{{{-m[1]:.0f}{{\\text{{ ft}} \\cdot\\text{{ lb}}}}}}{{{f[1]*calc['cos1']:.2f}{{ \\text{{ lb}}}}}} ) }}$
-        ${{\hspace{{4mm}} X1  \\text{{ = }}{(m[1])/(f[1]*calc['cos1']):.2f}{{\\text{{ ft}}}}}}$
+        ${{\hspace{{4mm}} M2_B  = \\overrightarrow{{r2}} X \\overrightarrow{{F2}} = - |\\overrightarrow{{r2}}| \\cdot |\\overrightarrow{{F2}}| \\cdot \\cos(\\alpha_1)}}$     
+        ${{\hspace{{4mm}} X1 = r2 = - \\dfrac{{M2_B}}{{F2 \\cdot \\cos(\\alpha_1)}}}}$      
+        ${{\hspace{{4mm}} X1 = -( \\dfrac{{{-m[1]:.0f}{{\\text{{ lb}} \\cdot\\text{{ ft}}}}}}{{{f[1]*calc['cos1']:.2f}{{ \\text{{ lb}}}}}} ) }}$     
+        ${{\hspace{{4mm}} X1  = {(m[1])/(f[1]*calc['cos1']):.2f}{{\\text{{ ft}}}}}}$    
         
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),
-    #=================================================EQUILIBRIO DE PARTÍCULAS===================================================
+    #=========================================================== Momento ========================================================
     #--------------------------------------------     Momento en un punto en 2D      --------------------------------------------
     #-------------------------------------------------       Nivel medio      ---------------------------------------------------
     #-------------------------------------------------       Code: 2120011    ---------------------------------------------------
@@ -3429,32 +3428,32 @@ preguntas = [
 
         $\\textbf{{\\small 1. Descomposición de las fuerzas:}}$
 
-        $\\underline{{Fuerza F1 :}}$ La fuerza F1 solo tiene componente en Y y es igual a su magnitud. 
+        $\\underline{{Fuerza  \\hspace{{2mm}} F1 :}}$ La fuerza F1 solo tiene componente en Y y es igual a su magnitud. 
 
-        $\\underline{{Fuerza F2 :}}$ 
+        $\\underline{{Fuerza  \\hspace{{2mm}} F2 :}}$ 
 
-        ${{\hspace{{4mm}} F2_x = |\\overrightarrow{{F2}}| \\cdot \\cos(\\alpha_1) \\text{{ = }}}}{f[1]:.0f}{{\\text{{ N }} \\cdot\\hspace{{1mm}}}}{calc['cos1']:.2f}{{\\text{{ = }}}}{f[1]*calc['cos1']:.2f}{{ \\text{{ N}}}}$   
-        ${{\hspace{{4mm}} F2_y = |\\overrightarrow{{F2}}| \\cdot \\sin(\\alpha_1) \\text{{ = }}}}{f[1]:.0f}{{\\text{{ N }} \\cdot\\hspace{{1mm}}}}{calc['sin1']:.2f}{{\\text{{ = }}}}{f[1]*calc['sin1']:.2f}{{ \\text{{ N}}}}$  
+        ${{\hspace{{4mm}} F2_x = |\\overrightarrow{{F2}}| \\cdot \\cos(\\alpha_1) = {f[1]:.0f}{{\\text{{ N }} \\cdot\\hspace{{1mm}}}}{calc['cos1']:.2f} = {f[1]*calc['cos1']:.2f}{{ \\text{{ N}}}}}}$     
+        ${{\hspace{{4mm}} F2_y = |\\overrightarrow{{F2}}| \\cdot \\sin(\\alpha_1) = {f[1]:.0f}{{\\text{{ N }} \\cdot\\hspace{{1mm}}}}{calc['sin1']:.2f} = {f[1]*calc['sin1']:.2f}{{ \\text{{ N}}}}}}$     
 
-        $\\underline{{Fuerza F3 :}}$ 
+        $\\underline{{Fuerza  \\hspace{{2mm}} F3 :}}$ 
         
-        ${{\hspace{{4mm}} F3_x = |\\overrightarrow{{F3}}| \\cdot \\cos(\\alpha_2) \\text{{ = }}}}{f[2]:.0f}{{\\text{{ N }} \\cdot\\hspace{{1mm}}}}{calc['cos5']:.2f}{{\\text{{ = }}}}{f[2]*calc['cos5']:.2f}{{ \\text{{ N}}}}$   
-        ${{\hspace{{4mm}} F3_y = |\\overrightarrow{{F3}}| \\cdot \\sin(\\alpha_2) \\text{{ = }}}}{f[2]:.0f}{{\\text{{ N }} \\cdot\\hspace{{1mm}}}}{calc['sin5']:.2f}{{\\text{{ = }}}}{f[2]*calc['sin5']:.2f}{{ \\text{{ N}}}}$  
+        ${{\hspace{{4mm}} F3_x = |\\overrightarrow{{F3}}| \\cdot \\cos(\\alpha_2) = {f[2]:.0f}{{\\text{{ N }} \\cdot\\hspace{{1mm}}}}{calc['cos5']:.2f} = {f[2]*calc['cos5']:.2f}{{ \\text{{ N}}}}}}$      
+        ${{\hspace{{4mm}} F3_y = |\\overrightarrow{{F3}}| \\cdot \\sin(\\alpha_2) = {f[2]:.0f}{{\\text{{ N }} \\cdot\\hspace{{1mm}}}}{calc['sin5']:.2f} = {f[2]*calc['sin5']:.2f}{{ \\text{{ N}}}}}}$     
 
         $\\textbf{{\\small 2. Obtención del vector posición:}}$ 
 
-        $\\underline{{Vector de posición r1: }}$ Desde aqui notamos como la linea de acción de la fuerza F1 conecta con el punto de evaluación tal que el Vector posición r1 seria igual a 0.
+        $\\underline{{Vector Posición  \\hspace{{2mm}} r1: }}$ Desde aqui notamos como la linea de acción de la fuerza F1 conecta con el punto de evaluación tal que el Vector posición r1 seria igual a 0.
 
-        $\\underline{{Vector de posición r2: }}$         
+        $\\underline{{Vector Posición  \\hspace{{2mm}} r2: }}$         
 
         En este caso el vector posición $\\overrightarrow{{r2}}$ solo tiene componente en X y es igual a la magnitud de la distancia de A al punto de acción de la fuerza. Considerando: 
 
-        ${{\hspace{{4mm}} r2 \\text{{ = }} X_1 \\text{{ = }}}}{d[0]:.0f}{{ \\text{{ m}}}}$ 
+        ${{\hspace{{4mm}} r2 =  X_1 = {d[0]:.0f}{{ \\text{{ m}}}}}}$     
         
-        $\\underline{{Vector de posición r3: }}$ 
+        $\\underline{{Vector Posición \\hspace{{2mm}} r3: }}$ 
 
-        ${{\hspace{{4mm}} r3_x \\text{{ = }} X_1 + X_2 \\cdot \\cos(\\beta) \\text{{ = }}}}{d[0]+(d[3]*calc['cos9']):.2f}{{ \\text{{ m}}}}$ 
-        ${{\hspace{{4mm}} r3_y \\text{{ = }} x_2 \\cdot \\sin(\\beta)\\text{{ = }}}}{d[3]*calc['sin9']:.2f}{{ \\text{{ m}}}}$ 
+        ${{\hspace{{4mm}} r3_x = X_1 + X_2 \\cdot \\cos(\\beta) = {d[0]+(d[3]*calc['cos9']):.2f}{{ \\text{{ m}}}}}}$     
+        ${{\hspace{{4mm}} r3_y = x_2 \\cdot \\sin(\\beta) = {d[3]*calc['sin9']:.2f}{{ \\text{{ m}}}}}}$     
 
         Ahora solo es necesario operar utilizando la ecuación de momento segun las componentes necesarias y denotando el signo acorde a la $\\textit{{Regla de la mano de derecha}}$: 
 
@@ -3462,45 +3461,45 @@ preguntas = [
 
         Como ya habiamos mencionado la fuerza F1 se ve aplicada directamente en A, tal que, por definición de momento, este sera igual a cero: 
 
-        ${{\hspace{{4mm}} M1 \\text{{ = }} 0}}$  
+        ${{\hspace{{4mm}} M1 = 0}}$    
 
         $\\textbf{{\\small 3.2 Momento de la fuerza F2: }}$ 
 
-        En el momento de la fuerza F2, notamos que la componente de la fuerza que es perpendicular al vector posición es F2_y, y por la $\\textit{{Regla de la mano de derecha}}$ el momento es positivo. Tal que podemos considerar: 
+        En el momento de la fuerza F2, notamos que la componente de la fuerza que es perpendicular al vector posición es $F2_y$, y por la $\\textit{{Regla de la mano de derecha}}$ el momento es positivo. Tal que podemos considerar: 
 
-        ${{\hspace{{4mm}} M2 \\text{{ = }} \\overrightarrow{{r2}} X \\overrightarrow{{F2}} \\text{{ = }}}} r2 \\cdot\\hspace{{1mm}} F2_y \\text{{ = }}{(d[0]):.0f}{{ \\text{{ m}}}} \\cdot\\hspace{{1mm}}{f[1]*calc['sin1']:.2f}{{\\text{{ N}}}}$ 
-        ${{\hspace{{4mm}} M2 \\text{{ = }}}}{(f[1]*calc['sin1']*(d[0])):.2f}{{\\text{{ N}} \\cdot \\text{{m}}}}$  
+        ${{\hspace{{4mm}} M2 = \\overrightarrow{{r2}} X \\overrightarrow{{F2}} = r2 \\cdot\\hspace{{1mm}} F2_y = {(d[0]):.0f}{{ \\text{{ m}}}} \\cdot\\hspace{{1mm}}{f[1]*calc['sin1']:.2f}{{\\text{{ N}}}}}}$     
+        ${{\hspace{{4mm}} M2 = {(f[1]*calc['sin1']*(d[0])):.2f}{{\\text{{ N}} \\cdot \\text{{ m}}}}}}$    
         
         $\\textbf{{\\small 3.3 Momento de la fuerza F3: }}$ 
 
         Para calcular el momento de la fuerza F3, vemos que podemos hacer la suma de los momento en A que producen sus compenentes. Tal que: 
 
-        $\\underline{{Momento de F3_x: }}$        
+        $\\underline{{Momento \\hspace{{2mm}} F3_x: }}$        
 
-        Con la componente en X de F3 es apreciable que la componente perpendicular del vector posicion seria r3_y. Además, notamos que por $\\textit{{Regla de la mano de derecha}}$ este momento es negativo: 
+        Con la componente en X de F3 es apreciable que la componente perpendicular del vector posicion seria $r3_y$. Además, notamos que por $\\textit{{Regla de la mano de derecha}}$ este momento es negativo: 
         
-        ${{\hspace{{4mm}} M3_1 \\text{{ = - }}}} r3_y \\cdot\\hspace{{1mm}} F3_x \\text{{ = - }}{(d[3]*calc['sin9']):.2f}{{ \\text{{ m}}}} \\cdot\\hspace{{1mm}}{f[2]*calc['cos5']:.2f}{{\\text{{ N}}}}$ 
-        ${{\hspace{{4mm}} M3_1 \\text{{ = }}}}{-(f[2]*calc['cos5']*(d[3]*calc['sin9'])):.2f}{{\\text{{ N}} \\cdot\\text{{ m}}}}$                 
+        ${{\hspace{{4mm}} M3_1 = -r3_y \\cdot\\hspace{{1mm}} F3_x = -{(d[3]*calc['sin9']):.2f}{{ \\text{{ m}}}} \\cdot\\hspace{{1mm}}{f[2]*calc['cos5']:.2f}{{\\text{{ N}}}}}}$           
+        ${{\hspace{{4mm}} M3_1 = {-(f[2]*calc['cos5']*(d[3]*calc['sin9'])):.2f}{{\\text{{ N}} \\cdot\\text{{ m}}}}}}$                 
 
-        $\\underline{{Momento de F3_y: }}$ 
+        $\\underline{{Momento \\hspace{{2mm}} F3_y: }}$ 
 
-        Con la componente en Y de F3 es apreciable que la componente perpendicular del vector posicion seria r3_x. Además, notamos que por $\\textit{{Regla de la mano de derecha}}$ este momento tambíen es negativo: 
+        Con la componente en Y de F3 es apreciable que la componente perpendicular del vector posicion seria $r3_x$. Además, notamos que por $\\textit{{Regla de la mano de derecha}}$ este momento tambíen es negativo: 
 
-        ${{\hspace{{4mm}} M3_2 \\text{{ = - }}}} r3_x \\cdot\\hspace{{1mm}} F3_y \\text{{ = - }}{d[0]+(d[3]*calc['cos9']):.2f}{{ \\text{{ m}}}} \\cdot\\hspace{{1mm}}{f[2]*calc['sin5']:.2f}{{\\text{{ N}}}}$ 
-        ${{\hspace{{4mm}} M3_2 \\text{{ = }}}}{-(f[2]*calc['sin5']*(d[0]+(d[3]*calc['cos9']))):.2f}{{\\text{{ N}} \\cdot\\text{{ m}}}}$
+        ${{\hspace{{4mm}} M3_2 = - r3_x \\cdot\\hspace{{1mm}} F3_y = -{d[0]+(d[3]*calc['cos9']):.2f}{{ \\text{{ m}}}} \\cdot\\hspace{{1mm}}{f[2]*calc['sin5']:.2f}{{\\text{{ N}}}}}}$      
+        ${{\hspace{{4mm}} M3_2 = {-(f[2]*calc['sin5']*(d[0]+(d[3]*calc['cos9']))):.2f}{{\\text{{ N}} \\cdot\\text{{ m}}}}}}$
 
         Finalmente el momento en el punto A de la fuerza F3 sería: 
 
-        ${{\hspace{{4mm}} M3 = M3_1 + M3_2 \\text{{ = }}}}{-(f[2]*calc['cos5']*(d[3]*calc['sin9'])):.2f}{{\\text{{ N}} \\cdot\\text{{ m }}}}{-(f[2]*calc['sin5']*(d[0]+(d[3]*calc['cos9']))):.2f}{{\\text{{ N}} \\cdot\\text{{ m}}}}$ 
-        ${{\hspace{{4mm}} M3 \\text{{ = }}}}{-((f[2]*calc['cos5']*(d[3]*calc['sin9']))+(f[2]*calc['sin5']*(d[0]+(d[3]*calc['cos9'])))):.2f}{{\\text{{ N}} \\cdot\\text{{ m}}}}$ 
+        ${{\hspace{{4mm}} M3 = M3_1 + M3_2 = {-(f[2]*calc['cos5']*(d[3]*calc['sin9'])):.2f}{{\\text{{ N}} \\cdot\\text{{ m }}}}{-(f[2]*calc['sin5']*(d[0]+(d[3]*calc['cos9']))):.2f}{{\\text{{ N}} \\cdot\\text{{ m}}}}}}$      
+        ${{\hspace{{4mm}} M3 = {-((f[2]*calc['cos5']*(d[3]*calc['sin9']))+(f[2]*calc['sin5']*(d[0]+(d[3]*calc['cos9'])))):.2f}{{\\text{{ N}} \\cdot\\text{{ m}}}}}}$ 
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ), 
-   
+    
     Questionary(#2_1
-        code = 2120021,
+        code = 1620021,
         no_pregunta = 2,
         complexity = M,
         topic = MO,
@@ -3524,68 +3523,71 @@ preguntas = [
         
         $\\textbf{{\\small 1. Descomposición de las fuerzas del problema:}}$
 
-        $\\underline{{Fuerza F1 :}}$ La fuerza F1 solo tiene componente en Y y es igual a su magnitud. 
+        $\\underline{{Fuerza \\hspace{{2mm}} F1 :}}$ La fuerza F1 solo tiene componente en Y y es igual a su magnitud. 
 
-        $\\underline{{Fuerza F3 :}}$ 
+        $\\underline{{Fuerza \\hspace{{2mm}} F3 :}}$ 
         
-        ${{\hspace{{4mm}} F3_x = |\\overrightarrow{{F3}}| \\cdot \\cos(\\alpha_2) \\text{{ = }}}}{f[2]:.0f}{{\\text{{ N }} \\cdot\\hspace{{1mm}}}}{calc['cos5']:.2f}{{\\text{{ = }}}}{f[2]*calc['cos5']:.2f}{{ \\text{{ N}}}}$   
-        ${{\hspace{{4mm}} F3_y = |\\overrightarrow{{F3}}| \\cdot \\sin(\\alpha_2) \\text{{ = }}}}{f[2]:.0f}{{\\text{{ N }} \\cdot\\hspace{{1mm}}}}{calc['sin5']:.2f}{{\\text{{ = }}}}{f[2]*calc['sin5']:.2f}{{ \\text{{ N}}}}$  
+        ${{\hspace{{4mm}} F3_x = |\\overrightarrow{{F3}}| \\cdot \\cos(\\alpha_2) = {f[2]:.0f}{{\\text{{ N }} \\cdot\\hspace{{1mm}}}}{calc['cos5']:.2f} = {f[2]*calc['cos5']:.2f}{{ \\text{{ N}}}}}}$      
+        ${{\hspace{{4mm}} F3_y = |\\overrightarrow{{F3}}| \\cdot \\sin(\\alpha_2) = {f[2]:.0f}{{\\text{{ N }} \\cdot\\hspace{{1mm}}}}{calc['sin5']:.2f} = {f[2]*calc['sin5']:.2f}{{ \\text{{ N}}}}}}$      
 
         $\\textbf{{\\small 2. Obtención del vector posición:}}$ 
 
-        $\\underline{{Vector de posición r1: }}$         
+        $\\underline{{Vector Posición \\hspace{{2mm}} r1: }}$         
 
         En este caso el vector posición $\\overrightarrow{{r1}}$ solo tiene componente en X y es igual a la magnitud de la distancia de B al punto de acción de la fuerza. Considerando: 
 
-        ${{\hspace{{4mm}} r1 \\text{{ = }} X_1 \\text{{ = }}}}{d[0]:.0f}{{ \\text{{ m}}}}$ 
+        ${{\hspace{{4mm}} r1 = X_1 = {d[0]:.0f}{{ \\text{{ m}}}}}}$     
         
-        $\\underline{{Vector de posición r3: }}$ 
+        $\\underline{{Vector Posición \\hspace{{2mm}} r3: }}$ 
 
-        ${{\hspace{{4mm}} r3_x \\text{{ = }} X_2 \\cdot \\cos(\\beta) \\text{{ = }}}}{d[3]*calc['cos9']:.2f}{{ \\text{{ m}}}}$ 
-        ${{\hspace{{4mm}} r3_y \\text{{ = }} x_2 \\cdot \\sin(\\beta)\\text{{ = }}}}{d[3]*calc['sin9']:.2f}{{ \\text{{ m}}}}$  
+        ${{\hspace{{4mm}} r3_x = X_2 \\cdot \\cos(\\beta) = {d[3]*calc['cos9']:.2f}{{ \\text{{ m}}}}}}$      
+        ${{\hspace{{4mm}} r3_y = x_2 \\cdot \\sin(\\beta) = {d[3]*calc['sin9']:.2f}{{ \\text{{ m}}}}}}$      
 
         $\\textbf{{\\small 3.1 Momento de la fuerza F1: }}$
         
         Definimos la formula del momento en B de F1:  
 
-        ${{\hspace{{4mm}} M1 \\text{{ = -}} r1  \\cdot F1}}$  
+        ${{\hspace{{4mm}} M1 = -r1  \\cdot F1}}$        
         
         $\\textbf{{\\small 3.2 Momento de la fuerza F3: }}$ 
 
         Para el momento de la fuerza F3, vemos que podemos hacer la suma de los momento en B que producen sus compenentes. Tal que: 
 
-        $\\underline{{Momento de F3_x: }}$        
+        $\\underline{{Momento \\hspace{{2mm}} F3_x: }}$        
 
-        Con la componente en X de F3 es apreciable que la componente perpendicular del vector posicion seria r3_y. Además, notamos que por $\\textit{{Regla de la mano de derecha}}$ este momento es negativo: 
+        Con la componente en X de F3 es apreciable que la componente perpendicular del vector posicion seria $r3_y4. Además, notamos que por $\\textit{{Regla de la mano de derecha}}$ este momento es negativo: 
         
-        ${{\hspace{{4mm}} M3_1 \\text{{ = - }}}} r3_y \\cdot\\hspace{{1mm}} F3_x \\text{{ = - }}{(d[3]*calc['sin9']):.2f}{{ \\text{{ m}}}} \\cdot\\hspace{{1mm}}{f[2]*calc['cos5']:.2f}{{\\text{{ N}}}}$ 
-        ${{\hspace{{4mm}} M3_1 \\text{{ = }}}}{-(f[2]*calc['cos5']*(d[3]*calc['sin9'])):.2f}{{\\text{{ N}} \\cdot\\text{{ m}}}}$                 
+        ${{\hspace{{4mm}} M3_1 = -r3_y \\cdot\\hspace{{1mm}} F3_x = -{(d[3]*calc['sin9']):.2f}{{ \\text{{ m}}}} \\cdot\\hspace{{1mm}}{f[2]*calc['cos5']:.2f}{{\\text{{ N}}}}}}$      
+        ${{\hspace{{4mm}} M3_1 = {-(f[2]*calc['cos5']*(d[3]*calc['sin9'])):.2f}{{\\text{{ N}} \\cdot\\text{{ m}}}}}}$                 
 
-        $\\underline{{Momento de F3_y: }}$ 
+        $\\underline{{Momento \\hspace{{2mm}} F3_y: }}$ 
 
-        Con la componente en Y de F3 es apreciable que la componente perpendicular del vector posicion seria r3_x. Además, notamos que por $\\textit{{Regla de la mano de derecha}}$ este momento tambíen es negativo: 
+        Con la componente en Y de F3 es apreciable que la componente perpendicular del vector posicion seria $r3_x$. Además, notamos que por $\\textit{{Regla de la mano de derecha}}$ este momento tambíen es negativo: 
 
-        ${{\hspace{{4mm}} M3_2 \\text{{ = - }}}} r3_x \\cdot\\hspace{{1mm}} F3_y \\text{{ = - }}{(d[3]*calc['cos9']):.2f}{{ \\text{{ m}}}} \\cdot\\hspace{{1mm}}{f[2]*calc['sin5']:.2f}{{\\text{{ N}}}}$ 
-        ${{\hspace{{4mm}} M3_2 \\text{{ = }}}}{-(f[2]*calc['sin5']*((d[3]*calc['cos9']))):.2f}{{\\text{{ N}} \\cdot\\text{{ m}}}}$
+        ${{\hspace{{4mm}} M3_2 =  -r3_x \\cdot\\hspace{{1mm}} F3_y = -{(d[3]*calc['cos9']):.2f}{{ \\text{{ m}}}} \\cdot\\hspace{{1mm}}{f[2]*calc['sin5']:.2f}{{\\text{{ N}}}}}}$      
+        ${{\hspace{{4mm}} M3_2 = {-(f[2]*calc['sin5']*((d[3]*calc['cos9']))):.2f}{{\\text{{ N}} \\cdot\\text{{ m}}}}}}$      
 
         Ahora, el momento en el punto B de la fuerza F3 sería: 
 
-        ${{\hspace{{4mm}} M3 = M3_1 + M3_2 \\text{{ = }}}}{-(f[2]*calc['cos5']*(d[3]*calc['sin9'])):.2f}{{\\text{{ N}} \\cdot\\text{{ m }}}}{-(f[2]*calc['sin5']*((d[3]*calc['cos9']))):.2f}{{\\text{{ N}} \\cdot\\text{{ m}}}}$ 
-        ${{\hspace{{4mm}} M3 \\text{{ = }}}}{-((f[2]*calc['cos5']*(d[3]*calc['sin9']))+(f[2]*calc['sin5']*((d[3]*calc['cos9'])))):.2f}{{\\text{{ N}} \\cdot\\text{{ m}}}}$ 
+        ${{\hspace{{4mm}} M3 = M3_1 + M3_2 = {-(f[2]*calc['cos5']*(d[3]*calc['sin9'])):.2f}{{\\text{{ N}} \\cdot\\text{{ m }}}}{-(f[2]*calc['sin5']*((d[3]*calc['cos9']))):.2f}{{\\text{{ N}} \\cdot\\text{{ m}}}}}}$      
+        ${{\hspace{{4mm}} M3 = {-((f[2]*calc['cos5']*(d[3]*calc['sin9']))+(f[2]*calc['sin5']*((d[3]*calc['cos9'])))):.2f}{{\\text{{ N}} \\cdot\\text{{ m}}}}}}$      
         
         $\\textbf{{\\small 4. Calculo de F1: }}$
         
-        ${{\hspace{{4mm}} M1 \\text{{ = -}} r1  \\cdot F1 \\text{{ = }} M3}}$
-        ${{\hspace{{4mm}} {-d[0]:.0f}{{ \\text{{ m}}}} \\cdot F1 \\text{{ = }}{-((f[2]*calc['cos5']*(d[3]*calc['sin9']))+(f[2]*calc['sin5']*((d[3]*calc['cos9'])))):.2f}{{\\text{{ N}} \\cdot\\text{{ m}}}}}}$
-        ${{\hspace{{4mm}} F1 \\text{{ = }}}}{(f[2]*(d[3]/d[0])*Calculations.sine(a[4]+a[8])):.2f}{{ \\text{{ N}}}}$
+        ${{\hspace{{4mm}} M1 = -r1  \\cdot F1 = M3}}$     
+        ${{\hspace{{4mm}} {-d[0]:.0f}{{ \\text{{ m}}}} \\cdot F1 = {-((f[2]*calc['cos5']*(d[3]*calc['sin9']))+(f[2]*calc['sin5']*((d[3]*calc['cos9'])))):.2f}{{\\text{{ N}} \\cdot\\text{{ m}}}}}}$      
+        ${{\hspace{{4mm}} F1 = {(f[2]*(d[3]/d[0])*Calculations.sine(a[4]+a[8])):.2f}{{ \\text{{ N}}}}}}$     
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ), 
-   
+    #--------------------------------------------     Momento en un punto en 2D      --------------------------------------------
+    #-------------------------------------------------       Nivel medio      ---------------------------------------------------
+    #-------------------------------------------------       Code: 1620031    ---------------------------------------------------
+
     Questionary(#3_1
-        code = 2120031,
+        code = 1620031,
         no_pregunta = 3,
         complexity = M,
         topic = MO,
@@ -3609,19 +3611,19 @@ preguntas = [
         
         $\\textbf{{\\small 1. Descomposición de las fuerzas del problema:}}$
 
-        $\\underline{{Fuerza F1 :}}$ La fuerza F1 solo tiene componente en Y y es igual a su magnitud. 
+        $\\underline{{Fuerza \\hspace{{2mm}} F1 :}}$ La fuerza F1 solo tiene componente en Y y es igual a su magnitud. 
         
-        $\\underline{{Fuerza F2 :}}$ 
+        $\\underline{{Fuerza \\hspace{{2mm}} F2 :}}$ 
 
-        ${{\hspace{{4mm}} F2_x = |\\overrightarrow{{F2}}| \\cdot \\cos(\\alpha_1) \\text{{ = }}}}{f[1]:.0f}{{\\text{{ N }} \\cdot\\hspace{{1mm}}}}{calc['cos1']:.2f}{{\\text{{ = }}}}{f[1]*calc['cos1']:.2f}{{ \\text{{ N}}}}$   
-        ${{\hspace{{4mm}} F2_y = |\\overrightarrow{{F2}}| \\cdot \\sin(\\alpha_1) \\text{{ = }}}}{f[1]:.0f}{{\\text{{ N }} \\cdot\\hspace{{1mm}}}}{calc['sin1']:.2f}{{\\text{{ = }}}}{f[1]*calc['sin1']:.2f}{{ \\text{{ N}}}}$  
+        ${{\hspace{{4mm}} F2_x = |\\overrightarrow{{F2}}| \\cdot \\cos(\\alpha_1) = {f[1]:.0f}{{\\text{{ N }} \\cdot\\hspace{{1mm}}}}{calc['cos1']:.2f} = {f[1]*calc['cos1']:.2f}{{ \\text{{ N}}}}}}$      
+        ${{\hspace{{4mm}} F2_y = |\\overrightarrow{{F2}}| \\cdot \\sin(\\alpha_1) = {f[1]:.0f}{{\\text{{ N }} \\cdot\\hspace{{1mm}}}}{calc['sin1']:.2f} = {f[1]*calc['sin1']:.2f}{{ \\text{{ N}}}}}}$       
 
-        $\\underline{{Fuerza F3 :}}$ 
+        $\\underline{{Fuerza \\hspace{{2mm}} F3 :}}$ 
         
-        ${{\hspace{{4mm}} F3_x = |\\overrightarrow{{F3}}| \\cdot \\cos(\\alpha_2) \\text{{ = }}}}{f[2]:.0f}{{\\text{{ N }} \\cdot\\hspace{{1mm}}}}{calc['cos5']:.2f}{{\\text{{ = }}}}{f[2]*calc['cos5']:.2f}{{ \\text{{ N}}}}$   
-        ${{\hspace{{4mm}} F3_y = |\\overrightarrow{{F3}}| \\cdot \\sin(\\alpha_2) \\text{{ = }}}}{f[2]:.0f}{{\\text{{ N }} \\cdot\\hspace{{1mm}}}}{calc['sin5']:.2f}{{\\text{{ = }}}}{f[2]*calc['sin5']:.2f}{{ \\text{{ N}}}}$  
+        ${{\hspace{{4mm}} F3_x = |\\overrightarrow{{F3}}| \\cdot \\cos(\\alpha_2) = {f[2]:.0f}{{\\text{{ N }} \\cdot\\hspace{{1mm}}}}{calc['cos5']:.2f} = {f[2]*calc['cos5']:.2f}{{ \\text{{ N}}}}}}$     
+        ${{\hspace{{4mm}} F3_y = |\\overrightarrow{{F3}}| \\cdot \\sin(\\alpha_2) = {f[2]:.0f}{{\\text{{ N }} \\cdot\\hspace{{1mm}}}}{calc['sin5']:.2f} = {f[2]*calc['sin5']:.2f}{{ \\text{{ N}}}}}}$      
         
-        $\\underline{{Fuerza F4 :}}$ En este ejercicio vamos a asumir que tiene dirección positiva en Y.
+        $\\underline{{Fuerza \\hspace{{2mm}} F4 :}}$ En este ejercicio vamos a asumir que tiene dirección positiva en Y.
         
         Ahora vamos a expresar la sumatoria de momentos en A y en B
         
@@ -3629,34 +3631,181 @@ preguntas = [
         
         En A podemos encontrar que solo las fuerzas F4, F3 y la componente en Y de la fuerza F2 generan momento en el punto A. Tal que quedaria:
         
-        ${{\hspace{{4mm}} M_A \\text{{ = }} F4 \\cdot  {(d[0]*(3/5)):.2f} \\text{{ m}} + |\\overrightarrow{{F2}}| \\cdot \\sin(\\alpha_1) \\cdot X_1 - |\\overrightarrow{{F3}}| \\cdot \\cos(\\alpha_2) \\cdot x_2 \\cdot \\sin(\\beta) - |\\overrightarrow{{F3}}| \\cdot \\cos(\\alpha_2) \\cdot (X_1 + X_2 \\cdot \\cos(\\beta))}}$
-        ${{\hspace{{4mm}} M_A \\text{{ = }} F4 \\cdot  {(d[0]*(3/5)):.2f} \\text{{ m}} + {f[1]*calc['sin1']:.2f}{{\\text{{ N}}}} \\cdot\\hspace{{1mm}} {(d[0]):.0f}{{ \\text{{ m}}}} - {f[2]*calc['cos5']:.2f}{{\\text{{ N}}}} \\cdot \\hspace{{1mm}} {(d[3]*calc['sin9']):.2f}{{ \\text{{ m}}}} - {f[2]*calc['sin5']:.2f}{{\\text{{ N}}}} \\cdot\\hspace{{1mm}}{d[0]+(d[3]*calc['cos9']):.2f}{{ \\text{{ m}}}}}}$
-        ${{\hspace{{4mm}} M_A \\text{{ = }} F4 \\cdot  {(d[0]*(3/5)):.2f} \\text{{ m}} + {(f[1]*calc['sin1']*(d[0])):.2f}{{\\text{{ N}} \\cdot \\text{{m}}}} - {((f[2]*calc['cos5']*(d[3]*calc['sin9']))+(f[2]*calc['sin5']*(d[0]+(d[3]*calc['cos9'])))):.2f}{{\\text{{ N}} \\cdot\\text{{ m}}}}}}$
-        ${{\hspace{{4mm}} M_A \\text{{ = }} F4 \\cdot  {(d[0]*(3/5)):.2f} \\text{{ m}} + ( {((f[1]*calc['sin1']*(d[0]))-((f[2]*calc['cos5']*(d[3]*calc['sin9']))+(f[2]*calc['sin5']*(d[0]+(d[3]*calc['cos9']))))):.2f}{{\\text{{ N}} \\cdot\\text{{ m}}}} ) }}$
+        ${{\hspace{{4mm}} M_A = F4 \\cdot  {(d[0]*(3/5)):.2f} \\text{{ m}} + |\\overrightarrow{{F2}}| \\cdot \\sin(\\alpha_1) \\cdot X_1 - |\\overrightarrow{{F3}}| \\cdot \\cos(\\alpha_2) \\cdot x_2 \\cdot \\sin(\\beta) - |\\overrightarrow{{F3}}| \\cdot \\cos(\\alpha_2) \\cdot (X_1 + X_2 \\cdot \\cos(\\beta))}}$     
+        ${{\hspace{{4mm}} M_A = F4 \\cdot  {(d[0]*(3/5)):.2f} \\text{{ m}} + {f[1]*calc['sin1']:.2f}{{\\text{{ N}}}} \\cdot\\hspace{{1mm}} {(d[0]):.0f}{{ \\text{{ m}}}} - {f[2]*calc['cos5']:.2f}{{\\text{{ N}}}} \\cdot \\hspace{{1mm}} {(d[3]*calc['sin9']):.2f}{{ \\text{{ m}}}} - {f[2]*calc['sin5']:.2f}{{\\text{{ N}}}} \\cdot\\hspace{{1mm}}{d[0]+(d[3]*calc['cos9']):.2f}{{ \\text{{ m}}}}}}$     
+        ${{\hspace{{4mm}} M_A = F4 \\cdot  {(d[0]*(3/5)):.2f} \\text{{ m}} + {(f[1]*calc['sin1']*(d[0])):.2f}{{\\text{{ N}} \\cdot \\text{{m}}}} - {((f[2]*calc['cos5']*(d[3]*calc['sin9']))+(f[2]*calc['sin5']*(d[0]+(d[3]*calc['cos9'])))):.2f}{{\\text{{ N}} \\cdot\\text{{ m}}}}}}$    
+        ${{\hspace{{4mm}} M_A = F4 \\cdot  {(d[0]*(3/5)):.2f} \\text{{ m}} + ( {((f[1]*calc['sin1']*(d[0]))-((f[2]*calc['cos5']*(d[3]*calc['sin9']))+(f[2]*calc['sin5']*(d[0]+(d[3]*calc['cos9']))))):.2f}{{\\text{{ N}} \\cdot\\text{{ m}}}} ) }}$    
         
         $\\textbf{{\\small 2.2 Sumatoria de Momentos en B:}}$ 
         
         En B es evidente que solo las fuerzas F4, F3 y F1 generan momento. Tal que quedaria:
         
-        ${{\hspace{{4mm}} M_B \\text{{ = }} -F4 \\cdot  ( X_1 - {(d[0]*(3/5)):.2f}) \\text{{ m}} - |\\overrightarrow{{F1}}| \\cdot X_1 - |\\overrightarrow{{F3}}| \\cdot \\cos(\\alpha_2) \\cdot x_2 \\cdot \\sin(\\beta) - |\\overrightarrow{{F3}}| \\cdot \\cos(\\alpha_2) \\cdot (X_2 \\cdot \\cos(\\beta))}}$
-        ${{\hspace{{4mm}} M_B \\text{{ = }} -F4 \\cdot  {(d[0]*(2/5)):.2f} \\text{{ m}} - {f[0]:.0f}{{\\text{{ N}}}} \\cdot \\hspace{{1mm}} {(d[0]):.0f}{{ \\text{{ m}}}}  {f[2]*calc['cos5']:.2f}{{\\text{{ N}}}} \\cdot \\hspace{{1mm}} {(d[3]*calc['sin9']):.2f}{{ \\text{{ m}}}} - {f[2]*calc['sin5']:.2f}{{\\text{{ N}}}} \\cdot\\hspace{{1mm}}{(d[3]*calc['cos9']):.2f}{{ \\text{{ m}}}}}}$
-        ${{\hspace{{4mm}} M_B \\text{{ = }} -F4 \\cdot  {(d[0]*(2/5)):.2f} \\text{{ m}} - {(f[0]*(d[0])):.2f}{{\\text{{ N}} \\cdot \\text{{m}}}} - {((f[2]*calc['cos5']*(d[3]*calc['sin9']))+(f[2]*calc['sin5']*((d[3]*calc['cos9'])))):.2f}{{\\text{{ N}} \\cdot\\text{{ m}}}}}}$  
-        ${{\hspace{{4mm}} M_B \\text{{ = }} -F4 \\cdot  {(d[0]*(2/5)):.2f} \\text{{ m}} - {(f[0]*(d[0]))+((f[2]*calc['cos5']*(d[3]*calc['sin9']))+(f[2]*calc['sin5']*((d[3]*calc['cos9'])))):.2f}{{\\text{{ N}} \\cdot\\text{{ m}}}}}}$
+        ${{\hspace{{4mm}} M_B = -F4 \\cdot  ( X_1 - {(d[0]*(3/5)):.2f}) \\text{{ m}} - |\\overrightarrow{{F1}}| \\cdot X_1 - |\\overrightarrow{{F3}}| \\cdot \\cos(\\alpha_2) \\cdot x_2 \\cdot \\sin(\\beta) - |\\overrightarrow{{F3}}| \\cdot \\cos(\\alpha_2) \\cdot (X_2 \\cdot \\cos(\\beta))}}$     
+        ${{\hspace{{4mm}} M_B = -F4 \\cdot  {(d[0]*(2/5)):.2f} \\text{{ m}} - {f[0]:.0f}{{\\text{{ N}}}} \\cdot \\hspace{{1mm}} {(d[0]):.0f}{{ \\text{{ m}}}}  {f[2]*calc['cos5']:.2f}{{\\text{{ N}}}} \\cdot \\hspace{{1mm}} {(d[3]*calc['sin9']):.2f}{{ \\text{{ m}}}} - {f[2]*calc['sin5']:.2f}{{\\text{{ N}}}} \\cdot\\hspace{{1mm}}{(d[3]*calc['cos9']):.2f}{{ \\text{{ m}}}}}}$    
+        ${{\hspace{{4mm}} M_B = -F4 \\cdot  {(d[0]*(2/5)):.2f} \\text{{ m}} - {(f[0]*(d[0])):.2f}{{\\text{{ N}} \\cdot \\text{{m}}}} - {((f[2]*calc['cos5']*(d[3]*calc['sin9']))+(f[2]*calc['sin5']*((d[3]*calc['cos9'])))):.2f}{{\\text{{ N}} \\cdot\\text{{ m}}}}}}$        
+        ${{\hspace{{4mm}} M_B = -F4 \\cdot  {(d[0]*(2/5)):.2f} \\text{{ m}} - {(f[0]*(d[0]))+((f[2]*calc['cos5']*(d[3]*calc['sin9']))+(f[2]*calc['sin5']*((d[3]*calc['cos9'])))):.2f}{{\\text{{ N}} \\cdot\\text{{ m}}}}}}$      
         
         $\\textbf{{\\small 3. Igualamos y despejamos para F4: }}$ 
         
-        ${{\hspace{{4mm}} M_A \\text{{ = }} M_B }}
-        ${{\hspace{{4mm}} F4 \\cdot  {(d[0]*(3/5)):.2f} \\text{{ m}} + ( {((f[1]*calc['sin1']*(d[0]))-((f[2]*calc['cos5']*(d[3]*calc['sin9']))+(f[2]*calc['sin5']*(d[0]+(d[3]*calc['cos9']))))):.2f}{{\\text{{ N}} \\cdot\\text{{ m}}}} ) \\text{{ = }} -F4 \\cdot  {(d[0]*(2/5)):.2f} \\text{{ m}} - {(f[0]*(d[0]))+((f[2]*calc['cos5']*(d[3]*calc['sin9']))+(f[2]*calc['sin5']*((d[3]*calc['cos9'])))):.2f}{{\\text{{ N}} \\cdot\\text{{ m}}}}}}$
-        ${{\hspace{{4mm}} F4 \\cdot  {(d[0]):.2f} \\text{{ m}} \\text{{ = }} {-((f[1]*calc['sin1']*(d[0]))-((f[2]*calc['cos5']*(d[3]*calc['sin9']))+(f[2]*calc['sin5']*(d[0]+(d[3]*calc['cos9'])))))-((f[0]*(d[0]))+((f[2]*calc['cos5']*(d[3]*calc['sin9']))+(f[2]*calc['sin5']*((d[3]*calc['cos9']))))):.2f}{{\\text{{ N}} \\cdot\\text{{ m}}}}}}$
-        ${{\hspace{{4mm}} F4 \\text{{ = }} {f[2]*calc['sin5']-f[0]-f[1]*calc['sin1']}}}$
+        ${{\hspace{{4mm}} M_A = M_B }}
+        ${{\hspace{{4mm}} F4 \\cdot  {(d[0]*(3/5)):.2f} \\text{{ m}} + ( {((f[1]*calc['sin1']*(d[0]))-((f[2]*calc['cos5']*(d[3]*calc['sin9']))+(f[2]*calc['sin5']*(d[0]+(d[3]*calc['cos9']))))):.2f}{{\\text{{ N}} \\cdot\\text{{ m}}}} ) \\text{{ = }} -F4 \\cdot  {(d[0]*(2/5)):.2f} \\text{{ m}} - {(f[0]*(d[0]))+((f[2]*calc['cos5']*(d[3]*calc['sin9']))+(f[2]*calc['sin5']*((d[3]*calc['cos9'])))):.2f}{{\\text{{ N}} \\cdot\\text{{ m}}}}}}$      
+        ${{\hspace{{4mm}} F4 \\cdot  {(d[0]):.2f} \\text{{ m}} = {-((f[1]*calc['sin1']*(d[0]))-((f[2]*calc['cos5']*(d[3]*calc['sin9']))+(f[2]*calc['sin5']*(d[0]+(d[3]*calc['cos9'])))))-((f[0]*(d[0]))+((f[2]*calc['cos5']*(d[3]*calc['sin9']))+(f[2]*calc['sin5']*((d[3]*calc['cos9']))))):.2f}{{\\text{{ N}} \\cdot\\text{{ m}}}}}}$      
+        ${{\hspace{{4mm}} F4 = {f[2]*calc['sin5']-f[0]-f[1]*calc['sin1']}}}$      
         
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),
+
+
+
+
     
+    #=================================================EQUILIBRIO DE PARTÍCULAS===================================================
+    #--------------------------------------------     Momento en un punto en 2D      --------------------------------------------
+    #-------------------------------------------------       Nivel dificil     ---------------------------------------------------
+    #-------------------------------------------------       Code: 1630011    ---------------------------------------------------
 
+    Questionary(#1_1
+        code = 1630011,
+        no_pregunta = 1,
+        complexity = M,
+        topic = MO,
+        subtopic = M2D,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Si el trabajador ubicado en B ejerce una fuerza  $F_2 = {f[1]:.0f} \\text{{ lb}}$ sobre su cuerda, determine la magnitud de la fuerza F1 que debe aplicar el trabajador en C para evitar quer gire el poste.  $\\alpha_1 = {a[0]:.0f}°$, $\\alpha_2 = {a[4]:.0f}°$, $X_1 = {d[0]:.0f} \\text{{ ft}}$ y $X_2 = {d[3]:.0f}  \\text{{ ft}}$.",
+        no_answers = 1,
+        a1_name = "Fuerza F1 [lb]",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round((f[1]*calc['cos5']*(d[0]+d[3]))/(d[0]*calc['sin1']),2),
+        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = "El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. El vector posición $\\overrightarrow{{r}} se calcula desde el punto en el que se evalúa el momento a la línea de acción de la fuerza.",
+        ayuda2 = "Para calcular el momento en el punto de evaluación, primero obtenga las componentes del vector fuerza $\\overrightarrow{{F}}$ y el vector posición $\\overrightarrow{{r}}$. Luego, identifique la componente de la fuerza que es perpendicular al vector de posición. El momento se calcula como la multiplicación de esta componente perpendicular de la fuerza por la distancia desde el punto de evaluación.",      
+        ayuda3 = "Recuerde utilizar la regla de la mano derecha para definir el signo del momento.",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. En 2 dimensiones es más fácil calcular el momento como la multiplicación de las componentes de la fuerza perpendiculares a las componentes del vector. A continuación, vamos a resolver el ejercicio usando esta definición:  
 
+        Inicialmente, observamos que para que la condición del enunciado se cumpla es necesario que la suma de momentos en A sea igual a cero.
+        
+        $\\textbf{{\\small 1. Descomposición de las fuerzas:}}$
+
+        $\\underline{{Fuerza  \\hspace{{2mm}} F1 :}}$ 
+        
+        ${{\hspace{{4mm}} |F1_x| = |\\overrightarrow{{F1}}| \\cdot \\sin(\\alpha_1)}}$       
+        ${{\hspace{{4mm}} |F1_y| = |\\overrightarrow{{F1}}| \\cdot \\cos(\\alpha_1)}}$       
+
+        $\\underline{{Fuerza  \\hspace{{2mm}} F2 :}}$ 
+
+        ${{\hspace{{4mm}} |F2_x| = |\\overrightarrow{{F2}}| \\cdot \\cos(\\alpha_2) = {f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['cos5']:.2f} = {f[1]*calc['cos5']:.2f}{{ \\text{{ lb}}}}}}$      
+        ${{\hspace{{4mm}} |F2_y| = |\\overrightarrow{{F2}}| \\cdot \\sin(\\alpha_2) = {f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['sin5']:.2f} = {f[1]*calc['sin5']:.2f}{{ \\text{{ lb}}}}}}$      
+
+        $\\textbf{{\\small 2. Obtención del vector posición:}}$ 
+
+        ${{\hspace{{4mm}} r1 \\text{{ = }} X_1 = {d[0]:.0f}{{ \\text{{ ft}}}}}}$     
+        ${{\hspace{{4mm}} r2 \\text{{ = }} X_1 + X_2 = {(d[0]+d[3]):.0f}{{ \\text{{ ft}}}}}}$  
+        
+        $\\textbf{{\\small 3.1 Momento de la fuerza F1: }}$ 
+
+        Para calcular el momento de F1 en A vemos que la componente perpendicular al vector posición asociado r1 es $F1_x$, y que por la $\\textit{{Regla de la mano de derecha}}$ el momento sera negativo. Tal que: 
+
+        ${{\hspace{{4mm}} M1_A = - r1 \\cdot |\\overrightarrow{{F1}}| \\cdot \\sin(\\alpha_1) = - {d[0]:.0f}{{ \\text{{ ft}}}} \\cdot |\\overrightarrow{{F1}}| \\cdot {calc['sin1']:.2f}}}$
+        
+        $\\textbf{{\\small 3.2 Momento de la fuerza F2: }}$ 
+
+        En el momento de la fuerza F2, notamos que la componente de la fuerza que es perpendicular al vector posición es $F2_x$, y por la $\\textit{{Regla de la mano de derecha}}$ el momento es positivo. Tal que podemos considerar: 
+
+        ${{\hspace{{4mm}} M2_A = \\overrightarrow{{r_2}} X \\overrightarrow{{F2}} = r2 \\cdot\\hspace{{1mm}} F2_y = {(d[0]+d[3]):.0f}{{ \\text{{ ft}}}} \\cdot\\hspace{{1mm}}{f[1]*calc['cos5']:.2f}{{\\text{{ lb}}}}}}$     
+        ${{\hspace{{4mm}} M2_A = {(f[1]*calc['cos5']*(d[0]+d[3])):.2f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$    
+        
+        $\\textbf{{\\small 4. Sumatoria de momentos en A: }}$ 
+
+        Hacemos sumatoria de momentos en A y la igualamos a cero: 
+        
+        ${{\hspace{{4mm}} \\sum M_A = M1_A + M2_A = 0}}$      
+        ${{\hspace{{4mm}} - {d[0]:.0f}{{ \\text{{ ft}}}} \\cdot |\\overrightarrow{{F1}}| \\cdot {calc['sin1']:.2f} + {(f[1]*calc['cos5']*(d[0]+d[3])):.2f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}} = 0}}$         
+        ${{\hspace{{4mm}} {d[0]*calc['sin1']:.2f}{{ \\text{{ ft}}}} \\cdot |\\overrightarrow{{F1}}| = {(f[1]*calc['sin5']*(d[0]+d[3])):.2f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$     
+        ${{\hspace{{4mm}} |\\overrightarrow{{F1}}| = \\dfrac{{{(f[1]*calc['cos5']*(d[0]+d[3])):.2f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}{{{d[0]*calc['sin1']:.2f}{{ \\text{{ ft}}}}}}}}$     
+        ${{\hspace{{4mm}} |\\overrightarrow{{F1}}| = {(f[1]*calc['cos5']*(d[0]+d[3]))/(d[0]*calc['sin1']):.2f}{{ \\text{{ lb}}}}}}$     
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ), 
+    #=================================================EQUILIBRIO DE PARTÍCULAS===================================================
+    #--------------------------------------------     Momento en un punto en 2D      --------------------------------------------
+    #-------------------------------------------------       Nivel dificil     ---------------------------------------------------
+    #-------------------------------------------------       Code: 1630021    ---------------------------------------------------
+
+    Questionary(#2_1
+        code = 1630011,
+        no_pregunta = 2,
+        complexity = M,
+        topic = MO,
+        subtopic = M2D,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Si el trabajador ubicado en B ejerce una fuerza  $F_2 = {f[1]:.0f} \\text{{ lb}}$ sobre su cuerda, y el que está ubicado en C realiza otra fuerza $F_1 = {f[0]:.0f} \\text{{ lb}}$, determine la magnitud la distancia en la que la fuerza F1 se debe aplicar para evitar quer gire el poste.  $\\alpha_1 = {a[0]:.0f}°$, $\\alpha_2 = {a[4]:.0f}°$ y $X_2 = {d[3]:.0f}  \\text{{ ft}}$.",
+        no_answers = 1,
+        a1_name = "Distancia X1 [ft]",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(((f[1]*calc['cos5']*(d[3]))/(f[0]*calc['sin1']-f[1]*calc['cos5'])),2),
+        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = "El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. El vector posición $\\overrightarrow{{r}} se calcula desde el punto en el que se evalúa el momento a la línea de acción de la fuerza.",
+        ayuda2 = "Para calcular el momento en el punto de evaluación, primero obtenga las componentes del vector fuerza $\\overrightarrow{{F}}$ y el vector posición $\\overrightarrow{{r}}$. Luego, identifique la componente de la fuerza que es perpendicular al vector de posición. El momento se calcula como la multiplicación de esta componente perpendicular de la fuerza por la distancia desde el punto de evaluación.",      
+        ayuda3 = "Recuerde utilizar la regla de la mano derecha para definir el signo del momento.",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. En 2 dimensiones es más fácil calcular el momento como la multiplicación de las componentes de la fuerza perpendiculares a las componentes del vector. A continuación, vamos a resolver el ejercicio usando esta definición:  
+
+        Inicialmente, observamos que para que la condición del enunciado se cumpla es necesario que la suma de momentos en A sea igual a cero.
+        
+        $\\textbf{{\\small 1. Descomposición de las fuerzas:}}$
+
+        $\\underline{{Fuerza  \\hspace{{2mm}} F1 :}}$ 
+        
+        ${{\hspace{{4mm}} |F1_x| = |\\overrightarrow{{F1}}| \\cdot \\sin(\\alpha_1) = {f[0]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['sin1']:.2f} = {f[0]*calc['sin1']:.2f}{{ \\text{{ lb}}}}}}$             
+        ${{\hspace{{4mm}} |F1_y| = |\\overrightarrow{{F1}}| \\cdot \\cos(\\alpha_1) = {f[0]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['cos1']:.2f} = {f[0]*calc['cos1']:.2f}{{ \\text{{ lb}}}}}}$            
+
+        $\\underline{{Fuerza  \\hspace{{2mm}} F2 :}}$ 
+
+        ${{\hspace{{4mm}} |F2_x| = |\\overrightarrow{{F2}}| \\cdot \\cos(\\alpha_2) = {f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['cos5']:.2f} = {f[1]*calc['cos5']:.2f}{{ \\text{{ lb}}}}}}$      
+        ${{\hspace{{4mm}} |F2_y| = |\\overrightarrow{{F2}}| \\cdot \\sin(\\alpha_2) = {f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['sin5']:.2f} = {f[1]*calc['sin5']:.2f}{{ \\text{{ lb}}}}}}$      
+
+        $\\textbf{{\\small 2. Obtención del vector posición:}}$ 
+
+        ${{\hspace{{4mm}} r1 \\text{{ = }} X_1 }}$     
+        ${{\hspace{{4mm}} r2 \\text{{ = }} X_1 + X_2 = X_1 + {(d[3]):.0f}{{ \\text{{ ft}}}}}}$  
+        
+        $\\textbf{{\\small 3.1 Momento de la fuerza F1: }}$ 
+
+        Para calcular el momento de F1 en A vemos que la componente perpendicular al vector posición asociado r1 es $F1_x$, y que por la $\\textit{{Regla de la mano de derecha}}$ el momento sera negativo. Tal que: 
+
+        ${{\hspace{{4mm}} M1_A = - r1 \\cdot |\\overrightarrow{{F1}}| \\cdot \\sin(\\alpha_1) = - X_1 \\cdot {f[0]*calc['sin1']:.2f}{{ \\text{{ lb}}}}}}$
+        
+        $\\textbf{{\\small 3.2 Momento de la fuerza F2: }}$ 
+
+        En el momento de la fuerza F2, notamos que la componente de la fuerza que es perpendicular al vector posición es $F2_x$, y por la $\\textit{{Regla de la mano de derecha}}$ el momento es positivo. Tal que podemos considerar: 
+
+        ${{\hspace{{4mm}} M2_A = \\overrightarrow{{r_2}} X \\overrightarrow{{F2}} = r2 \\cdot\\hspace{{1mm}} F2_x = ( X_1 + {(d[3]):.0f} ){{ \\text{{ ft}}}} \\cdot\\hspace{{1mm}}{f[1]*calc['cos5']:.2f}{{\\text{{ lb}}}}}}$     
+        ${{\hspace{{4mm}} M2_A = ( X_1 \\cdot\\hspace{{1mm}}{f[1]*calc['cos5']:.2f}{{\\text{{ lb}}}} + {(f[1]*calc['cos5']*(d[3])):.2f} ) {{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$    
+        
+        $\\textbf{{\\small 4. Sumatoria de momentos en A: }}$ 
+
+        Hacemos sumatoria de momentos en A y la igualamos a cero: 
+        
+        ${{\hspace{{4mm}} \\sum M_A = M1_A + M2_A = 0}}$      
+        ${{\hspace{{4mm}} - X_1 \\cdot {f[0]*calc['sin1']:.2f}{{ \\text{{ lb}}}} + X_1 \\cdot\\hspace{{1mm}}{f[1]*calc['cos5']:.2f}{{\\text{{ lb}}}} +{(f[1]*calc['cos5']*(d[3])):.2f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}} = 0}}$         
+        ${{\hspace{{4mm}} X_1 \\cdot ({f[0]*calc['sin1']:.2f}{{ \\text{{ lb}}}} - {f[1]*calc['cos5']:.2f}{{\\text{{ lb}}}}) = {(f[1]*calc['cos5']*(d[3])):.2f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$     
+        ${{\hspace{{4mm}} X_1 = \\dfrac{{{(f[1]*calc['cos5']*(d[3])):.2f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}{{{f[0]*calc['sin1']-f[1]*calc['cos5']:.2f}{{\\text{{ lb}}}}}}}}$     
+        ${{\hspace{{4mm}} X_1 = {(f[1]*calc['cos5']*(d[3]))/(f[0]*calc['sin1']-f[1]*calc['cos5']):.2f}{{ \\text{{ ft}}}}}}$     
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
+    
 
 ]

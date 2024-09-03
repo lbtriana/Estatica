@@ -168,10 +168,10 @@ conceptuales = [
         enunciado = """
         El producto punto es útil ya que:    
 
-        I. Permite encontrar el vector resultante entre 2 vectores.   
-        II. Permite determinar el ángulo entre 2 vectores.   
-        III. Calcula el área del paralelogramo formado entre 2 vectores.    
-        IV. Permite encontrar la proyección de un vector sobre el otro.
+        I. Encontrar el vector resultante entre 2 vectores.   
+        II. Determinar el ángulo entre 2 vectores.   
+        III. Calcular el área del paralelogramo formado entre 2 vectores.    
+        IV. Encontrar la proyección de un vector sobre el otro.
         """,
         opcion_1 = "I, III",
         opcion_2 = "II, IV",
