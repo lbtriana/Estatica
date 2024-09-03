@@ -130,10 +130,14 @@ def stop_screen_recording(username):
 
 # Función para obtener el consentimiento del usuario
 def get_user_consent():
-    st.sidebar.markdown("## Consentimiento de Recolección de Datos")
-    consent = st.sidebar.checkbox("Acepto el seguimiento anónimo de actividad para mejorar la aplicación")
-    screen_record_consent = st.sidebar.checkbox("Acepto la grabación opcional de pantalla con fines de investigación")
+    consent = st.checkbox("Acepto el seguimiento anónimo de actividad para mejorar la aplicación", value = "True")
+    screen_record_consent = st.checkbox("Acepto la grabación opcional de pantalla con fines de investigación", value = "True")
     
+    if consent not in st.session_state:
+        st.session_state["consent"] = consent
+    if screen_record_consent not in st.session_state:
+        st.session_state["screen_record_consent"] = screen_record_consent
+
     if "authenticated" in st.session_state and st.session_state["authenticated"]:
         username = st.session_state.get("username", "unknown_user")
         if consent:
@@ -193,8 +197,13 @@ def authenticate_user():
             """,unsafe_allow_html=True)
             st.text_input(label="Username:", value="", key="user")
             st.text_input(label="Password:", value="", key="passwd", type="password")
+            consent, screen_record_consent = get_user_consent()
             if st.button("Iniciar sesión"):
-                creds_entered()
+                if consent:
+                   creds_entered()  
+                else:
+                    st.write("Debe aceptar el seguimiento anónimo de actividad para mejorar la aplicación")     
+           
         else:
             if st.session_state["authenticated"]:
                 return True
@@ -228,10 +237,15 @@ def authenticate_user():
                 </div>
                 """, unsafe_allow_html=True)
                 st.text_input(label="Username:", value="", key="user")
-                st.text_input(label="Password:", value="", key="passwd", type="password")
-                if st.button("Login"):
-                    creds_entered()
-                return False
+            st.text_input(label="Password:", value="", key="passwd", type="password")
+            consent, screen_record_consent = get_user_consent()
+            if st.button("Iniciar sesión"):
+                if consent:
+                   creds_entered()
+                else:
+                    st.write("Debe aceptar el seguimiento anónimo de actividad para mejorar la aplicación")
+            return False    
+    
 
 def get_user_statistics(username):
     conn = sqlite3.connect('user_activity.db')
@@ -328,10 +342,12 @@ def calculate_points(difficulty, attempts, used_help):
 
 #Mostrar página web cuando el usuario está autenticado           
 if authenticate_user():
-    consent, screen_record_consent = get_user_consent()
-    st.session_state["consent"] = consent
-    st.session_state["screen_record_consent"] = screen_record_consent
+    consent = st.session_state.consent
+    screen_record_consent = st.session_state.screen_record_consent
 
+    #st.write("El estado de screen_record_consent es:", screen_record_consent)
+    #st.write("El estado de consent es:", consent)
+ 
 #-------------------------------Inicialización de variables con sesión de estado-----------------------------------------
 
     #Initialize the "Intento" Variable to Count the Number of User's Attempts to Verify Their Answer
@@ -361,12 +377,10 @@ if authenticate_user():
 
     #-------------------------------------------Creación de la barra lateral-------------------------------------
     st.sidebar.markdown("<h1 style='font-size:36px;'>StaticGenius</h1>", unsafe_allow_html=True)
-    way = st.sidebar.radio("Seleccione su método de estudio", options=["Práctica", "Teoría", "Estadísticas"])
-    respuesta_usuario = {}
-    respuesta_usuario['way'] = way
-
-
-    if way == "Estadísticas":
+    action = st.sidebar.radio("Seleccione la acción que desa realizar", options = ["Estudiar","Consultar estadísticas"])
+    if action == "Estudiar":
+        way = st.sidebar.radio("Seleccione su método de estudio", options=["Práctica", "Teoría"])
+    elif action == "Consultar estadísticas":
         st.header("Estadísticas de Usuario")
         
         username = st.session_state.get("username", "unknown_user")
@@ -387,8 +401,11 @@ if authenticate_user():
         
         if consent:
             log_event(username, "statistics_viewed", {})
-    
-    elif way == "Teoría":
+
+    respuesta_usuario = {}
+    respuesta_usuario['way'] = way
+
+    if way == "Teoría":
         st.sidebar.header("Teoría")
         topic=st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Momento"])
         respuesta_usuario['topic'] = topic
