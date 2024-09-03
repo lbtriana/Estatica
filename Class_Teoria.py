@@ -35,8 +35,8 @@ conceptuales = [
         subtopic = "Vectores",
         enunciado = "Considere el vector $\\overrightarrow{{P}}$ que se encuentre a $\\alpha [°]$ del eje X. Determine la magnitud y dirección del vector $\\overrightarrow{{Q}}$ para que |$\\overrightarrow{{P}} + \\overrightarrow{{Q}}$| sea mínima:",
         opcion_1 = "$\\overrightarrow{{Q}} = -\\overrightarrow{{P}}$",
-        opcion_2 = "$\\overrightarrow{{Q}} = \\overrightarrow{{P}} \\cdot cos(0)$",
-        opcion_3 = "$\\overrightarrow{{Q}} = \\overrightarrow{{P}} \\cdot sin(0)$",
+        opcion_2 = "$\\overrightarrow{{Q}} = \\overrightarrow{{P}} \\cdot cos(\\alpha)$",
+        opcion_3 = "$\\overrightarrow{{Q}} = \\overrightarrow{{P}} \\cdot sin(\\alpha)$",
         opcion_4 = "$\\overrightarrow{{Q}} = \\overrightarrow{{P}}$",
         opcion_correcta = "$\\overrightarrow{{Q}} = -\\overrightarrow{{P}}$",
         respuesta_P1 = "",
@@ -48,7 +48,7 @@ conceptuales = [
         no_pregunta = 2,
         topic = "Equilibrio de partículas",
         subtopic = "Vectores",
-        enunciado = "Dado dos vectores $\overrightarrow{A}$ y $\overrightarrow{B}$, ¿Cuál es el ángulo entre ellos que minimiza la magnitud de su suma $\overrightarrow{A} + \overrightarrow{B}$?.",
+        enunciado = "Considere los vectores $\overrightarrow{A}$ y $\overrightarrow{B}$, ¿Cuál es el ángulo ($\\alpha [°]$) entre ellos que minimiza la magnitud de su suma ($\overrightarrow{A} + \overrightarrow{B}$)?.",
         opcion_1 = "$0^\circ$",
         opcion_2 = "$180^\circ$",
         opcion_3 = "$90^\circ$",
@@ -63,7 +63,7 @@ conceptuales = [
         no_pregunta = 3,
         topic = "Equilibrio de partículas",
         subtopic = "Vectores",
-        enunciado = "Dado dos vectores $\overrightarrow{A}$ y $\overrightarrow{B}$, ¿Cuál es el ángulo entre ellos que maximiza la magnitud de su suma $\overrightarrow{A} + \overrightarrow{B}$?. Sugerencia: Use el método punta-cola para sumar vectores.",
+        enunciado = "Considere los vectores $\overrightarrow{A}$ y $\overrightarrow{B}$, ¿Cuál es el ángulo ($\\alpha [°]$) entre ellos que maximiza la magnitud de su suma ($\overrightarrow{A} + \overrightarrow{B}$)?.",
         opcion_1 = "$0^\circ$",
         opcion_2 = "$180^\circ$",
         opcion_3 = "$90^\circ$",
@@ -79,11 +79,11 @@ conceptuales = [
         topic = "Equilibrio de partículas",
         subtopic = "Vectores",
         enunciado = "A partir del vector $\overrightarrow{F}$ mostrado en la figura, ¿Es correcto afirmar que un vector unitario con la misma dirección es: $\\overrightarrow{{u}} = \\dfrac{{3}}{{5}} \\hat{{i}} + \\dfrac{{4}}{{5}} \hat{{j}}$?",
-        opcion_1 = "Sí, ya que el vector $\overrightarrow{F}$ tiene magnitud 5 y al dividir cada componente de $\overrightarrow{F}$ entre su magnitud se obtiene que su dirección es igual a $\overrightarrow{u}$",
-        opcion_2 = "No, ya que $\overrightarrow{F}$ y $\overrightarrow{u}$ tienen magnitudes diferentes y por ende, direcciones diferentes",
-        opcion_3 = "No, ya que $\overrightarrow{u}$ no es un vector unitario",
-        opcion_4 = "Sí, ya que $\overrightarrow{u}$ es un vector de magnitud 5 y al multiplicar su magnitud por $\\dfrac{{3}}{{5}} \\hat{i} + \\dfrac{4}{5} \\hat{j}$ se obtiene un vector de $\overrightarrow{F}$",
-        opcion_correcta = "Sí, ya que el vector $\overrightarrow{F}$ tiene magnitud 5 y al dividir cada componente de $\overrightarrow{F}$ entre su magnitud se obtiene que su dirección es igual a $\overrightarrow{u}$",
+        opcion_1 = "Sí, ya que el vector $\overrightarrow{F}$ tiene magnitud 5 y al dividir cada componente de $\overrightarrow{F}$ entre su magnitud se obtiene que su dirección es igual a $\overrightarrow{u}.$",
+        opcion_2 = "No, ya que $\overrightarrow{F}$ y $\overrightarrow{u}$ tienen magnitudes diferentes y por ende, direcciones diferentes.",
+        opcion_3 = "No, ya que $\overrightarrow{u}$ no es un vector unitario.",
+        opcion_4 = "Sí, ya que $\overrightarrow{u}$ es un vector de magnitud 5 y al multiplicar su magnitud por $\\dfrac{{3}}{{5}} \\hat{i} + \\dfrac{4}{5} \\hat{j}$ se obtiene un vector de $\overrightarrow{F}.$",
+        opcion_correcta = "Sí, ya que el vector $\overrightarrow{F}$ tiene magnitud 5 y al dividir cada componente de $\overrightarrow{F}$ entre su magnitud se obtiene que su dirección es igual a $\overrightarrow{u}.$",
         respuesta_P1 = "Un vector se expresa de la forma $\overrightarrow{V} = \|\overrightarrow{V}\|\overrightarrow{U}_v$ donde $\overrightarrow{U}_v$ es un vector unitario que se obtiene al calcular $\\dfrac{{\\overrightarrow{{V}}}}{{|\\overrightarrow{{V}}|}}$ y representa la dirección de un vector. Por ello, encontrar un vector unitario con la misma dirección a un vector $\overrightarrow{F}$ es equivalente a encontrar la dirección de $\overrightarrow{F}$ normalizándolo. Es decir, dividiendo sus componentes entre su magnitud para obtener un vector de magnitud 1.",
         respuesta_P2 = "",
         ),
@@ -94,11 +94,11 @@ conceptuales = [
         topic = "Equilibrio de partículas",
         subtopic = "Vectores",
         enunciado = "El vector unitario se utiliza para:",
-        opcion_1 = "Mostrar que todos los vectores vienen lo mismo vector al que se le llama vector unitario",
-        opcion_2 = "Indicar la dirección de los vectores",
-        opcion_3 = "Escalar vectores a una magnitud deseada",
-        opcion_4 = "Operar vectores",
-        opcion_correcta = "Indicar la dirección de los vectores",
+        opcion_1 = "Representar la magnitud de un vector en una dirección específica.",
+        opcion_2 = "Indicar la dirección de un vector.",
+        opcion_3 = "Escalar vectores a una magnitud deseada.",
+        opcion_4 = "Operar vectores.",
+        opcion_correcta = "Indicar la dirección de un vector.",
         respuesta_P1 = "",
         respuesta_P2 = "",
         ),
@@ -111,7 +111,7 @@ conceptuales = [
         enunciado = """
         ¿Cuál(es) de las siguientes afirmaciones son ciertas respecto al vector unitario?:
 
-        I. Siempre tienen magnitud 1.   
+        I. Siempre tiene magnitud 1.   
         II. Es un vector cuya magnitud puede ser cualquier número entero.    
         III. Se obtienen al dividir la magnitud de un vector entre sus componentes.      
         IV. Se obtiene al dividir las componentes de un vector entre su magnitud.     

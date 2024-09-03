@@ -410,8 +410,10 @@ if authenticate_user():
         topic=st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Momento"])
         respuesta_usuario['topic'] = topic
 
-        if topic=="Equilibrio de partículas":
+        if topic == "Equilibrio de partículas":
             subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Vectores","Equilibrio"])
+        if topic == "Momento":
+            subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Momento"])
             respuesta_usuario['subtopic'] = subtopic
 
         if consent:
@@ -425,7 +427,9 @@ if authenticate_user():
         
         if topic == "Equilibrio de partículas":
             subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Vectores 2D", "Vectores 3D", "Vector unitario", "Equilibrio 2D", "Equilibrio 3D"])
-        
+        elif topic=="Momento":
+            subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Momento en un punto 2D","Momento en un punto 3D","Momento alrededor de un eje","Momentos pares"])
+
         if consent:
             log_event(st.session_state["username"], "practice_options_selected", {
                 "complexity": complexity,
@@ -762,9 +766,9 @@ if authenticate_user():
 
     #Function to generate the questions
     def generate_questions():
-        st.markdown(f"<h2 style='text-align: center;'>{preguntas_filtradas[st.session_state.pregunta_actual].topic} - {preguntas_filtradas[st.session_state.pregunta_actual].subtopic}</h2>", unsafe_allow_html=True)
+        st.markdown(f"<h2 style='text-align: left;'>{preguntas_filtradas[st.session_state.pregunta_actual].topic} - {preguntas_filtradas[st.session_state.pregunta_actual].subtopic}</h2>", unsafe_allow_html=True)
         st.write("""
-                 """) #Write the statement question
+                 """) 
         st.markdown('<h3 style="font-size:18px;">Pregunta</h3>', unsafe_allow_html=True) #Title Pregunta
         st.write(preguntas_filtradas[st.session_state.pregunta_actual].pregunta) #Write the statement question
         filtrar_imagenes_preguntas(preguntas_filtradas[st.session_state.pregunta_actual].no_pregunta, preguntas_filtradas[st.session_state.pregunta_actual].version, preguntas_filtradas[st.session_state.pregunta_actual].subtopic, preguntas_filtradas[st.session_state.pregunta_actual].complexity) #Select the image
@@ -875,6 +879,9 @@ if authenticate_user():
 
 
     def generate_theory_questions():
+        st.markdown(f"<h2 style='text-align: left;'>{conceptuales_filtradas[st.session_state.pregunta_actual].topic} - {conceptuales_filtradas[st.session_state.pregunta_actual].subtopic}</h2>", unsafe_allow_html=True)
+        st.write("""
+                 """)
         st.markdown('<h3 style="font-size:18px;">Pregunta</h3>', unsafe_allow_html=True) #Title Pregunta
         st.write(conceptuales_filtradas[st.session_state.pregunta_actual].enunciado) #Write the statement question
         filtrar_imagenes_teoria(conceptuales_filtradas[st.session_state.pregunta_actual].no_pregunta, conceptuales_filtradas[st.session_state.pregunta_actual].subtopic)
