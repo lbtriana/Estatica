@@ -1,6 +1,7 @@
 #Paths of the images
-image_paths=[]
-image_paths= [
+
+#================================ Imágenes Equilibrio de partículas ===================================
+EQ_image_paths= [
 #Vectores 2D _ Cálculo de los ángulos _ Nivel fácil
 "./Imagenes/Preguntas/EQ/Fvec_0a.png", #[0] 
 "./Imagenes/Preguntas/EQ/Fvec_0b.png", #[1]
@@ -114,9 +115,30 @@ image_paths= [
 
 #Equilibrio 2D _ Masa sobre mesa _ Nivel medio
 "./Imagenes/Preguntas/EQ/EQ2D/EQ_EQ2D_M_3a.png", #[64] 
+
 ]
 
+#================================ Imágenes Momento ===================================
 
+MO_image_paths =[
+#Momento 2D en un punto _ Nivel fácil
+"./Imagenes/Preguntas/MO/M2D/MO_M2D_F_1a.png", #[0]
+"./Imagenes/Preguntas/MO/M2D/MO_M2D_F_1b.png", #[1]
+"./Imagenes/Preguntas/MO/M2D/MO_M2D_F_1c.png", #[2]
+"./Imagenes/Preguntas/MO/M2D/MO_M2D_F_1d.png", #[3]
+"./Imagenes/Preguntas/MO/M2D/MO_M2D_F_2a.png", #[4]
+
+#Momento 2D en un punto _ Nivel medio
+"./Imagenes/Preguntas/MO/M2D/MO_M2D_M_1a.png", #[5]
+"./Imagenes/Preguntas/MO/M2D/MO_M2D_M_1b.png", #[6]
+"./Imagenes/Preguntas/MO/M2D/MO_M2D_M_1c.png", #[7]
+"./Imagenes/Preguntas/MO/M2D/MO_M2D_M_1d.png", #[8]
+
+#Momento 2D en un punto _ Nivel díficil
+"./Imagenes/Preguntas/MO/M2D/MO_M2D_D_1a.png", #[9]
+"./Imagenes/Preguntas/MO/M2D/MO_M2D_D_1b.png", #[10]
+"./Imagenes/Preguntas/MO/M2D/MO_M2D_D_1c.png", #[11]
+]
 
 rtas_paths= [
 #Vectores 2D _ Ejes arbitrarios _ Nivel díficil

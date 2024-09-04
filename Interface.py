@@ -554,42 +554,62 @@ if authenticate_user():
                 if subtopic == "Vectores 2D" or subtopic == "Vector unitario":
                     if pregunta_no <= 2: #Vectores 2D y Vector unitario
                         if version_no == 1:
-                            st.image(image_paths[0], width=325) 
+                            st.image(EQ_image_paths[0], width=325) 
                         elif version_no == 2:
-                            st.image(image_paths[1], width=350)
+                            st.image(EQ_image_paths[1], width=350)
                         elif version_no == 3:
-                            st.image(image_paths[2], width=350)
+                            st.image(EQ_image_paths[2], width=350)
                         elif version_no == 4:
-                            st.image(image_paths[3], width=350)   
+                            st.image(EQ_image_paths[3], width=350)   
                             
                     elif pregunta_no > 2 and pregunta_no <= 4: #Vectores 2D y Vector unitario
                         if version_no == 1:
-                            st.image(image_paths[4], width=200)
+                            st.image(EQ_image_paths[4], width=200)
                         elif version_no == 2:
-                            st.image(image_paths[5], width=200)
+                            st.image(EQ_image_paths[5], width=200)
                         elif version_no == 3:
-                            st.image(image_paths[6], width=200)
+                            st.image(EQ_image_paths[6], width=200)
                         elif version_no == 4:
-                            st.image(image_paths[7], width=200)
+                            st.image(EQ_image_paths[7], width=200)
                 if subtopic == "Vectores 3D":
                     if pregunta_no == 1 or pregunta_no == 2:
                         if version_no == 1:
-                            st.image(image_paths[29], width=325) 
+                            st.image(EQ_image_paths[29], width=325) 
                         elif version_no == 2:
-                            st.image(image_paths[30], width=350)
+                            st.image(EQ_image_paths[30], width=350)
                         elif version_no == 3:
-                            st.image(image_paths[31], width=350)
+                            st.image(EQ_image_paths[31], width=350)
                         elif version_no == 4:
-                            st.image(image_paths[32], width=350)
+                            st.image(EQ_image_paths[32], width=350)
                     if pregunta_no == 3 or pregunta_no == 4:
                         if version_no == 1:
-                            st.image(image_paths[33], width=325) 
+                            st.image(EQ_image_paths[33], width=325) 
                         elif version_no == 2:
-                            st.image(image_paths[34], width=350)
+                            st.image(EQ_image_paths[34], width=350)
                         elif version_no == 3:
-                            st.image(image_paths[35], width=350)
+                            st.image(EQ_image_paths[35], width=350)
                         elif version_no == 4:
-                            st.image(image_paths[36], width=350) 
+                            st.image(EQ_image_paths[36], width=350) 
+                if subtopic == "Momento en un punto 2D":
+                    if pregunta_no == 1 or pregunta_no == 2:
+                        if version_no == 1:
+                            st.image(MO_image_paths[0], width=600) 
+                        elif version_no == 2:
+                            st.image(MO_image_paths[1], width=600)
+                        elif version_no == 3:
+                            st.image(MO_image_paths[2], width=350)
+                        elif version_no == 4:
+                            st.image(MO_image_paths[3], width=350)
+                    if pregunta_no == 3 or pregunta_no == 4:
+                        if version_no == 1:
+                            st.image(MO_image_paths[4], width=600) 
+                        elif version_no == 2:
+                            st.image(MO_image_paths[1], width=350)
+                        elif version_no == 3:
+                            st.image(MO_image_paths[2], width=350)
+                        elif version_no == 4:
+                            st.image(MO_image_paths[3], width=350)
+                   
                         
 
                 
@@ -597,64 +617,82 @@ if authenticate_user():
                 if subtopic == "Vectores 2D":
                     if pregunta_no == 1:
                         if version_no == 1:
-                            st.image(image_paths[8], width=250)
+                            st.image(EQ_image_paths[8], width=250)
                         elif version_no == 2:
-                            st.image(image_paths[9], width=250)
+                            st.image(EQ_image_paths[9], width=250)
                         elif version_no == 3:
-                            st.image(image_paths[10], width=250)
+                            st.image(EQ_image_paths[10], width=250)
                         elif version_no == 4:
-                            st.image(image_paths[11], width=250)    
+                            st.image(EQ_image_paths[11], width=250)    
                     if pregunta_no == 2:
                         if version_no == 1:
-                            st.image(image_paths[12], width=300)
+                            st.image(EQ_image_paths[12], width=300)
                         elif version_no == 2:
-                            st.image(image_paths[13])
+                            st.image(EQ_image_paths[13])
                         elif version_no == 3:
-                            st.image(image_paths[14])
+                            st.image(EQ_image_paths[14])
                         elif version_no == 4:
-                            st.image(image_paths[15])   
+                            st.image(EQ_image_paths[15])   
                     if pregunta_no == 3:
-                        st.image(image_paths[16], width=330)
+                        st.image(EQ_image_paths[16], width=330)
                     if pregunta_no == 4:
-                        st.image(image_paths[17], width=180)
+                        st.image(EQ_image_paths[17], width=180)
                 if subtopic == "Vectores 3D":
                     if pregunta_no == 1 or pregunta_no==2 or pregunta_no == 3:
                         if version_no == 1:
-                            st.image(image_paths[37], width=350)
+                            st.image(EQ_image_paths[37], width=350)
                         elif version_no == 2:
-                            st.image(image_paths[38], width=350)
+                            st.image(EQ_image_paths[38], width=350)
                         elif version_no == 3:
-                            st.image(image_paths[39], width=350)
+                            st.image(EQ_image_paths[39], width=350)
                         elif version_no == 4:
-                            st.image(image_paths[40], width=350) 
+                            st.image(EQ_image_paths[40], width=350) 
+                if subtopic == "Momento en un punto 2D":
+                    if pregunta_no == 1 or pregunta_no == 2 or pregunta_no == 3 or pregunta_no == 4:
+                        if version_no == 1:
+                            st.image(MO_image_paths[5], width=500) 
+                        elif version_no == 2:
+                            st.image(MO_image_paths[6], width=500)
+                        elif version_no == 3:
+                            st.image(MO_image_paths[7], width=500)
+                        elif version_no == 4:
+                            st.image(MO_image_paths[8], width=500)
                 
             if difficulty == "Díficil":
                 if subtopic == "Vectores 2D":
                     if pregunta_no == 1 or pregunta_no == 2:
                         if version_no == 1:
-                            st.image(image_paths[18], width=350)
+                            st.image(EQ_image_paths[18], width=350)
                         elif version_no == 2:
-                            st.image(image_paths[19], width=350)
+                            st.image(EQ_image_paths[19], width=350)
                         elif version_no == 3:
-                            st.image(image_paths[20], width=350)
+                            st.image(EQ_image_paths[20], width=350)
                         elif version_no == 4:
-                            st.image(image_paths[21], width=350)
+                            st.image(EQ_image_paths[21], width=350)
                     if pregunta_no == 3:
                         if version_no == 1:
-                            st.image(image_paths[23], width=250)
+                            st.image(EQ_image_paths[23], width=250)
                         elif version_no == 2:
-                            st.image(image_paths[24], width=250)
+                            st.image(EQ_image_paths[24], width=250)
                     if pregunta_no == 4:
-                        st.image(image_paths[22], width=350)
+                        st.image(EQ_image_paths[22], width=350)
                     if pregunta_no == 5:
                         if version_no == 1:
-                            st.image(image_paths[25], width=250)
+                            st.image(EQ_image_paths[25], width=250)
                         elif version_no == 2:
-                            st.image(image_paths[26], width=250)
+                            st.image(EQ_image_paths[26], width=250)
                         elif version_no == 3:
-                            st.image(image_paths[27], width=250)
+                            st.image(EQ_image_paths[27], width=250)
                         elif version_no == 4:
-                            st.image(image_paths[28], width=250)
+                            st.image(EQ_image_paths[28], width=250)
+                if subtopic == "Momento en un punto 2D":
+                    if pregunta_no == 1 or pregunta_no == 2: 
+                        if version_no == 1:
+                            st.image(MO_image_paths[9], width=550) 
+                        elif version_no == 2:
+                            st.image(MO_image_paths[10], width=550)
+                        elif version_no == 3:
+                            st.image(MO_image_paths[11], width=550)
                             
         return
 
@@ -683,7 +721,7 @@ if authenticate_user():
                         if version_no == 1 or version_no == 2:
                             st.image(rtas_paths[6], width=250) 
                         elif version_no == 3 or version_no == 4:
-                            st.image(rtas_paths[7], width=250)                    
+                            st.image(rtas_paths[7], width=250)                                           
         return
 
     #Función para que el botón "Ayuda" muestre secuencialmente las ayudas
