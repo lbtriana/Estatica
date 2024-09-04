@@ -4,3 +4,4 @@ pandas
 pyautogui
 plotly
 supabase
+openpyxl
