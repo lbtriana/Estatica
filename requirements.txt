@@ -2,6 +2,6 @@ streamlit
 streamlit-authenticator
 numpy
 pandas
-opencv-python
+opencv-python-headless==4.5.3.56
 pyautogui
 plotly
