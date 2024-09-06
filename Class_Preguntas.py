@@ -1322,9 +1322,9 @@ preguntas = [
         topic = EQ,
         subtopic = V3D,
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Halle la magnitud de la fuerza resultante (FR) entre los vectores F1 y F2. Suponga que $F1 = {f[0]:.0f} \\text{{ N}}$, $F2 = {f[1]:.0f} \\text{{ N}}$, $\\theta_1 = {a[1]:.0f}\\degree$ y $\\theta_2 = {a[0]:.0f}\\degree$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Halle la magnitud de la fuerza resultante (FR) entre los vectores F1 y F2. Suponga que $F1 = {f[0]:.0f} \\text{{ N}}$, $F2 = {f[1]:.0f} \\text{{ N}}$, $\\theta_1 = {a[0]:.0f}\\degree$, $\\theta_2 = {a[1]:.0f}\\degree$ y $\\theta_3 = {a[4]:.0f}\\degree$.",
         no_answers = 1,
-        a1_name = "Magnitud FR [N]",
+        a1_name = "Magnitud $FR$ $[N]$",
         a2_name = "",
         a3_name = "",
         answer1 = lambda f, a, calc, c, d, m: np.round(Calculations.magnitude3D(f[0]*(5/13)*calc['sin2']+f[1]*(4/5)*calc['sin1'],-f[0]*(5/13)*calc['cos2']+f[1]*(4/5)*calc['cos1'],-f[0]*(12/13)+f[1]*(3/5)),2),
@@ -1591,14 +1591,14 @@ preguntas = [
     #    answer3 = lambda f, a, calc, c, d, m: np.round(Calculations.arccosine(-f[0]*calc['sin1']+f[1]*(d[2]/Calculations.magnitude3D(d[0],d[3],d[6]))-f[3]*(4/5),Calculations.magnitude3D(-f[0]*calc['cos1']-f[1]*(d[0]/Calculations.magnitude3D(d[0],d[3],d[6]))-f[2]*calc['sin5'],-f[1]*(d[3]/Calculations.magnitude3D(d[0],d[3],d[6]))+f[2]*calc['cos5']+f[3]*(3/5),-f[0]*calc['sin1']+f[1]*(d[6]/Calculations.magnitude3D(d[0],d[3],d[6]))-f[3]*(4/5))),2),
     #    ayuda1 = A36,
     #    ayuda2 = A37,
-    #    ayuda3 = A38,
+    #   ayuda3 = A38,
     #    respuesta_P1 = lambda f, a, calc, c, d, m: f"""
     #    Para determinar los ángulos directores del vector, se calcula el arcocoseno de cada una de sus componentes divididas por la magnitud del vector F.
         
     #    ${{\hspace{{4mm}} \\sum{{F_x}} = FR_x = -F1*cos(\\tetha_1)-F2*\\left(\\dfrac{{x}}{{\\sqrt{{x^2+y^2+z^2}}}}\\right)-F3*sen(\\tetha_2) = {-f[0]*calc['cos1']-f[1]*(d[0]/Calculations.magnitude3D(d[0],d[3],d[6]))-f[2]*calc['sin5']:.2f}}}$
     #    ${{\hspace{{4mm}} \\sum{{F_y}} = FR_y = -F2*\\left(\\dfrac{{y}}{{\\sqrt{{x^2+y^2+z^2}}}}\\right)+F3*cos(\\tetha_2)+F4*(3/5) = {-f[1]*(d[3]/Calculations.magnitude3D(d[0],d[3],d[6]))+f[2]*calc['cos5']+f[3]*(3/5):.2f}}}$
     #    ${{\hspace{{4mm}} \\sum{{F_z}} = FR_z = -F1*sen(\\tetha_1)+F2*\\left(\\dfrac{{z}}{{\\sqrt{{x^2+y^2+z^2}}}}\\right)+F3*cos(\\tetha_2)-F4*(4/5) = {-f[0]*calc['sin1']+f[1]*(d[6]/Calculations.magnitude3D(d[0],d[3],d[6]))-f[3]*(4/5):.2f}}}$
-        
+       
     #    De acuerdo con lo anterior el vector cartesiano de la fuerza resultante FR es:  $\\overrightarrow{{F}} = ({-f[0]*calc['cos1']-f[1]*(d[0]/Calculations.magnitude3D(d[0],d[3],d[6]))-f[2]*calc['sin5']:.2f})i + ({-f[1]*(d[3]/Calculations.magnitude3D(d[0],d[3],d[6]))+f[2]*calc['cos5']+f[3]*(3/5):.2f})$ j +  ({-f[0]*calc['sin1']+f[1]*(d[6]/Calculations.magnitude3D(d[0],d[3],d[6]))-f[3]*(4/5):.2f})$ k.
         
     #    $\\textbf{{\\small 2. Cálculo de la magnitud de la fuerza resultante FR:}}$
@@ -3688,7 +3688,7 @@ preguntas = [
         ${{\hspace{{4mm}} {d[0]*calc['sin1']:.2f}{{ \\text{{ ft}}}} \\cdot |\\overrightarrow{{F_1}}| = {(f[1]*calc['sin5']*(d[0]+d[3])):.2f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$     
 
         ${{\hspace{{4mm}} |\\overrightarrow{{F_1}}| = \\dfrac{{{(f[1]*calc['cos5']*(d[0]+d[3])):.2f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}{{{d[0]*calc['sin1']:.2f}{{ \\text{{ ft}}}}}}}}$     
-        
+
         ${{\hspace{{4mm}} |\\overrightarrow{{F_1}}| = {(f[1]*calc['cos5']*(d[0]+d[3]))/(d[0]*calc['sin1']):.2f}{{ \\text{{ lb}}}}}}$     
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",

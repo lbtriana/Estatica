@@ -378,8 +378,48 @@ if authenticate_user():
     #-------------------------------------------Creación de la barra lateral-------------------------------------
     st.sidebar.markdown("<h1 style='font-size:36px;'>StaticGenius</h1>", unsafe_allow_html=True)
     action = st.sidebar.radio("Seleccione la acción que desa realizar", options = ["Estudiar","Consultar estadísticas"])
+    
+    respuesta_usuario = {}
+    
     if action == "Estudiar":
         way = st.sidebar.radio("Seleccione su método de estudio", options=["Práctica", "Teoría"])
+        respuesta_usuario['way'] = way
+
+        if way == "Teoría":
+            st.sidebar.header("Teoría")
+            topic=st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Momento"])
+            respuesta_usuario['topic'] = topic
+
+            if topic == "Equilibrio de partículas":
+                subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Vectores","Equilibrio"])
+            if topic == "Momento":
+                subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Momento"])
+                respuesta_usuario['subtopic'] = subtopic
+
+            if consent:
+                log_event(st.session_state["username"], "theory_section_accessed", {})
+            # Aquí puedes añadir el contenido de la sección de teoría
+            #st.write("Contenido de la sección de teoría aún no implementado.")
+        else:
+            st.sidebar.header("Práctica")
+            complexity = st.sidebar.radio("Nivel de dificultad", options=["Fácil", "Medio", "Díficil"])
+            topic = st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Momento"])
+            
+            if topic == "Equilibrio de partículas":
+                subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Vectores 2D", "Vectores 3D", "Vector unitario", "Equilibrio 2D", "Equilibrio 3D"])
+            elif topic=="Momento":
+                subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Momento en un punto 2D","Momento en un punto 3D","Momento alrededor de un eje","Momentos pares"])
+
+            if consent:
+                log_event(st.session_state["username"], "practice_options_selected", {
+                    "complexity": complexity,
+                    "topic": topic,
+                    "subtopic": subtopic
+                })
+
+            #Almacenar la selección del usuario
+            respuesta_usuario = {'complexity': complexity, 'topic': topic, 'subtopic': subtopic}
+    
     elif action == "Consultar estadísticas":
         st.header("Estadísticas de Usuario")
         
@@ -402,43 +442,9 @@ if authenticate_user():
         if consent:
             log_event(username, "statistics_viewed", {})
 
-    respuesta_usuario = {}
-    respuesta_usuario['way'] = way
+    
+    
 
-    if way == "Teoría":
-        st.sidebar.header("Teoría")
-        topic=st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Momento"])
-        respuesta_usuario['topic'] = topic
-
-        if topic == "Equilibrio de partículas":
-            subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Vectores","Equilibrio"])
-        if topic == "Momento":
-            subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Momento"])
-            respuesta_usuario['subtopic'] = subtopic
-
-        if consent:
-            log_event(st.session_state["username"], "theory_section_accessed", {})
-        # Aquí puedes añadir el contenido de la sección de teoría
-        #st.write("Contenido de la sección de teoría aún no implementado.")
-    else:
-        st.sidebar.header("Práctica")
-        complexity = st.sidebar.radio("Nivel de dificultad", options=["Fácil", "Medio", "Díficil"])
-        topic = st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Momento"])
-        
-        if topic == "Equilibrio de partículas":
-            subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Vectores 2D", "Vectores 3D", "Vector unitario", "Equilibrio 2D", "Equilibrio 3D"])
-        elif topic=="Momento":
-            subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Momento en un punto 2D","Momento en un punto 3D","Momento alrededor de un eje","Momentos pares"])
-
-        if consent:
-            log_event(st.session_state["username"], "practice_options_selected", {
-                "complexity": complexity,
-                "topic": topic,
-                "subtopic": subtopic
-            })
-
-        #Almacenar la selección del usuario
-        respuesta_usuario = {'complexity': complexity, 'topic': topic, 'subtopic': subtopic}
     
     topic_user = respuesta_usuario.get('topic', None)
     subtopic_user = respuesta_usuario.get('subtopic', None)
@@ -450,23 +456,24 @@ if authenticate_user():
         
     #Reinicia el número de la pregunta cuando se cambia de tema, subtema o nivel de dificulta
    # Verificar si se ha cambiado alguna de las opciones
-    if way == "Práctica":
-        if (st.session_state.way != way or st.session_state.topic != topic or st.session_state.subtopic != subtopic or st.session_state.complexity != complexity):
-        # Actualizar el estado de sesión con las nuevas selecciones
-            st.session_state.way = way
-            st.session_state.topic = topic
-            st.session_state.subtopic = subtopic
-            st.session_state.complexity = complexity 
-            # Reiniciar el número de la pregunta
-            st.session_state.pregunta_actual = 0
-    elif way == "Teoría":
-        if (st.session_state.way != way or st.session_state.topic != topic or st.session_state.subtopic != subtopic):
-        # Actualizar el estado de sesión con las nuevas selecciones
-            st.session_state.way = way
-            st.session_state.topic = topic
-            st.session_state.subtopic = subtopic
-            # Reiniciar el número de la pregunta
-            st.session_state.pregunta_actual = 0
+    if action == "Estudiar":
+        if way == "Práctica":
+            if (st.session_state.way != way or st.session_state.topic != topic or st.session_state.subtopic != subtopic or st.session_state.complexity != complexity):
+            # Actualizar el estado de sesión con las nuevas selecciones
+                st.session_state.way = way
+                st.session_state.topic = topic
+                st.session_state.subtopic = subtopic
+                st.session_state.complexity = complexity 
+                # Reiniciar el número de la pregunta
+                st.session_state.pregunta_actual = 0
+        elif way == "Teoría":
+            if (st.session_state.way != way or st.session_state.topic != topic or st.session_state.subtopic != subtopic):
+            # Actualizar el estado de sesión con las nuevas selecciones
+                st.session_state.way = way
+                st.session_state.topic = topic
+                st.session_state.subtopic = subtopic
+                # Reiniciar el número de la pregunta
+                st.session_state.pregunta_actual = 0
 
 
 
@@ -590,6 +597,30 @@ if authenticate_user():
                             st.image(EQ_image_paths[35], width=350)
                         elif version_no == 4:
                             st.image(EQ_image_paths[36], width=350) 
+                if subtopic == "Equilibrio 2D":
+                    if pregunta_no == 1 or pregunta_no == 2:
+                        if version_no == 1:
+                            st.image(EQ_image_paths[50], width=400) 
+                        elif version_no == 2:
+                            st.image(EQ_image_paths[51], width=350)
+                        elif version_no == 3:
+                            st.image(EQ_image_paths[45], width=350)
+                        elif version_no == 4:
+                            st.image(EQ_image_paths[46], width=350) 
+                    if pregunta_no == 3:
+                        if version_no == 1:
+                            st.image(EQ_image_paths[52], width=250) 
+                        elif version_no == 2:
+                            st.image(EQ_image_paths[53], width=350)
+                        elif version_no == 3:
+                            st.image(EQ_image_paths[54], width=350)
+                        elif version_no == 4:
+                            st.image(EQ_image_paths[55], width=350)  
+                    if pregunta_no == 4:
+                        if version_no == 1:
+                            st.image(EQ_image_paths[62], width=375) 
+                        elif version_no == 2:
+                            st.image(EQ_image_paths[63], width=350)     
                 if subtopic == "Momento en un punto 2D":
                     if pregunta_no == 1 or pregunta_no == 2:
                         if version_no == 1:
@@ -610,9 +641,6 @@ if authenticate_user():
                         elif version_no == 4:
                             st.image(MO_image_paths[3], width=350)
                    
-                        
-
-                
             if difficulty == "Medio":
                 if subtopic == "Vectores 2D":
                     if pregunta_no == 1:
@@ -647,6 +675,16 @@ if authenticate_user():
                             st.image(EQ_image_paths[39], width=350)
                         elif version_no == 4:
                             st.image(EQ_image_paths[40], width=350) 
+                if subtopic == "Vector unitario":
+                    if pregunta_no == 1 or pregunta_no == 2 or pregunta_no == 3 or pregunta_no == 4:
+                        if version_no == 1:
+                            st.image(EQ_image_paths[45], width=350)
+                        elif version_no == 2:
+                            st.image(EQ_image_paths[46], width=350)
+                        elif version_no == 3:
+                            st.image(EQ_image_paths[47], width=350)
+                        elif version_no == 4:
+                            st.image(EQ_image_paths[48], width=350) 
                 if subtopic == "Momento en un punto 2D":
                     if pregunta_no == 1 or pregunta_no == 2 or pregunta_no == 3 or pregunta_no == 4:
                         if version_no == 1:
@@ -685,6 +723,19 @@ if authenticate_user():
                             st.image(EQ_image_paths[27], width=250)
                         elif version_no == 4:
                             st.image(EQ_image_paths[28], width=250)
+                if subtopic == "Vectores 3D":
+                    if pregunta_no == 1 or pregunta_no == 2 or pregunta_no == 3 or pregunta_no == 4:
+                        if version_no == 1:
+                            st.image(EQ_image_paths[41], width=400)
+                        elif version_no == 2:
+                            st.image(EQ_image_paths[41], width=400)
+                        elif version_no == 3:
+                            st.image(EQ_image_paths[43], width=400)
+                        elif version_no == 4:
+                            st.image(EQ_image_paths[44], width=400)
+                if subtopic == "Vector unitario":
+                    if pregunta_no == 1 or pregunta_no == 2 or pregunta_no == 3:
+                        st.image(EQ_image_paths[49], width=400)
                 if subtopic == "Momento en un punto 2D":
                     if pregunta_no == 1 or pregunta_no == 2: 
                         if version_no == 1:
@@ -905,14 +956,23 @@ if authenticate_user():
         left_col, center_col, right_col = st.columns(3)
         with center_col:
             if subtopic == "Vectores":
+                    if pregunta_no == 1: 
+                        st.image(teoria_preguntas[0], width=300)  
                     if pregunta_no == 2 or pregunta_no == 3: 
-                        st.image(teoria_preguntas[0], width=200)
+                        st.image(teoria_preguntas[1], width=200)
                     if pregunta_no == 4: 
-                        st.image(teoria_preguntas[1], width=300)  
+                        st.image(teoria_preguntas[2], width=300)  
+                    if pregunta_no == 5: 
+                        st.image(teoria_preguntas[3], width=300)  
+                    if pregunta_no == 6: 
+                        st.image(teoria_preguntas[4], width=300)  
                     if pregunta_no == 7: 
-                        st.image(teoria_preguntas[2], width=250)
+                        st.image(teoria_preguntas[5], width=250)
                     if pregunta_no == 8: 
-                        st.image(teoria_preguntas[3], width=250)  
+                        st.image(teoria_preguntas[6], width=250)  
+                    if pregunta_no == 9: 
+                        st.image(teoria_preguntas[7], width=250)  
+                    
         return
 
 
@@ -946,7 +1006,8 @@ if authenticate_user():
     
 
     if __name__ == '__main__':  
-        main() 
+        if action == "Estudiar":
+            main() 
         # Cleanup
         if st.session_state.get("screen_record_consent", False):
             username = st.session_state.get("username", "unknown_user")

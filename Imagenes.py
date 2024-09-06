@@ -159,6 +159,10 @@ rtas_paths= [
 teoria_preguntas =[
 "./Imagenes/Teoria_Preguntas/EQ/V/T_EQ_V_1.png", #[0] 
 "./Imagenes/Teoria_Preguntas/EQ/V/T_EQ_V_2.png", #[1] 
-"./Imagenes/Teoria_Preguntas/EQ/V/T_EQ_V_3.png", #[2] 
-"./Imagenes/Teoria_Preguntas/EQ/V/T_EQ_V_4.png", #[3] 
+"./Imagenes/Teoria_Preguntas/EQ/V/T_EQ_V_4.png", #[2] 
+"./Imagenes/Teoria_Preguntas/EQ/V/T_EQ_V_5.png", #[3]
+"./Imagenes/Teoria_Preguntas/EQ/V/T_EQ_V_6.png", #[4] 
+"./Imagenes/Teoria_Preguntas/EQ/V/T_EQ_V_7.png", #[5] 
+"./Imagenes/Teoria_Preguntas/EQ/V/T_EQ_V_8.png", #[6] 
+"./Imagenes/Teoria_Preguntas/EQ/V/T_EQ_V_9.png", #[7]  
 ]
