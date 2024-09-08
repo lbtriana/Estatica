@@ -922,21 +922,13 @@ if authenticate_user():
         ayuda_clicked = ayuda_pressed.button("Ayuda", key=f"ayuda_button_{st.session_state.pregunta_actual}", help="Ayuda para la solución", use_container_width=True)
         repetir_pressed.button("Nueva versión", key="nueva_version_button", help="Genera una nueva versión del problema", use_container_width=True, on_click=nueva_version_callback)
         nuevo_pressed.button("Siguiente problema", key=f"nuevo_problema_button{st.session_state.pregunta_actual}", help="Genera un nuevo problema", use_container_width=True, on_click=nuevo_problema_callback)
-
-    if st.session_state.get("consent", False):
-        log_event(st.session_state["username"], "question_viewed", {
-            "question_id": current_question.no_pregunta,
-            "version": current_question.version
-        })
-
-    return response1, response2, response3, respuesta_clicked, ayuda_clicked
-
+    
         if st.session_state.get("consent", False):
             log_event(st.session_state["username"], "question_viewed", {
                 "question_id": current_question.no_pregunta,
                 "version": current_question.version
             })
-
+    
         return response1, response2, response3, respuesta_clicked, ayuda_clicked
 
     
