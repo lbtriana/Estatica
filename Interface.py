@@ -19,20 +19,11 @@ st.set_page_config(layout="wide")
 #Esconde el menú y el icono de git hub
 hide = """
     <style>
-        #MainMenu {visibility: hidden;}   
+        #MainMenu {visibility: hidden;} 
+        #stToolbar {visibility: hidden;} 
     </style>
 """
 st.markdown(hide, unsafe_allow_html=True)
-
-st.markdown("""
-    <style>
-    /* Hide GitHub icon */
-    .stApp .stHeader a[href*="github"] {
-        display: none;
-    }
-    </style>
-""", unsafe_allow_html=True)
-
 
 
 col_1, col_2, col_3 = st.columns(3)
