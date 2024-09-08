@@ -902,25 +902,34 @@ if authenticate_user():
 
     #Function to generate the questions
     def generate_questions():
-        st.markdown(f"<h2 style='text-align: left;'>{preguntas_filtradas[st.session_state.pregunta_actual].topic} - {preguntas_filtradas[st.session_state.pregunta_actual].subtopic}</h2>", unsafe_allow_html=True)
+        current_question = preguntas_filtradas[st.session_state.pregunta_actual]
+        
+        st.markdown(f"<h2 style='text-align: left;'>{current_question.topic} - {current_question.subtopic}</h2>", unsafe_allow_html=True)
         st.write("""
                  """) 
-        st.markdown('<h3 style="font-size:18px;">Pregunta</h3>', unsafe_allow_html=True) #Title Pregunta
-        st.write(preguntas_filtradas[st.session_state.pregunta_actual].pregunta) #Write the statement question
-        filtrar_imagenes_preguntas(preguntas_filtradas[st.session_state.pregunta_actual].no_pregunta, preguntas_filtradas[st.session_state.pregunta_actual].version, preguntas_filtradas[st.session_state.pregunta_actual].subtopic, preguntas_filtradas[st.session_state.pregunta_actual].complexity) #Select the image
-
-        st.markdown('<h3 style="font-size:18px;">Respuestas</h3>', unsafe_allow_html=True)  # Title Respuestas
-        st.markdown('<p style="font-size: 14px;">Ingrese sus respuestas con dos decimales</p>', unsafe_allow_html=True)  # Title of instructions
-        response1, response2, response3 = render_input_widgets(preguntas_filtradas, st.session_state.pregunta_actual)  # Create boxes to the user's answers
-
-        st.markdown('<h3 style="font-size:18px;">Acciones</h3>', unsafe_allow_html=True)  # Title Acciones
-
-        # Create buttons
+        st.markdown('<h3 style="font-size:18px;">Pregunta</h3>', unsafe_allow_html=True)
+        st.write(current_question.pregunta)
+        filtrar_imagenes_preguntas(current_question.no_pregunta, current_question.version, current_question.subtopic, current_question.complexity)
+    
+        st.markdown('<h3 style="font-size:18px;">Respuestas</h3>', unsafe_allow_html=True)
+        st.markdown('<p style="font-size: 14px;">Ingrese sus respuestas con dos decimales</p>', unsafe_allow_html=True)
+        response1, response2, response3 = render_input_widgets(preguntas_filtradas, st.session_state.pregunta_actual)
+    
+        st.markdown('<h3 style="font-size:18px;">Acciones</h3>', unsafe_allow_html=True)
+    
         respuesta_pressed, ayuda_pressed, repetir_pressed, nuevo_pressed = st.columns(4)
         respuesta_clicked = respuesta_pressed.button("Verificar respuesta", key=f"respuesta_button_{st.session_state.pregunta_actual}", help="Verificación de la respuesta", use_container_width=True)
         ayuda_clicked = ayuda_pressed.button("Ayuda", key=f"ayuda_button_{st.session_state.pregunta_actual}", help="Ayuda para la solución", use_container_width=True)
         repetir_pressed.button("Nueva versión", key="nueva_version_button", help="Genera una nueva versión del problema", use_container_width=True, on_click=nueva_version_callback)
         nuevo_pressed.button("Siguiente problema", key=f"nuevo_problema_button{st.session_state.pregunta_actual}", help="Genera un nuevo problema", use_container_width=True, on_click=nuevo_problema_callback)
+
+    if st.session_state.get("consent", False):
+        log_event(st.session_state["username"], "question_viewed", {
+            "question_id": current_question.no_pregunta,
+            "version": current_question.version
+        })
+
+    return response1, response2, response3, respuesta_clicked, ayuda_clicked
 
         if st.session_state.get("consent", False):
             log_event(st.session_state["username"], "question_viewed", {
