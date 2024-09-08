@@ -42,7 +42,7 @@ hide_streamlit_style = """
 <style>
     #MainMenu {display: none;}
     [data-testid="stToolbar"] {display: none;}
-    .viewerBadge_link_qRIco {display: none;}
+    .viewerBadge_link_qRIco {visibility:hidden;}
     
 </style>
 """
