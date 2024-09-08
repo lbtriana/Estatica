@@ -17,12 +17,20 @@ import plotly.express as px
 st.set_page_config(layout="wide")
 
 #Esconde el menú
-#hide = """
-#    <style>
-#        #MainMenu {visibility: hidden;}
-#    </style>
-#"""
-#st.markdown(hide, unsafe_allow_html=True)
+hide = """
+    <style>
+        #MainMenu {visibility: hidden;}
+    </style>
+"""
+st.markdown(hide, unsafe_allow_html=True)
+
+#Esconde el enlace al repositorio de Git hub
+hide_github_icon = """
+#GithubIcon {
+  visibility: hidden;
+}
+"""
+st.markdown(hide_github_icon, unsafe_allow_html=True)
 
 
 col_1, col_2, col_3 = st.columns(3)
