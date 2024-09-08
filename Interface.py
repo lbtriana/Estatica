@@ -16,6 +16,15 @@ import plotly.express as px
 #=========================Configuración de la página============================
 st.set_page_config(layout="wide")
 
+#Esconde el menú
+hide = """
+    <style>
+        #MainMenu {visibility: hidden;}
+    </style>
+"""
+st.markdown(hide, unsafe_allow_html=True)
+
+
 col_1, col_2, col_3 = st.columns(3)
 
 #Leer credenciales de usuarios y crear un diccionario
