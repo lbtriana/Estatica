@@ -27,12 +27,31 @@ st.set_page_config(layout="wide")
 #"""
 #st.markdown(hide, unsafe_allow_html=True)
 
+#hide_streamlit_style = """
+#<style>
+#    #MainMenu {display: none;}
+#    footer {visibility: hidden;}
+#    header {display: none;}
+#    .stToolbar {display: none;}
+#</style>
+#"""
+#st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
+
 hide_streamlit_style = """
 <style>
+    /* Hide main menu */
     #MainMenu {display: none;}
+    /* Hide footer, header, and toolbar */
     footer {visibility: hidden;}
     header {display: none;}
     .stToolbar {display: none;}
+    
+    /* Hide GitHub fork icon and related elements */
+    .forks-badge-container {display: none !important;}
+    .css-1jc7ptx, .e1ewe7hr3, .viewerBadge_container__1QSob {display: none !important;}
+    .css-1sj23t5 .e16nr0p34 {display: none !important;}
+    .css-1sj23t5 .e16nr0p30 {display: none !important;}
 </style>
 """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
