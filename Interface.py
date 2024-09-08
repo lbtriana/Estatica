@@ -40,11 +40,7 @@ st.set_page_config(layout="wide")
 
 hide_streamlit_style = """
 <style>
-    /* Hide main menu */
     #MainMenu {display: none;}
-    /* Hide footer, header, and toolbar */
-    footer {visibility: hidden;}
-    header {display: none;}
     [data-testid="stToolbar"] {display: none;}
     .viewerBadge_container_r5tak {display: none;}
     
