@@ -47,6 +47,11 @@ hide_streamlit_style = """
     header {display: none;}
     .stToolbar {display: none;}
     
+    /* Hide GitHub icon and "deploy" button */
+    .stDeployButton {display: none !important;}
+    footer {visibility: hidden;}
+    #stDecoration {display: none;}
+
     /* Hide GitHub fork icon and related elements */
     .forks-badge-container {display: none !important;}
     .css-1jc7ptx, .e1ewe7hr3, .viewerBadge_container__1QSob {display: none !important;}
