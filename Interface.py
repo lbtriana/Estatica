@@ -42,7 +42,7 @@ hide_streamlit_style = """
 <style>
     #MainMenu {display: none;}
     [data-testid="stToolbar"] {display: none;}
-    .viewerBadge_container_r5tak {display: none;}
+    .viewerBadge_container_r5tak styles_viewerBadge_CvC9N {display: none;}
     
 </style>
 """
