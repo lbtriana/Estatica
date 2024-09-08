@@ -1041,13 +1041,13 @@ if authenticate_user():
         with center_col:
             if subtopic == "Vectores":
                     if pregunta_no == 1: 
-                        st.image(teoria_preguntas[0], width=300)  
+                        st.image(teoria_preguntas[0], width=200)  
                     if pregunta_no == 2 or pregunta_no == 3: 
                         st.image(teoria_preguntas[1], width=200)
                     if pregunta_no == 4: 
                         st.image(teoria_preguntas[2], width=300)  
                     if pregunta_no == 5: 
-                        st.image(teoria_preguntas[3], width=300)  
+                        st.image(teoria_preguntas[3], width=200)  
                     if pregunta_no == 6: 
                         st.image(teoria_preguntas[4], width=300)  
                     if pregunta_no == 7: 
