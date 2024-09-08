@@ -17,30 +17,11 @@ import plotly.express as px
 st.set_page_config(layout="wide")
 
 #Esconde el menú y el icono de git hub
-#hide = """
-#    #MainMenu {visibility: hidden;}
-#    #footer {visibility: hidden;}
-#    #header {visibility: hidden;}
-#    #stToolbar {visibility: hidden;}
-#    #header {visibility: hidden;}
-#    #manage-app-button {visibility: hidden;}
+hide = """
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
 #"""
 #st.markdown(hide, unsafe_allow_html=True)
-
-hide_streamlit_style = """
-<style>
-    /* Ocultar menú principal */
-    #MainMenu {display: none;}
-    /* Ocultar footer, header y barra de herramientas */
-    footer {visibility: hidden;}
-    header {display: none;}
-    .stToolbar {display: none;}
-    /* Ocultar botón de gestión de la aplicación */
-    .manage-app-button {display: none;}
-</style>
-"""
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-
 
 col_1, col_2, col_3 = st.columns(3)
 
