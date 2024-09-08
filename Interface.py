@@ -306,13 +306,22 @@ def create_topic_subtopic_points_chart(detailed_stats):
     return fig
 
 def create_study_time_chart(study_time_df):
-    fig = px.line(study_time_df, x='date', y='total_time', title='Tiempo de Estudio Diario')
-    fig.update_layout(yaxis_title='Tiempo de Estudio (minutos)')
+    # Convertir la columna 'date' a datetime si no lo está ya
+    study_time_df['date'] = pd.to_datetime(study_time_df['date'])
+    
+    # Formatear la fecha para mostrar solo día, mes y año
+    study_time_df['formatted_date'] = study_time_df['date'].dt.strftime('%d-%m-%Y')
+    
+    fig = px.line(study_time_df, x='formatted_date', y='total_time', title='Tiempo de Estudio Diario')
+    fig.update_layout(
+        xaxis_title='Fecha',
+        yaxis_title='Tiempo de Estudio (minutos)',
+        xaxis_tickangle=-45
+    )
     return fig
 
 def create_exercises_chart(exercises_df):
     if exercises_df.empty:
-        # Si el DataFrame está vacío, crea un gráfico vacío
         fig = px.bar(title='Ejercicios Resueltos Diariamente')
         fig.update_layout(
             xaxis_title='Fecha',
@@ -320,6 +329,12 @@ def create_exercises_chart(exercises_df):
             showlegend=False
         )
     else:
+        # Convertir la columna 'date' a datetime si no lo está ya
+        exercises_df['date'] = pd.to_datetime(exercises_df['date'])
+        
+        # Formatear la fecha para mostrar solo día, mes y año
+        exercises_df['formatted_date'] = exercises_df['date'].dt.strftime('%d-%m-%Y')
+        
         # Asegúrate de que las columnas 'correct' y 'total' sean de tipo numérico
         exercises_df['correct'] = pd.to_numeric(exercises_df['correct'], errors='coerce').fillna(0).astype(int)
         exercises_df['total'] = pd.to_numeric(exercises_df['total'], errors='coerce').fillna(0).astype(int)
@@ -327,7 +342,7 @@ def create_exercises_chart(exercises_df):
         # Crea el gráfico de barras
         fig = px.bar(
             exercises_df,
-            x='date',
+            x='formatted_date',
             y=['correct', 'total'],
             title='Ejercicios Resueltos Diariamente',
             labels={'value': 'Número de Ejercicios', 'variable': 'Tipo'},
@@ -338,6 +353,7 @@ def create_exercises_chart(exercises_df):
             xaxis_title='Fecha',
             yaxis_title='Número de Ejercicios',
             legend_title='Tipo de Ejercicio',
+            xaxis_tickangle=-45,
             legend=dict(
                 orientation="h",
                 yanchor="bottom",
@@ -366,8 +382,18 @@ def create_topic_statistics_chart(topic_stats):
     return fig
 
 def create_points_chart(points_df):
-    fig = px.line(points_df, x='date', y='total_points', title='Puntos Ganados Diariamente')
-    fig.update_layout(yaxis_title='Puntos')
+    # Convertir la columna 'date' a datetime si no lo está ya
+    points_df['date'] = pd.to_datetime(points_df['date'])
+    
+    # Formatear la fecha para mostrar solo día, mes y año
+    points_df['formatted_date'] = points_df['date'].dt.strftime('%d-%m-%Y')
+    
+    fig = px.line(points_df, x='formatted_date', y='total_points', title='Puntos Ganados Diariamente')
+    fig.update_layout(
+        xaxis_title='Fecha',
+        yaxis_title='Puntos',
+        xaxis_tickangle=-45
+    )
     return fig
 
 def calculate_total_statistics(study_time_df, exercises_df, points_df):
