@@ -123,8 +123,8 @@ def authenticate_user():
                 <h2>Iniciar sesión</h2>
             </div>
             """,unsafe_allow_html=True)
-            st.text_input(label="Username:", value="", key="user")
-            st.text_input(label="Password:", value="", key="passwd", type="password")
+            st.text_input(label="Usuario:", value="", key="user")
+            st.text_input(label="Contraseña:", value="", key="passwd", type="password")
             consent = get_user_consent()
             if st.button("Iniciar sesión"):
                 if consent:
@@ -164,8 +164,8 @@ def authenticate_user():
                     <h2>Iniciar sesión</h2>
                 </div>
                 """, unsafe_allow_html=True)
-                st.text_input(label="Username:", value="", key="user")
-                st.text_input(label="Password:", value="", key="passwd", type="password")
+                st.text_input(label="Usuario:", value="", key="user")
+                st.text_input(label="Contraseña:", value="", key="passwd", type="password")
                 consent = get_user_consent()
                 if st.button("Iniciar sesión"):
                     if consent:
