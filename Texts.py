@@ -26,16 +26,16 @@ AX = "Ángulo con el eje X [°]"
 AY = "Ángulo con el eje Y [°]"
 FX = "Componente con el eje X ${{(F1_x)}}$[kN]"
 FY = "Componente con el eje Y ${{(F1_y)}}$[kN]"
-Mag = "Magnitud [kN]"
+Mag = "Magnitud $[kN]$"
 Dir = "Dirección [°]"
-Ci = "Componente en X $(i)$"
-Cj = "Componente en Y $(j)$"
-Ck = "Componente en Z $(k)$" 
+Ci = "Componente en X $(\\hat{{i}})$"
+Cj = "Componente en Y $(\\hat{{j}})$"
+Ck = "Componente en Z $(\\hat{{k}})$" 
 A3X = "Ángulo respecto a X $(\\alpha)$ [°]"
 A3Y = "Ángulo respecto a Y $(\\beta)$ [°]"
 A3Z = "Ángulo respecto a Z $(\\gamma)$ [°]"
-CosX = "Coseno con X $(\\theta_x)$"
-CosY = "Coseno con Y $(\\theta_y)$"
+CosX = "Coseno con X"
+CosY = "Coseno con Y"
 
 
 #----------------------------------- Ayudas --------------------------------------
@@ -62,15 +62,18 @@ $dy = y_{{final}} - y_{{inicial}}$
 A8 = "¿Qué representan dx y dy?"
 A9 = "Calcule la pendiente como: $m = \\dfrac{{dy}}{{dx}}$. ¿Qué signica el signo?"
 A10 = "Calcule la magnitud de F1 como: $|F1| = \\sqrt{dx^2 + dy^2}$."
-A11 = "$i$ representa la componente paralela al eje X y $j$ a la componente paralela a Y"
+A11 = "$\\hat{{i}}$ representa la componente paralela al eje X y $\\hat{{j}}$ a la componente paralela a Y"
 A12 = "Calcule la magnitud como: $\\sqrt{F_x^2 + F_y^2}$"
 A13 =  """
 El cálculo del ángulo respecto al eje x positivo depende del cuadrante en el que se encuentra el vector:
 
--Primer cuadrante:  $tan^{-1}\\left(\\dfrac{componente\\hspace{1mm}j}{componente\\hspace{1mm}i}\\right)$  
--Segundo cuadrante: $180 - tan^{-1}\\left(\\dfrac{componente\\hspace{1mm}j}{componente\\hspace{1mm}i}\\right)$  
--Tercer cuadrante:  $180 + tan^{-1}\\left(\\dfrac{componente\\hspace{1mm}j}{componente\\hspace{1mm}i}\\right)$  
--Cuarto cuadrante:  $360 - tan^{-1}\\left(\\dfrac{componente\\hspace{1mm}j}{componente\\hspace{1mm}i}\\right)$  
+-Primer cuadrante:  $tan^{-1}\\left(\\dfrac{componente\\hspace{1mm} \\hat{{j}}}{componente\\hspace{1mm} \\hat{{i}}}\\right)$  
+
+-Segundo cuadrante: $180 - tan^{-1}\\left(\\dfrac{componente\\hspace{1mm} \\hat{{j}}}{componente\\hspace{1mm} \\hat{{i}}}\\right)$ 
+
+-Tercer cuadrante:  $180 + tan^{-1}\\left(\\dfrac{componente\\hspace{1mm} \\hat{{j}}}{componente\\hspace{1mm} \\hat{{i}}}\\right)$ 
+
+-Cuarto cuadrante:  $360 - tan^{-1}\\left(\\dfrac{componente\\hspace{1mm} \\hat{{j}}}{componente\\hspace{1mm} \\hat{{i}}}\\right)$  
 """
 
 #EQ_V2D_M
@@ -106,13 +109,13 @@ A38 = "La componente Z se puede proyectar directamente con la información dada"
 A39 = "Determine el vector F como un vector cartesiano, esto le permitirá identificar cada una de sus componentes. Tenga en cuenta que el dibujo no está a escala."
 A40 = "La magnitud de un vector con 3 componentes (X, Y, Z) se define como: $\\sqrt{F_X^2 + F_Y^2 + F_Z^2}$"
 A41 = "Los ángulos directores relacionan directamente al vector F con cada uno de los ejes."
-A42 = "$i$ representa la componente paralela al eje X, $j$ a la componente paralela a Y y $k$ a la componente paralela a Z."
+A42 = "$\\hat{{i}}$ representa la componente paralela al eje X, $\\hat{{j}}$ a la componente paralela a Y y $\\hat{{k}}$ a la componente paralela a Z."
 A43 = "Calcule las componentes de cada eje como la multiplicación de la fuerza por el coseno del ángulo que forma con dicho eje."
 
 #EQ_V3D_M
 A44 = "Iguale las componentes dadas a la sumatoria de fuerzas en dichos ejes para formar un sistema de ecuaciones para despejar las magnitudes F1 y F2."
-A45 = "Utilice las coordenadas de cada fuerza para construir un triángulo rectángulo que le permita aplicar el teorema de Pitágoras."
-A46 = "Recuerde que, según el teorema de Pitágoras, el coseno de un ángulo $\\alpha$ se define como $cos(\\alpha)=\\dfrac{Cateto adyacente}{Hipotenusa}$. En este caso, el coseno corresponde a $cos(\\alpha)=\\dfrac{Coordenada en X, Y o Z}{Longitud del vector}$"
+A45 = "Utilice las coordenadas de cada fuerza para determinar el vector unitario o construir un triángulo rectángulo que le permita aplicar el teorema de Pitágoras."
+A46 = "Recuerde que, según el teorema de Pitágoras, el coseno de un ángulo $\\alpha$ se define como $cos(\\alpha)=\\dfrac{Cateto\\hspace{{1mm}}adyacente}{Hipotenusa}$. En este caso, el coseno corresponde a $cos(\\alpha)=\\dfrac{Coordenada\\hspace{{1mm}}en\\hspace{{1mm}} X, Y\\hspace{{1mm}} o\\hspace{{1mm}} Z}{Longitud\\hspace{{1mm}} del \\hspace{{1mm}}vector}$"
 
 #EQ_VU_F
 A47 = '''
@@ -146,8 +149,7 @@ $componente i =  \\overrightarrow{{F1}}*\\dfrac{{dx}}{{AB}}$
 $componente j =  \\overrightarrow{{F1}}*\\dfrac{{dy}}{{AB}}$
 """
 A55 = "Los ángulos directores coordenados corresponden a los ángulos que relacionan al vector con los ejes x, y, z. Para encontrar estos ángulos, formule el vector unitario en la dirección del vector y determine los cosenos inversos de sus componentes."
-A56 = "El vector unitario en la componente del eje (i o j) es equivalente al coseno direccional en dicho eje."
-#A57 = "El vector unitario se define como $\\overrightarrow{{u}}=\\dfrac{{(X_2-X_1) + (Y_2-Y_1)}}{{\\sqrt{{(X_2-X_1)^2 + (Y_2-Y_1)^2}}}}$."
+A56 = "El vector unitario en la componente del eje ($\\hat{{i}}$ o $\\hat{{j}}$) es equivalente al coseno direccional en dicho eje."
 A57 = "El vector unitario se define como $\\lambda_u=\\dfrac{{\\overrightarrow{{u}}}}{{|\\overrightarrow{{u}}|}}$."
 A58 = "Compruebe que el vector unitario del eje equivale al coseno direccional en dicho eje. Para ello plantee un triángulo rectángulo cuyos lados sean (X2-X1) y (Y2-Y1)."
 A59 = "Realice la sumatoria de fuerzas en X y Y. Determine el vector unitario de F1 y F2."
@@ -244,8 +246,9 @@ def rta_EQ_V2D_F_P4(ax, ay, bx, by):
         
     ${{\hspace{{4mm}} |\\overrightarrow{{F1}}| = \\sqrt{{dx^2+dy^2}} = {math.sqrt((by-ay)**2+(bx-ax)**2):.2f}}}$
 
-    Este resultado implica que el vector cartesiano de F1 es: $\\overrightarrow{{F1}} = ({bx-ax})i + ({by-ay})$ j.
+    Este resultado implica que el vector cartesiano de $\\overrightarrow{{F1}}$ es: $\\overrightarrow{{F1}} = ({bx-ax}) \\hat{{i}} + ({by-ay}) \\hat{{j}}$.
     """
+
 def rta_EQ_V2D_M_P1(F1x, F1y, F2x, F2y, calc, a1,a2):
     return f"""
     La fuerza resultante corresponde a la suma de los dos vectores. Se sugiere para la solución del ejercicio el siguiente método:

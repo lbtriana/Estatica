@@ -506,37 +506,38 @@ if authenticate_user():
 
         outxt = 'Error'
         cont = 0
+        l_error = 0.2
         if preguntas_filtradas[pregunta_actual].no_answers == 1:
-            if abs(respx1 - response1) < 0.1:
+            if abs(respx1 - response1) < l_error:
                 outxt = 'Felicitaciones!!!! La respuesta es correcta.'
                 cont = 1
             else:
                 outxt = 'La respuesta no es correcta, presione el boton de "Ayuda", o trate de nuevo.'
         elif preguntas_filtradas[pregunta_actual].no_answers == 2:
-            if abs(respx1 - response1) > 0.1 and abs(respx2 - response2) > 0.1:
+            if abs(respx1 - response1) > l_error and abs(respx2 - response2) > l_error:
                 outxt = 'Las respuestas no son correctas, presione el boton de "Ayuda", o trate de nuevo.'
             else:
-                if abs(respx1 - response1) < 0.1 and abs(respx2 - response2) < 0.1:
+                if abs(respx1 - response1) < l_error and abs(respx2 - response2) < l_error:
                     outxt = 'Felicitaciones!!!! La respuesta es correcta.'
                     cont = 1
-                elif abs(respx1 - response1) < 0.1 and abs(respx2 - response2) > 0.1:
+                elif abs(respx1 - response1) < l_error and abs(respx2 - response2) > l_error:
                     outxt = 'Solamente la primera respuesta es correcta, presione el boton de "Ayuda", o trate de nuevo.'
-                elif abs(respx1 - response1) > 0.1 and abs(respx2 - response2) < 0.1:
+                elif abs(respx1 - response1) > l_error and abs(respx2 - response2) < l_error:
                     outxt = 'Solamente la segunda respuesta es correcta, presione el boton de "Ayuda", o trate de nuevo.'
         elif preguntas_filtradas[pregunta_actual].no_answers == 3:
-            if abs(respx1 - response1) > 0.1 and abs(respx2 - response2) > 0.1 and abs(respx3 - response3) > 0.1:
+            if abs(respx1 - response1) > l_error and abs(respx2 - response2) > l_error and abs(respx3 - response3) > l_error:
                 outxt = 'Las respuestas no son correctas, presione el boton de "Ayuda", o trate de nuevo.'
             else:
-                if abs(respx1 - response1) < 0.1 and abs(respx2 - response2) < 0.1 and abs(respx3 - response3) < 0.1:
+                if abs(respx1 - response1) < l_error and abs(respx2 - response2) < l_error and abs(respx3 - response3) < l_error:
                     outxt = 'Felicitaciones!!!! La respuesta es correcta.'
                     cont = 1
                 else:
                     correct_answers = []
-                    if abs(respx1 - response1) < 0.1:
+                    if abs(respx1 - response1) < l_error:
                         correct_answers.append("primera")
-                    if abs(respx2 - response2) < 0.1:
+                    if abs(respx2 - response2) < l_error:
                         correct_answers.append("segunda")
-                    if abs(respx3 - response3) < 0.1:
+                    if abs(respx3 - response3) < l_error:
                         correct_answers.append("tercera")
                         
                     if len(correct_answers) == 1:
@@ -676,7 +677,7 @@ if authenticate_user():
                         elif version_no == 4:
                             st.image(EQ_image_paths[40], width=350) 
                 if subtopic == "Vector unitario":
-                    if pregunta_no == 1 or pregunta_no == 2 or pregunta_no == 3 or pregunta_no == 4:
+                    if pregunta_no == 1 or pregunta_no == 2:
                         if version_no == 1:
                             st.image(EQ_image_paths[45], width=350)
                         elif version_no == 2:
@@ -685,6 +686,8 @@ if authenticate_user():
                             st.image(EQ_image_paths[47], width=350)
                         elif version_no == 4:
                             st.image(EQ_image_paths[48], width=350) 
+                    if pregunta_no == 3 or pregunta_no == 4:
+                        st.image(EQ_image_paths[49], width=400)
                 if subtopic == "Momento en un punto 2D":
                     if pregunta_no == 1 or pregunta_no == 2 or pregunta_no == 3 or pregunta_no == 4:
                         if version_no == 1:
@@ -724,7 +727,7 @@ if authenticate_user():
                         elif version_no == 4:
                             st.image(EQ_image_paths[28], width=250)
                 if subtopic == "Vectores 3D":
-                    if pregunta_no == 1 or pregunta_no == 2 or pregunta_no == 3 or pregunta_no == 4:
+                    if pregunta_no == 1 or pregunta_no == 2 or pregunta_no == 3:
                         if version_no == 1:
                             st.image(EQ_image_paths[41], width=400)
                         elif version_no == 2:
