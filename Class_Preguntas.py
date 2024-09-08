@@ -63,7 +63,8 @@ class Questionary:
         self.respuesta_P1 = self.respuestaP1_func(self.fuerzas, self.angulos, self.calculos, self.coordenadas, self.dimensiones, self.momentos)
         self.respuesta_P2 = self.respuestaP2_func(self.fuerzas, self.angulos, self.calculos, self.coordenadas, self.dimensiones, self.momentos)
         self.respuesta_P3 = self.respuestaP3_func(self.fuerzas, self.angulos, self.calculos, self.coordenadas, self.dimensiones, self.momentos)
-       
+      
+
     def regenerate_values(self):
         self.generate_values()
 
@@ -1412,7 +1413,7 @@ preguntas = [
         topic = EQ,
         subtopic = V3D,
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de $F1$ y $F2$ para que la componente X de la fuerza resultante sea ${f[0]:.2f} \\text{{ N}}$ y la componente Z sea ${f[0]*0.7:.2f} \\text{{ N}}$ cuando $\\theta_1 = {Calculations.arccosine(f[0]*(5/13)*Calculations.sine(a[0]),f[0]):.3f}\\degree$, $\\theta_2 = {Calculations.arccosine(f[0]*0.7*(5/13)*Calculations.cosine(a[0]),f[0]*0.7):.3f}\\degree$ y $\\theta_3 = {a[4]:.3f}\\degree$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de $F1$ y $F2$ para que la componente X de la fuerza resultante sea ${f[0]:.2f} \\text{{ N}}$ y la componente Z sea ${f[0]*0.7:.2f} \\text{{ N}}$ cuando $\\theta_1 = {Calculations.arccosine(f[0]*(5/13)*Calculations.sine(a[0]),f[0]):.3f}\\degree$, $\\theta_2 = {Calculations.arccosine(f[0]*(5/13)*Calculations.cosine(a[0]),f[0]):.3f}\\degree$ y $\\theta_3 = {a[4]:.3f}\\degree$.",
         no_answers = 2,
         a1_name = "Magnitud $F1$ $[N]$",
         a2_name = "Magnitud $F2$ $[N]$",
