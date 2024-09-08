@@ -29,14 +29,10 @@ st.set_page_config(layout="wide")
 
 hide_streamlit_style = """
 <style>
-    /* Ocultar menú principal */
     #MainMenu {display: none;}
-    /* Ocultar footer, header y barra de herramientas */
     footer {visibility: hidden;}
     header {display: none;}
     .stToolbar {display: none;}
-    /* Ocultar botón de gestión de la aplicación */
-    .manage-app-button {display: none;}
 </style>
 """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
