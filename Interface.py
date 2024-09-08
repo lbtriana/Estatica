@@ -1,23 +1,15 @@
 import streamlit as st
-import streamlit_authenticator as stauth
-import uuid
 import numpy as np
 import pandas as pd
 import random as rd
-import math
 from Class_Preguntas import Questionary, preguntas
 from Class_Teoria import Theory, conceptuales
 from Imagenes import *
 
-# Nuevas importaciones
-import sqlite3
-from datetime import datetime, timedelta
-import cv2
-import pyautogui
-import base64
-import threading
-import time
+# Importaciones actualizadas
+from supabase import create_client, Client
 import os
+from datetime import datetime
 import json
 import plotly.express as px
 
@@ -32,121 +24,47 @@ datos_usuarios["username"] = datos_usuarios["username"].astype(str)
 datos_usuarios["password"] = datos_usuarios["password"].astype(str)
 users_credentials = pd.Series(datos_usuarios.password.values, index=datos_usuarios.username).to_dict()
 
-# Configuración de la base de datos
+# Configuración de Supabase
+SUPABASE_URL="https://iogbgaiiwwfmrontssoi.supabase.co"
+SUPABASE_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlvZ2JnYWlpd3dmbXJvbnRzc29pIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjUzMjU4MTcsImV4cCI6MjA0MDkwMTgxN30.8H8qeLO_qHFuBU7Il5zw9UFCO0Ixr1jHWY7RO3Kweso"
+supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
+
+# Función para inicializar la base de datos (no es necesaria para Supabase)
 def init_db():
-    conn = sqlite3.connect('user_activity.db')
-    c = conn.cursor()
-    c.execute('''CREATE TABLE IF NOT EXISTS user_events
-                 (id INTEGER PRIMARY KEY AUTOINCREMENT,
-                  username TEXT,
-                  timestamp TEXT,
-                  event_type TEXT,
-                  event_data TEXT)''')
-    c.execute('''CREATE TABLE IF NOT EXISTS screen_recordings
-                 (id INTEGER PRIMARY KEY AUTOINCREMENT,
-                  username TEXT,
-                  timestamp TEXT,
-                  recording_path TEXT)''')
-    conn.commit()
-    conn.close()
+    pass
 
 init_db()
 
 # Función para registrar eventos
-# Update the log_event function to ensure proper JSON formatting
 def log_event(username, event_type, event_data):
-    conn = sqlite3.connect('user_activity.db')
-    c = conn.cursor()
     timestamp = datetime.now().isoformat()
-    event_data_json = json.dumps(event_data)  # Ensure proper JSON formatting
-    c.execute("INSERT INTO user_events (username, timestamp, event_type, event_data) VALUES (?, ?, ?, ?)",
-              (username, timestamp, event_type, event_data_json))
-    conn.commit()
-    conn.close()
-
-# Funciones actualizadas de grabación de pantalla
-
-def start_screen_recording(username):
-    if "screen_recorder" not in st.session_state:
-        # Crear el nombre del archivo
-        filename = f"screen_recording_{username}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.mp4"
-        
-        # Obtener el directorio actual del script
-        current_dir = os.path.dirname(os.path.abspath(__file__))
-        
-        # Crear la ruta completa para el directorio de grabaciones
-        recordings_dir = os.path.join(current_dir, 'grabaciones')
-        
-        # Asegurar que el directorio existe
-        os.makedirs(recordings_dir, exist_ok=True)
-        
-        # Crear la ruta completa del archivo
-        filepath = os.path.join(recordings_dir, filename)
-        
-        # Obtener el tamaño de la pantalla
-        screen_size = pyautogui.size()
-        
-        # Inicializar el escritor de video
-        fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-        out = cv2.VideoWriter(filepath, fourcc, 10.0, screen_size)
-        
-        st.session_state["screen_recorder"] = out
-        st.session_state["recording_filename"] = filepath
-        
-        # Iniciar el hilo de grabación
-        st.session_state["recording_thread"] = threading.Thread(target=record_screen, args=(username,))
-        st.session_state["recording_thread"].start()
-        
-        # Registrar el inicio de la grabación
-        log_event(username, "screen_recording_started", {"filename": filepath})
-        print(f"Iniciando grabación: {filepath}")  # Añadir log para depuración
-
-def record_screen(username):
-    try:
-        while st.session_state.get("screen_record_consent", False):
-            # Capture the screen
-            img = pyautogui.screenshot()
-            frame = np.array(img)
-            frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
-            
-            # Write the frame
-            st.session_state["screen_recorder"].write(frame)
-            
-            # Sleep to control frame rate
-            time.sleep(0.1)  # Adjust this for desired frame rate
-    except Exception as e:
-        print(f"Error in screen recording: {str(e)}")
-    finally:
-        stop_screen_recording(username)
-
-def stop_screen_recording(username):
-    if "screen_recorder" in st.session_state:
-        st.session_state["screen_recorder"].release()
-        log_event(username, "screen_recording_stopped", {"filename": st.session_state.get("recording_filename", "Unknown")})
-        del st.session_state["screen_recorder"]
-        if "recording_thread" in st.session_state:
-            st.session_state["recording_thread"].join()
-            del st.session_state["recording_thread"]
+    event_data_json = json.dumps(event_data)
+    
+    data = {
+        "username": username,
+        "timestamp": timestamp,
+        "event_type": event_type,
+        "event_data": event_data_json
+    }
+    
+    response = supabase.table("user_events").insert(data).execute()
+    
+    if hasattr(response, 'error') and response.error:
+        print(f"Error logging event: {response.error}")
 
 # Función para obtener el consentimiento del usuario
 def get_user_consent():
-    consent = st.checkbox("Acepto el seguimiento anónimo de actividad para mejorar la aplicación", value = "True")
-    screen_record_consent = st.checkbox("Acepto la grabación opcional de pantalla con fines de investigación", value = "True")
+    consent = st.checkbox("Acepto el seguimiento anónimo de actividad para mejorar la aplicación", value=True)
     
-    if consent not in st.session_state:
+    if "consent" not in st.session_state:
         st.session_state["consent"] = consent
-    if screen_record_consent not in st.session_state:
-        st.session_state["screen_record_consent"] = screen_record_consent
 
     if "authenticated" in st.session_state and st.session_state["authenticated"]:
         username = st.session_state.get("username", "unknown_user")
         if consent:
             log_event(username, "consent_given", {"type": "activity_tracking"})
-        if screen_record_consent:
-            log_event(username, "consent_given", {"type": "screen_recording"})
-            start_screen_recording(username)
     
-    return consent, screen_record_consent
+    return consent
 
 #Función para verificar credenciales
 def creds_entered():
@@ -197,7 +115,7 @@ def authenticate_user():
             """,unsafe_allow_html=True)
             st.text_input(label="Username:", value="", key="user")
             st.text_input(label="Password:", value="", key="passwd", type="password")
-            consent, screen_record_consent = get_user_consent()
+            consent = get_user_consent()
             if st.button("Iniciar sesión"):
                 if consent:
                    creds_entered()  
@@ -237,69 +155,155 @@ def authenticate_user():
                 </div>
                 """, unsafe_allow_html=True)
                 st.text_input(label="Username:", value="", key="user")
-            st.text_input(label="Password:", value="", key="passwd", type="password")
-            consent, screen_record_consent = get_user_consent()
-            if st.button("Iniciar sesión"):
-                if consent:
-                   creds_entered()
-                else:
-                    st.write("Debe aceptar el seguimiento anónimo de actividad para mejorar la aplicación")
+                st.text_input(label="Password:", value="", key="passwd", type="password")
+                consent = get_user_consent()
+                if st.button("Iniciar sesión"):
+                    if consent:
+                       creds_entered()
+                    else:
+                        st.write("Debe aceptar el seguimiento anónimo de actividad para mejorar la aplicación")
             return False    
-    
 
 def get_user_statistics(username):
-    conn = sqlite3.connect('user_activity.db')
-    
     # Study time
-    study_time_query = """
-    SELECT DATE(timestamp) as date, SUM(CAST(event_data AS INTEGER)) as total_time
-    FROM user_events
-    WHERE username = ? AND event_type = 'study_time'
-    GROUP BY DATE(timestamp)
-    ORDER BY date
-    """
-    study_time_df = pd.read_sql_query(study_time_query, conn, params=(username,))
-    study_time_df['date'] = pd.to_datetime(study_time_df['date'])
+    study_time_query = supabase.table("user_events").select("timestamp, event_data").eq("username", username).eq("event_type", "study_time").execute()
     
     # Exercises solved
-    exercises_query = """
-    SELECT DATE(timestamp) as date, 
-           COUNT(*) as total,
-           SUM(CASE WHEN event_data LIKE '%"is_correct": true%' OR event_data LIKE '%"is_correct": 1%' THEN 1 ELSE 0 END) as correct
-    FROM user_events
-    WHERE username = ? AND event_type = 'answer_submitted'
-    GROUP BY DATE(timestamp)
-    ORDER BY date
-    """
-    exercises_df = pd.read_sql_query(exercises_query, conn, params=(username,))
-    exercises_df['date'] = pd.to_datetime(exercises_df['date'])
+    exercises_query = supabase.table("user_events").select("timestamp, event_data").eq("username", username).eq("event_type", "answer_submitted").execute()
     
     # Points
-    points_query = """
-    SELECT DATE(timestamp) as date, SUM(CAST(JSON_EXTRACT(event_data, '$.points') AS INTEGER)) as total_points
-    FROM user_events
-    WHERE username = ? AND event_type = 'points_earned'
-    GROUP BY DATE(timestamp)
-    ORDER BY date
-    """
-    try:
-        points_df = pd.read_sql_query(points_query, conn, params=(username,))
-        points_df['date'] = pd.to_datetime(points_df['date'])
-    except sqlite3.OperationalError:
-        # If JSON_EXTRACT fails, fall back to a simpler query
-        points_query = """
-        SELECT DATE(timestamp) as date, COUNT(*) as total_points
-        FROM user_events
-        WHERE username = ? AND event_type = 'points_earned'
-        GROUP BY DATE(timestamp)
-        ORDER BY date
-        """
-        points_df = pd.read_sql_query(points_query, conn, params=(username,))
-        points_df['date'] = pd.to_datetime(points_df['date'])
+    points_query = supabase.table("user_events").select("timestamp, event_data").eq("username", username).eq("event_type", "points_earned").execute()
     
-    conn.close()
+    # Practice options
+    options_query = supabase.table("user_events").select("timestamp, event_data").eq("username", username).eq("event_type", "practice_options_selected").execute()
     
-    return study_time_df, exercises_df, points_df
+    # Process the results and create DataFrames
+    study_time_df = pd.DataFrame(study_time_query.data)
+    exercises_df = pd.DataFrame(exercises_query.data)
+    points_df = pd.DataFrame(points_query.data)
+    options_df = pd.DataFrame(options_query.data)
+    
+    # Convert timestamps to datetime and create date column
+    for df in [study_time_df, exercises_df, points_df, options_df]:
+        if not df.empty and 'timestamp' in df.columns:
+            df['timestamp'] = pd.to_datetime(df['timestamp'])
+            df['date'] = df['timestamp'].dt.date
+        else:
+            # If DataFrame is empty or doesn't have 'timestamp' column, create empty columns
+            df['timestamp'] = pd.Series(dtype='datetime64[ns]')
+            df['date'] = pd.Series(dtype='object')
+    
+    # Process study time
+    if not study_time_df.empty and 'event_data' in study_time_df.columns:
+        study_time_df['total_time'] = study_time_df['event_data'].apply(lambda x: int(json.loads(x)) if x else 0)
+        study_time_df = study_time_df.groupby('date')['total_time'].sum().reset_index()
+    else:
+        study_time_df = pd.DataFrame(columns=['date', 'total_time'])
+    
+    # Process exercises
+    if not exercises_df.empty and 'event_data' in exercises_df.columns:
+        exercises_df['event_data'] = exercises_df['event_data'].apply(json.loads)
+        exercises_df['is_correct'] = exercises_df['event_data'].apply(lambda x: x.get('is_correct', False))
+        exercises_df['question_id'] = exercises_df['event_data'].apply(lambda x: x.get('question_id', None))
+        exercises_df = exercises_df.groupby('date').agg({
+            'is_correct': ['count', 'sum'],
+            'question_id': 'count'
+        }).reset_index()
+        exercises_df.columns = ['date', 'total', 'correct', 'question_count']
+    else:
+        exercises_df = pd.DataFrame(columns=['date', 'total', 'correct', 'question_count'])
+    
+    # Process points
+    if not points_df.empty and 'event_data' in points_df.columns:
+        points_df['points'] = points_df['event_data'].apply(lambda x: int(json.loads(x)['points']) if x else 0)
+        points_df = points_df.groupby('date')['points'].sum().reset_index()
+        points_df.columns = ['date', 'total_points']
+    else:
+        points_df = pd.DataFrame(columns=['date', 'total_points'])
+    
+    # Process practice options
+    if not options_df.empty and 'event_data' in options_df.columns:
+        options_df['event_data'] = options_df['event_data'].apply(json.loads)
+        options_df['topic'] = options_df['event_data'].apply(lambda x: x.get('topic', None))
+        options_df['subtopic'] = options_df['event_data'].apply(lambda x: x.get('subtopic', None))
+        options_df['complexity'] = options_df['event_data'].apply(lambda x: x.get('complexity', None))
+    else:
+        options_df = pd.DataFrame(columns=['date', 'topic', 'subtopic', 'complexity'])
+    
+    # Combine data for detailed statistics
+    detailed_stats = options_df.merge(exercises_df, on='date', how='left')
+    detailed_stats = detailed_stats.merge(points_df, on='date', how='left')
+    
+    # Aggregate detailed statistics
+    detailed_stats = detailed_stats.groupby(['topic', 'subtopic', 'complexity']).agg({
+        'question_count': 'sum',
+        'correct': 'sum',
+        'total_points': 'sum'
+    }).reset_index()
+    
+    detailed_stats.columns = ['topic', 'subtopic', 'complexity', 'total_exercises', 'correct_exercises', 'total_points']
+    detailed_stats['total_points'] = detailed_stats['total_points'].fillna(0)
+    
+    return study_time_df, exercises_df, points_df, detailed_stats
+
+def create_topic_subtopic_exercises_chart(detailed_stats):
+    # Ensure 'total_exercises' and 'correct_exercises' are numeric
+    detailed_stats['total_exercises'] = pd.to_numeric(detailed_stats['total_exercises'], errors='coerce')
+    detailed_stats['correct_exercises'] = pd.to_numeric(detailed_stats['correct_exercises'], errors='coerce')
+    
+    # Fill NaN values with 0
+    detailed_stats['total_exercises'] = detailed_stats['total_exercises'].fillna(0)
+    detailed_stats['correct_exercises'] = detailed_stats['correct_exercises'].fillna(0)
+    
+    # Melt the DataFrame to create a "long" format suitable for Plotly Express
+    melted_df = pd.melt(detailed_stats, 
+                        id_vars=['topic', 'subtopic', 'complexity'],
+                        value_vars=['total_exercises', 'correct_exercises'],
+                        var_name='exercise_type', 
+                        value_name='count')
+
+    fig = px.bar(melted_df, 
+                 x='topic', 
+                 y='count',
+                 color='subtopic', 
+                 pattern_shape='exercise_type',
+                 facet_row='complexity',
+                 title='Ejercicios por Tema, Subtema y Complejidad',
+                 labels={'count': 'Número de Ejercicios', 'exercise_type': 'Tipo'})
+    
+    fig.update_layout(
+        xaxis_title='Tema',
+        yaxis_title='Número de Ejercicios',
+        legend_title='Subtema',
+        height=800  # Increase height to accommodate facets
+    )
+    
+    return fig
+
+
+def create_topic_subtopic_points_chart(detailed_stats):
+    # Ensure 'total_points' is numeric
+    detailed_stats['total_points'] = pd.to_numeric(detailed_stats['total_points'], errors='coerce')
+    
+    # Fill NaN values with 0
+    detailed_stats['total_points'] = detailed_stats['total_points'].fillna(0)
+
+    fig = px.bar(detailed_stats, 
+                 x='topic', 
+                 y='total_points',
+                 color='subtopic', 
+                 facet_row='complexity',
+                 title='Puntos Ganados por Tema, Subtema y Complejidad',
+                 labels={'total_points': 'Puntos', 'topic': 'Tema'})
+    
+    fig.update_layout(
+        xaxis_title='Tema',
+        yaxis_title='Puntos',
+        legend_title='Subtema',
+        height=800  # Increase height to accommodate facets
+    )
+    
+    return fig
 
 def create_study_time_chart(study_time_df):
     fig = px.line(study_time_df, x='date', y='total_time', title='Tiempo de Estudio Diario')
@@ -307,8 +311,58 @@ def create_study_time_chart(study_time_df):
     return fig
 
 def create_exercises_chart(exercises_df):
-    fig = px.bar(exercises_df, x='date', y=['correct', 'total'], title='Ejercicios Resueltos Diariamente',
-                 labels={'value': 'Número de Ejercicios', 'variable': 'Tipo'})
+    if exercises_df.empty:
+        # Si el DataFrame está vacío, crea un gráfico vacío
+        fig = px.bar(title='Ejercicios Resueltos Diariamente')
+        fig.update_layout(
+            xaxis_title='Fecha',
+            yaxis_title='Número de Ejercicios',
+            showlegend=False
+        )
+    else:
+        # Asegúrate de que las columnas 'correct' y 'total' sean de tipo numérico
+        exercises_df['correct'] = pd.to_numeric(exercises_df['correct'], errors='coerce').fillna(0).astype(int)
+        exercises_df['total'] = pd.to_numeric(exercises_df['total'], errors='coerce').fillna(0).astype(int)
+        
+        # Crea el gráfico de barras
+        fig = px.bar(
+            exercises_df,
+            x='date',
+            y=['correct', 'total'],
+            title='Ejercicios Resueltos Diariamente',
+            labels={'value': 'Número de Ejercicios', 'variable': 'Tipo'},
+            barmode='group'
+        )
+        
+        fig.update_layout(
+            xaxis_title='Fecha',
+            yaxis_title='Número de Ejercicios',
+            legend_title='Tipo de Ejercicio',
+            legend=dict(
+                orientation="h",
+                yanchor="bottom",
+                y=1.02,
+                xanchor="right",
+                x=1
+            )
+        )
+    
+    return fig
+
+
+def create_topic_statistics_chart(topic_stats):
+    fig = px.bar(topic_stats, x='topic', y=['total_exercises', 'correct_exercises', 'total_attempts', 'points'],
+                 title='Estadísticas por Tema',
+                 labels={'value': 'Cantidad', 'variable': 'Métrica'},
+                 barmode='group')
+    
+    fig.update_layout(
+        xaxis_title='Tema',
+        yaxis_title='Cantidad',
+        legend_title='Métrica',
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
+    )
+    
     return fig
 
 def create_points_chart(points_df):
@@ -340,26 +394,21 @@ def calculate_points(difficulty, attempts, used_help):
     else:
         return points // 3
 
-#Mostrar página web cuando el usuario está autenticado           
 if authenticate_user():
     consent = st.session_state.consent
-    screen_record_consent = st.session_state.screen_record_consent
 
-    #st.write("El estado de screen_record_consent es:", screen_record_consent)
-    #st.write("El estado de consent es:", consent)
- 
-#-------------------------------Inicialización de variables con sesión de estado-----------------------------------------
+    # -------------------------------Inicialización de variables con sesión de estado-----------------------------------------
 
-    #Initialize the "Intento" Variable to Count the Number of User's Attempts to Verify Their Answer
+    # Initialize the "Intento" Variable to Count the Number of User's Attempts to Verify Their Answer
     if 'Intento' not in st.session_state:
         st.session_state.Intento = 0
-    #Initialize the State for the "mostrar_respuesta" Function When the User Verifies Their Answer
+    # Initialize the State for the "mostrar_respuesta" Function When the User Verifies Their Answer
     if 'mostrar_respuesta' not in st.session_state:
         st.session_state.mostrar_respuesta = False
-    #Initialize the questions to show
+    # Initialize the questions to show
     if 'pregunta_actual' not in st.session_state:
         st.session_state.pregunta_actual = 0 
-    #Initialize the version of the question to show    
+    # Initialize the version of the question to show    
     if 'version_actual' not in st.session_state:    
         st.session_state.version_actual = 1
     # Inicializa el método
@@ -375,7 +424,7 @@ if authenticate_user():
     if 'subtopic' not in st.session_state:
         st.session_state.subtopic = ""
 
-    #-------------------------------------------Creación de la barra lateral-------------------------------------
+    # -------------------------------------------Creación de la barra lateral-------------------------------------
     st.sidebar.markdown("<h1 style='font-size:36px;'>StaticGenius</h1>", unsafe_allow_html=True)
     action = st.sidebar.radio("Seleccione la acción que desa realizar", options = ["Estudiar","Consultar estadísticas"])
     
@@ -422,9 +471,8 @@ if authenticate_user():
     
     elif action == "Consultar estadísticas":
         st.header("Estadísticas de Usuario")
-        
         username = st.session_state.get("username", "unknown_user")
-        study_time_df, exercises_df, points_df = get_user_statistics(username)
+        study_time_df, exercises_df, points_df, detailed_stats = get_user_statistics(username)
         
         # Display total statistics
         total_stats = calculate_total_statistics(study_time_df, exercises_df, points_df)
@@ -434,26 +482,27 @@ if authenticate_user():
         col3.metric("Ejercicios Correctos", total_stats['total_correct'])
         col4.metric("Puntos Totales", total_stats['total_points'])
         
-        # Display charts
+        # Display overall charts
         st.plotly_chart(create_study_time_chart(study_time_df))
         st.plotly_chart(create_exercises_chart(exercises_df))
         st.plotly_chart(create_points_chart(points_df))
         
+        # Display detailed charts
+        st.subheader("Estadísticas Detalladas por Tema, Subtema y Complejidad")
+        st.plotly_chart(create_topic_subtopic_exercises_chart(detailed_stats))
+        st.plotly_chart(create_topic_subtopic_points_chart(detailed_stats))
+        
         if consent:
             log_event(username, "statistics_viewed", {})
-
-    
-    
 
     
     topic_user = respuesta_usuario.get('topic', None)
     subtopic_user = respuesta_usuario.get('subtopic', None)
     complexity_user = respuesta_usuario.get('complexity', None)  
 
-    #Lista filtrada de preguntas según la selección del usuario
+    # Lista filtrada de preguntas según la selección del usuario
     preguntas_filtradas = Questionary.filtrar_preguntas(preguntas, topic_user, subtopic_user, complexity_user)
-    conceptuales_filtradas = Theory.filtrar_preguntas_teoria(conceptuales, topic_user, subtopic_user)
-        
+    conceptuales_filtradas = Theory.filtrar_preguntas_teoria(conceptuales, topic_user, subtopic_user)        
     #Reinicia el número de la pregunta cuando se cambia de tema, subtema o nivel de dificulta
    # Verificar si se ha cambiado alguna de las opciones
     if action == "Estudiar":
@@ -475,10 +524,7 @@ if authenticate_user():
                 # Reiniciar el número de la pregunta
                 st.session_state.pregunta_actual = 0
 
-
-
-
-    #=========================Funciones para generar las preguntas============================
+        #=========================Funciones para generar las preguntas============================
 
     #Función para crear las cajas para las respuestas del usuario
     def render_input_widgets(preguntas_filtradas, pregunta_actual):
@@ -596,7 +642,7 @@ if authenticate_user():
                             st.image(EQ_image_paths[34], width=350)
                         elif version_no == 3:
                             st.image(EQ_image_paths[35], width=350)
-                        elif version_no == 4:
+                        elif version_no == 4:   
                             st.image(EQ_image_paths[36], width=350) 
                 if subtopic == "Equilibrio 2D":
                     if pregunta_no == 1 or pregunta_no == 2:
@@ -641,7 +687,6 @@ if authenticate_user():
                             st.image(MO_image_paths[2], width=350)
                         elif version_no == 4:
                             st.image(MO_image_paths[3], width=350)
-                   
             if difficulty == "Medio":
                 if subtopic == "Vectores 2D":
                     if pregunta_no == 1:
@@ -796,7 +841,6 @@ if authenticate_user():
                     "help_index": st.session_state.ayuda_index
                     })
 
-
     #Función para generar una nueva versión de la pregunta
     def nueva_version_callback():
         no_pregunta_actual = preguntas_filtradas[st.session_state.pregunta_actual].no_pregunta
@@ -864,15 +908,14 @@ if authenticate_user():
         st.markdown('<h3 style="font-size:18px;">Pregunta</h3>', unsafe_allow_html=True) #Title Pregunta
         st.write(preguntas_filtradas[st.session_state.pregunta_actual].pregunta) #Write the statement question
         filtrar_imagenes_preguntas(preguntas_filtradas[st.session_state.pregunta_actual].no_pregunta, preguntas_filtradas[st.session_state.pregunta_actual].version, preguntas_filtradas[st.session_state.pregunta_actual].subtopic, preguntas_filtradas[st.session_state.pregunta_actual].complexity) #Select the image
-         
 
-        st.markdown('<h3 style="font-size:18px;">Respuestas</h3>', unsafe_allow_html=True) #Title Respuestas
-        st.markdown('<p style="font-size: 14px;">Ingrese sus respuestas con dos decimales</p>', unsafe_allow_html=True) #Title of instructions
-        response1, response2, response3 = render_input_widgets(preguntas_filtradas,st.session_state.pregunta_actual) #Create boxes to the user's answers
+        st.markdown('<h3 style="font-size:18px;">Respuestas</h3>', unsafe_allow_html=True)  # Title Respuestas
+        st.markdown('<p style="font-size: 14px;">Ingrese sus respuestas con dos decimales</p>', unsafe_allow_html=True)  # Title of instructions
+        response1, response2, response3 = render_input_widgets(preguntas_filtradas, st.session_state.pregunta_actual)  # Create boxes to the user's answers
 
-        st.markdown('<h3 style="font-size:18px;">Acciones</h3>', unsafe_allow_html=True) #Title Acciones
-            
-        #Create butttons
+        st.markdown('<h3 style="font-size:18px;">Acciones</h3>', unsafe_allow_html=True)  # Title Acciones
+
+        # Create buttons
         respuesta_pressed, ayuda_pressed, repetir_pressed, nuevo_pressed = st.columns(4)
         respuesta_clicked = respuesta_pressed.button("Verificar respuesta", key=f"respuesta_button_{st.session_state.pregunta_actual}", help="Verificación de la respuesta", use_container_width=True)
         ayuda_clicked = ayuda_pressed.button("Ayuda", key=f"ayuda_button_{st.session_state.pregunta_actual}", help="Ayuda para la solución", use_container_width=True)
@@ -881,11 +924,11 @@ if authenticate_user():
 
         if st.session_state.get("consent", False):
             log_event(st.session_state["username"], "question_viewed", {
-            "question_id": preguntas_filtradas[st.session_state.pregunta_actual].no_pregunta,
-            "version": preguntas_filtradas[st.session_state.pregunta_actual].version
+                "question_id": current_question.no_pregunta,
+                "version": current_question.version
             })
 
-            return response1, response2, response3, respuesta_clicked, ayuda_clicked
+        return response1, response2, response3, respuesta_clicked, ayuda_clicked
 
     
     def generate_calculation_questions():
@@ -955,6 +998,7 @@ if authenticate_user():
         st.session_state.pregunta_actual = nuevo_problema_teoria
 
     #Función para mostrar la imagen de la pregunta de teoría
+   #Función para mostrar la imagen de la pregunta de teoría
     def filtrar_imagenes_teoria(pregunta_no, subtopic):
         left_col, center_col, right_col = st.columns(3)
         with center_col:
@@ -977,7 +1021,6 @@ if authenticate_user():
                         st.image(teoria_preguntas[7], width=250)  
                     
         return
-
 
     def generate_theory_questions():
         st.markdown(f"<h2 style='text-align: left;'>{conceptuales_filtradas[st.session_state.pregunta_actual].topic} - {conceptuales_filtradas[st.session_state.pregunta_actual].subtopic}</h2>", unsafe_allow_html=True)
@@ -1011,10 +1054,6 @@ if authenticate_user():
     if __name__ == '__main__':  
         if action == "Estudiar":
             main() 
-        # Cleanup
-        if st.session_state.get("screen_record_consent", False):
-            username = st.session_state.get("username", "unknown_user")
-            stop_screen_recording(username)
                 
         if st.session_state.get("consent", False):
             study_duration = int((datetime.now() - st.session_state.get("session_start_time", datetime.now())).total_seconds() / 60)
