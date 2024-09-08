@@ -39,6 +39,7 @@ class Questionary:
         self.calculos = calculos
         self.generate_values()
 
+
     #Function to generate the values of the variables and relates them to the parameters of the class
     def generate_values(self):
         self.fuerzas = calcular_fuerzas()
@@ -46,7 +47,6 @@ class Questionary:
         self.coordenadas = calcular_coordenadas()
         self.dimensiones = calcular_dimensiones()
         self.momentos = calcular_momentos()
-        #self.calculos = getattr(self, self.calculos)()
 
         # Check if self.calculos is a string (method name)
         if isinstance(self.calculos, str):
@@ -1328,12 +1328,12 @@ preguntas = [
         topic = EQ,
         subtopic = V3D,
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Halle la magnitud de la fuerza resultante ($FR$) entre los vectores $F1$ y $F2$. Suponga que $F1 = {f[0]:.0f} \\text{{ N}}$, $F2 = {f[1]:.0f} \\text{{ N}}$, $\\theta_1 = {Calculations.arccosine(f[0]*(5/13)*Calculations.sine(a[0]),f[0]):.2f}\\degree$, $\\theta_2 = {Calculations.arccosine(f[0]*(5/13)*Calculations.cosine(a[0]),f[0]):.2f}\\degree$ y $\\theta_3 = {a[4]:.2f}\\degree$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Halle la magnitud de la fuerza resultante ($FR$) entre los vectores $F1$ y $F2$. Suponga que $F1 = {f[0]:.0f} \\text{{ N}}$, $F2 = {f[1]:.0f} \\text{{ N}}$, $\\theta_1 = {Calculations.arccosine(f[0]*(5/13)*Calculations.sine(a[0]),f[0]):.3f}\\degree$, $\\theta_2 = {Calculations.arccosine(f[0]*(5/13)*Calculations.cosine(a[0]),f[0]):.3f}\\degree$ y $\\theta_3 = {a[4]:.3f}\\degree$.",
         no_answers = 1,
         a1_name = "Magnitud $FR$ $[N]$",
         a2_name = "",
         a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round(Calculations.magnitude3D(f[0]*(f[0]*(5/13)*Calculations.sine(a[0])/f[0])+f[1]*(4/5)*calc['sin5'],f[0]*(f[0]*(5/13)*Calculations.cosine(a[0])/f[0])+f[1]*(4/5)*calc['cos5'],-f[0]*(12/13)+f[1]*(3/5)),2),
+        answer1 = lambda f, a, calc, c, d, m: np.round(Calculations.magnitude3D(f[0]*(f[0]*(5/13)*Calculations.sine(a[0])/f[0])+f[1]*(4/5)*Calculations.sine(a[4]),f[0]*(f[0]*(5/13)*Calculations.cosine(a[0])/f[0])+f[1]*(4/5)*Calculations.cosine(a[4]),-f[0]*(12/13)+f[1]*(3/5)),2),
         answer2 = lambda f, a, calc, c, d, m: 0,
         answer3 = lambda f, a, calc, c, d, m: 0,
         ayuda1 = A41,
@@ -1356,7 +1356,7 @@ preguntas = [
         """, 
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"", 
-        calculos='operations'
+        calculos='operations',
         ),
 
     Questionary(#2_1
@@ -1366,7 +1366,7 @@ preguntas = [
         topic = EQ,
         subtopic = V3D,
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Halle los ángulos directores coordenados de la fuerza resultante ($FR$) entre los vectores $F1$ y $F2$. Suponga que $F1 = {f[0]:.0f} \\text{{ N}}$, $F2 = {f[1]:.0f} \\text{{ N}}$, $\\theta_1 = {Calculations.arccosine(f[0]*(5/13)*Calculations.sine(a[0]),f[0]):.2f}\\degree$, $\\theta_2 = {Calculations.arccosine(f[0]*(5/13)*Calculations.cosine(a[0]),f[0]):.2f}\\degree$ y $\\theta_3 = {a[4]:.2f}\\degree$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Halle los ángulos directores coordenados de la fuerza resultante ($FR$) entre los vectores $F1$ y $F2$. Suponga que $F1 = {f[0]:.0f} \\text{{ N}}$, $F2 = {f[1]:.0f} \\text{{ N}}$, $\\theta_1 = {Calculations.arccosine(f[0]*(5/13)*Calculations.sine(a[0]),f[0]):.3f}\\degree$, $\\theta_2 = {Calculations.arccosine(f[0]*(5/13)*Calculations.cosine(a[0]),f[0]):.3f}\\degree$ y $\\theta_3 = {a[4]:.3f}\\degree$.",
         no_answers = 3,
         a1_name = A3X,
         a2_name = A3Y,
@@ -1412,13 +1412,13 @@ preguntas = [
         topic = EQ,
         subtopic = V3D,
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de $F1$ y $F2$ para que la componente X de la fuerza resultante sea ${f[0]:.2f} \\text{{ N}}$ y la componente Z sea ${f[0]*0.7:.2f} \\text{{ N}}$ cuando $\\theta_1 = {Calculations.arccosine(f[0]*(5/13)*Calculations.sine(a[0]),f[0]):.2f}\\degree$, $\\theta_2 = {Calculations.arccosine(f[0]*(5/13)*Calculations.cosine(a[0]),f[0]):.2f}\\degree$ y $\\theta_3 = {a[4]:.2f}\\degree$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de $F1$ y $F2$ para que la componente X de la fuerza resultante sea ${f[0]:.2f} \\text{{ N}}$ y la componente Z sea ${f[0]*0.7:.2f} \\text{{ N}}$ cuando $\\theta_1 = {Calculations.arccosine(f[0]*(5/13)*Calculations.sine(a[0]),f[0]):.3f}\\degree$, $\\theta_2 = {Calculations.arccosine(f[0]*0.7*(5/13)*Calculations.cosine(a[0]),f[0]*0.7):.3f}\\degree$ y $\\theta_3 = {a[4]:.3f}\\degree$.",
         no_answers = 2,
         a1_name = "Magnitud $F1$ $[N]$",
         a2_name = "Magnitud $F2$ $[N]$",
         a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round((f[0]-f[0]*0.7*(4/3)*calc['sin5'])/((5/13)*Calculations.sine(a[0])+(4/3)*(12/13)*calc['sin5']),2),
-        answer2 = lambda f, a, calc, c, d, m: np.round(((f[0]*0.7+(12/13)*((f[0]-f[0]*0.7*(4/3)*calc['sin5'])/((5/13)*Calculations.sine(a[0])+(4/3)*(12/13)*calc['sin5']))))*(5/3),2),
+        answer1 = lambda f, a, calc, c, d, m: np.round((f[0]-f[0]*0.7*(4/3)*calc['sin5'])/(Calculations.cosine((Calculations.arccosine(f[0]*(5/13)*Calculations.sine(a[0]),f[0])))+(4/3)*(12/13)*calc['sin5']),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round((f[0]*0.7+(12/13)*((f[0]-f[0]*0.7*(4/3)*calc['sin5'])/(Calculations.cosine(Calculations.arccosine(f[0]*(5/13)*Calculations.sine(a[0]),f[0]))+(4/3)*(12/13)*calc['sin5'])))*(5/3),2),
         answer3 = lambda f, a, calc, c, d, m: 0,
         ayuda1 = A44,
         ayuda2 = A37,
@@ -1457,8 +1457,8 @@ preguntas = [
        
         Reemplazando en las ecuaciones de $F1$ y $F2$ se obtiene: 
 
-        $F1 = {(f[0]-f[0]*0.7*(4/3)*calc['sin5'])/((5/13)*Calculations.sine(a[0])+(4/3)*(12/13)*calc['sin5']):.2f} \\text{{N}}$    
-        $F2 = {((f[0]*0.7+(12/13)*((f[0]-f[0]*0.7*(4/3)*calc['sin5'])/((5/13)*Calculations.sine(a[0])+(4/3)*(12/13)*calc['sin5']))))*(5/3):.2f} \\text{{N}}$    
+        $F1 = {(f[0]-f[0]*0.7*(4/3)*calc['sin5'])/(Calculations.cosine((Calculations.arccosine(f[0]*(5/13)*Calculations.sine(a[0]),f[0])))+(4/3)*(12/13)*calc['sin5']):.2f} \\text{{N}}$    
+        $F2 = {(f[0]*0.7+(12/13)*((f[0]-f[0]*0.7*(4/3)*calc['sin5'])/(Calculations.cosine(Calculations.arccosine(f[0]*(5/13)*Calculations.sine(a[0]),f[0]))+(4/3)*(12/13)*calc['sin5'])))*(5/3):.2f} \\text{{N}}$    
        """, 
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"", 
@@ -2423,36 +2423,46 @@ preguntas = [
         topic = EQ,
         subtopic = VU,
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"La componente en Y del vector unitario del cable AD, evaluado desde A hacia D, es {calc['cos1']:.2f}. ¿Cuál es la distancia D_Y si $D_X={d[0]:.0f}$ y $A_Z={d[3]:.0f}?$. Además, ¿cuál es la componente en Y de la fuerza, si la fuerza a lo largo del cable es ${f[0]:.0f} \\text{{ kN}}?$.",
+        pregunta = lambda f, a, calc, c, d, m: f"La componente en Y del vector unitario del cable AD, evaluado desde A hacia D, es equivalente a $\\dfrac{{{d[6]:.0f}}}{{{d[9]:.0f}}}$. ¿Cuál es la distancia $D_Y$ si $D_X={d[0]:.0f} \\text{{ m}}$ y $A_Z={d[3]:.0f} \\text{{ m}}$?. Además, ¿cuál es la componente en Y de la fuerza, si la fuerza a lo largo del cable es ${f[0]:.0f} \\text{{ kN}}?$.",
         no_answers = 2,
         a1_name = "Distancia $D_Y$",
         a2_name = "Componente en y ($F_y$)",
         a3_name = "",
-        answer1=lambda f, a, calc, c, d, m: np.round(math.sqrt((d[0]**2+d[3]**2)/((1/(calc['cos1'])**2)-1)),2),
-        answer2=lambda f, a, calc, c, d, m: np.round(calc['cos1']*f[0],2),
+        answer1=lambda f, a, calc, c, d, m: np.round(math.sqrt(((d[6]/d[9])**2*(d[0]**2+d[3]**2))/(1-(d[6]/d[9])**2)),2),
+        answer2=lambda f, a, calc, c, d, m: np.round((d[6]/d[9])*f[0],2),
         answer3=lambda f, a, calc, c, d, m: 0,
         ayuda1 = A65,
-        ayuda2 = "Despeje la distancia $D_Y$.",
-        ayuda3 = A66,
+        ayuda2 = A66,
+        ayuda3 = "",
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
         A continuación se presenta la solución sugerida para el ejercicio:
 
-        $\\textbf{{\\small 1. Despeje de la distancia $D_Y$:}}$
+        $\\textbf{{\\small 1. Despeje de la distancia:}}$    
 
-        Para despejar la distancia $D_Y$ se plantea la ecuación de la componente Y $j$ del vector unitario:
+        Para despejar la distancia $D_Y$ se plantea la ecuación de la componente Y $\\hat{{j}}$ del vector unitario:
 
-        ${{\hspace{{4mm}} \\lambda_u_y = \\dfrac{{D_Y}}{{\\sqrt{{(D_X-0)^2 + (D_Y-0)^2 + (0-A_Z)^2}} }} }}$
-        ${{\hspace{{4mm}} \\sqrt{{(D_X-0)^2 + (D_Y-0)^2 + (0-A_Z)^2}} = \\dfrac{{D_Y}}{{\\lambda_u_y}} }}$
-        ${{\hspace{{4mm}} (D_X-0)^2 + (D_Y-0)^2 + (0-A_Z)^2 = \\left(\\dfrac{{D_Y}}{{\\lambda_u_y}}\\right)^2 }}$
-        ${{\hspace{{4mm}} (D_X-0)^2 + (0-A_Z)^2 = \\left(\\dfrac{{D_Y}}{{\\lambda_u_y}}\\right)^2 - (D_Y-0)^2}}$
-        ${{\hspace{{4mm}} (D_X-0)^2 + (0-A_Z)^2 = (D_Y-0)^2*\\left(\\dfrac{{1}}{{(\\lambda_u_y)^2}}-1\\right)}}$
-        ${{\hspace{{4mm}} D_Y = \\sqrt{{\\left(\\dfrac{{D_X^2+A_Z^2}}{{\\left(\\dfrac{{1}}{{(\\lambda_u_y)^2}}-1}}\\right)}} }}$
-        ${{\hspace{{4mm}} D_Y = {math.sqrt((d[0]**2+d[3]**2)/((1/(calc['cos1'])**2)-1)):.2f}}}$
+        ${{\hspace{{4mm}} \\lambda_{{uy}} = \\dfrac{{D_Y}}{{\\sqrt{{(D_X-0)^2 + (D_Y-0)^2 + (0-A_Z)^2}} }} }}$   
+
+        ${{\hspace{{4mm}} \\sqrt{{(D_X-0)^2 + (D_Y-0)^2 + (0-A_Z)^2}} = \\dfrac{{D_Y}}{{\\lambda_{{uy}}}} }}$
+
+        ${{\hspace{{4mm}} (D_X-0)^2 + (D_Y-0)^2 + (0-A_Z)^2 = \\left(\\dfrac{{D_Y}}{{\\lambda_{{uy}}}}\\right)^2 }}$ 
+
+        ${{\hspace{{4mm}} (D_X-0)^2 + (0-A_Z)^2 = \\left(\\dfrac{{D_Y}}{{\\lambda_{{uy}}}}\\right)^2 - (D_Y-0)^2}}$ 
+
+        ${{\hspace{{4mm}} (D_X-0)^2 + (0-A_Z)^2 = (D_Y-0)^2*\\left(\\dfrac{{1}}{{(\\lambda_{{uy}})^2}}-1\\right)}}$    
+
+        ${{\hspace{{4mm}} ((D_X-0)^2 + (0-A_Z)^2)*\\lambda_{{uy}})^2 = (D_Y-0)^2 - \\lambda_{{uy}})^2*D_Y^2 }}$  
+
+        ${{\hspace{{4mm}} ((D_X-0)^2 + (0-A_Z)^2)*\\lambda_{{uy}})^2 = D_Y^2*(1-\\lambda_{{uy}})^2)}}$    
+
+        ${{\hspace{{4mm}} D_Y = \\sqrt{{\\dfrac{{((D_X-0)^2 + (0-A_Z)^2)*\\lambda_{{uy}}^2}}{{(1-\\lambda_{{uy}})^2}} }}}}$    
+
+        ${{\hspace{{4mm}} D_Y = {math.sqrt(((d[6]/d[9])**2*(d[0]**2+d[3]**2))/(1-(d[6]/d[9])**2)):.2f} \\text{{ m}}}}$    
         
-        $\\textbf{{\\small 2. Cálculo de la componente Y $j$ de la fuerza que actúa en el cable AD:}}$
+        $\\textbf{{\\small 2. Cálculo de la componente Y de la fuerza que actúa en el cable AD:}}$
 
-        ${{\hspace{{4mm}} F_y = F*\\lambda_u_y }}$
-        ${{\hspace{{4mm}} u_y = {calc['cos1']*f[0]:.2f}}}        
+        ${{\hspace{{4mm}} F_y = F*\\lambda_{{uy}} }}$   
+        ${{\hspace{{4mm}} F_y = {(d[6]/d[9])*f[0]:.2f} \\text{{kN}} }}$        
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
@@ -2466,7 +2476,7 @@ preguntas = [
         topic = EQ, 
         subtopic = VU, 
         version = 1, 
-        pregunta = lambda f, a, calc, c, d, m: f"Halle el vector cartesiano de la fuerza resultante (FR) entre los vectores que inician en el origen:  $F1 = {f[0]:.0f} \\text{{ N}} localizado en {c[0]},{c[1]},{c[2]}$ y $F2 = {f[1]:.0f} \\text{{ N}} localizado en {c[3]},{c[4]},{c[5]}$.", 
+        pregunta = lambda f, a, calc, c, d, m: f"Halle el vector cartesiano de la fuerza resultante ($FR$) entre los vectores que inician en el origen:  $F1 = {f[0]:.0f} \\text{{ N}}$ que termina en $({c[0]},{c[1]},{c[2]})$ y $F2 = {f[1]:.0f} \\text{{ N}}$ que termina en $({c[3]},{c[4]},{c[5]})$.", 
         no_answers = 3, 
         a1_name = Ci, 
         a2_name = Cj, 

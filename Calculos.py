@@ -21,10 +21,8 @@ def calcular_fuerzas(num_fuerzas=16, rango=(10,300)):
     return fuerzas
 
 #Function to calculate variables associated with angles
-def calcular_angulos(num_angulos=16, rangos=None):
-    if rangos is None:
-        # Ranges
-        rangos = [(5, 85), (91, 180), (181, 270), (271, 360)]
+def calcular_angulos(num_angulos=16):
+    rangos = [(5, 85), (91, 180), (181, 270), (271, 360)]
     
     angulos = []
     
@@ -35,7 +33,7 @@ def calcular_angulos(num_angulos=16, rangos=None):
     
     if angulos[0] >= angulos[4]:
         angulos[4] = rd.randint(rangos[0][0]+1, rangos[0][1])
-        angulos[0] = rd.randint(rangos[0][0], angulos[4] - 1)
+        angulos[0] = rd.randint(rangos[0][0], angulos[4]-1)
 
     return angulos
 
@@ -47,7 +45,7 @@ def calcular_coordenadas():
             return coordenadas
 
 #Functions to calculate variables associated with dimensions
-def calcular_dimensiones(num_dimensiones = 28, rangos = None):
+def calcular_dimensiones(num_dimensiones = 28):
     values = [(1, 10), (-10, -1), (-10, 10)]
     
     dimensiones = []
@@ -56,6 +54,10 @@ def calcular_dimensiones(num_dimensiones = 28, rangos = None):
         value = values[i % len(values)]
         dimension = rd.randint(value[0], value[1])
         dimensiones.append(dimension)
+
+    if dimensiones[9] <= dimensiones[6]:
+        dimensiones[9] = rd.randint(values[0][0]+1, values[0][1])
+        dimensiones[6] = rd.randint(values[0][0], dimensiones[9]-1)
 
     return dimensiones
 
