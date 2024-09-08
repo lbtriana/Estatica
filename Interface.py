@@ -45,21 +45,22 @@ hide_streamlit_style = """
     /* Hide footer, header, and toolbar */
     footer {visibility: hidden;}
     header {display: none;}
-    .stToolbar {display: none;}
+    .stDecoration {display: none;}
     
-    /* Hide GitHub icon and "deploy" button */
-    .stDeployButton {display: none !important;}
-    footer {visibility: hidden;}
-    #stDecoration {display: none;}
-
-    /* Hide GitHub fork icon and related elements */
-    .forks-badge-container {display: none !important;}
-    .css-1jc7ptx, .e1ewe7hr3, .viewerBadge_container__1QSob {display: none !important;}
-    .css-1sj23t5 .e16nr0p34 {display: none !important;}
-    .css-1sj23t5 .e16nr0p30 {display: none !important;}
 </style>
 """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
+
+# Add custom CSS to hide the div
+st.markdown("""
+    <style>
+    #stToolbar {
+        display: none;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
 
 
 col_1, col_2, col_3 = st.columns(3)
