@@ -45,23 +45,11 @@ hide_streamlit_style = """
     /* Hide footer, header, and toolbar */
     footer {visibility: hidden;}
     header {display: none;}
-    .stDecoration {display: none;}
+    [data-testid="stToolbar"] {display: none;}
     
 </style>
 """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-
-
-# Add custom CSS to hide the div
-st.markdown("""
-    <style>
-    #stToolbar {
-        display: none;
-    }
-    </style>
-    """, unsafe_allow_html=True)
-
-
 
 col_1, col_2, col_3 = st.columns(3)
 
