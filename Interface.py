@@ -46,6 +46,7 @@ hide_streamlit_style = """
     footer {visibility: hidden;}
     header {display: none;}
     [data-testid="stToolbar"] {display: none;}
+    .viewerBadge_container_r5tak {display: none;}
     
 </style>
 """
