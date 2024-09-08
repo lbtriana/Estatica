@@ -17,15 +17,15 @@ import plotly.express as px
 st.set_page_config(layout="wide")
 
 #Esconde el menú y el icono de git hub
-hide = """
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    header {visibility: hidden;}
-    stToolbar {visibility: hidden;}
-    header {visibility: hidden;}
-    manage-app-button {visibility: hidden;}
-"""
-st.markdown(hide, unsafe_allow_html=True)
+#hide = """
+#    #MainMenu {visibility: hidden;}
+#    #footer {visibility: hidden;}
+#    #header {visibility: hidden;}
+#    #stToolbar {visibility: hidden;}
+#    #header {visibility: hidden;}
+#    #manage-app-button {visibility: hidden;}
+#"""
+#st.markdown(hide, unsafe_allow_html=True)
 
 hide_streamlit_style = """
 <style>
