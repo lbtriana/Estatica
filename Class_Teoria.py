@@ -40,9 +40,9 @@ conceptuales = [
         opcion_4 = "$\\overrightarrow{{Q}} = \\overrightarrow{{P}}$",
         opcion_correcta = "$\\overrightarrow{{Q}} = -\\overrightarrow{{P}}$",
         respuesta_P1 = """
-        Para que la magnitud de la suma sea mínima los vectores deben tener la misma magnitud y dirección pero sentidos opuestos. De esta manera se obtiene 0.
+        Para que la magnitud de la suma sea mínima, los vectores deben tener la misma magnitud y dirección pero sentidos opuestos. De esta manera, su sumatoria es 0:
 
-        |$\\overrightarrow{{P}} + \\overrightarrow{{Q}}$|= $\\overrightarrow{{P}} + \\overrightarrow{{Q}}$ =  $\\overrightarrow{{P}} + \\overrightarrow{{-P}}$ = 0"
+        |$\\overrightarrow{{P}} + \\overrightarrow{{Q}}$| = $\\overrightarrow{{P}} + \\overrightarrow{{Q}}$ =  $\\overrightarrow{{P}} + \\overrightarrow{{-P}} = 0$
         """,
         respuesta_P2 = "",
         ),
@@ -58,7 +58,7 @@ conceptuales = [
         opcion_3 = "$90^\circ$",
         opcion_4 = "$45^\circ$",
         opcion_correcta = "$180^\circ$",
-        respuesta_P1 = "Un ángulo de 180° implica que los vectores tienen misma dirección y sentidos opuestos lo cual minimiza la magnitud del vector resultante",
+        respuesta_P1 = "Un ángulo de 180° entre dos vectores indica que tienen la misma dirección pero sentidos opuestos, lo cual minimiza la magnitud del vector resultante.",
         respuesta_P2 = "",
         ),
 
@@ -73,7 +73,7 @@ conceptuales = [
         opcion_3 = "$90^\circ$",
         opcion_4 = "$45^\circ$",
         opcion_correcta = "$0^\circ$",
-        respuesta_P1 = "Un ángulo de 0° implica que los vectores tienen misma dirección y sentido lo cual maximiza la magnitud del vector resultante.",
+        respuesta_P1 = "Un ángulo de 0° entre dos vectores indica que tienen la misma dirección y sentido, lo cual maximiza la magnitud del vector resultante.",
         respuesta_P2 = "",
         ),     
     
@@ -103,7 +103,7 @@ conceptuales = [
         opcion_3 = "Escalar vectores a una magnitud deseada.",
         opcion_4 = "Operar vectores.",
         opcion_correcta = "Indicar la dirección de un vector.",
-        respuesta_P1 = "El vector unitario representa la dirección de un vector gracias a que su magnitud es 1. Esto permite que no se alteren los valores de las componentes de dirección de un vector.",
+        respuesta_P1 = "El vector unitario representa la dirección de un vector, dado que, su magnitud es 1. Esto asegura que no se alteren los valores de las componentes de dirección de un vector.",
         respuesta_P2 = "",
         ),
 
@@ -126,9 +126,7 @@ conceptuales = [
         opcion_4 = "II, III",
         opcion_correcta = "I, IV",
         respuesta_P1 = """
-        Por definición la magnitud de todo vector unitario es 1.
-
-        Los vectores unitarios provienen de la acción de normalizar un vector; es decir, dividirlo entre su magnitud con el objetivo de obtener solo su dirección. Y, como un vector unitario representan la dirección de un vector, encontrar su dirección es equivalente a encontrar su vector unitario.
+        Por definición, la magnitud de un vector unitario es siempre 1. El vector unitario se obtiene mediante la normalización de un vector, el cual consiste en dividir sus componentes entre su magnitud con el objetivo de obtener su dirección. Asimismo, como un vector unitario representa la dirección de un vector, encontrar su dirección es equivalente a encontrar su vector unitario.
         """,
         respuesta_P2 = "",
         ),    
@@ -150,7 +148,7 @@ conceptuales = [
         opcion_correcta = """$\\overrightarrow{P} = (sen(\\alpha) \\hat{i} + cos(\\alpha) \\hat{j}) |\overrightarrow{P}|$ \\
         $\\overrightarrow{Q} = (cos (\\theta) \\hat{i} + sen(\\theta) \\hat{j}) |\\overrightarrow{Q}|$""",
         respuesta_P1 = """
-        El seno es la razón entre el lado opuesto al ángulo y la hipotenusa, mientras el coseno es la razón entre el lado adyacente al ángulo y la hipotenusa. De tal forma que el seno no siempre se relaciona con el eje y (componente j) y el coseno con el eje x (componente i). 
+        El seno es la razón entre el lado opuesto al ángulo y la hipotenusa, mientras que el coseno es la razón entre el lado adyacente al ángulo y la hipotenusa. De tal forma que, el seno no siempre se relaciona con el eje y (componente $\\hat{{i}}$) y el coseno con el eje x (componente $\\hat{{j}}$). 
         Para determinar las componentes usando ángulos se recomienda identificar la ubicación del ángulo y aplicar las razones mencionadas.
         """,
         respuesta_P2 = "",
@@ -168,8 +166,11 @@ conceptuales = [
         opcion_4 = "Disminuye $a$ veces",
         opcion_correcta = "Aumenta $a$ veces",
         respuesta_P1 = """
-        Esto ocurre porque como se trata de un entero positivo, al efectuar la multiplicación, se afecta únicamente la magnitud del vector en la misma proporción.
-        Si, en cambio, se multiplica por $-a$ el resultado sería un cambio de dirección y de magnitud. Y, si $a$ es un número fraccionario,su magnitud podría disminuir.
+        Cuando se multiplica a un vector por $a$, su magnitud aumenta $a$ veces. Esto ocurre, porque al ser $a$ un número entero positivo, la magnitud se afecta en la misma proporción sin alterar su dirección:
+
+        $a*\|\overrightarrow{V}\| = a*\\overrightarrow{{V}} = a*V_x + a*V_y = a*(V_x + V_y)$ 
+
+        Por el contrario, si se multiplica por $-a$ el resultado será un cambio de dirección y de magnitud. Y, si $a$ es un número fraccionario menor a 1,su magnitud disminuye.
         """,
         respuesta_P2 = "",
         ),
@@ -180,7 +181,7 @@ conceptuales = [
         topic = "Equilibrio de partículas",
         subtopic = "Vectores",
         enunciado = """
-        El producto punto es útil ya que:    
+        El producto punto es utilizado para:    
 
         I. Encontrar el vector resultante entre 2 vectores.   
         II. Determinar el ángulo entre 2 vectores.   
