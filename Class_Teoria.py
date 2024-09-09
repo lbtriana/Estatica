@@ -323,7 +323,7 @@ conceptuales = [
          enunciado = """
          La sumatoria de fuerzas igualada a cero permite:  
 
-         I.	Encontrar la ubicación de una fuerza que permite que la partícula se encuentre en equilibrio.  
+         I.	Encontrar la ubicación de una fuerza para que la partícula se encuentre en equilibrio.  
          II. Conocer la magnitud de una fuerza desconocida para que la partícula se encuentre en equilibrio.   
          III. Encontrar las reacciones de una viga.    
          IV. Determinar la dirección de una fuerza desconocida para que el sistema se encuentre en equilibrio.     
