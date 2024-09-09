@@ -772,6 +772,10 @@ if authenticate_user():
                             st.image(EQ_image_paths[48], width=350) 
                     if pregunta_no == 3 or pregunta_no == 4:
                         st.image(EQ_image_paths[49], width=400)
+                if subtopic == "Equilibrio 2D":
+                    if pregunta_no == 1:
+                        if version_no == 1:
+                            st.image(EQ_image_paths[58], width=250) 
                 if subtopic == "Momento en un punto 2D":
                     if pregunta_no == 1 or pregunta_no == 2 or pregunta_no == 3 or pregunta_no == 4:
                         if version_no == 1:
@@ -782,6 +786,7 @@ if authenticate_user():
                             st.image(MO_image_paths[7], width=500)
                         elif version_no == 4:
                             st.image(MO_image_paths[8], width=500)
+                
                 
             if difficulty == "Díficil":
                 if subtopic == "Vectores 2D":
