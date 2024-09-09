@@ -16,12 +16,12 @@ class Theory:
 
     #Function to filter the theory questions according to the user's selection
     def filtrar_preguntas_teoria(preguntas_teoria, topic=None, subtopic=None):
-        preguntas_filtradas_teoria = [
+        conceptuales_filtradas = [
             pregunta for pregunta in preguntas_teoria
             if (topic is None or pregunta.topic == topic) and
                (subtopic is None or pregunta.subtopic == subtopic)
         ]
-        return preguntas_filtradas_teoria
+        return conceptuales_filtradas
 
 conceptuales = [
     #=================================================EQUILIBRIO DE PARTÍCULAS===================================================
@@ -126,7 +126,10 @@ conceptuales = [
         opcion_4 = "II, III",
         opcion_correcta = "I, IV",
         respuesta_P1 = """
-        Por definición, la magnitud de un vector unitario es siempre 1. El vector unitario se obtiene mediante la normalización de un vector, el cual consiste en dividir sus componentes entre su magnitud con el objetivo de obtener su dirección. Asimismo, como un vector unitario representa la dirección de un vector, encontrar su dirección es equivalente a encontrar su vector unitario.
+        Las opciones correctas son I, IV:
+
+        I. Por definición, la magnitud de un vector unitario es siempre 1.        
+        IV. El vector unitario se obtiene mediante la normalización de un vector, el cual consiste en dividir sus componentes entre su magnitud con el objetivo de obtener su dirección. Asimismo, como un vector unitario representa la dirección de un vector, encontrar su dirección es equivalente a encontrar su vector unitario.
         """,
         respuesta_P2 = "",
         ),    
@@ -194,8 +197,10 @@ conceptuales = [
         opcion_4 = "II, III",
         opcion_correcta = "II, IV",
         respuesta_P1 = """
-        El producto punto (o producto escalar) permite determinar el ángulo entre dos vectores porque está directamente relacionado con el coseno del ángulo entre ellos. Y, al despejar el ángulo de la ecuación respectiva este puede conocerse.
-        Así mismo, permite encontrar la proyección entre 2 vectores dado que relaciona la dirección entre ellos con sus magnitudes. De tal forma que, si se quiere encontrar la magnitud de un vector proyectado solo el otro basta con calcular la multiplicación entre la magnitud del vector que se quiere proyectar por el coseno del ángulo que tiene este con el vector sobre el cual quiere proyectarse.
+        Las opciones correctas son II, IV.
+        
+        II. El producto punto (o producto escalar) permite determinar el ángulo entre dos vectores, dado que, está directamente relacionado con el coseno del ángulo entre ellos ($\\overrightarrow{{A}} \\cdot \\overrightarrow{{B}} = |\\overrightarrow{{A}}||\\overrightarrow{{B}}|cos(\\theta)$). Al despejar el ángulo ($\\theta$) de la ecuación, este puede conocerse.       
+        IV. El producto punto permite encontrar la proyección de un vector sobre otro, dado que, permite encontrar la proyección de un vector sobre el otro ($\\overrightarrow{{A}} \\cdot cos(\\theta))$ en su misma dirección ($\\overrightarrow{{B}}$). 
         """,
         respuesta_P2 = "",
         ),    
@@ -208,16 +213,25 @@ conceptuales = [
         enunciado = """
         ¿Cuál(es) de las siguientes afirmaciones son ciertas respecto al producto punto entre vectores?:    
         
-        $I. \\hspace{{2mm}} A \\cdot B = B \\cdot A$                       $\\hspace{{20mm}} IV. \\hspace{{2mm}} A \\cdot B \\text{{ es un escalar}}$        
-        $II. \\hspace{{2mm}} A \\cdot B \\text{{ es un vector}}$           $\\hspace{{14mm}} V. \\hspace{{2mm}} \\text{{Cuando }}A \\cdot B = 0, \\text{{el ángulo entre A y B es 45°}}$    
-        $III. \\hspace{{2mm}} A \\cdot B = -B \\cdot A$                    $\\hspace{{19mm}} VI. \\hspace{{2mm}} \\text{{Cuando }}A \\cdot B = 0, \\text{{el ángulo entre A y B es 90°}}$   
+        $\\text{{I. }} A \\cdot B = B \\cdot A$                               
+        $\\text{{II. }} A \\cdot B \\text{{ es un vector}}$           
+        $\\text{{III. }} A \\cdot B = -B \\cdot A$                      
+        $\\text{{IV. }}  A \\cdot B \\text{{ es un escalar}}$     
+        $\\text{{V. }} \\text{{Cuando }}A \\cdot B = 0, \\text{{el ángulo entre A y B es 45°}}$      
+        $\\text{{VI. }} \\text{{Cuando }}A \\cdot B = 0, \\text{{el ángulo entre A y B es 90°}}$        
         """,
-        opcion_1 = "$IV$",
-        opcion_2 = "$I, III,IV$",
-        opcion_3 = "$II, V, VI$",
-        opcion_4 = "$I, IV, VI$",
-        opcion_correcta = "$I, IV, VI$",
-        respuesta_P1 = "Las caracteristicas principales del producto punto son: es conmutativo, da como resultado un número real, es 0 cuando los ángulos son perpendiculares  ya que el cos(90°)=0.",  
+        opcion_1 = "$\\text{{IV}}$",
+        opcion_2 = "$\\text{{I, III,IV}}$",
+        opcion_3 = "$\\text{{II, V, VI}}$",
+        opcion_4 = "$\\text{{I, IV, VI}}$",
+        opcion_correcta = "$\\text{{I, IV, VI}}$",
+        respuesta_P1 = """
+        Las opciones correctas son I, IV, VI. Dentro de las características principales del producto punto se encuentran:  
+
+        1. Es conmutativo.    
+        2. Su resultado es un número real.     
+        3. Su resultado es 0 cuando los ángulos son perpendiculares, dado que, $cos(90°)=0$.     
+        """,  
         respuesta_P2 = "",
         ),
 
@@ -232,7 +246,9 @@ conceptuales = [
         opcion_3 = "$\\theta_{radianes}$ = $\\theta_{grados} \cdot \\pi$",
         opcion_4 = "$\\theta_{radianes}$ = $\\theta_{grados}\cdot 2\cdot\pi$",
         opcion_correcta = "$\\theta_{radianes}$ = $\\theta_{grados} \cdot\\frac{\pi}{180}$",
-        respuesta_P1 = "Esta conversión se debe a que en 360° se recorren 2 \pi$ radianes de longitud",
+        respuesta_P1 = """
+        La respuesta correcta es: $\\theta_{radianes}$ = $\\theta_{grados} \cdot\\frac{\pi}{180}$. Dado que, en $360°$ se recorren $2\\pi$ radianes de longitud.
+        """,
         respuesta_P2 = "",
         ),  
 
@@ -242,13 +258,13 @@ conceptuales = [
         topic = "Equilibrio de partículas",
         subtopic = "Vectores",
         enunciado = "El producto punto se calcula a partir de las siguientes expresiones equivalentes:",
-        opcion_1 = "A \\cdot B = ABcos(\\theta)$ = a_xb_x + a_yb_y + a_zb_z$",
-        opcion_2 = "A \\cdot B = ABcos(\\theta)$ = a_xb_y - a_yb_x$",
-        opcion_3 = "A \\cdot B = ABsen(\\theta)$ = a_xb_x + a_yb_y + a_zb_z$",
-        opcion_4 = "A \\cdot B = ABsen(\\theta)$ = a_xb_y - a_yb_x$",
-        opcion_correcta = "A \\cdot B = ABcos(\\theta)$ = a_xb_x + a_yb_y + a_zb_z$",
-        respuesta_P1 = "El producto punto relaciona las magnitudes de los vectores con  el coseno del ángulo entre ellos",
-        respuesta_P2 = "Cuando no se conoce el ángulo entre los dos vectores el producto punto puede calcularse como la suma de la multiplicación componente a componente",
+        opcion_1 = "$A \\cdot B = ABcos(\\theta)$ = $a_xb_x + a_yb_y + a_zb_z$",
+        opcion_2 = "$A \\cdot B = ABcos(\\theta)$ = $a_xb_y - a_yb_x$",
+        opcion_3 = "$A \\cdot B = ABsen(\\theta)$ = $a_xb_x + a_yb_y + a_zb_z$",
+        opcion_4 = "$A \\cdot B = ABsen(\\theta)$ = $a_xb_y - a_yb_x$",
+        opcion_correcta = "$A \\cdot B = ABcos(\\theta)$ = $a_xb_x + a_yb_y + a_zb_z$",
+        respuesta_P1 = "El producto punto relaciona las magnitudes de los vectores con  el coseno del ángulo entre ellos ($ABcos(\\theta)$). Cuando no se conoce el ángulo entre los dos vectores, el producto punto puede calcularse como la suma de la multiplicación componente a componente ($a_xb_x + a_yb_y + a_zb_z$).",
+        respuesta_P2 = "",
         ), 
     
     Theory(#13
@@ -257,12 +273,193 @@ conceptuales = [
         topic = "Equilibrio de partículas",
         subtopic = "Vectores",
         enunciado ="El producto cruz es utilizado para:", 
-        opcion_1 = "Permite determinar la magnitud de la suma entre dos vectores.",
-        opcion_2 = "Permite determinar el ángulo entre 2 vectores.",
-        opcion_3 = "Permite encontrar la proyección de un vector sobre el otro.",
-        opcion_4 = "Permite calcular un vector perpendicular al plano formado por los dos vectores.",
-        opcion_correcta = "Permite calcular un vector perpendicular al plano formado por los dos vectores.",
-        respuesta_P1 = "El producto punto relaciona las magnitudes de los vectores con  el coseno del ángulo entre ellos",
-        respuesta_P2 = "Al realizar producto cruz entre dos vectores se obtiene siempre un vector perpendicular al plano formado entre estos el cual es un indicador, por ejemplo, de la dirección del momento",
+        opcion_1 = "Determinar la magnitud de la suma entre dos vectores.",
+        opcion_2 = "Determinar el ángulo entre 2 vectores.",
+        opcion_3 = "Encontrar la proyección de un vector sobre el otro.",
+        opcion_4 = "Calcular un vector perpendicular al plano formado por los dos vectores.",
+        opcion_correcta = "Calcular un vector perpendicular al plano formado por los dos vectores.",
+        respuesta_P1 = "El producto cruz relaciona las magnitudes de dos vectores con el seno del ángulo entre ellos. El resultado del producto cruz entre dos vectores es un vector que es perpendicular al plano formado entre estos. Este vector resultante, indica por ejemplo, la dirección del momento.",
+        respuesta_P2 = "",
         ),     
+
+    #------------------------------------------------------ Equilibrio ----------------------------------------------------------
+    #-------------------------------------------------       12000##0         ---------------------------------------------------
+    
+     Theory(#1
+         code = 1200010, 
+         no_pregunta = 1,
+         topic = "Equilibrio de partículas",
+         subtopic = "Equilibrio",
+         enunciado = "Una partícula se encuentra en equilibrio cuando:", 
+         opcion_1 = "La suma de las fuerzas en todas las direcciones es cero.",
+         opcion_2 = "La fuerza resultante tiene la misma magnitud en los tres ejes.",
+         opcion_3 = "La partícula está en movimiento constante.",
+         opcion_4 = "La suma de los momentos alrededor de la partícula es distinta de cero.",
+         opcion_correcta = "La suma de las fuerzas en todas las direcciones es cero.",
+         respuesta_P1 = "Cuando una partícula está en reposo o se mueve con velocidad constante, se dice que está en equilibrio. Para cumplir esta condición se requiere que todas las fuerzas que actúan sobre la partícula formen una fuerza resultante nula.",
+         respuesta_P2 = "",
+         ),
+     
+     Theory(#2
+         code = 1200020, 
+         no_pregunta = 2,
+         topic = "Equilibrio de partículas",
+         subtopic = "Equilibrio",
+         enunciado ="¿Cuáles son los pasos que deben llevarse a cabo para hacer sumatoria de fuerzas?", 
+         opcion_1 = "Hacer un diagrama de cuerpo libre dibujando el escenario real y luego, hacer una sumatoria de la magnitud de las fuerzas actuantes sobre el cuerpo sin importar la dirección en la que se encuentren. ",
+         opcion_2 = "Hacer un diagrama de cuerpo libre dibujando todas las fuerzas aplicadas sobre un punto y luego, hacer una sumatoria de la magnitud de las fuerzas actuantes sobre el cuerpo sin importar la dirección en la que se encuentren. ",
+         opcion_3 = "Hacer un diagrama de cuerpo libre dibujando el escenario real. Luego, dividir las fuerzas con sus componentes en los ejes x, y, z y hacer sumatoria en estos ejes con las fuerzas correspondientes. ",
+         opcion_4 = "Hacer un diagrama de cuerpo libre dibujando todas las fuerzas aplicadas sobre un punto. Luego, dividir las fuerzas con sus componentes en los ejes x, y, z y hacer sumatoria en estos ejes con las fuerzas correspondientes. ",
+         opcion_correcta = "Hacer un diagrama de cuerpo libre dibujando todas las fuerzas aplicadas sobre un punto. Luego, dividir las fuerzas con sus componentes en los ejes x, y, z y hacer sumatoria en estos ejes con las fuerzas correspondientes. ",
+         respuesta_P1 = "El primer paso para el análisis es realizar un diagrama de cuerpo libre (DCL) el cual consiste en dibujar el cuerpo como un punto aislado y situar sobre él todas las fuerzas externas que lo afectan. Posteriormente, se agrupan las fuerzas por ejes (X,Y,Z) y se hacen las sumatorias teniendo en cuenta una referencia de ejes positivos impuesta y las direcciones dadas en el DCL.",
+         respuesta_P2 = "",
+         ),
+     
+     Theory(#3
+         code = 1200030, 
+         no_pregunta = 3,
+         topic = "Equilibrio de partículas",
+         subtopic = "Equilibrio",
+         enunciado = """
+         La sumatoria de fuerzas igualada a cero permite:  
+
+         I.	Encontrar la ubicación de una fuerza que permite que la partícula se encuentre en equilibrio.  
+         II. Conocer la magnitud de una fuerza desconocida para que la partícula se encuentre en equilibrio.   
+         III. Encontrar las reacciones de una viga.    
+         IV. Determinar la dirección de una fuerza desconocida para que el sistema se encuentre en equilibrio.     
+         V. Predecir la dirección de movimiento del sistema en estudio.    
+         VI. Todas las anteriores.    
+         """,
+         opcion_1 = "I, II, V",
+         opcion_2 = "VI",
+         opcion_3 = "II, III, IV",
+         opcion_4 = "II, III",
+         opcion_correcta = "Solo II y III",
+         respuesta_P1 = """
+         Con sumatorias de fuerzas no es posible encontrar la ubicación de una fuerza ya que no involucra distancias. Contrario a la sumatoria de momentos que si permite lo dicho en la opción I.
+         Además, con la sumatoria de fuerzas puede definirse el sentido de una fuerza particular pero no la dirección de movimiento del sistema. Esto debido a que, al igualar la sumatoria a 0 se asume que el sistema se encuentra en reposo descartandose la opció V.
+         Por el contrario la sumatoria de fuerzas igual a 0 permite encontar la magnitud y dirección de una fuerza desconocida que permite mantener el equilibrio por medio del despeje de las fuerzas, sus componentes o sus ángulos
+         """,
+         respuesta_P2 = "",
+         ),    
+         
+         Theory(#4
+             code = 1200040, 
+             no_pregunta = 4,
+             topic = "Equilibrio de partículas",
+             subtopic = "Equilibrio",
+             enunciado ="Considere el sistema mostrado en la figura e indique la sumatoria de fuerzas correcta:",
+             opcion_1 ="""
+             " $ \\sum F_x = F_2 \left(\frac{4}{5}\right) \sin(\\theta_3) + F_1 \cos(\\theta_1)$ \\
+             $ \\sum F_y = F_2 \left(\frac{4}{5}\right) \cos(\\theta_3) + F_1 \cos(\\theta_2)$ \\
+             $ \\sum F_z = F_2 \left(\frac{3}{5}\right) - F_1 \left(\frac{12}{13}\right) $ \\
+             """,
+             opcion_2 ="""
+             $\\sum F_x = F_2 \left(\frac{4}{5}\right) \sin(\\theta_3) + F_1 \left(\frac{5}{13}\right) \cos(\\theta_1)$ \\
+             $$ \\sum F_y = F_2 \left(\frac{4}{5}\right) \cos(\\theta_3) + F_1 \left(\frac{5}{13}\right) \sin(\\theta_1)$ \\
+             $$ \\sum F_z = F_2 \left(\frac{3}{5}\right) - F_1 \left(\frac{12}{13}\right) $ \\
+             """,
+             opcion_3 = """
+             $\\sum F_x = F_2 \left(\frac{3}{5}\right) \sin(\\theta_2) + F_1 \left(\frac{12}{13}\right) \sin(\\theta_1) $ \\
+             $\\sum F_y = F_2 \left(\frac{4}{5}\right) \cos(\\theta_2) + F_1 \left(\frac{5}{13}\right) \cos(\\theta_1) $ \\
+             $\\sum F_z = F_2 \left(\frac{4}{5}\right) + F_1 \left(\frac{5}{13}\right) $ \\
+             """,
+             opcion_4 ="""
+             $ \\sum F_x = F_2 \left(\frac{4}{5}\right) \sin(\\theta_3) + F_1 \cos(\\theta_1) $ \\
+             $ \\sum F_y = F_2 \left(\frac{4}{5}\right) \cos(\\theta_3) - F_1 \cos(\\theta_1) $ \\
+             $ \\sum F_z = F_2 \left(\frac{3}{5}\right) + F_1 \left(\frac{12}{13}\right) $ \\
+             
+             """,
+             opcion_correcta = """
+             " $ \\sum F_x = F_2 \left(\frac{4}{5}\right) \sin(\\theta_3) + F_1 \cos(\\theta_1)$ \\
+             $ \\sum F_y = F_2 \left(\frac{4}{5}\right) \cos(\\theta_3) + F_1 \cos(\\theta_2)$ \\
+             $ \\sum F_z = F_2 \left(\frac{3}{5}\right) - F_1 \left(\frac{12}{13}\right) $ \\
+             """,
+             respuesta_P1 = "Note que para F_1 se utilizan los cosenos directores dado que se tienen los ángulos del vector con los ejes X e Y. Y, para F_2 se aplica la descomposición por coordenadas cartesianas",
+             respuesta_P2 = "",
+             ),
+         
+         Theory(#5
+             code = 1200050, 
+             no_pregunta = 5,
+             topic = "Equilibrio de partículas",
+             subtopic = "Equilibrio",
+             enunciado ="Considere el sistema mostrado en la figura e indique cual sería el diagrama de cuerpo libre equivalente teniendo en cuenta el mismo sistema de coordenadas.", 
+             opcion_1 = "Opción 1.",
+             opcion_2 = "Opción 2.",
+             opcion_3 = "Opción 3.",
+             opcion_4 = "Opción 4.",
+             opcion_correcta = "Opción 1.",
+             respuesta_P1 = "El vector normal (N) siempre es un vector perpendicuar a la superficie, el vector de peso (W) es un vector que siempre se dirige hacia abajo y el vector de fricción (f) siempre tiene dirección contraria al desplazamiento",
+             respuesta_P2 = "",
+             ),
+         
+         Theory(#6
+             code = 1200060, 
+             no_pregunta = 6,
+             topic = "Equilibrio de partículas",
+             subtopic = "Equilibrio",
+             enunciado ="Es correcto afirmar que, en una sumatoria de fuerzas, el valor encontrado para una fuerza desconocida siempre será mayor a cero.", 
+             opcion_1 = "Sí ya que, si la solución produce un resultado menor a 0, el sistema no está en equilibrio.",
+             opcion_2 = "No ya que, si la solución produce un resultado negativo, esto indica que el sentido de la fuerza es el inverso del mostrado sobre el diagramade cuerpo libre.",
+             opcion_3 = "Sí ya que, un valor negativo en el resultado significaría un error de cálculo.",
+             opcion_4 = "No ya que, pueden existir resultados negativos, pero, como de la sumatoria de fuerzas solo importa la magnitud del vector, el signo puede ignorarse.",
+             opcion_correcta = "No ya que, si la solución produce un resultado negativo, esto indica que el sentido de la fuerza es el inverso del mostrado sobre el diagramade cuerpo libre.",
+             respuesta_P1 = "Dado que la sumatoria de fuerzas se realiza teniendo en cuenta suposiciones de dirección en fuerzas desconocidas presentes en el diagrama de cuerpo libre, es posible ontener escalares negativos y estos indican que el sentido correcto es el opuesto al considerado por suposición",
+             respuesta_P2 = "",
+             ),
+         
+         Theory(#7
+             code = 1200070, 
+             no_pregunta = 7,
+             topic = "Equilibrio de partículas",
+             subtopic = "Equilibrio",
+             enunciado ="""
+             Considerando el siguiente sistema conformado por dos alambres con resorte que soportan un bloque de acero, ¿Cuál(es) de las siguientes afirmaciones es(son) falsa(s)?.
+             
+             I.	El diagrama de cuerpo libre para el sistema con resorte será el mismo que el del sistema sin resorte.
+             II.	Es posible hallar el alargamiento del resorte del resorte dividiendo la fuerza del alambra entre la constante de rigidez (k) del resorte respectivo.
+             III.	El sistema pierde el estado de equilibrio por efecto de los resortes. 
+             IV.	En la sumatoria de fuerzas es necesario multiplicar las tensiones de los alambres por las constantes de rigidez respectivas (k).   
+             
+             """,
+             opcion_1 = "I, II.",
+             opcion_2 = "Solamente II.",
+             opcion_3 = "III, IV.",
+             opcion_4 = "I, II.",
+             opcion_correcta = "III, IV.",
+             respuesta_P1 = "Si el problema implica un resorte elástico lineal, entonces el alargamiento o la compresión s del resorte pueden ser relacionado con la fuerza aplicada usando F=ks.",
+             respuesta_P2 = "",
+             ),
+         
+         Theory(#8
+             code = 1200080, 
+             no_pregunta = 8,
+             topic = "Equilibrio de partículas",
+             subtopic = "Equilibrio",
+             enunciado ="Considerando la polea A, ¿Cuál de las siguientes sumatorias en Y es correcta?", 
+             opcion_1 = "$ \\sum F_y = F_{1} + F_{2} + F_{3} - W = 3 F_{1} - W = 0  $",
+             opcion_2 = "$ \\sum F_y =  \left(\frac{F_{1}}{2}\right)+ \left(\frac{F_{2}}{2}\right) - F_{3} - W = 0 $",
+             opcion_3 = "$ \\sum F_y =  \left(\frac{F_{1}}{2}\right)+ \left(\frac{F_{2}}{2}\right) - F_{3}  = 0 $",
+             opcion_4 = "$ \\sum F_y = F_{1} + F_{2} - W = 2 F_{1} - W = 0  $",
+             opcion_correcta = "$ \\sum F_y = F_{1} + F_{2} - W = 2 F_{1} - W = 0  $",
+             respuesta_P1 = "Note que la sumatoria en Y sobre la poleo no incluye a F_3 y, además, en las poleas el cable es continuo y por ende F_1 = F_2",
+             respuesta_P2 = "",
+             ),
+         
+         Theory(#9
+             code = 1200090, 
+             no_pregunta = 9,
+             topic = "Equilibrio de partículas",
+             subtopic = "Equilibrio",
+             enunciado ="Considerando la siguiente figura, la sumatoria de fuerzas que permite encontrar el valor del peso (W) del ancla es:",
+             opcion_1 = "$\\sum F_z = T_{BA} \left(\frac{A_z}{\sqrt{(-B_x)^2 + (-B_y)^2 + (A_Z)^2}}\right) - W = 0 $",
+             opcion_2 = "$\\sum F_y = T_{BA} \left(\frac{-B_y}{\sqrt{(-B_x)^2 + (-B_y)^2 + (A_Z)^2}}\right) - W = 0 $",
+             opcion_3 = "$\\sum F_x = T_{BA} \left(\frac{-B_x}{\sqrt{(-B_x)^2 + (-B_y)^2}}\right) - W = 0 $",
+             opcion_4 = "$\\sum F_z = T_{BA} \left(\frac{A_z}{\sqrt{(-B_x)^2 + (-B_y)^2}}\right) - W = 0 $",
+             opcion_correcta = "$\\sum F_z = T_{BA} \left(\frac{A_z}{\sqrt{(-B_x)^2 + (-B_y)^2 + (A_Z)^2}}\right) - W = 0 $",
+             respuesta_P1 = "Se hace sumatortia en Z ya que es en este eje donde se encuentra el peso. Se evidencia que solo existen dos fuerzas actuando sobre el ese Z que son: una componente de la tensión generaada por el cable BA y el peso. La componente de la tensión es igual a la magnitud de la tensión de dicho cable multiplicada por la componente k de su vector unitario",
+             respuesta_P2 = "",
+             ),
+
 ]

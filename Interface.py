@@ -479,12 +479,11 @@ if authenticate_user():
                 subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Vectores","Equilibrio"])
             if topic == "Momento":
                 subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Momento"])
-                respuesta_usuario['subtopic'] = subtopic
 
             if consent:
                 log_event(st.session_state["username"], "theory_section_accessed", {})
-            # Aquí puedes añadir el contenido de la sección de teoría
-            #st.write("Contenido de la sección de teoría aún no implementado.")
+            respuesta_usuario['subtopic'] = subtopic
+
         else:
             st.sidebar.header("Práctica")
             complexity = st.sidebar.radio("Nivel de dificultad", options=["Fácil", "Medio", "Díficil"])
@@ -1053,9 +1052,22 @@ if authenticate_user():
                         st.image(teoria_preguntas[5], width=225)
                     if pregunta_no == 8: 
                         st.image(teoria_preguntas[6], width=250)  
-                    if pregunta_no == 9: 
+                    if pregunta_no == 9 or pregunta_no == 12: 
                         st.image(teoria_preguntas[7], width=250)  
-                    
+                    if pregunta_no == 11: 
+                        st.image(teoria_preguntas[8], width=550)              
+        return
+
+    #Función para mostrar la imagen de la respuesta
+    def filtrar_imagenes_respuestas_teoria_P1(pregunta_no, subtopic):
+        left_col, center_col, right_col = st.columns(3)
+
+        with left_col:
+                if subtopic == "Vectores":
+                    if pregunta_no == 12: 
+                        st.image(teoria_respuestas[0],width=200)
+                    if pregunta_no == 13: 
+                        st.image(teoria_respuestas[1],width=250)
         return
 
     def generate_theory_questions():
@@ -1079,6 +1091,7 @@ if authenticate_user():
             st.write(text_respuesta)
             if is_correct == 1:
                 st.write(conceptuales_filtradas[st.session_state.pregunta_actual].respuesta_P1)
+                filtrar_imagenes_respuestas_teoria_P1(conceptuales_filtradas[st.session_state.pregunta_actual].no_pregunta, conceptuales_filtradas[st.session_state.pregunta_actual].subtopic)
 
     def main():
         if way == "Práctica":
