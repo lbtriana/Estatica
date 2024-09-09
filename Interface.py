@@ -564,6 +564,10 @@ if authenticate_user():
     #Función para crear las cajas para las respuestas del usuario
     def render_input_widgets(preguntas_filtradas, pregunta_actual):
         col1, col2, col3 = st.columns(3)
+        if preguntas_filtradas[pregunta_actual].no_answers == 0:
+            response1 = 0.0
+            response2 = 0.0
+            response3 = 0.0
         if preguntas_filtradas[pregunta_actual].no_answers == 1:
             response1 = col1.number_input(f"{preguntas_filtradas[pregunta_actual].a1_name}", key=f"response1_{preguntas_filtradas[pregunta_actual]}", value=0.00)
             response2 = 0.0
