@@ -16,23 +16,6 @@ import plotly.express as px
 #=========================Configuración de la página============================
 st.set_page_config(layout="wide")
 
-st.markdown("""
-    <style>
-    .stApp {
-        background-color: white;
-        color: black;
-    }
-    </style>
-""", unsafe_allow_html=True)
-
-st.markdown("""
-    <style>
-    :root {
-        --primary-color: #1f5e9e;
-    }
-    </style>
-    """, unsafe_allow_html=True)
-
 #Versión final para esconder el menú y stToolbar 
 hide_streamlit_style = """
 <style>
