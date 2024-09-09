@@ -472,13 +472,13 @@ if authenticate_user():
 
         if way == "Teoría":
             st.sidebar.header("Teoría")
-            topic=st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Momento"])
+            topic=st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas"])
             respuesta_usuario['topic'] = topic
 
             if topic == "Equilibrio de partículas":
                 subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Vectores","Equilibrio"])
-            if topic == "Momento":
-                subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Momento"])
+            #if topic == "Momento":
+            #    subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Momento"])
 
             if consent:
                 log_event(st.session_state["username"], "theory_section_accessed", {})
@@ -490,9 +490,9 @@ if authenticate_user():
             topic = st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Momento"])
             
             if topic == "Equilibrio de partículas":
-                subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Vectores 2D", "Vectores 3D", "Vector unitario", "Equilibrio 2D", "Equilibrio 3D"])
+                subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Vectores 2D", "Vectores 3D", "Vector unitario", "Equilibrio 2D"])
             elif topic=="Momento":
-                subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Momento en un punto 2D","Momento en un punto 3D","Momento alrededor de un eje","Momentos pares"])
+                subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Momento en un punto 2D","Momento en un punto 3D"])
 
             if consent:
                 log_event(st.session_state["username"], "practice_options_selected", {

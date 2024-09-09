@@ -3010,6 +3010,36 @@ preguntas = [
         calculos='operations'
         ),
 
+    #=================================================EQUILIBRIO DE PARTÍCULAS===================================================
+    #-------------------------------------------------     Equilibrio 2D      ---------------------------------------------------
+    #-------------------------------------------------       Nivel díficil    ---------------------------------------------------
+    #-------------------------------------------------       Code: 143##      ---------------------------------------------------
+
+    Questionary(#1_1
+        code = 1430011,
+        no_pregunta = 1,
+        complexity = D,
+        topic = EQ,
+        subtopic = E2D,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Esta sección de la aplicación está en implementación. ¡Pronto estará disponible!$",
+        no_answers = 0,
+        a1_name = "",
+        a2_name = "",
+        a3_name = "",
+        answer1=lambda f, a, calc, c, d, m: 0,
+        answer2=lambda f, a, calc, c, d, m: 0,
+        answer3=lambda f, a, calc, c, d, m: 0,
+        ayuda1 = A78,
+        ayuda2 = A74,
+        ayuda3 = A75,
+        respuesta_P1 = lambda f, a, calc, c, d, m:T3, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        """,
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",    
+        calculos='operations'
+        ),
+
     #========================================================MOMENTO============================================================
     #--------------------------------------------     Momento en un punto en 2D      --------------------------------------------
     #-------------------------------------------------       Nivel fácil      ---------------------------------------------------
