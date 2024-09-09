@@ -305,13 +305,13 @@ conceptuales = [
          no_pregunta = 2,
          topic = "Equilibrio de partículas",
          subtopic = "Equilibrio",
-         enunciado ="¿Cuáles son los pasos que deben llevarse a cabo para hacer sumatoria de fuerzas?", 
-         opcion_1 = "Hacer un diagrama de cuerpo libre dibujando el escenario real y luego, hacer una sumatoria de la magnitud de las fuerzas actuantes sobre el cuerpo sin importar la dirección en la que se encuentren. ",
-         opcion_2 = "Hacer un diagrama de cuerpo libre dibujando todas las fuerzas aplicadas sobre un punto y luego, hacer una sumatoria de la magnitud de las fuerzas actuantes sobre el cuerpo sin importar la dirección en la que se encuentren. ",
-         opcion_3 = "Hacer un diagrama de cuerpo libre dibujando el escenario real. Luego, dividir las fuerzas con sus componentes en los ejes x, y, z y hacer sumatoria en estos ejes con las fuerzas correspondientes. ",
-         opcion_4 = "Hacer un diagrama de cuerpo libre dibujando todas las fuerzas aplicadas sobre un punto. Luego, dividir las fuerzas con sus componentes en los ejes x, y, z y hacer sumatoria en estos ejes con las fuerzas correspondientes. ",
-         opcion_correcta = "Hacer un diagrama de cuerpo libre dibujando todas las fuerzas aplicadas sobre un punto. Luego, dividir las fuerzas con sus componentes en los ejes x, y, z y hacer sumatoria en estos ejes con las fuerzas correspondientes. ",
-         respuesta_P1 = "El primer paso para el análisis es realizar un diagrama de cuerpo libre (DCL) el cual consiste en dibujar el cuerpo como un punto aislado y situar sobre él todas las fuerzas externas que lo afectan. Posteriormente, se agrupan las fuerzas por ejes (X,Y,Z) y se hacen las sumatorias teniendo en cuenta una referencia de ejes positivos impuesta y las direcciones dadas en el DCL.",
+         enunciado ="¿Cuáles son los pasos que deben llevarse a cabo para realizar una sumatoria de fuerzas?", 
+         opcion_1 = "Hacer un diagrama de cuerpo libre sobre el sistema. Luego, realizar una sumatoria de la magnitud de las fuerzas actuantes sobre el sistema, sin considerar las direcciones en las que se aplican.",        
+         opcion_2 = "Hacer un diagrama de cuerpo libre en un punto en el que las fuerzas sean concurrentes. Luego, hacer una sumatoria de la magnitud de las fuerzas actuantes sobre el cuerpo sin importar la dirección en la que se aplican.",
+         opcion_3 = "Hacer un diagrama de cuerpo libre sobre el sistema. Luego, realizar la sumatoria de las componentes de las fuerzas en los ejes X, Y, Z.",
+         opcion_4 = "Hacer un diagrama de cuerpo libre en un punto en el que las fuerzas sean concurrentes. Luego, realizar la sumatoria de las componentes de las fuerzas en los ejes X, Y, Z.",
+         opcion_correcta = "Hacer un diagrama de cuerpo libre en un punto en el que las fuerzas sean concurrentes. Luego, realizar la sumatoria de las componentes de las fuerzas en los ejes X, Y, Z.",
+         respuesta_P1 = "El primer paso para realizar la sumatoria de fuerzas es elaborar un diagrama de cuerpo libre (DCL) en un punto en el cual concurren varias fuerzas. El diagrama de cuerpo libre (DCL) consiste en representar el cuerpo como un punto aislado y situar sobre él todas las fuerzas externas que lo afectan. Posteriormente, se realiza la sumatoria de las fuerzas en cada uno de los ejes (X,Y,Z) teniendo en cuenta el sistema coordenado definido, la referencia de ejes positivos y las direcciones dadas en el DCL.",
          respuesta_P2 = "",
          ),
      
@@ -327,139 +327,24 @@ conceptuales = [
          II. Conocer la magnitud de una fuerza desconocida para que la partícula se encuentre en equilibrio.   
          III. Encontrar las reacciones de una viga.    
          IV. Determinar la dirección de una fuerza desconocida para que el sistema se encuentre en equilibrio.     
-         V. Predecir la dirección de movimiento del sistema en estudio.    
+         V. Encontrar la dirección de movimiento de una partícula.    
          VI. Todas las anteriores.    
          """,
          opcion_1 = "I, II, V",
          opcion_2 = "VI",
          opcion_3 = "II, III, IV",
          opcion_4 = "II, III",
-         opcion_correcta = "Solo II y III",
+         opcion_correcta = "II, III, IV",
          respuesta_P1 = """
-         Con sumatorias de fuerzas no es posible encontrar la ubicación de una fuerza ya que no involucra distancias. Contrario a la sumatoria de momentos que si permite lo dicho en la opción I.
-         Además, con la sumatoria de fuerzas puede definirse el sentido de una fuerza particular pero no la dirección de movimiento del sistema. Esto debido a que, al igualar la sumatoria a 0 se asume que el sistema se encuentra en reposo descartandose la opció V.
-         Por el contrario la sumatoria de fuerzas igual a 0 permite encontar la magnitud y dirección de una fuerza desconocida que permite mantener el equilibrio por medio del despeje de las fuerzas, sus componentes o sus ángulos
+        La respuesta correcta es II, II, IV por las siguientes razones:
+
+        1. La sumatoria de fuerzas no involucra distancias, por lo cual no es posible encontrar la ubicación de una fuerza (Opción I.). Por el contrario, si se realiza una sumatoria de momentos es posible determinar la ubicación de una fuerza.
+        2. La sumatoria de fuerzas igualada a cero implica que el cuerpo está en equilibrio, por lo cual, no es posible determinar el movimiento de una partícula que se encuentra estática (Opción V).          
+        3. La sumatoria de fuerzas igualada a 0 permite encontar la magnitud y dirección de una fuerza desconocida que permite mantener el equilibrio. Dado que, resulta en un sistema de ecuaciones para despejar las fuerzas, sus componentes o sus ángulos.
          """,
          respuesta_P2 = "",
-         ),    
+         ),     
          
-         Theory(#4
-             code = 1200040, 
-             no_pregunta = 4,
-             topic = "Equilibrio de partículas",
-             subtopic = "Equilibrio",
-             enunciado ="Considere el sistema mostrado en la figura e indique la sumatoria de fuerzas correcta:",
-             opcion_1 ="""
-             " $ \\sum F_x = F_2 \left(\frac{4}{5}\right) \sin(\\theta_3) + F_1 \cos(\\theta_1)$ \\
-             $ \\sum F_y = F_2 \left(\frac{4}{5}\right) \cos(\\theta_3) + F_1 \cos(\\theta_2)$ \\
-             $ \\sum F_z = F_2 \left(\frac{3}{5}\right) - F_1 \left(\frac{12}{13}\right) $ \\
-             """,
-             opcion_2 ="""
-             $\\sum F_x = F_2 \left(\frac{4}{5}\right) \sin(\\theta_3) + F_1 \left(\frac{5}{13}\right) \cos(\\theta_1)$ \\
-             $$ \\sum F_y = F_2 \left(\frac{4}{5}\right) \cos(\\theta_3) + F_1 \left(\frac{5}{13}\right) \sin(\\theta_1)$ \\
-             $$ \\sum F_z = F_2 \left(\frac{3}{5}\right) - F_1 \left(\frac{12}{13}\right) $ \\
-             """,
-             opcion_3 = """
-             $\\sum F_x = F_2 \left(\frac{3}{5}\right) \sin(\\theta_2) + F_1 \left(\frac{12}{13}\right) \sin(\\theta_1) $ \\
-             $\\sum F_y = F_2 \left(\frac{4}{5}\right) \cos(\\theta_2) + F_1 \left(\frac{5}{13}\right) \cos(\\theta_1) $ \\
-             $\\sum F_z = F_2 \left(\frac{4}{5}\right) + F_1 \left(\frac{5}{13}\right) $ \\
-             """,
-             opcion_4 ="""
-             $ \\sum F_x = F_2 \left(\frac{4}{5}\right) \sin(\\theta_3) + F_1 \cos(\\theta_1) $ \\
-             $ \\sum F_y = F_2 \left(\frac{4}{5}\right) \cos(\\theta_3) - F_1 \cos(\\theta_1) $ \\
-             $ \\sum F_z = F_2 \left(\frac{3}{5}\right) + F_1 \left(\frac{12}{13}\right) $ \\
-             
-             """,
-             opcion_correcta = """
-             " $ \\sum F_x = F_2 \left(\frac{4}{5}\right) \sin(\\theta_3) + F_1 \cos(\\theta_1)$ \\
-             $ \\sum F_y = F_2 \left(\frac{4}{5}\right) \cos(\\theta_3) + F_1 \cos(\\theta_2)$ \\
-             $ \\sum F_z = F_2 \left(\frac{3}{5}\right) - F_1 \left(\frac{12}{13}\right) $ \\
-             """,
-             respuesta_P1 = "Note que para F_1 se utilizan los cosenos directores dado que se tienen los ángulos del vector con los ejes X e Y. Y, para F_2 se aplica la descomposición por coordenadas cartesianas",
-             respuesta_P2 = "",
-             ),
-         
-         Theory(#5
-             code = 1200050, 
-             no_pregunta = 5,
-             topic = "Equilibrio de partículas",
-             subtopic = "Equilibrio",
-             enunciado ="Considere el sistema mostrado en la figura e indique cual sería el diagrama de cuerpo libre equivalente teniendo en cuenta el mismo sistema de coordenadas.", 
-             opcion_1 = "Opción 1.",
-             opcion_2 = "Opción 2.",
-             opcion_3 = "Opción 3.",
-             opcion_4 = "Opción 4.",
-             opcion_correcta = "Opción 1.",
-             respuesta_P1 = "El vector normal (N) siempre es un vector perpendicuar a la superficie, el vector de peso (W) es un vector que siempre se dirige hacia abajo y el vector de fricción (f) siempre tiene dirección contraria al desplazamiento",
-             respuesta_P2 = "",
-             ),
-         
-         Theory(#6
-             code = 1200060, 
-             no_pregunta = 6,
-             topic = "Equilibrio de partículas",
-             subtopic = "Equilibrio",
-             enunciado ="Es correcto afirmar que, en una sumatoria de fuerzas, el valor encontrado para una fuerza desconocida siempre será mayor a cero.", 
-             opcion_1 = "Sí ya que, si la solución produce un resultado menor a 0, el sistema no está en equilibrio.",
-             opcion_2 = "No ya que, si la solución produce un resultado negativo, esto indica que el sentido de la fuerza es el inverso del mostrado sobre el diagramade cuerpo libre.",
-             opcion_3 = "Sí ya que, un valor negativo en el resultado significaría un error de cálculo.",
-             opcion_4 = "No ya que, pueden existir resultados negativos, pero, como de la sumatoria de fuerzas solo importa la magnitud del vector, el signo puede ignorarse.",
-             opcion_correcta = "No ya que, si la solución produce un resultado negativo, esto indica que el sentido de la fuerza es el inverso del mostrado sobre el diagramade cuerpo libre.",
-             respuesta_P1 = "Dado que la sumatoria de fuerzas se realiza teniendo en cuenta suposiciones de dirección en fuerzas desconocidas presentes en el diagrama de cuerpo libre, es posible ontener escalares negativos y estos indican que el sentido correcto es el opuesto al considerado por suposición",
-             respuesta_P2 = "",
-             ),
-         
-         Theory(#7
-             code = 1200070, 
-             no_pregunta = 7,
-             topic = "Equilibrio de partículas",
-             subtopic = "Equilibrio",
-             enunciado ="""
-             Considerando el siguiente sistema conformado por dos alambres con resorte que soportan un bloque de acero, ¿Cuál(es) de las siguientes afirmaciones es(son) falsa(s)?.
-             
-             I.	El diagrama de cuerpo libre para el sistema con resorte será el mismo que el del sistema sin resorte.
-             II.	Es posible hallar el alargamiento del resorte del resorte dividiendo la fuerza del alambra entre la constante de rigidez (k) del resorte respectivo.
-             III.	El sistema pierde el estado de equilibrio por efecto de los resortes. 
-             IV.	En la sumatoria de fuerzas es necesario multiplicar las tensiones de los alambres por las constantes de rigidez respectivas (k).   
-             
-             """,
-             opcion_1 = "I, II.",
-             opcion_2 = "Solamente II.",
-             opcion_3 = "III, IV.",
-             opcion_4 = "I, II.",
-             opcion_correcta = "III, IV.",
-             respuesta_P1 = "Si el problema implica un resorte elástico lineal, entonces el alargamiento o la compresión s del resorte pueden ser relacionado con la fuerza aplicada usando F=ks.",
-             respuesta_P2 = "",
-             ),
-         
-         Theory(#8
-             code = 1200080, 
-             no_pregunta = 8,
-             topic = "Equilibrio de partículas",
-             subtopic = "Equilibrio",
-             enunciado ="Considerando la polea A, ¿Cuál de las siguientes sumatorias en Y es correcta?", 
-             opcion_1 = "$ \\sum F_y = F_{1} + F_{2} + F_{3} - W = 3 F_{1} - W = 0  $",
-             opcion_2 = "$ \\sum F_y =  \left(\frac{F_{1}}{2}\right)+ \left(\frac{F_{2}}{2}\right) - F_{3} - W = 0 $",
-             opcion_3 = "$ \\sum F_y =  \left(\frac{F_{1}}{2}\right)+ \left(\frac{F_{2}}{2}\right) - F_{3}  = 0 $",
-             opcion_4 = "$ \\sum F_y = F_{1} + F_{2} - W = 2 F_{1} - W = 0  $",
-             opcion_correcta = "$ \\sum F_y = F_{1} + F_{2} - W = 2 F_{1} - W = 0  $",
-             respuesta_P1 = "Note que la sumatoria en Y sobre la poleo no incluye a F_3 y, además, en las poleas el cable es continuo y por ende F_1 = F_2",
-             respuesta_P2 = "",
-             ),
-         
-         Theory(#9
-             code = 1200090, 
-             no_pregunta = 9,
-             topic = "Equilibrio de partículas",
-             subtopic = "Equilibrio",
-             enunciado ="Considerando la siguiente figura, la sumatoria de fuerzas que permite encontrar el valor del peso (W) del ancla es:",
-             opcion_1 = "$\\sum F_z = T_{BA} \left(\frac{A_z}{\sqrt{(-B_x)^2 + (-B_y)^2 + (A_Z)^2}}\right) - W = 0 $",
-             opcion_2 = "$\\sum F_y = T_{BA} \left(\frac{-B_y}{\sqrt{(-B_x)^2 + (-B_y)^2 + (A_Z)^2}}\right) - W = 0 $",
-             opcion_3 = "$\\sum F_x = T_{BA} \left(\frac{-B_x}{\sqrt{(-B_x)^2 + (-B_y)^2}}\right) - W = 0 $",
-             opcion_4 = "$\\sum F_z = T_{BA} \left(\frac{A_z}{\sqrt{(-B_x)^2 + (-B_y)^2}}\right) - W = 0 $",
-             opcion_correcta = "$\\sum F_z = T_{BA} \left(\frac{A_z}{\sqrt{(-B_x)^2 + (-B_y)^2 + (A_Z)^2}}\right) - W = 0 $",
-             respuesta_P1 = "Se hace sumatortia en Z ya que es en este eje donde se encuentra el peso. Se evidencia que solo existen dos fuerzas actuando sobre el ese Z que son: una componente de la tensión generaada por el cable BA y el peso. La componente de la tensión es igual a la magnitud de la tensión de dicho cable multiplicada por la componente k de su vector unitario",
-             respuesta_P2 = "",
-             ),
+        
 
 ]

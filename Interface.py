@@ -17,13 +17,13 @@ import plotly.express as px
 st.set_page_config(layout="wide")
 
 #Versión final para esconder el menú y stToolbar 
-hide_streamlit_style = """
-<style>
-    #MainMenu {display: none;}
-    [data-testid="stToolbar"] {display: none;}
-</style>
-"""
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+#hide_streamlit_style = """
+#<style>
+#    #MainMenu {display: none;}
+#    [data-testid="stToolbar"] {display: none;}
+#</style>
+#"""
+#st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 #División de página
 col_1, col_2, col_3 = st.columns(3)
@@ -962,8 +962,8 @@ if authenticate_user():
         st.markdown('<h3 style="font-size:18px;">Acciones</h3>', unsafe_allow_html=True)
     
         respuesta_pressed, ayuda_pressed, repetir_pressed, nuevo_pressed = st.columns(4)
-        respuesta_clicked = respuesta_pressed.button(":red[Verificar respuesta]", key=f"respuesta_button_{st.session_state.pregunta_actual}", help="Verificación de la respuesta", use_container_width=True)
-        ayuda_clicked = ayuda_pressed.button(":red[Ayuda]", key=f"ayuda_button_{st.session_state.pregunta_actual}", help="Ayuda para la solución", use_container_width=True)
+        respuesta_clicked = respuesta_pressed.button(":green[Verificar respuesta]", key=f"respuesta_button_{st.session_state.pregunta_actual}", help="Verificación de la respuesta", use_container_width=True)
+        ayuda_clicked = ayuda_pressed.button(":blue[Ayuda]", key=f"ayuda_button_{st.session_state.pregunta_actual}", help="Ayuda para la solución", use_container_width=True)
         repetir_pressed.button("Nueva versión", key="nueva_version_button", help="Genera una nueva versión del problema", use_container_width=True, on_click=nueva_version_callback)
         nuevo_pressed.button("Siguiente problema", key=f"nuevo_problema_button{st.session_state.pregunta_actual}", help="Genera un nuevo problema", use_container_width=True, on_click=nuevo_problema_callback)
     
@@ -1091,7 +1091,7 @@ if authenticate_user():
 
         #Buttons
         verificar_pressed, siguiente_pressed, col_3, col_4 = st.columns(4)
-        verificar_clicked = verificar_pressed.button(":red[Verificar respuesta]", key=f"verificar_respuesta_teoria_button{st.session_state.pregunta_actual}", use_container_width=True, help="Verificación la respuesta")
+        verificar_clicked = verificar_pressed.button(":green[Verificar respuesta]", key=f"verificar_respuesta_teoria_button{st.session_state.pregunta_actual}", use_container_width=True, help="Verificación la respuesta")
         sproblema_clicked = siguiente_pressed.button("Siguiente problema", key=f"nuevo_problema_button{st.session_state.pregunta_actual}", help="Genera un nuevo problema", use_container_width=True, on_click=nuevo_problema_teoria_callback)
 
         # "Verificar respuesta" button - Evaluation of the validity of the result input by user
