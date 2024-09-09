@@ -492,7 +492,7 @@ if authenticate_user():
             if topic == "Equilibrio de partículas":
                 subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Vectores 2D", "Vectores 3D", "Vector unitario", "Equilibrio 2D"])
             elif topic=="Momento":
-                subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Momento en un punto 2D","Momento en un punto 3D"])
+                subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Momento en un punto 2D"])
 
             if consent:
                 log_event(st.session_state["username"], "practice_options_selected", {
