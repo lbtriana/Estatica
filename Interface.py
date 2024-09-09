@@ -17,13 +17,13 @@ import plotly.express as px
 st.set_page_config(layout="wide")
 
 #Versión final para esconder el menú y stToolbar 
-#hide_streamlit_style = """
-#<style>
-#    #MainMenu {display: none;}
-#    [data-testid="stToolbar"] {display: none;}
-#</style>
-#"""
-#st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+hide_streamlit_style = """
+<style>
+    #MainMenu {display: none;}
+    [data-testid="stToolbar"] {display: none;}
+</style>
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 #División de página
 col_1, col_2, col_3 = st.columns(3)
