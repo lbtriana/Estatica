@@ -915,8 +915,6 @@ if authenticate_user():
         st.session_state.pregunta_actual = nuevo_problema
         st.session_state.version_actual = 1 
         st.session_state.Intento = 0
-
-        st.rerun()
             
         if st.session_state.get("consent", False):
             log_event(st.session_state["username"], "new_problem_generated", {
@@ -1035,7 +1033,6 @@ if authenticate_user():
         if nuevo_problema_teoria >= len(conceptuales_filtradas):
             nuevo_problema_teoria = 0
         st.session_state.pregunta_actual = nuevo_problema_teoria
-        st.rerun()
 
    #Función para mostrar la imagen de la pregunta de teoría
     def filtrar_imagenes_teoria(pregunta_no, subtopic):
