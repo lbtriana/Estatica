@@ -2945,19 +2945,19 @@ preguntas = [
 
         $\\textbf{{\\small 1. Sumatoria de fuerzas en X:}}$
 
-        ${{\hspace{{4mm}} \\sum{{F_x}} = 0}}$
-        ${{\hspace{{4mm}} \\sum{{F_x}} = F1_x + F2_x + F3_x}}$
-        ${{\hspace{{4mm}} F3_x = -F1_x - F2_x }}$
-        ${{\hspace{{4mm}} F3_x = {-(c[0]+c[2]):.2f}}} \\text{{N}}$  
+        ${{\hspace{{4mm}} \\sum{{F_x}} = 0}}$     
+        ${{\hspace{{4mm}} \\sum{{F_x}} = F1_x + F2_x + F3_x}}$     
+        ${{\hspace{{4mm}} F3_x = -F1_x - F2_x }}$     
+        ${{\hspace{{4mm}} F3_x = {-(c[0]+c[2]):.2f}}} \\text{{N}}$      
        
         $\\textbf{{\\small 2. Sumatoria de fuerzas en Y:}}$
 
-        ${{\hspace{{4mm}} \\sum{{F_y}} = 0}}$
-        ${{\hspace{{4mm}} \\sum{{F_y}} = F1_y + F2_y + F3_y}}$
-        ${{\hspace{{4mm}} F3_y = -F1_y - F2_y }}$
-        ${{\hspace{{4mm}} F3_x = {-(c[1]+c[3]):.2f}}} \\text{{N}}$
+        ${{\hspace{{4mm}} \\sum{{F_y}} = 0}}$     
+        ${{\hspace{{4mm}} \\sum{{F_y}} = F1_y + F2_y + F3_y}}$     
+        ${{\hspace{{4mm}} F3_y = -F1_y - F2_y }}$     
+        ${{\hspace{{4mm}} F3_x = {-(c[1]+c[3]):.2f}}} \\text{{N}}$   
 
-        De acuerdo con lo anterior, el vector cartesiano de la fuerza que debe aplicar es ({-(c[0]+c[2]):.2f} i + {-(c[1]+c[3]):.2f} j) N.
+        De acuerdo con lo anterior, el vector cartesiano de la fuerza que debe aplicar es [${-(c[0]+c[2]):.2f}$ $\\hat{{i}}$ + ${-(c[1]+c[3]):.2f}$ $\\hat{{j}}$] $N$.
         """, 
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",    
