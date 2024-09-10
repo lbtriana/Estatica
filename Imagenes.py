@@ -166,6 +166,10 @@ teoria_preguntas =[
 "./Imagenes/Teoria_Preguntas/EQ/V/T_EQ_V_8.png", #[6] 
 "./Imagenes/Teoria_Preguntas/EQ/V/T_EQ_V_9.png", #[7]
 "./Imagenes/Teoria_Preguntas/EQ/V/T_EQ_V_11.png", #[8]  
+"./Imagenes/Teoria_Preguntas/EQ/EQ/T_EQ_EQ_1.png", #[9]  
+"./Imagenes/Teoria_Preguntas/EQ/EQ/T_EQ_EQ_2.png", #[10] 
+"./Imagenes/Teoria_Preguntas/EQ/EQ/T_EQ_EQ_3.png", #[11] 
+"./Imagenes/Teoria_Preguntas/EQ/EQ/T_EQ_EQ_4.png", #[12]
 ]
 
 teoria_respuestas =[

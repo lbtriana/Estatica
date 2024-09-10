@@ -962,8 +962,8 @@ if authenticate_user():
         st.markdown('<h3 style="font-size:18px;">Acciones</h3>', unsafe_allow_html=True)
     
         respuesta_pressed, ayuda_pressed, repetir_pressed, nuevo_pressed = st.columns(4)
-        respuesta_clicked = respuesta_pressed.button(":red[Verificar respuesta]", key=f"respuesta_button_{st.session_state.pregunta_actual}", help="Verificación de la respuesta", use_container_width=True)
-        ayuda_clicked = ayuda_pressed.button(":red[Ayuda]", key=f"ayuda_button_{st.session_state.pregunta_actual}", help="Ayuda para la solución", use_container_width=True)
+        respuesta_clicked = respuesta_pressed.button(":green[Verificar respuesta]", key=f"respuesta_button_{st.session_state.pregunta_actual}", help="Verificación de la respuesta", use_container_width=True)
+        ayuda_clicked = ayuda_pressed.button(":blue[Ayuda]", key=f"ayuda_button_{st.session_state.pregunta_actual}", help="Ayuda para la solución", use_container_width=True)
         repetir_pressed.button("Nueva versión", key="nueva_version_button", help="Genera una nueva versión del problema", use_container_width=True, on_click=nueva_version_callback)
         nuevo_pressed.button("Siguiente problema", key=f"nuevo_problema_button{st.session_state.pregunta_actual}", help="Genera un nuevo problema", use_container_width=True, on_click=nuevo_problema_callback)
     
@@ -1047,24 +1047,35 @@ if authenticate_user():
         left_col, center_col, right_col = st.columns(3)
         with center_col:
             if subtopic == "Vectores":
-                    if pregunta_no == 1: 
-                        st.image(teoria_preguntas[0], width=180)  
-                    if pregunta_no == 2 or pregunta_no == 3: 
-                        st.image(teoria_preguntas[1], width=200)
-                    if pregunta_no == 4: 
-                        st.image(teoria_preguntas[2], width=300)  
-                    if pregunta_no == 5: 
-                        st.image(teoria_preguntas[3], width=250)  
-                    if pregunta_no == 6: 
-                        st.image(teoria_preguntas[4], width=350)  
-                    if pregunta_no == 7: 
-                        st.image(teoria_preguntas[5], width=225)
-                    if pregunta_no == 8: 
-                        st.image(teoria_preguntas[6], width=250)  
-                    if pregunta_no == 9 or pregunta_no == 12: 
-                        st.image(teoria_preguntas[7], width=250)  
-                    if pregunta_no == 11: 
-                        st.image(teoria_preguntas[8], width=550)              
+                if pregunta_no == 1: 
+                    st.image(teoria_preguntas[0], width=180)  
+                if pregunta_no == 2 or pregunta_no == 3: 
+                    st.image(teoria_preguntas[1], width=200)
+                if pregunta_no == 4: 
+                    st.image(teoria_preguntas[2], width=300)  
+                if pregunta_no == 5: 
+                    st.image(teoria_preguntas[3], width=250)  
+                if pregunta_no == 6: 
+                    st.image(teoria_preguntas[4], width=350)  
+                if pregunta_no == 7: 
+                    st.image(teoria_preguntas[5], width=225)
+                if pregunta_no == 8: 
+                    st.image(teoria_preguntas[6], width=250)  
+                if pregunta_no == 9 or pregunta_no == 12: 
+                    st.image(teoria_preguntas[7], width=250)  
+                if pregunta_no == 11: 
+                    st.image(teoria_preguntas[8], width=550)
+            if subtopic == "Equilibrio":
+                if pregunta_no == 4:
+                    st.image(EQ_image_paths[37], width=350) 
+                if pregunta_no == 5: 
+                    st.image(teoria_preguntas[9], width=550)      
+                if pregunta_no == 7: 
+                    st.image(teoria_preguntas[10], width=500)    
+                if pregunta_no == 8: 
+                    st.image(teoria_preguntas[11], width=250)
+                if pregunta_no == 9: 
+                    st.image(teoria_preguntas[12], width=450)         
         return
 
     #Función para mostrar la imagen de la respuesta
@@ -1091,7 +1102,7 @@ if authenticate_user():
 
         #Buttons
         verificar_pressed, siguiente_pressed, col_3, col_4 = st.columns(4)
-        verificar_clicked = verificar_pressed.button(":red[Verificar respuesta]", key=f"verificar_respuesta_teoria_button{st.session_state.pregunta_actual}", use_container_width=True, help="Verificación la respuesta")
+        verificar_clicked = verificar_pressed.button(":green[Verificar respuesta]", key=f"verificar_respuesta_teoria_button{st.session_state.pregunta_actual}", use_container_width=True, help="Verificación la respuesta")
         sproblema_clicked = siguiente_pressed.button("Siguiente problema", key=f"nuevo_problema_button{st.session_state.pregunta_actual}", help="Genera un nuevo problema", use_container_width=True, on_click=nuevo_problema_teoria_callback)
 
         # "Verificar respuesta" button - Evaluation of the validity of the result input by user
