@@ -336,13 +336,136 @@ conceptuales = [
          opcion_4 = "II, III",
          opcion_correcta = "II, III, IV",
          respuesta_P1 = """
-        La respuesta correcta es II, II, IV por las siguientes razones:
-
-        1. La sumatoria de fuerzas no involucra distancias, por lo cual no es posible encontrar la ubicación de una fuerza (Opción I.). Por el contrario, si se realiza una sumatoria de momentos es posible determinar la ubicación de una fuerza.
-        2. La sumatoria de fuerzas igualada a cero implica que el cuerpo está en equilibrio, por lo cual, no es posible determinar el movimiento de una partícula que se encuentra estática (Opción V).          
-        3. La sumatoria de fuerzas igualada a 0 permite encontar la magnitud y dirección de una fuerza desconocida que permite mantener el equilibrio. Dado que, resulta en un sistema de ecuaciones para despejar las fuerzas, sus componentes o sus ángulos.
+         Con sumatorias de fuerzas no es posible encontrar la ubicación de una fuerza ya que no involucra distancias. Contrario a la sumatoria de momentos que si permite lo dicho en la opción I.
+         Además, con la sumatoria de fuerzas puede definirse el sentido de una fuerza particular pero no la dirección de movimiento del sistema. Esto debido a que, al igualar la sumatoria a 0 se asume que el sistema se encuentra en reposo descartandose la opció V.
+         Por el contrario la sumatoria de fuerzas igual a 0 permite encontar la magnitud y dirección de una fuerza desconocida que permite mantener el equilibrio por medio del despeje de las fuerzas, sus componentes o sus ángulos
          """,
          respuesta_P2 = "",
-         ),     
+         ),    
          
+    Theory(#4
+        code = 1200040, 
+        no_pregunta = 4,
+        topic = "Equilibrio de partículas",
+        subtopic = "Equilibrio",
+        enunciado ="Considere el sistema mostrado en la figura e indique la sumatoria de fuerzas correcta:",
+        opcion_1 ="""$\\sum{{F_x}} = F_2 \\left(\\frac{{3}}{{5}}\\right) sen(\\theta_2) + F_1 \\left(\\frac{{12}}{{13}}\\right) sen(\\theta_1) $ \\
+        $\\sum{{F_y}} = F_2 \\left(\\frac{{4}}{{5}}\\right) cos(\\theta_2) + F_1 \\left(\\frac{{5}}{{13}}\\right) cos(\\theta_1) $ \\
+        $\\sum{{F_z}} = F_2 \\left(\\frac{{4}}{{5}}\\right) + F_1 \\left(\\frac{{5}}{{13}}\\right)$""",
+        opcion_2 ="""$\\sum{{F_x}} = F_2 \\left(\\frac{{4}}{{5}}\\right) sen(\\theta_3) + F_1 \\left(\\frac{{5}}{{13}}\\right) cos(\\theta_1)$ \\
+        $\\sum{{F_y}} = F_2 \\left(\\frac{{4}}{{5}}\\right) cos(\\theta_3) + F_1 \\left(\\frac{{5}}{{13}}\\right) sen(\\theta_1)$ \\
+        $\\sum{{F_z}} = F_2 \\left(\\frac{{3}}{{5}}\\right) - F_1 \\left(\\frac{12}{13}\\right) $""",
+        opcion_3 = """$\\sum{{F_x}} = F_2 \\left(\\frac{{4}}{{5}}\\right) sen(\\theta_3) + F_1 cos(\\theta_1)$ \\
+        $\\sum{{F_y}} = F_2 \\left(\\frac{{4}}{{5}}\\right) cos(\\theta_3) + F_1 cos(\\theta_2)$ \\
+        $\\sum{{F_z}} = F_2 \\left(\\frac{{3}}{{5}}\\right) - F_1 \\left(\\frac{{12}}{{13}}\\right)$""",
+        opcion_4 ="""$\\sum{{F_x}} = F_2 \\left(\\frac{{4}}{{5}}\\right) sen(\\theta_3) + F_1 cos(\\theta_1) $ \\
+        $\\sum{{F_y}} = F_2 \\left(\\frac{{4}}{{5}}\\right) cos(\\theta_3) - F_1 \cos(\\theta_1) $ \\
+        $\\sum{{F_z}} = F_2 \\left(\\frac{{3}}{{5}}\\right) + F_1 \left(\\frac{12}{13}\\right) $""",
+        opcion_correcta = """$\\sum{{F_x}} = F_2 \\left(\\frac{{4}}{{5}}\\right) sen(\\theta_3) + F_1 cos(\\theta_1)$ \\
+        $\\sum{{F_y}} = F_2 \\left(\\frac{{4}}{{5}}\\right) cos(\\theta_3) + F_1 cos(\\theta_2)$ \\
+        $\\sum{{F_z}} = F_2 \\left(\\frac{{3}}{{5}}\\right) - F_1 \\left(\\frac{{12}}{{13}}\\right)$""",
+        respuesta_P1 = """
+        La sumatoria de fuerzas del sistema mostrado es:
+
+        $\\sum{{F_x}} = F_2 \\left(\\frac{{4}}{{5}}\\right) sen(\\theta_3) + F_1 cos(\\theta_1)$
+
+        $\\sum{{F_y}} = F_2 \\left(\\frac{{4}}{{5}}\\right) cos(\\theta_3) + F_1 cos(\\theta_2)$
+
+        $\\sum{{F_z}} = F_2 \\left(\\frac{{3}}{{5}}\\right) - F_1 \\left(\\frac{{12}}{{13}}\\right)$
+
+        Note que para calcular las componentes X y Y de $F_1$ se utilizan los cosenos directores ($\\theta_1$ y $\\theta_2$), dado que, estos ángulos relacionan al vector directamente con los ejes. 
+        
+        Por otro lado, para la fuerza $F_2$ se aplica la descomposición por coordenadas cartesianas. Para el cálculo de sus componentes X y Y, primero se proyecta el vector en el plano XY, y luego se descompone con el ángulo $\\theta_3$. La componente Z se obtiene con el seno del triángulo presentado.
+        """,
+        respuesta_P2 = "",
+        ),
+         
+    Theory(#5
+        code = 1200050, 
+        no_pregunta = 5,
+        topic = "Equilibrio de partículas",
+        subtopic = "Equilibrio",
+        enunciado ="Considere el sistema mostrado en la figura e indique cual es el diagrama de cuerpo libre equivalente teniendo en cuenta el sistema de coordenadas.", 
+        opcion_1 = "Opción 1.",
+        opcion_2 = "Opción 2.",
+        opcion_3 = "Opción 3.",
+        opcion_4 = "Opción 4.",
+        opcion_correcta = "Opción 1.",
+        respuesta_P1 = """
+        El diagrama de cuerpo libre del bloque, que representa al sistema, es la opción 1 por las siguientes razones:
+
+        1. El vector normal ($N$) siempre es un vector perpendicuar a la superficie.     
+        2. El vector de peso ($W$) es un vector que siempre es vertical hacia abajo.      
+        3. El vector de fricción ($f$) siempre tiene dirección contraria al desplazamiento.
+        """,
+        respuesta_P2 = "",
+        ),
+         
+    Theory(#6
+        code = 1200060, 
+        no_pregunta = 6,
+        topic = "Equilibrio de partículas",
+        subtopic = "Equilibrio",
+        enunciado ="Es correcto afirmar que, en una sumatoria de fuerzas, el valor encontrado para una fuerza desconocida siempre será mayor a cero.", 
+        opcion_1 = "Sí, si la solución produce un resultado menor a 0, el sistema no está en equilibrio.",
+        opcion_2 = "No, si la solución produce un resultado negativo, esto indica que el sentido de la fuerza es el inverso del supuesto sobre el diagrama de cuerpo libre.",
+        opcion_3 = "Sí, un valor negativo en el resultado significa un error de cálculo.",
+        opcion_4 = "No, pueden existir resultados negativos, y como en la sumatoria de fuerzas solo importa la magnitud del vector, el signo puede ignorarse.",
+        opcion_correcta = "No, si la solución produce un resultado negativo, esto indica que el sentido de la fuerza es el inverso del supuesto sobre el diagrama de cuerpo libre.",
+        respuesta_P1 = "Dado que la sumatoria de fuerzas se realiza teniendo en cuenta suposiciones de dirección en fuerzas desconocidas presentes en el diagrama de cuerpo libre, es posible obtener escalares negativos, los cuales indican que el sentido correcto es el opuesto al considerado por suposición.",
+        respuesta_P2 = "",
+        ),
+         
+    Theory(#7
+        code = 1200070, 
+        no_pregunta = 7,
+        topic = "Equilibrio de partículas",
+        subtopic = "Equilibrio",
+        enunciado ="""
+        Considerando el siguiente sistema conformado por dos alambres con resorte que soportan un bloque de acero, ¿Cuál(es) de las siguientes afirmaciones es(son) falsa(s)?.
+             
+        I. El diagrama de cuerpo libre para el sistema con resorte será el mismo que el del sistema sin resorte.      
+        II.	Es posible hallar el alargamiento del resorte del resorte dividiendo la fuerza del alambre entre la constante de rigidez (k) del resorte respectivo.      
+        III. El sistema pierde el estado de equilibrio por efecto de los resortes.       
+        IV.	En la sumatoria de fuerzas es necesario multiplicar las tensiones de los alambres por las constantes de rigidez respectivas (k).        
+        """,
+        opcion_1 = "I, II.",
+        opcion_2 = "Solamente II.",
+        opcion_3 = "III, IV.",
+        opcion_4 = "I, II.",
+        opcion_correcta = "III, IV.",
+        respuesta_P1 = "Las opciones I y II son correctas. Si el problema implica un resorte elástico lineal, entonces el alargamiento o la compresión $s$ del resorte puede ser relacionado con la fuerza aplicada usando $F=ks$.",
+        respuesta_P2 = "",
+        ),
+         
+    Theory(#8
+        code = 1200080, 
+        no_pregunta = 8,
+        topic = "Equilibrio de partículas",
+        subtopic = "Equilibrio",
+        enunciado ="Considerando la polea A, ¿Cuál de las siguientes sumatorias en Y es correcta?", 
+        opcion_1 = "$ \\sum {{F_y}} = F_{1} + F_{2} + F_{3} - W = 3 F_{1} - W = 0  $",
+        opcion_2 = "$ \\sum {{F_y}} =  \\left(\\frac{F_{1}}{2}\\right) + \\left(\\frac{F_{2}}{2}\\right) - F_{3} - W = 0 $",
+        opcion_3 = "$ \\sum {{F_y}} =  \\left(\\frac{F_{1}}{2}\\right) + \\left(\\frac{F_{2}}{2}\\right) - F_{3}  = 0 $",
+        opcion_4 = "$ \\sum {{F_y}} = F_{1} + F_{2} - W = 2 F_{1} - W = 0  $",
+        opcion_correcta = "$ \\sum {{F_y}} = F_{1} + F_{2} - W = 2 F_{1} - W = 0  $",
+        respuesta_P1 = "Note que la sumatoria en Y sobre la polea no incluye a $F_3$. Además, en las poleas el cable es continuo y por ende $F_1 = F_2 = F_3$.",
+        respuesta_P2 = "",
+        ),
+         
+    Theory(#9
+        code = 1200090, 
+        no_pregunta = 9,
+        topic = "Equilibrio de partículas",
+        subtopic = "Equilibrio",
+        enunciado ="La sumatoria de fuerzas que permite encontrar el valor del peso (W) del bloque es:",
+        opcion_1 = "$ \\sum{{F_z}}=T_{BA} \\left(\\frac{{A_z}}{{\\sqrt{{(-B_x)^2 + (-B_y)^2 + (A_Z)^2}}}}\\right)-W=0$",
+        opcion_2 = "$ \\sum{{F_y}}=T_{{BA}} \\left(\\frac{{-B_y}}{{\\sqrt{{(-B_x)^2 + (-B_y)^2 + (A_Z)^2}}}}\\right)-W = 0 $",
+        opcion_3 = "$ \\sum{{F_x}}=T_{{BA}} \\left(\\frac{{-B_x}}{{\\sqrt{{(-B_x)^2 + (-B_y)^2}}}}\\right) - W = 0 $",
+        opcion_4 = "$ \\sum{{F_z}}=T_{{BA}} \\left(\\frac{{A_z}}{{\\sqrt{{(-B_x)^2 + (-B_y)^2}}}}\\right) - W = 0 $",
+        opcion_correcta = "$ \\sum{{F_z}}=T_{BA} \\left(\\frac{{A_z}}{{\\sqrt{{(-B_x)^2 + (-B_y)^2 + (A_Z)^2}}}}\\right)-W=0$",
+        respuesta_P1 = "Se realiza la sumatoria de fuerzas en Z, dado que, en este eje se encuentra el peso. Se evidencia que solo existen dos fuerzas actuando sobre el eje Z: la componente de la tensión generaada por el cable BA y el peso. La componente de la tensión es igual a la magnitud de la tensión de dicho cable multiplicada por la componente $\\hat{{k}}$ de su vector unitario",
+        respuesta_P2 = "",
+        ),
+
 ]

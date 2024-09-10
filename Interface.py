@@ -1047,24 +1047,35 @@ if authenticate_user():
         left_col, center_col, right_col = st.columns(3)
         with center_col:
             if subtopic == "Vectores":
-                    if pregunta_no == 1: 
-                        st.image(teoria_preguntas[0], width=180)  
-                    if pregunta_no == 2 or pregunta_no == 3: 
-                        st.image(teoria_preguntas[1], width=200)
-                    if pregunta_no == 4: 
-                        st.image(teoria_preguntas[2], width=300)  
-                    if pregunta_no == 5: 
-                        st.image(teoria_preguntas[3], width=250)  
-                    if pregunta_no == 6: 
-                        st.image(teoria_preguntas[4], width=350)  
-                    if pregunta_no == 7: 
-                        st.image(teoria_preguntas[5], width=225)
-                    if pregunta_no == 8: 
-                        st.image(teoria_preguntas[6], width=250)  
-                    if pregunta_no == 9 or pregunta_no == 12: 
-                        st.image(teoria_preguntas[7], width=250)  
-                    if pregunta_no == 11: 
-                        st.image(teoria_preguntas[8], width=550)              
+                if pregunta_no == 1: 
+                    st.image(teoria_preguntas[0], width=180)  
+                if pregunta_no == 2 or pregunta_no == 3: 
+                    st.image(teoria_preguntas[1], width=200)
+                if pregunta_no == 4: 
+                    st.image(teoria_preguntas[2], width=300)  
+                if pregunta_no == 5: 
+                    st.image(teoria_preguntas[3], width=250)  
+                if pregunta_no == 6: 
+                    st.image(teoria_preguntas[4], width=350)  
+                if pregunta_no == 7: 
+                    st.image(teoria_preguntas[5], width=225)
+                if pregunta_no == 8: 
+                    st.image(teoria_preguntas[6], width=250)  
+                if pregunta_no == 9 or pregunta_no == 12: 
+                    st.image(teoria_preguntas[7], width=250)  
+                if pregunta_no == 11: 
+                    st.image(teoria_preguntas[8], width=550)
+            if subtopic == "Equilibrio":
+                if pregunta_no == 4:
+                    st.image(EQ_image_paths[37], width=350) 
+                if pregunta_no == 5: 
+                    st.image(teoria_preguntas[9], width=550)      
+                if pregunta_no == 7: 
+                    st.image(teoria_preguntas[10], width=500)    
+                if pregunta_no == 8: 
+                    st.image(teoria_preguntas[11], width=250)
+                if pregunta_no == 9: 
+                    st.image(teoria_preguntas[12], width=450)         
         return
 
     #Función para mostrar la imagen de la respuesta
