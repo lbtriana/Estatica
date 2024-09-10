@@ -2894,7 +2894,7 @@ preguntas = [
         subtopic = E2D,
         version = 1,
         pregunta = lambda f, a, calc, c, d, m: f"¿Cuál es la fuerza de fricción necesaria para evitar que el bloque de peso $W={f[0]:.2f}$ N se desplace a lo largo del plano inclinado a {a[0]:.0f}° de la horizontal.",
-        no_answers = 2,
+        no_answers = 1,
         a1_name = "Fuerza de fricción ($f_r$) [N]",
         a2_name = "",
         a3_name = "",
