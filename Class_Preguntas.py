@@ -2537,9 +2537,9 @@ preguntas = [
         a1_name = Ci,
         a2_name = Cj,
         a3_name = Ck,
-        answer1 = lambda f, a, calc, c, d, m: np.round(f[0]*d[3]/Calculations.magnitude3D(d[3],d[6],d[0])+f[1]*d[9]/Calculations.magnitude3D(d[9],d[12],d[0])+f[2]*d[15]/Calculations.magnitude3D(d[15],d[18],d[0]),2),
-        answer2 = lambda f, a, calc, c, d, m: np.round(f[0]*d[6]/Calculations.magnitude3D(d[3],d[6],d[0])+f[1]*d[12]/Calculations.magnitude3D(d[9],d[12],d[0])+f[2]*d[18]/Calculations.magnitude3D(d[15],d[18],d[0]),2),
-        answer3 = lambda f, a, calc, c, d, m: np.round(f[0]*d[0]/Calculations.magnitude3D(d[3],d[6],d[0])+f[1]*d[0]/Calculations.magnitude3D(d[9],d[12],d[0])+f[2]*d[0]/Calculations.magnitude3D(d[15],d[18],d[0]),2),
+        answer1 = lambda f, a, calc, c, d, m: np.round(f[0]*d[3]/Calculations.magnitude3D(d[3],d[6],d[0])+f[1]*d[9]/Calculations.magnitude3D(d[9],d[12],d[0])-f[2]*d[15]/Calculations.magnitude3D(d[15],d[18],d[0]),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(-f[0]*d[6]/Calculations.magnitude3D(d[3],d[6],d[0])+f[1]*d[12]/Calculations.magnitude3D(d[9],d[12],d[0])+f[2]*d[18]/Calculations.magnitude3D(d[15],d[18],d[0]),2),
+        answer3 = lambda f, a, calc, c, d, m: np.round(-f[0]*d[0]/Calculations.magnitude3D(d[3],d[6],d[0])-f[1]*d[0]/Calculations.magnitude3D(d[9],d[12],d[0])-f[2]*d[0]/Calculations.magnitude3D(d[15],d[18],d[0]),2),
         ayuda1 = A64,
         ayuda2 = A62,
         ayuda3 = A63,
@@ -2550,32 +2550,32 @@ preguntas = [
 
         ${{\hspace{{4mm}} \\lambda_{{AB}} = \\dfrac{{\\overrightarrow{{AB}}}}{{|\\overrightarrow{{AB}}|}} = \\dfrac{{(B_X-0) i + (-B_Y-0) j + (0 - A_Z) k}}{{\\sqrt{{((B_X-0)^2 + (-B_Y-0)^2 + (0 - A_Z)^2}}}} }}$   
 
-        ${{\hspace{{4mm}} \\lambda_{{AB}} = ({d[3]/Calculations.magnitude3D(d[3],d[6],d[0]):.2f}) \\hat{{i}} + ({d[6]/Calculations.magnitude3D(d[3],d[6],d[0]):.2f}) \\hat{{j}} +({d[0]/Calculations.magnitude3D(d[3],d[6],d[0]):.2f}) \\hat{{k}}}}$
+        ${{\hspace{{4mm}} \\lambda_{{AB}} = ({d[3]/Calculations.magnitude3D(d[3],d[6],d[0]):.2f}) \\hat{{i}} + (-{d[6]/Calculations.magnitude3D(d[3],d[6],d[0]):.2f}) \\hat{{j}} +(-{d[0]/Calculations.magnitude3D(d[3],d[6],d[0]):.2f}) \\hat{{k}}}}$
 
         ${{\hspace{{4mm}} \\lambda_{{AC}} = \\dfrac{{\\overrightarrow{{AC}}}}{{|\\overrightarrow{{AC}}|}} = \\dfrac{{(C_X-0) i + (C_Y-0) j + (0 - A_Z) k}}{{\\sqrt{{((C_X-0)^2 + (C_Y-0)^2 + (0 - A_Z)^2}}}} }}$ 
 
-        ${{\hspace{{4mm}} \\lambda_{{AC}} = ({d[9]/Calculations.magnitude3D(d[9],d[12],d[0]):.2f}) \\hat{{i}} + ({d[12]/Calculations.magnitude3D(d[9],d[12],d[0]):.2f}) \\hat{{j}} + ({d[0]/Calculations.magnitude3D(d[9],d[12],d[0]):.2f}) \\hat{{k}}}}$
+        ${{\hspace{{4mm}} \\lambda_{{AC}} = ({d[9]/Calculations.magnitude3D(d[9],d[12],d[0]):.2f}) \\hat{{i}} + ({d[12]/Calculations.magnitude3D(d[9],d[12],d[0]):.2f}) \\hat{{j}} + (-{d[0]/Calculations.magnitude3D(d[9],d[12],d[0]):.2f}) \\hat{{k}}}}$
 
         ${{\hspace{{4mm}} \\lambda_{{AD}} = \\dfrac{{\\overrightarrow{{AD}}}}{{|\\overrightarrow{{AD}}|}} = \\dfrac{{(-D_X-0) i + (D_Y-0) j + (0 - A_Z) k}}{{\\sqrt{{((-D_X-0)^2 + (D_Y-0)^2 + (0 - A_Z)^2}}}} }}$
         
-        ${{\hspace{{4mm}} \\lambda_{{AD}} = ({d[15]/Calculations.magnitude3D(d[15],d[18],d[0]):.2f}) \\hat{{i}} + ({d[18]/Calculations.magnitude3D(d[15],d[18],d[0]):.2f} \\hat{{j}} + ({d[0]/Calculations.magnitude3D(d[15],d[18],d[0]):.2f}) \\hat{{k}}}}$
+        ${{\hspace{{4mm}} \\lambda_{{AD}} = (-{d[15]/Calculations.magnitude3D(d[15],d[18],d[0]):.2f}) \\hat{{i}} + ({d[18]/Calculations.magnitude3D(d[15],d[18],d[0]):.2f}) \\hat{{j}} + (-{d[0]/Calculations.magnitude3D(d[15],d[18],d[0]):.2f}) \\hat{{k}}}}$
     
         
         $\\textbf{{\\small 2. Sumatoria de fuerzas en X, Y, Z:}}$
 
-        ${{\hspace{{4mm}} \\sum_X = FR_X = F_{{AB}}*\\left(\\dfrac{{B_X}}{{\\sqrt((B_X)^2 + (-B_Y)^2 + (-A_Z)^2}}\\right) + F_{{AC}}*\\left(\\dfrac{{C_X}}{{\\sqrt((C_X)^2 + (C_Y)^2 + (-A_Z)^2}}\\right) + F_{{AD}}*\\left(\\dfrac{{-D_X}}{{\\sqrt((-D_X)^2 + (D_Y)^2 + (-A_Z)^2}}\\right)}}$    
-        ${{\hspace{{4mm}} \\sum_X = FR_X = {f[0]*d[3]/Calculations.magnitude3D(d[3],d[6],d[0]):.2f} + {f[1]*d[9]/Calculations.magnitude3D(d[9],d[12],d[0]):.2f} + {f[2]*d[15]/Calculations.magnitude3D(d[15],d[18],d[0]):.2f}}}$    
-        ${{\hspace{{4mm}} \\sum_X = FR_X = {f[0]*d[3]/Calculations.magnitude3D(d[3],d[6],d[0])+f[1]*d[9]/Calculations.magnitude3D(d[9],d[12],d[0])+f[2]*d[15]/Calculations.magnitude3D(d[15],d[18],d[0]):.2f} \\text{{ kN}}}}$
+        ${{\hspace{{4mm}} \\sum_X = FR_X = F_{{AB}}*\\left(\\dfrac{{B_X}}{{\\sqrt{{(B_X)^2 + (-B_Y)^2 + (-A_Z)^2}}}}\\right) + F_{{AC}}*\\left(\\dfrac{{C_X}}{{\\sqrt{{(C_X)^2 + (C_Y)^2 + (-A_Z)^2}}}}\\right) + F_{{AD}}*\\left(\\dfrac{{-D_X}}{{\\sqrt{{(-D_X)^2 + (D_Y)^2 + (-A_Z)^2}}}}\\right)}}$    
+        ${{\hspace{{4mm}} \\sum_X = FR_X = ({f[0]*d[3]/Calculations.magnitude3D(d[3],d[6],d[0]):.2f}) + ({f[1]*d[9]/Calculations.magnitude3D(d[9],d[12],d[0]):.2f}) + ({-f[2]*d[15]/Calculations.magnitude3D(d[15],d[18],d[0]):.2f})}}$    
+        ${{\hspace{{4mm}} \\sum_X = FR_X = {f[0]*d[3]/Calculations.magnitude3D(d[3],d[6],d[0])+f[1]*d[9]/Calculations.magnitude3D(d[9],d[12],d[0])-f[2]*d[15]/Calculations.magnitude3D(d[15],d[18],d[0]):.2f} \\text{{ kN}}}}$
         
-        ${{\hspace{{4mm}} \\sum_Y = FR_Y = F_{{AB}}*\\left(\\dfrac{{-B_Y}}{{\\sqrt((B_X)^2 + (-B_Y)^2 + (-A_Z)^2}}\\right) + F_{{AC}}*\\left(\\dfrac{{C_Y}}{{\\sqrt((C_X)^2 + (C_Y)^2 + (-A_Z)^2}}\\right) + F_{{AD}}*\\left(\\dfrac{{D_Y}}{{\\sqrt((-D_X)^2 + (D_Y)^2 + (-A_Z)^2}}\\right)}}$   
-        ${{\hspace{{4mm}} \\sum_Y = FR_Y = {f[0]*d[6]/Calculations.magnitude3D(d[3],d[6],d[0]):.2f} + {f[1]*d[12]/Calculations.magnitude3D(d[9],d[12],d[0]):.2f} + {f[2]*d[18]/Calculations.magnitude3D(d[15],d[18],d[0]):.2f}}}$    
-        ${{\hspace{{4mm}} \\sum_Y = FR_Y = {f[0]*d[6]/Calculations.magnitude3D(d[3],d[6],d[0])+f[1]*d[12]/Calculations.magnitude3D(d[9],d[12],d[0])+f[2]*d[18]/Calculations.magnitude3D(d[15],d[18],d[0]):.2f} \\text{{ kN}} }}$
+        ${{\hspace{{4mm}} \\sum_Y = FR_Y = F_{{AB}}*\\left(\\dfrac{{-B_Y}}{{\\sqrt{{(B_X)^2 + (-B_Y)^2 + (-A_Z)^2}}}}\\right) + F_{{AC}}*\\left(\\dfrac{{C_Y}}{{\\sqrt{{(C_X)^2 + (C_Y)^2 + (-A_Z)^2}}}}\\right) + F_{{AD}}*\\left(\\dfrac{{D_Y}}{{\\sqrt{{(-D_X)^2 + (D_Y)^2 + (-A_Z)^2}}}}\\right)}}$   
+        ${{\hspace{{4mm}} \\sum_Y = FR_Y = ({-f[0]*d[6]/Calculations.magnitude3D(d[3],d[6],d[0]):.2f}) + ({f[1]*d[12]/Calculations.magnitude3D(d[9],d[12],d[0]):.2f}) + ({f[2]*d[18]/Calculations.magnitude3D(d[15],d[18],d[0]):.2f})}}$    
+        ${{\hspace{{4mm}} \\sum_Y = FR_Y = {-f[0]*d[6]/Calculations.magnitude3D(d[3],d[6],d[0])+f[1]*d[12]/Calculations.magnitude3D(d[9],d[12],d[0])+f[2]*d[18]/Calculations.magnitude3D(d[15],d[18],d[0]):.2f} \\text{{ kN}} }}$
 
-        ${{\hspace{{4mm}} \\sum_Z = FR_Z = F_{{AB}}*\\left(\\dfrac{{-A_Z}}{{\\sqrt((B_X)^2 + (-B_Y)^2 + (-A_Z)^2}}\\right) + F_{{AC}}*\\left(\\dfrac{{-A_Z}}{{\\sqrt((C_X)^2 + (C_Y)^2 + (-A_Z)^2}}\\right) + F_{{AD}}*\\left(\\dfrac{{-A_Z}}{{\\sqrt((-D_X)^2 + (D_Y)^2 + (-A_Z)^2}}\\right)}}$    
-        ${{\hspace{{4mm}} \\sum_Z = FR_Z = {f[0]*d[0]/Calculations.magnitude3D(d[3],d[6],d[0]):.2f} + {f[1]*d[0]/Calculations.magnitude3D(d[9],d[12],d[0]):.2f} + {f[2]*d[0]/Calculations.magnitude3D(d[15],d[18],d[0]):.2f}}}$    
-        ${{\hspace{{4mm}} \\sum_Z = FR_Z ={f[0]*d[0]/Calculations.magnitude3D(d[3],d[6],d[0])+f[1]*d[0]/Calculations.magnitude3D(d[9],d[12],d[0])+f[2]*d[0]/Calculations.magnitude3D(d[15],d[18],d[0]):.2f} \\text{{ kN}}}}$  
+        ${{\hspace{{4mm}} \\sum_Z = FR_Z = F_{{AB}}*\\left(\\dfrac{{-A_Z}}{{\\sqrt{{(B_X)^2 + (-B_Y)^2 + (-A_Z)^2}}}}\\right) + F_{{AC}}*\\left(\\dfrac{{-A_Z}}{{\\sqrt{{(C_X)^2 + (C_Y)^2 + (-A_Z)^2}}}}\\right) + F_{{AD}}*\\left(\\dfrac{{-A_Z}}{{\\sqrt{{(-D_X)^2 + (D_Y)^2 + (-A_Z)^2}}}}\\right)}}$    
+        ${{\hspace{{4mm}} \\sum_Z = FR_Z = ({-f[0]*d[0]/Calculations.magnitude3D(d[3],d[6],d[0]):.2f}) + ({-f[1]*d[0]/Calculations.magnitude3D(d[9],d[12],d[0]):.2f}) + ({-f[2]*d[0]/Calculations.magnitude3D(d[15],d[18],d[0]):.2f})}}$    
+        ${{\hspace{{4mm}} \\sum_Z = FR_Z ={-f[0]*d[0]/Calculations.magnitude3D(d[3],d[6],d[0])-f[1]*d[0]/Calculations.magnitude3D(d[9],d[12],d[0])-f[2]*d[0]/Calculations.magnitude3D(d[15],d[18],d[0]):.2f} \\text{{ kN}}}}$  
         
-        De acuerdo con el anterior procedimiento el vector cartesiano de la fuerza resultante ($FR$) es: $[({f[0]*d[3]/Calculations.magnitude3D(d[3],d[6],d[0])+f[1]*d[9]/Calculations.magnitude3D(d[9],d[12],d[0])+f[2]*d[15]/Calculations.magnitude3D(d[15],d[18],d[0]):.2f})$ $\\hat{{i}}$ + $({f[0]*d[6]/Calculations.magnitude3D(d[3],d[6],d[0])+f[1]*d[12]/Calculations.magnitude3D(d[9],d[12],d[0])+f[2]*d[18]/Calculations.magnitude3D(d[15],d[18],d[0]):.2f})$ $\\hat{{j}}$ + $({f[0]*d[0]/Calculations.magnitude3D(d[3],d[6],d[0])+f[1]*d[0]/Calculations.magnitude3D(d[9],d[12],d[0])+f[2]*d[0]/Calculations.magnitude3D(d[15],d[18],d[0]):.2f}$ $\\hat{{k}})]$ $kN$. 
+        De acuerdo con el anterior procedimiento el vector cartesiano de la fuerza resultante ($FR$) es: $[({f[0]*d[3]/Calculations.magnitude3D(d[3],d[6],d[0])+f[1]*d[9]/Calculations.magnitude3D(d[9],d[12],d[0])-f[2]*d[15]/Calculations.magnitude3D(d[15],d[18],d[0]):.2f})$ $\\hat{{i}}$ + $({-f[0]*d[6]/Calculations.magnitude3D(d[3],d[6],d[0])+f[1]*d[12]/Calculations.magnitude3D(d[9],d[12],d[0])+f[2]*d[18]/Calculations.magnitude3D(d[15],d[18],d[0]):.2f})$ $\\hat{{j}}$ + $({-f[0]*d[0]/Calculations.magnitude3D(d[3],d[6],d[0])-f[1]*d[0]/Calculations.magnitude3D(d[9],d[12],d[0])-f[2]*d[0]/Calculations.magnitude3D(d[15],d[18],d[0]):.2f}$ $\\hat{{k}})]$ $kN$. 
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
