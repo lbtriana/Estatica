@@ -113,7 +113,12 @@ class Calculations:
             angle = 360-math.degrees(math.atan(abs(fy)/abs(fx)))
         return angle
     
-    #Function to calcualte the angle with arccosine
+    #Function to calculate the angle with arccosine
     def arccosine(fc,mag):
         arccosine = math.degrees(math.acos(fc/mag))
         return arccosine
+    
+    #Function to calculate the angle with arctangent
+    def arctangent(angle):
+        arctangent = math.degrees(math.atan(angle))
+        return arctangent
