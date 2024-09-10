@@ -2789,70 +2789,70 @@ preguntas = [
         calculos='operations'
         ), 
 
-    Questionary(#2_1
-        code = 1410021,
-        no_pregunta = 2,
-        complexity = F,
-        topic = EQ,
-        subtopic = E2D,
-        version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine las magnitudes de la $F1$ y el ángulo $\\alpha_2$ para que la partícula esté en equilibrio. Considere $F2 = {f[0]:.0f} \\text{{ kN}}$, $F3 = {f[1]:.0f} \\text{{ kN}}$ y $\\alpha_1={a[0]:.0f}°$.",
-        no_answers = 2,
-        a1_name = "Magnitud $F1$ $[kN]$",
-        a2_name = "Ángulo $\\alpha_2$ $[°]$",
-        a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round((-f[0]*calc['cos1']+f[1])/Calculations.cosine(Calculations.define_angle((f[0]*calc['sin1']),(-f[0]*calc['cos1']+f[1]))),2),
-        answer2 = lambda f, a, calc, c, d, m: np.round((Calculations.arctangent((f[0]*calc['sin1'])/(-f[0]*calc['cos1']+f[1]))),2),
-        answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = A70,
-        ayuda2 = A71,
-        ayuda3 = A72,
-        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-        Se sugiere para la solución del ejercicio el siguiente método:
+    #Questionary(#2_1
+    #    code = 1410021,
+    #    no_pregunta = 2,
+    #    complexity = F,
+    #    topic = EQ,
+    #    subtopic = E2D,
+    #    version = 1,
+    #    pregunta = lambda f, a, calc, c, d, m: f"Determine las magnitudes de la $F1$ y el ángulo $\\alpha_2$ para que la partícula esté en equilibrio. Considere $F2 = {f[0]:.0f} \\text{{ kN}}$, $F3 = {f[1]:.0f} \\text{{ kN}}$ y $\\alpha_1={a[0]:.0f}°$.",
+    #    no_answers = 2,
+    #    a1_name = "Magnitud $F1$ $[kN]$",
+    #    a2_name = "Ángulo $\\alpha_2$ $[°]$",
+    #    a3_name = "",
+    #    answer1 = lambda f, a, calc, c, d, m: np.round((-f[0]*calc['cos1']+f[1])/Calculations.cosine(Calculations.define_angle((f[0]*calc['sin1']),(-f[0]*calc['cos1']+f[1]))),2),
+    #    answer2 = lambda f, a, calc, c, d, m: np.round((Calculations.arctangent((f[0]*calc['sin1'])/(-f[0]*calc['cos1']+f[1]))),2),
+    #    answer3 = lambda f, a, calc, c, d, m: 0,
+    #    ayuda1 = A70,
+    #    ayuda2 = A71,
+    #    ayuda3 = A72,
+    #    respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #    Se sugiere para la solución del ejercicio el siguiente método:
 
-        $\\textbf{{\\small 1. Sumatoria de fuerzas en X y Y:}}$
+    #    $\\textbf{{\\small 1. Sumatoria de fuerzas en X y Y:}}$
 
-        $\\underline{{Ecuación 1}}$  
+    #    $\\underline{{Ecuación 1}}$  
 
-        ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$  
-        ${{\hspace{{4mm}} \\sum{{F_x}} = F1_x + F2_x + F3= -F1*cos(\\alpha_2) - F2*cos(\\alpha_1) +F3 = 0}}$
+    #    ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$  
+    #    ${{\hspace{{4mm}} \\sum{{F_x}} = F1_x + F2_x + F3= -F1*cos(\\alpha_2) - F2*cos(\\alpha_1) +F3 = 0}}$
 
-        $\\underline{{Ecuación 2}}$  
+    #    $\\underline{{Ecuación 2}}$  
 
-        ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$  
-        ${{\hspace{{4mm}} \\sum{{F_y}} = F1_y + F2_y = F1*sen(\\alpha_2)-F2*sen(\\alpha_1) = 0}}$
+    #    ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$  
+    #    ${{\hspace{{4mm}} \\sum{{F_y}} = F1_y + F2_y = F1*sen(\\alpha_2)-F2*sen(\\alpha_1) = 0}}$
         
 
-        $\\textbf{{\\small 2. Despeje de la magnitud de F1 y el ángulo:}}$
+    #    $\\textbf{{\\small 2. Despeje de la magnitud de F1 y el ángulo:}}$
 
-        Para simplificar el proceso de despeje, se busca formar una tangente. Al hacer esto, se reduce el número de términos en las ecuaciones. Dado lo anteior, se despeja $F1$ de la Ecuación 1 y se reemplaza en la Ecuación 2 para despejar el ángulo $\\alpha_2$. Con el valor de $\\alpha_2$ obtenido, se halla $F1$.
+    #    Para simplificar el proceso de despeje, se busca formar una tangente. Al hacer esto, se reduce el número de términos en las ecuaciones. Dado lo anteior, se despeja $F1$ de la Ecuación 1 y se reemplaza en la Ecuación 2 para despejar el ángulo $\\alpha_2$. Con el valor de $\\alpha_2$ obtenido, se halla $F1$.
 
-        De la ecuación 1 se despeja $F1$:  
+    #    De la ecuación 1 se despeja $F1$:  
 
-        ${{\hspace{{4mm}} F1 = \\dfrac{{-F2*cos(\\alpha_1)+F3}}{{cos(\\alpha_2)}}}}$
+    #    ${{\hspace{{4mm}} F1 = \\dfrac{{-F2*cos(\\alpha_1)+F3}}{{cos(\\alpha_2)}}}}$
 
-        Se reemplaza $F1$ en la ecuación 2:
+    #    Se reemplaza $F1$ en la ecuación 2:
 
-        ${{\hspace{{4mm}} \\left(\\dfrac{{-F2*cos(\\alpha_1)+F3}}{{cos(\\alpha_2)}}\\right)*sen(\\alpha_2)-F2*sen(\\alpha_1) = 0}}$
+    #    ${{\hspace{{4mm}} \\left(\\dfrac{{-F2*cos(\\alpha_1)+F3}}{{cos(\\alpha_2)}}\\right)*sen(\\alpha_2)-F2*sen(\\alpha_1) = 0}}$
 
-        ${{\hspace{{4mm}} -F2*cos(\\alpha_1)*tan(\\alpha_2) + F3*tan(\\alpha_2) - F2*sen(\\alpha_1) = 0}}$
+    #    ${{\hspace{{4mm}} -F2*cos(\\alpha_1)*tan(\\alpha_2) + F3*tan(\\alpha_2) - F2*sen(\\alpha_1) = 0}}$
        
-        ${{\hspace{{4mm}} tan(\\alpha_2)(-F2*cos(\\alpha_1) + F3) = F2*sen(\\alpha_1)}}$
+    #    ${{\hspace{{4mm}} tan(\\alpha_2)(-F2*cos(\\alpha_1) + F3) = F2*sen(\\alpha_1)}}$
         
-        ${{\hspace{{4mm}} tan(\\alpha_2) = \\dfrac{{F2*sen(\\alpha_1)}}{{-F2*cos(\\alpha_1) + F3}}}}$
+    #    ${{\hspace{{4mm}} tan(\\alpha_2) = \\dfrac{{F2*sen(\\alpha_1)}}{{-F2*cos(\\alpha_1) + F3}}}}$
         
-        ${{\hspace{{4mm}} \\alpha_2 = tan^{{-1}}\\left(\\dfrac{{F2*sen(\\alpha_1)}}{{-F2*cos(\\alpha_1) + F3}}\\right)}}$
+    #    ${{\hspace{{4mm}} \\alpha_2 = tan^{{-1}}\\left(\\dfrac{{F2*sen(\\alpha_1)}}{{-F2*cos(\\alpha_1) + F3}}\\right)}}$
         
-        ${{\hspace{{4mm}} \\alpha_2 = {Calculations.arctangent((f[0]*calc['sin1'])/(-f[0]*calc['cos1']+f[1])):.2f}}}$
+    #    ${{\hspace{{4mm}} \\alpha_2 = {Calculations.arctangent((f[0]*calc['sin1'])/(-f[0]*calc['cos1']+f[1])):.2f}}}$
 
-        Con el valor de $F2$ se calcula $F1$:  
+    #    Con el valor de $F2$ se calcula $F1$:  
 
-        ${{\hspace{{4mm}} F1 = {(-f[0]*calc['cos1']+f[1])/Calculations.cosine(Calculations.define_angle((f[0]*calc['sin1']),(-f[0]*calc['cos1']+f[1]))):.2f}}} \\text{{kN}}$
-        """,   
-        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-        calculos='operations'
-        ),  
+    #    ${{\hspace{{4mm}} F1 = {(-f[0]*calc['cos1']+f[1])/Calculations.cosine(Calculations.define_angle((f[0]*calc['sin1']),(-f[0]*calc['cos1']+f[1]))):.2f}}} \\text{{kN}}$
+    #    """,   
+    #    respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #    respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #    calculos='operations'
+    #    ),  
 
     Questionary(#3_1
         code = 1410031,
