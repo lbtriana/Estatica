@@ -844,6 +844,10 @@ if authenticate_user():
         left_col, center_col, right_col = st.columns(3)
 
         with left_col:
+            if difficulty == "Medio":
+                if subtopic == "Equilibrio 2D":
+                    if pregunta_no == 1:
+                        st.image(rtas_paths[8], width=250)
             if difficulty == "Díficil":
                 if subtopic == "Vectores 2D":
                     if pregunta_no == 1 or pregunta_no == 2: 

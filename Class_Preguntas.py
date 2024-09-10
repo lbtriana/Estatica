@@ -2861,9 +2861,9 @@ preguntas = [
         topic = EQ,
         subtopic = E2D,
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine el valor de F para el siguiente sistema. Considere $W = {f[0]:.0f} N$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine el valor de $F$ para el siguiente sistema. Considere $W = {f[0]:.0f} N$.",
         no_answers = 2,
-        a1_name = "Fuerza F [N]",
+        a1_name = "Fuerza $F$ $[N]$",
         a2_name = "",
         a3_name = "",
         answer1 = lambda f, a, calc, c, d, m: np.round(f[0]/2,2),
@@ -2976,8 +2976,8 @@ preguntas = [
         subtopic = E2D,
         version = 1,
         pregunta = lambda f, a, calc, c, d, m: f"Determine el valor de F para el siguiente sistema. Considere $W = {f[0]:.0f} N$",
-        no_answers = 2,
-        a1_name = "Fuerza F [N]",
+        no_answers = 1,
+        a1_name = "Fuerza $F$ $[N]$",
         a2_name = "",
         a3_name = "",
         answer1=lambda f, a, calc, c, d, m: np.round(f[0]/8,2),
@@ -2990,33 +2990,38 @@ preguntas = [
         respuesta_P2 = lambda f, a, calc, c, d, m: f"""
         $\\textbf{{\\small 2. Equilibrio en la polea 1:}}$
 
-        ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$  
-        ${{\hspace{{4mm}} \\sum{{F_y}} = 2T_1 - W = 0}}$ 
-        ${{\hspace{{4mm}} 2T_1 = W}}$ 
-        ${{\hspace{{4mm}} T_1 = \\dfrac{{W}}{{2}}}}$ 
-        ${{\hspace{{4mm}} F = {f[0]/2:.2f}}} N$ 
+        ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$    
+        ${{\hspace{{4mm}} \\sum{{F_y}} = 2T_1 - W = 0}}$     
+        ${{\hspace{{4mm}} 2T_1 = W}}$     
+        ${{\hspace{{4mm}} T_1 = \\dfrac{{W}}{{2}}}}$  
 
-        $\\textbf{{\\small 3. Equilibrio en la polea 2:}}$
+        ${{\hspace{{4mm}} T_1 = {f[0]/2:.2f}}} N$   
 
-        ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$  
-        ${{\hspace{{4mm}} \\sum{{F_y}} = 2T_2 - T_1 = 0}}$ 
-        ${{\hspace{{4mm}} 2T_2 = T_1}}$ 
-        ${{\hspace{{4mm}} T_2 = \\dfrac{{T_1}}{{2}}}}$ 
-        ${{\hspace{{4mm}} T_2 = \\dfrac{{W}}{{4}}}}$ 
-        ${{\hspace{{4mm}} F = {f[0]/4:.2f}}} N$ 
+        $\\textbf{{\\small 3. Equilibrio en la polea 2:}}$ 
+
+        ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$    
+        ${{\hspace{{4mm}} \\sum{{F_y}} = 2T_2 - T_1 = 0}}$    
+        ${{\hspace{{4mm}} 2T_2 = T_1}}$      
+        ${{\hspace{{4mm}} T_2 = \\dfrac{{T_1}}{{2}}}}$  
+
+        ${{\hspace{{4mm}} T_2 = \\dfrac{{W}}{{4}}}}$    
+
+        ${{\hspace{{4mm}} T_2 = {f[0]/4:.2f}}} N$      
 
         $\\textbf{{\\small 4. Equilibrio en la polea 3:}}$
 
-        ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$  
-        ${{\hspace{{4mm}} \\sum{{F_y}} = 2T_3 - T_2 = 0}}$ 
-        ${{\hspace{{4mm}} 2T_3 = T_2}}$ 
+        ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$          
+        ${{\hspace{{4mm}} \\sum{{F_y}} = 2T_3 - T_2 = 0}}$        
+        ${{\hspace{{4mm}} 2T_3 = T_2}}$      
         ${{\hspace{{4mm}} T_3 = \\dfrac{{T_2}}{{2}}}}$ 
-        ${{\hspace{{4mm}} T_3 = \\dfrac{{W}}{{8}}}}$ 
-        ${{\hspace{{4mm}} F = {f[0]/8:.2f}}} N$ 
+
+        ${{\hspace{{4mm}} T_3 = \\dfrac{{W}}{{8}}}}$   
+
+        ${{\hspace{{4mm}} T_3 = {f[0]/8:.2f}}} N$   
 
         $\\textbf{{\\small 5. Definición de la fuerza F:}}$
 
-        Dado que la cuerda en la que actúa la tensión $T_3$ es la misma en la que actúa F, la fuerza F es equivalente a $T_3$, es decir, {f[0]/8:.0f} N.
+        Dado que la cuerda en la que actúa la tensión $T_3$ es la misma en la que actúa $F$, la fuerza F es equivalente a $T_3$, es decir, ${f[0]/8:.2f}$ $N$.
         """,
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",    
         calculos='operations'

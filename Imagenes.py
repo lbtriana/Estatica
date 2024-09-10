@@ -154,6 +154,9 @@ rtas_paths= [
 #Vectores 2D _ Fuerza mínima (3 fuerzas) _ Nivel díficil
 "./Imagenes/Respuestas/EQ/V2D/R_EQ_V2D_D_5a.png", #[6] 
 "./Imagenes/Respuestas/EQ/V2D/R_EQ_V2D_D_5b.png", #[7] 
+
+#Equilibrio 2D_Poleas_Nivel medio
+"./Imagenes/Respuestas/EQ/EQ2D/R_EQ_EQ2D_M_1a.png", #[8]
 ]
 
 teoria_preguntas =[
