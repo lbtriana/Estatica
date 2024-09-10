@@ -157,6 +157,9 @@ rtas_paths= [
 
 #Equilibrio 2D_Poleas_Nivel medio
 "./Imagenes/Respuestas/EQ/EQ2D/R_EQ_EQ2D_M_1a.png", #[8]
+
+#Equilibrio 2D_Poleas_Nivel fácil
+"./Imagenes/Respuestas/EQ/EQ2D/R_EQ_EQ2D_F_1a.png", #[9]
 ]
 
 teoria_preguntas =[

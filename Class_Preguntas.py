@@ -2862,7 +2862,7 @@ preguntas = [
         subtopic = E2D,
         version = 1,
         pregunta = lambda f, a, calc, c, d, m: f"Determine el valor de $F$ para el siguiente sistema. Considere $W = {f[0]:.0f} N$.",
-        no_answers = 2,
+        no_answers = 1,
         a1_name = "Fuerza $F$ $[N]$",
         a2_name = "",
         a3_name = "",
@@ -2876,10 +2876,11 @@ preguntas = [
         respuesta_P2 = lambda f, a, calc, c, d, m: f"""
         $\\textbf{{\\small 2. Sumatoria de fuerzas en Y:}}$
 
-        ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$  
-        ${{\hspace{{4mm}} \\sum{{F_y}} = W - 2F = 0}}$ 
-        ${{\hspace{{4mm}} 2F = W}}$ 
+        ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$     
+        ${{\hspace{{4mm}} \\sum{{F_y}} = W - 2F = 0}}$     
+        ${{\hspace{{4mm}} 2F = W}}$     
         ${{\hspace{{4mm}} F = \\dfrac{{W}}{{2}}}}$ 
+        
         ${{\hspace{{4mm}} F = {f[0]/2:.2f}}} N$ 
         """,
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
