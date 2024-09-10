@@ -285,20 +285,20 @@ conceptuales = [
     #------------------------------------------------------ Equilibrio ----------------------------------------------------------
     #-------------------------------------------------       12000##0         ---------------------------------------------------
     
-     Theory(#1
-         code = 1200010, 
-         no_pregunta = 1,
-         topic = "Equilibrio de partículas",
-         subtopic = "Equilibrio",
-         enunciado = "Una partícula se encuentra en equilibrio cuando:", 
-         opcion_1 = "La suma de las fuerzas en todas las direcciones es cero.",
-         opcion_2 = "La fuerza resultante tiene la misma magnitud en los tres ejes.",
-         opcion_3 = "La partícula está en movimiento constante.",
-         opcion_4 = "La suma de los momentos alrededor de la partícula es distinta de cero.",
-         opcion_correcta = "La suma de las fuerzas en todas las direcciones es cero.",
-         respuesta_P1 = "Cuando una partícula está en reposo o se mueve con velocidad constante, se dice que está en equilibrio. Para cumplir esta condición se requiere que todas las fuerzas que actúan sobre la partícula formen una fuerza resultante nula.",
-         respuesta_P2 = "",
-         ),
+    Theory(#1
+        code = 1200010, 
+        no_pregunta = 1,
+        topic = "Equilibrio de partículas",
+        subtopic = "Equilibrio",
+        enunciado = "Una partícula se encuentra en equilibrio cuando:", 
+        opcion_1 = "La suma de las fuerzas en todas las direcciones es cero.",
+        opcion_2 = "La fuerza resultante tiene la misma magnitud en los tres ejes.",
+        opcion_3 = "La partícula está en movimiento constante.",
+        opcion_4 = "La suma de los momentos alrededor de la partícula es distinta de cero.",
+        opcion_correcta = "La suma de las fuerzas en todas las direcciones es cero.",
+        respuesta_P1 = "Cuando una partícula está en reposo o se mueve con velocidad constante, se dice que está en equilibrio. Para cumplir esta condición se requiere que todas las fuerzas que actúan sobre la partícula formen una fuerza resultante nula.",
+        respuesta_P2 = "",
+        ),
      
      Theory(#2
          code = 1200020, 
