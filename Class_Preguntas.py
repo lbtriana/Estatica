@@ -2880,7 +2880,7 @@ preguntas = [
         ${{\hspace{{4mm}} \\sum{{F_y}} = W - 2F = 0}}$     
         ${{\hspace{{4mm}} 2F = W}}$     
         ${{\hspace{{4mm}} F = \\dfrac{{W}}{{2}}}}$ 
-        
+
         ${{\hspace{{4mm}} F = {f[0]/2:.2f}}} N$ 
         """,
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
@@ -2894,9 +2894,9 @@ preguntas = [
         topic = EQ,
         subtopic = E2D,
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"¿Cuál es la fuerza de fricción necesaria para evitar que el bloque de peso $W={f[0]:.2f}$ N se desplace a lo largo del plano inclinado a {a[0]:.0f}° de la horizontal.",
+        pregunta = lambda f, a, calc, c, d, m: f"¿Cuál es la fuerza de fricción necesaria para evitar que el bloque de peso $W={f[0]:.0f}$ $N$ se desplace a lo largo del plano inclinado a ${a[0]:.0f}$° de la horizontal.",
         no_answers = 1,
-        a1_name = "Fuerza de fricción ($f_r$) [N]",
+        a1_name = "Fuerza de fricción ($f_r$) $[N]$",
         a2_name = "",
         a3_name = "",
         answer1 = lambda f, a, calc, c, d, m: np.round(f[0]*calc['sin1'],2),
@@ -2913,9 +2913,9 @@ preguntas = [
         respuesta_P2 = lambda f, a, calc, c, d, m: f"""
         $\\textbf{{\\small 2. Sumatoria de fuerzas en Y:}}$
 
-        ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$  
-        ${{\hspace{{4mm}} \\sum{{F_y}} = f_r - W*sen(\\alpha_1) = 0}}$ 
-        ${{\hspace{{4mm}} f_r = W*sen(\\alpha_1)}}$ 
+        ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$     
+        ${{\hspace{{4mm}} \\sum{{F_y}} = f_r - W*sen(\\alpha_1) = 0}}$     
+        ${{\hspace{{4mm}} f_r = W*sen(\\alpha_1)}}$       
         ${{\hspace{{4mm}} F = {f[0]*calc['sin1']:.2f}}} N$ 
         """,
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",

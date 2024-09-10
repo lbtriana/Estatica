@@ -160,6 +160,9 @@ rtas_paths= [
 
 #Equilibrio 2D_Poleas_Nivel fácil
 "./Imagenes/Respuestas/EQ/EQ2D/R_EQ_EQ2D_F_1a.png", #[9]
+
+#Equilibrio 2D_Plano inclinado_Nivel fácil
+"./Imagenes/Respuestas/EQ/EQ2D/R_EQ_EQ2D_F_2a.png", #[10]
 ]
 
 teoria_preguntas =[

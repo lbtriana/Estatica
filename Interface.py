@@ -704,9 +704,9 @@ if authenticate_user():
                             st.image(EQ_image_paths[55], width=350)  
                     if pregunta_no == 4:
                         if version_no == 1:
-                            st.image(EQ_image_paths[62], width=375) 
+                            st.image(EQ_image_paths[56], width=375) 
                         elif version_no == 2:
-                            st.image(EQ_image_paths[63], width=350)     
+                            st.image(EQ_image_paths[57], width=350)     
                 if subtopic == "Momento en un punto 2D":
                     if pregunta_no == 1 or pregunta_no == 2:
                         if version_no == 1:
@@ -848,6 +848,8 @@ if authenticate_user():
                 if subtopic == "Equilibrio 2D":
                     if pregunta_no == 3:
                         st.image(rtas_paths[9], width=250)
+                    if pregunta_no == 4:
+                        st.image(rtas_paths[10], width=350)
             if difficulty == "Medio":
                 if subtopic == "Equilibrio 2D":
                     if pregunta_no == 1:
