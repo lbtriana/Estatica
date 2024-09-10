@@ -2482,9 +2482,9 @@ preguntas = [
         a1_name = Ci, 
         a2_name = Cj, 
         a3_name = Ck, 
-        answer1=lambda f, a, calc, c, d, m: np.round((c[0]/Calculations.magnitude3D(c[0],c[1],c[2]))+(c[3]/Calculations.magnitude3D(c[3],c[4],c[5])), 2), 
-        answer2=lambda f, a, calc, c, d, m: np.round((c[1]/Calculations.magnitude3D(c[0],c[1],c[2]))+(c[4]/Calculations.magnitude3D(c[3],c[4],c[5])), 2), 
-        answer3=lambda f, a, calc, c, d, m: np.round((c[2]/Calculations.magnitude3D(c[0],c[1],c[2]))+(c[5]/Calculations.magnitude3D(c[3],c[4],c[5])), 2), 
+        answer1=lambda f, a, calc, c, d, m: np.round(f[0]*(c[0]/Calculations.magnitude3D(c[0],c[1],c[2]))+f[1]*(c[3]/Calculations.magnitude3D(c[3],c[4],c[5])), 2), 
+        answer2=lambda f, a, calc, c, d, m: np.round(f[0]*(c[1]/Calculations.magnitude3D(c[0],c[1],c[2]))+f[1]*(c[4]/Calculations.magnitude3D(c[3],c[4],c[5])), 2), 
+        answer3=lambda f, a, calc, c, d, m: np.round(f[0]*(c[2]/Calculations.magnitude3D(c[0],c[1],c[2]))+f[1]*(c[5]/Calculations.magnitude3D(c[3],c[4],c[5])), 2), 
         ayuda1 = A62, 
         ayuda2 = A63, 
         ayuda3 = A57, 
@@ -2493,23 +2493,27 @@ preguntas = [
 
         $\\textbf{{\\small 1. Cálculo del vector cartesiano de las fuerzas F1 y F2:}}$
 
-        $\\underline{{Vector cartesiano F1}}$ 
+        $\\underline{{Vector \\hspace{{1mm}} cartesiano \\hspace{{1mm}} F1}}$ 
 
         ${{\hspace{{4mm}} \\overrightarrow{{F1}} = \\dfrac{{(X_2-X_1) i + (Y_2-Y_1) j + (Z_2-Z_1) k}}{{\\sqrt{{(X_2-X_1)^2 + (Y_2-Y_1)^2 + (Z_2-Z_1)^2}} }} }}$
-        ${{\hspace{{4mm}} \\overrightarrow{{F1}} = \\dfrac{{({c[0]:.0f}-0) i + ({c[1]:.0f}-0) j + ({c[2]:.0f}-0) k}}{{\\sqrt{{({c[0]:.0f}-0)^2 + ({c[1]:.0f}-0)^2 + ({c[2]:.0f}-0)^2}} }} }}$
-        ${{\hspace{{4mm}} \\overrightarrow{{F1}} = {c[0]/Calculations.magnitude3D(c[0],c[1],c[2]):.2f} i + {c[1]/Calculations.magnitude3D(c[0],c[1],c[2]):.2f} j + {c[2]/Calculations.magnitude3D(c[0],c[1],c[2]):.2f} k}}$
 
-        $\\underline{{Vector cartesiano F2}}$ 
+        ${{\hspace{{4mm}} \\overrightarrow{{F1}} = \\dfrac{{({c[0]:.0f}-0) \\hat{{i}} + ({c[1]:.0f}-0) \\hat{{j}} + ({c[2]:.0f}-0) \\hat{{k}}}}{{\\sqrt{{({c[0]:.0f}-0)^2 + ({c[1]:.0f}-0)^2 + ({c[2]:.0f}-0)^2}} }} }}$
+
+        ${{\hspace{{4mm}} \\overrightarrow{{F1}} = ({f[0]*c[0]/Calculations.magnitude3D(c[0],c[1],c[2]):.2f}) \\hat{{i}} + ({f[0]*c[1]/Calculations.magnitude3D(c[0],c[1],c[2]):.2f}) \\hat{{j}} + ({f[0]*c[2]/Calculations.magnitude3D(c[0],c[1],c[2]):.2f}) \\hat{{k}}}}$
+
+        $\\underline{{Vector \\hspace{{1mm}} cartesiano \\hspace{{1mm}} F2}}$ 
 
         ${{\hspace{{4mm}} \\overrightarrow{{F2}} = \\dfrac{{(X_2-X_1) i + (Y_2-Y_1) j + (Z_2-Z_1) k}}{{\\sqrt{{(X_2-X_1)^2 + (Y_2-Y_1)^2 + (Z_2-Z_1)^2}} }} }}$
-        ${{\hspace{{4mm}} \\overrightarrow{{F2}} = \\dfrac{{({c[3]:.0f}-0) i + ({c[4]:.0f}-0) j + ({c[5]:.0f}-0) k}}{{\\sqrt{{({c[3]:.0f}-0)^2 + ({c[4]:.0f}-0)^2 + ({c[5]:.0f}-0)^2}} }} }}$
-        ${{\hspace{{4mm}} \\overrightarrow{{F2}} = {(c[3]/Calculations.magnitude3D(c[3],c[4],c[5])):.2f} i + {(c[4]/Calculations.magnitude3D(c[3],c[4],c[5])):.2f} j + {(c[5]/Calculations.magnitude3D(c[3],c[4],c[5])):.2f} k}}$
 
-        $\\textbf{{\\small 2. Cálculo del vector cartesiano de la fuerza resultante $F_R$:}}$
-        ${{\hspace{{4mm}} \\overrightarrow{{F_R}} = F_R_X i + F_R_Y j + F_R_Z k}}$
-        ${{\hspace{{4mm}} \\overrightarrow{{F_R}} = (F_1_X + F_2_X) i + (F_1_Y + F_2_Y) j + (F_1_Z + F_2_Z) k}}$
-        ${{\hspace{{4mm}} \\overrightarrow{{F_R}} = ({c[0]/Calculations.magnitude3D(c[0],c[1],c[2]):.2f} + {(c[3]/Calculations.magnitude3D(c[3],c[4],c[5])):.2f}) i + ({c[1]/Calculations.magnitude3D(c[0],c[1],c[2]):.2f} + {(c[4]/Calculations.magnitude3D(c[3],c[4],c[5])):.2f} ) j + ({c[2]/Calculations.magnitude3D(c[0],c[1],c[2]):.2f} + {(c[5]/Calculations.magnitude3D(c[3],c[4],c[5])):.2f}) k}}$
-        ${{\hspace{{4mm}} \\overrightarrow{{F_R}} = {(c[0]/Calculations.magnitude3D(c[0],c[1],c[2]))+(c[3]/Calculations.magnitude3D(c[3],c[4],c[5])):.2f} i + {(c[1]/Calculations.magnitude3D(c[0],c[1],c[2]))+(c[4]/Calculations.magnitude3D(c[3],c[4],c[5])):.2f} j + {(c[2]/Calculations.magnitude3D(c[0],c[1],c[2]))+(c[5]/Calculations.magnitude3D(c[3],c[4],c[5])):.2f} k}}$
+        ${{\hspace{{4mm}} \\overrightarrow{{F2}} = \\dfrac{{({c[3]:.0f}-0) \\hat{{i}} + ({c[4]:.0f}-0) \\hat{{j}} + ({c[5]:.0f}-0) \\hat{{k}}}}{{\\sqrt{{({c[3]:.0f}-0)^2 + ({c[4]:.0f}-0)^2 + ({c[5]:.0f}-0)^2}} }} }}$
+
+        ${{\hspace{{4mm}} \\overrightarrow{{F2}} = ({f[1]*(c[3]/Calculations.magnitude3D(c[3],c[4],c[5])):.2f}) \\hat{{i}} + ({f[1]*(c[4]/Calculations.magnitude3D(c[3],c[4],c[5])):.2f}) \\hat{{j}} + ({f[1]*(c[5]/Calculations.magnitude3D(c[3],c[4],c[5])):.2f}) \\hat{{k}}}}$
+
+        $\\textbf{{\\small 2. Cálculo del vector cartesiano de la fuerza resultante FR:}}$       
+        ${{\hspace{{4mm}} \\overrightarrow{{F_R}} = FR_X \\hat{{i}} + FR_Y \\hat{{j}} + FR_Z \\hat{{k}}}}$    
+        ${{\hspace{{4mm}} \\overrightarrow{{F_R}} = (F1_X + F2_X) \\hat{{i}} + (F1_Y + F2_Y) \\hat{{j}} + (F1_Z + F2_Z) \\hat{{k}}}}$    
+        ${{\hspace{{4mm}} \\overrightarrow{{F_R}} = ({f[0]*c[0]/Calculations.magnitude3D(c[0],c[1],c[2]):.2f} + {f[1]*(c[3]/Calculations.magnitude3D(c[3],c[4],c[5])):.2f}) \\hat{{i}} + ({f[0]*c[1]/Calculations.magnitude3D(c[0],c[1],c[2]):.2f} + {f[1]*(c[4]/Calculations.magnitude3D(c[3],c[4],c[5])):.2f} ) \\hat{{j}} + ({f[0]*c[2]/Calculations.magnitude3D(c[0],c[1],c[2]):.2f} + {f[1]*(c[5]/Calculations.magnitude3D(c[3],c[4],c[5])):.2f}) \\hat{{k}}}}$  
+        ${{\hspace{{4mm}} \\overrightarrow{{F_R}} = ({(f[0]*c[0]/Calculations.magnitude3D(c[0],c[1],c[2]))+(f[1]*c[3]/Calculations.magnitude3D(c[3],c[4],c[5])):.2f}) \\hat{{i}} + ({f[0]*(c[1]/Calculations.magnitude3D(c[0],c[1],c[2]))+(f[1]*c[4]/Calculations.magnitude3D(c[3],c[4],c[5])):.2f}) \\hat{{j}} + ({(f[0]*c[2]/Calculations.magnitude3D(c[0],c[1],c[2]))+(f[1]*c[5]/Calculations.magnitude3D(c[3],c[4],c[5])):.2f}) \\hat{{k}}}}$
         """, 
         respuesta_P2 = lambda f, a, calc, c, d, m: f"", 
         respuesta_P3 = lambda f, a, calc, c, d, m: f"", 
