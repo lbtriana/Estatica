@@ -76,17 +76,18 @@ def get_user_consent():
     
     return consent
 
-
 if "user" not in st.session_state:
     st.session_state["user"] = "" 
 if "passwd" not in st.session_state:
     st.session_state["passwd"] = "" 
-
+    
 username = st.session_state["user"].strip()
 password = st.session_state["passwd"].strip()
 
+
 #Función para verificar credenciales
-def creds_entered():  
+def creds_entered():   
+    
     if username in users_credentials and users_credentials[username] == password:
         st.session_state["authenticated"] = True
         st.session_state["username"] = username
@@ -902,7 +903,7 @@ if authenticate_user():
                     })
 
     #Función para generar una nueva versión de la pregunta
-    def nueva_version_callback():
+    def nueva_version_callback(username):
         no_pregunta_actual = preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].no_pregunta
         preguntas_actuales = [pregunta for pregunta in preguntas_filtradas if pregunta.no_pregunta == no_pregunta_actual]
         versiones = sorted(set([pregunta.version for pregunta in preguntas_actuales]))
@@ -929,7 +930,7 @@ if authenticate_user():
                 })
                         
     #Función para generar un nuevo problema
-    def nuevo_problema_callback():
+    def nuevo_problema_callback(username):
         nuevo_problema = st.session_state[f'pregunta_actual_{username}'] + 1
         while nuevo_problema < len(preguntas_filtradas) and preguntas_filtradas[nuevo_problema].no_pregunta == preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].no_pregunta:
             nuevo_problema += 1
