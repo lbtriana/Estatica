@@ -903,7 +903,7 @@ if authenticate_user():
                     })
 
     #Función para generar una nueva versión de la pregunta
-    def nueva_version_callback(username):
+    def nueva_version_callback():
         no_pregunta_actual = preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].no_pregunta
         preguntas_actuales = [pregunta for pregunta in preguntas_filtradas if pregunta.no_pregunta == no_pregunta_actual]
         versiones = sorted(set([pregunta.version for pregunta in preguntas_actuales]))
@@ -930,7 +930,7 @@ if authenticate_user():
                 })
                         
     #Función para generar un nuevo problema
-    def nuevo_problema_callback(username):
+    def nuevo_problema_callback():
         nuevo_problema = st.session_state[f'pregunta_actual_{username}'] + 1
         while nuevo_problema < len(preguntas_filtradas) and preguntas_filtradas[nuevo_problema].no_pregunta == preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].no_pregunta:
             nuevo_problema += 1
