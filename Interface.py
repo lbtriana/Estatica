@@ -981,8 +981,8 @@ if authenticate_user():
         respuesta_pressed, ayuda_pressed, repetir_pressed, nuevo_pressed = st.columns(4)
         respuesta_clicked = respuesta_pressed.button(":green[Verificar respuesta]", key=f"respuesta_button_{st.session_state[f'pregunta_actual_{username}']}", help="Verificación de la respuesta", use_container_width=True)
         ayuda_clicked = ayuda_pressed.button(":blue[Ayuda]", key=f"ayuda_button_{st.session_state[f'pregunta_actual_{username}']}", help="Ayuda para la solución", use_container_width=True)
-        repetir_pressed.button("Nueva versión", key="nueva_version_button", help="Genera una nueva versión del problema", use_container_width=True, on_click=nueva_version_callback(username))
-        nuevo_pressed.button("Siguiente problema", key=f"nuevo_problema_button{st.session_state[f'pregunta_actual_{username}']}", help="Genera un nuevo problema", use_container_width=True, on_click=nuevo_problema_callback(username))
+        repetir_pressed.button("Nueva versión", key="nueva_version_button", help="Genera una nueva versión del problema", use_container_width=True, on_click=nueva_version_callback, args=(username,))
+        nuevo_pressed.button("Siguiente problema", key=f"nuevo_problema_button{st.session_state[f'pregunta_actual_{username}']}", help="Genera un nuevo problema", use_container_width=True, on_click=nuevo_problema_callback, args=(username,))
     
         if st.session_state.get("consent", False):
             log_event(st.session_state["username"], "question_viewed", {
@@ -1012,7 +1012,7 @@ if authenticate_user():
                 log_event(st.session_state["username"], "points_earned", {"points": points_earned})
             elif is_correct == 0:
                 if st.session_state.Intento > 3:
-                    st.button(":pensive: Quiero ver la respuesta", key=f"ver_respuesta_button{st.session_state[f'pregunta_actual_{username}']}", help="Permite ver la respuesta", on_click=on_button_click(username))
+                    st.button(":pensive: Quiero ver la respuesta", key=f"ver_respuesta_button{st.session_state[f'pregunta_actual_{username}']}", help="Permite ver la respuesta", on_click=on_button_click, args=(username,))
                     
             if st.session_state.get("consent", False):
                 log_event(st.session_state["username"], "answer_submitted", {
