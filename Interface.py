@@ -76,11 +76,17 @@ def get_user_consent():
     
     return consent
 
+
+if "user" not in st.session_state:
+    st.session_state["user"] = "" 
+if "passwd" not in st.session_state:
+    st.session_state["passwd"] = "" 
+
+username = st.session_state["user"].strip()
+password = st.session_state["passwd"].strip()
+
 #Función para verificar credenciales
-def creds_entered():
-    username = st.session_state["user"].strip()
-    password = st.session_state["passwd"].strip()
-    
+def creds_entered():  
     if username in users_credentials and users_credentials[username] == password:
         st.session_state["authenticated"] = True
         st.session_state["username"] = username
@@ -442,8 +448,8 @@ if authenticate_user():
     if 'mostrar_respuesta' not in st.session_state:
         st.session_state.mostrar_respuesta = False
     # Initialize the questions to show
-    if 'pregunta_actual' not in st.session_state:
-        st.session_state.pregunta_actual = 0 
+    if f'pregunta_actual_{username}' not in st.session_state:
+        st.session_state[f'pregunta_actual_{username}'] = 0 
     # Initialize the version of the question to show    
     if 'version_actual' not in st.session_state:    
         st.session_state.version_actual = 1
@@ -549,7 +555,7 @@ if authenticate_user():
                 st.session_state.subtopic = subtopic
                 st.session_state.complexity = complexity 
                 # Reiniciar el número de la pregunta
-                st.session_state.pregunta_actual = 0
+                st.session_state[f'pregunta_actual_{username}'] = 0
         elif way == "Teoría":
             if (st.session_state.way != way or st.session_state.topic != topic or st.session_state.subtopic != subtopic):
             # Actualizar el estado de sesión con las nuevas selecciones
@@ -557,7 +563,7 @@ if authenticate_user():
                 st.session_state.topic = topic
                 st.session_state.subtopic = subtopic
                 # Reiniciar el número de la pregunta
-                st.session_state.pregunta_actual = 0
+                st.session_state[f'pregunta_actual_{username}'] = 0
 
         #=========================Funciones para generar las preguntas============================
 
@@ -879,7 +885,7 @@ if authenticate_user():
 
     #Función para que el botón "Ayuda" muestre secuencialmente las ayudas
     def butt_ayuda(preguntas_filtradas, pregunta_actual, ayuda_clicked):
-        ayudas = [preguntas_filtradas[st.session_state.pregunta_actual].ayuda1, preguntas_filtradas[st.session_state.pregunta_actual].ayuda2, preguntas_filtradas[st.session_state.pregunta_actual].ayuda3]
+        ayudas = [preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].ayuda1, preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].ayuda2, preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].ayuda3]
                 
         ayudas_no_vacias = [ayuda for ayuda in ayudas if ayuda.strip() != ""]
         if 'ayuda_index' not in st.session_state:
@@ -897,12 +903,12 @@ if authenticate_user():
 
     #Función para generar una nueva versión de la pregunta
     def nueva_version_callback():
-        no_pregunta_actual = preguntas_filtradas[st.session_state.pregunta_actual].no_pregunta
+        no_pregunta_actual = preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].no_pregunta
         preguntas_actuales = [pregunta for pregunta in preguntas_filtradas if pregunta.no_pregunta == no_pregunta_actual]
         versiones = sorted(set([pregunta.version for pregunta in preguntas_actuales]))
             
         if len(versiones) == 1:
-            misma_pregunta = preguntas_filtradas[st.session_state.pregunta_actual]
+            misma_pregunta = preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']]
             misma_pregunta.regenerate_values()
             st.session_state.Intento = 0
         else:
@@ -912,7 +918,7 @@ if authenticate_user():
 
             for i, pregunta in enumerate(preguntas_filtradas):
                 if pregunta.no_pregunta == no_pregunta_actual and pregunta.version == st.session_state.version_actual:
-                    st.session_state.pregunta_actual = i
+                    st.session_state[f'pregunta_actual_{username}'] = i
                     st.session_state.Intento = 0
                 #break
             
@@ -924,30 +930,30 @@ if authenticate_user():
                         
     #Función para generar un nuevo problema
     def nuevo_problema_callback():
-        nuevo_problema = st.session_state.pregunta_actual + 1
-        while nuevo_problema < len(preguntas_filtradas) and preguntas_filtradas[nuevo_problema].no_pregunta == preguntas_filtradas[st.session_state.pregunta_actual].no_pregunta:
+        nuevo_problema = st.session_state[f'pregunta_actual_{username}'] + 1
+        while nuevo_problema < len(preguntas_filtradas) and preguntas_filtradas[nuevo_problema].no_pregunta == preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].no_pregunta:
             nuevo_problema += 1
         if nuevo_problema >= len(preguntas_filtradas):
             nuevo_problema = 0
 
-        st.session_state.pregunta_actual = nuevo_problema
+        st.session_state[f'pregunta_actual_{username}'] = nuevo_problema
         st.session_state.version_actual = 1 
         st.session_state.Intento = 0
             
         if st.session_state.get("consent", False):
             log_event(st.session_state["username"], "new_problem_generated", {
-            "new_question_id": preguntas_filtradas[st.session_state.pregunta_actual].no_pregunta
+            "new_question_id": preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].no_pregunta
             })
 
     #Function to Display the Answer Explanation
     def mostrar_respuesta():
-        st.write(preguntas_filtradas[st.session_state.pregunta_actual].respuesta_P1)
-        filtrar_imagenes_respuestas_P1(preguntas_filtradas[st.session_state.pregunta_actual].no_pregunta, preguntas_filtradas[st.session_state.pregunta_actual].version, preguntas_filtradas[st.session_state.pregunta_actual].subtopic, preguntas_filtradas[st.session_state.pregunta_actual].complexity)
-        st.write(preguntas_filtradas[st.session_state.pregunta_actual].respuesta_P2) 
+        st.write(preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].respuesta_P1)
+        filtrar_imagenes_respuestas_P1(preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].no_pregunta, preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].version, preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].subtopic, preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].complexity)
+        st.write(preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].respuesta_P2) 
             
         if st.session_state.get("consent", False):
             log_event(st.session_state["username"], "answer_revealed", {
-            "question_id": preguntas_filtradas[st.session_state.pregunta_actual].no_pregunta
+            "question_id": preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].no_pregunta
             })
 
     #Function to display the Answer Explanation for the "Quiero ver la respuesta" button
@@ -956,7 +962,7 @@ if authenticate_user():
 
     #Function to generate the questions
     def generate_questions():
-        current_question = preguntas_filtradas[st.session_state.pregunta_actual]
+        current_question = preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']]
         
         st.markdown(f"<h2 style='text-align: left;'>{current_question.topic} - {current_question.subtopic}</h2>", unsafe_allow_html=True)
         st.write("""
@@ -967,15 +973,15 @@ if authenticate_user():
     
         st.markdown('<h3 style="font-size:18px;">Respuestas</h3>', unsafe_allow_html=True)
         st.markdown('<p style="font-size: 14px;">Ingrese sus respuestas con dos decimales</p>', unsafe_allow_html=True)
-        response1, response2, response3 = render_input_widgets(preguntas_filtradas, st.session_state.pregunta_actual)
+        response1, response2, response3 = render_input_widgets(preguntas_filtradas, st.session_state[f'pregunta_actual_{username}'])
     
         st.markdown('<h3 style="font-size:18px;">Acciones</h3>', unsafe_allow_html=True)
     
         respuesta_pressed, ayuda_pressed, repetir_pressed, nuevo_pressed = st.columns(4)
-        respuesta_clicked = respuesta_pressed.button(":green[Verificar respuesta]", key=f"respuesta_button_{st.session_state.pregunta_actual}", help="Verificación de la respuesta", use_container_width=True)
-        ayuda_clicked = ayuda_pressed.button(":blue[Ayuda]", key=f"ayuda_button_{st.session_state.pregunta_actual}", help="Ayuda para la solución", use_container_width=True)
+        respuesta_clicked = respuesta_pressed.button(":green[Verificar respuesta]", key=f"respuesta_button_{st.session_state[f'pregunta_actual_{username}']}", help="Verificación de la respuesta", use_container_width=True)
+        ayuda_clicked = ayuda_pressed.button(":blue[Ayuda]", key=f"ayuda_button_{st.session_state[f'pregunta_actual_{username}']}", help="Ayuda para la solución", use_container_width=True)
         repetir_pressed.button("Nueva versión", key="nueva_version_button", help="Genera una nueva versión del problema", use_container_width=True, on_click=nueva_version_callback)
-        nuevo_pressed.button("Siguiente problema", key=f"nuevo_problema_button{st.session_state.pregunta_actual}", help="Genera un nuevo problema", use_container_width=True, on_click=nuevo_problema_callback)
+        nuevo_pressed.button("Siguiente problema", key=f"nuevo_problema_button{st.session_state[f'pregunta_actual_{username}']}", help="Genera un nuevo problema", use_container_width=True, on_click=nuevo_problema_callback)
     
         if st.session_state.get("consent", False):
             log_event(st.session_state["username"], "question_viewed", {
@@ -993,10 +999,10 @@ if authenticate_user():
         # "Verificar respuesta" button - Evaluation of the validity of the result input by user
         if respuesta_clicked:
             st.session_state.Intento += 1
-            outputx, is_correct = resultado(preguntas_filtradas, response1, response2, response3, st.session_state.pregunta_actual)
+            outputx, is_correct = resultado(preguntas_filtradas, response1, response2, response3, st.session_state[f'pregunta_actual_{username}'])
             st.write(outputx)
                     
-            difficulty = preguntas_filtradas[st.session_state.pregunta_actual].complexity
+            difficulty = preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].complexity
             used_help = st.session_state.get('ayuda_used', False)
             points_earned = calculate_points(difficulty, st.session_state.Intento, used_help)
                     
@@ -1005,11 +1011,11 @@ if authenticate_user():
                 log_event(st.session_state["username"], "points_earned", {"points": points_earned})
             elif is_correct == 0:
                 if st.session_state.Intento > 3:
-                    st.button(":pensive: Quiero ver la respuesta", key=f"ver_respuesta_button{st.session_state.pregunta_actual}", help="Permite ver la respuesta", on_click=on_button_click)
+                    st.button(":pensive: Quiero ver la respuesta", key=f"ver_respuesta_button{st.session_state[f'pregunta_actual_{username}']}", help="Permite ver la respuesta", on_click=on_button_click)
                     
             if st.session_state.get("consent", False):
                 log_event(st.session_state["username"], "answer_submitted", {
-                "question_id": preguntas_filtradas[st.session_state.pregunta_actual].no_pregunta,
+                "question_id": preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].no_pregunta,
                 "attempt": st.session_state.Intento,
                 "is_correct": is_correct,
                 "points_earned": points_earned
@@ -1021,12 +1027,12 @@ if authenticate_user():
                             
         # "Ayuda" button - It shows helps 
         if ayuda_clicked:    
-            butt_ayuda(preguntas_filtradas, st.session_state.pregunta_actual, ayuda_clicked)
+            butt_ayuda(preguntas_filtradas, st.session_state[f'pregunta_actual_{username}'], ayuda_clicked)
             st.session_state.ayuda_used = True
     
     #=========================Functions to generate the theory questions============================
     def opciones_respuesta():
-        opcion_seleccionada = st.radio("",options=[conceptuales_filtradas[st.session_state.pregunta_actual].opcion_1, conceptuales_filtradas[st.session_state.pregunta_actual].opcion_2, conceptuales_filtradas[st.session_state.pregunta_actual].opcion_3, conceptuales_filtradas[st.session_state.pregunta_actual].opcion_4]) 
+        opcion_seleccionada = st.radio("",options=[conceptuales_filtradas[st.session_state[f'pregunta_actual_{username}']].opcion_1, conceptuales_filtradas[st.session_state[f'pregunta_actual_{username}']].opcion_2, conceptuales_filtradas[st.session_state[f'pregunta_actual_{username}']].opcion_3, conceptuales_filtradas[st.session_state[f'pregunta_actual_{username}']].opcion_4]) 
         return opcion_seleccionada
 
     #Function to evaluate the user's answers
@@ -1045,12 +1051,12 @@ if authenticate_user():
 
     # Function to Generate a New Problem
     def nuevo_problema_teoria_callback():
-        nuevo_problema_teoria = st.session_state.pregunta_actual + 1
-        while nuevo_problema_teoria < len(conceptuales_filtradas) and conceptuales_filtradas[nuevo_problema_teoria].no_pregunta == conceptuales_filtradas[st.session_state.pregunta_actual].no_pregunta:
+        nuevo_problema_teoria = st.session_state[f'pregunta_actual_{username}'] + 1
+        while nuevo_problema_teoria < len(conceptuales_filtradas) and conceptuales_filtradas[nuevo_problema_teoria].no_pregunta == conceptuales_filtradas[st.session_state[f'pregunta_actual_{username}']].no_pregunta:
             nuevo_problema_teoria += 1
         if nuevo_problema_teoria >= len(conceptuales_filtradas):
             nuevo_problema_teoria = 0
-        st.session_state.pregunta_actual = nuevo_problema_teoria
+        st.session_state[f'pregunta_actual_{username}'] = nuevo_problema_teoria
 
    #Función para mostrar la imagen de la pregunta de teoría
     def filtrar_imagenes_teoria(pregunta_no, subtopic):
@@ -1101,27 +1107,27 @@ if authenticate_user():
         return
 
     def generate_theory_questions():
-        st.markdown(f"<h2 style='text-align: left;'>{conceptuales_filtradas[st.session_state.pregunta_actual].topic} - {conceptuales_filtradas[st.session_state.pregunta_actual].subtopic}</h2>", unsafe_allow_html=True)
+        st.markdown(f"<h2 style='text-align: left;'>{conceptuales_filtradas[st.session_state[f'pregunta_actual_{username}']].topic} - {conceptuales_filtradas[st.session_state[f'pregunta_actual_{username}']].subtopic}</h2>", unsafe_allow_html=True)
         st.write("""
                  """)
         st.markdown('<h3 style="font-size:18px;">Pregunta</h3>', unsafe_allow_html=True) #Title Pregunta
-        st.write(conceptuales_filtradas[st.session_state.pregunta_actual].enunciado) #Write the statement question
-        filtrar_imagenes_teoria(conceptuales_filtradas[st.session_state.pregunta_actual].no_pregunta, conceptuales_filtradas[st.session_state.pregunta_actual].subtopic)
+        st.write(conceptuales_filtradas[st.session_state[f'pregunta_actual_{username}']].enunciado) #Write the statement question
+        filtrar_imagenes_teoria(conceptuales_filtradas[st.session_state[f'pregunta_actual_{username}']].no_pregunta, conceptuales_filtradas[st.session_state[f'pregunta_actual_{username}']].subtopic)
         #Answer options
         opcion_seleccionada = opciones_respuesta()
 
         #Buttons
         verificar_pressed, siguiente_pressed, col_3, col_4 = st.columns(4)
-        verificar_clicked = verificar_pressed.button(":green[Verificar respuesta]", key=f"verificar_respuesta_teoria_button{st.session_state.pregunta_actual}", use_container_width=True, help="Verificación la respuesta")
-        sproblema_clicked = siguiente_pressed.button("Siguiente problema", key=f"nuevo_problema_button{st.session_state.pregunta_actual}", help="Genera un nuevo problema", use_container_width=True, on_click=nuevo_problema_teoria_callback)
+        verificar_clicked = verificar_pressed.button(":green[Verificar respuesta]", key=f"verificar_respuesta_teoria_button{st.session_state[f'pregunta_actual_{username}']}", use_container_width=True, help="Verificación la respuesta")
+        sproblema_clicked = siguiente_pressed.button("Siguiente problema", key=f"nuevo_problema_button{st.session_state[f'pregunta_actual_{username}']}", help="Genera un nuevo problema", use_container_width=True, on_click=nuevo_problema_teoria_callback)
 
         # "Verificar respuesta" button - Evaluation of the validity of the result input by user
         if verificar_clicked:
-            text_respuesta, is_correct = evaluacion_respuesta_teoria(conceptuales_filtradas, opcion_seleccionada, st.session_state.pregunta_actual)
+            text_respuesta, is_correct = evaluacion_respuesta_teoria(conceptuales_filtradas, opcion_seleccionada, st.session_state[f'pregunta_actual_{username}'])
             st.write(text_respuesta)
             if is_correct == 1:
-                st.write(conceptuales_filtradas[st.session_state.pregunta_actual].respuesta_P1)
-                filtrar_imagenes_respuestas_teoria_P1(conceptuales_filtradas[st.session_state.pregunta_actual].no_pregunta, conceptuales_filtradas[st.session_state.pregunta_actual].subtopic)
+                st.write(conceptuales_filtradas[st.session_state[f'pregunta_actual_{username}']].respuesta_P1)
+                filtrar_imagenes_respuestas_teoria_P1(conceptuales_filtradas[st.session_state[f'pregunta_actual_{username}']].no_pregunta, conceptuales_filtradas[st.session_state[f'pregunta_actual_{username}']].subtopic)
 
     def main():
         if way == "Práctica":
