@@ -903,7 +903,7 @@ if authenticate_user():
                     })
 
     #Función para generar una nueva versión de la pregunta
-    def nueva_version_callback():
+    def nueva_version_callback(username):
         no_pregunta_actual = preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].no_pregunta
         preguntas_actuales = [pregunta for pregunta in preguntas_filtradas if pregunta.no_pregunta == no_pregunta_actual]
         versiones = sorted(set([pregunta.version for pregunta in preguntas_actuales]))
@@ -981,7 +981,7 @@ if authenticate_user():
         respuesta_pressed, ayuda_pressed, repetir_pressed, nuevo_pressed = st.columns(4)
         respuesta_clicked = respuesta_pressed.button(":green[Verificar respuesta]", key=f"respuesta_button_{st.session_state[f'pregunta_actual_{username}']}", help="Verificación de la respuesta", use_container_width=True)
         ayuda_clicked = ayuda_pressed.button(":blue[Ayuda]", key=f"ayuda_button_{st.session_state[f'pregunta_actual_{username}']}", help="Ayuda para la solución", use_container_width=True)
-        repetir_pressed.button("Nueva versión", key="nueva_version_button", help="Genera una nueva versión del problema", use_container_width=True, on_click=nueva_version_callback)
+        repetir_pressed.button("Nueva versión", key="nueva_version_button", help="Genera una nueva versión del problema", use_container_width=True, on_click=nueva_version_callback(username))
         nuevo_pressed.button("Siguiente problema", key=f"nuevo_problema_button{st.session_state[f'pregunta_actual_{username}']}", help="Genera un nuevo problema", use_container_width=True, on_click=nuevo_problema_callback)
     
         if st.session_state.get("consent", False):
