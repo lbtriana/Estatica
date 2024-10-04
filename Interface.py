@@ -930,7 +930,7 @@ if authenticate_user():
                 })
                         
     #Función para generar un nuevo problema
-    def nuevo_problema_callback():
+    def nuevo_problema_callback(username):
         nuevo_problema = st.session_state[f'pregunta_actual_{username}'] + 1
         while nuevo_problema < len(preguntas_filtradas) and preguntas_filtradas[nuevo_problema].no_pregunta == preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].no_pregunta:
             nuevo_problema += 1
@@ -947,7 +947,7 @@ if authenticate_user():
             })
 
     #Function to Display the Answer Explanation
-    def mostrar_respuesta():
+    def mostrar_respuesta(username):
         st.write(preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].respuesta_P1)
         filtrar_imagenes_respuestas_P1(preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].no_pregunta, preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].version, preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].subtopic, preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].complexity)
         st.write(preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].respuesta_P2) 
@@ -958,7 +958,7 @@ if authenticate_user():
             })
 
     #Function to display the Answer Explanation for the "Quiero ver la respuesta" button
-    def on_button_click():
+    def on_button_click(username):
         st.session_state.mostrar_respuesta = True
 
     #Function to generate the questions
@@ -982,7 +982,7 @@ if authenticate_user():
         respuesta_clicked = respuesta_pressed.button(":green[Verificar respuesta]", key=f"respuesta_button_{st.session_state[f'pregunta_actual_{username}']}", help="Verificación de la respuesta", use_container_width=True)
         ayuda_clicked = ayuda_pressed.button(":blue[Ayuda]", key=f"ayuda_button_{st.session_state[f'pregunta_actual_{username}']}", help="Ayuda para la solución", use_container_width=True)
         repetir_pressed.button("Nueva versión", key="nueva_version_button", help="Genera una nueva versión del problema", use_container_width=True, on_click=nueva_version_callback(username))
-        nuevo_pressed.button("Siguiente problema", key=f"nuevo_problema_button{st.session_state[f'pregunta_actual_{username}']}", help="Genera un nuevo problema", use_container_width=True, on_click=nuevo_problema_callback)
+        nuevo_pressed.button("Siguiente problema", key=f"nuevo_problema_button{st.session_state[f'pregunta_actual_{username}']}", help="Genera un nuevo problema", use_container_width=True, on_click=nuevo_problema_callback(username))
     
         if st.session_state.get("consent", False):
             log_event(st.session_state["username"], "question_viewed", {
@@ -1012,7 +1012,7 @@ if authenticate_user():
                 log_event(st.session_state["username"], "points_earned", {"points": points_earned})
             elif is_correct == 0:
                 if st.session_state.Intento > 3:
-                    st.button(":pensive: Quiero ver la respuesta", key=f"ver_respuesta_button{st.session_state[f'pregunta_actual_{username}']}", help="Permite ver la respuesta", on_click=on_button_click)
+                    st.button(":pensive: Quiero ver la respuesta", key=f"ver_respuesta_button{st.session_state[f'pregunta_actual_{username}']}", help="Permite ver la respuesta", on_click=on_button_click(username))
                     
             if st.session_state.get("consent", False):
                 log_event(st.session_state["username"], "answer_submitted", {
@@ -1023,7 +1023,7 @@ if authenticate_user():
                 })
                 
         if st.session_state.mostrar_respuesta:
-            mostrar_respuesta()
+            mostrar_respuesta(username)
             st.session_state.mostrar_respuesta = False
                             
         # "Ayuda" button - It shows helps 
