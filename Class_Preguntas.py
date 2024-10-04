@@ -47,14 +47,7 @@ class Questionary:
         self.coordenadas = calcular_coordenadas()
         self.dimensiones = calcular_dimensiones()
         self.momentos = calcular_momentos()
-
-        # Check if self.calculos is a string (method name)
-        if isinstance(self.calculos, str):
-            calculos_method = getattr(self, self.calculos)
-            self.calculos = calculos_method()
-        # If it's already a method, just call it
-        elif callable(self.calculos):
-            self.calculos = self.calculos()
+        self.calculos = self.operations()
 
         self.pregunta = self.pregunta_func(self.fuerzas, self.angulos, self.calculos, self.coordenadas, self.dimensiones, self.momentos)
         self.answer1 = self.answer1_func(self.fuerzas, self.angulos, self.calculos, self.coordenadas, self.dimensiones, self.momentos)
@@ -63,10 +56,11 @@ class Questionary:
         self.respuesta_P1 = self.respuestaP1_func(self.fuerzas, self.angulos, self.calculos, self.coordenadas, self.dimensiones, self.momentos)
         self.respuesta_P2 = self.respuestaP2_func(self.fuerzas, self.angulos, self.calculos, self.coordenadas, self.dimensiones, self.momentos)
         self.respuesta_P3 = self.respuestaP3_func(self.fuerzas, self.angulos, self.calculos, self.coordenadas, self.dimensiones, self.momentos)
-      
+        return  
 
     def regenerate_values(self):
         self.generate_values()
+        return
 
     def operations(self):
         operations_dict = {}
