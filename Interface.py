@@ -962,7 +962,7 @@ if authenticate_user():
         st.session_state.mostrar_respuesta = True
 
     #Function to generate the questions
-    def generate_questions():
+    def generate_questions(username):
         current_question = preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']]
         
         st.markdown(f"<h2 style='text-align: left;'>{current_question.topic} - {current_question.subtopic}</h2>", unsafe_allow_html=True)
@@ -993,9 +993,9 @@ if authenticate_user():
         return response1, response2, response3, respuesta_clicked, ayuda_clicked
 
     
-    def generate_calculation_questions():
+    def generate_calculation_questions(username):
             
-        response1, response2, response3, respuesta_clicked, ayuda_clicked = generate_questions()
+        response1, response2, response3, respuesta_clicked, ayuda_clicked = generate_questions(username)
 
         # "Verificar respuesta" button - Evaluation of the validity of the result input by user
         if respuesta_clicked:
@@ -1132,7 +1132,7 @@ if authenticate_user():
 
     def main():
         if way == "Práctica":
-            generate_calculation_questions()
+            generate_calculation_questions(username)
         elif way == "Teoría":
             generate_theory_questions()
     
