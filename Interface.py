@@ -964,7 +964,7 @@ if authenticate_user():
     #Function to generate the questions
     def generate_questions(username):
         current_question = preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']]
-        current_question.generate_values()
+        #current_question.generate_values()
 
         st.markdown(f"<h2 style='text-align: left;'>{current_question.topic} - {current_question.subtopic}</h2>", unsafe_allow_html=True)
         st.write("""
