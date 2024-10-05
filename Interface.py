@@ -961,11 +961,19 @@ if authenticate_user():
     def on_button_click(username):
         st.session_state.mostrar_respuesta = True
 
+    def generate_and_store_question(username):
+        current_question = preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']]
+        if f'current_question_values_{username}' not in st.session_state:
+            current_question.generate_values()
+        return current_question
+
     #Function to generate the questions
     def generate_questions(username):
-        current_question = preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']]
+       #current_question = preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']]
         #current_question.generate_values()
 
+        current_question = generate_and_store_question(username)
+        
         st.markdown(f"<h2 style='text-align: left;'>{current_question.topic} - {current_question.subtopic}</h2>", unsafe_allow_html=True)
         st.write("""
                  """) 
