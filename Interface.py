@@ -965,7 +965,7 @@ if authenticate_user():
     def generate_questions(username):
         current_question = preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']]
         current_question.generate_values()
-        
+
         st.markdown(f"<h2 style='text-align: left;'>{current_question.topic} - {current_question.subtopic}</h2>", unsafe_allow_html=True)
         st.write("""
                  """) 
@@ -980,7 +980,7 @@ if authenticate_user():
         st.markdown('<h3 style="font-size:18px;">Acciones</h3>', unsafe_allow_html=True)
     
         respuesta_pressed, ayuda_pressed, repetir_pressed, nuevo_pressed = st.columns(4)
-        respuesta_clicked = respuesta_pressed.button(":green[Verificar respuesta]", key=f"respuesta_button_{st.session_state[f'pregunta_actual_{username}']}", help="Verificación de la respuesta", use_container_width=True)
+        respuesta_clicked = respuesta_pressed.button(":green[Verificar respuesta]", key=f"respuesta_button_{st.session_state[f'pregunta_actual_{username}']}", help="Verificación de la respuesta", use_container_width=True, args=(username,))
         ayuda_clicked = ayuda_pressed.button(":blue[Ayuda]", key=f"ayuda_button_{st.session_state[f'pregunta_actual_{username}']}", help="Ayuda para la solución", use_container_width=True)
         repetir_pressed.button("Nueva versión", key="nueva_version_button", help="Genera una nueva versión del problema", use_container_width=True, on_click=nueva_version_callback, args=(username,))
         nuevo_pressed.button("Siguiente problema", key=f"nuevo_problema_button{st.session_state[f'pregunta_actual_{username}']}", help="Genera un nuevo problema", use_container_width=True, on_click=nuevo_problema_callback, args=(username,))
