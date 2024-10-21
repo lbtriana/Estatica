@@ -4694,7 +4694,7 @@ preguntas = [
         topic = "Armaduras",
         subtopic = "Cerchas",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"La armadura que se presenta soporta el panel de un anuncio. Determine las reacciones en los apoyos A y F (Use el signo para la dirección). Considere $F_1 = {f[0]:.0f} \\text{{ N}}$, $F_2 = {f[1]:.0f} \\text{{ N}}$,  $F_3 = {f[2]:.0f} \\text{{ N}}$ $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$, $d_3 = {d[6]:.0f} \\text{{ m}}$ y $d_4 = {d[9]:.0f} \\text{{ m}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"La armadura que se presenta soporta el panel de un anuncio. Determine las reacciones en los apoyos A y F (Indique el signo de la dirección de las fuerzas). Considere $F_1 = {f[0]:.0f} \\text{{ N}}$, $F_2 = {f[1]:.0f} \\text{{ N}}$,  $F_3 = {f[2]:.0f} \\text{{ N}}$, $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$, $d_3 = {d[6]:.0f} \\text{{ m}}$ y $d_4 = {d[9]:.0f} \\text{{ m}}$.",
         no_answers = 3,
         a1_name = "Reacción $F_x$ [N]",
         a2_name = "Reacción $F_y$ [N]",
@@ -4702,26 +4702,26 @@ preguntas = [
         answer1 = lambda f, a, calc, c, d, m: np.round(f[0] + f[1],2),
         answer2 = lambda f, a, calc, c, d, m: np.round(f[2] - (f[2]*d[3] + f[1]*d[6] + f[0]*(d[6] + d[9]))/(d[0] + d[3]),2),
         answer3 = lambda f, a, calc, c, d, m: np.round((f[2]*d[3] + f[1]*d[6] + f[0]*(d[6] + d[9]))/(d[0] + d[3]), 2),
-        ayuda1 = "Depende del tipo de apoyo se considera el número de reacciones. Si es de primer grado tiene una reacción perpendicular a la superficie; si es de segundo grado tiene restricción a traslación a cualquier dirección; si es de tercer grado impide traslación y rotación.",
-        ayuda2 = "Para determinar reacciones es importante tener en cuenta las condiciones de equilibrio del sistema, es decir, que la sumatoria de fuerzas en cualquier dirección debe ser cero y que los momentos respecto a cualquier punto deben ser cero.",      
+        ayuda1 = C1,
+        ayuda2 = C2,      
         ayuda3 = "",
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-        Las reacciones se podrían describir como la respuestas o las restricciones que generan los apoyos o soportes para evitar que una estrcutura sea sometida a traslacion y/o rotación. A continuación, se presenta la solución sugerida para el ejercicio:
+        Las reacciones se pueden describir como la respuestas o las restricciones que generan los apoyos o soportes para evitar que una estructura sea sometida a traslación y/o rotación. A continuación, se presenta la solución sugerida para el ejercicio:
         
-        Del problema se pueden identificar dos apoyos de los cuales se deducen el número de restricciones a encontrar: el F, de segundo grado (dos restricciones); y el A, de primer grado (una restricción). 
-        
+        En el problema, se identifican dos apoyos, de los cuales se deduce el número de restricciones a encontrar: el F, de segundo grado (dos restricciones); y el A, de primer grado (una restricción). 
+                
         $\\textbf{{\\small 1. Condición de equilibrio - Sumatoria de fuerzas en X: }}$
         
         ${{\hspace{{4mm}} \\sum{{F_x}} = F_x - F_1 - F_2 = 0 }}$          
-        ${{\hspace{{4mm}} F_x = {f[0] + f[1]:.2f}}}$    
+        ${{\hspace{{4mm}} F_x = {f[0] + f[1]:.2f} \\text{{ N}} }}$    
         
         $\\textbf{{\\small 2. Condición de equilibrio - Momento en F: }}$
 
-        Se considera encontrar una de las reacciones restantes utilizando la condición de equilibrio de que la suma de momentos en cualquier punto debe ser cero. En este caso, se evalua en un punto donde se aplique una reacción y solo tener una incognita (Distinto al caso si evaluaramos Sumatoria de fuerzas en Y).
+        Para encontrar una de las reacciones restantes, se utiliza la condición de equilibrio que establece que la suma de momentos en cualquier punto debe ser igual a cero. Se selecciona un punto donde actúe una de las reacciones para tener una incógnita por resolver (Distinto al caso si evaluaramos Sumatoria de fuerzas en Y, donde habría más de una incógnita). 
         
         ${{\hspace{{4mm}} \\sum{{M_F}} = 0 }}$     
         ${{\hspace{{4mm}} \\sum{{M_F}} = F_3 \\cdot d_2 + F_2 \\cdot d_2 + F_1 \\cdot (d_3 + d_4) - A_y \\cdot (d_1 + d_2) = {f[2]:.0f} \\text{{ N}} \\cdot {d[3]:.0f} \\text{{ m}} + {f[1]:.0f} \\text{{ N}} \\cdot {d[6]:.0f} \\text{{ m}} + {f[0]:.0f} \\text{{ N}} \\cdot {d[6] + d[9]:.0f} \\text{{ m}} - A_y \\cdot {d[0] + d[3]:.0f} \\text{{ m}} = 0}}$     
-        ${{\hspace{{4mm}} A_y \\cdot {d[0] + d[3]:.0f} \\text{{ m}} = {f[2]*d[3]:.0f} \\text{{ N \\cdot m}} + {f[1]*d[6]:.0f} \\text{{ N \\cdot m}} + {f[0]*(d[6] + d[9]) :.0f} \\text{{ N \\cdot m}}}}$      
+        ${{\hspace{{4mm}} A_y \\cdot {d[0] + d[3]:.0f} \\text{{ m}} = {f[2]*d[3]:.0f} \\text{{ N}} \\cdot \\text{{ m}} + {f[1]*d[6]:.0f} \\text{{ N}} \\cdot \\text{{ m}} + {f[0]*(d[6] + d[9]) :.0f} \\text{{ N}} \\cdot \\text{{ m}}  }}$      
         ${{\hspace{{4mm}} A_y = {(f[2]*d[3] + f[1]*d[6] + f[0]*(d[6] + d[9]))/(d[0] + d[3]):.2f} \\text{{ N}} }}$     
         
         $\\textbf{{\\small 3. Condición de equilibrio - Sumatoria de fuerzas en Y: }}$

@@ -17,13 +17,13 @@ import plotly.express as px
 st.set_page_config(layout="wide")
 
 #Versión final para esconder el menú y stToolbar 
-hide_streamlit_style = """
-<style>
-    #MainMenu {display: none;}
-    [data-testid="stToolbar"] {display: none;}
-</style>
-"""
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+# hide_streamlit_style = """
+# <style>
+#     #MainMenu {display: none;}
+#     [data-testid="stToolbar"] {display: none;}
+# </style>
+# """
+# st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 #División de página
 col_1, col_2, col_3 = st.columns(3)
@@ -808,7 +808,7 @@ if authenticate_user():
                             st.image(MO_image_paths[8], width=500)
                 if subtopic == "Cerchas":
                     if pregunta_no == 1:
-                        st.image(AR_image_paths[4], width=500) 
+                        st.image(AR_image_paths[4], width=400) 
                     if pregunta_no == 2:
                         st.image(AR_image_paths[5], width=500) 
                     if pregunta_no == 3:
