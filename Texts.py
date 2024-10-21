@@ -177,6 +177,15 @@ A77 = "Incluya dentro de la sumatoria las componentes de la fuerza que se debe a
 A78 = "Dibuje el diagrama de cuerpo libre (DCL) de cada una de las poleas, identifique correctamente los cambios de cuerda entre las poleas."
 
 
+#CERCHAS_F
+C1 = "El grado de un apoyo corresponde al número de reacciones que genera. Si es de primer grado tiene una reacción perpendicular a la superficie. Si es de segundo grado tiene dos restricciones, impidiendo la traslación en cualquier direccion. Si es de tercer grado tiene tres restricciones, evitando la traslación y la rotación."
+C2 = "Para determinar las reacciones se deben considerar las condiciones de equilibrio del sistema, es decir, la sumatoria de fuerzas en cualquier dirección debe ser cero y la sumatoria de momentos con respecto a cualquier punto debe ser cero."
+C3 = "Uno de los métodos para analizar las fuerzas en los elementos de una cercha es el Método de los Nodos, que consiste en evaluar el equilibrio de fuerzas en cada nodo. Para realizar el análisis de manera efectiva, es importante dibujar el diagrama de cuerpo libre del nodo, en el cual se incluyan todas las fuerzas que actúan sobre él."
+C4 = "Revisar el equilibrio de cada nodo para determinar cuáles elementos deben tener fuerza cero y así cumplir con la condición de equilibrio. No es necesario involucrar cálculos."
+C5 = "Una manera de identificar los elementos de fuerza cero es localizar aquellos que son colineales entre sí y no tienen una carga externa aplicada. Según las condiciones de equilibrio, el elemento que es perpendicular a los colineales será un elemento de fuerza cero."
+C6 = "Un miembro sometido a compresión ejerce una fuerza hacia el nodo (la fuerza entra al nodo). Por el contrario, un miembro sometido a tensión genera una fuerza que hala hacia afuera del nodo (la fuerza sale del nodo)."
+
+
 #------------------------------------- Textos para las respuestas ---------------------------------------
 
 #EQ_V2D_D

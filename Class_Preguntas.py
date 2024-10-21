@@ -4531,8 +4531,8 @@ preguntas = [
         answer1 = lambda f, a, calc, c, d, m: np.round(0,2),
         answer2 = lambda f, a, calc, c, d, m: np.round(f[0] + f[1] - ((f[0]*d[0]+f[1]*(d[0] + d[3]))/(2*d[0] + d[3])),2),
         answer3 = lambda f, a, calc, c, d, m: np.round((f[0]*d[0]+f[1]*(d[0] + d[3]))/(2*d[0] + d[3]) , 2),
-        ayuda1 = "El grado de un apoyo corresponde al número de reacciones que genera. Si es de primer grado tiene una reacción perpendicular a la superficie. Si es de segundo grado tiene dos restricciones, impidiendo la traslación en cualquier direccion. Si es de tercer grado tiene tres restricciones, evitando la traslación y la rotación.",
-        ayuda2 = "Para determinar las reacciones se deben considerar las condiciones de equilibrio del sistema, es decir, la sumatoria de fuerzas en cualquier dirección debe ser cero y la sumatoria de momentos con respecto a cualquier punto debe ser cero.",      
+        ayuda1 = C1,
+        ayuda2 = C2,      
         ayuda3 = "",
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
         Las reacciones se pueden describir como la respuestas o las restricciones que generan los apoyos o soportes para evitar que una estructura sea sometida a traslación y/o rotación. A continuación, se presenta la solución sugerida para el ejercicio:
@@ -4582,11 +4582,11 @@ preguntas = [
         answer1 = lambda f, a, calc, c, d, m: np.round((f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))))),2),
         answer2 = lambda f, a, calc, c, d, m: np.round(((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.sine((a[2]/7))))- (f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7)))))*((Calculations.cosine((a[1]/4)))/(Calculations.sine((a[2]/7)))),2),
         answer3 = lambda f, a, calc, c, d, m: np.round((-f[0] + (Calculations.sine((a[1]/4)))*(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))))))/(Calculations.sine((a[1]/4))), 2),
-        ayuda1 = "Uno de los metodos para analizar fuerzas en elementos de cerchas es el Método de los nodos. Este consiste en evaluar el equilibrio en cada nodo.",
-        ayuda2 = "Para analizar mejor un nodo, es importante dibujar un diagrama de cuerpo libre claro y detallado con cada fuerza involucrada",      
-        ayuda3 = "Un miembro en compresión empuja o genera una fuerza sobre el nodo (la fuerza entra al nodo); un miembro a tensión jala o genera una fuerza hacia afuera del nodo (la fuerza sale del nodo)",
+        ayuda1 = C3,
+        ayuda2 = C6,    
+        ayuda3 = "",
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-        Una cercha es una estructura compuesta por elementos rectos que se conectan entre si por puntos llamados nodos, formando triángulos. El metodo de nodos es una técnica para determinar fuerzas internas utilizando el principio de que cada nodo está en equilibrio bajo las fuerzas que actúan sobre él. A continuación, se presenta la solución sugerida para el ejercicio: 
+        Una cercha es una estructura compuesta por elementos rectos que se conectan entre si por puntos llamados nodos, formando triángulos. El metodo de los nodos es una técnica para determinar fuerzas internas utilizando el principio de que cada nodo está en equilibrio. A continuación, se presenta la solución sugerida para el ejercicio: 
         
         $\\textbf{{\\small 1. Cálculo de las reacciones en los apoyos: }}$
         
@@ -4595,7 +4595,7 @@ preguntas = [
         ${{\hspace{{4mm}} A_x = {-f[0]:.0f} \\text{{ lb}} }}$         
               
         ${{\hspace{{4mm}} \\sum{{M_A}} = 0 }}$     
-        ${{\hspace{{4mm}} \\sum{{M_A}} = - F_1 \\cdot d_2 + B_y \\cdot (2 \\cdot d_1 ) = - {f[0]:.0f} \\text{{ lb}} \\cdot {(d[0])/(Calculations.tangent((a[1]/4))):.0f} \\text{{ ft}} B_y \\cdot {2*d[0]:.0f} \\text{{ ft}} = 0}}$     
+        ${{\hspace{{4mm}} \\sum{{M_A}} = - F_1 \\cdot \\left(\\dfrac{{d_1}}{{tan(\\alpha_2)}}\\right) + B_y \\cdot (2 \\cdot d_1 ) = - {f[0]:.0f} \\text{{ lb}} \\cdot {(d[0])/(Calculations.tangent((a[1]/4))):.0f} \\text{{ ft}} + B_y \\cdot {2*d[0]:.0f} \\text{{ ft}} = 0}}$     
         ${{\hspace{{4mm}} B_y \\cdot {2*d[0]:.0f} \\text{{ ft}} = {f[0]*((d[0])/(Calculations.tangent((a[1]/4)))):.0f} \\text{{ lb}} \\cdot \\text{{ ft}} }}$         
         ${{\hspace{{4mm}} B_y = {(f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]):.2f} \\text{{ lb}} }}$     
              
@@ -4605,14 +4605,14 @@ preguntas = [
         
         $\\textbf{{\\small 2. Nodo A: }}$
 
-        Para el nodo A, se puede resolver para las fuerzas internas $F_{{AD}}$ y $F_{{AC}}$ resolviendo un sistema de ecuaciones sobre sumatoria de fuerzas en los ejes estandar, o, se puede cambiar el sistema de referencias para resolver el ejercicio, dejando uno de los nuevos ejes perpendiculares a una de las fuerzas desconocidas.
-        
-        A continuación, se presenta la solución con el primer metodo, donde se va a resolver haciendo sustitución:
-        
+        En el nodo A se pueden determinar las fuerzas internas $F_{{AD}}$ y $F_{{AC}}$. Para ello, se define un sistema de ecuaciones utilizando la sumatoria de fuerzas en los ejes estándar. Alternativamente, se puede cambiar el sistema de referencia, alineando uno de los nuevos ejes de forma que sea perpendicular a una de las fuerzas desconocidas.
+    
+        A continuación, se presenta la solución utilizando el primer método, en el cual se resolverá el sistema de ecuaciones mediante sustitución:
+
         ${{\hspace{{4mm}} 1. \\sum{{F_x}} = F_{{AD}} \\cdot \\cos(\\alpha_1) + F{{AC}} \\cdot \\sin(\\alpha_2) - |A_x| = F_{{AD}} \\cdot {Calculations.cosine((a[2]/7)):.2f} + F_{{AC}} \\cdot {Calculations.sine((a[1]/4)):.2f} - {f[0]:.0f} \\text{{ lb}}  = 0 }}$     
         ${{\hspace{{4mm}} 2. \\sum{{F_y}} = F_{{AD}} \\cdot \\sin(\\alpha_1) + F{{AC}} \\cdot \\cos(\\alpha_2) - |A_y| = F_{{AD}} \\cdot {Calculations.sine((a[2]/7)):.2f} + F_{{AC}} \\cdot {Calculations.cosine((a[1]/4)):.2f} - {((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0])) :.2f} \\text{{ lb}} = 0 }}$      
         
-        De la ecuación 2, se deja $F_{{AD}}$ en terminos de $F_{{AC}}$:
+        De la ecuación 2, se despeja $F_{{AD}}$ en términos de $F_{{AC}}$:
         
         ${{\hspace{{4mm}} F_{{AD}} \\cdot {Calculations.sine((a[2]/7)):.2f} + F_{{AC}} \\cdot {Calculations.cosine((a[1]/4)):.2f} - {((f[0]*d[3])/(2*d[0])) :.2f} \\text{{ lb}} = 0 }}$      
         ${{\hspace{{4mm}} F_{{AD}} = {((f[0]*d[3])/(2*d[0]*Calculations.sine((a[2]/7)))):.2f} \\text{{ lb}} - F_{{AC}} \\cdot {(Calculations.cosine((a[1]/4)))/(Calculations.sine((a[2]/7))):.2f} }}$ 
@@ -4621,10 +4621,10 @@ preguntas = [
               
         ${{\hspace{{4mm}} F_{{AD}} \\cdot {Calculations.cosine((a[2]/7)):.2f} + F_{{AC}} \\cdot {Calculations.sine((a[1]/4)):.2f} - {f[0]:.0f} \\text{{ lb}} = 0 }}$      
         ${{\hspace{{4mm}} ({((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))) :.2f} \\text{{ lb}} - F_{{AC}} \\cdot {(Calculations.cosine((a[1]/4)))/(Calculations.sine((a[2]/7))):.2f} ) \\cdot {Calculations.cosine((a[2]/7)):.2f} + F_{{AC}} \\cdot {Calculations.sine((a[1]/4)):.2f} = {f[0]:.0f} \\text{{ lb}}}}$       
-        ${{\hspace{{4mm}} F_{{AC}} \\cdot ({Calculations.sine((a[1]/4)) - (Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))):.2f}) = {f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))):.2f} {f[0]:.0f} \\text{{ lb}}}}$      
+        ${{\hspace{{4mm}} F_{{AC}} \\cdot ({Calculations.sine((a[1]/4)) - (Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))):.2f}) = {f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))):.2f} \\text{{ lb}}}}$      
         ${{\hspace{{4mm}} F_{{AC}} = {(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))))):.2f} \\text{{ lb}} }}$       
               
-        Se calcula F_{{AD}}:
+        Se calcula $F_{{AD}}$:
         
         ${{\hspace{{4mm}} F_{{AD}} = {((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.sine((a[2]/7)))):.2f} \\text{{ lb}} - F_{{AC}} \\cdot {(Calculations.cosine((a[1]/4)))/(Calculations.sine((a[2]/7))):.2f}}}$      
         ${{\hspace{{4mm}} F_{{AD}} = {((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.sine((a[2]/7)))):.2f} \\text{{ lb}} - {(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7)))))*(Calculations.cosine((a[1]/4)))/(Calculations.sine((a[2]/7))):.2f} \\text{{ lb}} }}$     
@@ -4637,7 +4637,7 @@ preguntas = [
         ${{\hspace{{4mm}} 1. \\sum{{F_x}} = F_{{CB}} \\cdot \\sin(\\alpha_2) + ({-(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))))):.2f} \\text{{ lb}} ) \\cdot \\sin(\\alpha_2) + F_1 = F_{{CB}} \\cdot {Calculations.sine((a[1]/4)):.2f} + ( {-(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))))):.2f} \\text{{ lb}} ) \\cdot {Calculations.sine((a[1]/4)):.2f} + {f[0]:.0f} \\text{{ lb}} = 0 }}$      
         ${{\hspace{{4mm}} 2. \\sum{{F_y}} = F_{{CB}} \\cdot \\cos(\\alpha_2) + ({-(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))))):.2f} \\text{{ lb}} ) \\cdot \\cos(\\alpha_2) + F_{{CD}} = F_{{CB}} \\cdot {Calculations.cosine((a[1]/4)):.2f} + ( {-(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))))):.2f} \\text{{ lb}} ) \\cdot {Calculations.cosine((a[1]/4)):.2f} + F_{{CD}} = 0 }}$      
         
-        De las cuales, dado al ejercicio, solo se necesita despejar F_{{CB}} de la primera ecuación:
+        Dada la pregunta del ejercicio, solo se necesita despejar F_{{CB}} de la primera ecuación:
         
         ${{\hspace{{4mm}} F_{{CB}} \\cdot {Calculations.sine((a[1]/4)):.2f} + ( {-(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))))):.2f} \\text{{ lb}} ) \\cdot {Calculations.sine((a[1]/4)):.2f} + {f[0]:.0f} \\text{{ lb}} = 0 }}$      
         ${{\hspace{{4mm}} F_{{CB}} \\cdot {Calculations.sine((a[1]/4)):.2f} = {-f[0] + (Calculations.sine((a[1]/4)))*(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))))):.2f} \\text{{ lb}}}}$      
@@ -4663,9 +4663,9 @@ preguntas = [
         answer1 = lambda f, a, calc, c, d, m: np.round(7,2),
         answer2 = lambda f, a, calc, c, d, m: 0,
         answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = "Uno de los métodos para analizar las fuerzas en los elementos de una cercha es el Método de los Nodos, que consiste en evaluar el equilibrio de fuerzas en cada nodo. Para realizar el análisis de manera efectiva, es importante dibujar el diagrama de cuerpo libre del nodo, en el cual se incluyan todas las fuerzas que actúan sobre él.",
-        ayuda2 = "Revisar el equilibrio de cada nodo para determinar cuáles elementos deben tener fuerza cero y así cumplir con la condición de equilibrio. No es necesario involucrar cálculos.",      
-        ayuda3 = "Una manera de identificar los elementos de fuerza cero es localizar aquellos que son colineales entre sí y no tienen una carga externa aplicada. Según las condiciones de equilibrio, el elemento que es perpendicular a los colineales será un elemento de fuerza cero.",
+        ayuda1 = C3,
+        ayuda2 = C4,      
+        ayuda3 = C5,
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
         Una cercha es una estructura compuesta por elementos rectos que se conectan entre sí por puntos llamados nodos, formando triángulos. Un elemento de fuerza cero se define como un miembro de la armadura que no experimenta ninguna fuerza axial (Tension o compresión). A continuación, se presenta la solución sugerida para el ejercicio: 
           
