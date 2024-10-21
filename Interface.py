@@ -17,13 +17,13 @@ import plotly.express as px
 st.set_page_config(layout="wide")
 
 #Versión final para esconder el menú y stToolbar 
-hide_streamlit_style = """
-<style>
-    #MainMenu {display: none;}
-    [data-testid="stToolbar"] {display: none;}
-</style>
-"""
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+# hide_streamlit_style = """
+# <style>
+#     #MainMenu {display: none;}
+#     [data-testid="stToolbar"] {display: none;}
+# </style>
+# """
+# st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 #División de página
 col_1, col_2, col_3 = st.columns(3)
@@ -494,12 +494,14 @@ if authenticate_user():
         else:
             st.sidebar.header("Práctica")
             complexity = st.sidebar.radio("Nivel de dificultad", options=["Fácil", "Medio", "Díficil"])
-            topic = st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Momento"])
+            topic = st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Momento", "Armaduras"])
             
             if topic == "Equilibrio de partículas":
                 subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Vectores 2D", "Vectores 3D", "Vector unitario", "Equilibrio 2D"])
             elif topic=="Momento":
                 subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Momento en un punto 2D"])
+            elif topic=="Armaduras":
+                subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Cerchas"])
 
             if consent:
                 log_event(st.session_state["username"], "practice_options_selected", {
@@ -733,6 +735,17 @@ if authenticate_user():
                             st.image(MO_image_paths[2], width=350)
                         elif version_no == 4:
                             st.image(MO_image_paths[3], width=350)
+                if subtopic == "Cerchas":
+                    if pregunta_no == 1:
+                        if version_no == 1:
+                            st.image(AR_image_paths[0], width=600) 
+                        if version_no == 2:
+                            st.image(AR_image_paths[1], width=600)   
+                    if pregunta_no == 2:
+                        st.image(AR_image_paths[2], width=600)  
+                    if pregunta_no == 3:
+                        st.image(AR_image_paths[3], width=600) 
+
             if difficulty == "Medio":
                 if subtopic == "Vectores 2D":
                     if pregunta_no == 1:
@@ -793,7 +806,15 @@ if authenticate_user():
                             st.image(MO_image_paths[7], width=500)
                         elif version_no == 4:
                             st.image(MO_image_paths[8], width=500)
-                
+                if subtopic == "Cerchas":
+                    if pregunta_no == 1:
+                        st.image(AR_image_paths[4], width=500) 
+                    if pregunta_no == 2:
+                        st.image(AR_image_paths[5], width=500) 
+                    if pregunta_no == 3:
+                        st.image(AR_image_paths[6], width=500) 
+                    if pregunta_no == 4:
+                        st.image(AR_image_paths[7], width=500)             
                 
             if difficulty == "Díficil":
                 if subtopic == "Vectores 2D":
@@ -843,6 +864,11 @@ if authenticate_user():
                             st.image(MO_image_paths[10], width=550)
                         elif version_no == 3:
                             st.image(MO_image_paths[11], width=550)
+                if subtopic == "Cerchas":
+                    if pregunta_no == 1:
+                        st.image(AR_image_paths[8], width=500)
+                    if pregunta_no == 2:
+                        st.image(AR_image_paths[9], width=500) 
                             
         return
 

@@ -1,6 +1,6 @@
 #Paths of the images
 
-#================================ Imágenes Equilibrio de partículas ===================================
+#================================ Imágenes Preguntas Cálculo Equilibrio de partículas ===================================
 EQ_image_paths= [
 #Vectores 2D _ Cálculo de los ángulos _ Nivel fácil
 "./Imagenes/Preguntas/EQ/Fvec_0a.png", #[0] 
@@ -118,7 +118,7 @@ EQ_image_paths= [
 
 ]
 
-#================================ Imágenes Momento ===================================
+#================================ Imágenes Preguntas Cálculo Momento ===================================
 
 MO_image_paths =[
 #Momento 2D en un punto _ Nivel fácil
@@ -140,6 +140,39 @@ MO_image_paths =[
 "./Imagenes/Preguntas/MO/M2D/MO_M2D_D_1c.png", #[11]
 ]
 
+#================================ Imágenes Preguntas Cálculo Armaduras ===================================
+AR_image_paths =[
+#Cerchas_Nivel Fácil
+"./Imagenes/Preguntas/AR/CE/AR_CE_F_1a.png", #[0]
+"./Imagenes/Preguntas/AR/CE/AR_CE_F_1b.png", #[1]
+"./Imagenes/Preguntas/AR/CE/AR_CE_F_2a.png", #[2]
+"./Imagenes/Preguntas/AR/CE/AR_CE_F_3a.png", #[3]
+
+#Cerchas_Nivel Medio
+"./Imagenes/Preguntas/AR/CE/AR_CE_M_1a.png", #[4]
+"./Imagenes/Preguntas/AR/CE/AR_CE_M_2a.png", #[5]
+"./Imagenes/Preguntas/AR/CE/AR_CE_M_3a.png", #[6]
+"./Imagenes/Preguntas/AR/CE/AR_CE_M_4a.png", #[7]
+
+#Cerchas_Nivel Díficil
+"./Imagenes/Preguntas/AR/CE/AR_CE_D_1a.png", #[8]
+"./Imagenes/Preguntas/AR/CE/AR_CE_D_2a.png", #[9]
+
+#Marcos_Nivel Fácil
+"./Imagenes/Preguntas/AR/MA/AR_MA_F_1a.png", #[10]
+"./Imagenes/Preguntas/AR/MA/AR_MA_F_2a.png", #[11]
+
+#Marcos_Nivel Medio
+"./Imagenes/Preguntas/AR/MA/AR_MA_M_1a.png", #[12]
+"./Imagenes/Preguntas/AR/MA/AR_MA_M_2a.png", #[13]
+
+#Marcos_Nivel Díficil
+"./Imagenes/Preguntas/AR/MA/AR_MA_D_1a.png", #[14]
+"./Imagenes/Preguntas/AR/MA/AR_MA_D_2a.png" #[15]
+]
+
+
+#================================ Imágenes Respuestas Cálculo Equilibrio ===================================
 rtas_paths= [
 #Vectores 2D _ Ejes arbitrarios _ Nivel díficil
 "./Imagenes/Respuestas/EQ/V2D/R_EQ_V2D_D_1a.png", #[0] 
@@ -170,6 +203,8 @@ rtas_paths= [
 
 ]
 
+
+#================================ Imágenes Respuestas Teoría Equilibrio ===================================
 teoria_preguntas =[
 "./Imagenes/Teoria_Preguntas/EQ/V/T_EQ_V_1.png", #[0] 
 "./Imagenes/Teoria_Preguntas/EQ/V/T_EQ_V_2.png", #[1] 
