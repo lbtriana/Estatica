@@ -4574,7 +4574,7 @@ preguntas = [
         topic = "Armaduras",
         subtopic = "Cerchas",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine las fuerzas internas de los miembros AC, AD y BC (Use negativo si el elemento esta en compresión y positivo si el elemento esta tensión). Considere $F_1 = {f[0]:.0f} \\text{{ lb}}$, $d_1 = {d[0]:.0f} \\text{{ ft}}$, $\\alpha_1 = {(a[2]/7):.2f}°$ y $\\alpha_2 = {(a[1]/4):.2f}°$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine las fuerzas internas de los miembros AC, AD y BC (Use el signo negativo si el elemento está en compresión y el signo positivo si el elemento esta en tensión). Considere $F_1 = {f[0]:.0f} \\text{{ lb}}$, $d_1 = {d[0]:.0f} \\text{{ ft}}$, $\\alpha_1 = {(a[2]/7):.2f}°$ y $\\alpha_2 = {(a[1]/4):.2f}°$.",
         no_answers = 3,
         a1_name = "Fuerza en AC [lb]",
         a2_name = "Fuerza en AD [lb]",
@@ -4742,7 +4742,7 @@ preguntas = [
         topic = "Armaduras",
         subtopic = "Cerchas",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine las fuerzas internas de los miembros AB, FD y CE de la armadura Gambrel presentada (Use negativo si el elemento esta en compresión y positivo si el elemento esta tensión). Considere $F_1 = {f[0]:.0f} \\text{{ lb}}$, $F_2 = {f[1]:.0f} \\text{{ lb}}$, $F_3 = {f[2]:.0f} \\text{{ lb}}$, $d_1 = {d[0]:.0f} \\text{{ ft}}$, $d_2 = {d[3]:.0f}  \\text{{ ft}}$,  $d_3 = {d[6]:.0f} \\text{{ ft}}$ y $d_4 = {d[9]:.0f}  \\text{{ ft}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine las fuerzas internas de los miembros AB, FD y CE de la armadura Gambrel presentada (Use el signo negativo si el elemento está en compresión y el signo positivo si el elemento esta en tensión). Considere $F_1 = {f[0]:.0f} \\text{{ lb}}$, $F_2 = {f[1]:.0f} \\text{{ lb}}$, $F_3 = {f[2]:.0f} \\text{{ lb}}$, $d_1 = {d[0]:.0f} \\text{{ ft}}$, $d_2 = {d[3]:.0f}  \\text{{ ft}}$,  $d_3 = {d[6]:.0f} \\text{{ ft}}$ y $d_4 = {d[9]:.0f}  \\text{{ ft}}$.",
         no_answers = 3,
         a1_name = "Fuerza en AB [lb]",
         a2_name = "Fuerza en DF [lb]",
@@ -4771,8 +4771,8 @@ preguntas = [
 
         En el nodo A se puede obtener las siguientes ecuaciones:
         
-        ${{\hspace{{4mm}} 1. \\sum{{F_x}} = F_{{BC}} - F_{{AB}} \\cdot \\dfrac{{d_1}}{{sqrt{{(d_1)^{{2}} + (d_3)^{{2}}}}}} = F_{{BC}} - F_{{AB}} \\cdot {(d[0])/(Calculations.magnitude(d[0],d[6])):.2f} = 0 }}$     
-        ${{\hspace{{4mm}} 2. \\sum{{F_y}} = A_y - F_3 - F_{{AB}} \\cdot \\dfrac{{d_3}}{{sqrt{{(d_1)^{{2}} + (d_3)^{{2}}}}}}= {f[2] + f[1] + (f[0]/2):.0f} \\text{{ lb}} - {f[2]:0f} \\text{{ lb}} - F_{{AB}} \\cdot {(d[6])/(Calculations.magnitude(d[0],d[6])):.2f} = 0 }}$      
+        ${{\hspace{{4mm}} 1. \\sum{{F_x}} = F_{{BC}} - F_{{AB}} \\cdot \\dfrac{{d_1}}{{\\sqrt{{(d_1)^{{2}} + (d_3)^{{2}}}}}} = F_{{BC}} - F_{{AB}} \\cdot {(d[0])/(Calculations.magnitude(d[0],d[6])):.2f} = 0 }}$     
+        ${{\hspace{{4mm}} 2. \\sum{{F_y}} = A_y - F_3 - F_{{AB}} \\cdot \\dfrac{{d_3}}{{\\sqrt{{(d_1)^{{2}} + (d_3)^{{2}}}}}}= {f[2] + f[1] + (f[0]/2):.0f} \\text{{ lb}} - {f[2]:0f} \\text{{ lb}} - F_{{AB}} \\cdot {(d[6])/(Calculations.magnitude(d[0],d[6])):.2f} = 0 }}$      
         
         De la ecuación 2, podemos obtener F_{{AB}}:
         
@@ -4780,7 +4780,7 @@ preguntas = [
         ${{\hspace{{4mm}} F_{{AB}} \\cdot {(d[6])/(Calculations.magnitude(d[0],d[6])):.2f} = {f[1] + (f[0]/2):.0f} \\text{{ lb}}}}$      
         ${{\hspace{{4mm}} F_{{AB}} = {(f[1] + (f[0]/2))/((d[6])/(Calculations.magnitude(d[0],d[6]))):.2f} \\text{{ lb}}}}$      
         
-        Ahora bien, uno se da cuenta, que en el nodo C, solo estan involucradas las fuerzas $F_{{AC}}$ y $F_{{CE}}, siendo que, el elemento BC es de fuerza cero. Tal que, se puede sacar $F_{{CE}}$ calculando $F_{{AC}}$ en la ecuación 1 del nodo A, reemplazando el dato de $F_{{AB}}$ obtenido anteriormente:
+        Ahora bien, uno se da cuenta, que en el nodo C, solo estan involucradas las fuerzas $F_{{AC}}$ y $F_{{CE}}$, siendo que, el elemento BC es de fuerza cero. Tal que, se puede sacar $F_{{CE}}$ calculando $F_{{AC}}$ en la ecuación 1 del nodo A, reemplazando el dato de $F_{{AB}}$ obtenido anteriormente:
               
         ${{\hspace{{4mm}} F_{{BC}} - {(f[1] + (f[0]/2))/((d[6])/(Calculations.magnitude(d[0],d[6]))):.2f} \\text{{ lb}} \\cdot {(d[0])/(Calculations.magnitude(d[0],d[6])):.2f} = 0}}$      
         ${{\hspace{{4mm}} F_{{CE}} = F_{{BC}} = {((f[1] + (f[0]/2))/(d[6]))*(d[0]):.2f} \\text{{ lb}} }}$       
@@ -4789,10 +4789,10 @@ preguntas = [
 
         Como la cercha es simétrica se podrá resolver para el nodo B, y calcular el resutlado de $F_{{BD}}$, que va a ser el mismo que $F_{{DF}}$:
         
-        ${{\hspace{{4mm}} 1. \\sum{{F_x}} = F_{{AB}} \\cdot \\dfrac{{d_1}}{{sqrt{{(d_1)^{{2}} + (d_3)^{{2}}}}}} - F_{{BE}} \\cdot \\dfrac{{d_2}}{{sqrt{{(d_2)^{{2}} + (d_3)^{{2}}}}}} - F_{{BD}} \\cdot \\dfrac{{d_2}}{{sqrt{{(d_2)^{{2}} + (d_4)^{{2}}}}}} = {((f[1] + (f[0]/2))/(d[6]))*(d[0]):.2f} \\text{{ lb}}  - F_{{BE}} \\cdot {(d[3])/(Calculations.magnitude(d[3],d[6])):.2f} - F_{{BD}} \\cdot {(d[3])/(Calculations.magnitude(d[3],d[9])):.2f} = 0}}$      
-        ${{\hspace{{4mm}} 2. \\sum{{F_y}} = - F_2 + F_{{AB}} \\cdot \\dfrac{{d_3}}{{sqrt{{(d_1)^{{2}} + (d_3)^{{2}}}}}} + F_{{BE}} \\cdot \\dfrac{{d_3}}{{sqrt{{(d_2)^{{2}} + (d_3)^{{2}}}}}} - F_{{BD}} \\cdot \\dfrac{{d_4}}{{sqrt{{(d_2)^{{2}} + (d_4)^{{2}}}}}} = - {f[1]:.0f}\\text{{ lb}} + {(f[1] + (f[0]/2)):.2f} \\text{{ lb}}  + F_{{BE}} \\cdot {(d[6])/(Calculations.magnitude(d[3],d[6])):.2f} - F_{{BD}} \\cdot {(d[9])/(Calculations.magnitude(d[3],d[9])):.2f}  = 0 }}$      
+        ${{\hspace{{4mm}} 1. \\sum{{F_x}} = F_{{AB}} \\cdot \\dfrac{{d_1}}{{\\sqrt{{(d_1)^{{2}} + (d_3)^{{2}}}}}} - F_{{BE}} \\cdot \\dfrac{{d_2}}{{\\sqrt{{(d_2)^{{2}} + (d_3)^{{2}}}}}} - F_{{BD}} \\cdot \\dfrac{{d_2}}{{\\sqrt{{(d_2)^{{2}} + (d_4)^{{2}}}}}} = {((f[1] + (f[0]/2))/(d[6]))*(d[0]):.2f} \\text{{ lb}}  - F_{{BE}} \\cdot {(d[3])/(Calculations.magnitude(d[3],d[6])):.2f} - F_{{BD}} \\cdot {(d[3])/(Calculations.magnitude(d[3],d[9])):.2f} = 0}}$      
+        ${{\hspace{{4mm}} 2. \\sum{{F_y}} = - F_2 + F_{{AB}} \\cdot \\dfrac{{d_3}}{{\\sqrt{{(d_1)^{{2}} + (d_3)^{{2}}}}}} + F_{{BE}} \\cdot \\dfrac{{d_3}}{{\\sqrt{{(d_2)^{{2}} + (d_3)^{{2}}}}}} - F_{{BD}} \\cdot \\dfrac{{d_4}}{{\\sqrt{{(d_2)^{{2}} + (d_4)^{{2}}}}}} = - {f[1]:.0f}\\text{{ lb}} + {(f[1] + (f[0]/2)):.2f} \\text{{ lb}}  + F_{{BE}} \\cdot {(d[6])/(Calculations.magnitude(d[3],d[6])):.2f} - F_{{BD}} \\cdot {(d[9])/(Calculations.magnitude(d[3],d[9])):.2f}  = 0 }}$      
         
-        Donde, se observa como de la primera ecuación se puede despejar $F_{{BE}}$ en terminos de $F_{{BD}}$, para luego hacer la sustitución en la segunda ecuación y resolver para $F_{{BD}}:
+        Donde, se observa como de la primera ecuación se puede despejar $F_{{BE}}$ en terminos de $F_{{BD}}$, para luego hacer la sustitución en la segunda ecuación y resolver para $F_{{BD}}$:
         
         ${{\hspace{{4mm}} {(f[1] + (f[0]/2))*(d[0]/d[6]):.2f} \\text{{ lb}}  - F_{{BE}} \\cdot {(d[3])/(Calculations.magnitude(d[3],d[6])):.2f} - F_{{BD}} \\cdot {(d[3])/(Calculations.magnitude(d[3],d[9])):.2f} = 0}}$      
         ${{\hspace{{4mm}} F_{{BE}} \\cdot {(d[3])/(Calculations.magnitude(d[3],d[6])):.2f} = {(f[1] + (f[0]/2))*(d[0]/d[6]):.2f} \\text{{ lb}}  - F_{{BD}} \\cdot {(d[3])/(Calculations.magnitude(d[3],d[9])):.2f}}}$      
@@ -4803,9 +4803,7 @@ preguntas = [
         ${{\hspace{{4mm}} F_{{BD}} \\cdot {(d[9])/(Calculations.magnitude(d[3],d[9])):.2f} =  {(f[0]/2):.2f} \\text{{ lb}} + ({((f[1] + (f[0]/2))*((d[0]*(Calculations.magnitude(d[3],d[6])))/(d[6]*d[3]))):.2f} \\text{{ lb}} - F_{{BD}} \\cdot {(Calculations.magnitude(d[3],d[6]))/(Calculations.magnitude(d[3],d[9])):.2f}) \\cdot {(d[6])/(Calculations.magnitude(d[3],d[6])):.2f}}}$      
         ${{\hspace{{4mm}} F_{{BD}} \\cdot {(d[9])/(Calculations.magnitude(d[3],d[9])):.2f} =  {(f[0]/2) + ((f[1] + (f[0]/2))*(d[0]/d[3])):.2f} \\text{{ lb}} - F_{{BD}} \\cdot {(d[6])/(Calculations.magnitude(d[3],d[9])):.2f} }}$      
         ${{\hspace{{4mm}} F_{{BD}} \\cdot {((d[9] + d[6])/(Calculations.magnitude(d[3],d[9]))):.2f} = {(f[0]/2) + ((f[1] + (f[0]/2))*(d[0]/d[3])):.2f} \\text{{ lb}}}}$      
-        ${{\hspace{{4mm}} F_{{DF}} = F_{{BD}} = {((f[0]/2) + ((f[1] + (f[0]/2))*(d[0]/d[3])))/(((d[9] + d[6])/(Calculations.magnitude(d[3],d[9])))):.2f} \\text{{ lb}}}}$      
-        
-                        
+        ${{\hspace{{4mm}} F_{{DF}} = F_{{BD}} = {((f[0]/2) + ((f[1] + (f[0]/2))*(d[0]/d[3])))/(((d[9] + d[6])/(Calculations.magnitude(d[3],d[9])))):.2f} \\text{{ lb}}}}$                       
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
@@ -5012,7 +5010,7 @@ preguntas = [
         topic = "Armaduras",
         subtopic = "Cerchas",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Si la fuerza máxima que cualquier elemento puede soportar es de ${f[0] + 35:0f} \\text{{ N}}$ en tensión y de ${f[0]:0f}\\text{{ N}}$ en compresión, calcule cual es la fuerza $F_1$ máxima que puede ser soportada en el nudo E. Considere $d_1 = {d[0]:.0f} \\text{{ m}}$ .",
+        pregunta = lambda f, a, calc, c, d, m: f"Si la fuerza máxima que cualquier elemento puede soportar es de ${f[0] + 35:.0f} \\text{{ N}}$ en tensión y de ${f[0]:.0f}\\text{{ N}}$ en compresión, calcule cual es la fuerza $F_1$ máxima que puede ser soportada en el nudo E. Considere $d_1 = {d[0]:.0f} \\text{{ m}}$ .",
         no_answers = 1,
         a1_name = "F_1 [N]",
         a2_name = "",
