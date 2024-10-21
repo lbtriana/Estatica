@@ -168,7 +168,7 @@ AR_image_paths =[
 
 #Marcos_Nivel Díficil
 "./Imagenes/Preguntas/AR/MA/AR_MA_D_1a.png", #[14]
-"./Imagenes/Preguntas/AR/MA/AR_MA_D_2a.png" #[15]
+"./Imagenes/Preguntas/AR/MA/AR_MA_D_2a.png" #[]
 ]
 
 
