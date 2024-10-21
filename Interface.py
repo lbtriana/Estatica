@@ -814,7 +814,7 @@ if authenticate_user():
                     if pregunta_no == 3:
                         st.image(AR_image_paths[6], width=500) 
                     if pregunta_no == 4:
-                        st.image(AR_image_paths[7], width=500)             
+                        st.image(AR_image_paths[7], width=600)             
                 
             if difficulty == "Díficil":
                 if subtopic == "Vectores 2D":
