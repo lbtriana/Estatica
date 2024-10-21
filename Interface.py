@@ -738,11 +738,11 @@ if authenticate_user():
                 if subtopic == "Cerchas":
                     if pregunta_no == 1:
                         if version_no == 1:
-                            st.image(AR_image_paths[0], width=600) 
+                            st.image(AR_image_paths[0], width=500) 
                         if version_no == 2:
-                            st.image(AR_image_paths[1], width=600)   
+                            st.image(AR_image_paths[1], width=500)   
                     if pregunta_no == 2:
-                        st.image(AR_image_paths[2], width=600)  
+                        st.image(AR_image_paths[2], width=500)  
                     if pregunta_no == 3:
                         st.image(AR_image_paths[3], width=600) 
 

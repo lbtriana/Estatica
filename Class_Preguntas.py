@@ -4655,7 +4655,7 @@ preguntas = [
         topic = "Armaduras",
         subtopic = "Cerchas",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"¿Cuantos elementos de fuerza cero tiene la armadura Baltimore mostrada?.",
+        pregunta = lambda f, a, calc, c, d, m: f"¿Cuántos elementos de fuerza cero tiene la armadura Baltimore mostrada?.",
         no_answers = 1,
         a1_name = "Número de elementos de fuerza cero",
         a2_name = "",
@@ -4663,21 +4663,19 @@ preguntas = [
         answer1 = lambda f, a, calc, c, d, m: np.round(7,2),
         answer2 = lambda f, a, calc, c, d, m: 0,
         answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = "Uno de los metodos para analizar fuerzas en elementos de cerchas es el Método de los nodos. Este consiste en evaluar el equilibrio en cada nodo. Para analizar mejor un nodo es importante dibujar un diagrama de cuerpo libre claro y detallado con cada fuerza involucrada",
-        ayuda2 = "Revisar que elementos son colineales o perpendiculares entre ellos, y donde se aplican las fuerzas externas en la armadura puede darnos un indicio a encontrar un elemento de fuerza cero.",      
-        ayuda3 = "Un miembro en compresión empuja o genera una fuerza sobre el nodo (la fuerza entra al nodo); un miembro a tensión jala o genera una fuerza hacia afuera del nodo (la fuerza sale del nodo)",
+        ayuda1 = "Uno de los métodos para analizar las fuerzas en los elementos de una cercha es el Método de los Nodos, que consiste en evaluar el equilibrio de fuerzas en cada nodo. Para realizar el análisis de manera efectiva, es importante dibujar el diagrama de cuerpo libre del nodo, en el cual se incluyan todas las fuerzas que actúan sobre él.",
+        ayuda2 = "Revisar el equilibrio de cada nodo para determinar cuáles elementos deben tener fuerza cero y así cumplir con la condición de equilibrio. No es necesario involucrar cálculos.",      
+        ayuda3 = "Una manera de identificar los elementos de fuerza cero es localizar aquellos que son colineales entre sí y no tienen una carga externa aplicada. Según las condiciones de equilibrio, el elemento que es perpendicular a los colineales será un elemento de fuerza cero.",
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-        Una cercha es una estructura compuesta por elementos rectos que se conectan entre si por puntos llamados nodos, formando triángulos. Un elemento de fuerza cero se define como un miembro de la armadura que no experimenta ninguna fuerza axial (Tension o compresión). A continuación, se presenta la solución sugerida para el ejercicio: 
+        Una cercha es una estructura compuesta por elementos rectos que se conectan entre sí por puntos llamados nodos, formando triángulos. Un elemento de fuerza cero se define como un miembro de la armadura que no experimenta ninguna fuerza axial (Tension o compresión). A continuación, se presenta la solución sugerida para el ejercicio: 
           
-        Inicialmente, para resolver el problema es necesario notar que la cercha es simétrica, tal que, las fuerzas internas y las reacciones van a estar dispuestas de forma simétrica; por ejemplo, $F_{{AF}} = F_{{EI}}$.
+        Inicialmente, para resolver el problema es necesario notar que la cercha es simétrica en geometría y carga. Esto implica que las fuerzas internas y las reacciones se distribuyen de forma simétrica; por ejemplo, $F_{{AF}} = F_{{EI}}$.
         
-        Ahora bien, se debe tener presente el hecho de que si hay tres elementos conectados en un nodo, donde dos de ellos son colineales y no se presentan cargas externas aplicadas en el nodo, el tercer miembro va a ser de fuerza cero.
-        Siendo que, esto puede ser utilizado para evidenciar que los elementos FB, GB, HD, ID y KC son elementos de fuerza cero.
+        Además, se debe tener en cuenta que si hay tres elementos conectados en un nodo, donde dos de ellos son colineales y no hay cargas externas aplicadas en el nodo, el tercer miembro va a ser de fuerza cero. Esto nos permite identificar que los elementos $FB, GB, HD, ID$ y $KC$ son de fuerza cero.
         
-        Del mismo modo, teniendo en cuenta que estos elementos son de fuerza cero, si se hace sumatoria de fuerzas en Y en el nodo B y en el nodo D, se encontrará que los elementos BJ y DL son de fuerza cero.    
+        Una vez identificados los anteriores elementos de fuerza cero, si se realiza la sumatoria de fuerzas en los nodos B y D, se encontrará que los elementos $BJ$ y $DL$ también son de fuerza cero.    
         
-        Finalmente, se logra contar un total de 7 elementos de fuerza cero.
-        
+        En resumen, se identifican un total de 7 elementos de fuerza cero: $FB, GB, HD, ID, KC, BJ$ y $DL$.       
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
