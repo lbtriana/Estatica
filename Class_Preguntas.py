@@ -5279,19 +5279,19 @@ preguntas = [
         topic = "Armaduras",
         subtopic = "Marcos",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine las componentes de las fuerzas ejercidas sobre el elemento ACEG en C. Considere $F_1 = {f[0]:.0f} \\text{{ N}}$, $F_2 = {f[1]:.0f} \\text{{ N}}$, $F_3 = {f[2]:.0f} \\text{{ N}}$  $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$ y $d_3 = {d[6]:.0f} \\text{{ m}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de las componentes de las fuerzas ejercidas sobre el elemento ACEG en C. Considere $F_1 = {f[0]:.0f} \\text{{ N}}$, $F_2 = {f[1]:.0f} \\text{{ N}}$, $F_3 = {f[2]:.0f} \\text{{ N}}$, $d_1 = {d[0]:.0f} \\text{{ m}}$, $d_2 = {d[3]:.0f} \\text{{ m}}$ y $d_3 = {d[6]:.0f} \\text{{ m}}$.",
         no_answers = 2,
         a1_name = "Fuerza $C_x$ [N]",
         a2_name = "Fuerza $C_y$ [N]",
         a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round(-(f[2]*d[3]- d[0]*(f[0]+f[1]))/d[6],2),
-        answer2 = lambda f, a, calc, c, d, m: np.round(((f[2]*d[3] - d[0]*(f[0]+f[1])) + 2*f[0]*d[0] - f[2]*d[3])/d[0],2),
+        answer1 = lambda f, a, calc, c, d, m: np.round(abs(-(f[2]*d[3]- d[0]*(f[0]+f[1]))/d[6]),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(abs(((f[2]*d[3] - d[0]*(f[0]+f[1])) + 2*f[0]*d[0] - f[2]*d[3])/d[0]),2),
         answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = "Para encontrar reacciones, es util verficar el equilibrio global de la estructura.",
-        ayuda2 = "Para visualizar mejor el ejercicio, puede ayudar desensamblar o despiezar los elementos del marco y dibujar un diagrama de cuerpo libre para cada uno.",      
-        ayuda3 = "Cada elemento debe cumplir las condiciones de equilibrio, es decir, la sumatoria de fuerzas en cualquier dirección debe ser cero y que los momentos respecto a cualquier punto debe ser cero.",
+        ayuda1 = MA1,
+        ayuda2 = MA2,      
+        ayuda3 = MA3,
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-        Los armazones son estructuras estacionarias en las cuales, al menos un elemento esta sometido a la acción de varias fuerzas. A continuación, se presenta la solución sugerida para el ejercicio: 
+        Los marcos son estructuras en las cuales al menos un elemento esta sometido a la acción de varias fuerzas. A continuación, se presenta la solución sugerida para el ejercicio: 
         
         $\\textbf{{\\small 1. Condición de equilibrio global - Momento en D: }}$
         
@@ -5306,6 +5306,8 @@ preguntas = [
         ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$          
         ${{\hspace{{4mm}} \\sum{{F_x}} = {(f[2]*d[3]- d[0]*(f[0]+f[1]))/d[6]:.2f} \\text{{ N}} + C_x = 0  }}$       
         ${{\hspace{{4mm}} C_x = {-(f[2]*d[3]- d[0]*(f[0]+f[1]))/d[6]:.2f} \\text{{ N}} }}$      
+
+        Por lo tanto, la magnitud de la reacción $C_x$ es ${abs(-(f[2]*d[3]- d[0]*(f[0]+f[1]))/d[6]):.2f} \\text{{ N}}$.
         
         $\\textbf{{\\small 3. Condición de equilibrio Elemento ACEG - Momento en E: }}$
         
@@ -5314,6 +5316,7 @@ preguntas = [
         ${{\hspace{{4mm}} C_y \\cdot {d[0]:.0f} \\text{{ m}} = {(f[2]*d[3]- d[0]*(f[0]+f[1])) + 2*f[0]*d[0] - f[2]*d[3]:.2f} \\text{{ N}} \\cdot \\text {{ m}}}}$      
         ${{\hspace{{4mm}} C_y  = {((f[2]*d[3] - d[0]*(f[0]+f[1])) + 2*f[0]*d[0] - f[2]*d[3])/d[0]:.2f} \\text{{ N}} }}$      
         
+        Por lo tanto, la magnitud de la reacción $C_y$ es ${abs(((f[2]*d[3] - d[0]*(f[0]+f[1])) + 2*f[0]*d[0] - f[2]*d[3])/d[0]):.2f} \\text{{ N}}$.
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
