@@ -5015,7 +5015,6 @@ preguntas = [
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),
-
     Questionary(#2_1
         code = 5130021,
         no_pregunta = 2,
@@ -5023,20 +5022,20 @@ preguntas = [
         topic = "Armaduras",
         subtopic = "Cerchas",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Si la fuerza máxima que cualquier elemento puede soportar es de ${f[0] + 35:.0f} \\text{{ N}}$ en tensión y de ${f[0]:.0f}\\text{{ N}}$ en compresión, calcule cual es la fuerza $F_1$ máxima que puede ser soportada en el nudo E. Considere $d_1 = {d[0]:.0f} \\text{{ m}}$ .",
+        pregunta = lambda f, a, calc, c, d, m: f"Si la fuerza máxima que cualquier elemento puede soportar es ${f[0] + 35:.0f} \\text{{ N}}$ a tensión y ${f[0]:.0f}\\text{{ N}}$ a compresión, calcule cuál es la fuerza $F_1$ máxima que puede ser soportada en el nodo E. Considere $d_1 = {d[0]:.0f} \\text{{ m}}$ .",
         no_answers = 1,
         a1_name = "$F_1$ $[N]$",
         a2_name = "",
         a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round(((f[0] + 35)*(3*(d[0]/2)))/(Calculations.magnitude((d[0]/2), (3/2)*d[0])),2),
+        answer1 = lambda f, a, calc, c, d, m: np.round(min(((f[0] + 35)*(3*(d[0]/2)))/(Calculations.magnitude((d[0]/2), (3/2)*d[0])),(f[0])*(6*Calculations.sine(45))),2),
         answer2 = lambda f, a, calc, c, d, m: 0,
         answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = "Uno de los metodos para analizar fuerzas en elementos de cerchas es el Método de los nodos. Este consiste en evaluar el equilibrio en cada nodo.",
-        ayuda2 = "Para analizar mejor un nodo es importante dibujar un diagrama de cuerpo libre claro y detallado con cada fuerza involucrada",      
-        ayuda3 = "Un miembro en compresión empuja o genera una fuerza sobre el nodo (la fuerza entra al nodo); un miembro a tensión jala o genera una fuerza hacia afuera del nodo (la fuerza sale del nodo)",
+        ayuda1 = C3,
+        ayuda2 = C6,      
+        ayuda3 = "",
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-        Una cercha es una estructura compuesta por elementos rectos que se conectan entre si por puntos llamados nodos, formando triángulos. El metodo de nodos es una técnica para determinar fuerzas internas utilizando el principio de que cada nodo está en equilibrio bajo las fuerzas que actúan sobre él. A continuación, se presenta la solución sugerida para el ejercicio: 
-        
+        Una cercha es una estructura compuesta por elementos rectos que se conectan entre sí por puntos llamados nodos, formando triángulos. El método de los nodos es una técnica usada para determinar las fuerzas internas en una cercha, basándose en el principio de que cada nodo está en equilibrio. A continuación, se presenta la solución sugerida para el ejercicio: 
+
         $\\textbf{{\\small 1. Cálculo de las reacciones en los apoyos: }}$             
               
         ${{\hspace{{4mm}} \\sum{{M_E}} = 0 }}$     
@@ -5053,69 +5052,68 @@ preguntas = [
         
         $\\textbf{{\\small 2. Nodo E: }}$     
         
-        En el nodo E se puede obtener las siguientes ecuaciones:
+        En el nodo E se pueden obtener las siguientes ecuaciones:
         
         ${{\hspace{{4mm}} 1. \\sum{{F_x}} = F_{{EC}} \\cdot \\dfrac{{{d[0]/2:.2f}}}{{{Calculations.magnitude((d[0]/2), (3/2)*d[0]):.2f}}} - \\dfrac{{1}}{{3}} \\cdot F_1 =  0 }}$     
         ${{\hspace{{4mm}} 2. \\sum{{F_y}} = F_1 + F_{{ED}} - F_{{EC}} \\cdot \\dfrac{{{(3/2)*d[0]:.2f}}}{{{Calculations.magnitude((d[0]/2), (3/2)*d[0]):.2f}}} = 0 }}$     
         
-        De lo cual, se usa la ecuación 2. para determinar $F_{{EC}}$:
+        De la ecuación 2. se obtiene $F_{{EC}}$:
+
         ${{\hspace{{4mm}} F_{{EC}} \\cdot \\dfrac{{{d[0]/2:.2f}}}{{{Calculations.magnitude((d[0]/2), (3/2)*d[0]):.2f}}} = \\dfrac{{1}}{{3}} \\cdot F_1 }}$     
         ${{\hspace{{4mm}} F_{{EC}} = F_1 \\cdot {(Calculations.magnitude((d[0]/2), (3/2)*d[0]))/(3*(d[0]/2)):.2f}}}$     
         
-        Se obtiene $F_{{ED}}$ de la ecuación 1.:
+        De la ecuación 1. se obtiene $F_{{ED}}$:
         
         ${{\hspace{{4mm}} F_{{ED}} = F_{{EC}} \\cdot \\dfrac{{{(3/2)*d[0]:.2f}}}{{{Calculations.magnitude((d[0]/2), (3/2)*d[0]):.2f}}} - F_1 }}$     
         ${{\hspace{{4mm}} F_{{ED}} = 0 }}$     
         
         $\\textbf{{\\small 3. Nodo A: }}$     
         
-        Del nodo A se puede obtener las siguientes ecuaciones:
+        Del nodo A se pueden obtener las siguientes ecuaciones:
         
         ${{\hspace{{4mm}} 1. \\sum{{F_x}} = \\dfrac{{1}}{{3}} \\cdot F_1 - F_{{AD}} \\cdot {Calculations.cosine(45):.2f} - F_{{AB}} \\cdot {Calculations.cosine(45):.2f} = 0 }}$     
         ${{\hspace{{4mm}} 2. \\sum{{F_y}} = F_{{AB}} \\cdot {Calculations.sine(45):.2f} - F_{{AD}} \\cdot {Calculations.sine(45):.2f} = 0 }}$     
         
-        De lo cual, se define de la ecuación 2:
+        De la ecuación 2 se determina:
         ${{\hspace{{4mm}} F_{{AD}} = F_{{AB}} }}$     
         
-        Se obtiene $F_{{AB}}$ y $F_{{AD}}$ de la ecuación 1.:
+        De la ecuación 1. se obtiene $F_{{AB}}$ y $F_{{AD}}$:
         
         ${{\hspace{{4mm}} F_{{AD}} = F_{{AB}} = F_1 \\cdot {1/(6*Calculations.cosine(45)):.2f} }}$         
         
         $\\textbf{{\\small 4. Nodo D: }}$     
         
-        Del nodo D se puede obtener las siguientes ecuaciones:
+        Del nodo D se pueden obtener las siguientes ecuaciones:
         
         ${{\hspace{{4mm}} 1. \\sum{{F_x}} = F_{{DA}} \\cdot {Calculations.cosine(45):.2f} - F_{{DC}} \\cdot {Calculations.cosine(45):.2f} = 0 }}$     
         ${{\hspace{{4mm}} 2. \\sum{{F_y}} = F_{{DA}} \\cdot {Calculations.cosine(45):.2f} + F_{{DC}} \\cdot {Calculations.cosine(45):.2f} - F_{{DB}} = 0 }}$     
         
-        De lo cual, se define de la ecuación 2:
+        De la ecuación 2. se determina:
         ${{\hspace{{4mm}} F_{{DC}} = F_{{DA}} = F_1 \\cdot {1/(6*Calculations.cosine(45)):.2f} }}$     
         
-        Se obtiene $F_{{DB}}$ de la ecuación 1.:
+        De la ecuación 1. se obtiene $F_{{DB}}$:
         
-        ${{\hspace{{4mm}} F_{{DB}} = 2 \\cdot F_{{DA}} \\cdot {Calculations.cosine(45):.2f} }}$       
-        ${{\hspace{{4mm}} F_{{DB}} = F_1  \\cdot {(1/3):.2f} }}$     
+        ${{\hspace{{4mm}} F_{{DB}} = 2 \\cdot F_{{DA}} \\cdot {Calculations.cosine(45):.2f} }}$          
         
-        Por otro lado, se puede dar cuenta uno que $F_{{DC}} = F_{{BC}}$ .
+        A partir de las anteriores ecuaciones, se evidencia que $F_{{DC}} = F_{{BC}}$ .
         
         $\\textbf{{\\small 5. Evaluación de la condición de resistencia máxima: }}$     
         
         $\\underline{{Elementos \\hspace{{2mm}} de \\hspace{{2mm}} Tensión:}}$      
         
-        Los elementos de tensión encontrados fueron el EC y el DB, tal que, estas fuerzas deben ser menor o igual a ${f[0] + 35:0f} \\text{{ N}}$. Dado que, el elemento EC tiene que resistir más fuerza que DB, se va a evaluar en este:
-        
-        ${{\hspace{{4mm}} F_{{EC}} = F_1 \\cdot {(Calculations.magnitude((d[0]/2), (3/2)*d[0]))/(3*(d[0]/2)):.2f} = {f[0] + 35:0f} \\text{{ N}} }}$     
-        ${{\hspace{{4mm}} F_1 = {((f[0] + 35)*(3*(d[0]/2)))/(Calculations.magnitude((d[0]/2), (3/2)*d[0])):2f} \\text{{ N}}}}$     
+        Los elementos de tensión encontrados son EC y DB, tal que, estas fuerzas deben ser menor o igual a ${f[0] + 35:.0f} \\text{{ N}}$. Dado que, el elemento EC tiene que resistir más fuerza que DB, se halla $F_1$ con este:     
+
+        ${{\hspace{{4mm}} F_{{EC}} = F_1 \\cdot {(Calculations.magnitude((d[0]/2), (3/2)*d[0]))/(3*(d[0]/2)):.2f} = {f[0] + 35:.0f} \\text{{ N}} }}$     
+        ${{\hspace{{4mm}} F_1 = {((f[0] + 35)*(3*(d[0]/2)))/(Calculations.magnitude((d[0]/2), (3/2)*d[0])):.2f} \\text{{ N}}}}$     
         
         $\\underline{{Elementos \\hspace{{2mm}} de \\hspace{{2mm}} Compresión:}}$    
         
-        Los elementos de compresión encontrados fueron el AD, el AB, el DC y el BC, tal que, estas fuerzas deben ser menor o igual a ${f[0]:0f} \\text{{ N}}$. Dado que, todos estos elementos tienen fuerza interna de igual magnitud, se puede evaluar de la siguiente manera:
+        Los elementos de compresión encontrados son AD, AB, DC y BC, estas fuerzas deben ser menor o igual a ${f[0]:.0f} \\text{{ N}}$. Dado que, todos estos elementos tienen fuerza interna de igual magnitud, se puede evaluar de la siguiente manera:
         
-        ${{\hspace{{4mm}} F_{{AD}} = F_{{AB}} = F_{{DC}} = F_{{BC}} = F_1 \\cdot {1/(6*Calculations.cosine(45)):.2f} = {f[0]:0f} \\text{{ N}} }}$     
-        ${{\hspace{{4mm}} F_1 = {(f[0])*(6*Calculations.sine(45)):2f} \\text{{ N}}}}$     
+        ${{\hspace{{4mm}} F_{{AD}} = F_{{AB}} = F_{{DC}} = F_{{BC}} = F_1 \\cdot {1/(6*Calculations.cosine(45)):.2f} = {f[0]:.0f} \\text{{ N}} }}$     
+        ${{\hspace{{4mm}} F_1 = {(f[0])*(6*Calculations.sine(45)):.2f} \\text{{ N}}}}$     
         
-        Finalmente, se selecciona la respuesta menor, siendo que, si seleccionará la mayor, el otro elemento no resistiría y la estructura fallaría.
-            
+        Finalmente, se selecciona el menor valor de $F_1$: ${min((f[0])*(6*Calculations.sine(45)),((f[0] + 35)*(3*(d[0]/2)))/(Calculations.magnitude((d[0]/2), (3/2)*d[0]))):.2f}$ $\\text{{ N}}$. Dado que, si selecciona el mayor valor, los otros elementos críticos no resistirían y la estructura fallaría.
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
