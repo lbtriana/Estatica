@@ -5124,341 +5124,340 @@ preguntas = [
     #-------------------------------------------------       Nivel Fácil   ---------------------------------------------------
     #-------------------------------------------------       Code: 5210011    --------------------------------------------------
 
-    # Questionary(#1_1
-    #     code = 5210011,
-    #     no_pregunta = 1,
-    #     complexity = F,
-    #     topic = "Armaduras",
-    #     subtopic = "Marcos",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Determine la fuerza sobre el elemento BD y las componentes de la reacción en C (Utilice el signo para indicar dirección). Considere $F_1 = {f[0]:.0f} \\text{{ N}}$,  $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$ y $d_3 = {d[6]:.0f} \\text{{ m}}$.",
-    #     no_answers = 3,
-    #     a1_name = "Reacción $C_x$ [N]",
-    #     a2_name = "Reacción $C_y$ [N]",
-    #     a3_name = "Fuerza BD [N]",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(-(f[0]*(d[3] + d[6])*d[3])/(d[0]*d[6]),2),
-    #     answer2 = lambda f, a, calc, c, d, m: np.round(-(f[0]*(d[3] + d[6]))/(d[6]),2),
-    #     answer3 = lambda f, a, calc, c, d, m: np.round((f[0]*(d[3] + d[6])*(Calculations.magnitude(d[0],d[3])))/(d[0]*d[6]), 2),
-    #     ayuda1 = "Para visualizar mejor el ejercicio, puede ayudar desensamblar o despiezar los elementos del marco y dibujar un diagrama de cuerpo libre para cada uno.",
-    #     ayuda2 = "Cada elemento debe cumplir las condiciones de equilibrio, es decir, la sumatoria de fuerzas en cualquier dirección debe ser cero y que los momentos respecto a cualquier punto debe ser cero.",      
-    #     ayuda3 = "",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     Los armazones son estructuras estacionarias en las cuales, al menos un elemento esta sometido a la acción de varias fuerzas. A continuación, se presenta la solución sugerida para el ejercicio:
+    Questionary(#1_1
+        code = 5210011,
+        no_pregunta = 1,
+        complexity = F,
+        topic = "Armaduras",
+        subtopic = "Marcos",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la fuerza sobre el elemento BD y las componentes de la reacción en C (Utilice el signo para indicar dirección). Considere $F_1 = {f[0]:.0f} \\text{{ N}}$,  $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$ y $d_3 = {d[6]:.0f} \\text{{ m}}$.",
+        no_answers = 3,
+        a1_name = "Reacción $C_x$ [N]",
+        a2_name = "Reacción $C_y$ [N]",
+        a3_name = "Fuerza BD [N]",
+        answer1 = lambda f, a, calc, c, d, m: np.round(-(f[0]*(d[3] + d[6])*d[3])/(d[0]*d[6]),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(-(f[0]*(d[3] + d[6]))/(d[6]),2),
+        answer3 = lambda f, a, calc, c, d, m: np.round((f[0]*(d[3] + d[6])*(Calculations.magnitude(d[0],d[3])))/(d[0]*d[6]), 2),
+        ayuda1 = "Para visualizar mejor el ejercicio, puede ayudar desensamblar o despiezar los elementos del marco y dibujar un diagrama de cuerpo libre para cada uno.",
+        ayuda2 = "Cada elemento debe cumplir las condiciones de equilibrio, es decir, la sumatoria de fuerzas en cualquier dirección debe ser cero y que los momentos respecto a cualquier punto debe ser cero.",      
+        ayuda3 = "",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        Los armazones son estructuras estacionarias en las cuales, al menos un elemento esta sometido a la acción de varias fuerzas. A continuación, se presenta la solución sugerida para el ejercicio:
         
-    #     Se puede intuir, desde un inicio que las fuerzas que solicita el ejercicio se pueden encontrar analizando el elemento ABC (recordando que la fuerza del elemento BD esta dirigida a lo largo de BD): 
+        Se puede intuir, desde un inicio que las fuerzas que solicita el ejercicio se pueden encontrar analizando el elemento ABC (recordando que la fuerza del elemento BD esta dirigida a lo largo de BD): 
         
-    #     $\\textbf{{\\small 1. Condición de equilibrio - Momento en C: }}$
+        $\\textbf{{\\small 1. Condición de equilibrio - Momento en C: }}$
         
-    #     ${{\hspace{{4mm}} \\sum{{M_C}} = 0 }}$          
-    #     ${{\hspace{{4mm}} \\sum{{M_C}} = F_1 \\cdot (d_2 + d_3) - F_{{BD}} \\cdot \\dfrac{{d_1}}{{sqrt{{(d_1)^{{2}} + (d_2)^{{2}}}}}} \\cdot d_3 = 0  }}$      
-    #     ${{\hspace{{4mm}} \\sum{{M_C}} = {f[0]:.0f} \\text{{ N}} \\cdot {d[3] + d[6]:.0f} \\text{{ m}} - F_{{BD}} \\cdot {(d[0]*d[6])/(Calculations.magnitude(d[0],d[3])) :.2f} \\text{{ m}} = 0 }}$     
-    #     ${{\hspace{{4mm}} F_{{BD}} \\cdot {(d[0]*d[6])/(Calculations.magnitude(d[0],d[3])) :.2f} \\text{{ m}} = {f[0]*(d[3] + d[6]):.0f} \\text{{ N}} \\cdot \\text{{ m}} }}$      
-    #     ${{\hspace{{4mm}} F_{{BD}} = {(f[0]*(d[3] + d[6])*(Calculations.magnitude(d[0],d[3])))/(d[0]*d[6]):.2f} \\text{{ N}} }}$      
+        ${{\hspace{{4mm}} \\sum{{M_C}} = 0 }}$          
+        ${{\hspace{{4mm}} \\sum{{M_C}} = F_1 \\cdot (d_2 + d_3) - F_{{BD}} \\cdot \\dfrac{{d_1}}{{sqrt{{(d_1)^{{2}} + (d_2)^{{2}}}}}} \\cdot d_3 = 0  }}$      
+        ${{\hspace{{4mm}} \\sum{{M_C}} = {f[0]:.0f} \\text{{ N}} \\cdot {d[3] + d[6]:.0f} \\text{{ m}} - F_{{BD}} \\cdot {(d[0]*d[6])/(Calculations.magnitude(d[0],d[3])) :.2f} \\text{{ m}} = 0 }}$     
+        ${{\hspace{{4mm}} F_{{BD}} \\cdot {(d[0]*d[6])/(Calculations.magnitude(d[0],d[3])) :.2f} \\text{{ m}} = {f[0]*(d[3] + d[6]):.0f} \\text{{ N}} \\cdot \\text{{ m}} }}$      
+        ${{\hspace{{4mm}} F_{{BD}} = {(f[0]*(d[3] + d[6])*(Calculations.magnitude(d[0],d[3])))/(d[0]*d[6]):.2f} \\text{{ N}} }}$      
         
-    #     $\\textbf{{\\small 2. Condición de equilibrio - Sumatoria de fuerzas en X: }}$
+        $\\textbf{{\\small 2. Condición de equilibrio - Sumatoria de fuerzas en X: }}$
         
-    #     ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$          
-    #     ${{\hspace{{4mm}} \\sum{{F_x}} = F_{{BD}} \\cdot \\dfrac{{d_2}}{{sqrt{{(d_1)^{{2}} + (d_2)^{{2}}}}}} + C_x = 0  }}$      
-    #     ${{\hspace{{4mm}} \\sum{{F_x}} = {(f[0]*(d[3] + d[6])*(Calculations.magnitude(d[0],d[3])))/(d[0]*d[6]):.2f} \\cdot {(d[3])/(Calculations.magnitude(d[0],d[3])):.2f} \\text{{ N}} + C_x = 0 }}$     
-    #     ${{\hspace{{4mm}} C_x = {-(f[0]*(d[3] + d[6])*d[3])/(d[0]*d[6]):.2f} \\text{{ N}} }}$      
+        ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$          
+        ${{\hspace{{4mm}} \\sum{{F_x}} = F_{{BD}} \\cdot \\dfrac{{d_2}}{{sqrt{{(d_1)^{{2}} + (d_2)^{{2}}}}}} + C_x = 0  }}$      
+        ${{\hspace{{4mm}} \\sum{{F_x}} = {(f[0]*(d[3] + d[6])*(Calculations.magnitude(d[0],d[3])))/(d[0]*d[6]):.2f} \\cdot {(d[3])/(Calculations.magnitude(d[0],d[3])):.2f} \\text{{ N}} + C_x = 0 }}$     
+        ${{\hspace{{4mm}} C_x = {-(f[0]*(d[3] + d[6])*d[3])/(d[0]*d[6]):.2f} \\text{{ N}} }}$      
         
-    #     $\\textbf{{\\small 3. Condición de equilibrio - Sumatoria de fuerzas en Y: }}$
+        $\\textbf{{\\small 3. Condición de equilibrio - Sumatoria de fuerzas en Y: }}$
         
-    #     ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$          
-    #     ${{\hspace{{4mm}} \\sum{{F_y}} = F_{{BD}} \\cdot \\dfrac{{d_1}}{{sqrt{{(d_1)^{{2}} + (d_2)^{{2}}}}}} + C_y - F_1 = 0  }}$      
-    #     ${{\hspace{{4mm}} \\sum{{F_y}} = {(f[0]*(d[3] + d[6])*(Calculations.magnitude(d[0],d[3])))/(d[0]*d[6]):.2f} \\cdot {(d[0])/(Calculations.magnitude(d[0],d[3])):.2f} \\text{{ N}} + C_y - {f[0]:.0f} \\text{{ N}}= 0 }}$     
-    #     ${{\hspace{{4mm}} C_y = {-(f[0]*(d[3] + d[6]))/(d[6]) + f[0]:.2f} \\text{{ N}} }}$       
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
-
-    # Questionary(#1_2
-    #     code = 5210012,
-    #     no_pregunta = 1,
-    #     complexity = F,
-    #     topic = "Armaduras",
-    #     subtopic = "Marcos",
-    #     version = 2,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Determine la componente vertical en A y ambas componentes de la reacción en C (Utilice el signo para indicar dirección). Considere $F_1 = {f[0]:.0f} \\text{{ N}}$,  $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$, $d_3 = {d[6]:.0f} \\text{{ m}}$ y $d_4 = {d[0]*(3/5):.2f} \\text{{ m}}$ .",
-    #     no_answers = 3,
-    #     a1_name = "Reacción $B_x$ [N]",
-    #     a2_name = "Reacción $B_y$ [N]",
-    #     a3_name = "Reacción $A_y$ [N]",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(-f[0]*(2/5)*(d[0]/(d[6]+d[3])),2),
-    #     answer2 = lambda f, a, calc, c, d, m: np.round(f[0]*(3/5) + d[3]*f[0]*(2/(5*(d[6]+d[3]))),2),
-    #     answer3 = lambda f, a, calc, c, d, m: np.round(f[0]*(2/5) + d[3]*f[0]*(2/(5*(d[6]+d[3]))), 2),
-    #     ayuda1 = "Para visualizar mejor el ejercicio, puede ayudar desensamblar o despiezar los elementos del marco y dibujar un diagrama de cuerpo libre para cada uno.",
-    #     ayuda2 = "Cada elemento debe cumplir las condiciones de equilibrio, es decir, la sumatoria de fuerzas en cualquier dirección debe ser cero y que los momentos respecto a cualquier punto debe ser cero.",      
-    #     ayuda3 = "",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     Los armazones son estructuras estacionarias en las cuales, al menos un elemento esta sometido a la acción de varias fuerzas. A continuación, se presenta la solución sugerida para el ejercicio: 
+        ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$          
+        ${{\hspace{{4mm}} \\sum{{F_y}} = F_{{BD}} \\cdot \\dfrac{{d_1}}{{sqrt{{(d_1)^{{2}} + (d_2)^{{2}}}}}} + C_y - F_1 = 0  }}$      
+        ${{\hspace{{4mm}} \\sum{{F_y}} = {(f[0]*(d[3] + d[6])*(Calculations.magnitude(d[0],d[3])))/(d[0]*d[6]):.2f} \\cdot {(d[0])/(Calculations.magnitude(d[0],d[3])):.2f} \\text{{ N}} + C_y - {f[0]:.0f} \\text{{ N}}= 0 }}$     
+        ${{\hspace{{4mm}} C_y = {-(f[0]*(d[3] + d[6]))/(d[6]) + f[0]:.2f} \\text{{ N}} }}$       
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
+    Questionary(#1_2
+        code = 5210012,
+        no_pregunta = 1,
+        complexity = F,
+        topic = "Armaduras",
+        subtopic = "Marcos",
+        version = 2,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la componente vertical en A y ambas componentes de la reacción en C (Utilice el signo para indicar dirección). Considere $F_1 = {f[0]:.0f} \\text{{ N}}$,  $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$, $d_3 = {d[6]:.0f} \\text{{ m}}$ y $d_4 = {d[0]*(3/5):.2f} \\text{{ m}}$ .",
+        no_answers = 3,
+        a1_name = "Reacción $B_x$ [N]",
+        a2_name = "Reacción $B_y$ [N]",
+        a3_name = "Reacción $A_y$ [N]",
+        answer1 = lambda f, a, calc, c, d, m: np.round(-f[0]*(2/5)*(d[0]/(d[6]+d[3])),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(f[0]*(3/5) + d[3]*f[0]*(2/(5*(d[6]+d[3]))),2),
+        answer3 = lambda f, a, calc, c, d, m: np.round(f[0]*(2/5) + d[3]*f[0]*(2/(5*(d[6]+d[3]))), 2),
+        ayuda1 = "Para visualizar mejor el ejercicio, puede ayudar desensamblar o despiezar los elementos del marco y dibujar un diagrama de cuerpo libre para cada uno.",
+        ayuda2 = "Cada elemento debe cumplir las condiciones de equilibrio, es decir, la sumatoria de fuerzas en cualquier dirección debe ser cero y que los momentos respecto a cualquier punto debe ser cero.",      
+        ayuda3 = "",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        Los armazones son estructuras estacionarias en las cuales, al menos un elemento esta sometido a la acción de varias fuerzas. A continuación, se presenta la solución sugerida para el ejercicio: 
         
-    #     $\\textbf{{\\small 1. Condición de equilibrio global - Momento en A: }}$
+        $\\textbf{{\\small 1. Condición de equilibrio global - Momento en A: }}$
         
-    #     ${{\hspace{{4mm}} \\sum{{M_A}} = 0 }}$          
-    #     ${{\hspace{{4mm}} \\sum{{M_A}} = F_1 \\cdot (d_1 - d_4) + B_x \\cdot (d_3 + d_2) = 0  }}$      
-    #     ${{\hspace{{4mm}} B_x \\cdot {d[6] + d[3] :.0f} \\text{{ m}} = {-f[0]*(2/5)*d[0]:.2f} \\text{{ N}} \\cdot \\text{{ m}} }}$      
-    #     ${{\hspace{{4mm}} B_x = {-f[0]*(2/5)*(d[0]/(d[6]+d[3])):.2f} \\text{{ N}} }}$      
+        ${{\hspace{{4mm}} \\sum{{M_A}} = 0 }}$          
+        ${{\hspace{{4mm}} \\sum{{M_A}} = F_1 \\cdot (d_1 - d_4) + B_x \\cdot (d_3 + d_2) = 0  }}$      
+        ${{\hspace{{4mm}} B_x \\cdot {d[6] + d[3] :.0f} \\text{{ m}} = {-f[0]*(2/5)*d[0]:.2f} \\text{{ N}} \\cdot \\text{{ m}} }}$      
+        ${{\hspace{{4mm}} B_x = {-f[0]*(2/5)*(d[0]/(d[6]+d[3])):.2f} \\text{{ N}} }}$      
         
-    #     $\\textbf{{\\small 2. Condición de equilibrio elemento BCD - Momento en C: }}$
+        $\\textbf{{\\small 2. Condición de equilibrio elemento BCD - Momento en C: }}$
         
-    #     ${{\hspace{{4mm}} \\sum{{M_C}} = 0 }}$          
-    #     ${{\hspace{{4mm}} \\sum{{M_C}} = B_y \\cdot d_1 - F_1 \\cdot d_4 - B_x \\cdot d_2 = 0  }}$      
-    #     ${{\hspace{{4mm}} B_y \\cdot {d[0]:.0f} \\text{{ m}} = {f[0]*(3/5)*d[0]:.2f} \\text{{ N}} \\cdot \\text{{ m}} + {d[3]*f[0]*(2/5)*(d[0]/(d[6]+d[3])):.2f} \\text{{ N}} \\cdot \\text{{ m}}}}$      
-    #     ${{\hspace{{4mm}} B_y= {f[0]*(3/5) + d[3]*f[0]*(2/(5*(d[6]+d[3]))):.2f} \\text{{ N}} }}$      
+        ${{\hspace{{4mm}} \\sum{{M_C}} = 0 }}$          
+        ${{\hspace{{4mm}} \\sum{{M_C}} = B_y \\cdot d_1 - F_1 \\cdot d_4 - B_x \\cdot d_2 = 0  }}$      
+        ${{\hspace{{4mm}} B_y \\cdot {d[0]:.0f} \\text{{ m}} = {f[0]*(3/5)*d[0]:.2f} \\text{{ N}} \\cdot \\text{{ m}} + {d[3]*f[0]*(2/5)*(d[0]/(d[6]+d[3])):.2f} \\text{{ N}} \\cdot \\text{{ m}}}}$      
+        ${{\hspace{{4mm}} B_y= {f[0]*(3/5) + d[3]*f[0]*(2/(5*(d[6]+d[3]))):.2f} \\text{{ N}} }}$      
         
-    #     $\\textbf{{\\small 3. Condición de equilibrio global - Sumatoria de fuerzas en Y: }}$
+        $\\textbf{{\\small 3. Condición de equilibrio global - Sumatoria de fuerzas en Y: }}$
         
-    #     ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$          
-    #     ${{\hspace{{4mm}} \\sum{{F_y}} = A_y + B_y - F_1 = 0  }}$       
-    #     ${{\hspace{{4mm}} A_y = {f[0]*(2/5) + d[3]*f[0]*(2/(5*(d[6]+d[3]))):.2f} \\text{{ N}} }}$      
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
+        ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$          
+        ${{\hspace{{4mm}} \\sum{{F_y}} = A_y + B_y - F_1 = 0  }}$       
+        ${{\hspace{{4mm}} A_y = {f[0]*(2/5) + d[3]*f[0]*(2/(5*(d[6]+d[3]))):.2f} \\text{{ N}} }}$      
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
 
     #========================================================  ARMADURAS  =========================================================
     #-------------------------------------------------         Marcos      --------------------------------------------
     #-------------------------------------------------       Nivel Medio   ---------------------------------------------------
     #-------------------------------------------------       Code: 5220011    --------------------------------------------------
 
-    # Questionary(#1_1
-    #     code = 5220011,
-    #     no_pregunta = 1,
-    #     complexity = M,
-    #     topic = "Armaduras",
-    #     subtopic = "Marcos",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Determine las componentes de la reacción en D y la componente vertical de la reacción en E (Utilice el signo para indicar dirección). Considere $F_1 = {f[0]:.0f} \\text{{ N}}$, $M_1 = {m[0]:.0f} \\text{{  N}} \\cdot \\text {{ m}}$,  $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$ y $d_3 = {d[6]:.0f} \\text{{ m}}$.",
-    #     no_answers = 3,
-    #     a1_name = "Reacción $D_x$ [N]",
-    #     a2_name = "Reacción $D_y$ [N]",
-    #     a3_name = "Reacción $E_y$ [N]",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round((m[0] - ((m[0] - f[0]*d[3])/(d[6] + d[3]))*d[3])/d[0],2),
-    #     answer2 = lambda f, a, calc, c, d, m: np.round((m[0] - f[0]*d[3])/(d[6] + d[3]),2),
-    #     answer3 = lambda f, a, calc, c, d, m: np.round(f[0] - (m[0] - f[0]*d[3])/(d[6] + d[3]), 2),
-    #     ayuda1 = "Para encontrar reacciones, es util verficar el equilibrio global de la estructura.",
-    #     ayuda2 = "Para visualizar mejor el ejercicio, puede ayudar desensamblar o despiezar los elementos del marco y dibujar un diagrama de cuerpo libre para cada uno.",      
-    #     ayuda3 = "Cada elemento debe cumplir las condiciones de equilibrio, es decir, la sumatoria de fuerzas en cualquier dirección debe ser cero y que los momentos respecto a cualquier punto debe ser cero.",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     Los armazones son estructuras estacionarias en las cuales, al menos un elemento esta sometido a la acción de varias fuerzas. A continuación, se presenta la solución sugerida para el ejercicio: 
+    Questionary(#1_1
+        code = 5220011,
+        no_pregunta = 1,
+        complexity = M,
+        topic = "Armaduras",
+        subtopic = "Marcos",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine las componentes de la reacción en D y la componente vertical de la reacción en E (Utilice el signo para indicar dirección). Considere $F_1 = {f[0]:.0f} \\text{{ N}}$, $M_1 = {m[0]:.0f} \\text{{  N}} \\cdot \\text {{ m}}$,  $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$ y $d_3 = {d[6]:.0f} \\text{{ m}}$.",
+        no_answers = 3,
+        a1_name = "Reacción $D_x$ [N]",
+        a2_name = "Reacción $D_y$ [N]",
+        a3_name = "Reacción $E_y$ [N]",
+        answer1 = lambda f, a, calc, c, d, m: np.round((m[0] - ((m[0] - f[0]*d[3])/(d[6] + d[3]))*d[3])/d[0],2),
+        answer2 = lambda f, a, calc, c, d, m: np.round((m[0] - f[0]*d[3])/(d[6] + d[3]),2),
+        answer3 = lambda f, a, calc, c, d, m: np.round(f[0] - (m[0] - f[0]*d[3])/(d[6] + d[3]), 2),
+        ayuda1 = "Para encontrar reacciones, es util verficar el equilibrio global de la estructura.",
+        ayuda2 = "Para visualizar mejor el ejercicio, puede ayudar desensamblar o despiezar los elementos del marco y dibujar un diagrama de cuerpo libre para cada uno.",      
+        ayuda3 = "Cada elemento debe cumplir las condiciones de equilibrio, es decir, la sumatoria de fuerzas en cualquier dirección debe ser cero y que los momentos respecto a cualquier punto debe ser cero.",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        Los armazones son estructuras estacionarias en las cuales, al menos un elemento esta sometido a la acción de varias fuerzas. A continuación, se presenta la solución sugerida para el ejercicio: 
         
-    #     $\\textbf{{\\small 1. Condición de equilibrio global - Momento en E: }}$
+        $\\textbf{{\\small 1. Condición de equilibrio global - Momento en E: }}$
         
-    #     ${{\hspace{{4mm}} \\sum{{M_E}} = 0 }}$          
-    #     ${{\hspace{{4mm}} \\sum{{M_E}} = F_1 \\cdot d_2 - D_y \\cdot (d_3 + d_2) - M_1 = 0  }}$      
-    #     ${{\hspace{{4mm}} \\sum{{M_E}} = {f[0]:.0f} \\text{{ N}} \\cdot {d[3]:.0f} \\text{{ m}} - D_y \\cdot {d[6] + d[3] :.0f} \\text{{ m}} - {m[0]:.0f} \\text{{  N}} \\cdot \\text {{ m}} = 0 }}$     
-    #     ${{\hspace{{4mm}} D_y \\cdot {d[6] + d[3] :.0f} \\text{{ m}} = {m[0] - f[0]*d[3]:.0f} \\text{{ N}} \\cdot \\text{{ m}} }}$      
-    #     ${{\hspace{{4mm}} D_y = {(m[0] - f[0]*d[3])/(d[6] + d[3]):.2f} \\text{{ N}} }}$      
+        ${{\hspace{{4mm}} \\sum{{M_E}} = 0 }}$          
+        ${{\hspace{{4mm}} \\sum{{M_E}} = F_1 \\cdot d_2 - D_y \\cdot (d_3 + d_2) - M_1 = 0  }}$      
+        ${{\hspace{{4mm}} \\sum{{M_E}} = {f[0]:.0f} \\text{{ N}} \\cdot {d[3]:.0f} \\text{{ m}} - D_y \\cdot {d[6] + d[3] :.0f} \\text{{ m}} - {m[0]:.0f} \\text{{  N}} \\cdot \\text {{ m}} = 0 }}$     
+        ${{\hspace{{4mm}} D_y \\cdot {d[6] + d[3] :.0f} \\text{{ m}} = {m[0] - f[0]*d[3]:.0f} \\text{{ N}} \\cdot \\text{{ m}} }}$      
+        ${{\hspace{{4mm}} D_y = {(m[0] - f[0]*d[3])/(d[6] + d[3]):.2f} \\text{{ N}} }}$      
         
-    #     $\\textbf{{\\small 2. Condición de equilibrio global- Sumatoria de fuerzas en Y: }}$
+        $\\textbf{{\\small 2. Condición de equilibrio global- Sumatoria de fuerzas en Y: }}$
         
-    #     ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$          
-    #     ${{\hspace{{4mm}} \\sum{{F_y}} = {(m[0] - f[0]*d[3])/(d[6] + d[3]):.2f} \\text{{ N}} - {f[0]:.0f} \\text{{ N}} + E_y = 0  }}$       
-    #     ${{\hspace{{4mm}} E_y = {f[0] - (m[0] - f[0]*d[3])/(d[6] + d[3]):.2f} \\text{{ N}} }}$      
+        ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$          
+        ${{\hspace{{4mm}} \\sum{{F_y}} = {(m[0] - f[0]*d[3])/(d[6] + d[3]):.2f} \\text{{ N}} - {f[0]:.0f} \\text{{ N}} + E_y = 0  }}$       
+        ${{\hspace{{4mm}} E_y = {f[0] - (m[0] - f[0]*d[3])/(d[6] + d[3]):.2f} \\text{{ N}} }}$      
         
-    #     $\\textbf{{\\small 3. Condición de equilibrio Elemento ACD - Momento en C: }}$
+        $\\textbf{{\\small 3. Condición de equilibrio Elemento ACD - Momento en C: }}$
         
-    #     ${{\hspace{{4mm}} \\sum{{M_C}} = 0 }}$          
-    #     ${{\hspace{{4mm}} \\sum{{M_C}} = {(m[0] - f[0]*d[3])/(d[6] + d[3]):.2f} \\text{{ N}} \\cdot {d[3]:.0f} \\text{{ m}} - {m[0]:.0f} \\text{{  N}} \\cdot \\text {{ m}} + D_x \\cdot {d[0]:.0f} \\text{{ m}} = 0  }}$      
-    #     ${{\hspace{{4mm}} D_x \\cdot {d[0]:.0f} \\text{{ m}} = {m[0] - ((m[0] - f[0]*d[3])/(d[6] + d[3]))*d[3]:.2f} \\text{{ N}} \\cdot \\text {{ m}}}}$      
-    #     ${{\hspace{{4mm}} D_x  = {(m[0] - ((m[0] - f[0]*d[3])/(d[6] + d[3]))*d[3])/d[0]:.2f} \\text{{ N}} }}$      
+        ${{\hspace{{4mm}} \\sum{{M_C}} = 0 }}$          
+        ${{\hspace{{4mm}} \\sum{{M_C}} = {(m[0] - f[0]*d[3])/(d[6] + d[3]):.2f} \\text{{ N}} \\cdot {d[3]:.0f} \\text{{ m}} - {m[0]:.0f} \\text{{  N}} \\cdot \\text {{ m}} + D_x \\cdot {d[0]:.0f} \\text{{ m}} = 0  }}$      
+        ${{\hspace{{4mm}} D_x \\cdot {d[0]:.0f} \\text{{ m}} = {m[0] - ((m[0] - f[0]*d[3])/(d[6] + d[3]))*d[3]:.2f} \\text{{ N}} \\cdot \\text {{ m}}}}$      
+        ${{\hspace{{4mm}} D_x  = {(m[0] - ((m[0] - f[0]*d[3])/(d[6] + d[3]))*d[3])/d[0]:.2f} \\text{{ N}} }}$      
         
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
 
-    # Questionary(#2_1
-    #     code = 5220021,
-    #     no_pregunta = 2,
-    #     complexity = M,
-    #     topic = "Armaduras",
-    #     subtopic = "Marcos",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Determine las componentes de las fuerzas ejercidas sobre el elemento ACEG en C. Considere $F_1 = {f[0]:.0f} \\text{{ N}}$, $F_2 = {f[1]:.0f} \\text{{ N}}$, $F_3 = {f[2]:.0f} \\text{{ N}}$  $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$ y $d_3 = {d[6]:.0f} \\text{{ m}}$.",
-    #     no_answers = 2,
-    #     a1_name = "Fuerza $C_x$ [N]",
-    #     a2_name = "Fuerza $C_y$ [N]",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(-(f[2]*d[3]- d[0]*(f[0]+f[1]))/d[6],2),
-    #     answer2 = lambda f, a, calc, c, d, m: np.round(((f[2]*d[3] - d[0]*(f[0]+f[1])) + 2*f[0]*d[0] - f[2]*d[3])/d[0],2),
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "Para encontrar reacciones, es util verficar el equilibrio global de la estructura.",
-    #     ayuda2 = "Para visualizar mejor el ejercicio, puede ayudar desensamblar o despiezar los elementos del marco y dibujar un diagrama de cuerpo libre para cada uno.",      
-    #     ayuda3 = "Cada elemento debe cumplir las condiciones de equilibrio, es decir, la sumatoria de fuerzas en cualquier dirección debe ser cero y que los momentos respecto a cualquier punto debe ser cero.",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     Los armazones son estructuras estacionarias en las cuales, al menos un elemento esta sometido a la acción de varias fuerzas. A continuación, se presenta la solución sugerida para el ejercicio: 
+    Questionary(#2_1
+        code = 5220021,
+        no_pregunta = 2,
+        complexity = M,
+        topic = "Armaduras",
+        subtopic = "Marcos",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine las componentes de las fuerzas ejercidas sobre el elemento ACEG en C. Considere $F_1 = {f[0]:.0f} \\text{{ N}}$, $F_2 = {f[1]:.0f} \\text{{ N}}$, $F_3 = {f[2]:.0f} \\text{{ N}}$  $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$ y $d_3 = {d[6]:.0f} \\text{{ m}}$.",
+        no_answers = 2,
+        a1_name = "Fuerza $C_x$ [N]",
+        a2_name = "Fuerza $C_y$ [N]",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(-(f[2]*d[3]- d[0]*(f[0]+f[1]))/d[6],2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(((f[2]*d[3] - d[0]*(f[0]+f[1])) + 2*f[0]*d[0] - f[2]*d[3])/d[0],2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = "Para encontrar reacciones, es util verficar el equilibrio global de la estructura.",
+        ayuda2 = "Para visualizar mejor el ejercicio, puede ayudar desensamblar o despiezar los elementos del marco y dibujar un diagrama de cuerpo libre para cada uno.",      
+        ayuda3 = "Cada elemento debe cumplir las condiciones de equilibrio, es decir, la sumatoria de fuerzas en cualquier dirección debe ser cero y que los momentos respecto a cualquier punto debe ser cero.",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        Los armazones son estructuras estacionarias en las cuales, al menos un elemento esta sometido a la acción de varias fuerzas. A continuación, se presenta la solución sugerida para el ejercicio: 
         
-    #     $\\textbf{{\\small 1. Condición de equilibrio global - Momento en D: }}$
+        $\\textbf{{\\small 1. Condición de equilibrio global - Momento en D: }}$
         
-    #     ${{\hspace{{4mm}} \\sum{{M_D}} = 0 }}$          
-    #     ${{\hspace{{4mm}} \\sum{{M_D}} = F_1 \\cdot 2d_1 + F_2 \\cdot 2d_1 - 2F_3 \\cdot d_2 + E_x \\cdot 2d_3 = 0  }}$      
-    #     ${{\hspace{{4mm}} \\sum{{M_D}} = {f[0]:.0f} \\text{{ N}} \\cdot {2*d[0]:.0f} \\text{{ m}} + {f[1]:.0f} \\cdot {2*d[0]:.0f} \\text{{ m}} - {2*f[2]:.0f} \\text{{  N}} \\cdot {d[3]:.0f} \\text {{ m}} + E_x \\cdot {2*d[6]:.0f} \\text{{ m}} = 0 }}$     
-    #     ${{\hspace{{4mm}} E_x \\cdot {2*d[6]:.0f} \\text{{ m}} = {2*(f[2]*d[3]- d[0]*(f[0]+f[1])):.0f} \\text{{ N}} \\cdot \\text{{ m}} }}$      
-    #     ${{\hspace{{4mm}} E_x = {(f[2]*d[3] - d[0]*(f[0]+f[1]))/d[6]:.2f} \\text{{ N}} }}$      
+        ${{\hspace{{4mm}} \\sum{{M_D}} = 0 }}$          
+        ${{\hspace{{4mm}} \\sum{{M_D}} = F_1 \\cdot 2d_1 + F_2 \\cdot 2d_1 - 2F_3 \\cdot d_2 + E_x \\cdot 2d_3 = 0  }}$      
+        ${{\hspace{{4mm}} \\sum{{M_D}} = {f[0]:.0f} \\text{{ N}} \\cdot {2*d[0]:.0f} \\text{{ m}} + {f[1]:.0f} \\cdot {2*d[0]:.0f} \\text{{ m}} - {2*f[2]:.0f} \\text{{  N}} \\cdot {d[3]:.0f} \\text {{ m}} + E_x \\cdot {2*d[6]:.0f} \\text{{ m}} = 0 }}$     
+        ${{\hspace{{4mm}} E_x \\cdot {2*d[6]:.0f} \\text{{ m}} = {2*(f[2]*d[3]- d[0]*(f[0]+f[1])):.0f} \\text{{ N}} \\cdot \\text{{ m}} }}$      
+        ${{\hspace{{4mm}} E_x = {(f[2]*d[3] - d[0]*(f[0]+f[1]))/d[6]:.2f} \\text{{ N}} }}$      
         
-    #     $\\textbf{{\\small 2. Condición de equilibrio Elemento ACEG- Sumatoria de fuerzas en X: }}$
+        $\\textbf{{\\small 2. Condición de equilibrio Elemento ACEG- Sumatoria de fuerzas en X: }}$
         
-    #     ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$          
-    #     ${{\hspace{{4mm}} \\sum{{F_x}} = {(f[2]*d[3]- d[0]*(f[0]+f[1]))/d[6]:.2f} \\text{{ N}} + C_x = 0  }}$       
-    #     ${{\hspace{{4mm}} C_x = {-(f[2]*d[3]- d[0]*(f[0]+f[1]))/d[6]:.2f} \\text{{ N}} }}$      
+        ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$          
+        ${{\hspace{{4mm}} \\sum{{F_x}} = {(f[2]*d[3]- d[0]*(f[0]+f[1]))/d[6]:.2f} \\text{{ N}} + C_x = 0  }}$       
+        ${{\hspace{{4mm}} C_x = {-(f[2]*d[3]- d[0]*(f[0]+f[1]))/d[6]:.2f} \\text{{ N}} }}$      
         
-    #     $\\textbf{{\\small 3. Condición de equilibrio Elemento ACEG - Momento en E: }}$
+        $\\textbf{{\\small 3. Condición de equilibrio Elemento ACEG - Momento en E: }}$
         
-    #     ${{\hspace{{4mm}} \\sum{{M_E}} = 0 }}$          
-    #     ${{\hspace{{4mm}} \\sum{{M_E}} = {(f[2]*d[3]- d[0]*(f[0]+f[1]))/d[6]:.2f} \\text{{ N}} \\cdot {d[6]:.0f} \\text{{ m}} + {f[0]:.0f} \\text{{ N}} \\cdot {2*d[0]:.0f} \\text{{ m}} - {f[2]:.0f} \\text{{  N}} \\cdot {d[3]:.0f} \\text {{ m}} - C_y \\cdot {d[0]:.0f} \\text{{ m}} = 0  }}$      
-    #     ${{\hspace{{4mm}} C_y \\cdot {d[0]:.0f} \\text{{ m}} = {(f[2]*d[3]- d[0]*(f[0]+f[1])) + 2*f[0]*d[0] - f[2]*d[3]:.2f} \\text{{ N}} \\cdot \\text {{ m}}}}$      
-    #     ${{\hspace{{4mm}} C_y  = {((f[2]*d[3] - d[0]*(f[0]+f[1])) + 2*f[0]*d[0] - f[2]*d[3])/d[0]:.2f} \\text{{ N}} }}$      
+        ${{\hspace{{4mm}} \\sum{{M_E}} = 0 }}$          
+        ${{\hspace{{4mm}} \\sum{{M_E}} = {(f[2]*d[3]- d[0]*(f[0]+f[1]))/d[6]:.2f} \\text{{ N}} \\cdot {d[6]:.0f} \\text{{ m}} + {f[0]:.0f} \\text{{ N}} \\cdot {2*d[0]:.0f} \\text{{ m}} - {f[2]:.0f} \\text{{  N}} \\cdot {d[3]:.0f} \\text {{ m}} - C_y \\cdot {d[0]:.0f} \\text{{ m}} = 0  }}$      
+        ${{\hspace{{4mm}} C_y \\cdot {d[0]:.0f} \\text{{ m}} = {(f[2]*d[3]- d[0]*(f[0]+f[1])) + 2*f[0]*d[0] - f[2]*d[3]:.2f} \\text{{ N}} \\cdot \\text {{ m}}}}$      
+        ${{\hspace{{4mm}} C_y  = {((f[2]*d[3] - d[0]*(f[0]+f[1])) + 2*f[0]*d[0] - f[2]*d[3])/d[0]:.2f} \\text{{ N}} }}$      
         
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
 
     #========================================================  ARMADURAS  =========================================================
     #-------------------------------------------------         Marcos      --------------------------------------------
     #-------------------------------------------------       Nivel Difícil   ---------------------------------------------------
     #-------------------------------------------------       Code: 5220011    --------------------------------------------------
 
-    # Questionary(#1_1
-    #     code = 5230011,
-    #     no_pregunta = 1,
-    #     complexity = D,
-    #     topic = "Armaduras",
-    #     subtopic = "Marcos",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Determine las componentes de la fuerza ejercida sobre el segmento AB en B (Utilice el signo para indicar dirección). Considere $F_1 = {f[0]:.0f} \\text{{ N}}$, $F_2 = {f[1]:.0f} \\text{{ N}}$, $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$, $d_3 = {d[6]:.0f} \\text{{ m}}$ y $d_4 = {d[9]:.0f} \\text{{ m}}$.",
-    #     no_answers = 2,
-    #     a1_name = "Fuerza $B_x$ [N]",
-    #     a2_name = "Fuerza $B_y$ [N]",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round((-((f[1]*d[3])/d[6]) - (f[0]/2))/(((2*d[3])/d[6]) + ((2*d[3] + d[0])/(d[9]*2))),2),
-    #     answer2 = lambda f, a, calc, c, d, m: np.round(((-((f[1]*d[3])/d[6]) - (f[0]/2))/(((2*d[3])/d[6]) + ((2*d[3] + d[0])/(d[9]*2))))*((2*d[3])/d[6]) + (f[1]*d[3])/d[6],2),
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "Para visualizar mejor el ejercicio, puede ayudar desensamblar o despiezar los elementos del marco y dibujar un diagrama de cuerpo libre para cada uno.",
-    #     ayuda2 = "Cada elemento debe cumplir las condiciones de equilibrio, es decir, la sumatoria de fuerzas en cualquier dirección debe ser cero y que los momentos respecto a cualquier punto debe ser cero.",      
-    #     ayuda3 = "",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     Los armazones son estructuras estacionarias en las cuales, al menos un elemento esta sometido a la acción de varias fuerzas. A continuación, se presenta la solución sugerida para el ejercicio: 
+    Questionary(#1_1
+        code = 5230011,
+        no_pregunta = 1,
+        complexity = D,
+        topic = "Armaduras",
+        subtopic = "Marcos",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine las componentes de la fuerza ejercida sobre el segmento AB en B (Utilice el signo para indicar dirección). Considere $F_1 = {f[0]:.0f} \\text{{ N}}$, $F_2 = {f[1]:.0f} \\text{{ N}}$, $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$, $d_3 = {d[6]:.0f} \\text{{ m}}$ y $d_4 = {d[9]:.0f} \\text{{ m}}$.",
+        no_answers = 2,
+        a1_name = "Fuerza $B_x$ [N]",
+        a2_name = "Fuerza $B_y$ [N]",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round((-((f[1]*d[3])/d[6]) - (f[0]/2))/(((2*d[3])/d[6]) + ((2*d[3] + d[0])/(d[9]*2))),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(((-((f[1]*d[3])/d[6]) - (f[0]/2))/(((2*d[3])/d[6]) + ((2*d[3] + d[0])/(d[9]*2))))*((2*d[3])/d[6]) + (f[1]*d[3])/d[6],2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = "Para visualizar mejor el ejercicio, puede ayudar desensamblar o despiezar los elementos del marco y dibujar un diagrama de cuerpo libre para cada uno.",
+        ayuda2 = "Cada elemento debe cumplir las condiciones de equilibrio, es decir, la sumatoria de fuerzas en cualquier dirección debe ser cero y que los momentos respecto a cualquier punto debe ser cero.",      
+        ayuda3 = "",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        Los armazones son estructuras estacionarias en las cuales, al menos un elemento esta sometido a la acción de varias fuerzas. A continuación, se presenta la solución sugerida para el ejercicio: 
         
-    #     En este ejercicio, es valido aclarar que es necesario revisar ambos segmentos del Marco para dar con un sistema de ecuaciones que logre resolver el ejercicio. Asumiendo $B_y$ y $B_x$ positivos en AB y negativos en CB:
+        En este ejercicio, es valido aclarar que es necesario revisar ambos segmentos del Marco para dar con un sistema de ecuaciones que logre resolver el ejercicio. Asumiendo $B_y$ y $B_x$ positivos en AB y negativos en CB:
         
-    #     $\\textbf{{\\small 1. Condición de equilibrio Elemento AB - Momento en A: }}$
+        $\\textbf{{\\small 1. Condición de equilibrio Elemento AB - Momento en A: }}$
         
-    #     ${{\hspace{{4mm}} \\sum{{M_A}} = 0 }}$          
-    #     ${{\hspace{{4mm}} \\sum{{M_A}} = B_y \\cdot d_3 - B_x \\cdot 2d_2 - F_2 \\cdot d_2 = 0  }}$      
-    #     ${{\hspace{{4mm}} \\sum{{M_A}} = B_y \\cdot {d[6]:.0f} \\text{{ m}} - B_x \\cdot {2*d[3] :.0f} \\text{{ m}} - {f[1]:.0f} \\text{{  N}} \\cdot {d[3] :.0f} \\text {{ m}} = 0 }}$     
-    #     ${{\hspace{{4mm}} B_y \\cdot {d[6]:.0f} \\text{{ m}} = B_x \\cdot {2*d[3] :.0f} \\text{{ m}} + {f[1]*d[3]:.0f} \\text{{ N}} \\cdot \\text{{ m}} }}$      
-    #     ${{\hspace{{4mm}} B_y = B_x \\cdot {(2*d[3])/d[6] :.2f} + {(f[1]*d[3])/d[6]:.2f} \\text{{ N}} }}$      
+        ${{\hspace{{4mm}} \\sum{{M_A}} = 0 }}$          
+        ${{\hspace{{4mm}} \\sum{{M_A}} = B_y \\cdot d_3 - B_x \\cdot 2d_2 - F_2 \\cdot d_2 = 0  }}$      
+        ${{\hspace{{4mm}} \\sum{{M_A}} = B_y \\cdot {d[6]:.0f} \\text{{ m}} - B_x \\cdot {2*d[3] :.0f} \\text{{ m}} - {f[1]:.0f} \\text{{  N}} \\cdot {d[3] :.0f} \\text {{ m}} = 0 }}$     
+        ${{\hspace{{4mm}} B_y \\cdot {d[6]:.0f} \\text{{ m}} = B_x \\cdot {2*d[3] :.0f} \\text{{ m}} + {f[1]*d[3]:.0f} \\text{{ N}} \\cdot \\text{{ m}} }}$      
+        ${{\hspace{{4mm}} B_y = B_x \\cdot {(2*d[3])/d[6] :.2f} + {(f[1]*d[3])/d[6]:.2f} \\text{{ N}} }}$      
         
-    #     $\\textbf{{\\small 2. Condición de equilibrio Elemento CB - Momento en C: }}$
+        $\\textbf{{\\small 2. Condición de equilibrio Elemento CB - Momento en C: }}$
         
-    #     ${{\hspace{{4mm}} \\sum{{M_C}} = 0 }}$          
-    #     ${{\hspace{{4mm}} \\sum{{M_C}} = B_y \\cdot 2d_4 + B_x \\cdot (2d_2 + d_1) + F_1 \\cdot d_4 = 0  }}$      
-    #     ${{\hspace{{4mm}} \\sum{{M_C}} = B_y \\cdot {2*d[9]:.0f} \\text{{ m}} + B_x \\cdot {2*d[3] + d[0]:.0f} \\text{{ m}} + {f[0]:.0f} \\text{{  N}} \\cdot {d[9]:.0f} \\text {{ m}} = 0 }}$     
-    #     ${{\hspace{{4mm}} B_y \\cdot {2*d[9]:.0f} \\text{{ m}} = - B_x \\cdot {2*d[3] + d[0]:.0f} \\text{{ m}} + {f[0]*d[9]:.0f} \\text{{ N}} \\cdot \\text{{ m}} }}$      
-    #     ${{\hspace{{4mm}} B_y = - B_x \\cdot {(2*d[3] + d[0])/(d[9]*2):.2f} - {(f[0]/2):.2f} \\text{{ N}} }}$      
+        ${{\hspace{{4mm}} \\sum{{M_C}} = 0 }}$          
+        ${{\hspace{{4mm}} \\sum{{M_C}} = B_y \\cdot 2d_4 + B_x \\cdot (2d_2 + d_1) + F_1 \\cdot d_4 = 0  }}$      
+        ${{\hspace{{4mm}} \\sum{{M_C}} = B_y \\cdot {2*d[9]:.0f} \\text{{ m}} + B_x \\cdot {2*d[3] + d[0]:.0f} \\text{{ m}} + {f[0]:.0f} \\text{{  N}} \\cdot {d[9]:.0f} \\text {{ m}} = 0 }}$     
+        ${{\hspace{{4mm}} B_y \\cdot {2*d[9]:.0f} \\text{{ m}} = - B_x \\cdot {2*d[3] + d[0]:.0f} \\text{{ m}} + {f[0]*d[9]:.0f} \\text{{ N}} \\cdot \\text{{ m}} }}$      
+        ${{\hspace{{4mm}} B_y = - B_x \\cdot {(2*d[3] + d[0])/(d[9]*2):.2f} - {(f[0]/2):.2f} \\text{{ N}} }}$      
         
-    #     $\\textbf{{\\small 3. Despeje de B_y y B_x: }}$
+        $\\textbf{{\\small 3. Despeje de B_y y B_x: }}$
         
-    #     Con las anteriores ecuaciones se hallar $B_x$:
+        Con las anteriores ecuaciones se hallar $B_x$:
         
-    #     ${{\hspace{{4mm}} B_x \\cdot {(2*d[3])/d[6] :.2f} + {(f[1]*d[3])/d[6]:.2f} \\text{{ N}} = - B_x \\cdot {(2*d[3] + d[0])/(d[9]*2):.2f} - {(f[0]/2):.2f} \\text{{ N}}  }}$          
-    #     ${{\hspace{{4mm}} B_x \\cdot {((2*d[3])/d[6]) + ((2*d[3] + d[0])/(d[9]*2)):.2f} = {-((f[1]*d[3])/d[6]) - (f[0]/2) :.2f} \\text{{ N}} }}$      
-    #     ${{\hspace{{4mm}} B_x = {(-((f[1]*d[3])/d[6]) - (f[0]/2))/(((2*d[3])/d[6]) + ((2*d[3] + d[0])/(d[9]*2))):.2f} \\text{{ N}} }}$       
+        ${{\hspace{{4mm}} B_x \\cdot {(2*d[3])/d[6] :.2f} + {(f[1]*d[3])/d[6]:.2f} \\text{{ N}} = - B_x \\cdot {(2*d[3] + d[0])/(d[9]*2):.2f} - {(f[0]/2):.2f} \\text{{ N}}  }}$          
+        ${{\hspace{{4mm}} B_x \\cdot {((2*d[3])/d[6]) + ((2*d[3] + d[0])/(d[9]*2)):.2f} = {-((f[1]*d[3])/d[6]) - (f[0]/2) :.2f} \\text{{ N}} }}$      
+        ${{\hspace{{4mm}} B_x = {(-((f[1]*d[3])/d[6]) - (f[0]/2))/(((2*d[3])/d[6]) + ((2*d[3] + d[0])/(d[9]*2))):.2f} \\text{{ N}} }}$       
         
-    #     Ahora, a partir de $B_x$ se puede encontrar $B_y$:
+        Ahora, a partir de $B_x$ se puede encontrar $B_y$:
         
-    #     ${{\hspace{{4mm}} B_y = B_x \\cdot {(2*d[3])/d[6] :.2f} + {(f[1]*d[3])/d[6]:.2f} \\text{{ N}} }}$      
-    #     ${{\hspace{{4mm}} B_y = {((-((f[1]*d[3])/d[6]) - (f[0]/2))/(((2*d[3])/d[6]) + ((2*d[3] + d[0])/(d[9]*2))))*((2*d[3])/d[6]) + (f[1]*d[3])/d[6]:.2f} \\text{{ N}} }}$      
+        ${{\hspace{{4mm}} B_y = B_x \\cdot {(2*d[3])/d[6] :.2f} + {(f[1]*d[3])/d[6]:.2f} \\text{{ N}} }}$      
+        ${{\hspace{{4mm}} B_y = {((-((f[1]*d[3])/d[6]) - (f[0]/2))/(((2*d[3])/d[6]) + ((2*d[3] + d[0])/(d[9]*2))))*((2*d[3])/d[6]) + (f[1]*d[3])/d[6]:.2f} \\text{{ N}} }}$      
         
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
-    # Questionary(#1_2
-    #     code = 5230012,
-    #     no_pregunta = 1,
-    #     complexity = D,
-    #     topic = "Armaduras",
-    #     subtopic = "Marcos",
-    #     version = 2,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza en el elemento FD y las componentes de la fuerza ejercida sobre el segmento ABC en el pasador C (Utilice el signo para indicar dirección). Considere $F_1 = {f[0]:.0f} \\text{{ N}}$, $d_1 = {2*d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[0]:.0f}  \\text{{ m}}$, $d_3 = {2*d[3]:.0f} \\text{{ m}}$ y $d_4 = {d[3]:.0f} \\text{{ m}}$.",
-    #     no_answers = 3,
-    #     a1_name = "Fuerza $C_x$ [N]",
-    #     a2_name = "Fuerza $C_y$ [N]",
-    #     a3_name = "Fuerza $F_{{FD}}$ [N]",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round((3*f[0]*(d[0]/d[3])),2),
-    #     answer2 = lambda f, a, calc, c, d, m: np.round(2*f[0],2),
-    #     answer3 = lambda f, a, calc, c, d, m: np.round((f[0]*3)/((2*d[3]/Calculations.magnitude(d[0], (2*d[3])))),2),
-    #     ayuda1 = "Para visualizar mejor el ejercicio, puede ayudar desensamblar o despiezar los elementos del marco y dibujar un diagrama de cuerpo libre para cada uno.",
-    #     ayuda2 = "Cada elemento debe cumplir las condiciones de equilibrio, es decir, la sumatoria de fuerzas en cualquier dirección debe ser cero y que los momentos respecto a cualquier punto debe ser cero.",      
-    #     ayuda3 = "",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     Los armazones son estructuras estacionarias en las cuales, al menos un elemento esta sometido a la acción de varias fuerzas. A continuación, se presenta la solución sugerida para el ejercicio: 
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
+    Questionary(#1_2
+        code = 5230012,
+        no_pregunta = 1,
+        complexity = D,
+        topic = "Armaduras",
+        subtopic = "Marcos",
+        version = 2,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza en el elemento FD y las componentes de la fuerza ejercida sobre el segmento ABC en el pasador C (Utilice el signo para indicar dirección). Considere $F_1 = {f[0]:.0f} \\text{{ N}}$, $d_1 = {2*d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[0]:.0f}  \\text{{ m}}$, $d_3 = {2*d[3]:.0f} \\text{{ m}}$ y $d_4 = {d[3]:.0f} \\text{{ m}}$.",
+        no_answers = 3,
+        a1_name = "Fuerza $C_x$ [N]",
+        a2_name = "Fuerza $C_y$ [N]",
+        a3_name = "Fuerza $F_{{FD}}$ [N]",
+        answer1 = lambda f, a, calc, c, d, m: np.round((3*f[0]*(d[0]/d[3])),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(2*f[0],2),
+        answer3 = lambda f, a, calc, c, d, m: np.round((f[0]*3)/((2*d[3]/Calculations.magnitude(d[0], (2*d[3])))),2),
+        ayuda1 = "Para visualizar mejor el ejercicio, puede ayudar desensamblar o despiezar los elementos del marco y dibujar un diagrama de cuerpo libre para cada uno.",
+        ayuda2 = "Cada elemento debe cumplir las condiciones de equilibrio, es decir, la sumatoria de fuerzas en cualquier dirección debe ser cero y que los momentos respecto a cualquier punto debe ser cero.",      
+        ayuda3 = "",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        Los armazones son estructuras estacionarias en las cuales, al menos un elemento esta sometido a la acción de varias fuerzas. A continuación, se presenta la solución sugerida para el ejercicio: 
               
-    #     $\\textbf{{\\small 1. Condición de equilibrio global: }}$
+        $\\textbf{{\\small 1. Condición de equilibrio global: }}$
         
-    #     $\\underline{{Momento \\hspace{{2mm}} en \\hspace{{2mm}} C:}}$     
+        $\\underline{{Momento \\hspace{{2mm}} en \\hspace{{2mm}} C:}}$     
         
-    #     ${{\hspace{{4mm}} \\sum{{M_C}} = 0 }}$          
-    #     ${{\hspace{{4mm}} \\sum{{M_C}} = F_1 \\cdot (d_1 + d_2) - R_{{Ay}} \\cdot (d_1 + d_2) = 0  }}$      
-    #     ${{\hspace{{4mm}} R_{{Ay}} = F_1 = {f[0]:.0f} \\text{{ N}} }}$      
+        ${{\hspace{{4mm}} \\sum{{M_C}} = 0 }}$          
+        ${{\hspace{{4mm}} \\sum{{M_C}} = F_1 \\cdot (d_1 + d_2) - R_{{Ay}} \\cdot (d_1 + d_2) = 0  }}$      
+        ${{\hspace{{4mm}} R_{{Ay}} = F_1 = {f[0]:.0f} \\text{{ N}} }}$      
         
-    #     $\\underline{{Sumatoria \\hspace{{2mm}} fuerzas \\hspace{{2mm}} en \\hspace{{2mm}} Y:}}$     
+        $\\underline{{Sumatoria \\hspace{{2mm}} fuerzas \\hspace{{2mm}} en \\hspace{{2mm}} Y:}}$     
         
-    #     ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$          
-    #     ${{\hspace{{4mm}} \\sum{{F_y}} = R_{{Ay}} + R_{{Cy}} - F_1 = 0  }}$      
-    #     ${{\hspace{{4mm}} R_{{Cy}} = 0 }}$
+        ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$          
+        ${{\hspace{{4mm}} \\sum{{F_y}} = R_{{Ay}} + R_{{Cy}} - F_1 = 0  }}$      
+        ${{\hspace{{4mm}} R_{{Cy}} = 0 }}$
         
-    #     Ahora bien, el hecho de que $R_{{Cy}}$ sea cero, no implica que en el pasador C que conecta los elementos ABC y CDE no haya reacciones. Con eso en cuenta, podemos encontrar esas fuerzas:
+        Ahora bien, el hecho de que $R_{{Cy}}$ sea cero, no implica que en el pasador C que conecta los elementos ABC y CDE no haya reacciones. Con eso en cuenta, podemos encontrar esas fuerzas:
         
-    #     $\\textbf{{\\small 2. Condición de equilibrio Elemento ABC: }}$
+        $\\textbf{{\\small 2. Condición de equilibrio Elemento ABC: }}$
         
-    #     $\\underline{{Momento \\hspace{{2mm}} en \\hspace{{2mm}} C:}}$     
+        $\\underline{{Momento \\hspace{{2mm}} en \\hspace{{2mm}} C:}}$     
         
-    #     ${{\hspace{{4mm}} \\sum{{M_C}} = 0 }}$          
-    #     ${{\hspace{{4mm}} \\sum{{M_C}} = F_{{BD}} \\cdot \\dfrac{{d_4}}{{sqrt{{(d_2)^{{2}} + (d_4)^{{2}}}}}} \\cdot d_2 - R_{{Ay}} \\cdot (d_1 + d_2) = 0  }}$      
-    #     ${{\hspace{{4mm}} \\sum{{M_C}} = F_{{BD}} \\cdot {d[0]*(d[3]/Calculations.magnitude(d[0],d[3])):.2f} \\text{{ m}} - {f[0]:.0f} \\text{{ N}} \\cdot {3*d[0]:.0f} \\text{{ m}} = 0 }}$     
-    #     ${{\hspace{{4mm}} F_{{BD}} \\cdot {d[0]*(d[3]/Calculations.magnitude(d[0],d[3])):.2f} \\text{{ m}} = {f[0]*3*d[0]:.2f} \\text{{ N}} \\cdot \\text{{ m}} }}$      
-    #     ${{\hspace{{4mm}} F_{{BD}} = {(f[0]*3)/((d[3]/Calculations.magnitude(d[0],d[3]))):.2f} \\text{{ N}} }}$      
+        ${{\hspace{{4mm}} \\sum{{M_C}} = 0 }}$          
+        ${{\hspace{{4mm}} \\sum{{M_C}} = F_{{BD}} \\cdot \\dfrac{{d_4}}{{sqrt{{(d_2)^{{2}} + (d_4)^{{2}}}}}} \\cdot d_2 - R_{{Ay}} \\cdot (d_1 + d_2) = 0  }}$      
+        ${{\hspace{{4mm}} \\sum{{M_C}} = F_{{BD}} \\cdot {d[0]*(d[3]/Calculations.magnitude(d[0],d[3])):.2f} \\text{{ m}} - {f[0]:.0f} \\text{{ N}} \\cdot {3*d[0]:.0f} \\text{{ m}} = 0 }}$     
+        ${{\hspace{{4mm}} F_{{BD}} \\cdot {d[0]*(d[3]/Calculations.magnitude(d[0],d[3])):.2f} \\text{{ m}} = {f[0]*3*d[0]:.2f} \\text{{ N}} \\cdot \\text{{ m}} }}$      
+        ${{\hspace{{4mm}} F_{{BD}} = {(f[0]*3)/((d[3]/Calculations.magnitude(d[0],d[3]))):.2f} \\text{{ N}} }}$      
         
-    #     $\\underline{{Sumatoria \\hspace{{2mm}} fuerzas \\hspace{{2mm}} en \\hspace{{2mm}} Y:}}$     
+        $\\underline{{Sumatoria \\hspace{{2mm}} fuerzas \\hspace{{2mm}} en \\hspace{{2mm}} Y:}}$     
         
-    #     ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$          
-    #     ${{\hspace{{4mm}} \\sum{{F_y}} = R_{{Ay}} - F_{{BD}} \\cdot \\dfrac{{d_4}}{{sqrt{{(d_2)^{{2}} + (d_4)^{{2}}}}}} + C_y = 0  }}$      
-    #     ${{\hspace{{4mm}} C_y = F_{{BD}} \\cdot \\dfrac{{d_4}}{{sqrt{{(d_2)^{{2}} + (d_4)^{{2}}}}}} - R_{{Ay}}}}$      
-    #     ${{\hspace{{4mm}} C_y = {(f[0]*3)/((d[3]/Calculations.magnitude(d[0],d[3]))):.2f} \\cdot {(d[3]/Calculations.magnitude(d[0],d[3])):.2f} \\text{{ N}}  - {f[0]:.0f} \\text{{ N}}}}$      
-    #     ${{\hspace{{4mm}} C_y = {2*f[0]:.2f} \\text{{ N}}}}$      
+        ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$          
+        ${{\hspace{{4mm}} \\sum{{F_y}} = R_{{Ay}} - F_{{BD}} \\cdot \\dfrac{{d_4}}{{sqrt{{(d_2)^{{2}} + (d_4)^{{2}}}}}} + C_y = 0  }}$      
+        ${{\hspace{{4mm}} C_y = F_{{BD}} \\cdot \\dfrac{{d_4}}{{sqrt{{(d_2)^{{2}} + (d_4)^{{2}}}}}} - R_{{Ay}}}}$      
+        ${{\hspace{{4mm}} C_y = {(f[0]*3)/((d[3]/Calculations.magnitude(d[0],d[3]))):.2f} \\cdot {(d[3]/Calculations.magnitude(d[0],d[3])):.2f} \\text{{ N}}  - {f[0]:.0f} \\text{{ N}}}}$      
+        ${{\hspace{{4mm}} C_y = {2*f[0]:.2f} \\text{{ N}}}}$      
 
-    #     $\\underline{{Sumatoria \\hspace{{2mm}} fuerzas \\hspace{{2mm}} en \\hspace{{2mm}} X:}}$     
+        $\\underline{{Sumatoria \\hspace{{2mm}} fuerzas \\hspace{{2mm}} en \\hspace{{2mm}} X:}}$     
         
-    #     ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$          
-    #     ${{\hspace{{4mm}} \\sum{{F_x}} = C_x - F_{{BD}} \\cdot \\dfrac{{d_2}}{{sqrt{{(d_2)^{{2}} + (d_4)^{{2}}}}}} = 0  }}$      
-    #     ${{\hspace{{4mm}} C_x = F_{{BD}} \\cdot \\dfrac{{d_4}}{{sqrt{{(d_2)^{{2}} + (d_4)^{{2}}}}}} }}$      
-    #     ${{\hspace{{4mm}} C_x = {(f[0]*3)/((d[3]/Calculations.magnitude(d[0],d[3]))):.2f} \\cdot {(d[0]/Calculations.magnitude(d[0],d[3])):.2f} \\text{{ N}}}}$      
-    #     ${{\hspace{{4mm}} C_x = {3*f[0]*(d[0]/d[3]):.2f} \\text{{ N}}}}$           
+        ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$          
+        ${{\hspace{{4mm}} \\sum{{F_x}} = C_x - F_{{BD}} \\cdot \\dfrac{{d_2}}{{sqrt{{(d_2)^{{2}} + (d_4)^{{2}}}}}} = 0  }}$      
+        ${{\hspace{{4mm}} C_x = F_{{BD}} \\cdot \\dfrac{{d_4}}{{sqrt{{(d_2)^{{2}} + (d_4)^{{2}}}}}} }}$      
+        ${{\hspace{{4mm}} C_x = {(f[0]*3)/((d[3]/Calculations.magnitude(d[0],d[3]))):.2f} \\cdot {(d[0]/Calculations.magnitude(d[0],d[3])):.2f} \\text{{ N}}}}$      
+        ${{\hspace{{4mm}} C_x = {3*f[0]*(d[0]/d[3]):.2f} \\text{{ N}}}}$           
         
-    #     $\\textbf{{\\small 3. Condición de equilibrio Elemento EFG - Momento en E: }}$     
+        $\\textbf{{\\small 3. Condición de equilibrio Elemento EFG - Momento en E: }}$     
         
-    #     ${{\hspace{{4mm}} \\sum{{M_G}} = 0 }}$          
-    #     ${{\hspace{{4mm}} \\sum{{M_G}} = F_1 \\cdot (d_1 + d_2) - F_{{FD}} \\cdot \\dfrac{{d_3}}{{sqrt{{(d_3)^{{2}} + (d_4)^{{2}}}}}} \\cdot d_2 = 0  }}$      
-    #     ${{\hspace{{4mm}} \\sum{{M_G}} = {f[0]:.0f} \\text{{ N}} \\cdot {3*d[0]:.0f} \\text{{ m}} - F_{{FD}} \\cdot {d[0]*((2*d[3])/Calculations.magnitude(d[0], (2*d[3]))):.2f} \\text{{ m}} = 0 }}$     
-    #     ${{\hspace{{4mm}} F_{{FD}} \\cdot {d[0]*((2*d[3])/Calculations.magnitude(d[0], (2*d[3]))):.2f} \\text{{ m}} = {f[0]*3*d[0]:.2f} \\text{{ N}} \\cdot \\text{{ m}} }}$      
-    #     ${{\hspace{{4mm}} F_{{FD}} = {(f[0]*3)/((2*d[3]/Calculations.magnitude(d[0], (2*d[3])))):.2f} \\text{{ N}} }}$      
+        ${{\hspace{{4mm}} \\sum{{M_G}} = 0 }}$          
+        ${{\hspace{{4mm}} \\sum{{M_G}} = F_1 \\cdot (d_1 + d_2) - F_{{FD}} \\cdot \\dfrac{{d_3}}{{sqrt{{(d_3)^{{2}} + (d_4)^{{2}}}}}} \\cdot d_2 = 0  }}$      
+        ${{\hspace{{4mm}} \\sum{{M_G}} = {f[0]:.0f} \\text{{ N}} \\cdot {3*d[0]:.0f} \\text{{ m}} - F_{{FD}} \\cdot {d[0]*((2*d[3])/Calculations.magnitude(d[0], (2*d[3]))):.2f} \\text{{ m}} = 0 }}$     
+        ${{\hspace{{4mm}} F_{{FD}} \\cdot {d[0]*((2*d[3])/Calculations.magnitude(d[0], (2*d[3]))):.2f} \\text{{ m}} = {f[0]*3*d[0]:.2f} \\text{{ N}} \\cdot \\text{{ m}} }}$      
+        ${{\hspace{{4mm}} F_{{FD}} = {(f[0]*3)/((2*d[3]/Calculations.magnitude(d[0], (2*d[3])))):.2f} \\text{{ N}} }}$      
         
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
 
     #========================================================  SISTEMAS EQUIVALENTES  =========================================================
     #-------------------------------------------------       Sistemas equivalentes 2D-3D      --------------------------------------------
