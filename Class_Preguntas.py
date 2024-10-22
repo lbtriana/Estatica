@@ -5385,14 +5385,15 @@ preguntas = [
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),
+
     Questionary(#1_2
-        code = 5230012,
-        no_pregunta = 1,
+        code = 5230021,
+        no_pregunta = 2,
         complexity = D,
         topic = "Armaduras",
         subtopic = "Marcos",
-        version = 2,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza en el elemento FD y las componentes de la fuerza ejercida sobre el segmento ABC en el pasador C (Utilice el signo para indicar dirección). Considere $F_1 = {f[0]:.0f} \\text{{ N}}$, $d_1 = {2*d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[0]:.0f}  \\text{{ m}}$, $d_3 = {2*d[3]:.0f} \\text{{ m}}$ y $d_4 = {d[3]:.0f} \\text{{ m}}$.",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza en el elemento FD y las componentes de la fuerza ejercida por el pasador en C sobre el segmento ABC. Considere $F_1 = {f[0]:.0f} \\text{{ N}}$, $d_1 = {2*d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[0]:.0f}  \\text{{ m}}$, $d_3 = {2*d[3]:.0f} \\text{{ m}}$ y $d_4 = {d[3]:.0f} \\text{{ m}}$.",
         no_answers = 3,
         a1_name = "Fuerza $C_x$ [N]",
         a2_name = "Fuerza $C_y$ [N]",
@@ -5400,12 +5401,12 @@ preguntas = [
         answer1 = lambda f, a, calc, c, d, m: np.round((3*f[0]*(d[0]/d[3])),2),
         answer2 = lambda f, a, calc, c, d, m: np.round(2*f[0],2),
         answer3 = lambda f, a, calc, c, d, m: np.round((f[0]*3)/((2*d[3]/Calculations.magnitude(d[0], (2*d[3])))),2),
-        ayuda1 = "Para visualizar mejor el ejercicio, puede ayudar desensamblar o despiezar los elementos del marco y dibujar un diagrama de cuerpo libre para cada uno.",
-        ayuda2 = "Cada elemento debe cumplir las condiciones de equilibrio, es decir, la sumatoria de fuerzas en cualquier dirección debe ser cero y que los momentos respecto a cualquier punto debe ser cero.",      
-        ayuda3 = "",
+        ayuda1 = MA1,
+        ayuda2 = MA2,      
+        ayuda3 = MA3,
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-        Los armazones son estructuras estacionarias en las cuales, al menos un elemento esta sometido a la acción de varias fuerzas. A continuación, se presenta la solución sugerida para el ejercicio: 
-              
+        Los marcos son estructuras en las cuales al menos un elemento esta sometido a la acción de varias fuerzas. A continuación, se presenta la solución sugerida para el ejercicio: 
+        
         $\\textbf{{\\small 1. Condición de equilibrio global: }}$
         
         $\\underline{{Momento \\hspace{{2mm}} en \\hspace{{2mm}} C:}}$     
@@ -5420,8 +5421,8 @@ preguntas = [
         ${{\hspace{{4mm}} \\sum{{F_y}} = R_{{Ay}} + R_{{Cy}} - F_1 = 0  }}$      
         ${{\hspace{{4mm}} R_{{Cy}} = 0 }}$
         
-        Ahora bien, el hecho de que $R_{{Cy}}$ sea cero, no implica que en el pasador C que conecta los elementos ABC y CDE no haya reacciones. Con eso en cuenta, podemos encontrar esas fuerzas:
-        
+        Es importante notar que el hecho de que $R_{{Cy}}$ sea cero no implica que en el pasador C que conecta los elementos ABC y CDE no haya reacciones. Teniendo esto en cuenta, se procede a encontrar las fuerzas que actúan en dicho pasador:
+    
         $\\textbf{{\\small 2. Condición de equilibrio Elemento ABC: }}$
         
         $\\underline{{Momento \\hspace{{2mm}} en \\hspace{{2mm}} C:}}$     
@@ -5435,27 +5436,26 @@ preguntas = [
         $\\underline{{Sumatoria \\hspace{{2mm}} fuerzas \\hspace{{2mm}} en \\hspace{{2mm}} Y:}}$     
         
         ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$          
-        ${{\hspace{{4mm}} \\sum{{F_y}} = R_{{Ay}} - F_{{BD}} \\cdot \\dfrac{{d_4}}{{sqrt{{(d_2)^{{2}} + (d_4)^{{2}}}}}} + C_y = 0  }}$      
-        ${{\hspace{{4mm}} C_y = F_{{BD}} \\cdot \\dfrac{{d_4}}{{sqrt{{(d_2)^{{2}} + (d_4)^{{2}}}}}} - R_{{Ay}}}}$      
+        ${{\hspace{{4mm}} \\sum{{F_y}} = R_{{Ay}} - F_{{BD}} \\cdot \\dfrac{{d_4}}{{\\sqrt{{(d_2)^{{2}} + (d_4)^{{2}}}}}} + C_y = 0  }}$      
+        ${{\hspace{{4mm}} C_y = F_{{BD}} \\cdot \\dfrac{{d_4}}{{\\sqrt{{(d_2)^{{2}} + (d_4)^{{2}}}}}} - R_{{Ay}}}}$      
         ${{\hspace{{4mm}} C_y = {(f[0]*3)/((d[3]/Calculations.magnitude(d[0],d[3]))):.2f} \\cdot {(d[3]/Calculations.magnitude(d[0],d[3])):.2f} \\text{{ N}}  - {f[0]:.0f} \\text{{ N}}}}$      
         ${{\hspace{{4mm}} C_y = {2*f[0]:.2f} \\text{{ N}}}}$      
 
         $\\underline{{Sumatoria \\hspace{{2mm}} fuerzas \\hspace{{2mm}} en \\hspace{{2mm}} X:}}$     
         
         ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$          
-        ${{\hspace{{4mm}} \\sum{{F_x}} = C_x - F_{{BD}} \\cdot \\dfrac{{d_2}}{{sqrt{{(d_2)^{{2}} + (d_4)^{{2}}}}}} = 0  }}$      
-        ${{\hspace{{4mm}} C_x = F_{{BD}} \\cdot \\dfrac{{d_4}}{{sqrt{{(d_2)^{{2}} + (d_4)^{{2}}}}}} }}$      
+        ${{\hspace{{4mm}} \\sum{{F_x}} = C_x - F_{{BD}} \\cdot \\dfrac{{d_2}}{{\\sqrt{{(d_2)^{{2}} + (d_4)^{{2}}}}}} = 0  }}$      
+        ${{\hspace{{4mm}} C_x = F_{{BD}} \\cdot \\dfrac{{d_4}}{{\\sqrt{{(d_2)^{{2}} + (d_4)^{{2}}}}}} }}$      
         ${{\hspace{{4mm}} C_x = {(f[0]*3)/((d[3]/Calculations.magnitude(d[0],d[3]))):.2f} \\cdot {(d[0]/Calculations.magnitude(d[0],d[3])):.2f} \\text{{ N}}}}$      
         ${{\hspace{{4mm}} C_x = {3*f[0]*(d[0]/d[3]):.2f} \\text{{ N}}}}$           
         
         $\\textbf{{\\small 3. Condición de equilibrio Elemento EFG - Momento en E: }}$     
         
         ${{\hspace{{4mm}} \\sum{{M_G}} = 0 }}$          
-        ${{\hspace{{4mm}} \\sum{{M_G}} = F_1 \\cdot (d_1 + d_2) - F_{{FD}} \\cdot \\dfrac{{d_3}}{{sqrt{{(d_3)^{{2}} + (d_4)^{{2}}}}}} \\cdot d_2 = 0  }}$      
+        ${{\hspace{{4mm}} \\sum{{M_G}} = F_1 \\cdot (d_1 + d_2) - F_{{FD}} \\cdot \\dfrac{{d_3}}{{\\sqrt{{(d_3)^{{2}} + (d_4)^{{2}}}}}} \\cdot d_2 = 0  }}$      
         ${{\hspace{{4mm}} \\sum{{M_G}} = {f[0]:.0f} \\text{{ N}} \\cdot {3*d[0]:.0f} \\text{{ m}} - F_{{FD}} \\cdot {d[0]*((2*d[3])/Calculations.magnitude(d[0], (2*d[3]))):.2f} \\text{{ m}} = 0 }}$     
         ${{\hspace{{4mm}} F_{{FD}} \\cdot {d[0]*((2*d[3])/Calculations.magnitude(d[0], (2*d[3]))):.2f} \\text{{ m}} = {f[0]*3*d[0]:.2f} \\text{{ N}} \\cdot \\text{{ m}} }}$      
         ${{\hspace{{4mm}} F_{{FD}} = {(f[0]*3)/((2*d[3]/Calculations.magnitude(d[0], (2*d[3])))):.2f} \\text{{ N}} }}$      
-        
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",

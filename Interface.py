@@ -881,10 +881,9 @@ if authenticate_user():
                         st.image(AR_image_paths[9], width=350) 
                 if subtopic == "Marcos":
                     if pregunta_no == 1:
-                        if version_no ==1:
-                            st.image(AR_image_paths[14], width=500) 
-                        if version_no == 2:
-                            st.image(AR_image_paths[15], width=400)
+                        st.image(AR_image_paths[14], width=500) 
+                    if pregunta_no == 2:
+                        st.image(AR_image_paths[15], width=400)
                             
         return
 
