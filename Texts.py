@@ -190,7 +190,7 @@ C7 = "Uno de los métodos para analizar las fuerzas en los elementos de las cerc
 MA1 = "Para comprender mejor el ejercicio, es útil desensamblar los elementos del marco y dibujar un diagrama de cuerpo libre para cada uno."
 MA2 = "Una vez se despiezan los elementos, las reacciones en los pasadores son visibles. Para que haya equilibrio en el pasador, las reacciones sobre el pasador deben ser opuestas entre los dos elementos conectados. Por ejemplo, si en el elemento 1 la reacción $R_y$ es positiva, en el elemento 2 la reacción $R_y$ es negativa."
 MA3 = "Cada elemento debe cumplir las condiciones de equilibrio, es decir, la sumatoria de fuerzas en cualquier dirección debe ser cero y que la sumatoria de momentos respecto a cualquier punto también debe ser cero."
-
+MA4 = "Para encontrar las reacciones de los apoyos, es útil verficar el equilibrio global de la estructura."
 
 #------------------------------------- Textos para las respuestas ---------------------------------------
 

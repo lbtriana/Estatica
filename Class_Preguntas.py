@@ -5231,40 +5231,40 @@ preguntas = [
         topic = "Armaduras",
         subtopic = "Marcos",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine las componentes de la reacción en D y la componente vertical de la reacción en E (Utilice el signo para indicar dirección). Considere $F_1 = {f[0]:.0f} \\text{{ N}}$, $M_1 = {m[0]:.0f} \\text{{  N}} \\cdot \\text {{ m}}$,  $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$ y $d_3 = {d[6]:.0f} \\text{{ m}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine las componentes de la reacción en D y la componente vertical de la reacción en E (Indique el signo de la dirección de las fuerzas). Considere $F_1 = {f[0]:.0f} \\text{{ N}}$, $M_1 = {m[0]:.0f} \\text{{  N}} \\cdot \\text {{ m}}$,  $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$ y $d_3 = {d[6]:.0f} \\text{{ m}}$.",
         no_answers = 3,
         a1_name = "Reacción $D_x$ [N]",
         a2_name = "Reacción $D_y$ [N]",
         a3_name = "Reacción $E_y$ [N]",
-        answer1 = lambda f, a, calc, c, d, m: np.round((m[0] - ((m[0] - f[0]*d[3])/(d[6] + d[3]))*d[3])/d[0],2),
-        answer2 = lambda f, a, calc, c, d, m: np.round((m[0] - f[0]*d[3])/(d[6] + d[3]),2),
-        answer3 = lambda f, a, calc, c, d, m: np.round(f[0] - (m[0] - f[0]*d[3])/(d[6] + d[3]), 2),
-        ayuda1 = "Para encontrar reacciones, es util verficar el equilibrio global de la estructura.",
-        ayuda2 = "Para visualizar mejor el ejercicio, puede ayudar desensamblar o despiezar los elementos del marco y dibujar un diagrama de cuerpo libre para cada uno.",      
-        ayuda3 = "Cada elemento debe cumplir las condiciones de equilibrio, es decir, la sumatoria de fuerzas en cualquier dirección debe ser cero y que los momentos respecto a cualquier punto debe ser cero.",
+        answer1 = lambda f, a, calc, c, d, m: np.round((m[0] - ((-m[0] + f[0]*d[3])/(d[6] + d[3]))*d[3])/d[0],2),
+        answer2 = lambda f, a, calc, c, d, m: np.round((-m[0] + f[0]*d[3])/(d[6] + d[3]),2),
+        answer3 = lambda f, a, calc, c, d, m: np.round(f[0]-(-m[0] + f[0]*d[3])/(d[6] + d[3]), 2),
+        ayuda1 = MA4,
+        ayuda2 = MA1,
+        ayuda3 = MA3,
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-        Los armazones son estructuras estacionarias en las cuales, al menos un elemento esta sometido a la acción de varias fuerzas. A continuación, se presenta la solución sugerida para el ejercicio: 
+        Los marcos son estructuras en las cuales al menos un elemento esta sometido a la acción de varias fuerzas. A continuación, se presenta la solución sugerida para el ejercicio: 
         
         $\\textbf{{\\small 1. Condición de equilibrio global - Momento en E: }}$
         
         ${{\hspace{{4mm}} \\sum{{M_E}} = 0 }}$          
         ${{\hspace{{4mm}} \\sum{{M_E}} = F_1 \\cdot d_2 - D_y \\cdot (d_3 + d_2) - M_1 = 0  }}$      
         ${{\hspace{{4mm}} \\sum{{M_E}} = {f[0]:.0f} \\text{{ N}} \\cdot {d[3]:.0f} \\text{{ m}} - D_y \\cdot {d[6] + d[3] :.0f} \\text{{ m}} - {m[0]:.0f} \\text{{  N}} \\cdot \\text {{ m}} = 0 }}$     
-        ${{\hspace{{4mm}} D_y \\cdot {d[6] + d[3] :.0f} \\text{{ m}} = {m[0] - f[0]*d[3]:.0f} \\text{{ N}} \\cdot \\text{{ m}} }}$      
-        ${{\hspace{{4mm}} D_y = {(m[0] - f[0]*d[3])/(d[6] + d[3]):.2f} \\text{{ N}} }}$      
+        ${{\hspace{{4mm}} D_y \\cdot {d[6] + d[3] :.0f} \\text{{ m}} = {f[0]*d[3]-m[0]:.0f} \\text{{ N}} \\cdot \\text{{ m}} }}$      
+        ${{\hspace{{4mm}} D_y = {(-m[0] + f[0]*d[3])/(d[6] + d[3]):.2f} \\text{{ N}} }}$      
         
         $\\textbf{{\\small 2. Condición de equilibrio global- Sumatoria de fuerzas en Y: }}$
         
         ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$          
-        ${{\hspace{{4mm}} \\sum{{F_y}} = {(m[0] - f[0]*d[3])/(d[6] + d[3]):.2f} \\text{{ N}} - {f[0]:.0f} \\text{{ N}} + E_y = 0  }}$       
-        ${{\hspace{{4mm}} E_y = {f[0] - (m[0] - f[0]*d[3])/(d[6] + d[3]):.2f} \\text{{ N}} }}$      
+        ${{\hspace{{4mm}} \\sum{{F_y}} = {(-m[0] + f[0]*d[3])/(d[6] + d[3]):.2f} \\text{{ N}} - {f[0]:.0f} \\text{{ N}} + E_y = 0  }}$       
+        ${{\hspace{{4mm}} E_y = {f[0]-(-m[0] + f[0]*d[3])/(d[6] + d[3]):.2f} \\text{{ N}} }}$      
         
         $\\textbf{{\\small 3. Condición de equilibrio Elemento ACD - Momento en C: }}$
         
         ${{\hspace{{4mm}} \\sum{{M_C}} = 0 }}$          
-        ${{\hspace{{4mm}} \\sum{{M_C}} = {(m[0] - f[0]*d[3])/(d[6] + d[3]):.2f} \\text{{ N}} \\cdot {d[3]:.0f} \\text{{ m}} - {m[0]:.0f} \\text{{  N}} \\cdot \\text {{ m}} + D_x \\cdot {d[0]:.0f} \\text{{ m}} = 0  }}$      
-        ${{\hspace{{4mm}} D_x \\cdot {d[0]:.0f} \\text{{ m}} = {m[0] - ((m[0] - f[0]*d[3])/(d[6] + d[3]))*d[3]:.2f} \\text{{ N}} \\cdot \\text {{ m}}}}$      
-        ${{\hspace{{4mm}} D_x  = {(m[0] - ((m[0] - f[0]*d[3])/(d[6] + d[3]))*d[3])/d[0]:.2f} \\text{{ N}} }}$      
+        ${{\hspace{{4mm}} \\sum{{M_C}} = {(-m[0] + f[0]*d[3])/(d[6] + d[3]):.2f} \\text{{ N}} \\cdot {d[3]:.0f} \\text{{ m}} - {m[0]:.0f} \\text{{  N}} \\cdot \\text {{ m}} + D_x \\cdot {d[0]:.0f} \\text{{ m}} = 0  }}$      
+        ${{\hspace{{4mm}} D_x \\cdot {d[0]:.0f} \\text{{ m}} = {m[0] - ((-m[0] + f[0]*d[3])/(d[6] + d[3]))*d[3]:.2f} \\text{{ N}} \\cdot \\text {{ m}}}}$      
+        ${{\hspace{{4mm}} D_x  = {(m[0] - ((-m[0] + f[0]*d[3])/(d[6] + d[3]))*d[3])/d[0]:.2f} \\text{{ N}} }}$      
         
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
@@ -5393,7 +5393,7 @@ preguntas = [
         topic = "Armaduras",
         subtopic = "Marcos",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza en el elemento FD y las componentes de la fuerza ejercida por el pasador en C sobre el segmento ABC. Considere $F_1 = {f[0]:.0f} \\text{{ N}}$, $d_1 = {2*d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[0]:.0f}  \\text{{ m}}$, $d_3 = {2*d[3]:.0f} \\text{{ m}}$ y $d_4 = {d[3]:.0f} \\text{{ m}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza en el elemento FD y las componentes de la fuerza ejercida sobre el segmento ABC en el pasador C. Considere $F_1 = {f[0]:.0f} \\text{{ N}}$, $d_1 = {2*d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[0]:.0f}  \\text{{ m}}$, $d_3 = {2*d[3]:.0f} \\text{{ m}}$ y $d_4 = {d[3]:.0f} \\text{{ m}}$.",
         no_answers = 3,
         a1_name = "Fuerza $C_x$ [N]",
         a2_name = "Fuerza $C_y$ [N]",
