@@ -4586,7 +4586,7 @@ preguntas = [
         ayuda2 = C6,    
         ayuda3 = "",
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-        Una cercha es una estructura compuesta por elementos rectos que se conectan entre si por puntos llamados nodos, formando triángulos. El metodo de los nodos es una técnica para determinar fuerzas internas utilizando el principio de que cada nodo está en equilibrio. A continuación, se presenta la solución sugerida para el ejercicio: 
+        Una cercha es una estructura compuesta por elementos rectos que se conectan entre sí por puntos llamados nodos, formando triángulos. El método de los nodos es una técnica usada para determinar las fuerzas internas en una cercha, basándose en el principio de que cada nodo está en equilibrio. A continuación, se presenta la solución sugerida para el ejercicio: 
         
         $\\textbf{{\\small 1. Cálculo de las reacciones en los apoyos: }}$
         
@@ -4748,62 +4748,68 @@ preguntas = [
         a2_name = "Fuerza en DF [lb]",
         a3_name = "Fuerza en CE [lb]",
         answer1 = lambda f, a, calc, c, d, m: np.round(-((f[1] + (f[0]/2))/((d[6])/(Calculations.magnitude(d[0],d[6])))),2),
-        answer2 = lambda f, a, calc, c, d, m: np.round(((f[0]/2) + ((f[1] + (f[0]/2))*(d[0]/d[3])))/(((d[9] + d[6])/(Calculations.magnitude(d[3],d[9])))),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(-((f[0]/2) + ((f[1] + (f[0]/2))*(d[0]/d[3])))/(((d[9] + d[6])/(Calculations.magnitude(d[3],d[9])))),2),
         answer3 = lambda f, a, calc, c, d, m: np.round(((f[1] + (f[0]/2))/(d[6]))*(d[0]), 2),
-        ayuda1 = "La armadura Gambrel se caracteriza por ser una estructura simétrica. ¿Qué nos dice esto respecto a las reacciones y a las fuerzas de cada elemento?",
-        ayuda2 = "Uno de los metodos para analizar fuerzas en elementos de cerchas es el Método de los nodos. Este consiste en evaluar el equilibrio en cada nodo. Para analizar mejor un nodo es importante dibujar un diagrama de cuerpo libre claro y detallado con cada fuerza involucrada",      
-        ayuda3 = "Un miembro en compresión empuja o genera una fuerza sobre el nodo (la fuerza entra al nodo); un miembro a tensión jala o genera una fuerza hacia afuera del nodo (la fuerza sale del nodo)",
+        ayuda1 = "La armadura Gambrel se caracteriza por ser una estructura simétrica. ¿Qué nos dice esto sobre las reacciones y las fuerzas de cada elemento?",
+        ayuda2 = C3,      
+        ayuda3 = C6,
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-        Una cercha es una estructura compuesta por elementos rectos que se conectan entre si por puntos llamados nodos, formando triángulos. El metodo de nodos es una técnica para determinar fuerzas internas utilizando el principio de que cada nodo está en equilibrio bajo las fuerzas que actúan sobre él. A continuación, se presenta la solución sugerida para el ejercicio: 
-        
+        Una cercha es una estructura compuesta por elementos rectos que se conectan entre sí por puntos llamados nodos, formando triángulos. El método de los nodos es una técnica usada para determinar las fuerzas internas en una cercha, basándose en el principio de que cada nodo está en equilibrio. A continuación, se presenta la solución sugerida para el ejercicio: 
+
         $\\textbf{{\\small 1. Cálculo de las reacciones en los apoyos: }}$
         
         ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$               
         ${{\hspace{{4mm}} \\sum{{F_x}} = H_x = 0}}$             
               
-        Ahora bien, dado que la cercha es simétrica, se sabe que $H_y$ = $A_y$, tal que, se podrá obtener el siguiente resultado de la sumatoria de fuerzas en Y: 
-             
+        Dado que la cercha es simétrica, se sabe que $H_y$ = $A_y$. Tal que, se puede obtener el siguiente resultado de la sumatoria de fuerzas en Y: 
+        
         ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$          
         ${{\hspace{{4mm}} \\sum{{F_y}} = A_y + H_y - (2F_3 + 2F_2 + F_1) = 2A_y - {2*f[2] + 2*f[1] + f[0]:.0f} \\text{{ lb}} = 0}}$     
-        ${{\hspace{{4mm}} H_y = A_y = {f[2] + f[1] + (f[0]/2):.0f} \\text{{ lb}} }}$
+        ${{\hspace{{4mm}} H_y = A_y = {f[2] + f[1] + (f[0]/2):.2f} \\text{{ lb}} }}$
         
         $\\textbf{{\\small 2. Nodo A: }}$
 
-        En el nodo A se puede obtener las siguientes ecuaciones:
+        En el nodo A se pueden obtener las siguientes ecuaciones:
         
-        ${{\hspace{{4mm}} 1. \\sum{{F_x}} = F_{{BC}} - F_{{AB}} \\cdot \\dfrac{{d_1}}{{\\sqrt{{(d_1)^{{2}} + (d_3)^{{2}}}}}} = F_{{BC}} - F_{{AB}} \\cdot {(d[0])/(Calculations.magnitude(d[0],d[6])):.2f} = 0 }}$     
-        ${{\hspace{{4mm}} 2. \\sum{{F_y}} = A_y - F_3 - F_{{AB}} \\cdot \\dfrac{{d_3}}{{\\sqrt{{(d_1)^{{2}} + (d_3)^{{2}}}}}}= {f[2] + f[1] + (f[0]/2):.0f} \\text{{ lb}} - {f[2]:0f} \\text{{ lb}} - F_{{AB}} \\cdot {(d[6])/(Calculations.magnitude(d[0],d[6])):.2f} = 0 }}$      
+        ${{\hspace{{4mm}} 1. \\sum{{F_x}} = F_{{AC}} - F_{{AB}} \\cdot \\dfrac{{d_1}}{{\\sqrt{{(d_1)^{{2}} + (d_3)^{{2}}}}}} = F_{{AC}} - F_{{AB}} \\cdot {(d[0])/(Calculations.magnitude(d[0],d[6])):.2f} = 0 }}$     
+        ${{\hspace{{4mm}} 2. \\sum{{F_y}} = A_y - F_3 - F_{{AB}} \\cdot \\dfrac{{d_3}}{{\\sqrt{{(d_1)^{{2}} + (d_3)^{{2}}}}}}= {f[2] + f[1] + (f[0]/2):.2f} \\text{{ lb}} - {f[2]:.2f} \\text{{ lb}} - F_{{AB}} \\cdot {(d[6])/(Calculations.magnitude(d[0],d[6])):.2f} = 0 }}$      
         
-        De la ecuación 2, podemos obtener F_{{AB}}:
+        De la ecuación 2, se obtiene $F_{{AB}}$:
         
-        ${{\hspace{{4mm}} {f[2] + f[1] + (f[0]/2):.0f} \\text{{ lb}} - {f[2]:0f} \\text{{ lb}} - F_{{AB}} \\cdot {(d[6])/(Calculations.magnitude(d[0],d[6])):.2f}= 0}}$      
-        ${{\hspace{{4mm}} F_{{AB}} \\cdot {(d[6])/(Calculations.magnitude(d[0],d[6])):.2f} = {f[1] + (f[0]/2):.0f} \\text{{ lb}}}}$      
+        ${{\hspace{{4mm}} {f[2] + f[1] + (f[0]/2):.2f} \\text{{ lb}} - {f[2]:.2f} \\text{{ lb}} - F_{{AB}} \\cdot {(d[6])/(Calculations.magnitude(d[0],d[6])):.2f}= 0}}$      
+        ${{\hspace{{4mm}} F_{{AB}} \\cdot {(d[6])/(Calculations.magnitude(d[0],d[6])):.2f} = {f[1] + (f[0]/2):.2f} \\text{{ lb}}}}$      
         ${{\hspace{{4mm}} F_{{AB}} = {(f[1] + (f[0]/2))/((d[6])/(Calculations.magnitude(d[0],d[6]))):.2f} \\text{{ lb}}}}$      
         
-        Ahora bien, uno se da cuenta, que en el nodo C, solo estan involucradas las fuerzas $F_{{AC}}$ y $F_{{CE}}$, siendo que, el elemento BC es de fuerza cero. Tal que, se puede sacar $F_{{CE}}$ calculando $F_{{AC}}$ en la ecuación 1 del nodo A, reemplazando el dato de $F_{{AB}}$ obtenido anteriormente:
-              
-        ${{\hspace{{4mm}} F_{{BC}} - {(f[1] + (f[0]/2))/((d[6])/(Calculations.magnitude(d[0],d[6]))):.2f} \\text{{ lb}} \\cdot {(d[0])/(Calculations.magnitude(d[0],d[6])):.2f} = 0}}$      
-        ${{\hspace{{4mm}} F_{{CE}} = F_{{BC}} = {((f[1] + (f[0]/2))/(d[6]))*(d[0]):.2f} \\text{{ lb}} }}$       
+        El elemento AB se encuentra a $\\textbf{{\\small Compresión}}$.
+
+        Ahora bien, al analizar el nodo C, se observa que solo estan involucradas las fuerzas $F_{{AC}}$ y $F_{{CE}}$, dado que, el elemento BC es de fuerza cero. De este modo, se puede calcular $F_{{CE}}$ calculando $F_{{AC}}$ de la ecuación 1 del nodo A, reemplazando el dato de $F_{{AB}}$ obtenido previamente:
         
+        ${{\hspace{{4mm}} F_{{AC}} - {(f[1] + (f[0]/2))/((d[6])/(Calculations.magnitude(d[0],d[6]))):.2f} \\text{{ lb}} \\cdot {(d[0])/(Calculations.magnitude(d[0],d[6])):.2f} = 0}}$      
+        ${{\hspace{{4mm}} F_{{CE}} = F_{{AC}} = {((f[1] + (f[0]/2))/(d[6]))*(d[0]):.2f} \\text{{ lb}} }}$       
+        
+        El elemento CE se encuentra a $\\textbf{{\\small Tensión}}$.
+
         $\\textbf{{\\small 3. Nodo B: }}$
 
-        Como la cercha es simétrica se podrá resolver para el nodo B, y calcular el resutlado de $F_{{BD}}$, que va a ser el mismo que $F_{{DF}}$:
+        Como la cercha es simétrica se podrá resolver para el nodo B el resultado de $F_{{BD}}$, que va a ser el mismo que $F_{{DF}}$:
         
         ${{\hspace{{4mm}} 1. \\sum{{F_x}} = F_{{AB}} \\cdot \\dfrac{{d_1}}{{\\sqrt{{(d_1)^{{2}} + (d_3)^{{2}}}}}} - F_{{BE}} \\cdot \\dfrac{{d_2}}{{\\sqrt{{(d_2)^{{2}} + (d_3)^{{2}}}}}} - F_{{BD}} \\cdot \\dfrac{{d_2}}{{\\sqrt{{(d_2)^{{2}} + (d_4)^{{2}}}}}} = {((f[1] + (f[0]/2))/(d[6]))*(d[0]):.2f} \\text{{ lb}}  - F_{{BE}} \\cdot {(d[3])/(Calculations.magnitude(d[3],d[6])):.2f} - F_{{BD}} \\cdot {(d[3])/(Calculations.magnitude(d[3],d[9])):.2f} = 0}}$      
         ${{\hspace{{4mm}} 2. \\sum{{F_y}} = - F_2 + F_{{AB}} \\cdot \\dfrac{{d_3}}{{\\sqrt{{(d_1)^{{2}} + (d_3)^{{2}}}}}} + F_{{BE}} \\cdot \\dfrac{{d_3}}{{\\sqrt{{(d_2)^{{2}} + (d_3)^{{2}}}}}} - F_{{BD}} \\cdot \\dfrac{{d_4}}{{\\sqrt{{(d_2)^{{2}} + (d_4)^{{2}}}}}} = - {f[1]:.0f}\\text{{ lb}} + {(f[1] + (f[0]/2)):.2f} \\text{{ lb}}  + F_{{BE}} \\cdot {(d[6])/(Calculations.magnitude(d[3],d[6])):.2f} - F_{{BD}} \\cdot {(d[9])/(Calculations.magnitude(d[3],d[9])):.2f}  = 0 }}$      
         
-        Donde, se observa como de la primera ecuación se puede despejar $F_{{BE}}$ en terminos de $F_{{BD}}$, para luego hacer la sustitución en la segunda ecuación y resolver para $F_{{BD}}$:
+        Se observa que a partir de la primera ecuación se puede despejar $F_{{BE}}$ en términos de $F_{{BD}}$. Luego, se realiza la sustitución en la segunda ecuación para resolver $F_{{BD}}$:
         
         ${{\hspace{{4mm}} {(f[1] + (f[0]/2))*(d[0]/d[6]):.2f} \\text{{ lb}}  - F_{{BE}} \\cdot {(d[3])/(Calculations.magnitude(d[3],d[6])):.2f} - F_{{BD}} \\cdot {(d[3])/(Calculations.magnitude(d[3],d[9])):.2f} = 0}}$      
         ${{\hspace{{4mm}} F_{{BE}} \\cdot {(d[3])/(Calculations.magnitude(d[3],d[6])):.2f} = {(f[1] + (f[0]/2))*(d[0]/d[6]):.2f} \\text{{ lb}}  - F_{{BD}} \\cdot {(d[3])/(Calculations.magnitude(d[3],d[9])):.2f}}}$      
         ${{\hspace{{4mm}} F_{{BE}} = {((f[1] + (f[0]/2))*((d[0]*(Calculations.magnitude(d[3],d[6])))/(d[6]*d[3]))):.2f} \\text{{ lb}} - F_{{BD}} \\cdot {(Calculations.magnitude(d[3],d[6]))/(Calculations.magnitude(d[3],d[9])):.2f}}}$     
         
-        Finalmente:
+        Finalmente:       
         ${{\hspace{{4mm}} {(f[0]/2):.2f} \\text{{ lb}} + F_{{BE}} \\cdot {(d[6])/(Calculations.magnitude(d[3],d[6])):.2f} - F_{{BD}} \\cdot {(d[9])/(Calculations.magnitude(d[3],d[9])):.2f} = 0 }}$      
         ${{\hspace{{4mm}} F_{{BD}} \\cdot {(d[9])/(Calculations.magnitude(d[3],d[9])):.2f} =  {(f[0]/2):.2f} \\text{{ lb}} + ({((f[1] + (f[0]/2))*((d[0]*(Calculations.magnitude(d[3],d[6])))/(d[6]*d[3]))):.2f} \\text{{ lb}} - F_{{BD}} \\cdot {(Calculations.magnitude(d[3],d[6]))/(Calculations.magnitude(d[3],d[9])):.2f}) \\cdot {(d[6])/(Calculations.magnitude(d[3],d[6])):.2f}}}$      
         ${{\hspace{{4mm}} F_{{BD}} \\cdot {(d[9])/(Calculations.magnitude(d[3],d[9])):.2f} =  {(f[0]/2) + ((f[1] + (f[0]/2))*(d[0]/d[3])):.2f} \\text{{ lb}} - F_{{BD}} \\cdot {(d[6])/(Calculations.magnitude(d[3],d[9])):.2f} }}$      
         ${{\hspace{{4mm}} F_{{BD}} \\cdot {((d[9] + d[6])/(Calculations.magnitude(d[3],d[9]))):.2f} = {(f[0]/2) + ((f[1] + (f[0]/2))*(d[0]/d[3])):.2f} \\text{{ lb}}}}$      
         ${{\hspace{{4mm}} F_{{DF}} = F_{{BD}} = {((f[0]/2) + ((f[1] + (f[0]/2))*(d[0]/d[3])))/(((d[9] + d[6])/(Calculations.magnitude(d[3],d[9])))):.2f} \\text{{ lb}}}}$                       
+       
+        El elemento DF se encuentra a $\\textbf{{\\small Compresión}}$.
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
