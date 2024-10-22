@@ -171,6 +171,20 @@ AR_image_paths =[
 "./Imagenes/Preguntas/AR/MA/AR_MA_D_2a.png", #[15]
 ]
 
+SE_image_paths =[
+#Cerchas_Nivel Fácil
+"./Imagenes/Preguntas/SE/SE_SE_F_1a.png" #[0]
+"./Imagenes/Preguntas/SE/SE_SE_F_1b.png" #[1]
+"./Imagenes/Preguntas/SE/SE_SE_F_2a.png" #[2]
+"./Imagenes/Preguntas/SE/SE_SE_F_3a.png" #[3]
+
+#Cerchas_Nivel Medio
+"./Imagenes/Preguntas/SE/SE_SE_M_1a.png" #[4]
+"./Imagenes/Preguntas/SE/SE_SE_M_1b.png" #[5]
+
+#Cerchas_Nivel Díficil
+"./Imagenes/Preguntas/SE/SE_SE_D_1a.png" #[6]
+]
 
 #================================ Imágenes Respuestas Cálculo Equilibrio ===================================
 rtas_paths= [
