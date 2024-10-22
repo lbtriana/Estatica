@@ -184,6 +184,8 @@ C3 = "Uno de los métodos para analizar las fuerzas en los elementos de una cerc
 C4 = "Revisar el equilibrio de cada nodo para determinar cuáles elementos deben tener fuerza cero y así cumplir con la condición de equilibrio. No es necesario involucrar cálculos."
 C5 = "Una manera de identificar los elementos de fuerza cero es localizar aquellos que son colineales entre sí y no tienen una carga externa aplicada. Según las condiciones de equilibrio, el elemento que es perpendicular a los colineales será un elemento de fuerza cero."
 C6 = "Un miembro sometido a compresión ejerce una fuerza hacia el nodo (la fuerza entra al nodo). Por el contrario, un miembro sometido a tensión genera una fuerza que hala hacia afuera del nodo (la fuerza sale del nodo)."
+C7 = "Uno de los métodos para analizar las fuerzas en los elementos de las cerchas es el Método de secciones. Este método se basa en el principio de que, si la armadura está en equilibrio, cualquier parte de ella lo estará."
+
 
 
 #------------------------------------- Textos para las respuestas ---------------------------------------

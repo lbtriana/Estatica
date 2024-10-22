@@ -868,7 +868,7 @@ if authenticate_user():
                     if pregunta_no == 1:
                         st.image(AR_image_paths[8], width=500)
                     if pregunta_no == 2:
-                        st.image(AR_image_paths[9], width=500) 
+                        st.image(AR_image_paths[9], width=350) 
                             
         return
 

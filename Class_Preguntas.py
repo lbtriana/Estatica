@@ -4952,7 +4952,7 @@ preguntas = [
         topic = "Armaduras",
         subtopic = "Cerchas",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine las fuerzas internas de los miembros DC, HC y DH de la armadura presentada (Use negativo si el elemento esta en compresión y positivo si el elemento esta tensión). Considere $F_1 = {f[0]:.0f} \\text{{ lb}}$, $F_2 = {f[1]:.0f} \\text{{ lb}}$, $F_3 = {f[2]:.0f} \\text{{ lb}}$, $F_4 = {f[2]:.0f} \\text{{ lb}}$, $d_1 = {d[0]:.0f} \\text{{ ft}}$ y $d_2 = {d[3]:.0f}  \\text{{ ft}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine las fuerzas internas de los miembros DC, HC y DH de la armadura presentada (Use negativo si el elemento esta en compresión y positivo si el elemento esta tensión). Considere $F_1 = {f[0]:.0f} \\text{{ lb}}$, $F_2 = {f[1]:.0f} \\text{{ lb}}$, $F_3 = {f[2]:.0f} \\text{{ lb}}$, $F_4 = {f[3]:.0f} \\text{{ lb}}$, $d_1 = {d[0]:.0f} \\text{{ ft}}$ y $d_2 = {d[3]:.0f}  \\text{{ ft}}$.",
         no_answers = 3,
         a1_name = "Fuerza en DC [lb]",
         a2_name = "Fuerza en HC [lb]",
@@ -4960,48 +4960,55 @@ preguntas = [
         answer1 = lambda f, a, calc, c, d, m: np.round(-(f[3]*d[3]+f[2]*2*d[3])/((d[0]*d[3])/(Calculations.magnitude(d[0],d[3]))),2),
         answer2 = lambda f, a, calc, c, d, m: np.round(f[3] + 2*f[2],2),
         answer3 = lambda f, a, calc, c, d, m: np.round((f[3]+f[2]*2)*(d[3]/d[0]) - f[1], 2),
-        ayuda1 = "Uno de los metodos para analizar fuerzas en elementos de cerchas es el Método de secciones. Este se basa en el principio de que si la armadura esta en equilibrio así mismo lo estará cualquier parte de ella.",
-        ayuda2 = "Uno de los metodos para analizar fuerzas en elementos de cerchas es el Método de los nodos. Este consiste en evaluar el equilibrio en cada nodo. Para analizar mejor un nodo es importante dibujar un diagrama de cuerpo libre claro y detallado con cada fuerza involucrada",      
-        ayuda3 = "Un miembro en compresión empuja o genera una fuerza sobre el nodo (la fuerza entra al nodo); un miembro a tensión jala o genera una fuerza hacia afuera del nodo (la fuerza sale del nodo)",
+        ayuda1 = C7,
+        ayuda2 = C3,      
+        ayuda3 = C6,
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-        Una cercha es una estructura compuesta por elementos rectos que se conectan entre si por puntos llamados nodos, formando triángulos. A continuación, se presenta la solución sugerida para el ejercicio: 
+        Una cercha es una estructura compuesta por elementos rectos que se conectan entre sí por puntos llamados nodos, formando triángulos. A continuación, se presenta la solución sugerida para el ejercicio: 
         
         $\\textbf{{\\small 1. Cálculo de las reacciones en los apoyos: }}$     
         
         ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$               
         ${{\hspace{{4mm}} \\sum{{F_x}} = A_x - F_3 - F_4 = 0}}$             
-        ${{\hspace{{4mm}} A_x = F_3 + F_4 = {f[2] + f[3] :.0f} \\text{{ lb}}}}$         
+        ${{\hspace{{4mm}} A_x = F_3 + F_4 = {f[2] + f[3] :.0f} \\text{{ lb}}}}$        
              
         ${{\hspace{{4mm}} \\sum{{M_A}} = 0 }}$     
         ${{\hspace{{4mm}} \\sum{{M_A}} = F_4 \\cdot d_2 + F_3 \\cdot 2d_2 + F_1 \\cdot d_1 - F_y \\cdot 2d_1 = 0}}$     
-        ${{\hspace{{4mm}} F_y = \\dfrac{{F_4 \\cdot d_2 + F_3 \\cdot 2d_2 + F_1 \\cdot d_1}}{{2d_1}} = {(f[3]*d[3]+f[2]*2*d[3]+f[0]*d[0])/(2*d[0]):.2f}}}$     
+        ${{\hspace{{4mm}} F_y = \\dfrac{{F_4 \\cdot d_2 + F_3 \\cdot 2d_2 + F_1 \\cdot d_1}}{{2d_1}} = {(f[3]*d[3]+f[2]*2*d[3]+f[0]*d[0])/(2*d[0]):.2f} \\text{{ lb}} }}$     
              
         ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$          
         ${{\hspace{{4mm}} \\sum{{F_y}} = A_y + F_y - F_1 - F_2 = 0}}$     
-        ${{\hspace{{4mm}} A_y = F_1 + F_2 - F_y = {f[0] + f[1] - (f[3]*d[3]+f[2]*2*d[3]+f[0]*d[0])/(2*d[0]) :.2f}}}$     
+        ${{\hspace{{4mm}} A_y = F_1 + F_2 - F_y = {f[0] + f[1] - (f[3]*d[3]+f[2]*2*d[3]+f[0]*d[0])/(2*d[0]) :.2f} \\text{{ lb}} }}$     
         
-        $\\textbf{{\\small 2. Condición de equilibrio de armadura seccionada: }}$     
+        $\\textbf{{\\small 2. Condición de equilibrio del corte seleccionado: }}$     
         
-        En la armadura mostrada, se realiza un corte donde se obtiene solo la parte compuesta por nodos FEDGH, teniendo solo a las reacciones en F y las fuerzas $F_1$, $F_2$, $F_{{DC}}$, $F_{{HC}}$ y $F_{{HI}}$ como fuerzas involucradas. A partir de las cuales, se utilizan las ecuaciones de equilibrio para encontrar las fuerzas deseadas:
-        
+        En la cercha mostrada, se realiza un corte que aísla la parte compuesta por los nodos F,E, D, G, H y la siguientes fuerzas: las reacciones en F y las fuerzas $F_1$, $F_2$, $F_{{DC}}$, $F_{{HC}}$ y $F_{{HI}}$. A partir de estas fuerzas, se utilizan las ecuaciones de equilibrio para encontrar las incógnitas deseadas:
+
         $\\underline{{Despeje \\hspace{{2mm}} de \\hspace{{2mm}} F_{{DC}}:}}$    
         
-        ${{\hspace{{4mm}} \\sum{{M_H}} = F_1 \\cdot d_1 - F_y \\cdot 2d_1 - F_{{DC}} \\cdot  \\dfrac{{d_1}}{{sqrt{{(d_1)^{{2}} + (d_2)^{{2}}}}}}  \\cdot d_2 = {f[0]*d[0]:.2f} \\text{{ lb}} \\cdot \\text{{ ft}} - {(f[3]*d[3]+f[2]*2*d[3]+f[0]*d[0]):.2f} \\text{{ lb}} \\cdot \\text{{ ft}} - F_{{DC}} \\cdot {(d[0]*d[3])/(Calculations.magnitude(d[0],d[3])):.2f} \\text{{ ft}} = 0 }}$      
+        ${{\hspace{{4mm}} \\sum{{M_H}} = F_1 \\cdot d_1 - F_y \\cdot 2d_1 - F_{{DC}} \\cdot  \\dfrac{{d_1}}{{\\sqrt{{(d_1)^{{2}} + (d_2)^{{2}}}}}}  \\cdot d_2 = {f[0]*d[0]:.2f} \\text{{ lb}} \\cdot \\text{{ ft}} - {(f[3]*d[3]+f[2]*2*d[3]+f[0]*d[0]):.2f} \\text{{ lb}} \\cdot \\text{{ ft}} - F_{{DC}} \\cdot {(d[0]*d[3])/(Calculations.magnitude(d[0],d[3])):.2f} \\text{{ ft}} = 0 }}$      
         ${{\hspace{{4mm}} F_{{DC}} \\cdot {(d[0]*d[3])/(Calculations.magnitude(d[0],d[3])):.2f} \\text{{ ft}} = {- (f[3]*d[3]+f[2]*2*d[3]):.2f} \\text{{ lb}} \\cdot \\text{{ ft}} }}$      
-        ${{\hspace{{4mm}} F_{{DC}} = {-(f[3]*d[3]+f[2]*2*d[3])/((d[0]*d[3])/(Calculations.magnitude(d[0],d[3]))):.2f} \\text{{ lb}}  }}$       
+        ${{\hspace{{4mm}} F_{{DC}} = {-(f[3]*d[3]+f[2]*2*d[3])/((d[0]*d[3])/(Calculations.magnitude(d[0],d[3]))):.2f} \\text{{ lb}}  }}$   
+
+        {'El elemento DC está a Tensión.' if (-(f[3]*d[3]+f[2]*2*d[3])/((d[0]*d[3])/(Calculations.magnitude(d[0],d[3])))) > 0 else 'El elemento DC está a Compresión.'}  
         
         $\\underline{{Despeje \\hspace{{2mm}} de \\hspace{{2mm}} F_{{HC}}:}}$     
-        Teniendo en cuenta que F_{{DC}} está en compresión :
+
+        Teniendo en cuenta que el elemento DC está en compresión :
         
-        ${{\hspace{{4mm}} \\sum{{F_x}} = F_{{HC}} - F_{{DC}} \\cdot \\dfrac{{d_1}}{{sqrt{{(d_1)^{{2}} + (d_2)^{{2}}}}}} = F_{{HC}} - {f[3] + 2*f[2]:.2f} \\text{{ lb}} = 0 }}$     
-        ${{\hspace{{4mm}} F_{{HC}} = {f[3] + 2*f[2]:.2f} \\text{{ lb}} }}$     
+        ${{\hspace{{4mm}} \\sum{{F_x}} = F_{{HC}} - F_{{DC}} \\cdot \\dfrac{{d_1}}{{\\sqrt{{(d_1)^{{2}} + (d_2)^{{2}}}}}} = F_{{HC}} - {f[3] + 2*f[2]:.2f} \\text{{ lb}} = 0 }}$     
+        ${{\hspace{{4mm}} F_{{HC}} = {f[3] + 2*f[2]:.2f} \\text{{ lb}} }}$  
+
+        {'El elemento HC está a Tensión.' if (f[3] + 2*f[2]) > 0 else 'El elemento HC está a Compresión.'}     
         
         $\\textbf{{\\small 3. Nodo D: }}$ 
         
         Para encontrar la fuerza $F_{{DH}}$, se puede evaluar el nodo D:
         
-        ${{\hspace{{4mm}} \\sum{{F_y}} = F_{{DH}} - F_2 + F_{{DC}} \\cdot \\dfrac{{d_2}}{{sqrt{{(d_1)^{{2}} + (d_2)^{{2}}}}}} = F_{{DH}} - {f[1]:.2f} \\tex{{ lb}} + {(f[3]+f[2]*2)*(d[3]/d[0])} \\tex{{ lb}} = 0 }}$      
-        ${{\hspace{{4mm}} F_{{DH}} =  {f[1] - (f[3]+f[2]*2)*(d[3]/d[0]):.2f} \\tex{{ lb}} }}$     
+        ${{\hspace{{4mm}} \\sum{{F_y}} = F_{{DH}} - F_2 + F_{{DC}} \\cdot \\dfrac{{d_2}}{{\\sqrt{{(d_1)^{{2}} + (d_2)^{{2}}}}}} = F_{{DH}} - {f[1]:.2f} \\text{{ lb}} + {(f[3]+f[2]*2)*(d[3]/d[0]):.2f} \\text{{ lb}} = 0 }}$      
+        ${{\hspace{{4mm}} F_{{DH}} =  {f[1] - (f[3]+f[2]*2)*(d[3]/d[0]):.2f} \\text{{ lb}} }}$  
+
+        {'El elemento DH está a Tensión.' if (f[1] - (f[3]+f[2]*2)*(d[3]/d[0])) < 0 else 'El elemento DH está a Compresión.'}   
                         
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
@@ -5018,7 +5025,7 @@ preguntas = [
         version = 1,
         pregunta = lambda f, a, calc, c, d, m: f"Si la fuerza máxima que cualquier elemento puede soportar es de ${f[0] + 35:.0f} \\text{{ N}}$ en tensión y de ${f[0]:.0f}\\text{{ N}}$ en compresión, calcule cual es la fuerza $F_1$ máxima que puede ser soportada en el nudo E. Considere $d_1 = {d[0]:.0f} \\text{{ m}}$ .",
         no_answers = 1,
-        a1_name = "F_1 [N]",
+        a1_name = "$F_1$ $[N]$",
         a2_name = "",
         a3_name = "",
         answer1 = lambda f, a, calc, c, d, m: np.round(((f[0] + 35)*(3*(d[0]/2)))/(Calculations.magnitude((d[0]/2), (3/2)*d[0])),2),
