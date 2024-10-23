@@ -5578,15 +5578,15 @@ preguntas = [
         a2_name = "Componente $M_{{Ry}}$ [$lb \\cdot ft$]",
         a3_name = "Componente $M_{{Rz}}$ [$lb \\cdot ft$]",
         answer1 = lambda f, a, calc, c, d, m: np.round(d[6]*(f[0]*(d[3]))/(Calculations.magnitude3D(d[3],d[6],2)),2),
-        answer2 = lambda f, a, calc, c, d, m: np.round((d[0])*(f[0]*d[6])/(Calculations.magnitude3D(d[3],d[6],2)),2),
-        answer3 = lambda f, a, calc, c, d, m: np.round((d[0]+2)*(f[0]*(d[3]))/(Calculations.magnitude3D(d[3],d[6],2)), 2),
-        ayuda1 = "La fuerza resultante será igual a la suma de todas las fuerzas en el sistema",
-        ayuda2 = "El par equivalente de un sistema equivalente fuerza-par se calcula sumando los momentos de las fuerzas originales respecto al punto de referencia.",      
+        answer2 = lambda f, a, calc, c, d, m: np.round(-(d[0])*(f[0]*d[6])/(Calculations.magnitude3D(d[3],d[6],2)),2),
+        answer3 = lambda f, a, calc, c, d, m: np.round(-(d[0]+2)*(f[0]*(d[3]))/(Calculations.magnitude3D(d[3],d[6],2)), 2),
+        ayuda1 = SE4,
+        ayuda2 = SE5,      
         ayuda3 = "",
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-        En un sistema equivalente fuerza-par es la combinación de una fuerza aplicada y un momento que genera el mismo efecto rotacional y traslacional sobre un cuerpo rígido que un sistema original. A continuación, se presenta la solución sugerida para el ejercicio:
-        
-        Para determinar el momento resultante en el sistema equivalente, cabe notar que solo es necesario calcular el momento que produce la fuerza $F_1$, :
+        Un sistema equivalente fuerza-par es la combinación de una fuerza aplicada y un momento que producen el mismo efecto rotacional y traslacional sobre un cuerpo rígido que el sistema original. A continuación, se presenta la solución sugerida para el ejercicio:
+       
+       Para determinar el momento resultante en el sistema equivalente, cabe notar que solo es necesario calcular el momento que produce la fuerza $F_1$. Dado que, al trasladar la fuerza $F_1$ al punto A, esta fuerza ya no produce momento en dicho punto:
         
         $\\textbf{{\\small 1. Descomposición F1: }}$
         
@@ -5609,14 +5609,14 @@ preguntas = [
         Haciendo Producto Cruz, la componente $\\hat{{j}}$ del momento se puede calcular como:
         
         ${{\hspace{{4mm}} M_j = - ( r_x \\cdot F_z - r_z \\cdot F_x ) = -( {d[0]+2:.0f} \\text{{ ft}} \\cdot {(f[0]*d[6])/(Calculations.magnitude3D(d[3],d[6],2)):.2f} \\text{{ lb}} - {d[6]:.0f} \\text{{ ft}} \\cdot {(f[0]*2)/(Calculations.magnitude3D(2,d[6],d[3])):.2f} \\text{{ lb}} )}}$       
-        ${{\hspace{{4mm}} M_j =  {d[6]*(f[0]*2)/(Calculations.magnitude3D(2,d[6],d[3])):.2f} \\text{{ lb}} \\cdot \\text{{ ft}} - {(d[0]+2)*(f[0]*d[6])/(Calculations.magnitude3D(d[3],d[6],2)):.2f} \\text{{ lb}} \\cdot \\text{{ ft}} = {(d[0])*(f[0]*d[6])/(Calculations.magnitude3D(d[3],d[6],2)):.2f} \\text{{ lb}} \\cdot \\text{{ ft}}}}$   
+        ${{\hspace{{4mm}} M_j =  {d[6]*(f[0]*2)/(Calculations.magnitude3D(2,d[6],d[3])):.2f} \\text{{ lb}} \\cdot \\text{{ ft}} - {(d[0]+2)*(f[0]*d[6])/(Calculations.magnitude3D(d[3],d[6],2)):.2f} \\text{{ lb}} \\cdot \\text{{ ft}} = {-(d[0])*(f[0]*d[6])/(Calculations.magnitude3D(d[3],d[6],2)):.2f} \\text{{ lb}} \\cdot \\text{{ ft}}}}$   
         
         $\\underline{{Componente \\hspace{{2mm}} \\hat{{k}} :}}$
         
         Haciendo Producto Cruz, la componente $\\hat{{k}}$ del momento se puede calcular como:
         
-        ${{\hspace{{4mm}} M_k=  r_x \\cdot F_y - r_y \\cdot F_x  = {d[0] + 2:.0f} \\text{{ ft}} \\cdot {(f[0]*(d[3]))/(Calculations.magnitude3D(d[3],d[6],2)):.2f} \\text{{ lb}} - 0 \\text{{ ft}} \\cdot {(f[0]*2)/(Calculations.magnitude3D(2,d[6],d[3])):.2f}{{ \\text{{ lb}}}}}}$       
-        ${{\hspace{{4mm}} M_k = {(d[0]+2)*(f[0]*(d[3]))/(Calculations.magnitude3D(d[3],d[6],2)):.2f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$   
+        ${{\hspace{{4mm}} M_k=  r_x \\cdot F_y - r_y \\cdot F_x  = {d[0] + 2:.0f} \\text{{ ft}} \\cdot {-(f[0]*(d[3]))/(Calculations.magnitude3D(d[3],d[6],2)):.2f} \\text{{ lb}} - 0 \\text{{ ft}} \\cdot {(f[0]*2)/(Calculations.magnitude3D(2,d[6],d[3])):.2f}{{ \\text{{ lb}}}}}}$       
+        ${{\hspace{{4mm}} M_k = {-(d[0]+2)*(f[0]*(d[3]))/(Calculations.magnitude3D(d[3],d[6],2)):.2f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$   
         
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
