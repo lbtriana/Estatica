@@ -494,12 +494,14 @@ if authenticate_user():
         else:
             st.sidebar.header("Práctica")
             complexity = st.sidebar.radio("Nivel de dificultad", options=["Fácil", "Medio", "Díficil"])
-            topic = st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Momento", "Armaduras"])
+            topic = st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Momento", "Sistemas equivalentes", "Armaduras"])
             
             if topic == "Equilibrio de partículas":
                 subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Vectores 2D", "Vectores 3D", "Vector unitario", "Equilibrio 2D"])
             elif topic=="Momento":
                 subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Momento en un punto 2D"])
+            elif topic=="Sistemas equivalentes":
+                subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Sistemas equivalentes"])
             elif topic=="Armaduras":
                 subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Cerchas", "Marcos"])
 
@@ -735,6 +737,16 @@ if authenticate_user():
                             st.image(MO_image_paths[2], width=350)
                         elif version_no == 4:
                             st.image(MO_image_paths[3], width=350)
+                if subtopic == "Sistemas equivalentes":
+                    if pregunta_no == 1:
+                        if version_no == 1:
+                            st.image(SE_image_paths[0], width=450) 
+                        if version_no == 2:
+                            st.image(SE_image_paths[1], width=450) 
+                    if pregunta_no == 2:
+                        st.image(SE_image_paths[2], width=500)
+                    if pregunta_no == 3:
+                        st.image(SE_image_paths[3], width=350)
                 if subtopic == "Cerchas":
                     if pregunta_no == 1:
                         if version_no == 1:
@@ -750,6 +762,7 @@ if authenticate_user():
                         st.image(AR_image_paths[10], width=450) 
                     if pregunta_no == 2:
                         st.image(AR_image_paths[11], width=350)
+                
 
             if difficulty == "Medio":
                 if subtopic == "Vectores 2D":
@@ -811,6 +824,11 @@ if authenticate_user():
                             st.image(MO_image_paths[7], width=500)
                         elif version_no == 4:
                             st.image(MO_image_paths[8], width=500)
+                if subtopic == "Sistemas equivalentes":
+                    if pregunta_no == 1:
+                        st.image(SE_image_paths[4], width=450)  
+                    if pregunta_no == 2:
+                        st.image(SE_image_paths[5], width=350)
                 if subtopic == "Cerchas":
                     if pregunta_no == 1:
                         st.image(AR_image_paths[4], width=400) 
@@ -874,6 +892,9 @@ if authenticate_user():
                             st.image(MO_image_paths[10], width=550)
                         elif version_no == 3:
                             st.image(MO_image_paths[11], width=550)
+                if subtopic == "Sistemas equivalentes":
+                    if pregunta_no == 1:
+                        st.image(SE_image_paths[6], width=450) 
                 if subtopic == "Cerchas":
                     if pregunta_no == 1:
                         st.image(AR_image_paths[8], width=500)
