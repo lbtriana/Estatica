@@ -5588,7 +5588,7 @@ preguntas = [
         
         Para determinar el momento resultante en el sistema equivalente, cabe notar que solo es necesario calcular el momento que produce la fuerza $F_1$, :
         
-        $\\textbf{{\\small 1. Descomposición F_1: }}$
+        $\\textbf{{\\small 1. Descomposición F1: }}$
         
         ${{\hspace{{4mm}} \\overrightarrow{{F_1}} = |\\overrightarrow{{F_1}}| \\cdot \\lambda_{{CB}}}}$    
         ${{\hspace{{4mm}} \\overrightarrow{{F_1}} = {f[0]:.0f}{{\\text{{ lb}}}} \\cdot [ ( {(2)/(Calculations.magnitude3D(2,d[3],d[6])):.2f} )\\hat{{i}} + ( {-(d[3])/(Calculations.magnitude3D(2,d[3],d[6])):.2f} )\\hat{{j}} + ( {(d[6])/(Calculations.magnitude3D(2,d[3],d[6])):.2f} )\\hat{{k}}]}}$    
@@ -5599,21 +5599,21 @@ preguntas = [
         
         $\\underline{{Componente \\hspace{{2mm}} \\hat{{i}} :}}$
         
-        Haciendo Producto Cruz, la componente \\hat{{i}} del momento se puede calcular como:
+        Haciendo Producto Cruz, la componente $\\hat{{i}}$ del momento se puede calcular como:
         
         ${{\hspace{{4mm}} M_i = r_y \\cdot F_z - r_z \\cdot F_y = 0 \\text{{ ft}} \\cdot  {(f[0]*d[6])/(Calculations.magnitude3D(d[3],d[6],2)):.2f}  \\text{{ lb}} + {d[6]:.0f} \\text{{ ft}} \\cdot {(f[0]*(d[3]))/(Calculations.magnitude3D(d[3],d[6],2)):.2f} \\text{{ lb}}}}$       
         ${{\hspace{{4mm}} M_i = {d[6]*(f[0]*(d[3]))/(Calculations.magnitude3D(d[3],d[6],2)):.2f} \\text{{ lb}} \\cdot \\text{{ ft}} }}$       
         
         $\\underline{{Componente \\hspace{{2mm}} \\hat{{j}} :}}$
         
-        Haciendo Producto Cruz, la componente \\hat{{j}} del momento se puede calcular como:
+        Haciendo Producto Cruz, la componente $\\hat{{j}}$ del momento se puede calcular como:
         
         ${{\hspace{{4mm}} M_j = - ( r_x \\cdot F_z - r_z \\cdot F_x ) = -( {d[0]+2:.0f} \\text{{ ft}} \\cdot {(f[0]*d[6])/(Calculations.magnitude3D(d[3],d[6],2)):.2f} \\text{{ lb}} - {d[6]:.0f} \\text{{ ft}} \\cdot {(f[0]*2)/(Calculations.magnitude3D(2,d[6],d[3])):.2f} \\text{{ lb}} )}}$       
         ${{\hspace{{4mm}} M_j =  {d[6]*(f[0]*2)/(Calculations.magnitude3D(2,d[6],d[3])):.2f} \\text{{ lb}} \\cdot \\text{{ ft}} - {(d[0]+2)*(f[0]*d[6])/(Calculations.magnitude3D(d[3],d[6],2)):.2f} \\text{{ lb}} \\cdot \\text{{ ft}} = {(d[0])*(f[0]*d[6])/(Calculations.magnitude3D(d[3],d[6],2)):.2f} \\text{{ lb}} \\cdot \\text{{ ft}}}}$   
         
         $\\underline{{Componente \\hspace{{2mm}} \\hat{{k}} :}}$
         
-        Haciendo Producto Cruz, la componente \\hat{{k}} del momento se puede calcular como:
+        Haciendo Producto Cruz, la componente $\\hat{{k}}$ del momento se puede calcular como:
         
         ${{\hspace{{4mm}} M_k=  r_x \\cdot F_y - r_y \\cdot F_x  = {d[0] + 2:.0f} \\text{{ ft}} \\cdot {(f[0]*(d[3]))/(Calculations.magnitude3D(d[3],d[6],2)):.2f} \\text{{ lb}} - 0 \\text{{ ft}} \\cdot {(f[0]*2)/(Calculations.magnitude3D(2,d[6],d[3])):.2f}{{ \\text{{ lb}}}}}}$       
         ${{\hspace{{4mm}} M_k = {(d[0]+2)*(f[0]*(d[3]))/(Calculations.magnitude3D(d[3],d[6],2)):.2f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$   
