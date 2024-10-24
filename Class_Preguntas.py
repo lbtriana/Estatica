@@ -5743,24 +5743,24 @@ preguntas = [
         topic = "Sistemas equivalentes",
         subtopic = "Sistemas equivalentes",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Teniendo como origen el punto F, reemplace el sistema de fuerzas y momentos en la imagen por una sola fuerza resultante ubicada a lo largo de la linea F-C. Considere $F_1 = {m[0]*(3/2):.2f} \\text{{ N}}$, $F_2 = {m[0]*2:.0f} \\text{{ N}}$, $F_3 = {m[1]:.0f} \\text{{ N}}$, $F_4 = {m[0]/2:.2f} \\text{{ N}}$, $M = {m[0]:.0f} \\text{{ N}} \\cdot \\text{{ m}}$,  $\\alpha_1 = {a[0]:.0f}°$, $d_1 = {d[0]*(3/4):.2f} \\text{{ m}}$ y $d_2 = {(d[0]):.0f} \\text{{ m}}$. ",
+        pregunta = lambda f, a, calc, c, d, m: f"Teniendo como origen el punto F, reemplace el sistema de fuerzas y momentos mostrado en la imagen por una sola fuerza resultante ubicada a lo largo de la linea F-C. Considere $F_1 = {m[0]*(3/2):.2f} \\text{{ N}}$, $F_2 = {m[0]*2:.0f} \\text{{ N}}$, $F_3 = {m[1]:.0f} \\text{{ N}}$, $F_4 = {m[0]/2:.2f} \\text{{ N}}$, $M = {m[0]:.0f} \\text{{ N}} \\cdot \\text{{ m}}$,  $\\alpha_1 = {a[0]:.0f}°$, $d_1 = {d[0]*(3/4):.2f} \\text{{ m}}$ y $d_2 = {(d[0]):.0f} \\text{{ m}}$. ",
         no_answers = 3,
         a1_name = "Magnitud fuerza resultante $|F_R|$ [N]",
         a2_name = "Coordenada X [m]",
         a3_name = "Coordenada Y [m]",
         answer1 = lambda f, a, calc, c, d, m: np.round(Calculations.magnitude((m[0]/2)*calc['cos1'] - m[0]*2, m[1] + (m[0]/2)*calc['sin1']),2),
-        answer2 = lambda f, a, calc, c, d, m: np.round((m[1]*(3/2)*d[0] + 2*m[0]*d[0] - m[0]*(3/2)*(Calculations.magnitude(d[0]*(3/4),d[0]))/2 - m[0])/(m[1] + (m[0]/2)*calc['sin1'] - (2/3)*((m[0]/2)*calc['cos1'] - m[0]*2)),2),
-        answer3 = lambda f, a, calc, c, d, m: np.round((2/3)*(m[1]*(3/2)*d[0] + 2*m[0]*d[0] - m[0]*(3/2)*(Calculations.magnitude(d[0]*(3/4),d[0]))/2 - m[0])/(m[1] + (m[0]/2)*calc['sin1'] - (2/3)*((m[0]/2)*calc['cos1'] - m[0]*2)), 2),
-        ayuda1 = "La fuerza resultante será igual a la suma de todas las fuerzas en el sistema, y que el momento de la fuerza resultante es igual a la suma de los momentos originales desde cualquier punto.",
-        ayuda2 = "Para determinar la ubicación de la fuerza resultante con respecto a un punto de referencia, utilizamos la condición de que el momento producido por la fuerza resultante respecto a ese punto debe ser igual al momento de las fuerzas originales del sistema respecto al mismo punto.",      
-        ayuda3 = "",
+        answer2 = lambda f, a, calc, c, d, m: np.round((m[1]*(3/2)*d[0] + 2*m[0]*d[0] - m[0]*(3/2)*d[0]*(3/4)*(d[0]/(Calculations.magnitude(d[0]*(3/4),d[0]))) - m[0])/(m[1] + (m[0]/2)*calc['sin1'] - (2/3)*((m[0]/2)*calc['cos1'] - m[0]*2)),2),
+        answer3 = lambda f, a, calc, c, d, m: np.round((2/3)*(m[1]*(3/2)*d[0] + 2*m[0]*d[0] - m[0]*(3/2)*d[0]*(3/4)*(d[0]/(Calculations.magnitude(d[0]*(3/4),d[0]))) - m[0])/(m[1] + (m[0]/2)*calc['sin1'] - (2/3)*((m[0]/2)*calc['cos1'] - m[0]*2)), 2),
+        ayuda1 = SE1,
+        ayuda2 = SE2,      
+        ayuda3 = SE3,
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-        En un sistema equivalente se esta buscando reducir un sistema complejo a un sistema de fuerzas y momentos que producen mismo efecto rotacional y traslacional. A continuación, se presenta la solución sugerida para el ejercicio:
-        
+        En un sistema equivalente, se busca simplificar un sistema complejo de fuerzas y momentos a un sistema más simple que genere el mismo efecto rotacional y traslacional. A continuación, se presenta la solución sugerida para el ejercicio:
+
         $\\textbf{{\\small 1. Determinar fuerza resultante: }}$
         
-        Se debe tener presente que las fuerzas $F_1$ solo van a generar un momento par y no van a tener ningún efecto traslacional.
-        
+        Es importante tener en cuenta que las fuerzas $F_1$ únicamente generan un momento par y no tienen ningún efecto traslacional.
+
         $\\underline{{Sumatoria \\hspace{{2mm}} de \\hspace{{2mm}} fuerzas \\hspace{{2mm}} en \\hspace{{2mm}} X:}}$  
         
         ${{\hspace{{4mm}} \\sum{{F_x}} = F_{{Rx}}}}$          
@@ -5773,30 +5773,30 @@ preguntas = [
         ${{\hspace{{4mm}} F_{{Ry}} = F_4 \\cdot \\sin(\\alpha_1) + F_3 = {(m[0]/2)*calc['sin1']:.2f} \\text{{ N}} + {m[1]:.0f} \\text{{ N}}}}$          
         ${{\hspace{{4mm}} F_{{Ry}} = {m[1] + (m[0]/2)*calc['sin1']:.2f} \\text{{ N}} }}$          
         
-        Terminando con que la fuerza resultante $|F_R| = {Calculations.magnitude((m[0]/2)*calc['cos1'] - m[0]*2, m[1] + (m[0]/2)*calc['sin1']):.2f} \\text{{ N}}$
+        Por lo tanto la fuerza resultante $|F_R| = {Calculations.magnitude((m[0]/2)*calc['cos1'] - m[0]*2, m[1] + (m[0]/2)*calc['sin1']):.2f} \\text{{ N}}$
         
         $\\textbf{{\\small 2. Ubicación de fuerza resultante: }}$
         
-        Teniendo en cuenta que las coordenadas de la fuerza resultante son tales que la fuerza queda ubicada sobre la linea F-C, se puede hallar una relación entre ambas utilizando triángulos semejantes:
-        
+        Teniendo en cuenta que las coordenadas de la fuerza resultante están ubicadas sobre la linea F-C, se puede establecer una relación entre ambas utilizando triángulos semejantes:
+
         ${{\hspace{{4mm}} \\dfrac{{d_2}}{{2d_1}} = \\dfrac{{y}}{{x}}}}$     
         ${{\hspace{{4mm}} y = \\dfrac{{d_2}}{{2d_1}} \\cdot x }}$     
         ${{\hspace{{4mm}} y = {(2/3):.2f} \\cdot x }}$     
         
-        Ahora, se puede resolver la coordenada x utilizando la condición de momento de sistemas equivalentes:
+        Ahora, se puede determinar la coordenada x utilizando la condición de equivalencia de momentos en los sistemas. Haciendo producto cruz se obtiene:
         
         ${{\hspace{{4mm}} \\sum{{M_F}} = x \\cdot F_{{Ry}} - y \\cdot F_{{Rx}}}}$     
-        ${{\hspace{{4mm}} x \\cdot F_{{Ry}} - y \\cdot F_{{Rx}} = F_3 \\cdot 2d_1 + F_2 \\cdot d_2 - F_1 \\cdot \\dfrac{{sqrt{{(d_1)^{{2}} + (d_2)^{{2}}}}}}{{2}} - M}}$     
-        ${{\hspace{{4mm}} x \\cdot {m[1] + (m[0]/2)*calc['sin1']:.2f} \\text{{ N}} - {(2/3):.2f} \\cdot x \\cdot ({(m[0]/2)*calc['cos1'] - m[0]*2:.2f}) \\text{{ N}} = {m[1]:.0f} \\text{{ N}} \\cdot {d[0]*(3/2):.2f} \\text{{ m}} + {m[0]*2:.0f} \\text{{ N}} \\cdot {d[0]:.0f} \\text{{ m}} - {m[0]*(3/2):.2f} \\text{{ N}} \\cdot {(Calculations.magnitude(d[0]*(3/2),d[0]))/2:.2f} \\text{{ m}} - {m[0]:.0f} \\text{{ N}} \\cdot \\text{{ m}}}}$     
-        ${{\hspace{{4mm}} x \\cdot ({m[1] + (m[0]/2)*calc['sin1'] - (2/3)*((m[0]/2)*calc['cos1'] - m[0]*2):.2f}) \\text{{ N}} = {m[1]*(3/2)*d[0] + 2*m[0]*d[0] - m[0]*(3/2)*(Calculations.magnitude(d[0]*(3/4),d[0]))/2 - m[0]:.2f} \\text{{ N}} \\cdot \\text{{ m}}}}$     
-        ${{\hspace{{4mm}} x = {(m[1]*(3/2)*d[0] + 2*m[0]*d[0] - m[0]*(3/2)*(Calculations.magnitude(d[0]*(3/4),d[0]))/2 - m[0])/(m[1] + (m[0]/2)*calc['sin1'] - (2/3)*((m[0]/2)*calc['cos1'] - m[0]*2)):.2f} \\text{{ m}}}}$     
+        ${{\hspace{{4mm}} x \\cdot F_{{Ry}} - y \\cdot F_{{Rx}} = F_3 \\cdot 2d_1 + F_2 \\cdot d_2 - F_1 \\cdot \\dfrac{{d_2}}{{\\sqrt{{(d_1)^{{2}} + (d_2)^{{2}}}}}} \\cdot d_1 - M}}$     
+        ${{\hspace{{4mm}} x \\cdot {m[1] + (m[0]/2)*calc['sin1']:.2f} \\text{{ N}} - {(2/3):.2f} \\cdot x \\cdot ({(m[0]/2)*calc['cos1'] - m[0]*2:.2f}) \\text{{ N}} = {m[1]:.0f} \\text{{ N}} \\cdot {d[0]*(3/2):.2f} \\text{{ m}} + {m[0]*2:.0f} \\text{{ N}} \\cdot {d[0]:.0f} \\text{{ m}} - {m[0]*(3/2)*((d[0]*(3/4)*d[0])/Calculations.magnitude(d[0]*(3/2),d[0])):.2f} \\text{{ N}} \\cdot {d[0]*3/4:.2f} \\text{{ m}} - {m[0]:.0f} \\text{{ N}} \\cdot \\text{{ m}}}}$     
+        ${{\hspace{{4mm}} x \\cdot ({m[1] + (m[0]/2)*calc['sin1'] - (2/3)*((m[0]/2)*calc['cos1'] - m[0]*2):.2f}) \\text{{ N}} = {m[1]*(3/2)*d[0] + 2*m[0]*d[0] - m[0]*(3/2)*d[0]*(3/4)*(d[0]/(Calculations.magnitude(d[0]*(3/4),d[0]))) - m[0]:.2f} \\text{{ N}} \\cdot \\text{{ m}}}}$     
+        ${{\hspace{{4mm}} x = {(m[1]*(3/2)*d[0] + 2*m[0]*d[0] - m[0]*(3/2)*d[0]*(3/4)*(d[0]/(Calculations.magnitude(d[0]*(3/4),d[0]))) - m[0])/(m[1] + (m[0]/2)*calc['sin1'] - (2/3)*((m[0]/2)*calc['cos1'] - m[0]*2)):.2f} \\text{{ m}}}}$     
         
-        Y finalmente, se obtiene la coordenada y:
+        Con la coordenada x es posible calcular la coordenada y a partir de la ecuación de triángulos semejantes:
         
-        ${{\hspace{{4mm}} y = {2/3:.2f} \\cdot {(m[1]*(3/2)*d[0] + 2*m[0]*d[0] - m[0]*(3/2)*(Calculations.magnitude(d[0]*(3/4),d[0]))/2 - m[0])/(m[1] + (m[0]/2)*calc['sin1'] - (2/3)*((m[0]/2)*calc['cos1'] - m[0]*2)):.2f} \\text{{ m}} }}$     
-        ${{\hspace{{4mm}} y = {(2/3)*(m[1]*(3/2)*d[0] + 2*m[0]*d[0] - m[0]*(3/2)*(Calculations.magnitude(d[0]*(3/4),d[0]))/2 - m[0])/(m[1] + (m[0]/2)*calc['sin1'] - (2/3)*((m[0]/2)*calc['cos1'] - m[0]*2)):.2f} \\text{{ m}} }}$     
+        ${{\hspace{{4mm}} y = {2/3:.2f} \\cdot {(m[1]*(3/2)*d[0] + 2*m[0]*d[0] - m[0]*(3/2)*d[0]*(3/4)*(d[0]/(Calculations.magnitude(d[0]*(3/4),d[0]))) - m[0])/(m[1] + (m[0]/2)*calc['sin1'] - (2/3)*((m[0]/2)*calc['cos1'] - m[0]*2)):.2f} \\text{{ m}} }}$     
+        ${{\hspace{{4mm}} y = {(2/3)*(m[1]*(3/2)*d[0] + 2*m[0]*d[0] - m[0]*(3/2)*d[0]*(3/4)*(d[0]/(Calculations.magnitude(d[0]*(3/4),d[0]))) - m[0])/(m[1] + (m[0]/2)*calc['sin1'] - (2/3)*((m[0]/2)*calc['cos1'] - m[0]*2)):.2f} \\text{{ m}} }}$     
         
-        Recordar que aquí se presentó la solución tomando como referencia el punto F, tambien se pudó realizar desde otro punto y ajustar la respuesta al sistema de coordenadas propuesto.
+       La solución presentada toma como referencia el punto F. Sin embargo, también se pudo realizar desde otro punto y ajustar la respuesta al sistema de coordenadas propuesto.
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
