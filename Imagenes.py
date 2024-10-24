@@ -183,7 +183,7 @@ SE_image_paths =[
 "./Imagenes/Preguntas/SE/SE_SE_M_2a.png", #[5]
 
 #Cerchas_Nivel Díficil
-"./Imagenes/Preguntas/SE/SE_SE_D_1a.png", #[ppp]
+"./Imagenes/Preguntas/SE/SE_SE_D_1a.png", #[6]
 ]
 
 #================================ Imágenes Respuestas Cálculo Equilibrio ===================================
