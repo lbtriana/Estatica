@@ -479,13 +479,15 @@ if authenticate_user():
 
         if way == "Teoría":
             st.sidebar.header("Teoría")
-            topic=st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas"])
+            topic=st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Apoyos y reacciones"])
             respuesta_usuario['topic'] = topic
 
             if topic == "Equilibrio de partículas":
                 subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Vectores","Equilibrio"])
             #if topic == "Momento":
             #    subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Momento"])
+            if topic == "Apoyos y reacciones":
+                subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Apoyos y reacciones"])
 
             if consent:
                 log_event(st.session_state["username"], "theory_section_accessed", {})

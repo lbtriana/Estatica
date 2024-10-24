@@ -646,12 +646,12 @@ conceptuales = [
 
 
     # #------------------------------------------------------ Apoyos ----------------------------------------------------------
-    # #-------------------------------------------------    14000##0       ---------------------------------------------------
+    # #-------------------------------------------------    51000##0       ---------------------------------------------------
     # Theory(#1
     #     code = 1400010, 
     #     no_pregunta = 1,
-    #     topic = "Equilibrio de partículas",
-    #     subtopic = "Apoyos",
+    #     topic = "Apoyos y reacciones",
+    #     subtopic = "Apoyos y reacciones",
     #     enunciado ="¿Cuál de los siguientes tipos de apoyos genera una reacción vertical y una reacción horizontal, pero no un momento?", 
     #     opcion_1 = "Apoyo fijo o empotramiento",
     #     opcion_2 = "Apoyo con articulación",
@@ -662,26 +662,26 @@ conceptuales = [
     #     respuesta_P2 = "",
     #     ),
              
-    # Theory(#2
-    #     code = 1400020, 
-    #     no_pregunta = 2,
-    #     topic = "Equilibrio de partículas",
-    #     subtopic = "Apoyos",
-    #     enunciado ="Un apoyo de primer grado es aquel que:",
-    #     opcion_1 = "Tiene una sola restricción",
-    #     opcion_2 = "Permite un solo movimiento",
-    #     opcion_3 = "Tiene más de una restricción",
-    #     opcion_4 = "No tiene ninguna restricción",
-    #     opcion_correcta = "Tiene una sola restricción",
-    #     respuesta_P1 = "Los apoyos de primer grado, tanto en 2D como en 3D, son aquellos que tienen una sola restricción de desplazamiento. Es decir, una sola reacción.",
-    #     respuesta_P2 = "",
-    #     ),
+    Theory(#2
+        code = 5100020, 
+        no_pregunta = 2,
+        topic = "Apoyos y reacciones",
+        subtopic = "Apoyos y reacciones",
+        enunciado = "Un apoyo de primer grado es aquel que:",
+        opcion_1 = "Tiene una sola restricción.",
+        opcion_2 = "Permite un solo movimiento.",
+        opcion_3 = "Tiene más de una restricción.",
+        opcion_4 = "No tiene ninguna restricción",
+        opcion_correcta = "Tiene una sola restricción.",
+        respuesta_P1 = "Los apoyos de primer grado, tanto en 2D como en 3D, son aquellos que impiden el desplazamiento en una sola dirección, lo cual genera una sola reacción.",
+        respuesta_P2 = "",
+        ),
              
     # Theory(#3
     #     code = 1400030, 
     #     no_pregunta = 3,
-    #     topic = "Equilibrio de partículas",
-    #     subtopic = "Apoyos",
+    #     topic = "Apoyos y reacciones",
+    #     subtopic = "Apoyos y reacciones",
     #     enunciado = "Considere las siguientes figuras e indique el número de restricciones o reacciones que generan teniendo en cuenta un sistema de tres cordenadas (3D) :",
     #     opcion_1 = "I: 6; II: 3; III: 2",
     #     opcion_2 = "I: 3; II: 2; III: 1",
@@ -695,21 +695,6 @@ conceptuales = [
     #     respuesta_P2 = "",
     #     ),    
                  
-    # Theory(#4
-    #     code = 1400040, 
-    #     no_pregunta = 4,
-    #     topic = "Equilibrio de partículas",
-    #     subtopic = "Apoyos",
-    #     enunciado ="¿Cuál es la principal característica de una estructura estáticamente indeterminada?",
-    #     opcion_1 ="Tiene más ecuaciones que incógnitas por ello se pueden analizar únicamente con el equiibrio.",
-    #     opcion_2 ="Tiene más incógnitas que ecuaciones de equilibrio por ello no se pueden analizar únicamente con el equiibrio.",
-    #     opcion_3 = "Es aquella que no tiene reacciones. ",
-    #     opcion_4 ="Tiene igual número de incognitas que de ecuaciones de equiibrio.",
-    #     opcion_correcta = "Tiene más incógnitas que ecuaciones de equilibrio por ello no se pueden analizar únicamente con el equiibrio.",
-    #     respuesta_P1 = """"Una estructura estáticamente indeterminada es aquella cuya condición de carga y apoyos impide que sea analizada únicamente utilizando sumatorias de fuerzas y momento dado que, de ellas resultan más incognitas que ecuaciones. 
-    #     En este curso solo se analizan estructuras que se pueden resolver únicamente con el equilibrio. Es decir, estructuras estáticamente determinadas.""",
-    #     respuesta_P2 = "",
-    #     ),
 
     # #-------------------------------------------------  Sistemas equivalentes ---------------------------------------------------
     # #-------------------------------------------------       15000##0         ---------------------------------------------------
