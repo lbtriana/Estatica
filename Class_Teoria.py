@@ -694,7 +694,23 @@ conceptuales = [
     #     La figura 3 permite el giro en las tres direcciones (Mx, My, Mz) y el desplazamiento en todo el plano del suelo (convencionalmente x-y) pero no hacia arriba. Del tal forma que: #reacciones (3D) = 6 - Grados de libertad = 6 - 5 = 1.""",
     #     respuesta_P2 = "",
     #     ),    
+
+    Theory(#4
+        code = 5100040, 
+        no_pregunta = 4,
+        topic = "Apoyos y reacciones",
+        subtopic = "Apoyos y reacciones",
+        enunciado = "¿Cuáles reacciones genera un apoyo empotrado en un estructura bidimensional?",
+        opcion_1 = "Una fuerza.",
+        opcion_2 = "Dos fuerzas y un momento.",
+        opcion_3 = "Dos fuerzas sin momento.",
+        opcion_4 = "Un momento.",
+        opcion_correcta = "Dos fuerzas y un momento.",
+        respuesta_P1 = "Un apoyo empotrado en una estructura bidimensional es un apoyo de tercer grado. Este tipo de apoyo restringe todos los movimientos del cuerpo, es decir, impide la traslación (horizontal y vertical) y la rotación. Debido a esto, genera dos reacciones (horizontal y vertical) y un momento.",
+        respuesta_P2 = "",
+        ),
                  
+
 
     # #-------------------------------------------------  Sistemas equivalentes ---------------------------------------------------
     # #-------------------------------------------------       15000##0         ---------------------------------------------------
@@ -762,7 +778,118 @@ conceptuales = [
     #     respuesta_P1 = "Note que la opción I tiene la fuerza resultante ubicada a una distancia x calculada a partir del momento del sistema original.",
     #     respuesta_P2 = "",
     #     ),
+
+    #------------------------------------------------------  Cerchas ------------------------------------------------------------
+    #-------------------------------------------------       16000##0         ---------------------------------------------------
+    Theory(#1
+        code = 1600010, 
+        no_pregunta = 1,
+        topic = "Equilibrio de partículas",
+        subtopic = "Cerchas",
+        enunciado ="¿Cuáles de las siguientes son las hipótesis de diseño de armaduras o cerchas?", 
+        opcion_1 = "Todas las cargas se aplican en los nodos y no existe fricción en las uniones.",
+        opcion_2 = "Las cargas se alican en los nodos en elemento horizontales y verticales. Y, en elementos inclinados se aplican en el centro del elemento.",
+        opcion_3 = "Todas las cargas se aplican en el centro de los elementos y no existe fricción en las uniones.",
+        opcion_4 = "Todas las cargas se aplican en los nodos y existe fricción en las uniones.",
+        opcion_correcta =  "Todas las cargas se aplican en los nodos y no existe fricción en las uniones.",
+        respuesta_P1 = " ",
+        respuesta_P2 = "",
+        ),
+
+    Theory(#2
+        code = 1600020, 
+        no_pregunta = 2,
+        topic = "Equilibrio de partículas",
+        subtopic = "Cerchas",
+        enunciado ="¿Cuál es la condición básica para que una cercha sea estáticamente determinada?", 
+        opcion_1 = "El número de elementos debe ser igual al número de nodos.",
+        opcion_2 = "El número de elementos debe ser mayor que el número de nodos.",
+        opcion_3 = "El número de elementos debe ser igual a 2n−3.",
+        opcion_4 = "El número de nodos debe ser igual al número de apoyos.",
+        opcion_correcta = "El número de elementos debe ser igual a 2n−3.",
+        respuesta_P1 = "Para que una cercha sea estáticamente determinada, el número de barras debe cumplir la ecuación m=2n−3, donde m es el número de barras y n es el número de nodos. Esta relación asegura que la estructura puede analizarse usando las ecuaciones de equilibrio sin necesidad de recurrir a métodos avanzados de análisis.",
+        respuesta_P2 = "",
+        ),
+
+    Theory(#3
+        code = 1600030, 
+        no_pregunta = 3,
+        topic = "Equilibrio de partículas",
+        subtopic = "Cerchas",
+        enunciado ="Convencionalmente se dice que un elemento está en tensión cuando:", 
+        opcion_1 = " ",
+        opcion_2 = "Las flechas en los extremos apuntan hacia fuera del elemento generando el alargamiento del elemento.",
+        opcion_3 = " ",
+        opcion_4 = " ",
+        opcion_correcta = "Las flechas en los extremos apuntan hacia fuera del elemento generando el alargamiento del elemento.",
+        respuesta_P1 = """ """,
+        respuesta_P2 = "",
+        ),
                      
+    Theory(#4
+        code = 1600040, 
+        no_pregunta = 4,
+        topic = "Equilibrio de partículas",
+        subtopic = "Cerchas",
+        enunciado ="Convencionalmente se dice que un elemento está en compresión cuando:", 
+        opcion_1 = " ",
+        opcion_2 = " ",
+        opcion_3 = " ",
+        opcion_4 = "Las flechas en los extremos apuntan hacia el elemento generando el acortamiento del elemento.",
+        opcion_correcta = "Las flechas en los extremos apuntan hacia el elemento generando el acortamiento del elemento.",
+        respuesta_P1 = """ """,
+        respuesta_P2 = "",
+        ),
+                     
+    Theory(#5
+        code = 1600050, 
+        no_pregunta = 5,
+        topic = "Equilibrio de partículas",
+        subtopic = "Cerchas",
+        enunciado =""""
+        Cuáles de las siguientes afirmaciones son verdaderas:
+            I.	Si una armadura es estable sus nodos están en equilibrio.
+            II.	Para analizar cerchas deben conocerse las reacciones
+            III.	En los nodos el momento siempre es 0. En 2d Las fuerzas son coplanares y concurrentes. Solo se hacen sumatorias de fuerzas para determinar el equilibrio 
+        """, 
+        opcion_1 = " ",
+        opcion_2 = " ",
+        opcion_3 = " ",
+        opcion_4 = " ",
+        opcion_correcta = " ",
+        respuesta_P1 = """ """,
+        respuesta_P2 = "",
+        ),
+                         
+    Theory(#6
+        code = 1600060, 
+        no_pregunta = 6,
+        topic = "Equilibrio de partículas",
+        subtopic = "Cerchas",
+        enunciado ="Cuando se hace el diagrama de cuerpo libre de un nodo una recomendación es:", 
+        opcion_1 = " ",
+        opcion_2 = " ",
+        opcion_3 = "Imaginar que las fuerzas están saliendo del nodo.",
+        opcion_4 = " ",
+        opcion_correcta = "Las flechas en los extremos apuntan hacia el elemento generando el acortamiento del elemento.",
+        respuesta_P1 = """De esta forma, si el escalar da positivo es correcto asumir que el elemento está a tensión y si da negativo, se sabe que el elemento está en compresión. """,
+        respuesta_P2 = "",
+        ),
+
+    Theory(#7
+        code = 1700060, 
+        no_pregunta = 7,
+        topic = "Equilibrio de partículas",
+        subtopic = "Cerchas",
+        enunciado ="Un elemento de la cercha es de fuerza cero cuando:", 
+        opcion_1 = " ",
+        opcion_2 = " ",
+        opcion_3 = "Imaginar que las fuerzas están saliendo del nodo.",
+        opcion_4 = " ",
+        opcion_correcta = "Las flechas en los extremos apuntan hacia el elemento generando el acortamiento del elemento.",
+        respuesta_P1 = """De esta forma, si el escalar da positivo es correcto asumir que el elemento está a tensión y si da negativo, se sabe que el elemento está en compresión. """,
+        respuesta_P2 = "",
+        ),                 
      
 ]
 
