@@ -5586,7 +5586,7 @@ preguntas = [
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
         Un sistema equivalente fuerza-par es la combinación de una fuerza aplicada y un momento que producen el mismo efecto rotacional y traslacional sobre un cuerpo rígido que el sistema original. A continuación, se presenta la solución sugerida para el ejercicio:
        
-       Para determinar el momento resultante en el sistema equivalente, cabe notar que solo es necesario calcular el momento que produce la fuerza $F_1$. Dado que, al trasladar la fuerza $F_1$ al punto A, esta fuerza ya no produce momento en dicho punto:
+        Para determinar el momento resultante en el sistema equivalente, cabe notar que solo es necesario calcular el momento que produce la fuerza $F_1$. Dado que, al trasladar la fuerza $F_1$ al punto A, esta fuerza ya no produce momento en dicho punto:
         
         $\\textbf{{\\small 1. Descomposición F1: }}$
         
@@ -5635,41 +5635,41 @@ preguntas = [
         topic = "Sistemas equivalentes",
         subtopic = "Sistemas equivalentes",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Reemplace el sistema de fuerzas que actua sobre el poste por una sola fuerza resultante ubicada en el tramo AB. Determine las componentes de la fuerza (Use el signo para la dirección) y donde actua esta fuerza, medido desde el extremo B. Considere $F_1 = {f[0]:.0f} \\text{{ N}}$, $F_2 = {f[1]:.0f} \\text{{ N}}$, $F_3 = {f[2]:.0f} \\text{{ N}}$, $\\alpha_1 = {a[0]:.0f}°$, $d_1 = {d[0]/10:.2f} \\text{{ m}}$,  $d_2 = {(2*d[0])/10:.2f}  \\text{{ m}}$, $d_3 = {d[6]:.0f} \\text{{ m}}$, $d_4 = {d[9]:.0f}  \\text{{ m}}$ y $d_5 = {d[12]:.0f} \\text{{ m}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Reemplace el sistema de fuerzas que actúa sobre el poste por una única fuerza resultante ubicada en el tramo AB. Determine las componentes de esta fuerza (Indique el signo de la dirección de las fuerzas) y la posición donde actúa, medida desde el extremo B. Considere $F_1 = {f[1]/4:.2f} \\text{{ N}}$, $F_2 = {f[1]:.2f} \\text{{ N}}$, $F_3 = {f[1]*1.3:.2f} \\text{{ N}}$, $\\alpha_1 = {a[0]:.0f}°$, $d_1 = {d[0]/10:.2f} \\text{{ m}}$,  $d_2 = {(2*d[0])/10:.2f}  \\text{{ m}}$, $d_3 = {d[6]:.0f} \\text{{ m}}$, $d_4 = {d[9]:.0f}  \\text{{ m}}$ y $d_5 = {d[12]:.0f} \\text{{ m}}$.",
         no_answers = 3,
         a1_name = "Componente $F_{{Rx}}$ [N]",
         a2_name = "Componente $F_{{Ry}}$ [N]",
         a3_name = "Distancia desde el extremo B [m]",
-        answer1 = lambda f, a, calc, c, d, m: np.round(f[0]*calc['cos1'] - f[1]*(4/5) - f[2],2),
-        answer2 = lambda f, a, calc, c, d, m: np.round(f[1]*(3/5) - f[0]*calc['sin1'],2),
-        answer3 = lambda f, a, calc, c, d, m: np.round((f[0]*calc['sin1']*(2*(d[0]/10)) + f[1]*(4/5)*d[12] + f[1]*(3/5)*(d[0]/20) + f[2]*(d[12] + d[9]))/(-f[0]*calc['cos1'] + f[1]*(4/5) + f[2]), 2),
-        ayuda1 = "La fuerza resultante será igual a la suma de todas las fuerzas en el sistema, y que el momento de la fuerza resultante es igual a la suma de los momentos originales desde cualquier punto.",
-        ayuda2 = "Para determinar la ubicación de la fuerza resultante con respecto a un punto de referencia, utilizamos la condición de que el momento producido por la fuerza resultante respecto a ese punto debe ser igual al momento de las fuerzas originales del sistema respecto al mismo punto.",      
-        ayuda3 = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round((f[1]/4)*calc['cos1'] - f[1]*(4/5) - f[1]*1.3,2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(f[1]*(3/5) - (f[1]/4)*calc['sin1'],2),
+        answer3 = lambda f, a, calc, c, d, m: np.round(((f[1]/4)*calc['sin1']*(2*(d[0]/10)) + f[1]*(4/5)*d[12] + f[1]*(3/5)*(d[0]/20) + f[1]*1.3*(d[12] + d[9]))/(-(f[1]/4)*calc['cos1'] + f[1]*(4/5) + f[1]*1.3), 2),
+        ayuda1 = SE1,
+        ayuda2 = SE2,      
+        ayuda3 = SE3,
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-        En un sistema equivalente se esta buscando reducir un sistema complejo a un sistema de fuerzas y momentos que producen mismo efecto rotacional y traslacional. A continuación, se presenta la solución sugerida para el ejercicio:
-        
+        En un sistema equivalente, se busca simplificar un sistema complejo de fuerzas y momentos a un sistema más simple que genere el mismo efecto rotacional y traslacional. A continuación, se presenta la solución sugerida para el ejercicio:
+
         $\\textbf{{\\small 1. Determinar fuerza resultante: }}$
         
         $\\underline{{Sumatoria \\hspace{{2mm}} de \\hspace{{2mm}} fuerzas \\hspace{{2mm}} en \\hspace{{2mm}} X:}}$  
         
         ${{\hspace{{4mm}} \\sum{{F_x}} = F_{{Rx}}}}$          
-        ${{\hspace{{4mm}} F_{{Rx}} = F_1 \\cdot \\cos(\\alpha_1) - F_2 \\cdot \\dfrac{{4}}{{5}} - F_3 = {f[0]*calc['cos1']:.2f} \\text{{ N}} - {f[1]*(4/5):.2f} \\text{{ N}}  - {f[2]:.0f} \\text{{ N}}}}$          
-        ${{\hspace{{4mm}} F_{{Rx}} = {f[0]*calc['cos1'] - f[1]*(4/5) - f[2]:.2f} \\text{{ N}} }}$          
+        ${{\hspace{{4mm}} F_{{Rx}} = F_1 \\cdot \\cos(\\alpha_1) - F_2 \\cdot \\dfrac{{4}}{{5}} - F_3 = {(f[1]/4)*calc['cos1']:.2f} \\text{{ N}} - {f[1]*(4/5):.2f} \\text{{ N}}  - {f[1]*1.3:.2f} \\text{{ N}}}}$          
+        ${{\hspace{{4mm}} F_{{Rx}} = {(f[1]/4)*calc['cos1'] - f[1]*(4/5) - f[1]*1.3:.2f} \\text{{ N}} }}$          
         
         $\\underline{{Sumatoria \\hspace{{2mm}} de \\hspace{{2mm}} fuerzas \\hspace{{2mm}} en \\hspace{{2mm}} Y:}}$  
         
         ${{\hspace{{4mm}} \\sum{{F_y}} = F_{{Ry}}}}$          
-        ${{\hspace{{4mm}} F_{{Ry}} = F_2 \\cdot \\dfrac{{3}}{{5}} - F_1 \\cdot \\sin(\\alpha_1) = {f[1]*(3/5):.2f}\\text{{ N}} - {f[0]*calc['sin1']:.2f} \\text{{ N}} }}$          
-        ${{\hspace{{4mm}} F_{{Ry}} = {f[1]*(3/5) - f[0]*calc['sin1']:.2f} \\text{{ N}} }}$          
+        ${{\hspace{{4mm}} F_{{Ry}} = F_2 \\cdot \\dfrac{{3}}{{5}} - F_1 \\cdot \\sin(\\alpha_1) = {f[1]*(3/5):.2f}\\text{{ N}} - {(f[1]/4)*calc['sin1']:.2f} \\text{{ N}} }}$          
+        ${{\hspace{{4mm}} F_{{Ry}} = {f[1]*(3/5) - (f[1]/4)*calc['sin1']:.2f} \\text{{ N}} }}$          
         
         $\\textbf{{\\small 2. Ubicación de fuerza resultante: }}$
         
         ${{\hspace{{4mm}} \\sum{{M_B}} = d \\cdot F_{{Rx}}}}$     
         ${{\hspace{{4mm}} d \\cdot F_{{Rx}} = - F_1 \\cdot \\sin(\\alpha_1) \\cdot d_2 - F_2 \\cdot \\dfrac{{4}}{{5}} \\cdot d_5 - F_2 \\cdot \\dfrac{{3}}{{5}} \\cdot \\dfrac{{d_1}}{{2}} - F_3 \\cdot (d_5 + d_4)}}$     
-        ${{\hspace{{4mm}} d \\cdot ({f[0]*calc['cos1'] - f[1]*(4/5) - f[2]:.2f}) \\text{{ N}}  = - {f[0]*calc['sin1']:.2f} \\text{{ N}} \\cdot {(d[0]*2)/10:.2f} \\text{{ m}} - {f[1]*(4/5):.2f} \\text{{ N}} \\cdot {d[12]:.0f} \\text{{ m}} - {f[1]*(3/5):.2f} \\text{{ N}} \\cdot {d[0]/20:.2f} \\text{{ m}} - {f[2]:.0f} \\text{{ N}} \\cdot {d[12] + d[9]:.0f} \\text{{ m}}}}$     
-        ${{\hspace{{4mm}} d \\cdot ({f[0]*calc['cos1'] - f[1]*(4/5) - f[2]:.2f}) \\text{{ N}}  = - {f[0]*calc['sin1']*(2*(d[0]/10)) + f[1]*(4/5)*d[12] + f[1]*(3/5)*(d[0]/20) + f[2]*(d[12] + d[9]):.2f} \\text{{ N}} \\cdot \\text{{ m}}}}$     
-        ${{\hspace{{4mm}} d = {(f[0]*calc['sin1']*(2*(d[0]/10)) + f[1]*(4/5)*d[12] + f[1]*(3/5)*(d[0]/20) + f[2]*(d[12] + d[9]))/(-f[0]*calc['cos1'] + f[1]*(4/5) + f[2]):.2f} \\text{{ m}}}}$     
+        ${{\hspace{{4mm}} d \\cdot ({(f[1]/4)*calc['cos1'] - f[1]*(4/5) - f[1]*1.3:.2f}) \\text{{ N}}  = - {(f[1]/4)*calc['sin1']:.2f} \\text{{ N}} \\cdot {(d[0]*2)/10:.2f} \\text{{ m}} - {f[1]*(4/5):.2f} \\text{{ N}} \\cdot {d[12]:.0f} \\text{{ m}} - {f[1]*(3/5):.2f} \\text{{ N}} \\cdot {d[0]/20:.2f} \\text{{ m}} - {f[1]*1.3:.0f} \\text{{ N}} \\cdot {d[12] + d[9]:.0f} \\text{{ m}}}}$     
+        ${{\hspace{{4mm}} d \\cdot ({(f[1]/4)*calc['cos1'] - f[1]*(4/5) - f[1]*1.3:.2f}) \\text{{ N}}  = - {(f[1]/4)*calc['sin1']*(2*(d[0]/10)) + f[1]*(4/5)*d[12] + f[1]*(3/5)*(d[0]/20) + f[1]*1.3*(d[12] + d[9]):.2f} \\text{{ N}} \\cdot \\text{{ m}}}}$     
+        ${{\hspace{{4mm}} d = {((f[1]/4)*calc['sin1']*(2*(d[0]/10)) + f[1]*(4/5)*d[12] + f[1]*(3/5)*(d[0]/20) + f[1]*1.3*(d[12] + d[9]))/(-(f[1]/4)*calc['cos1'] + f[1]*(4/5) + f[1]*1.3):.2f} \\text{{ m}}}}$     
         
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
