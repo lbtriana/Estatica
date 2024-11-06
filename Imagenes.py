@@ -1,5 +1,7 @@
 #Paths of the images
 
+#==========================================PREGUNTAS CÁLCULOS==============================================
+
 #================================ Imágenes Preguntas Cálculo Equilibrio de partículas ===================================
 EQ_image_paths= [
 #Vectores 2D _ Cálculo de los ángulos _ Nivel fácil
@@ -140,6 +142,7 @@ MO_image_paths =[
 "./Imagenes/Preguntas/MO/M2D/MO_M2D_D_1c.png", #[11]
 ]
 
+
 #================================ Imágenes Preguntas Cálculo Armaduras ===================================
 AR_image_paths =[
 #Cerchas_Nivel Fácil
@@ -171,6 +174,7 @@ AR_image_paths =[
 "./Imagenes/Preguntas/AR/MA/AR_MA_D_2a.png", #[15]
 ]
 
+#================================ Imágenes Preguntas Cálculo Sistemas Equivalentes ===================================
 SE_image_paths =[
 #Cerchas_Nivel Fácil
 "./Imagenes/Preguntas/SE/SE_SE_F_1a.png", #[0]
@@ -186,8 +190,19 @@ SE_image_paths =[
 "./Imagenes/Preguntas/SE/SE_SE_D_1a.png", #[6]
 ]
 
+#================================ Imágenes Preguntas Cálculo Centroides ===================================
+
+CT_image_paths = [
+#Centroides _ Nivel fácil
+"./Imagenes/Preguntas/CT/CT_CT_F_1a.png", #[0]
+"./Imagenes/Preguntas/CT/CT_CT_F_2a.png", #[1]
+]
+
+
+#==========================================RESPUESTAS CÁLCULOS==============================================
+
 #================================ Imágenes Respuestas Cálculo Equilibrio ===================================
-rtas_paths= [
+EQ_rtas_paths= [
 #Vectores 2D _ Ejes arbitrarios _ Nivel díficil
 "./Imagenes/Respuestas/EQ/V2D/R_EQ_V2D_D_1a.png", #[0] 
 "./Imagenes/Respuestas/EQ/V2D/R_EQ_V2D_D_1b.png", #[1] 
@@ -217,8 +232,15 @@ rtas_paths= [
 
 ]
 
+CE_rtas_paths= [
+#Centroides _ Nivel díficil
+"./Imagenes/Respuestas/CT/R_CT_CT_F_1a.png", #[0] 
+]
 
-#================================ Imágenes Respuestas Teoría Equilibrio ===================================
+
+#==========================================PREGUNTAS TEORÍA==============================================
+
+#================================ Imágenes Teoría Equilibrio ===================================
 teoria_preguntas =[
 "./Imagenes/Teoria_Preguntas/EQ/V/T_EQ_V_1.png", #[0] 
 "./Imagenes/Teoria_Preguntas/EQ/V/T_EQ_V_2.png", #[1] 
@@ -234,6 +256,9 @@ teoria_preguntas =[
 "./Imagenes/Teoria_Preguntas/EQ/EQ/T_EQ_EQ_3.png", #[11] 
 "./Imagenes/Teoria_Preguntas/EQ/EQ/T_EQ_EQ_4.png", #[12]
 ]
+
+
+#==========================================RESPUESTAS TEORÍA==============================================
 
 teoria_respuestas =[
 "./Imagenes/Teoria_Respuestas/EQ/V/RT_EQ_V_1.png", #[0] 

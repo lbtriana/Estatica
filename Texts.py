@@ -203,6 +203,23 @@ SE3 = "Para determinar la ubicación de la fuerza resultante con respecto a un p
 SE4 = "La fuerza resultante será equivalente a la suma de todas las fuerzas aplicadas en el sistema."
 SE5 = "El par equivalente de un sistema equivalente fuerza-par se calcula sumando los momentos de las fuerzas originales respecto al punto de referencia."
 
+#CENTROIDES
+CT1 = "Las figuras complejas pueden dividirse en formas más simples cuyos centroides son conocidos o fáciles de encontrar."
+CT2 = """
+El centroide representa el centro geométrico de un objeto. Para calcular las coordenadas del centroide de un área compuesta se utilizan las siguientes ecuaciones:
+
+\\bar{{X}} = \\dfrac{{\\sum{{\\bar{{X_i}} \\cdot A_i}}}}{{\\sum{{A_i}}}}
+\\bar{{Y}} = \\dfrac{{\\sum{{\\bar{{Y_i}} \\cdot A_i}}}}{{\\sum{{A_i}}}}
+
+Donde:
+$\\bar{{X}}$ = Coordenada X del centroide de la figura compuesta
+$\\bar{{Y}}$ = Coordenada Y del centroide de la figura compuesta
+$i$ = Elementos de la figura conocida, una vez se divide la figura compuesta.
+$A$ = Área de la figura 
+"""
+CT3 = "Un recurso útil para visualizar y organizar los datos es la creación de una tabla con las áreas y las coordenadas de los centroides de cada elemento."
+
+
 
 #------------------------------------- Textos para las respuestas ---------------------------------------
 

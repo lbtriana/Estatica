@@ -496,7 +496,7 @@ if authenticate_user():
         else:
             st.sidebar.header("Práctica")
             complexity = st.sidebar.radio("Nivel de dificultad", options=["Fácil", "Medio", "Díficil"])
-            topic = st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Momento", "Sistemas equivalentes", "Armaduras"])
+            topic = st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Momento", "Sistemas equivalentes", "Armaduras", "Centroides"])
             
             if topic == "Equilibrio de partículas":
                 subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Vectores 2D", "Vectores 3D", "Vector unitario", "Equilibrio 2D"])
@@ -506,6 +506,8 @@ if authenticate_user():
                 subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Sistemas equivalentes"])
             elif topic=="Armaduras":
                 subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Cerchas", "Marcos"])
+            elif topic=="Centroides":
+                subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Centroides"])
 
             if consent:
                 log_event(st.session_state["username"], "practice_options_selected", {
@@ -764,6 +766,11 @@ if authenticate_user():
                         st.image(AR_image_paths[10], width=450) 
                     if pregunta_no == 2:
                         st.image(AR_image_paths[11], width=350)
+                if subtopic == "Centroides":
+                    if pregunta_no == 1:
+                        st.image(CT_image_paths[0], width=300) 
+                    if pregunta_no == 2:
+                        st.image(CT_image_paths[1], width=350)
                 
 
             if difficulty == "Medio":
@@ -918,34 +925,38 @@ if authenticate_user():
             if difficulty == "Fácil":
                 if subtopic == "Equilibrio 2D":
                     if pregunta_no == 3:
-                        st.image(rtas_paths[9], width=250)
+                        st.image(EQ_rtas_paths[9], width=250)
                     if pregunta_no == 4:
-                        st.image(rtas_paths[10], width=350)
+                        st.image(EQ_rtas_paths[10], width=350)
+                if subtopic == "Centroides":
+                    if pregunta_no ==1:
+                        st.image(CE_rtas_paths[0], width=200)
+
             if difficulty == "Medio":
                 if subtopic == "Equilibrio 2D":
                     if pregunta_no == 1:
-                        st.image(rtas_paths[8], width=250)
+                        st.image(EQ_rtas_paths[8], width=250)
             if difficulty == "Díficil":
                 if subtopic == "Vectores 2D":
                     if pregunta_no == 1 or pregunta_no == 2: 
                         if version_no == 1:
-                            st.image(rtas_paths[0], width=550) 
+                            st.image(EQ_rtas_paths[0], width=550) 
                         elif version_no == 2:
-                            st.image(rtas_paths[1], width=550)
+                            st.image(EQ_rtas_paths[1], width=550)
                         elif version_no == 3:
-                            st.image(rtas_paths[2], width=550)
+                            st.image(EQ_rtas_paths[2], width=550)
                         elif version_no == 4:
-                            st.image(rtas_paths[3], width=550)
+                            st.image(EQ_rtas_paths[3], width=550)
                     if pregunta_no == 3: 
                         if version_no == 1:
-                            st.image(rtas_paths[4], width=550) 
+                            st.image(EQ_rtas_paths[4], width=550) 
                         elif version_no == 2:
-                            st.image(rtas_paths[5], width=550)
+                            st.image(EQ_rtas_paths[5], width=550)
                     if pregunta_no == 5: 
                         if version_no == 1 or version_no == 2:
-                            st.image(rtas_paths[6], width=250) 
+                            st.image(EQ_rtas_paths[6], width=250) 
                         elif version_no == 3 or version_no == 4:
-                            st.image(rtas_paths[7], width=250)                                           
+                            st.image(EQ_rtas_paths[7], width=250)                                           
         return
 
     #Función para que el botón "Ayuda" muestre secuencialmente las ayudas

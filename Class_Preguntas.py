@@ -5465,7 +5465,37 @@ preguntas = [
         calculos='operations'
         ),
 
-#========================================================  SISTEMAS EQUIVALENTES  =========================================================
+    #========================================================  INCERTIFUMBRE  =========================================================
+    #-------------------------------------------------       Nivel Fácil   ---------------------------------------------------
+    #-------------------------------------------------       Code: 5220011    --------------------------------------------------
+
+    # Questionary(#1_1
+    #     code = 5230011,
+    #     no_pregunta = 1,
+    #     complexity = F,
+    #     topic = "Incertidumbre",
+    #     subtopic = "Incertidumbre",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de las componentes vertical y horizontal de la reacción en el pasador B. Considere $F_1 = {f[0]:.0f} \\text{{ N}}$, $F_2 = {f[1]:.0f} \\text{{ N}}$, $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$, $d_3 = {d[6]:.0f} \\text{{ m}}$ y $d_4 = {d[9]:.0f} \\text{{ m}}$.",
+    #     no_answers = 2,
+    #     a1_name = "$B_x$ [N]",
+    #     a2_name = "$B_y$ [N]",
+    #     a3_name = "",
+    #     answer1 = lambda f, a, calc, c, d, m: 0,
+    #     answer2 = lambda f, a, calc, c, d, m: 0,
+    #     answer3 = lambda f, a, calc, c, d, m: 0,
+    #     ayuda1 = MA1,
+    #     ayuda2 = MA2,      
+    #     ayuda3 = MA3,
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ),
+
+
+    #========================================================  SISTEMAS EQUIVALENTES  =========================================================
     #-------------------------------------------------       Sistemas equivalentes 2D-3D      --------------------------------------------
     #-------------------------------------------------       Nivel Fácil   ---------------------------------------------------
     #-------------------------------------------------       Code: 41100##    --------------------------------------------------
@@ -5803,5 +5833,209 @@ preguntas = [
         calculos='operations'
         ),
 
+#========================================================  CENTROIDES  =========================================================
+    #-------------------------------------------------       Centroides    --------------------------------------------
+    #-------------------------------------------------       Nivel Fácil   ---------------------------------------------------
+    #-------------------------------------------------       Code: 6110011    --------------------------------------------------
+    Questionary(#1_1
+        code = 6110011,
+        no_pregunta = 1,
+        complexity = F,
+        topic = "Centroides",
+        subtopic = "Centroides",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Localice el centroide $\\bar{{Y}}$ del área de la sección transversal del elemento. Considere $d_1 = {d[0] + d[3]:.0f} \\text{{ cm}}$,  $d_2 = {d[3]:.0f}  \\text{{ cm}}$, $d_3 = {d[3]+1:.0f} \\text{{ cm}}$ y $d_4 = {d[6]+ 2*d[0]:.0f} \\text{{ cm}}$.",
+        no_answers = 1,
+        a1_name = "Distancia $\\bar{{Y}}$ $[cm]$",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round((d[3]*(d[3]+ 2*d[0] + d[6] + 1)*((d[3]+ 2*d[0] + d[6] + 1)*(1/2) + d[3]) + (d[0] + d[3]*(1/2))*(d[3]+1)*((d[3]+1)*(1/3) + d[3]) + d[3]*(d[3]+d[0])*d[3])/(d[3]*(d[3]+d[0])*2 + (d[0] + d[3]*(1/2))*(d[3]+1) + d[3]*(d[3]+ 2*d[0] + d[6] + 1)),2),
+        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = CT1,
+        ayuda2 = CT2,      
+        ayuda3 = CT3,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        El centroide se define como el centro geométrico de un objeto, en otras palabras, representa la posición promedio del área del objeto. A continuación, se presenta la solución sugerida para el ejercicio:
+        
+        $\\textbf{{\\small 1. División de la figura compuesta: }}$
+
+        En el ejercicio se muestra una figura que puede segmentarse en 4 componentes con centroides comúnmente conocidos, como triángulos y rectángulos.
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        $\\textbf{{\\small 2. Partes componentes: }}$
+        
+        Primero se encuentra el área de cada componente y su centroide con respecto al origen:
+        
+        $\\underline{{Componente \\hspace{{2mm}} 1:}}$  
+        
+        ${{\hspace{{4mm}} A_1 = b \\cdot h = 2d_1 \\cdot d_2}}$    
+
+        ${{\hspace{{4mm}} A_1 = {d[3]*(d[3]+d[0])*2:.2f} \\text{{ }}cm^2}}$     
+             
+        ${{\hspace{{4mm}} \\bar{{Y_1}} = \\dfrac{{h}}{{2}} = {d[3]/2:.2f} \\text{{ cm}}}}$                 
+             
+        ${{\hspace{{4mm}} A_1 \\cdot \\bar{{Y_1}} = {d[3]*(d[3]+d[0])*(d[3]):.2f} \\text{{ }}cm^3}}$                 
+        
+        $\\underline{{Componentes \\hspace{{2mm}} 2 \\hspace{{2mm}} y \\hspace{{2mm}} 3 :}}$  
+        
+        ${{\hspace{{4mm}} A_2 = A_3 = \\dfrac{{b \\cdot h}}{{2}} = \\dfrac{{ (d_1 - \\dfrac{{d_2}}{{2}}) \\cdot d_3 }}{{2}}}}$     
+        
+        ${{\hspace{{4mm}} A_2 = A_3 = {(d[0] + d[3]*(1/2))*(d[3]+1)*(1/2):.2f} \\text{{ }}cm^2}}$     
+             
+        ${{\hspace{{4mm}} \\bar{{Y_2}} = \\bar{{Y_3}} = \\dfrac{{h}}{{3}} + d_2 = {(d[3]+1)*(1/3) + d[3]:.2f} \\text{{ cm}}}}$                 
+              
+        ${{\hspace{{4mm}} A_2 \\cdot \\bar{{Y_2}} = A_3 \\cdot \\bar{{Y_3}} = {(d[0] + d[3]*(1/2))*(d[3]+1)*(1/2)*((d[3]+1)*(1/3) + d[3]):.2f} \\text{{ }}cm^3}}$                 
+        
+        $\\underline{{Componente \\hspace{{2mm}} 4:}}$  
+        
+        ${{\hspace{{4mm}} A_4 = b \\cdot h =  d_2 \\cdot (d_3 + d_4)}}$     
+        
+        ${{\hspace{{4mm}} A_4 = {d[3]*(d[3]+ 2*d[0] + d[6] + 1):.2f} \\text{{ }}cm^2}}$     
+             
+        ${{\hspace{{4mm}} \\bar{{Y_4}} = \\dfrac{{h}}{{2}} + d_2 = {(d[3]+ 2*d[0] + d[6] + 1)*(1/2) + d[3]:.2f} \\text{{ }}cm}}$               
+             
+        ${{\hspace{{4mm}} A_4 \\cdot \\bar{{Y_4}} = {d[3]*(d[3]+ 2*d[0] + d[6] + 1)*((d[3]+ 2*d[0] + d[6] + 1)*(1/2) + d[3]):.2f} \\text{{ }}cm^3}}$                 
+           
+        $\\textbf{{\\small 2. Determinar el centroide en Y: }}$
+        
+        El centroide se calcula con la ecuación $\\bar{{Y}} = \\dfrac{{\\sum{{\\bar{{Y_i}} \\cdot A_i}}}}{{\\sum{{A_i}}}}$:
+        
+        ${{\hspace{{4mm}} \\bar{{Y}} = \\dfrac{{\\sum{{\\bar{{Y_i}} \\cdot A_i}}}}{{\\sum{{A_i}}}} = \\dfrac{{ {d[3]*(d[3]+d[0])*d[3]:.2f} \\text{{ }}cm^3 + 2 \\cdot {(d[0] + d[3]*(1/2))*(d[3]+1)*(1/2)*((d[3]+1)*(1/3) + d[3]):.2f} \\text{{ }}cm^3 + {d[3]*(d[3]+ 2*d[0] + d[6] + 1)*((d[3]+ 2*d[0] + d[6] + 1)*(1/2) + d[3]):.2f} \\text{{ }}cm^3 }}{{{d[3]*(d[3]+d[0])*2:.2f} \\text{{ }}cm^2 + 2 \\cdot {(d[0] + d[3]*(1/2))*(d[3]+1)*(1/2):.2f} \\text{{ }}cm^2 + {d[3]*(d[3]+ 2*d[0] + d[6] + 1):.2f} \\text{{ }}cm^2}}}}$     
+        
+        ${{\hspace{{4mm}} \\bar{{Y}}  = \\dfrac{{{d[3]*(d[3]+ 2*d[0] + d[6] + 1)*((d[3]+ 2*d[0] + d[6] + 1)*(1/2) + d[3]) + (d[0] + d[3]*(1/2))*(d[3]+1)*((d[3]+1)*(1/3) + d[3]) + d[3]*(d[3]+d[0])*d[3]:.2f}  \\text{{ }}cm^3  }}{{{d[3]*(d[3]+d[0])*2 + (d[0] + d[3]*(1/2))*(d[3]+1) + d[3]*(d[3]+ 2*d[0] + d[6] + 1):.2f} \\text{{ }}cm^2}}}}$     
+        
+        ${{\hspace{{4mm}} \\bar{{Y}} = {(d[3]*(d[3]+ 2*d[0] + d[6] + 1)*((d[3]+ 2*d[0] + d[6] + 1)*(1/2) + d[3]) + (d[0] + d[3]*(1/2))*(d[3]+1)*((d[3]+1)*(1/3) + d[3]) + d[3]*(d[3]+d[0])*d[3])/(d[3]*(d[3]+d[0])*2 + (d[0] + d[3]*(1/2))*(d[3]+1) + d[3]*(d[3]+ 2*d[0] + d[6] + 1)):.2f} \\text{{ }}cm}}$     
+        """,
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
+
+    # Questionary(#2_1
+    #     code = 6110021,
+    #     no_pregunta = 1,
+    #     complexity = F,
+    #     topic = "Centroides",
+    #     subtopic = "Centroides",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"Cada uno de los tres elementos del marco tienen tienen una masa por unidad de longitud de ${d[0]:.0f} \\text{{ kg/m}}$. Ubique la posición del centro de masa $(\\bar{{X}}, \\bar{{Y}})$ y calcule la reacción en el apoyo E. Considere $d_1 = {d[3]:.0f} \\text{{ m}}$,  $d_2 = {d[6]:.0f}  \\text{{ m}}$, $d_3 = {d[9]:.0f} \\text{{ m}}$, $d_4 = {d[12]:.0f} \\text{{ m}}$ y la aceleración debida a la gravedad $g = 9,81 \\text{{ m/s^2}}$.",
+    #     no_answers = 3,
+    #     a1_name = "Distancia $\\bar{{X}}$ [m]",
+    #     a2_name = "Distancia $\\bar{{Y}}$ [m]",
+    #     a3_name = "Reacción $E_y$ [N]",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round((d[9]*(1/2)*(Calculations.magnitude(d[9],d[6])**2)*d[0] + (1/2)*d[0]*(d[9]+d[12])**2)/(d[0]*(d[3]+d[6]) + d[0]*Calculations.magnitude(d[9],d[6]) + d[0]*(d[9]+d[12])),2),
+    #     answer2 = lambda f, a, calc, c, d, m: np.round(((1/2)*d[0]*(d[3]+d[6])**2 + d[6]*(1/2)*(Calculations.magnitude(d[9],d[6])**2)*d[0] + d[0]*(d[3]+d[6])(d[9]+d[12]))/(d[0]*(d[3]+d[6]) + d[0]*Calculations.magnitude(d[9],d[6]) + d[0]*(d[9]+d[12])),2),
+    #     answer3 = lambda f, a, calc, c, d, m: np.round((9.81*(d[9]*(1/2)*(Calculations.magnitude(d[9],d[6])**2)*d[0] + (1/2)*d[0]*(d[9]+d[12])**2))/(d[9]+d[12]),2),
+    #     ayuda1 = "El centro de masa hace referencia al promedio de las posiciones de cada punto o segmento de un objeto ponderado según sus masas.",
+    #     ayuda2 = "Como un recurso para vizualizar y organizar mejor los datos es recomendable la creación de una tabla con masas y coordenadas respectivas a sus centros de masa.",      
+    #     ayuda3 = "",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     El centro de masa es posible entenderlo como el punto donde se puede considerar que toda la masa de la estructura esta concentrada. A continuación, se presenta la solución sugerida para el ejercicio:
+        
+    #     El marco esta compuesto por tres elementos cuyos centros de masa se encuentran en el punto medio de su longitud.
+        
+    #     $\\textbf{{\\small 1. Tabulación de cálculos: }}$
+        
+    #     Teniendo en cuenta que la masa de cada elemento se calcula mediante el producto de la densidad lineal por la longitud se puede obtener la siguiente tabla:
+        
+    #     \\begin{{table}}[h]
+    #     \\begin{{center}}
+    #     \\begin{{tabular}}{{| c | c | c | c | c | c | c |}}
+    #     \\hline
+    #     Elemento &  L(m) & M(kg) & $\\bar{{X}}$(m) & $\\bar{{Y}}$(m) & $\\bar{{X}} \\cdot M(kg \\cdot m)$  & $\\bar{{Y}} \\cdot M(kg \\cdot m)$ \\ \\hline
+    #     AC & ${d[3]+d[6]:.2f}$ & ${d[0]*(d[3]+d[6]):.2f}$ & 0 & ${(1/2)*(d[3]+d[6]):.2f}$ & 0 & ${(1/2)*d[0]*(d[3]+d[6])**2:.2f}$  \\ \\hline
+    #     BD & ${Calculations.magnitude(d[9],d[6]):.2f}$ & ${d[0]*Calculations.magnitude(d[9],d[6]):.2f}$ & ${d[9]*(1/2):.2f}$ & ${d[6]*(1/2):.2f}$ & ${d[9]*(1/2)*(Calculations.magnitude(d[9],d[6])**2)*d[0]:.2f}$ & ${d[6]*(1/2)*(Calculations.magnitude(d[9],d[6])**2)*d[0]:.2f}$  \\ \\hline
+    #     CE & ${d[9]+d[12]:.2f}$ & ${d[0]*(d[9]+d[12]):.2f}$ & ${(1/2)*(d[9]+d[12]):.2f}$ & ${(d[3]+d[6]):.2f}$ & ${(1/2)*d[0]*(d[9]+d[12])**2:.2f}$ & ${d[0]*(d[3]+d[6])(d[9]+d[12]):.2f}$ \\ \\hline
+    #     \\end{{tabular}}
+    #     \\end{{center}}
+    #     \\end{{table}}            
+        
+    #     $\\textbf{{\\small 2. Determinar \\bar{{X}}: }}$
+        
+    #     Se puede aplicar la formula para determinar la coordenada $\\bar{{X}}$ :
+        
+    #     ${{\hspace{{4mm}} \\bar{{X}} = \\dfrac{{\\sum{{\\bar{{X_i}} \\cdot M_i}}}}{{\\sum{{M_i}}}}}}$     
+    #     ${{\hspace{{4mm}} \\bar{{X}} = {(d[9]*(1/2)*(Calculations.magnitude(d[9],d[6])**2)*d[0] + (1/2)*d[0]*(d[9]+d[12])**2)/(d[0]*(d[3]+d[6]) + d[0]*Calculations.magnitude(d[9],d[6]) + d[0]*(d[9]+d[12])):.2f} \\text{{ m}}}}$     
+           
+    #     $\\textbf{{\\small 3. Determinar \\bar{{Y}}: }}$
+        
+    #     Se puede aplicar la formula para determinar la coordenada $\\bar{{Y}}$ :
+        
+    #     ${{\hspace{{4mm}} \\bar{{Y}} = \\dfrac{{\\sum{{\\bar{{Y_i}} \\cdot M_i}}}}{{\\sum{{M_i}}}}}}$     
+    #     ${{\hspace{{4mm}} \\bar{{Y}} = {((1/2)*d[0]*(d[3]+d[6])**2 + d[6]*(1/2)*(Calculations.magnitude(d[9],d[6])**2)*d[0] + d[0]*(d[3]+d[6])(d[9]+d[12]))/(d[0]*(d[3]+d[6]) + d[0]*Calculations.magnitude(d[9],d[6]) + d[0]*(d[9]+d[12])):.2f} \\text{{ m}}}}$     
+        
+    #     $\\textbf{{\\small 4. Encontrar reacción en E: }}$
+        
+    #     E es un apoyo tipo 1, por ende solo va a tener una reacción. Teniendo presente que el peso de la estructura solo tiene componente negativa en $\\hat{{j}}$ y esta ubicada en el centro de masa, esta se puede calcular de la siguiente manera :
+        
+    #     ${{\hspace{{4mm}} \\sum{{M_A}} = E_y \\cdot (d_3 + d_4) -  W \\cdot \\bar{{X}} = 0}}$     
+    #     ${{\hspace{{4mm}} E_y \\cdot (d_3 + d_4) - \\sum{{M_i}} \\cdot g \\cdot \\dfrac{{\\sum{{\\bar{{X_i}} \\cdot M_i}}}}{{\\sum{{M_i}}}} = 0}}$     
+    #     ${{\hspace{{4mm}} E_y = \\dfrac{{ g \\cdot \\sum{{\\bar{{X_i}} \\cdot M_i}}}}{{(d_3 + d_4)}} }}$     
+    #     ${{\hspace{{4mm}} E_y = {(9.81*(d[9]*(1/2)*(Calculations.magnitude(d[9],d[6])**2)*d[0] + (1/2)*d[0]*(d[9]+d[12])**2))/(d[9]+d[12]):.2f} \\text{{ N}}}}$     
+             
+        
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ),
+
+    #========================================================  CENTROIDES  =========================================================
+    #-------------------------------------------------       Centroides    --------------------------------------------
+    #-------------------------------------------------       Nivel Medio   ---------------------------------------------------
+    #-------------------------------------------------       Code: 6120011    --------------------------------------------------
+
+    Questionary(#1_1
+        code = 6120011,
+        no_pregunta = 1,
+        complexity = M,
+        topic = "Centroides",
+        subtopic = "Centroides",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Esta sección pronto estará disponible.",
+        no_answers = 0,
+        a1_name = "",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: 0,
+        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = "",
+        ayuda2 = "",      
+        ayuda3 = "",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"",   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
+
+    #========================================================  CENTROIDES  =========================================================
+    #-------------------------------------------------       Centroides    --------------------------------------------
+    #-------------------------------------------------       Nivel Díficil   ---------------------------------------------------
+    #-------------------------------------------------       Code: 6130011    --------------------------------------------------
+
+    Questionary(#1_1
+        code = 6130011,
+        no_pregunta = 1,
+        complexity = D,
+        topic = "Centroides",
+        subtopic = "Centroides",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Esta sección pronto estará disponible.",
+        no_answers = 0,
+        a1_name = "",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: 0,
+        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = "",
+        ayuda2 = "",      
+        ayuda3 = "",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"",   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
 
     ]
