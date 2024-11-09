@@ -781,116 +781,253 @@ conceptuales = [
 
     #------------------------------------------------------  Cerchas ------------------------------------------------------------
     #-------------------------------------------------       16000##0         ---------------------------------------------------
+    # Theory(#1
+    #     code = 1600010, 
+    #     no_pregunta = 1,
+    #     topic = "Equilibrio de partículas",
+    #     subtopic = "Cerchas",
+    #     enunciado ="¿Cuáles de las siguientes son las hipótesis de diseño de armaduras o cerchas?", 
+    #     opcion_1 = "Todas las cargas se aplican en los nodos y no existe fricción en las uniones.",
+    #     opcion_2 = "Las cargas se alican en los nodos en elemento horizontales y verticales. Y, en elementos inclinados se aplican en el centro del elemento.",
+    #     opcion_3 = "Todas las cargas se aplican en el centro de los elementos y no existe fricción en las uniones.",
+    #     opcion_4 = "Todas las cargas se aplican en los nodos y existe fricción en las uniones.",
+    #     opcion_correcta =  "Todas las cargas se aplican en los nodos y no existe fricción en las uniones.",
+    #     respuesta_P1 = " ",
+    #     respuesta_P2 = "",
+    #     ),
+
+    # Theory(#2
+    #     code = 1600020, 
+    #     no_pregunta = 2,
+    #     topic = "Equilibrio de partículas",
+    #     subtopic = "Cerchas",
+    #     enunciado ="¿Cuál es la condición básica para que una cercha sea estáticamente determinada?", 
+    #     opcion_1 = "El número de elementos debe ser igual al número de nodos.",
+    #     opcion_2 = "El número de elementos debe ser mayor que el número de nodos.",
+    #     opcion_3 = "El número de elementos debe ser igual a 2n−3.",
+    #     opcion_4 = "El número de nodos debe ser igual al número de apoyos.",
+    #     opcion_correcta = "El número de elementos debe ser igual a 2n−3.",
+    #     respuesta_P1 = "Para que una cercha sea estáticamente determinada, el número de barras debe cumplir la ecuación m=2n−3, donde m es el número de barras y n es el número de nodos. Esta relación asegura que la estructura puede analizarse usando las ecuaciones de equilibrio sin necesidad de recurrir a métodos avanzados de análisis.",
+    #     respuesta_P2 = "",
+    #     ),
+
+    # Theory(#3
+    #     code = 1600030, 
+    #     no_pregunta = 3,
+    #     topic = "Equilibrio de partículas",
+    #     subtopic = "Cerchas",
+    #     enunciado ="Convencionalmente se dice que un elemento está en tensión cuando:", 
+    #     opcion_1 = " ",
+    #     opcion_2 = "Las flechas en los extremos apuntan hacia fuera del elemento generando el alargamiento del elemento.",
+    #     opcion_3 = " ",
+    #     opcion_4 = " ",
+    #     opcion_correcta = "Las flechas en los extremos apuntan hacia fuera del elemento generando el alargamiento del elemento.",
+    #     respuesta_P1 = """ """,
+    #     respuesta_P2 = "",
+    #     ),
+                     
+    # Theory(#4
+    #     code = 1600040, 
+    #     no_pregunta = 4,
+    #     topic = "Equilibrio de partículas",
+    #     subtopic = "Cerchas",
+    #     enunciado ="Convencionalmente se dice que un elemento está en compresión cuando:", 
+    #     opcion_1 = " ",
+    #     opcion_2 = " ",
+    #     opcion_3 = " ",
+    #     opcion_4 = "Las flechas en los extremos apuntan hacia el elemento generando el acortamiento del elemento.",
+    #     opcion_correcta = "Las flechas en los extremos apuntan hacia el elemento generando el acortamiento del elemento.",
+    #     respuesta_P1 = """ """,
+    #     respuesta_P2 = "",
+    #     ),
+                     
+    # Theory(#5
+    #     code = 1600050, 
+    #     no_pregunta = 5,
+    #     topic = "Equilibrio de partículas",
+    #     subtopic = "Cerchas",
+    #     enunciado =""""
+    #     Cuáles de las siguientes afirmaciones son verdaderas:
+    #         I.	Si una armadura es estable sus nodos están en equilibrio.
+    #         II.	Para analizar cerchas deben conocerse las reacciones
+    #         III.	En los nodos el momento siempre es 0. En 2d Las fuerzas son coplanares y concurrentes. Solo se hacen sumatorias de fuerzas para determinar el equilibrio 
+    #     """, 
+    #     opcion_1 = " ",
+    #     opcion_2 = " ",
+    #     opcion_3 = " ",
+    #     opcion_4 = " ",
+    #     opcion_correcta = " ",
+    #     respuesta_P1 = """ """,
+    #     respuesta_P2 = "",
+    #     ),
+                         
+    # Theory(#6
+    #     code = 1600060, 
+    #     no_pregunta = 6,
+    #     topic = "Equilibrio de partículas",
+    #     subtopic = "Cerchas",
+    #     enunciado ="Cuando se hace el diagrama de cuerpo libre de un nodo una recomendación es:", 
+    #     opcion_1 = " ",
+    #     opcion_2 = " ",
+    #     opcion_3 = "Imaginar que las fuerzas están saliendo del nodo.",
+    #     opcion_4 = " ",
+    #     opcion_correcta = "Las flechas en los extremos apuntan hacia el elemento generando el acortamiento del elemento.",
+    #     respuesta_P1 = """De esta forma, si el escalar da positivo es correcto asumir que el elemento está a tensión y si da negativo, se sabe que el elemento está en compresión. """,
+    #     respuesta_P2 = "",
+    #     ),
+
+    # Theory(#7
+    #     code = 1700060, 
+    #     no_pregunta = 7,
+    #     topic = "Equilibrio de partículas",
+    #     subtopic = "Cerchas",
+    #     enunciado ="Un elemento de la cercha es de fuerza cero cuando:", 
+    #     opcion_1 = " ",
+    #     opcion_2 = " ",
+    #     opcion_3 = "Imaginar que las fuerzas están saliendo del nodo.",
+    #     opcion_4 = " ",
+    #     opcion_correcta = "Las flechas en los extremos apuntan hacia el elemento generando el acortamiento del elemento.",
+    #     respuesta_P1 = """De esta forma, si el escalar da positivo es correcto asumir que el elemento está a tensión y si da negativo, se sabe que el elemento está en compresión. """,
+    #     respuesta_P2 = "",
+    #     ),                 
+
+
+
+#------------------------------------------------------  Centrides-----------------------------------------------------------
+#-------------------------------------------------       71000#0         ---------------------------------------------------
     Theory(#1
-        code = 1600010, 
+        code = 7100010, 
         no_pregunta = 1,
-        topic = "Equilibrio de partículas",
-        subtopic = "Cerchas",
-        enunciado ="¿Cuáles de las siguientes son las hipótesis de diseño de armaduras o cerchas?", 
-        opcion_1 = "Todas las cargas se aplican en los nodos y no existe fricción en las uniones.",
-        opcion_2 = "Las cargas se alican en los nodos en elemento horizontales y verticales. Y, en elementos inclinados se aplican en el centro del elemento.",
-        opcion_3 = "Todas las cargas se aplican en el centro de los elementos y no existe fricción en las uniones.",
-        opcion_4 = "Todas las cargas se aplican en los nodos y existe fricción en las uniones.",
-        opcion_correcta =  "Todas las cargas se aplican en los nodos y no existe fricción en las uniones.",
-        respuesta_P1 = " ",
+        topic = "Centroides",
+        subtopic = "Centroides",
+        enunciado ="¿Qué es el centroide de un cuerpo?", 
+        opcion_1 = "Es el punto de simetría de la masa total de un cuerpo.",
+        opcion_2 = "Es el punto que divide el área de un cuerpo en dos partes iguales.",
+        opcion_3 = "Es el punto donde el cuerpo no siente la aplicación de fuerzas externas.",
+        opcion_4 = "Es el punto medio geométrico de un cuerpo.",
+        opcion_correcta =  "Es el punto medio geométrico de un cuerpo.",
+        respuesta_P1 = "El centroide es un punto en el cual se considera que está concentrado toda el área o volumen del cuerpo, sin tener en cuenta la densidad o la masa. Por lo tanto, está determinado únicamente por su forma y dimensiones.",
         respuesta_P2 = "",
         ),
 
     Theory(#2
-        code = 1600020, 
+        code = 7100020, 
         no_pregunta = 2,
-        topic = "Equilibrio de partículas",
-        subtopic = "Cerchas",
-        enunciado ="¿Cuál es la condición básica para que una cercha sea estáticamente determinada?", 
-        opcion_1 = "El número de elementos debe ser igual al número de nodos.",
-        opcion_2 = "El número de elementos debe ser mayor que el número de nodos.",
-        opcion_3 = "El número de elementos debe ser igual a 2n−3.",
-        opcion_4 = "El número de nodos debe ser igual al número de apoyos.",
-        opcion_correcta = "El número de elementos debe ser igual a 2n−3.",
-        respuesta_P1 = "Para que una cercha sea estáticamente determinada, el número de barras debe cumplir la ecuación m=2n−3, donde m es el número de barras y n es el número de nodos. Esta relación asegura que la estructura puede analizarse usando las ecuaciones de equilibrio sin necesidad de recurrir a métodos avanzados de análisis.",
+        topic = "Centroides",
+        subtopic = "Centroides",
+        enunciado ="Para calcular el centroide de un cuerpo compuesto por figuras comunes, se debe:", 
+        opcion_1 = "Promediar el área o volumen de cada una de las figuras conocidas del cuerpo.",
+        opcion_2 = "Promediar las coordenadas de los centroides de cada una de las figuras conocidas del cuerpo.",
+        opcion_3 = "Realizar la suma producto entre los centroides y áreas de cada una de las figuras.",
+        opcion_4 = "Calcular el centroide de cada figura, ponderarlo por el área o volumen respectivo, y luego dividir la suma de estos productos entre el área o volumen total del cuerpo.",
+        opcion_correcta = "Calcular el centroide de cada figura, ponderarlo por el área o volumen respectivo, y luego dividir la suma de estos productos entre el área o volumen total del cuerpo.",
+        respuesta_P1 = """
+        Las coordenadas del centroide de una figura compuesta bidimensional se pueden calcular mediante las siguientes expresiones:      
+        
+        $\\bar{{X}} = \\dfrac{{\\sum{{\\bar{{X_i}} \\cdot A_i}}}}{{\\sum{{A_i}}}}$      
+
+        $\\bar{{Y}} = \\dfrac{{\\sum{{\\bar{{Y_i}} \\cdot A_i}}}}{{\\sum{{A_i}}}}$         
+
+        Donde:           
+        $\\bar{{X}}$ = Coordenada X del centroide de la figura compuesta.              
+        $\\bar{{Y}}$ = Coordenada Y del centroide de la figura compuesta.              
+        $i$ = Índice que representa cada una de las partes en las que se ha dividido la figura compuesta.                 
+        $A$ = Área de la figura. 
+
+        Para el caso de un cuerpo tridimensional, el cálculo se realiza ponderando cada centroide con el volumen de cada figura en lugar del área, y se divide entre el volumen total del cuerpo.                 
+        
+        Esta ecuación proviene de la igualdad de momentos de dos sistemas equivalentes, es decir, el momento que ejerce cada una de las figuras respecto a un eje de referencia es equivalente al momento que realiza todo el cuerpo respecto a dicho eje de referencia.         
+        """,
         respuesta_P2 = "",
         ),
 
     Theory(#3
-        code = 1600030, 
+        code = 7100030, 
         no_pregunta = 3,
-        topic = "Equilibrio de partículas",
-        subtopic = "Cerchas",
-        enunciado ="Convencionalmente se dice que un elemento está en tensión cuando:", 
-        opcion_1 = " ",
-        opcion_2 = "Las flechas en los extremos apuntan hacia fuera del elemento generando el alargamiento del elemento.",
-        opcion_3 = " ",
-        opcion_4 = " ",
-        opcion_correcta = "Las flechas en los extremos apuntan hacia fuera del elemento generando el alargamiento del elemento.",
-        respuesta_P1 = """ """,
-        respuesta_P2 = "",
-        ),
-                     
-    Theory(#4
-        code = 1600040, 
-        no_pregunta = 4,
-        topic = "Equilibrio de partículas",
-        subtopic = "Cerchas",
-        enunciado ="Convencionalmente se dice que un elemento está en compresión cuando:", 
-        opcion_1 = " ",
-        opcion_2 = " ",
-        opcion_3 = " ",
-        opcion_4 = "Las flechas en los extremos apuntan hacia el elemento generando el acortamiento del elemento.",
-        opcion_correcta = "Las flechas en los extremos apuntan hacia el elemento generando el acortamiento del elemento.",
-        respuesta_P1 = """ """,
-        respuesta_P2 = "",
-        ),
-                     
-    Theory(#5
-        code = 1600050, 
-        no_pregunta = 5,
-        topic = "Equilibrio de partículas",
-        subtopic = "Cerchas",
-        enunciado =""""
-        Cuáles de las siguientes afirmaciones son verdaderas:
-            I.	Si una armadura es estable sus nodos están en equilibrio.
-            II.	Para analizar cerchas deben conocerse las reacciones
-            III.	En los nodos el momento siempre es 0. En 2d Las fuerzas son coplanares y concurrentes. Solo se hacen sumatorias de fuerzas para determinar el equilibrio 
-        """, 
-        opcion_1 = " ",
-        opcion_2 = " ",
-        opcion_3 = " ",
-        opcion_4 = " ",
-        opcion_correcta = " ",
-        respuesta_P1 = """ """,
-        respuesta_P2 = "",
-        ),
-                         
-    Theory(#6
-        code = 1600060, 
-        no_pregunta = 6,
-        topic = "Equilibrio de partículas",
-        subtopic = "Cerchas",
-        enunciado ="Cuando se hace el diagrama de cuerpo libre de un nodo una recomendación es:", 
-        opcion_1 = " ",
-        opcion_2 = " ",
-        opcion_3 = "Imaginar que las fuerzas están saliendo del nodo.",
-        opcion_4 = " ",
-        opcion_correcta = "Las flechas en los extremos apuntan hacia el elemento generando el acortamiento del elemento.",
-        respuesta_P1 = """De esta forma, si el escalar da positivo es correcto asumir que el elemento está a tensión y si da negativo, se sabe que el elemento está en compresión. """,
+        topic = "Centroides",
+        subtopic = "Centroides",
+        enunciado ="¿Cuál es la principal diferencia entre el centroide y el centro de masa de un objeto?", 
+        opcion_1 = "El centro de masa es siempre el mismo que el centroide.",
+        opcion_2 = "El centroide es el centro geométrico y el centro de masa es el centro de distribución de la masa.",
+        opcion_3 = "El centroide es el punto medio de equilibrio y el centro de masa depende de las dimensiones.",
+        opcion_4 = "El centroide depende de la forma y material, mientras que el centro de masa es el punto de gravedad del cuerpo.",
+        opcion_correcta = "El centroide es el centro geométrico y el centro de masa es el centro de distribución de la masa.",
+        respuesta_P1 = """El centroide es el punto de simetría geométrico de un objeto, por lo tanto, depende de su forma y dimensiones. Por el contrario, el centro de masa, depende de la distribución de la masa en el objeto.
+        Esto quiere decir, que en una figura compuesta por varios distintos materiales, el centroide no coincidirá necesariamente con el centro de masa.""",
         respuesta_P2 = "",
         ),
 
-    Theory(#7
-        code = 1700060, 
-        no_pregunta = 7,
-        topic = "Equilibrio de partículas",
-        subtopic = "Cerchas",
-        enunciado ="Un elemento de la cercha es de fuerza cero cuando:", 
-        opcion_1 = " ",
-        opcion_2 = " ",
-        opcion_3 = "Imaginar que las fuerzas están saliendo del nodo.",
-        opcion_4 = " ",
-        opcion_correcta = "Las flechas en los extremos apuntan hacia el elemento generando el acortamiento del elemento.",
-        respuesta_P1 = """De esta forma, si el escalar da positivo es correcto asumir que el elemento está a tensión y si da negativo, se sabe que el elemento está en compresión. """,
+    Theory(#4
+        code = 7100040, 
+        no_pregunta = 4,
+        topic = "Centroides",
+        subtopic = "Centroides",
+        enunciado ="Para una placa de densidad constante y forma regular, ¿cómo se relacionan el centroide y el centro de masa?", 
+        opcion_1 = "Las coordenadas del centroide y el centro de masa coinciden únicamente en uno de los ejes de referencia.",
+        opcion_2 = "El centroide y el centro de masa no coinciden.",
+        opcion_3 = "Son idénticos porque la densidad es constante.",
+        opcion_4 = "Son idénticos porque la forma es regular.",
+        opcion_correcta = "Son idénticos porque la densidad es constante.",
+        respuesta_P1 = "En un objeto de densidad constante y forma uniforme, el centroide y el centro de masa coinciden. Dado que, la distribución de la masa es homogénea y se distribuye uniformemente respecto a la geometría del objeto.",
         respuesta_P2 = "",
-        ),                 
-     
+        ),
+
+    Theory(#5
+        code = 7100050, 
+        no_pregunta = 5,
+        topic = "Centroides",
+        subtopic = "Centroides",
+        enunciado ="""
+        ¿Cuáles de las siguientes afirmaciones son verdaderas?:   
+
+        I.	En un cuerpo compuesto, los centroides de cada figura que lo conforma se deben calcular con respecto al mismo eje de referencia.    
+        II.	El centroide de un cuerpo puede estar localizado fuera de él.     
+        III. El centro de gravedad está localizado en la zona de mayor peso del objeto.     
+        """, 
+        opcion_1 = " I, III",
+        opcion_2 = "Solamente II",
+        opcion_3 = "Solamente I.",
+        opcion_4 = "Todas son correctas.",
+        opcion_correcta = "Todas son correctas.",
+        respuesta_P1 = """
+        Todas las afirmaciones son correctas:   
+
+        I. Los centroides de las figuras que conforman un cuerpo compuesto se calculan con respecto al mismo eje de referencia.      
+        II. El centroide de un cuerpo puede estar localizado fuera de él, particularmente, si esté es de forma irregular o tiene cavidades.       
+        III. El centro de gravedad depende del peso (W) de la figura, el cual está influenciado por la gravedad.     
+        """,
+        respuesta_P2 = "",
+        ),     
+        
+    Theory(#6
+        code = 7100060, 
+        no_pregunta = 6,
+        topic = "Centroides",
+        subtopic = "Centroides",
+        enunciado ="¿Cuál es la expresión correcta para calcular el centroide en X de la parábola mostrada en la figura?", 
+        opcion_1 = """$\\bar{{X}}=\\dfrac{{\\int_0^6 x^2 \\cdot x^2 dx}}{{\\int_0^6{{x^2 dx}}}}$ \\
+        $\\text{{    }}$""",
+        opcion_2 = """$\\bar{{X}}=\\dfrac{{\\int_0^6 x \\cdot x^2 dx}}{{\\int_0^6{{x dx}}}}$ \\
+        $\\text{{    }}$""",
+        opcion_3 = """$\\bar{{X}}=\\dfrac{{\\int_0^6 \\dfrac{{x}}{{2}} \\cdot x^2 dx}}{{\\int_0^6{{x^2 dx}}}}$ \\
+        $\\text{{    }}$""",
+        opcion_4 = """$\\bar{{X}}=\\dfrac{{\\int_0^6 x \\cdot x^2 dx}}{{\\int_0^6{{x^2 dx}}}}$ \\
+        $\\text{{    }}$""",
+        opcion_correcta = """$\\bar{{X}}=\\dfrac{{\\int_0^6 x \\cdot x^2 dx}}{{\\int_0^6{{x^2 dx}}}}$ \\
+        $\\text{{    }}$""",
+        respuesta_P1 = """
+        Para calcular el centroide de la parábola, se define un elemento diferencial y se aplica la fórmula:   
+
+        $\\bar{{X}}=\\dfrac{{\\int_{{R(x)}}x dA}}{{\\int_{{R(x)}}{{dA}}}}$
+        
+        El elemento diferencial se definió de la siguiente forma:""",
+        respuesta_P2 = """
+        Reemplazando en la fórmula, la expresión para calcular el centroide en X de la parábola es:
+
+        $\\bar{{X}}=\\dfrac{{\\int_0^6 x \\cdot x^2 dx}}{{\\int_0^6{{x^2 dx}}}}$
+        """,
+        ),   
+
 ]
 
 

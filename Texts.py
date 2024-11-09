@@ -11,6 +11,7 @@ D = "Díficil"
 #---------------------------------- Topics --------------------------------------
 EQ = "Equilibrio de partículas"
 MO = "Momento"
+CT = "Centroides"
 
 
 #-------------------------------  Subtopics -------------------------------------
@@ -206,16 +207,17 @@ SE5 = "El par equivalente de un sistema equivalente fuerza-par se calcula sumand
 #CENTROIDES
 CT1 = "Las figuras complejas pueden dividirse en formas más simples cuyos centroides son conocidos o fáciles de encontrar."
 CT2 = """
-El centroide representa el centro geométrico de un objeto. Para calcular las coordenadas del centroide de un área compuesta se utilizan las siguientes ecuaciones:
+El centroide representa el centro geométrico de un objeto. Para calcular las coordenadas del centroide de un área compuesta se utilizan las siguientes ecuaciones:   
 
-\\bar{{X}} = \\dfrac{{\\sum{{\\bar{{X_i}} \\cdot A_i}}}}{{\\sum{{A_i}}}}
-\\bar{{Y}} = \\dfrac{{\\sum{{\\bar{{Y_i}} \\cdot A_i}}}}{{\\sum{{A_i}}}}
+$\\bar{{X}} = \\dfrac{{\\sum{{\\bar{{X_i}} \\cdot A_i}}}}{{\\sum{{A_i}}}}$      
 
-Donde:
-$\\bar{{X}}$ = Coordenada X del centroide de la figura compuesta
-$\\bar{{Y}}$ = Coordenada Y del centroide de la figura compuesta
-$i$ = Elementos de la figura conocida, una vez se divide la figura compuesta.
-$A$ = Área de la figura 
+$\\bar{{Y}} = \\dfrac{{\\sum{{\\bar{{Y_i}} \\cdot A_i}}}}{{\\sum{{A_i}}}}$         
+
+Donde:     
+$\\bar{{X}}$ = Coordenada X del centroide de la figura compuesta    
+$\\bar{{Y}}$ = Coordenada Y del centroide de la figura compuesta    
+$i$ = Elementos de la figura conocida, una vez se divide la figura compuesta.   
+$A$ = Área de la figura   
 """
 CT3 = "Un recurso útil para visualizar y organizar los datos es la creación de una tabla con las áreas y las coordenadas de los centroides de cada elemento."
 

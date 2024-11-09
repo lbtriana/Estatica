@@ -479,7 +479,7 @@ if authenticate_user():
 
         if way == "Teoría":
             st.sidebar.header("Teoría")
-            topic=st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Apoyos y reacciones"])
+            topic=st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Apoyos y reacciones", "Centroides"])
             respuesta_usuario['topic'] = topic
 
             if topic == "Equilibrio de partículas":
@@ -488,6 +488,8 @@ if authenticate_user():
             #    subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Momento"])
             if topic == "Apoyos y reacciones":
                 subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Apoyos y reacciones"])
+            if topic == "Centroides":
+                subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Centroides"])
 
             if consent:
                 log_event(st.session_state["username"], "theory_section_accessed", {})
@@ -1140,34 +1142,42 @@ if authenticate_user():
         with center_col:
             if subtopic == "Vectores":
                 if pregunta_no == 1: 
-                    st.image(teoria_preguntas[0], width=180)  
+                    st.image(EQ_teoria_preguntas[0], width=180)  
                 if pregunta_no == 2 or pregunta_no == 3: 
-                    st.image(teoria_preguntas[1], width=200)
+                    st.image(EQ_teoria_preguntas[1], width=200)
                 if pregunta_no == 4: 
-                    st.image(teoria_preguntas[2], width=300)  
+                    st.image(EQ_teoria_preguntas[2], width=300)  
                 if pregunta_no == 5: 
-                    st.image(teoria_preguntas[3], width=250)  
+                    st.image(EQ_teoria_preguntas[3], width=250)  
                 if pregunta_no == 6: 
-                    st.image(teoria_preguntas[4], width=350)  
+                    st.image(EQ_teoria_preguntas[4], width=350)  
                 if pregunta_no == 7: 
-                    st.image(teoria_preguntas[5], width=225)
+                    st.image(EQ_teoria_preguntas[5], width=225)
                 if pregunta_no == 8: 
-                    st.image(teoria_preguntas[6], width=250)  
+                    st.image(EQ_teoria_preguntas[6], width=250)  
                 if pregunta_no == 9 or pregunta_no == 12: 
-                    st.image(teoria_preguntas[7], width=250)  
+                    st.image(EQ_teoria_preguntas[7], width=250)  
                 if pregunta_no == 11: 
-                    st.image(teoria_preguntas[8], width=550)
+                    st.image(EQ_teoria_preguntas[8], width=550)
             if subtopic == "Equilibrio":
                 if pregunta_no == 4:
                     st.image(EQ_image_paths[37], width=350) 
                 if pregunta_no == 5: 
-                    st.image(teoria_preguntas[9], width=550)      
+                    st.image(EQ_teoria_preguntas[9], width=550)      
                 if pregunta_no == 7: 
-                    st.image(teoria_preguntas[10], width=500)    
+                    st.image(EQ_teoria_preguntas[10], width=500)    
                 if pregunta_no == 8: 
-                    st.image(teoria_preguntas[11], width=250)
+                    st.image(EQ_teoria_preguntas[11], width=250)
                 if pregunta_no == 9: 
-                    st.image(teoria_preguntas[12], width=450)         
+                    st.image(EQ_teoria_preguntas[12], width=450)    
+            if subtopic == "Centroides":
+                if pregunta_no == 1:
+                    st.image(CT_teoria_preguntas[0], width=350)
+                if pregunta_no == 2:
+                    st.image(CT_teoria_preguntas[1], width=350)
+                if pregunta_no == 6:
+                    st.image(CT_teoria_preguntas[2], width=300)
+
         return
 
     #Función para mostrar la imagen de la respuesta
@@ -1177,9 +1187,12 @@ if authenticate_user():
         with left_col:
                 if subtopic == "Vectores":
                     if pregunta_no == 12: 
-                        st.image(teoria_respuestas[0],width=200)
+                        st.image(EQ_teoria_respuestas[0],width=200)
                     if pregunta_no == 13: 
-                        st.image(teoria_respuestas[1],width=250)
+                        st.image(EQ_teoria_respuestas[1],width=250)
+                if subtopic == "Centroides":
+                    if pregunta_no == 6:
+                        st.image(CT_teoria_respuestas[0],width=300)
         return
 
     def generate_theory_questions():
@@ -1204,6 +1217,7 @@ if authenticate_user():
             if is_correct == 1:
                 st.write(conceptuales_filtradas[st.session_state[f'pregunta_actual_{username}']].respuesta_P1)
                 filtrar_imagenes_respuestas_teoria_P1(conceptuales_filtradas[st.session_state[f'pregunta_actual_{username}']].no_pregunta, conceptuales_filtradas[st.session_state[f'pregunta_actual_{username}']].subtopic)
+                st.write(conceptuales_filtradas[st.session_state[f'pregunta_actual_{username}']].respuesta_P2)
 
     def main():
         if way == "Práctica":

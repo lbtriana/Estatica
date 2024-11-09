@@ -241,7 +241,7 @@ CE_rtas_paths= [
 #==========================================PREGUNTAS TEORÍA==============================================
 
 #================================ Imágenes Teoría Equilibrio ===================================
-teoria_preguntas =[
+EQ_teoria_preguntas =[
 "./Imagenes/Teoria_Preguntas/EQ/V/T_EQ_V_1.png", #[0] 
 "./Imagenes/Teoria_Preguntas/EQ/V/T_EQ_V_2.png", #[1] 
 "./Imagenes/Teoria_Preguntas/EQ/V/T_EQ_V_4.png", #[2] 
@@ -257,10 +257,20 @@ teoria_preguntas =[
 "./Imagenes/Teoria_Preguntas/EQ/EQ/T_EQ_EQ_4.png", #[12]
 ]
 
+CT_teoria_preguntas=[
+"./Imagenes/Teoria_Preguntas/CT/T_CT_CT_1.png", #[0] 
+"./Imagenes/Teoria_Preguntas/CT/T_CT_CT_2.png", #[1] 
+"./Imagenes/Teoria_Preguntas/CT/T_CT_CT_6.png", #[2] 
+]
+
 
 #==========================================RESPUESTAS TEORÍA==============================================
 
-teoria_respuestas =[
+EQ_teoria_respuestas =[
 "./Imagenes/Teoria_Respuestas/EQ/V/RT_EQ_V_1.png", #[0] 
 "./Imagenes/Teoria_Respuestas/EQ/V/RT_EQ_V_2.png", #[1] 
+]
+
+CT_teoria_respuestas =[
+"./Imagenes/Teoria_Respuestas/CT/RT_CT_CT_6.png", #[0] 
 ]
