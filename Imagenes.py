@@ -255,6 +255,8 @@ EQ_teoria_preguntas =[
 "./Imagenes/Teoria_Preguntas/EQ/EQ/T_EQ_EQ_2.png", #[10] 
 "./Imagenes/Teoria_Preguntas/EQ/EQ/T_EQ_EQ_3.png", #[11] 
 "./Imagenes/Teoria_Preguntas/EQ/EQ/T_EQ_EQ_4.png", #[12]
+
+
 ]
 
 CT_teoria_preguntas=[
