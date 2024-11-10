@@ -5837,6 +5837,7 @@ preguntas = [
     #-------------------------------------------------       Centroides    --------------------------------------------
     #-------------------------------------------------       Nivel Fácil   ---------------------------------------------------
     #-------------------------------------------------       Code: 6110011    --------------------------------------------------
+
     Questionary(#1_1
         code = 6110011,
         no_pregunta = 1,
@@ -5911,71 +5912,133 @@ preguntas = [
         calculos='operations'
         ),
 
-    # Questionary(#2_1
-    #     code = 6110021,
-    #     no_pregunta = 2,
+    Questionary(#2_1
+        code = 6110021,
+        no_pregunta = 2,
+        complexity = F,
+        topic = "Centroides",
+        subtopic = "Centroides",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Cada uno de los tres elementos del marco tienen una masa por unidad de longitud de ${d[0]:.0f} \\dfrac{{kg}}{{m}}$. Ubique la posición del centro de masa $(\\bar{{X}}, \\bar{{Y}})$ y calcule la reacción en el apoyo E. Considere $d_1 = {d[3]:.0f} \\text{{ m}}$,  $d_2 = {d[6]:.0f}  \\text{{ m}}$, $d_3 = {d[9]:.0f} \\text{{ m}}$, $d_4 = {d[12]:.0f} \\text{{ m}}$ y la aceleración debida a la gravedad $g = 9,81 \\dfrac{{m}}{{s^2}}$.",
+        no_answers = 3,
+        a1_name = "Distancia $\\bar{{X}}$ [m]",
+        a2_name = "Distancia $\\bar{{Y}}$ [m]",
+        a3_name = "Reacción $E_y$ [N]",
+        answer1 = lambda f, a, calc, c, d, m: np.round((d[9]*(1/2)*(Calculations.magnitude(d[9],d[6]))*d[0] + (1/2)*d[0]*(d[9]+d[12])*(d[9]+d[12]))/(d[0]*(d[3]+d[6]) + d[0]*Calculations.magnitude(d[9],d[6]) + d[0]*(d[9]+d[12])),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(((1/2)*d[0]*(d[3]+d[6])*(d[3]+d[6]) + (d[3]+d[6]*(1/2))*(Calculations.magnitude(d[9],d[6]))*d[0] + d[0]*(d[3]+d[6])*(d[9]+d[12]))/(d[0]*(d[3]+d[6]) + d[0]*Calculations.magnitude(d[9],d[6]) + d[0]*(d[9]+d[12])),2),
+        answer3 = lambda f, a, calc, c, d, m: np.round(((981/100)*(d[9]*(1/2)*(Calculations.magnitude(d[9],d[6]))*d[0] + (1/2)*d[0]*(d[9]+d[12])*(d[9]+d[12])))/(d[9]+d[12]),2),
+        ayuda1 = "El centro de masa hace referencia al promedio de las posiciones de cada punto o segmento de un objeto ponderado según sus masas.",
+        ayuda2 = "Como un recurso para vizualizar y organizar mejor los datos es recomendable la creación de una tabla con masas y coordenadas respectivas a sus centros de masa.",      
+        ayuda3 = "",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        El centro de masa es posible entenderlo como el punto donde se puede considerar que toda la masa de la estructura esta concentrada. A continuación, se presenta la solución sugerida para el ejercicio:
+        
+        El marco esta compuesto por tres elementos cuyos centros de masa se encuentran en el punto medio de su longitud.
+        
+        $\\textbf{{\\small 1. Tabulación de cálculos: }}$
+        
+        Teniendo en cuenta que la masa de cada elemento se calcula mediante el producto de la densidad lineal por la longitud se puede obtener la siguiente tabla:
+        
+        $Elemento$ $\\hspace{{9mm}}$ $L(m)$ $\\hspace{{18mm}}$  $M(kg)$ $\\hspace{{17mm}}$ $\\bar{{X}}(m)$ $\\hspace{{12mm}}$ $\\bar{{Y}}(m)$ $\\hspace{{16mm}}$ $\\bar{{X}} \\cdot M(kg \\cdot m)$ $\\hspace{{22mm}}$ $\\bar{{Y}} \\cdot M(kg \\cdot m)$     
+
+        $AC$ $\\hspace{{15mm}}$ $d_1+d_2$ $\\hspace{{13mm}}$ $m^* \\cdot (d_1+d_2)$ $\\hspace{{14mm}}$ $0$ $\\hspace{{16mm}}$ $\\dfrac{{d_1+d_2}}{{2}}$ $\\hspace{{14mm}}$ $0 \\cdot m^* \\cdot (d_1+d_2)$ $\\hspace{{14mm}}$ $\\dfrac{{d_1+d_2}}{{2}} \\cdot m^2 \\cdot (d_1+d_2)$     
+        $BD$ $\\hspace{{15mm}}$ $\\sqrt{{d_2^2+d_3^2}}$ $\\hspace{{9mm}}$ $m^* \\cdot \\sqrt{{d_2^2+d_3^2}}$ $\\hspace{{13mm}}$ $\\dfrac{{d_3}}{{2}}$ $\\hspace{{14mm}}$ $d_1+\\dfrac{{d_2}}{{2}}$ $\\hspace{{13mm}}$ $\\dfrac{{d_3}}{{2}} \\cdot m^* \\cdot \\sqrt{{d_2^2+d_3^2}}$ $\\hspace{{8mm}}$ $\\left(d_1+\\dfrac{{d_2}}{{2}}\\right) \\cdot m^* \\cdot \\sqrt{{d_2^2+d_3^2}}$          
+        $CE$ $\\hspace{{15mm}}$ $d_3+d_4$ $\\hspace{{13mm}}$ $m^* \\cdot (d_3+d_4)$ $\\hspace{{10mm}}$ $\\dfrac{{d_3+d_4}}{{2}}$ $\\hspace{{10mm}}$ $d_1+d_2$ $\\hspace{{11mm}}$ $\\dfrac{{d_3+d_4}}{{2}} \\cdot m^* \\cdot (d_1+d_2)$ $\\hspace{{8mm}}$ $(d_1+d_2) \\cdot m^* \\cdot (d_1+d_2)$     
+
+        Siendo m^* la masa por unidad de longitud.
+
+        Reemplazando:
+
+        $Elemento$ $\\hspace{{6mm}}$ $L(m)$ $\\hspace{{6mm}}$  $M(kg)$ $\\hspace{{6mm}}$ $\\bar{{X}}(m)$ $\\hspace{{6mm}}$ $\\bar{{Y}}(m)$ $\\hspace{{6mm}}$ $\\bar{{X}} \\cdot M(kg \\cdot m)$ $\\hspace{{6mm}}$ $\\bar{{Y}} \\cdot M(kg \\cdot m)$     
+
+        $AC$ $\\hspace{{15mm}}$ ${d[3]+d[6]:.2f}$ $\\hspace{{9mm}}$ ${d[0]*(d[3]+d[6]):.2f}$ $\\hspace{{10mm}}$ $0$ $\\hspace{{15mm}}$ ${(1/2)*(d[3]+d[6]):.2f}$ $\\hspace{{12mm}}$ $0$ $\\hspace{{18mm}}$ ${(1/2)*d[0]*(d[3]+d[6])*(d[3]+d[6]):.2f}$     
+        $BD$ $\\hspace{{15mm}}$ ${Calculations.magnitude(d[9],d[6]):.2f}$ $\\hspace{{9mm}}$ ${d[0]*Calculations.magnitude(d[9],d[6]):.2f}$ $\\hspace{{10mm}}$ ${d[9]*(1/2):.2f}$ $\\hspace{{10mm}}$ ${d[3]+d[6]*(1/2):.2f}$  $\\hspace{{10mm}}$ ${d[9]*(1/2)*(Calculations.magnitude(d[9],d[6]))*d[0]:.2f}$ $\\hspace{{15mm}}$ ${(d[3]+d[6]*(1/2))*(Calculations.magnitude(d[9],d[6]))*d[0]:.2f}$     
+        $CE$ $\\hspace{{15mm}}$ ${d[9]+d[12]:.2f}$ $\\hspace{{9mm}}$ ${d[0]*(d[9]+d[12]):.2f}$ $\\hspace{{10mm}}$ ${(1/2)*(d[9]+d[12]):.2f}$ $\\hspace{{10mm}}$ ${(d[3]+d[6]):.2f}$ $\\hspace{{10mm}}$ ${(1/2)*d[0]*(d[9]+d[12])*(d[9]+d[12]):.2f}$ $\\hspace{{15mm}}$ ${d[0]*(d[3]+d[6])*(d[9]+d[12]):.2f}$          
+        
+        $\\textbf{{\\small 2. Determinar el centro de masa en X: }}$
+        
+        Se puede aplicar la formula para determinar la coordenada $\\bar{{X}}$ :
+        
+        ${{\hspace{{4mm}} \\bar{{X}} = \\dfrac{{\\sum{{\\bar{{X_i}} \\cdot M_i}}}}{{\\sum{{M_i}}}}}}$     
+        
+        ${{\hspace{{4mm}} \\bar{{X}} = {(d[9]*(1/2)*(Calculations.magnitude(d[9],d[6]))*d[0] + (1/2)*d[0]*(d[9]+d[12])*(d[9]+d[12]))/(d[0]*(d[3]+d[6]) + d[0]*Calculations.magnitude(d[9],d[6]) + d[0]*(d[9]+d[12])):.2f} \\text{{ m}}}}$     
+           
+        $\\textbf{{\\small 3. Determinar el centro de masa en Y: }}$
+        
+        Se puede aplicar la formula para determinar la coordenada $\\bar{{Y}}$ :
+        
+        ${{\hspace{{4mm}} \\bar{{Y}} = \\dfrac{{\\sum{{\\bar{{Y_i}} \\cdot M_i}}}}{{\\sum{{M_i}}}}}}$     
+        
+        ${{\hspace{{4mm}} \\bar{{Y}} = {((1/2)*d[0]*(d[3]+d[6])*(d[3]+d[6]) + (d[3]+d[6]*(1/2))*(Calculations.magnitude(d[9],d[6]))*d[0] + d[0]*(d[3]+d[6])*(d[9]+d[12]))/(d[0]*(d[3]+d[6]) + d[0]*Calculations.magnitude(d[9],d[6]) + d[0]*(d[9]+d[12])):.2f} \\text{{ m}}}}$     
+        
+        $\\textbf{{\\small 4. Encontrar reacción en E: }}$
+        
+        E es un apoyo tipo 1, por ende solo va a tener una reacción. Teniendo presente que el peso de la estructura solo tiene componente negativa en $\\hat{{j}}$ y esta ubicada en el centro de masa, esta se puede calcular de la siguiente manera :
+        
+        ${{\hspace{{4mm}} \\sum{{M_A}} = E_y \\cdot (d_3 + d_4) -  W \\cdot \\bar{{X}} = 0}}$     
+       
+        ${{\hspace{{4mm}} E_y \\cdot (d_3 + d_4) - \\sum{{M_i}} \\cdot g \\cdot \\dfrac{{\\sum{{\\bar{{X_i}} \\cdot M_i}}}}{{\\sum{{M_i}}}} = 0}}$     
+        
+        ${{\hspace{{4mm}} E_y = \\dfrac{{ g \\cdot \\sum{{\\bar{{X_i}} \\cdot M_i}}}}{{(d_3 + d_4)}} }}$     
+        
+        ${{\hspace{{4mm}} E_y = {((981/100)*(d[9]*(1/2)*(Calculations.magnitude(d[9],d[6]))*d[0] + (1/2)*d[0]*(d[9]+d[12])*(d[9]+d[12])))/(d[9]+d[12]):.2f} \\text{{ N}}}}$     
+             
+        
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
+
+    # Questionary(#3_1
+    #     code = 6110031,
+    #     no_pregunta = 1,
     #     complexity = F,
     #     topic = "Centroides",
     #     subtopic = "Centroides",
     #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Cada uno de los tres elementos del marco tienen tienen una masa por unidad de longitud de ${d[0]:.0f} \\text{{ kg/m}}$. Ubique la posición del centro de masa $(\\bar{{X}}, \\bar{{Y}})$ y calcule la reacción en el apoyo E. Considere $d_1 = {d[3]:.0f} \\text{{ m}}$,  $d_2 = {d[6]:.0f}  \\text{{ m}}$, $d_3 = {d[9]:.0f} \\text{{ m}}$, $d_4 = {d[12]:.0f} \\text{{ m}}$ y la aceleración debida a la gravedad $g = 9,81 \\text{{ }} m/s^2$.",
-    #     no_answers = 3,
-    #     a1_name = "Distancia $\\bar{{X}}$ [m]",
-    #     a2_name = "Distancia $\\bar{{Y}}$ [m]",
-    #     a3_name = "Reacción $E_y$ [N]",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round((d[9]*(1/2)*(Calculations.magnitude(d[9],d[6])**2)*d[0] + (1/2)*d[0]*(d[9]+d[12])**2)/(d[0]*(d[3]+d[6]) + d[0]*Calculations.magnitude(d[9],d[6]) + d[0]*(d[9]+d[12])),2),
-    #     answer2 = lambda f, a, calc, c, d, m: np.round(((1/2)*d[0]*(d[3]+d[6])**2 + d[6]*(1/2)*(Calculations.magnitude(d[9],d[6])**2)*d[0] + d[0]*(d[3]+d[6])*(d[9]+d[12]))/(d[0]*(d[3]+d[6]) + d[0]*Calculations.magnitude(d[9],d[6]) + d[0]*(d[9]+d[12])),2),
-    #     answer3 = lambda f, a, calc, c, d, m: np.round((9.81*(d[9]*(1/2)*(Calculations.magnitude(d[9],d[6])**2)*d[0] + (1/2)*d[0]*(d[9]+d[12])**2))/(d[9]+d[12]),2),
-    #     ayuda1 = "El centro de masa hace referencia al promedio de las posiciones de cada punto o segmento de un objeto ponderado según sus masas.",
+    #     pregunta = lambda f, a, calc, c, d, m: f"La cercha esta hecha con 5 elementos. Determine la distancia $d_1$ a donde el cable de izado debe estar unido, de manera que la armadura no gire cuando sea levantada. Considere $d_2 = {d[0]:.0f} \\text{{ m}}$ y $d_3 = {d[3]:.0f} \\text{{ m}}$",
+    #     no_answers = 1,
+    #     a1_name = "Distancia $d_1$ [m]",
+    #     a2_name = "",
+    #     a3_name = "",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round((d[0]*(9/4)*Calculations.magnitude(d[0]*(1/2),d[3]) + d[0]*(3/2)*d[0])/(3*Calculations.magnitude(d[0]*(1/2),d[3]) + 2*d[0]),2),
+    #     answer2 = lambda f, a, calc, c, d, m: 0,
+    #     answer3 = lambda f, a, calc, c, d, m: 0,
+    #     ayuda1 = """El centroide representa el centro geométrico de un objeto. Para calcular las coordenadas del centroide de un objeto lineal compuesto se utilizan las siguientes ecuaciones: 
+    #     $\\bar{{X}} = \\dfrac{{\\sum{{\\bar{{X_i}} \\cdot L_i}}}}{{\\sum{{L_i}}}} \\bar{{Y}} = \\dfrac{{\\sum{{\\bar{{Y_i}} \\cdot L_i}}}}{{\\sum{{L_i}}}}$
+    #     Donde: $\\bar{{X}}$ = Coordenada X del centroide de la figura compuesta; $\\bar{{Y}}$ = Coordenada Y del centroide de la figura compuesta; i = Elementos de la figura conocida, una vez se divide la figura compuesta; L = Longitud del segmento""",
     #     ayuda2 = "Como un recurso para vizualizar y organizar mejor los datos es recomendable la creación de una tabla con masas y coordenadas respectivas a sus centros de masa.",      
     #     ayuda3 = "",
     #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     El centro de masa es posible entenderlo como el punto donde se puede considerar que toda la masa de la estructura esta concentrada. A continuación, se presenta la solución sugerida para el ejercicio:
-    
-    #     El marco esta compuesto por tres elementos cuyos centros de masa se encuentran en el punto medio de su longitud.
+    #     El centroide se define como el centro geométrico de un objeto, en otras palabras, representa la posición promedio del área del objeto. . A continuación, se presenta la solución sugerida para el ejercicio:
+        
+    #     La cercha esta compuesta por cinco elementos cuyos centroides se encuentran en el punto medio de su longitud. Para que la cercha no gire, se debe posicionar el cable de izado en la distanca $\\bar{{X}}$ del centroide de la estructura:
         
     #     $\\textbf{{\\small 1. Tabulación de cálculos: }}$
         
-    #     Teniendo en cuenta que la masa de cada elemento se calcula mediante el producto de la densidad lineal por la longitud se puede obtener la siguiente tabla:
+    #     $Elemento$ $\\hspace{{6mm}}$ $L(m)$ $\\hspace{{6mm}}$ $\\bar{{X}}(m)$ $\\hspace{{6mm}}$ $\\bar{{X}} \\cdot L(m^2)$    
+
+    #     $AB$ $\\hspace{{15mm}}$ ${Calculations.magnitude(d[0]*(1/2),d[3]):.2f}$ $\\hspace{{10mm}}$ ${d[0]*(1/4):.2f}$ $\\hspace{{13mm}}$ ${d[0]*(1/4)*Calculations.magnitude(d[0]*(1/2),d[3]):.2f}$     
+    #     $AC$ $\\hspace{{15mm}}$ ${d[0]:.2f}$ $\\hspace{{10mm}}$ ${d[0]*(1/2):.2f}$ $\\hspace{{13mm}}$ ${d[0]*(1/2)*d[0]:.2f}$     
+    #     $BC$ $\\hspace{{15mm}}$ ${Calculations.magnitude(d[0]*(1/2),d[3]):.2f}$ $\\hspace{{10mm}}$ ${d[0]*(3/4):.2f}$ $\\hspace{{13mm}}$ ${d[0]*(3/4)*Calculations.magnitude(d[0]*(1/2),d[3]):.2f}$     
+    #     $BD$ $\\hspace{{15mm}}$ ${d[0]:.2f}$ $\\hspace{{10mm}}$ ${d[0]:.2f}$ $\\hspace{{13mm}}$ ${d[0]*d[0]:.2f}$     
+    #     $CD$ $\\hspace{{15mm}}$ ${Calculations.magnitude(d[0]*(1/2),d[3]):.2f}$ $\\hspace{{10mm}}$ ${d[0]*(5/4):.2f}$ $\\hspace{{13mm}}$ ${d[0]*(5/4)*Calculations.magnitude(d[0]*(1/2),d[3]):.2f}$
         
-    #     $Elemento$ $\\hspace{{6mm}}$ $L(m)$ $\\hspace{{6mm}}$  $M(kg)$ $\\hspace{{6mm}}$ $\\bar{{X}}(m)$ $\\hspace{{6mm}}$ $\\bar{{Y}}(m)$ $\\hspace{{6mm}}$ $\\bar{{X}} \\cdot M(kg \\cdot m)$ $\\hspace{{6mm}}$ $\\bar{{Y}} \\cdot M(kg \\cdot m)$    
-
-    #     $AC$ $\\hspace{{15mm}}$ ${d[3]+d[6]:.2f}$ $\\hspace{{9mm}}$ ${d[0]*(d[3]+d[6]):.2f}$ $\\hspace{{10mm}}$ $0$ $\\hspace{{15mm}}$ ${(1/2)*(d[3]+d[6]):.2f}$ $\\hspace{{12mm}}$ $0$ $\\hspace{{18mm}}$ ${(1/2)*d[0]*(d[3]+d[6])**2:.2f}$     
-    #     $BD$ $\\hspace{{15mm}}$ ${Calculations.magnitude(d[9],d[6]):.2f}$ $\\hspace{{9mm}}$ ${d[0]*Calculations.magnitude(d[9],d[6]):.2f}$ $\\hspace{{10mm}}$ ${d[9]*(1/2):.2f}$ $\\hspace{{10mm}}$ ${d[6]*(1/2):.2f}$  $\\hspace{{10mm}}$ ${d[9]*(1/2)*(Calculations.magnitude(d[9],d[6]))*d[0]:.2f}$ $\\hspace{{15mm}}$ ${d[6]*(1/2)*(Calculations.magnitude(d[9],d[6])*2)*d[0]:.2f}$    
-    #     $CE$ $\\hspace{{15mm}}$ ${d[9]+d[12]:.2f}$ $\\hspace{{9mm}}$ ${d[0]*(d[9]+d[12]):.2f}$ $\\hspace{{10mm}}$ ${(1/2)*(d[9]+d[12]):.2f}$ $\\hspace{{10mm}}$ ${(d[3]+d[6]):.2f}$ $\\hspace{{10mm}}$ ${(1/2)*d[0]*(d[9]+d[12])*2:.2f}$ $\\hspace{{15mm}}$ ${d[0]*(d[3]+d[6])*(d[9]+d[12]):.2f}$
-
-    #     $\\textbf{{\\small 2. Determinar la coordenada X del centro de masa: }}$
+    #     $\\textbf{{\\small 2. Determinar \\bar{{X}}: }}$
         
     #     Se puede aplicar la formula para determinar la coordenada $\\bar{{X}}$ :
         
-    #     ${{\hspace{{4mm}} \\bar{{X}} = \\dfrac{{\\sum{{\\bar{{X_i}} \\cdot M_i}}}}{{\\sum{{M_i}}}}}}$     
-    #     ${{\hspace{{4mm}} \\bar{{X}} = {(d[9]*(1/2)*(Calculations.magnitude(d[9],d[6])**2)*d[0] + (1/2)*d[0]*(d[9]+d[12])**2)/(d[0]*(d[3]+d[6]) + d[0]*Calculations.magnitude(d[9],d[6]) + d[0]*(d[9]+d[12])):.2f} \\text{{ m}}}}$     
-           
-    #     $\\textbf{{\\small 3. Determinar la coordenada Y del centro de masa: }}$
+    #     ${{\hspace{{4mm}} d_1 = \\bar{{X}} = \\dfrac{{\\sum{{\\bar{{X_i}} \\cdot L_i}}}}{{\\sum{{L_i}}}}}}$     
+    #     ${{\hspace{{4mm}} \\bar{{X}} = {(d[0]*(9/4)*Calculations.magnitude(d[0]*(1/2),d[3]) + d[0]*(3/2)*d[0])/(3*Calculations.magnitude(d[0]*(1/2),d[3]) + 2*d[0]):.2f} \\text{{ m}}}}$       
         
-    #     Se puede aplicar la formula para determinar la coordenada $\\bar{{Y}}$ :
-        
-    #     ${{\hspace{{4mm}} \\bar{{Y}} = \\dfrac{{\\sum{{\\bar{{Y_i}} \\cdot M_i}}}}{{\\sum{{M_i}}}}}}$     
-        
-    #     ${{\hspace{{4mm}} \\bar{{Y}} = {((1/2)*d[0]*(d[3]+d[6])**2 + d[6]*(1/2)*(Calculations.magnitude(d[9],d[6])**2)*d[0] + d[0]*(d[3]+d[6])*(d[9]+d[12]))/(d[0]*(d[3]+d[6]) + d[0]*Calculations.magnitude(d[9],d[6]) + d[0]*(d[9]+d[12])):.2f} \\text{{ m}}}}$     
-        
-    #     $\\textbf{{\\small 4. Encontrar reacción en E: }}$
-        
-    #     E es un apoyo tipo 1, por ende solo va a tener una reacción. Teniendo presente que el peso de la estructura solo tiene componente negativa en $\\hat{{j}}$ y esta ubicada en el centro de masa, esta se puede calcular de la siguiente manera :
-        
-    #     ${{\hspace{{4mm}} \\sum{{M_A}} = E_y \\cdot (d_3 + d_4) -  W \\cdot \\bar{{X}} = 0}}$     
-        
-    #     ${{\hspace{{4mm}} E_y \\cdot (d_3 + d_4) - \\sum{{M_i}} \\cdot g \\cdot \\dfrac{{\\sum{{\\bar{{X_i}} \\cdot M_i}}}}{{\\sum{{M_i}}}} = 0}}$     
-        
-    #     ${{\hspace{{4mm}} E_y = \\dfrac{{ g \\cdot \\sum{{\\bar{{X_i}} \\cdot M_i}}}}{{(d_3 + d_4)}} }}$     
-        
-    #     ${{\hspace{{4mm}} E_y = {(9.81*(d[9]*(1/2)*(Calculations.magnitude(d[9],d[6])**2)*d[0] + (1/2)*d[0]*(d[9]+d[12])**2))/(d[9]+d[12]):.2f} \\text{{ N}}}}$      
     #     """,   
     #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
     #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
     #     calculos='operations'
     #     ),
-
+    
+    
 
 
     #========================================================  CENTROIDES  =========================================================
@@ -6007,6 +6070,123 @@ preguntas = [
         calculos='operations'
         ),
 
+    
+    # Questionary(#1_1
+    #     code = 6120011,
+    #     no_pregunta = 1,
+    #     complexity = M,
+    #     topic = "Centroides",
+    #     subtopic = "Centroides",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"En la imagen se muestra la sección transversal de una vigueta con longitud de ${(d[0]+1)*(1/2):.2f} \\text{{ m}} compuesto por dos materiales. Sabiendo que es simétrico respecto al eje Y, encuentre la coordenada $\\bar{{Y}}$ (en cm) del centro de masa. Considere $\\rho_1 = {7700+d[3]*20:.0f} \\dfrac{{ kg}}{{m^3}}$, $\\rho_2 = {2050+d[3]*100:.0f} \\dfrac{{ kg}}{{m^3}}$, $d_1 = {40+d[6]*5:.0f} \\text{{ cm}}$,  $d_2 = {60+d[6]*4:.0f}  \\text{{ cm}}$, $d_3 = {100+d[9]*4:.0f} \\text{{ cm}}$, $d_4 = {d[9]+4:.0f} \\text{{ cm}}$ y $d_5 = {d[9]*(1/2) + 1:.2f} \\text{{ cm}}$.",
+    #     no_answers = 1,
+    #     a1_name = "Distancia $\\bar{{Y}}$ [cm]",
+    #     a2_name = "",
+    #     a3_name = "",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round(((d[9]*(1/2)+1)*(1/2)*(d[9]*(1/2)+1)*(40+5*d[6])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20) + ((d[9]*(1/2)+1)+(100+d[9]*4))*(d[9]*(1/2)+1)*(100+4*d[9])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20) + ((d[9]*(1/2)+1)*(3/2) + (100+d[9]*4))*(d[9]*(1/2)+1)*(60+d[6]*4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100) + 2*(d[9]*4+99)*(d[9]*(1/2)+1)*(d[9]+4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100))/((d[9]*(1/2)+1)*(40+5*d[6])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20) + (d[9]*(1/2)+1)*(100+4*d[9])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20) + (d[9]*(1/2)+1)*(60+d[6]*4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100) + 2*(d[9]*(1/2)+1)*(d[9]+4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100)),2),
+    #     answer2 = lambda f, a, calc, c, d, m: 0,
+    #     answer3 = lambda f, a, calc, c, d, m: 0,
+    #     ayuda1 = "El centro de masa hace referencia al promedio de las posiciones de cada punto o segmento de un objeto ponderado según sus masas.",
+    #     ayuda2 = "Como un recurso para vizualizar y organizar mejor los datos es recomendable la creación de una tabla con masas y coordenadas respectivas a sus centros de masa.",      
+    #     ayuda3 = "",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     El centro de masa es posible entenderlo como el punto donde se puede considerar que toda la masa de la estructura esta concentrada. A continuación, se presenta la solución sugerida para el ejercicio:
+        
+    #     $\\textbf{{\\small 1. División de figura compuesta: }}$
+    #     Es posible dividir el perfil de la vigueta en 5 regiones, cuyos centroides son comunes y conocidos.
+        
+    #     $\\textbf{{\\small 2. Tabulación de cálculos: }}$
+        
+    #     Teniendo en cuenta que la masa de cada elemento se calcula mediante el producto de la densidad por volumen se puede obtener:
+        
+    #     $Elemento$ $\\hspace{{6mm}}$ $V(m^3)$ $\\hspace{{6mm}}$ $\\rho (kg/m^3)$ $\\hspace{{6mm}}$ $M(kg)$ $\\hspace{{6mm}}$ $\\bar{{Y}}(cm)$ $\\hspace{{6mm}}$ $\\bar{{Y}} \\cdot M(kg \\cdot cm)$     
+
+    #     $1$ $\\hspace{{15mm}}$ ${(d[9]*(1/2)+1)*(40+5*d[6])*((d[0]+1)*(1/2))*(1/10000):.2f}$ $\\hspace{{10mm}}$ ${7700+d[3]*20:.2f}$ $\\hspace{{10mm}}$ ${(d[9]*(1/2)+1)*(40+5*d[6])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20):.2f}$ $\\hspace{{10mm}}$ ${(d[9]*(1/2)+1)*(1/2):.2f}$ $\\hspace{{13mm}}$ ${(d[9]*(1/2)+1)*(1/2)*(d[9]*(1/2)+1)*(40+5*d[6])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20):.2f}$     
+    #     $2$ $\\hspace{{15mm}}$ ${(d[9]*(1/2)+1)*(100+4*d[9])*((d[0]+1)*(1/2))*(1/10000):.2f}$ $\\hspace{{10mm}}$ ${7700+d[3]*20:.2f}$ $\\hspace{{10mm}}$ ${(d[9]*(1/2)+1)*(100+4*d[9])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20):.2f}$ $\\hspace{{10mm}}$ ${(d[9]*(1/2)+1)+(100+d[9]*4)*(1/2):.2f}$ $\\hspace{{13mm}}$ ${((d[9]*(1/2)+1)+(100+d[9]*4))*(d[9]*(1/2)+1)*(100+4*d[9])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20):.2f}$     
+    #     $3$ $\\hspace{{15mm}}$ ${(d[9]*(1/2)+1)*(60+d[6]*4)*((d[0]+1)*(1/2))*(1/10000):.2f}$ $\\hspace{{10mm}}$ ${2050+d[3]*100:.2f}$ $\\hspace{{10mm}}$ ${(d[9]*(1/2)+1)*(60+d[6]*4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100):.2f}$ $\\hspace{{10mm}}$ ${(d[9]*(1/2)+1)*(3/2) + (100+d[9]*4):.2f}$ $\\hspace{{13mm}}$ ${((d[9]*(1/2)+1)*(3/2) + (100+d[9]*4))*(d[9]*(1/2)+1)*(60+d[6]*4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100):.2f}$     
+    #     $4$ $\\hspace{{15mm}}$ ${(d[9]*(1/2)+1)*(d[9]+4)*((d[0]+1)*(1/2))*(1/10000):.2f}$ $\\hspace{{10mm}}$ ${2050+d[3]*100:.2f}$ $\\hspace{{10mm}}$ ${(d[9]*(1/2)+1)*(d[9]+4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100):.2f}$ $\\hspace{{10mm}}$ ${(d[9]*4+99):.2f}$ $\\hspace{{13mm}}$ ${(d[9]*4+99)*(d[9]*(1/2)+1)*(d[9]+4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100):.2f}$     
+    #     $5$ $\\hspace{{15mm}}$ ${(d[9]*(1/2)+1)*(d[9]+4)*((d[0]+1)*(1/2))*(1/10000):.2f}$ $\\hspace{{10mm}}$ ${2050+d[3]*100:.2f}$ $\\hspace{{10mm}}$ ${(d[9]*(1/2)+1)*(d[9]+4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100):.2f}$ $\\hspace{{10mm}}$ ${(d[9]*4+99):.2f}$ $\\hspace{{13mm}}$ ${(d[9]*4+99)*(d[9]*(1/2)+1)*(d[9]+4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100):.2f}$     
+           
+    #     $\\textbf{{\\small 3. Determinar \\bar{{Y}}: }}$
+        
+    #     Se puede aplicar la formula para determinar la coordenada $\\bar{{Y}}$ :
+        
+    #     ${{\hspace{{4mm}} \\bar{{Y}} = \\dfrac{{\\sum{{\\bar{{Y_i}} \\cdot M_i}}}}{{\\sum{{M_i}}}}}}$     
+    #     ${{\hspace{{4mm}} \\bar{{Y}} = {((d[9]*(1/2)+1)*(1/2)*(d[9]*(1/2)+1)*(40+5*d[6])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20) + ((d[9]*(1/2)+1)+(100+d[9]*4))*(d[9]*(1/2)+1)*(100+4*d[9])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20) + ((d[9]*(1/2)+1)*(3/2) + (100+d[9]*4))*(d[9]*(1/2)+1)*(60+d[6]*4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100) + 2*(d[9]*4+99)*(d[9]*(1/2)+1)*(d[9]+4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100))/((d[9]*(1/2)+1)*(40+5*d[6])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20) + (d[9]*(1/2)+1)*(100+4*d[9])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20) + (d[9]*(1/2)+1)*(60+d[6]*4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100) + 2*(d[9]*(1/2)+1)*(d[9]+4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100)):.2f} \\text{{ cm}}}}$     
+        
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ),
+    # Questionary(#2_1
+    #     code = 6120021,
+    #     no_pregunta = 1,
+    #     complexity = M,
+    #     topic = "Centroides",
+    #     subtopic = "Centroides",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"Del marco, se sabe que los elementos AC y CE tienen una masa por unidad de longitud $\\rho_1 = {d[0]:.0f} \\dfrac{{kg}}{{m}}$ y el elemento BD un $\\rho_2 = {d[3]:.0f} \\dfrac{{kg}}{{m}}$. Ubique la posición del centro de masa $(\\bar{{X}}, \\bar{{Y}})$ y calcule la reacción momento par en A. Considere $d_1 = {d[6]:.0f} \\text{{ m}}$,  $d_2 = {d[9]:.0f}  \\text{{ m}}$, $d_3 = {d[12]:.0f} \\text{{ m}}$, $d_4 = {d[15]:.0f} \\text{{ m}}$, $d_5 = {d[18]:.0f} \\text{{ m}}$, $d_6 = {d[21]:.0f} \\text{{ m}}$ y la aceleración debida a la gravedad $g = 9,81 \\dfrac{{m}}{{s^2}}$.",
+    #     no_answers = 3,
+    #     a1_name = "Distancia $\\bar{{X}}$ [m]",
+    #     a2_name = "Distancia $\\bar{{Y}}$ [m]",
+    #     a3_name = "Reacción $M_A$ [$N \\cdot m$]",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round(((d[18]+d[21])*(1/2)*d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[21])) + (1/2)*(d[18])*d[3]*Calculations.magnitude((d[12]+d[9]),d[18]))/(d[0]*(d[9]+d[6])+d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[21]))+d[3]*Calculations.magnitude((d[12]+d[9]),d[18])),2),
+    #     answer2 = lambda f, a, calc, c, d, m: np.round(((1/2)*d[0]*(d[9]+d[6])*(d[9]+d[6]) + (d[6]+d[9]+(d[12]+d[15])*(1/2))*d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[21])) + (d[6]+(d[9]+d[12])*(1/2))*d[3]*Calculations.magnitude((d[12]+d[9]),d[18]))/(d[0]*(d[9]+d[6])+d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[21]))+d[3]*Calculations.magnitude((d[12]+d[9]),d[18])),2),
+    #     answer3 = lambda f, a, calc, c, d, m: np.round((981/100)*((d[18]+d[21])*(1/2)*d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[21])) + (1/2)*(d[18])*d[3]*Calculations.magnitude((d[12]+d[9]),d[18])),2),
+    #     ayuda1 = "El centro de masa hace referencia al promedio de las posiciones de cada punto o segmento de un objeto ponderado según sus masas.",
+    #     ayuda2 = "Como un recurso para vizualizar y organizar mejor los datos es recomendable la creación de una tabla con masas y coordenadas respectivas a sus centros de masa.",      
+    #     ayuda3 = "",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     El centro de masa es posible entenderlo como el punto donde se puede considerar que toda la masa de la estructura esta concentrada. A continuación, se presenta la solución sugerida para el ejercicio:
+        
+    #     El marco esta compuesto por tres elementos cuyos centros de masa se encuentran en el punto medio de su longitud.
+        
+    #     $\\textbf{{\\small 1. Tabulación de cálculos: }}$
+        
+    #     Teniendo en cuenta que la masa de cada elemento se calcula mediante el producto de la densidad lineal por la longitud se puede obtener la siguiente tabla:
+        
+    #     $Elemento$ $\\hspace{{6mm}}$ $L(m)$ $\\hspace{{6mm}}$ $\\rho (kg/m)$ $\\hspace{{6mm}}$ $M(kg)$ $\\hspace{{6mm}}$ $\\bar{{X}}(m)$ $\\hspace{{6mm}}$ $\\bar{{Y}}(m)$ $\\hspace{{6mm}}$ $\\bar{{X}} \\cdot M(kg \\cdot m)$ $\\hspace{{6mm}}$ $\\bar{{Y}} \\cdot M(kg \\cdot m)$     
+
+    #     $AC$ $\\hspace{{15mm}}$ ${d[9]+d[6]:.2f}$ $\\hspace{{10mm}}$ ${d[0]:.2f}$ $\\hspace{{9mm}}$ ${d[0]*(d[9]+d[6]):.2f}$ $\\hspace{{10mm}}$ $0$ $\\hspace{{15mm}}$ ${(1/2)*(d[9]+d[6]):.2f}$ $\\hspace{{12mm}}$ $0$ $\\hspace{{18mm}}$ ${(1/2)*d[0]*(d[9]+d[6])*(d[9]+d[6]):.2f}$     
+    #     $CE$ $\\hspace{{15mm}}$ ${Calculations.magnitude((d[12]+d[15]),(d[18]+d[21])):.2f}$ $\\hspace{{10mm}}$ ${d[0]:.2f}$ $\\hspace{{9mm}}$ ${d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[21])):.2f}$ $\\hspace{{10mm}}$ ${(d[18]+d[21])*(1/2):.2f}$ $\\hspace{{10mm}}$ ${d[6]+d[9]+(d[12]+d[15])*(1/2):.2f}$  $\\hspace{{10mm}}$ ${(d[18]+d[21])*(1/2)*d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[21])):.2f}$ $\\hspace{{15mm}}$ ${(d[6]+d[9]+(d[12]+d[15])*(1/2))*d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[21])):.2f}$     
+    #     $BD$ $\\hspace{{15mm}}$ ${Calculations.magnitude((d[12]+d[9]),d[18]):.2f}$ $\\hspace{{10mm}}$ ${d[3]:.2f}$ $\\hspace{{9mm}}$ ${d[3]*Calculations.magnitude((d[12]+d[9]),d[18]):.2f}$ $\\hspace{{10mm}}$ ${(1/2)*(d[18]):.2f}$ $\\hspace{{10mm}}$ ${d[6]+(d[9]+d[12])*(1/2):.2f}$ $\\hspace{{10mm}}$ ${(1/2)*(d[18])*d[3]*Calculations.magnitude((d[12]+d[9]),d[18]):.2f}$ $\\hspace{{15mm}}$ ${(d[6]+(d[9]+d[12])*(1/2))*d[3]*Calculations.magnitude((d[12]+d[9]),d[18]):.2f}$          
+        
+    #     $\\textbf{{\\small 2. Determinar \\bar{{X}}: }}$
+        
+    #     Se puede aplicar la formula para determinar la coordenada $\\bar{{X}}$ :
+        
+    #     ${{\hspace{{4mm}} \\bar{{X}} = \\dfrac{{\\sum{{\\bar{{X_i}} \\cdot M_i}}}}{{\\sum{{M_i}}}}}}$     
+    #     ${{\hspace{{4mm}} \\bar{{X}} = {((d[18]+d[21])*(1/2)*d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[21])) + (1/2)*(d[18])*d[3]*Calculations.magnitude((d[12]+d[9]),d[18]))/(d[0]*(d[9]+d[6])+d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[21]))+d[3]*Calculations.magnitude((d[12]+d[9]),d[18])):.2f} \\text{{ m}}}}$     
+           
+    #     $\\textbf{{\\small 3. Determinar \\bar{{Y}}: }}$
+        
+    #     Se puede aplicar la formula para determinar la coordenada $\\bar{{Y}}$ :
+        
+    #     ${{\hspace{{4mm}} \\bar{{Y}} = \\dfrac{{\\sum{{\\bar{{Y_i}} \\cdot M_i}}}}{{\\sum{{M_i}}}}}}$     
+    #     ${{\hspace{{4mm}} \\bar{{Y}} = {((1/2)*d[0]*(d[9]+d[6])*(d[9]+d[6]) + (d[6]+d[9]+(d[12]+d[15])*(1/2))*d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[21])) + (d[6]+(d[9]+d[12])*(1/2))*d[3]*Calculations.magnitude((d[12]+d[9]),d[18]))/(d[0]*(d[9]+d[6])+d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[21]))+d[3]*Calculations.magnitude((d[12]+d[9]),d[18])):.2f} \\text{{ m}}}}$     
+        
+    #     $\\textbf{{\\small 4. Encontrar reacción en A: }}$
+        
+    #     A es un apoyo tipo 3, por lo que tiene 3 reacciones, en el enunciado solo se solicita una, que es el momento par. Teniendo presente que el peso de la estructura solo tiene componente negativa en $\\hat{{j}}$ y esta ubicada en el centro de masa, este momento se puede obtener del resultado de:
+        
+    #     ${{\hspace{{4mm}} \\sum{{M_A}} = M_A -  W \\cdot \\bar{{X}} = 0}}$     
+    #     ${{\hspace{{4mm}} M_A - \\sum{{M_i}} \\cdot g \\cdot \\dfrac{{\\sum{{\\bar{{X_i}} \\cdot M_i}}}}{{\\sum{{M_i}}}} = 0}}$     
+    #     ${{\hspace{{4mm}} M_A = g \\cdot \\sum{{\\bar{{X_i}} \\cdot M_i}}}}$     
+    #     ${{\hspace{{4mm}} M_A = {(981/100)*((d[18]+d[21])*(1/2)*d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[21])) + (1/2)*(d[18])*d[3]*Calculations.magnitude((d[12]+d[9]),d[18])):.2f} \\text{{ N}} \\cdot \\text{{ m}}}}$     
+             
+        
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ),
+    
+    
+
+
+
+
     #========================================================  CENTROIDES  =========================================================
     #-------------------------------------------------       Centroides    --------------------------------------------
     #-------------------------------------------------       Nivel Díficil   ---------------------------------------------------
@@ -6035,5 +6215,66 @@ preguntas = [
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),
+
+    # Questionary(#1_1
+    #     code = 6130011,
+    #     no_pregunta = 1,
+    #     complexity = D,
+    #     topic = "Centroides",
+    #     subtopic = "Centroides",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"En la imagen se muestra el perfil de un elemento con un ancho constante de ${26+d[0]:.0f} \\text{{ cm}} compuesto por dos materiales.  Ubique la posición del centro de masa $(\\bar{{X}}, \\bar{{Y}})$. Considere $\\rho_1 = {7700+d[3]*20:.0f} \\dfrac{{ kg}}{{m^3}}$, $\\rho_2 = {2750+d[3]*100:.0f} \\dfrac{{ kg}}{{m^3}}$, $d_1 = {45+d[6]:.0f} \\text{{ cm}}$,  $d_2 = {30+d[9]:.0f}  \\text{{ cm}}$, $d_3 = {50+d[12]:.0f} \\text{{ cm}}$, $d_4 = {24+d[15]:.0f} \\text{{ cm}}$, $d_5 = {10+(d[6]-d[15])*(1/2):.2f} \\text{{ cm}}$ y $d_6 = {46+d[18]:.2f} \\text{{ cm}}$.",
+    #     no_answers = 2,
+    #     a1_name = "Distancia $\\bar{{Y}}$ [cm]",
+    #     a2_name = "Distancia $\\bar{{X}}$ [cm]",
+    #     a3_name = "",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round(((96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0])*(2750+d[3]*100)*(30+d[9]+(96+d[12]+d[18])*(1/2))+(1/2)*(30+d[9])*(46+d[18])*(26+d[0])*(2750+d[3]*100)*(2/3)*(30+d[9])+(1/2)*(30+d[9])*(45+d[6])*(30+d[9])*(26+d[0])*(7700+d[3]*20)-(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(7700+d[3]*20)*((30+d[9])-(2*(24+d[15]))/(3*Calculations.arccosine(-1)))-(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(2750+d[3]*100)*((30+d[9])+(2*(24+d[15]))/(3*Calculations.arccosine(-1)))-(Calculations.arccosine(-1))*(46+d[18])*(46+d[18])*(26+d[0])*(1/4)*(2750+d[3]*100)*(126+d[9]+d[12]+d[18]-(4*(46+d[18]))/(3*Calculations.arccosine(-1))))/(-(Calculations.arccosine(-1))*(46+d[18])*(46+d[18])*(26+d[0])*(1/4)*(2750+d[3]*100)-(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(2750+d[3]*100)-(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(7700+d[3]*20)+(45+d[6])*(30+d[9])*(26+d[0])*(7700+d[3]*20)+(1/2)*(30+d[9])*(46+d[18])*(26+d[0])*(2750+d[3]*100)+(96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0])*(2750+d[3]*100)),2),
+    #     answer2 = lambda f, a, calc, c, d, m: np.round(((96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0])*(2750+d[3]*100)*((91+d[6]+d[18])*(1/2))+(1/2)*(30+d[9])*(46+d[18])*(26+d[0])*(2750+d[3]*100)*(45+d[6]+(1/3)*(46+d[18]))+(1/2)*(45+d[6])*(45+d[6])*(30+d[9])*(26+d[0])*(7700+d[3]*20)-(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(7700+d[3]*20)*(22+d[6]*(1/2))-(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(2750+d[3]*100)*(22+d[6]*(1/2))-(Calculations.arccosine(-1))*(46+d[18])*(46+d[18])*(26+d[0])*(1/4)*(2750+d[3]*100)*(45+d[6]+(4*(46+d[18]))/(3*Calculations.arccosine(-1))))/(-(Calculations.arccosine(-1))*(46+d[18])*(46+d[18])*(26+d[0])*(1/4)*(2750+d[3]*100)-(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(2750+d[3]*100)-(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(7700+d[3]*20)+(45+d[6])*(30+d[9])*(26+d[0])*(7700+d[3]*20)+(1/2)*(30+d[9])*(46+d[18])*(26+d[0])*(2750+d[3]*100)+(96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0])*(2750+d[3]*100)),2),
+    #     answer3 = lambda f, a, calc, c, d, m: 0,
+    #     ayuda1 = "El centro de masa hace referencia al promedio de las posiciones de cada punto o segmento de un objeto ponderado según sus masas.",
+    #     ayuda2 = "Como un recurso para vizualizar y organizar mejor los datos es recomendable la creación de una tabla con masas y coordenadas respectivas a sus centros de masa.",      
+    #     ayuda3 = "",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     El centro de masa es posible entenderlo como el punto donde se puede considerar que toda la masa de la estructura esta concentrada. A continuación, se presenta la solución sugerida para el ejercicio:
+        
+    #     $\\textbf{{\\small 1. División de figura compuesta: }}$
+    #     Es posible dividir modelar el perfil a partir de la suma de los elementos 1, 2 y 3 restado la suma de los elementos 4, 5 y 6
+        
+    #     $\\textbf{{\\small 2. Tabulación de cálculos: }}$
+        
+    #     Teniendo en cuenta que la masa de cada elemento se calcula mediante el producto de la densidad por volumen se puede obtener:
+        
+    #     $Elemento$ $\\hspace{{6mm}}$ $V(m^3)$ $\\hspace{{6mm}}$ $\\rho (kg/m^3)$ $\\hspace{{6mm}}$ $M(kg)$ $\\hspace{{6mm}}$ $\\bar{{X}}(cm)$ $\\hspace{{6mm}}$ $\\bar{{Y}}(cm)$ $\\hspace{{6mm}}$ $\\bar{{X}} \\cdot M(kg \\cdot cm)$ $\\hspace{{6mm}}$ $\\bar{{Y}} \\cdot M(kg \\cdot cm)$     
+
+    #     $1$ $\\hspace{{15mm}}$ ${(1/1000000)*(96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0]):.3f}$ $\\hspace{{11mm}}$ ${2750+d[3]*100:.2f}$ $\\hspace{{10mm}}$ ${(1/1000000)*(96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0])*(2750+d[3]*100):.2f}$ $\\hspace{{10mm}}$ ${30+d[9]+(96+d[12]+d[18])*(1/2):.2f}$ $\\hspace{{10mm}}$ ${(91+d[6]+d[18])*(1/2):.2f}$ $\\hspace{{13mm}}$ ${(1/1000000)*(96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0])*(2750+d[3]*100)*(30+d[9]+(96+d[12]+d[18])*(1/2)):.2f}$ $\\hspace{{13mm}}$ ${(1/1000000)*(96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0])*(2750+d[3]*100)*((91+d[6]+d[18])*(1/2)):.2f}$     
+    #     $2$ $\\hspace{{15mm}}$ ${(1/1000000)*(1/2)*(30+d[9])*(46+d[18])*(26+d[0]):.3f}$ $\\hspace{{11mm}}$ ${2750+d[3]*100:.2f}$ $\\hspace{{10mm}}$ ${(1/1000000)*(1/2)*(30+d[9])*(46+d[18])*(26+d[0])*(2750+d[3]*100):.2f}$ $\\hspace{{10mm}}$ ${(2/3)*(30+d[9]):.2f}$ $\\hspace{{10mm}}$ ${45+d[6]+(1/3)*(46+d[18]):.2f}$ $\\hspace{{13mm}}$ ${(1/1000000)*(1/2)*(30+d[9])*(46+d[18])*(26+d[0])*(2750+d[3]*100)*(2/3)*(30+d[9]):.2f}$ $\\hspace{{13mm}}$ ${(1/1000000)*(1/2)*(30+d[9])*(46+d[18])*(26+d[0])*(2750+d[3]*100)*(45+d[6]+(1/3)*(46+d[18])):.2f}$     
+    #     $3$ $\\hspace{{15mm}}$ ${(1/1000000)*(45+d[6])*(30+d[9])*(26+d[0]):.3f}$ $\\hspace{{11mm}}$ ${7700+d[3]*20:.2f}$ $\\hspace{{10mm}}$ ${(1/1000000)*(45+d[6])*(30+d[9])*(26+d[0])*(7700+d[3]*20):.2f}$ $\\hspace{{10mm}}$ ${(1/2)*(30+d[9]):.2f}$ $\\hspace{{10mm}}$ ${(1/2)*(45+d[6]):.2f}$ $\\hspace{{13mm}}$ ${(1/2)*(30+d[9])*(1/1000000)*(45+d[6])*(30+d[9])*(26+d[0])*(7700+d[3]*20):.2f}$ $\\hspace{{13mm}}$ ${(1/2)*(45+d[6])*(1/1000000)*(45+d[6])*(30+d[9])*(26+d[0])*(7700+d[3]*20):.2f}$     
+    #     $4$ $\\hspace{{15mm}}$ ${(-1/1000000)*(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8):.3f}$ $\\hspace{{11mm}}$ ${7700+d[3]*20:.2f}$ $\\hspace{{10mm}}$ ${(-1/1000000)*(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(7700+d[3]*20):.2f}$ $\\hspace{{10mm}}$ ${(30+d[9])-(2*(24+d[15]))/(3*Calculations.arccosine(-1)):.2f}$ $\\hspace{{10mm}}$ ${22+d[6]*(1/2):.2f}$ $\\hspace{{13mm}}$ ${(-1/1000000)*(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(7700+d[3]*20)*((30+d[9])-(2*(24+d[15]))/(3*Calculations.arccosine(-1))):.2f}$ $\\hspace{{13mm}}$ ${(-1/1000000)*(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(7700+d[3]*20)*(22+d[6]*(1/2)):.2f}$     
+    #     $5$ $\\hspace{{15mm}}$ ${(-1/1000000)*(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8):.3f}$ $\\hspace{{11mm}}$ ${2750+d[3]*100:.2f}$ $\\hspace{{10mm}}$ ${(-1/1000000)*(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(2750+d[3]*100):.2f}$ $\\hspace{{10mm}}$ ${(30+d[9])+(2*(24+d[15]))/(3*Calculations.arccosine(-1)):.2f}$ $\\hspace{{10mm}}$ ${22+d[6]*(1/2):.2f}$ $\\hspace{{13mm}}$ ${(-1/1000000)*(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(2750+d[3]*100)*((30+d[9])+(2*(24+d[15]))/(3*Calculations.arccosine(-1))):.2f}$ $\\hspace{{13mm}}$ ${(-1/1000000)*(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(2750+d[3]*100)*(22+d[6]*(1/2)):.2f}$     
+    #     $6$ $\\hspace{{15mm}}$ ${(-1/1000000)*(Calculations.arccosine(-1))*(46+d[18])*(46+d[18])*(26+d[0])*(1/4):.3f}$ $\\hspace{{11mm}}$ ${2750+d[3]*100:.2f}$ $\\hspace{{10mm}}$ ${(-1/1000000)*(Calculations.arccosine(-1))*(46+d[18])*(46+d[18])*(26+d[0])*(1/4)*(2750+d[3]*100):.2f}$ $\\hspace{{10mm}}$ ${126+d[9]+d[12]+d[18]-(4*(46+d[18]))/(3*Calculations.arccosine(-1)):.2f}$ $\\hspace{{10mm}}$ ${45+d[6]+(4*(46+d[18]))/(3*Calculations.arccosine(-1)):.2f}$ $\\hspace{{13mm}}$ ${(-1/1000000)*(Calculations.arccosine(-1))*(46+d[18])*(46+d[18])*(26+d[0])*(1/4)*(2750+d[3]*100)*(126+d[9]+d[12]+d[18]-(4*(46+d[18]))/(3*Calculations.arccosine(-1))):.2f}$ $\\hspace{{13mm}}$ ${(-1/1000000)*(Calculations.arccosine(-1))*(46+d[18])*(46+d[18])*(26+d[0])*(1/4)*(2750+d[3]*100)*(45+d[6]+(4*(46+d[18]))/(3*Calculations.arccosine(-1))):.2f}$    
+           
+    #     $\\textbf{{\\small 3. Determinar \\bar{{X}}: }}$
+        
+    #     Se puede aplicar la formula para determinar la coordenada $\\bar{{X}}$ :
+        
+    #     ${{\hspace{{4mm}} \\bar{{X}} = \\dfrac{{\\sum{{\\bar{{X_i}} \\cdot M_i}}}}{{\\sum{{M_i}}}}}}$     
+    #     ${{\hspace{{4mm}} \\bar{{X}} = {((96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0])*(2750+d[3]*100)*(30+d[9]+(96+d[12]+d[18])*(1/2))+(1/2)*(30+d[9])*(46+d[18])*(26+d[0])*(2750+d[3]*100)*(2/3)*(30+d[9])+(1/2)*(30+d[9])*(45+d[6])*(30+d[9])*(26+d[0])*(7700+d[3]*20)-(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(7700+d[3]*20)*((30+d[9])-(2*(24+d[15]))/(3*Calculations.arccosine(-1)))-(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(2750+d[3]*100)*((30+d[9])+(2*(24+d[15]))/(3*Calculations.arccosine(-1)))-(Calculations.arccosine(-1))*(46+d[18])*(46+d[18])*(26+d[0])*(1/4)*(2750+d[3]*100)*(126+d[9]+d[12]+d[18]-(4*(46+d[18]))/(3*Calculations.arccosine(-1))))/(-(Calculations.arccosine(-1))*(46+d[18])*(46+d[18])*(26+d[0])*(1/4)*(2750+d[3]*100)-(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(2750+d[3]*100)-(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(7700+d[3]*20)+(45+d[6])*(30+d[9])*(26+d[0])*(7700+d[3]*20)+(1/2)*(30+d[9])*(46+d[18])*(26+d[0])*(2750+d[3]*100)+(96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0])*(2750+d[3]*100)):.2f} \\text{{ cm}}}}$     
+        
+    #     $\\textbf{{\\small 4. Determinar \\bar{{Y}}: }}$
+        
+    #     Se puede aplicar la formula para determinar la coordenada $\\bar{{Y}}$ :
+        
+    #     ${{\hspace{{4mm}} \\bar{{Y}} = \\dfrac{{\\sum{{\\bar{{Y_i}} \\cdot M_i}}}}{{\\sum{{M_i}}}}}}$     
+    #     ${{\hspace{{4mm}} \\bar{{Y}} = {((96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0])*(2750+d[3]*100)*((91+d[6]+d[18])*(1/2))+(1/2)*(30+d[9])*(46+d[18])*(26+d[0])*(2750+d[3]*100)*(45+d[6]+(1/3)*(46+d[18]))+(1/2)*(45+d[6])*(45+d[6])*(30+d[9])*(26+d[0])*(7700+d[3]*20)-(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(7700+d[3]*20)*(22+d[6]*(1/2))-(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(2750+d[3]*100)*(22+d[6]*(1/2))-(Calculations.arccosine(-1))*(46+d[18])*(46+d[18])*(26+d[0])*(1/4)*(2750+d[3]*100)*(45+d[6]+(4*(46+d[18]))/(3*Calculations.arccosine(-1))))/(-(Calculations.arccosine(-1))*(46+d[18])*(46+d[18])*(26+d[0])*(1/4)*(2750+d[3]*100)-(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(2750+d[3]*100)-(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(7700+d[3]*20)+(45+d[6])*(30+d[9])*(26+d[0])*(7700+d[3]*20)+(1/2)*(30+d[9])*(46+d[18])*(26+d[0])*(2750+d[3]*100)+(96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0])*(2750+d[3]*100)):.2f} \\text{{ cm}}}}$     
+        
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ),
+
+
+
+
 
     ]

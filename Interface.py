@@ -772,7 +772,7 @@ if authenticate_user():
                     if pregunta_no == 1:
                         st.image(CT_image_paths[0], width=300) 
                     if pregunta_no == 2:
-                        st.image(CT_image_paths[1], width=350)
+                        st.image(CT_image_paths[1], width=300)
                 
 
             if difficulty == "Medio":
