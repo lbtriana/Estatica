@@ -6300,52 +6300,53 @@ preguntas = [
         calculos='operations'
         ),
     
-    # Questionary(#2_1
-    #     code = 7110021,
-    #     no_pregunta = 2,
-    #     complexity = F,
-    #     topic = "Fuerzas distribuidas",
-    #     subtopic = "Vigas",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Determine el valor de $w_2$ tal que la restricción de rotación (el momento par reacción) en el apoyo sea cero. Considere $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$ y $w_1 = {f[0]:.0f} \\dfrac{{N}}{{m}}$.",
-    #     no_answers = 1,
-    #     a1_name = "$w_2$ [$\\dfrac{{N}}{{m}}$]",
-    #     a2_name = "",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round((f[0]*d[0]*(1/6)*d[0])/(d[3]*(1/2)*(d[0]+d[3]*(1/3))),2),
-    #     answer2 = lambda f, a, calc, c, d, m: 0,
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "La magnitud de la fuerza resultante es igual al área bajo la curva de la fuerza distribuida",
-    #     ayuda2 = "La ubicación de la fuerza se encuentra en el centroide de la distribución",
-    #     ayuda3 = "Para simplificar el problema se puede dividir el área vajo la curva de la distribución en figuras más sencillas",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     Una fuerza distribuida es una carga que actúa sobre una superficie o a lo largo de un segmento, en lugar de estar concentrada en un solo punto. A continuación, se presenta la solución sugerida para el ejercicio:
+    Questionary(#2_1
+        code = 7110021,
+        no_pregunta = 2,
+        complexity = F,
+        topic = FD,
+        subtopic = FD,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine el valor de $w_2$ de modo que la restricción de rotación (momento de reacción) en el apoyo sea igual a cero. Considere $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$ y $w_1 = {f[0]:.0f} \\dfrac{{N}}{{m}}$.",
+        no_answers = 1,
+        a1_name = "$w_2$ $\\left[\\dfrac{{N}}{{m}}\\right]$",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round((f[0]*d[0]*(1/6)*d[0])/(d[3]*(1/2)*(d[0]+d[3]*(1/3))),2),
+        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = FD1,
+        ayuda2 = FD2,
+        ayuda3 = "",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        Una fuerza distribuida es una carga que actúa sobre una superficie o a lo largo de un segmento, en lugar de estar concentrada en un solo punto. A continuación, se presenta la solución sugerida para el ejercicio:
         
-    #     $\\textbf{{\\small 1. Puntualización de las fuerzas: }}$
+        $\\textbf{{\\small 1. Puntualización de las fuerzas: }}$
         
-    #     Frente la configuración mostrada se puede determinar la ubicación de las resutlantes de las dos fuerzas.
+        Con la configuración mostrada, se puede determinar la ubicación de las dos fuerzas resultantes:
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        Las magnitudes de cada fuerza son:
         
-    #     ##Imagen##
-         
-    #     Donde las magnitudes de cada fuerza seran respectivamente:
-        
-    #     ${{\hspace{{4mm}} F_1 = \\dfrac{{w_1 \\cdot d_1}}{{2}}}}$     
-    #     ${{\hspace{{4mm}} F_2 = \\dfrac{{w_2 \\cdot d_2}}{{2}}}}$            
+        ${{\hspace{{4mm}} F_1 = \\dfrac{{w_1 \\cdot d_1}}{{2}}}}$     
+       
+        ${{\hspace{{4mm}} F_2 = \\dfrac{{w_2 \\cdot d_2}}{{2}}}}$            
             
-    #     $\\textbf{{\\small 2. Sumatoria de momentos en A: }}$
+        $\\textbf{{\\small 2. Sumatoria de momentos en A: }}$
         
-    #     Como se sabe que no debe haber restricción de rotación en el apoyo, se puede decir que la sumatoria de momentos en A debe ser igual cero, y así determinar $w_2$:
+        Dado que no debe haber restricción de rotación en el apoyo, la sumatoria de momentos en A debe ser igual a cero. Esto permite determinar el valor de $w_2$:
+
+        ${{\hspace{{4mm}} \\sum{{M_A}} = F_2 \\cdot (d_1 + \\dfrac{{d_2}}{{3}}) - F_1 \\cdot \\dfrac{{d_1}}{{3}} = 0}}$      
         
-    #     ${{\hspace{{4mm}} \\sum{{M_A}} = F_2 \\cdot (d_1 + \\dfrac{{d_2}}{{3}}) - F_1 \\cdot \\dfrac{{d_1}}{{3}} = 0}}$      
-    #     ${{\hspace{{4mm}} \\dfrac{{w_2 \\cdot d_2}}{{2}} \\cdot (d_1 + \\dfrac{{d_2}}{{3}}) = \\dfrac{{w_1 \\cdot d_1}}{{2}} \\cdot \\dfrac{{d_1}}{{3}}}}$     
-    #     ${{\hspace{{4mm}} w_2 \\cdot {d[3]*(1/2)*(d[0]+d[3]*(1/3)):.2f} \\text{{ }} m^2 = {f[0]*d[0]*(1/6)*d[0]:.2f} \\text{{ N}} \\cdot \\text{{ m}}}}$     
-    #     ${{\hspace{{4mm}} w_2 = {(f[0]*d[0]*(1/6)*d[0])/(d[3]*(1/2)*(d[0]+d[3]*(1/3))):.2f} \\dfrac{{N}}{{m}}}}$     
-           
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
+        ${{\hspace{{4mm}} \\dfrac{{w_2 \\cdot d_2}}{{2}} \\cdot (d_1 + \\dfrac{{d_2}}{{3}}) = \\dfrac{{w_1 \\cdot d_1}}{{2}} \\cdot \\dfrac{{d_1}}{{3}}}}$     
+       
+        ${{\hspace{{4mm}} w_2 \\cdot {d[3]*(1/2)*(d[0]+d[3]*(1/3)):.2f} \\text{{ }} m^2 = {f[0]*d[0]*(1/6)*d[0]:.2f} \\text{{ N}} \\cdot \\text{{ m}}}}$     
+        
+        ${{\hspace{{4mm}} w_2 = {(f[0]*d[0]*(1/6)*d[0])/(d[3]*(1/2)*(d[0]+d[3]*(1/3))):.2f} \\dfrac{{N}}{{m}}}}$     
+        """,
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
    
     # Questionary(#3_1
     #     code = 7110031,
