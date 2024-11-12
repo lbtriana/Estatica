@@ -197,12 +197,16 @@ CT_image_paths = [
 "./Imagenes/Preguntas/CT/CT_CT_F_1a.png", #[0]
 "./Imagenes/Preguntas/CT/CT_CT_F_2a.png", #[1]
 "./Imagenes/Preguntas/CT/CT_CT_F_3a.png", #[2]
+
+#Centroides_Nivel medio
+"./Imagenes/Preguntas/CT/CT_CT_M_1a.png", #[3]
+"./Imagenes/Preguntas/CT/CT_CT_M_2a.png", #[4]
 ]
 
 
 #==========================================RESPUESTAS CÁLCULOS==============================================
 
-#================================ Imágenes Respuestas Cálculo Equilibrio ===================================
+#================================ Imágenes Respuestas Cálculos Equilibrio ===================================
 EQ_rtas_paths= [
 #Vectores 2D _ Ejes arbitrarios _ Nivel díficil
 "./Imagenes/Respuestas/EQ/V2D/R_EQ_V2D_D_1a.png", #[0] 
@@ -233,9 +237,11 @@ EQ_rtas_paths= [
 
 ]
 
-CE_rtas_paths= [
-#Centroides _ Nivel díficil
+#================================ Imágenes Respuestas Cálculos Centroides ===================================
+CT_rtas_paths= [
+#Centroides _ Nivel fácil
 "./Imagenes/Respuestas/CT/R_CT_CT_F_1a.png", #[0] 
+"./Imagenes/Respuestas/CT/R_CT_CT_M_1a.png", #[1] 
 ]
 
 

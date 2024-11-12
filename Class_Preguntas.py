@@ -6016,8 +6016,11 @@ preguntas = [
         $Elemento$ $\\hspace{{13mm}}$ $L(m)$ $\\hspace{{15mm}}$ $\\bar{{X}}(m)$ $\\hspace{{15mm}}$ $\\bar{{X}} \\cdot L(m^2)$    
 
         $AB$ $\\hspace{{15mm}}$ ${{\\sqrt{{\\left(\\dfrac{{d_2}}{{2}}\\right)^2+d_3^2}}}}$ $\\hspace{{10mm}}$ ${{\\dfrac{{d_2}}{{4}}}}$ $\\hspace{{13mm}}$ ${{\\sqrt{{\\left(\\dfrac{{d_2}}{{2}}\\right)^2+d_3^2}} \\cdot \\dfrac{{d_2}}{{4}}}}$     
+        
         $AC$ $\\hspace{{25mm}}$ ${{d_2}}$ $\\hspace{{19mm}}$ ${{\\dfrac{{d_2}}{{2}}}}$ $\\hspace{{22mm}}$ ${{d_2 \\cdot \\dfrac{{d_2}}{{2}}}}$     
+        
         $BC$ $\\hspace{{15mm}}$ ${{\\sqrt{{\\left(\\dfrac{{d_2}}{{2}}\\right)^2+d_3^2}}}}$ $\\hspace{{10mm}}$ ${{\\dfrac{{3d_2}}{{4}}}}$ $\\hspace{{13mm}}$ ${{\\sqrt{{\\left(\\dfrac{{d_2}}{{2}}\\right)^2+d_3^2}} \\cdot \\dfrac{{3d_2}}{{4}}}}$     
+        
         $BD$ $\\hspace{{25mm}}$ ${{d_2}}$ $\\hspace{{19mm}}$ ${{d_2}}$ $\\hspace{{22mm}}$ ${{d_2 \\cdot \\dfrac{{d_2}}{{2}}}}$     
         $CD$ $\\hspace{{15mm}}$ ${{\\sqrt{{\\left(\\dfrac{{d_2}}{{2}}\\right)^2+d_3^2}}}}$ $\\hspace{{10mm}}$ ${{\\dfrac{{5d_2}}{{4}}}}$ $\\hspace{{13mm}}$ ${{\\sqrt{{\\left(\\dfrac{{d_2}}{{2}}\\right)^2+d_3^2}} \\cdot \\dfrac{{5d_2}}{{4}}}}$
         
@@ -6056,72 +6059,61 @@ preguntas = [
         topic = "Centroides",
         subtopic = "Centroides",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Esta sección pronto estará disponible.",
-        no_answers = 0,
-        a1_name = "",
+        pregunta = lambda f, a, calc, c, d, m: f"En la imagen se muestra la sección transversal de una vigueta con longitud de ${(d[0]+1)*(1/2):.2f} \\text{{ m}}$ compuesta por dos materiales. Teniendo en cuenta que la vigueta es simétrica respecto al eje X, determine la coordenada $\\bar{{Y}}$ (en cm) del centro de masa. Considere $\\rho_1 = {7700+d[3]*20:.0f} \\dfrac{{ kg}}{{m^3}}$, $\\rho_2 = {2050+d[3]*100:.0f} \\dfrac{{ kg}}{{m^3}}$, $d_1 = {40+d[6]*5:.0f} \\text{{ cm}}$,  $d_2 = {60+d[6]*4:.0f}  \\text{{ cm}}$, $d_3 = {100+d[9]*4:.0f} \\text{{ cm}}$, $d_4 = {d[9]+4:.0f} \\text{{ cm}}$ y $d_5 = {d[9]*(1/2) + 1:.2f} \\text{{ cm}}$.",
+        no_answers = 1,
+        a1_name = "Distancia $\\bar{{Y}}$ [cm]",
         a2_name = "",
         a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: 0,
+        answer1 = lambda f, a, calc, c, d, m: np.round(((d[9]*(1/2)+1)*(1/2)*(d[9]*(1/2)+1)*(40+5*d[6])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20) + ((d[9]*(1/2)+1)+(100+d[9]*4)*(1/2))*((d[9]*(1/2)+1)*(100+4*d[9])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20)) + ((d[9]*(1/2)+1)*(3/2) + (100+d[9]*4))*(d[9]*(1/2)+1)*(60+d[6]*4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100) + 2*(d[9]*4+99)*(d[9]*(1/2)+1)*(d[9]+4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100))/((d[9]*(1/2)+1)*(40+5*d[6])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20) + (d[9]*(1/2)+1)*(100+4*d[9])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20) + (d[9]*(1/2)+1)*(60+d[6]*4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100) + 2*(d[9]*(1/2)+1)*(d[9]+4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100)),2),
         answer2 = lambda f, a, calc, c, d, m: 0,
         answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = "",
-        ayuda2 = "",      
+        ayuda1 = CT4,
+        ayuda2 = CT6,      
         ayuda3 = "",
-        respuesta_P1 = lambda f, a, calc, c, d, m: f"",   
-        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        El centro de masa es el punto en el que se considera que toda la masa de la estructura está concentrada. A continuación, se presenta la solución sugerida para el ejercicio:
+        
+        $\\textbf{{\\small 1. División de figura compuesta: }}$
+        
+        Es posible dividir el perfil de la vigueta en 5 regiones, cuyos centroides son comunes y conocidos:
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        $\\textbf{{\\small 2. Tabulación de cálculos: }}$
+        
+        Teniendo en cuenta que la masa de cada elemento se calcula mediante el producto de la densidad por volumen se puede obtener:
+        
+        $Elemento$ $\\hspace{{10mm}}$ $V(m^3)$ $\\hspace{{6mm}}$ $\\rho (kg/m^3)$ $\\hspace{{6mm}}$ $M(kg)$ $\\hspace{{25mm}}$ $\\bar{{Y}}(cm)$ $\\hspace{{40mm}}$ $\\bar{{Y}} \\cdot M(kg \\cdot cm)$     
+
+        $\\hspace{{5mm}}$ $1$ $\\hspace{{15mm}}$ ${{d_1 \\cdot d_5 \\cdot L}}$ $\\hspace{{10mm}}$ ${{\\rho_1}}$ $\\hspace{{7mm}}$ ${{\\rho_1 \\cdot (d_1 \\cdot d_5 \\cdot L)}}$ $\\hspace{{22mm}}$ ${{\\dfrac{{d_5}}{{2}}}}$ $\\hspace{{35mm}}$ ${{\\left(\\dfrac{{d_5}}{{2}}\\right) \\cdot (\\rho_1 \\cdot (d_1 \\cdot d_5 \\cdot L)}}$     
+        $\\hspace{{5mm}}$ $2$ $\\hspace{{15mm}}$ ${{d_3 \\cdot d_5 \\cdot L}}$ $\\hspace{{10mm}}$ ${{\\rho_1}}$ $\\hspace{{7mm}}$ ${{\\rho_1 \\cdot (d_3 \\cdot d_5 \\cdot L)}}$ $\\hspace{{18mm}}$ ${{d_5+\\dfrac{{d_3}}{{2}}}}$ $\\hspace{{30mm}}$ ${{\\left(d_5+\\dfrac{{d_3}}{{2}}\\right) \\cdot (\\rho_1 \\cdot (d_3 \\cdot d_5 \\cdot L)}}$     
+        $\\hspace{{5mm}}$ $3$ $\\hspace{{15mm}}$ ${{d_2 \\cdot d_5 \\cdot L}}$ $\\hspace{{10mm}}$ ${{\\rho_2}}$ $\\hspace{{7mm}}$ ${{\\rho_2 \\cdot (d_2 \\cdot d_5 \\cdot L)}}$ $\\hspace{{15mm}}$ ${{d_5+d_3+\\dfrac{{d_5}}{{2}}}}$ $\\hspace{{22mm}}$ ${{\\left(d_5+d_3+\\dfrac{{d_5}}{{2}}\\right) \\cdot (\\rho_2 \\cdot (d_2 \\cdot d_5 \\cdot L)}}$     
+        $\\hspace{{5mm}}$ $4$ $\\hspace{{15mm}}$ ${{d_4 \\cdot d_5 \\cdot L}}$ $\\hspace{{10mm}}$ ${{\\rho_2}}$ $\\hspace{{7mm}}$ ${{\\rho_2 \\cdot (d_4 \\cdot d_5 \\cdot L)}}$ $\\hspace{{10mm}}$ ${{d_5+(d_3-d_4)+\\dfrac{{d_4}}{{2}}}}$ $\\hspace{{13mm}}$ ${{\\left(d_5+(d_3-d_4)+\\dfrac{{d_4}}{{2}}\\right) \\cdot (\\rho_2 \\cdot (d_4 \\cdot d_5 \\cdot L)}}$     
+        $\\hspace{{5mm}}$ $5$ $\\hspace{{15mm}}$ ${{d_4 \\cdot d_5 \\cdot L}}$ $\\hspace{{10mm}}$ ${{\\rho_2}}$ $\\hspace{{7mm}}$ ${{\\rho_2 \\cdot (d_4 \\cdot d_5 \\cdot L)}}$ $\\hspace{{10mm}}$ ${{d_5+(d_3-d_4)+\\dfrac{{d_4}}{{2}}}}$ $\\hspace{{13mm}}$ ${{\\left(d_5+(d_3-d_4)+\\dfrac{{d_4}}{{2}}\\right) \\cdot (\\rho_2 \\cdot (d_4 \\cdot d_5 \\cdot L)}}$    
+
+        Siendo $L$, la longitud dada en el enunciado.
+
+        Reemplazando:
+
+        $Elemento$ $\\hspace{{6mm}}$ $V(m^3)$ $\\hspace{{6mm}}$ $\\rho (kg/m^3)$ $\\hspace{{6mm}}$ $M(kg)$ $\\hspace{{6mm}}$ $\\bar{{Y}}(cm)$ $\\hspace{{8mm}}$ $\\bar{{Y}} \\cdot M(kg \\cdot cm)$     
+
+        $\\hspace{{5mm}}$ $1$ $\\hspace{{15mm}}$ ${(d[9]*(1/2)+1)*(40+5*d[6])*((d[0]+1)*(1/2))*(1/10000):.2f}$ $\\hspace{{10mm}}$ ${7700+d[3]*20:.2f}$ $\\hspace{{7mm}}$ ${(d[9]*(1/2)+1)*(40+5*d[6])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20):.2f}$ $\\hspace{{10mm}}$ ${(d[9]*(1/2)+1)*(1/2):.2f}$ $\\hspace{{13mm}}$ ${(d[9]*(1/2)+1)*(1/2)*(d[9]*(1/2)+1)*(40+5*d[6])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20):.2f}$     
+        $\\hspace{{5mm}}$ $2$ $\\hspace{{15mm}}$ ${(d[9]*(1/2)+1)*(100+4*d[9])*((d[0]+1)*(1/2))*(1/10000):.2f}$ $\\hspace{{10mm}}$ ${7700+d[3]*20:.2f}$ $\\hspace{{7mm}}$ ${(d[9]*(1/2)+1)*(100+4*d[9])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20):.2f}$ $\\hspace{{8mm}}$ ${(d[9]*(1/2)+1)+(100+d[9]*4)*(1/2):.2f}$ $\\hspace{{13mm}}$ ${((d[9]*(1/2)+1)+(100+d[9]*4)*(1/2))*((d[9]*(1/2)+1)*(100+4*d[9])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20)):.2f}$     
+        $\\hspace{{5mm}}$ $3$ $\\hspace{{15mm}}$ ${(d[9]*(1/2)+1)*(60+d[6]*4)*((d[0]+1)*(1/2))*(1/10000):.2f}$ $\\hspace{{10mm}}$ ${2050+d[3]*100:.2f}$ $\\hspace{{7mm}}$ ${(d[9]*(1/2)+1)*(60+d[6]*4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100):.2f}$ $\\hspace{{8mm}}$ ${(d[9]*(1/2)+1)*(3/2) + (100+d[9]*4):.2f}$ $\\hspace{{13mm}}$ ${((d[9]*(1/2)+1)*(3/2) + (100+d[9]*4))*(d[9]*(1/2)+1)*(60+d[6]*4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100):.2f}$     
+        $\\hspace{{5mm}}$ $4$ $\\hspace{{15mm}}$ ${(d[9]*(1/2)+1)*(d[9]+4)*((d[0]+1)*(1/2))*(1/10000):.2f}$ $\\hspace{{10mm}}$ ${2050+d[3]*100:.2f}$ $\\hspace{{7mm}}$ ${(d[9]*(1/2)+1)*(d[9]+4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100):.2f}$ $\\hspace{{10mm}}$ ${(d[9]*4+99):.2f}$ $\\hspace{{13mm}}$ ${(d[9]*4+99)*(d[9]*(1/2)+1)*(d[9]+4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100):.2f}$     
+        $\\hspace{{5mm}}$ $5$ $\\hspace{{15mm}}$ ${(d[9]*(1/2)+1)*(d[9]+4)*((d[0]+1)*(1/2))*(1/10000):.2f}$ $\\hspace{{10mm}}$ ${2050+d[3]*100:.2f}$ $\\hspace{{7mm}}$ ${(d[9]*(1/2)+1)*(d[9]+4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100):.2f}$ $\\hspace{{10mm}}$ ${(d[9]*4+99):.2f}$ $\\hspace{{13mm}}$ ${(d[9]*4+99)*(d[9]*(1/2)+1)*(d[9]+4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100):.2f}$     
+           
+        $\\textbf{{\\small 3. Determinar el centroide en Y: }}$
+        
+        Se aplica la fórmula para determinar la coordenada $\\bar{{Y}}$ :
+        
+        ${{\hspace{{4mm}} \\bar{{Y}} = \\dfrac{{\\sum{{\\bar{{Y_i}} \\cdot M_i}}}}{{\\sum{{M_i}}}}}}$     
+        
+        ${{\hspace{{4mm}} \\bar{{Y}} = {((d[9]*(1/2)+1)*(1/2)*(d[9]*(1/2)+1)*(40+5*d[6])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20) + ((d[9]*(1/2)+1)+(100+d[9]*4)*(1/2))*((d[9]*(1/2)+1)*(100+4*d[9])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20)) + ((d[9]*(1/2)+1)*(3/2) + (100+d[9]*4))*(d[9]*(1/2)+1)*(60+d[6]*4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100) + 2*(d[9]*4+99)*(d[9]*(1/2)+1)*(d[9]+4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100))/((d[9]*(1/2)+1)*(40+5*d[6])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20) + (d[9]*(1/2)+1)*(100+4*d[9])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20) + (d[9]*(1/2)+1)*(60+d[6]*4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100) + 2*(d[9]*(1/2)+1)*(d[9]+4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100)):.2f} \\text{{ cm}}}}$     
+        """,
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),
-
-    
-    # Questionary(#1_1
-    #     code = 6120011,
-    #     no_pregunta = 1,
-    #     complexity = M,
-    #     topic = "Centroides",
-    #     subtopic = "Centroides",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"En la imagen se muestra la sección transversal de una vigueta con longitud de ${(d[0]+1)*(1/2):.2f} \\text{{ m}} compuesto por dos materiales. Sabiendo que es simétrico respecto al eje Y, encuentre la coordenada $\\bar{{Y}}$ (en cm) del centro de masa. Considere $\\rho_1 = {7700+d[3]*20:.0f} \\dfrac{{ kg}}{{m^3}}$, $\\rho_2 = {2050+d[3]*100:.0f} \\dfrac{{ kg}}{{m^3}}$, $d_1 = {40+d[6]*5:.0f} \\text{{ cm}}$,  $d_2 = {60+d[6]*4:.0f}  \\text{{ cm}}$, $d_3 = {100+d[9]*4:.0f} \\text{{ cm}}$, $d_4 = {d[9]+4:.0f} \\text{{ cm}}$ y $d_5 = {d[9]*(1/2) + 1:.2f} \\text{{ cm}}$.",
-    #     no_answers = 1,
-    #     a1_name = "Distancia $\\bar{{Y}}$ [cm]",
-    #     a2_name = "",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(((d[9]*(1/2)+1)*(1/2)*(d[9]*(1/2)+1)*(40+5*d[6])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20) + ((d[9]*(1/2)+1)+(100+d[9]*4))*(d[9]*(1/2)+1)*(100+4*d[9])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20) + ((d[9]*(1/2)+1)*(3/2) + (100+d[9]*4))*(d[9]*(1/2)+1)*(60+d[6]*4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100) + 2*(d[9]*4+99)*(d[9]*(1/2)+1)*(d[9]+4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100))/((d[9]*(1/2)+1)*(40+5*d[6])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20) + (d[9]*(1/2)+1)*(100+4*d[9])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20) + (d[9]*(1/2)+1)*(60+d[6]*4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100) + 2*(d[9]*(1/2)+1)*(d[9]+4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100)),2),
-    #     answer2 = lambda f, a, calc, c, d, m: 0,
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "El centro de masa hace referencia al promedio de las posiciones de cada punto o segmento de un objeto ponderado según sus masas.",
-    #     ayuda2 = "Como un recurso para vizualizar y organizar mejor los datos es recomendable la creación de una tabla con masas y coordenadas respectivas a sus centros de masa.",      
-    #     ayuda3 = "",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     El centro de masa es posible entenderlo como el punto donde se puede considerar que toda la masa de la estructura esta concentrada. A continuación, se presenta la solución sugerida para el ejercicio:
-        
-    #     $\\textbf{{\\small 1. División de figura compuesta: }}$
-    #     Es posible dividir el perfil de la vigueta en 5 regiones, cuyos centroides son comunes y conocidos.
-        
-    #     $\\textbf{{\\small 2. Tabulación de cálculos: }}$
-        
-    #     Teniendo en cuenta que la masa de cada elemento se calcula mediante el producto de la densidad por volumen se puede obtener:
-        
-    #     $Elemento$ $\\hspace{{6mm}}$ $V(m^3)$ $\\hspace{{6mm}}$ $\\rho (kg/m^3)$ $\\hspace{{6mm}}$ $M(kg)$ $\\hspace{{6mm}}$ $\\bar{{Y}}(cm)$ $\\hspace{{6mm}}$ $\\bar{{Y}} \\cdot M(kg \\cdot cm)$     
-
-    #     $1$ $\\hspace{{15mm}}$ ${(d[9]*(1/2)+1)*(40+5*d[6])*((d[0]+1)*(1/2))*(1/10000):.2f}$ $\\hspace{{10mm}}$ ${7700+d[3]*20:.2f}$ $\\hspace{{10mm}}$ ${(d[9]*(1/2)+1)*(40+5*d[6])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20):.2f}$ $\\hspace{{10mm}}$ ${(d[9]*(1/2)+1)*(1/2):.2f}$ $\\hspace{{13mm}}$ ${(d[9]*(1/2)+1)*(1/2)*(d[9]*(1/2)+1)*(40+5*d[6])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20):.2f}$     
-    #     $2$ $\\hspace{{15mm}}$ ${(d[9]*(1/2)+1)*(100+4*d[9])*((d[0]+1)*(1/2))*(1/10000):.2f}$ $\\hspace{{10mm}}$ ${7700+d[3]*20:.2f}$ $\\hspace{{10mm}}$ ${(d[9]*(1/2)+1)*(100+4*d[9])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20):.2f}$ $\\hspace{{10mm}}$ ${(d[9]*(1/2)+1)+(100+d[9]*4)*(1/2):.2f}$ $\\hspace{{13mm}}$ ${((d[9]*(1/2)+1)+(100+d[9]*4))*(d[9]*(1/2)+1)*(100+4*d[9])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20):.2f}$     
-    #     $3$ $\\hspace{{15mm}}$ ${(d[9]*(1/2)+1)*(60+d[6]*4)*((d[0]+1)*(1/2))*(1/10000):.2f}$ $\\hspace{{10mm}}$ ${2050+d[3]*100:.2f}$ $\\hspace{{10mm}}$ ${(d[9]*(1/2)+1)*(60+d[6]*4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100):.2f}$ $\\hspace{{10mm}}$ ${(d[9]*(1/2)+1)*(3/2) + (100+d[9]*4):.2f}$ $\\hspace{{13mm}}$ ${((d[9]*(1/2)+1)*(3/2) + (100+d[9]*4))*(d[9]*(1/2)+1)*(60+d[6]*4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100):.2f}$     
-    #     $4$ $\\hspace{{15mm}}$ ${(d[9]*(1/2)+1)*(d[9]+4)*((d[0]+1)*(1/2))*(1/10000):.2f}$ $\\hspace{{10mm}}$ ${2050+d[3]*100:.2f}$ $\\hspace{{10mm}}$ ${(d[9]*(1/2)+1)*(d[9]+4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100):.2f}$ $\\hspace{{10mm}}$ ${(d[9]*4+99):.2f}$ $\\hspace{{13mm}}$ ${(d[9]*4+99)*(d[9]*(1/2)+1)*(d[9]+4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100):.2f}$     
-    #     $5$ $\\hspace{{15mm}}$ ${(d[9]*(1/2)+1)*(d[9]+4)*((d[0]+1)*(1/2))*(1/10000):.2f}$ $\\hspace{{10mm}}$ ${2050+d[3]*100:.2f}$ $\\hspace{{10mm}}$ ${(d[9]*(1/2)+1)*(d[9]+4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100):.2f}$ $\\hspace{{10mm}}$ ${(d[9]*4+99):.2f}$ $\\hspace{{13mm}}$ ${(d[9]*4+99)*(d[9]*(1/2)+1)*(d[9]+4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100):.2f}$     
-           
-    #     $\\textbf{{\\small 3. Determinar \\bar{{Y}}: }}$
-        
-    #     Se puede aplicar la formula para determinar la coordenada $\\bar{{Y}}$ :
-        
-    #     ${{\hspace{{4mm}} \\bar{{Y}} = \\dfrac{{\\sum{{\\bar{{Y_i}} \\cdot M_i}}}}{{\\sum{{M_i}}}}}}$     
-    #     ${{\hspace{{4mm}} \\bar{{Y}} = {((d[9]*(1/2)+1)*(1/2)*(d[9]*(1/2)+1)*(40+5*d[6])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20) + ((d[9]*(1/2)+1)+(100+d[9]*4))*(d[9]*(1/2)+1)*(100+4*d[9])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20) + ((d[9]*(1/2)+1)*(3/2) + (100+d[9]*4))*(d[9]*(1/2)+1)*(60+d[6]*4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100) + 2*(d[9]*4+99)*(d[9]*(1/2)+1)*(d[9]+4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100))/((d[9]*(1/2)+1)*(40+5*d[6])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20) + (d[9]*(1/2)+1)*(100+4*d[9])*((d[0]+1)*(1/2))*(1/10000)*(7700+d[3]*20) + (d[9]*(1/2)+1)*(60+d[6]*4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100) + 2*(d[9]*(1/2)+1)*(d[9]+4)*((d[0]+1)*(1/2))*(1/10000)*(2050+d[3]*100)):.2f} \\text{{ cm}}}}$     
-        
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
+   
     # Questionary(#2_1
     #     code = 6120021,
     #     no_pregunta = 1,
@@ -6185,11 +6177,6 @@ preguntas = [
     #     calculos='operations'
     #     ),
     
-    
-
-
-
-
     #========================================================  CENTROIDES  =========================================================
     #-------------------------------------------------       Centroides    --------------------------------------------
     #-------------------------------------------------       Nivel Díficil   ---------------------------------------------------

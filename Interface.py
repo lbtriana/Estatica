@@ -776,8 +776,6 @@ if authenticate_user():
                     if pregunta_no == 3:
                         st.image(CT_image_paths[2], width=420)
                 
-                
-
             if difficulty == "Medio":
                 if subtopic == "Vectores 2D":
                     if pregunta_no == 1:
@@ -856,7 +854,10 @@ if authenticate_user():
                     if pregunta_no == 1:
                         st.image(AR_image_paths[12], width=550) 
                     if pregunta_no == 2:
-                        st.image(AR_image_paths[13], width=400)          
+                        st.image(AR_image_paths[13], width=400)  
+                if subtopic == "Centroides":
+                    if pregunta_no == 1:
+                        st.image(CT_image_paths[3], width=420)        
                 
             if difficulty == "Díficil":
                 if subtopic == "Vectores 2D":
@@ -935,12 +936,16 @@ if authenticate_user():
                         st.image(EQ_rtas_paths[10], width=350)
                 if subtopic == "Centroides":
                     if pregunta_no ==1:
-                        st.image(CE_rtas_paths[0], width=200)
+                        st.image(CT_rtas_paths[0], width=200)
 
             if difficulty == "Medio":
                 if subtopic == "Equilibrio 2D":
                     if pregunta_no == 1:
                         st.image(EQ_rtas_paths[8], width=250)
+                if subtopic == "Centroides":
+                    if pregunta_no ==1:
+                        st.image(CT_rtas_paths[1], width=200)
+
             if difficulty == "Díficil":
                 if subtopic == "Vectores 2D":
                     if pregunta_no == 1 or pregunta_no == 2: 
