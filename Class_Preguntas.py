@@ -5919,7 +5919,7 @@ preguntas = [
         topic = "Centroides",
         subtopic = "Centroides",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Cada uno de los tres elementos del marco tienen una masa por unidad de longitud de ${d[0]:.0f} \\dfrac{{kg}}{{m}}$. Ubique la posición del centro de masa $(\\bar{{X}}, \\bar{{Y}})$ y calcule la reacción en el apoyo E. Considere $d_1 = {d[3]:.0f} \\text{{ m}}$,  $d_2 = {d[6]:.0f}  \\text{{ m}}$, $d_3 = {d[9]:.0f} \\text{{ m}}$, $d_4 = {d[12]:.0f} \\text{{ m}}$ y la aceleración debida a la gravedad $g = 9,81 \\dfrac{{m}}{{s^2}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Cada uno de los tres elementos del marco tienen una masa por unidad de longitud de ${d[0]:.0f} \\dfrac{{kg}}{{m}}$. Determine la posición del centro de masa $(\\bar{{X}}, \\bar{{Y}})$ y calcule la reacción en el apoyo E. Considere $d_1 = {d[3]:.0f} \\text{{ m}}$,  $d_2 = {d[6]:.0f}  \\text{{ m}}$, $d_3 = {d[9]:.0f} \\text{{ m}}$, $d_4 = {d[12]:.0f} \\text{{ m}}$ y la aceleración debida a la gravedad $g = 9,81 \\dfrac{{m}}{{s^2}}$.",
         no_answers = 3,
         a1_name = "Distancia $\\bar{{X}}$ [m]",
         a2_name = "Distancia $\\bar{{Y}}$ [m]",
@@ -5927,13 +5927,13 @@ preguntas = [
         answer1 = lambda f, a, calc, c, d, m: np.round((d[9]*(1/2)*(Calculations.magnitude(d[9],d[6]))*d[0] + (1/2)*d[0]*(d[9]+d[12])*(d[9]+d[12]))/(d[0]*(d[3]+d[6]) + d[0]*Calculations.magnitude(d[9],d[6]) + d[0]*(d[9]+d[12])),2),
         answer2 = lambda f, a, calc, c, d, m: np.round(((1/2)*d[0]*(d[3]+d[6])*(d[3]+d[6]) + (d[3]+d[6]*(1/2))*(Calculations.magnitude(d[9],d[6]))*d[0] + d[0]*(d[3]+d[6])*(d[9]+d[12]))/(d[0]*(d[3]+d[6]) + d[0]*Calculations.magnitude(d[9],d[6]) + d[0]*(d[9]+d[12])),2),
         answer3 = lambda f, a, calc, c, d, m: np.round(((981/100)*(d[9]*(1/2)*(Calculations.magnitude(d[9],d[6]))*d[0] + (1/2)*d[0]*(d[9]+d[12])*(d[9]+d[12])))/(d[9]+d[12]),2),
-        ayuda1 = "El centro de masa hace referencia al promedio de las posiciones de cada punto o segmento de un objeto ponderado según sus masas.",
-        ayuda2 = "Como un recurso para vizualizar y organizar mejor los datos es recomendable la creación de una tabla con masas y coordenadas respectivas a sus centros de masa.",      
-        ayuda3 = "",
+        ayuda1 = CT4,
+        ayuda2 = CT5,      
+        ayuda3 = CT6,
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-        El centro de masa es posible entenderlo como el punto donde se puede considerar que toda la masa de la estructura esta concentrada. A continuación, se presenta la solución sugerida para el ejercicio:
+        El centro de masa es el punto en el que se considera que toda la masa de la estructura está concentrada. A continuación, se presenta la solución sugerida para el ejercicio:
         
-        El marco esta compuesto por tres elementos cuyos centros de masa se encuentran en el punto medio de su longitud.
+        El marco está compuesto por tres elementos cuyos centros de masa se encuentran en el punto medio de su longitud.
         
         $\\textbf{{\\small 1. Tabulación de cálculos: }}$
         
@@ -5957,7 +5957,7 @@ preguntas = [
         
         $\\textbf{{\\small 2. Determinar el centro de masa en X: }}$
         
-        Se puede aplicar la formula para determinar la coordenada $\\bar{{X}}$ :
+        Se puede aplicar la fórmula para determinar la coordenada $\\bar{{X}}$ :
         
         ${{\hspace{{4mm}} \\bar{{X}} = \\dfrac{{\\sum{{\\bar{{X_i}} \\cdot M_i}}}}{{\\sum{{M_i}}}}}}$     
         
@@ -5965,16 +5965,16 @@ preguntas = [
            
         $\\textbf{{\\small 3. Determinar el centro de masa en Y: }}$
         
-        Se puede aplicar la formula para determinar la coordenada $\\bar{{Y}}$ :
+        Se puede aplicar la fórmula para determinar la coordenada $\\bar{{Y}}$ :
         
         ${{\hspace{{4mm}} \\bar{{Y}} = \\dfrac{{\\sum{{\\bar{{Y_i}} \\cdot M_i}}}}{{\\sum{{M_i}}}}}}$     
         
         ${{\hspace{{4mm}} \\bar{{Y}} = {((1/2)*d[0]*(d[3]+d[6])*(d[3]+d[6]) + (d[3]+d[6]*(1/2))*(Calculations.magnitude(d[9],d[6]))*d[0] + d[0]*(d[3]+d[6])*(d[9]+d[12]))/(d[0]*(d[3]+d[6]) + d[0]*Calculations.magnitude(d[9],d[6]) + d[0]*(d[9]+d[12])):.2f} \\text{{ m}}}}$     
         
-        $\\textbf{{\\small 4. Encontrar reacción en E: }}$
+        $\\textbf{{\\small 4. Encontrar la reacción en E: }}$
         
-        E es un apoyo tipo 1, por ende solo va a tener una reacción. Teniendo presente que el peso de la estructura solo tiene componente negativa en $\\hat{{j}}$ y esta ubicada en el centro de masa, esta se puede calcular de la siguiente manera :
-        
+        E es un apoyo de tipo 1, por lo cual, tiene solo una reacción. Dado que, el peso de la estructura tiene únicamente una componente negativa en la dirección $\\hat{{j}}$ y está ubicada en el centro de masa, la reacción se puede calcular de la siguiente manera:
+
         ${{\hspace{{4mm}} \\sum{{M_A}} = E_y \\cdot (d_3 + d_4) -  W \\cdot \\bar{{X}} = 0}}$     
        
         ${{\hspace{{4mm}} E_y \\cdot (d_3 + d_4) - \\sum{{M_i}} \\cdot g \\cdot \\dfrac{{\\sum{{\\bar{{X_i}} \\cdot M_i}}}}{{\\sum{{M_i}}}} = 0}}$     
@@ -5982,8 +5982,6 @@ preguntas = [
         ${{\hspace{{4mm}} E_y = \\dfrac{{ g \\cdot \\sum{{\\bar{{X_i}} \\cdot M_i}}}}{{(d_3 + d_4)}} }}$     
         
         ${{\hspace{{4mm}} E_y = {((981/100)*(d[9]*(1/2)*(Calculations.magnitude(d[9],d[6]))*d[0] + (1/2)*d[0]*(d[9]+d[12])*(d[9]+d[12])))/(d[9]+d[12]):.2f} \\text{{ N}}}}$     
-             
-        
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",

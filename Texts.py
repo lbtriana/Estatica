@@ -220,8 +220,20 @@ $i$ = Elementos de la figura conocida, una vez se divide la figura compuesta.
 $A$ = Área de la figura   
 """
 CT3 = "Un recurso útil para visualizar y organizar los datos es la creación de una tabla con las áreas y las coordenadas de los centroides de cada elemento."
+CT4 = """El centro de masa representa el promedio de las posiciones de cada punto o segmento de un objeto, ponderado según sus masas. Para calcular las coordenadas se utilizan las siguientes ecuaciones:
 
+$\\bar{{X}} = \\dfrac{{\\sum{{\\bar{{X_i}} \\cdot M_i}}}}{{\\sum{{M_i}}}}$      
 
+$\\bar{{Y}} = \\dfrac{{\\sum{{\\bar{{Y_i}} \\cdot M_i}}}}{{\\sum{{M_i}}}}$         
+
+Donde:     
+$\\bar{{X}}$ = Coordenada X del centroide del elemento.  
+$\\bar{{Y}}$ = Coordenada Y del centroide del elemento.    
+$i$ = Índice de cada elemento.     
+$M$ = Masa del elemento. 
+"""
+CT5 = "El centro de masa es el punto en el cual se puede considerar que toda la masa del cuerpo está concentrada para los análisis de equilibrio."
+CT6 = "Un recurso útil para vizualizar y organizar los datos es la creación de una tabla con las masas y las coordenadas de los centroides de cada elemento."
 
 #------------------------------------- Textos para las respuestas ---------------------------------------
 
