@@ -6350,7 +6350,7 @@ preguntas = [
    
     # Questionary(#3_1
     #     code = 7110031,
-    #     no_pregunta = 1,
+    #     no_pregunta = 3,
     #     complexity = F,
     #     topic = "Fuerzas distribuidas",
     #     subtopic = "Vigas",
