@@ -6348,69 +6348,74 @@ preguntas = [
         calculos='operations'
         ),
    
-    # Questionary(#3_1
-    #     code = 7110031,
-    #     no_pregunta = 3,
-    #     complexity = F,
-    #     topic = "Fuerzas distribuidas",
-    #     subtopic = "Vigas",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Determine las reacciones en los apoyos A y B. Considere $d_1 = {d[0]:.0f} \\text{{ m}}$, $d_2 = {d[3]:.0f}  \\text{{ m}}$, $d_3 = {d[6]:.0f} \\text{{ m}}$, $w_1 = {f[1]:.0f} \\dfrac{{N}}{{m}}$ y $w_2 = {f[2]:.0f} \\dfrac{{N}}{{m}}$ .",
-    #     no_answers = 3,
-    #     a1_name = "Reacción $A_x$ [N]",
-    #     a2_name = "Reacción $A_y$ [N]",
-    #     a3_name = "Reacción $B_y$ [N]",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(0,2),
-    #     answer2 = lambda f, a, calc, c, d, m: np.round(f[1]*d[0]*(1/2)+f[2]*d[3]*(1/2) + f[2]*d[6]+f[1]*d[0]*(d[0]/(3*d[3])) - f[2]*d[6]*(1+(d[6]/(2*d[3]))),2),
-    #     answer3 = lambda f, a, calc, c, d, m: np.round(-f[1]*d[0]*(d[0]/(3*d[3])) + f[2]*d[3]*(1/3)+f[2]*d[6]*(1+(d[6]/(2*d[3]))),2),
-    #     ayuda1 = "La magnitud de la fuerza resultante de una distirbución es igual al área bajo la curva de la fuerza distribuida",
-    #     ayuda2 = "La ubicación de la fuerza se encuentra en el centroide de la distribución",
-    #     ayuda3 = "Para simplificar el problema se puede dividir el área vajo la curva de la distribución en figuras más sencillas",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     Una fuerza distribuida es una carga que actúa sobre una superficie o a lo largo de un segmento, en lugar de estar concentrada en un solo punto. A continuación, se presenta la solución sugerida para el ejercicio:
+    Questionary(#3_1
+        code = 7110031,
+        no_pregunta = 3,
+        complexity = F,
+        topic = FD,
+        subtopic = FD,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine las reacciones en los apoyos $A$ y $B$. Considere $d_1 = {d[6]:.0f} \\text{{ m}}$, $d_2 = {d[9]*2:.0f}  \\text{{ m}}$, $d_3 = {(d[6]/2)+1:.1f} \\text{{ m}}$, $w_1 = {f[1]:.0f} \\dfrac{{N}}{{m}}$ y $w_2 = {f[2]+10:.0f} \\dfrac{{N}}{{m}}$ .",
+        no_answers = 3,
+        a1_name = "Reacción $A_x$ $[N]$",
+        a2_name = "Reacción $A_y$ $[N]$",
+        a3_name = "Reacción $B_y$ $[N]$",
+        answer1 = lambda f, a, calc, c, d, m: np.round(0,2),
+        answer2 = lambda f, a, calc, c, d, m: np.round((f[1]*d[6]/2)+(((f[2]+10)*(d[9]*2)))/2+(f[2]+10)*(1+(d[6]/2))-(-f[1]*d[6]*(d[6]/(3*d[9]*2)) + (f[2]+10)*d[9]*2*(1/3)+(f[2]+10)*((d[6]/2)+1)*(1+(((d[6]/2)+1)/(2*d[9]*2)))),2),
+        answer3 = lambda f, a, calc, c, d, m: np.round(-f[1]*d[6]*(d[6]/(3*d[9]*2)) + (f[2]+10)*d[9]*2*(1/3)+(f[2]+10)*((d[6]/2)+1)*(1+(((d[6]/2)+1)/(2*d[9]*2))),2),
+        ayuda1 = FD1,
+        ayuda2 = FD2,
+        ayuda3 = FD3,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        Una fuerza distribuida es una carga que actúa sobre una superficie o a lo largo de un segmento, en lugar de estar concentrada en un solo punto. A continuación, se presenta la solución sugerida para el ejercicio:
         
-    #     $\\textbf{{\\small 1. División de fuerza distribuida: }}$
-    #     En el ejercicio se muestra una fuerza distribuida que puede ser divida en 3 distribuciones más simples cuyos centroides son comunes, como lo son triángulos y rectángulos.
+        $\\textbf{{\\small 1. División de fuerza distribuida: }}$
         
-    #     ##Imagen##
-    #     $\\textbf{{\\small 2. Puntualización de las fuerzas: }}$
+        En el ejercicio se muestra una fuerza distribuida que puede dividirse en 3 distribuciones más simples, cuyos centroides son conocidos y comunes, como triángulos y rectángulos.  
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        $\\textbf{{\\small 2. Puntualización de las fuerzas: }}$
         
-    #     Dado a la configuración mostrada se puede determinar la ubicación de las resutlantes de las tres fuerzas.
+        Teniendo en cuenta la configuración mostrada, se puede determinar la ubicación de las tres fuerzas.
+        """,
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"""
+        La magnitud de cada una de las fuerzas se calcula de la siguiente forma:
         
-    #     ##Imagen##
-         
-    #     Donde las magnitudes de cada fuerza seran respectivamente:
+        ${{\hspace{{4mm}} F_1 = \\dfrac{{w_1 \\cdot d_1}}{{2}}}}$     
         
-    #     ${{\hspace{{4mm}} F_1 = \\dfrac{{w_1 \\cdot d_1}}{{2}}}}$     
-    #     ${{\hspace{{4mm}} F_2 = \\dfrac{{w_2 \\cdot d_2}}{{2}}}}$         
-    #     ${{\hspace{{4mm}} F_3 = w_2 \\cdot d_3}}$     
+        ${{\hspace{{4mm}} F_2 = \\dfrac{{w_2 \\cdot d_2}}{{2}}}}$         
+        
+        ${{\hspace{{4mm}} F_3 = w_2 \\cdot d_3}}$     
             
-    #     $\\textbf{{\\small 3. Condición de equilibrio: }}$
+        $\\textbf{{\\small 3. Condición de equilibrio: }}$
         
-    #     $\\underline{{Sumatoria \\hspace{{2mm}} de \\hspace{{2mm}} momentos \\hspace{{2mm}} en \\hspace{{2mm}} A:}}$  
+        $\\underline{{Sumatoria \\hspace{{2mm}} de \\hspace{{2mm}} momentos \\hspace{{2mm}} en \\hspace{{2mm}} A:}}$  
         
-    #     ${{\hspace{{4mm}} \\sum{{M_A}} = F_1 \\cdot \\dfrac{{2d_1}}{{3}} - F_2 \\cdot \\dfrac{{2d_2}}{{3}} - F_3 \\cdot (d_2 + \\dfrac{{d_3}}{{2}}) + B_y \\cdot d_2 = 0 }}$     
-    #     ${{\hspace{{4mm}} B_y \\cdot d_2 =  - F_1 \\cdot \\dfrac{{2d_1}}{{3}} + F_2 \\cdot \\dfrac{{2d_2}}{{3}} + F_3 \\cdot (d_2 + \\dfrac{{d_3}}{{2}})}}$     
-    #     ${{\hspace{{4mm}} B_y =  - w_1 \\cdot d_1 \\cdot \\dfrac{{d_1}}{{3d_2}} + w_2 \\cdot d_2 \\cdot \\dfrac{{1}}{{3}} + w_2 \\cdot d_3 \\cdot (1 + \\dfrac{{d_3}}{{2d_2}})}}$     
-    #     ${{\hspace{{4mm}} B_y = {-f[1]*d[0]*(d[0]/(3*d[3])) + f[2]*d[3]*(1/3)+f[2]*d[6]*(1+(d[6]/(2*d[3]))):.2f} \\text{{ N}}}}$     
+        ${{\hspace{{4mm}} \\sum{{M_A}} = F_1 \\cdot \\dfrac{{2d_1}}{{3}} - F_2 \\cdot \\dfrac{{2d_2}}{{3}} - F_3 \\cdot (d_2 + \\dfrac{{d_3}}{{2}}) + B_y \\cdot d_2 = 0 }}$     
         
-    #     $\\underline{{Sumatoria \\hspace{{2mm}} de \\hspace{{2mm}} fuerzas \\hspace{{2mm}} en \\hspace{{2mm}} X:}}$ 
+        ${{\hspace{{4mm}} B_y \\cdot d_2 =  - F_1 \\cdot \\dfrac{{2d_1}}{{3}} + F_2 \\cdot \\dfrac{{2d_2}}{{3}} + F_3 \\cdot (d_2 + \\dfrac{{d_3}}{{2}})}}$     
         
-    #     ${{\hspace{{4mm}} \\sum{{F_x}} = A_x = 0 }}$     
+        ${{\hspace{{4mm}} B_y =  - w_1 \\cdot d_1 \\cdot \\dfrac{{d_1}}{{3d_2}} + w_2 \\cdot d_2 \\cdot \\dfrac{{1}}{{3}} + w_2 \\cdot d_3 \\cdot (1 + \\dfrac{{d_3}}{{2d_2}})}}$     
+        
+        ${{\hspace{{4mm}} B_y = {-f[1]*d[6]*(d[6]/(3*d[9]*2)) + (f[2]+10)*d[9]*2*(1/3)+(f[2]+10)*((d[6]/2)+1)*(1+(((d[6]/2)+1)/(2*d[9]*2))):.2f} \\text{{ N}}}}$     
+        
+        $\\underline{{Sumatoria \\hspace{{2mm}} de \\hspace{{2mm}} fuerzas \\hspace{{2mm}} en \\hspace{{2mm}} X:}}$ 
+        
+        ${{\hspace{{4mm}} \\sum{{F_x}} = A_x = 0 }}$     
                 
-    #     $\\underline{{Sumatoria \\hspace{{2mm}} de \\hspace{{2mm}} fuerzas \\hspace{{2mm}} en \\hspace{{2mm}} Y:}}$  
+        $\\underline{{Sumatoria \\hspace{{2mm}} de \\hspace{{2mm}} fuerzas \\hspace{{2mm}} en \\hspace{{2mm}} Y:}}$  
         
-    #     ${{\hspace{{4mm}} \\sum{{F_y}} = B_y + A_y - F_1 - F_2 - F_3 = 0 }}$     
-    #     ${{\hspace{{4mm}} A_y =  F_1 + F_2 + F_3 - B_y}}$     
-    #     ${{\hspace{{4mm}} A_y = \\dfrac{{w_1 \\cdot d_1}}{{2}} + \\dfrac{{w_2 \\cdot d_2}}{{2}} + w_2 \\cdot d_3 + w_1 \\cdot d_1 \\cdot \\dfrac{{d_1}}{{3d_2}} - w_2 \\cdot d_2 \\cdot \\dfrac{{1}}{{3}} - w_2 \\cdot d_3 \\cdot (1 + \\dfrac{{d_3}}{{2d_2}})}}$     
-    #     ${{\hspace{{4mm}} A_y = {f[1]*d[0]*(1/2)+f[2]*d[3]*(1/2) + f[2]*d[6]+f[1]*d[0]*(d[0]/(3*d[3])) - f[2]*d[6]*(1+(d[6]/(2*d[3]))):.2f} \\text{{ N}}}}$     
-            
+        ${{\hspace{{4mm}} \\sum{{F_y}} = B_y + A_y - F_1 - F_2 - F_3 = 0 }}$     
+       
+        ${{\hspace{{4mm}} A_y =  F_1 + F_2 + F_3 - B_y}}$     
         
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
+        ${{\hspace{{4mm}} A_y = \\dfrac{{w_1 \\cdot d_1}}{{2}} + \\dfrac{{w_2 \\cdot d_2}}{{2}} + w_2 \\cdot d_3 + w_1 \\cdot d_1 \\cdot \\dfrac{{d_1}}{{3d_2}} - w_2 \\cdot d_2 \\cdot \\dfrac{{1}}{{3}} - w_2 \\cdot d_3 \\cdot (1 + \\dfrac{{d_3}}{{2d_2}})}}$     
+        
+        ${{\hspace{{4mm}} A_y = {(f[1]*d[6]/2)+(((f[2]+10)*(d[9]*2)))/2+(f[2]+10)*(1+(d[6]/2))-(-f[1]*d[6]*(d[6]/(3*d[9]*2)) + (f[2]+10)*d[9]*2*(1/3)+(f[2]+10)*((d[6]/2)+1)*(1+(((d[6]/2)+1)/(2*d[9]*2)))):.2f} \\text{{ N}}}}$     
+        """,
+        calculos='operations'
+        ),
+
     # #=================================================  FUERZAS DISTRIBUIDAS =========================================================
     # #-------------------------------------------------       Presión hidrostática    --------------------------------------------
     # #-------------------------------------------------       Nivel Fácil   ---------------------------------------------------

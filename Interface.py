@@ -783,7 +783,7 @@ if authenticate_user():
                     if pregunta_no == 2:
                         st.image(FD_image_paths[1], width=400)
                     if pregunta_no == 3:
-                        st.image(FD_image_paths[2], width=420)
+                        st.image(FD_image_paths[2], width=450)
                     if pregunta_no == 4:
                         st.image(FD_image_paths[3], width=420)
                 
@@ -964,9 +964,9 @@ if authenticate_user():
                     if pregunta_no ==2:
                         st.image(FD_rtas_paths[1], width=350)
                     if pregunta_no ==3:
-                        st.image(FD_rtas_paths[3], width=200)
+                        st.image(FD_rtas_paths[3], width=350)
                     if pregunta_no ==4:
-                        st.image(FD_rtas_paths[5], width=200)
+                        st.image(FD_rtas_paths[5], width=350)
 
             if difficulty == "Medio":
                 if subtopic == "Equilibrio 2D":
@@ -1016,7 +1016,7 @@ if authenticate_user():
                     if pregunta_no ==1:
                         st.image(FD_rtas_paths[1], width=350)
                     if pregunta_no ==3:
-                        st.image(FD_rtas_paths[4], width=200)
+                        st.image(FD_rtas_paths[4], width=350)
 
             if difficulty == "Medio":
                 if subtopic == "Fuerzas distribuidas":
