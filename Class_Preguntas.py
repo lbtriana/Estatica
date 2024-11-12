@@ -6488,7 +6488,6 @@ preguntas = [
         calculos='operations'
         ),
    
-   
     # Questionary(#2_1
     #     code = 7220011,
     #     no_pregunta = 1,
