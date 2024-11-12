@@ -5938,7 +5938,7 @@ preguntas = [
         $\\textbf{{\\small 1. Tabulación de cálculos: }}$
         
         Teniendo en cuenta que la masa de cada elemento se calcula mediante el producto de la densidad lineal por la longitud se puede obtener la siguiente tabla:
-        
+
         $Elemento$ $\\hspace{{9mm}}$ $L(m)$ $\\hspace{{18mm}}$  $M(kg)$ $\\hspace{{17mm}}$ $\\bar{{X}}(m)$ $\\hspace{{12mm}}$ $\\bar{{Y}}(m)$ $\\hspace{{16mm}}$ $\\bar{{X}} \\cdot M(kg \\cdot m)$ $\\hspace{{22mm}}$ $\\bar{{Y}} \\cdot M(kg \\cdot m)$     
 
         $AC$ $\\hspace{{15mm}}$ $d_1+d_2$ $\\hspace{{13mm}}$ $m^* \\cdot (d_1+d_2)$ $\\hspace{{14mm}}$ $0$ $\\hspace{{16mm}}$ $\\dfrac{{d_1+d_2}}{{2}}$ $\\hspace{{14mm}}$ $0 \\cdot m^* \\cdot (d_1+d_2)$ $\\hspace{{14mm}}$ $\\dfrac{{d_1+d_2}}{{2}} \\cdot m^2 \\cdot (d_1+d_2)$     
@@ -5947,7 +5947,7 @@ preguntas = [
 
         Siendo m^* la masa por unidad de longitud.
 
-        Reemplazando:
+        Reemplazando:
 
         $Elemento$ $\\hspace{{6mm}}$ $L(m)$ $\\hspace{{6mm}}$  $M(kg)$ $\\hspace{{6mm}}$ $\\bar{{X}}(m)$ $\\hspace{{6mm}}$ $\\bar{{Y}}(m)$ $\\hspace{{6mm}}$ $\\bar{{X}} \\cdot M(kg \\cdot m)$ $\\hspace{{6mm}}$ $\\bar{{Y}} \\cdot M(kg \\cdot m)$     
 
@@ -5957,7 +5957,7 @@ preguntas = [
         
         $\\textbf{{\\small 2. Determinar el centro de masa en X: }}$
         
-        Se puede aplicar la fórmula para determinar la coordenada $\\bar{{X}}$ :
+        Se aplica la fórmula para determinar la coordenada $\\bar{{X}}$ :
         
         ${{\hspace{{4mm}} \\bar{{X}} = \\dfrac{{\\sum{{\\bar{{X_i}} \\cdot M_i}}}}{{\\sum{{M_i}}}}}}$     
         
@@ -5965,7 +5965,7 @@ preguntas = [
            
         $\\textbf{{\\small 3. Determinar el centro de masa en Y: }}$
         
-        Se puede aplicar la fórmula para determinar la coordenada $\\bar{{Y}}$ :
+        Se aplica la fórmula para determinar la coordenada $\\bar{{Y}}$ :
         
         ${{\hspace{{4mm}} \\bar{{Y}} = \\dfrac{{\\sum{{\\bar{{Y_i}} \\cdot M_i}}}}{{\\sum{{M_i}}}}}}$     
         
@@ -5988,56 +5988,61 @@ preguntas = [
         calculos='operations'
         ),
 
-    # Questionary(#3_1
-    #     code = 6110031,
-    #     no_pregunta = 1,
-    #     complexity = F,
-    #     topic = "Centroides",
-    #     subtopic = "Centroides",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"La cercha esta hecha con 5 elementos. Determine la distancia $d_1$ a donde el cable de izado debe estar unido, de manera que la armadura no gire cuando sea levantada. Considere $d_2 = {d[0]:.0f} \\text{{ m}}$ y $d_3 = {d[3]:.0f} \\text{{ m}}$",
-    #     no_answers = 1,
-    #     a1_name = "Distancia $d_1$ [m]",
-    #     a2_name = "",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round((d[0]*(9/4)*Calculations.magnitude(d[0]*(1/2),d[3]) + d[0]*(3/2)*d[0])/(3*Calculations.magnitude(d[0]*(1/2),d[3]) + 2*d[0]),2),
-    #     answer2 = lambda f, a, calc, c, d, m: 0,
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = """El centroide representa el centro geométrico de un objeto. Para calcular las coordenadas del centroide de un objeto lineal compuesto se utilizan las siguientes ecuaciones: 
-    #     $\\bar{{X}} = \\dfrac{{\\sum{{\\bar{{X_i}} \\cdot L_i}}}}{{\\sum{{L_i}}}} \\bar{{Y}} = \\dfrac{{\\sum{{\\bar{{Y_i}} \\cdot L_i}}}}{{\\sum{{L_i}}}}$
-    #     Donde: $\\bar{{X}}$ = Coordenada X del centroide de la figura compuesta; $\\bar{{Y}}$ = Coordenada Y del centroide de la figura compuesta; i = Elementos de la figura conocida, una vez se divide la figura compuesta; L = Longitud del segmento""",
-    #     ayuda2 = "Como un recurso para vizualizar y organizar mejor los datos es recomendable la creación de una tabla con masas y coordenadas respectivas a sus centros de masa.",      
-    #     ayuda3 = "",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     El centroide se define como el centro geométrico de un objeto, en otras palabras, representa la posición promedio del área del objeto. . A continuación, se presenta la solución sugerida para el ejercicio:
+    Questionary(#3_1
+        code = 6110031,
+        no_pregunta = 3,
+        complexity = F,
+        topic = "Centroides",
+        subtopic = "Centroides",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"La cercha está compuesta por 5 elementos. Determine la distancia $d_1$ en la que debe unirse el cable de izado para evitar que la armadura gire cuando es levantada. Considere $d_2 = {d[0]:.0f} \\text{{ m}}$ y $d_3 = {d[3]:.0f} \\text{{ m}}$",
+        no_answers = 1,
+        a1_name = "Distancia $d_1$ [m]",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round((d[0]*(9/4)*Calculations.magnitude(d[0]*(1/2),d[3]) + d[0]*(3/2)*d[0])/(3*Calculations.magnitude(d[0]*(1/2),d[3]) + 2*d[0]),2),
+        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = CT8,
+        ayuda2 = CT7,      
+        ayuda3 = CT6,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        El centroide se define como el centro geométrico de un objeto, en otras palabras, representa la posición promedio de la longitud, área o volumen de un objeto. A continuación, se presenta la solución sugerida para el ejercicio:
         
-    #     La cercha esta compuesta por cinco elementos cuyos centroides se encuentran en el punto medio de su longitud. Para que la cercha no gire, se debe posicionar el cable de izado en la distanca $\\bar{{X}}$ del centroide de la estructura:
+        La cercha está compuesta por cinco elementos cuyos centroides se encuentran en el punto medio de su longitud. Para que la cercha no gire, se debe posicionar el cable de izado en el centroide $\\bar{{X}}$ de la estructura:
         
-    #     $\\textbf{{\\small 1. Tabulación de cálculos: }}$
-        
-    #     $Elemento$ $\\hspace{{6mm}}$ $L(m)$ $\\hspace{{6mm}}$ $\\bar{{X}}(m)$ $\\hspace{{6mm}}$ $\\bar{{X}} \\cdot L(m^2)$    
+        $\\textbf{{\\small 1. Tabulación de cálculos: }}$
 
-    #     $AB$ $\\hspace{{15mm}}$ ${Calculations.magnitude(d[0]*(1/2),d[3]):.2f}$ $\\hspace{{10mm}}$ ${d[0]*(1/4):.2f}$ $\\hspace{{13mm}}$ ${d[0]*(1/4)*Calculations.magnitude(d[0]*(1/2),d[3]):.2f}$     
-    #     $AC$ $\\hspace{{15mm}}$ ${d[0]:.2f}$ $\\hspace{{10mm}}$ ${d[0]*(1/2):.2f}$ $\\hspace{{13mm}}$ ${d[0]*(1/2)*d[0]:.2f}$     
-    #     $BC$ $\\hspace{{15mm}}$ ${Calculations.magnitude(d[0]*(1/2),d[3]):.2f}$ $\\hspace{{10mm}}$ ${d[0]*(3/4):.2f}$ $\\hspace{{13mm}}$ ${d[0]*(3/4)*Calculations.magnitude(d[0]*(1/2),d[3]):.2f}$     
-    #     $BD$ $\\hspace{{15mm}}$ ${d[0]:.2f}$ $\\hspace{{10mm}}$ ${d[0]:.2f}$ $\\hspace{{13mm}}$ ${d[0]*d[0]:.2f}$     
-    #     $CD$ $\\hspace{{15mm}}$ ${Calculations.magnitude(d[0]*(1/2),d[3]):.2f}$ $\\hspace{{10mm}}$ ${d[0]*(5/4):.2f}$ $\\hspace{{13mm}}$ ${d[0]*(5/4)*Calculations.magnitude(d[0]*(1/2),d[3]):.2f}$
-        
-    #     $\\textbf{{\\small 2. Determinar \\bar{{X}}: }}$
-        
-    #     Se puede aplicar la formula para determinar la coordenada $\\bar{{X}}$ :
-        
-    #     ${{\hspace{{4mm}} d_1 = \\bar{{X}} = \\dfrac{{\\sum{{\\bar{{X_i}} \\cdot L_i}}}}{{\\sum{{L_i}}}}}}$     
-    #     ${{\hspace{{4mm}} \\bar{{X}} = {(d[0]*(9/4)*Calculations.magnitude(d[0]*(1/2),d[3]) + d[0]*(3/2)*d[0])/(3*Calculations.magnitude(d[0]*(1/2),d[3]) + 2*d[0]):.2f} \\text{{ m}}}}$       
-        
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
-    
-    
+        $Elemento$ $\\hspace{{13mm}}$ $L(m)$ $\\hspace{{15mm}}$ $\\bar{{X}}(m)$ $\\hspace{{15mm}}$ $\\bar{{X}} \\cdot L(m^2)$    
 
+        $AB$ $\\hspace{{15mm}}$ ${{\\sqrt{{\\left(\\dfrac{{d_2}}{{2}}\\right)^2+d_3^2}}}}$ $\\hspace{{10mm}}$ ${{\\dfrac{{d_2}}{{4}}}}$ $\\hspace{{13mm}}$ ${{\\sqrt{{\\left(\\dfrac{{d_2}}{{2}}\\right)^2+d_3^2}} \\cdot \\dfrac{{d_2}}{{4}}}}$     
+        $AC$ $\\hspace{{25mm}}$ ${{d_2}}$ $\\hspace{{19mm}}$ ${{\\dfrac{{d_2}}{{2}}}}$ $\\hspace{{22mm}}$ ${{d_2 \\cdot \\dfrac{{d_2}}{{2}}}}$     
+        $BC$ $\\hspace{{15mm}}$ ${{\\sqrt{{\\left(\\dfrac{{d_2}}{{2}}\\right)^2+d_3^2}}}}$ $\\hspace{{10mm}}$ ${{\\dfrac{{3d_2}}{{4}}}}$ $\\hspace{{13mm}}$ ${{\\sqrt{{\\left(\\dfrac{{d_2}}{{2}}\\right)^2+d_3^2}} \\cdot \\dfrac{{3d_2}}{{4}}}}$     
+        $BD$ $\\hspace{{25mm}}$ ${{d_2}}$ $\\hspace{{19mm}}$ ${{d_2}}$ $\\hspace{{22mm}}$ ${{d_2 \\cdot \\dfrac{{d_2}}{{2}}}}$     
+        $CD$ $\\hspace{{15mm}}$ ${{\\sqrt{{\\left(\\dfrac{{d_2}}{{2}}\\right)^2+d_3^2}}}}$ $\\hspace{{10mm}}$ ${{\\dfrac{{5d_2}}{{4}}}}$ $\\hspace{{13mm}}$ ${{\\sqrt{{\\left(\\dfrac{{d_2}}{{2}}\\right)^2+d_3^2}} \\cdot \\dfrac{{5d_2}}{{4}}}}$
+        
+        Reemplazando:
+        
+        $Elemento$ $\\hspace{{6mm}}$ $L(m)$ $\\hspace{{7mm}}$ $\\bar{{X}}(m)$ $\\hspace{{7mm}}$ $\\bar{{X}} \\cdot L(m^2)$    
+
+        $AB$ $\\hspace{{15mm}}$ ${Calculations.magnitude(d[0]*(1/2),d[3]):.2f}$ $\\hspace{{10mm}}$ ${d[0]*(1/4):.2f}$ $\\hspace{{13mm}}$ ${d[0]*(1/4)*Calculations.magnitude(d[0]*(1/2),d[3]):.2f}$     
+        $AC$ $\\hspace{{15mm}}$ ${d[0]:.2f}$ $\\hspace{{10mm}}$ ${d[0]*(1/2):.2f}$ $\\hspace{{13mm}}$ ${d[0]*(1/2)*d[0]:.2f}$     
+        $BC$ $\\hspace{{15mm}}$ ${Calculations.magnitude(d[0]*(1/2),d[3]):.2f}$ $\\hspace{{10mm}}$ ${d[0]*(3/4):.2f}$ $\\hspace{{13mm}}$ ${d[0]*(3/4)*Calculations.magnitude(d[0]*(1/2),d[3]):.2f}$     
+        $BD$ $\\hspace{{15mm}}$ ${d[0]:.2f}$ $\\hspace{{10mm}}$ ${d[0]:.2f}$ $\\hspace{{13mm}}$ ${d[0]*d[0]:.2f}$     
+        $CD$ $\\hspace{{15mm}}$ ${Calculations.magnitude(d[0]*(1/2),d[3]):.2f}$ $\\hspace{{10mm}}$ ${d[0]*(5/4):.2f}$ $\\hspace{{13mm}}$ ${d[0]*(5/4)*Calculations.magnitude(d[0]*(1/2),d[3]):.2f}$
+        
+        $\\textbf{{\\small 2. Determinar el centroide en X: }}$
+        
+        Se aplica la fórmula para determinar la coordenada $\\bar{{X}}$ :
+        
+        ${{\hspace{{4mm}} d_1 = \\bar{{X}} = \\dfrac{{\\sum{{\\bar{{X_i}} \\cdot L_i}}}}{{\\sum{{L_i}}}}}}$     
+        
+        ${{\hspace{{4mm}} \\bar{{X}} = {(d[0]*(9/4)*Calculations.magnitude(d[0]*(1/2),d[3]) + d[0]*(3/2)*d[0])/(3*Calculations.magnitude(d[0]*(1/2),d[3]) + 2*d[0]):.2f} \\text{{ m}}}}$       
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
 
     #========================================================  CENTROIDES  =========================================================
     #-------------------------------------------------       Centroides    --------------------------------------------

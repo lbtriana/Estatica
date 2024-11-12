@@ -196,6 +196,7 @@ CT_image_paths = [
 #Centroides _ Nivel fácil
 "./Imagenes/Preguntas/CT/CT_CT_F_1a.png", #[0]
 "./Imagenes/Preguntas/CT/CT_CT_F_2a.png", #[1]
+"./Imagenes/Preguntas/CT/CT_CT_F_3a.png", #[2]
 ]
 
 

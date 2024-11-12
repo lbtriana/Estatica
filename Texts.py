@@ -234,6 +234,20 @@ $M$ = Masa del elemento.
 """
 CT5 = "El centro de masa es el punto en el cual se puede considerar que toda la masa del cuerpo está concentrada para los análisis de equilibrio."
 CT6 = "Un recurso útil para vizualizar y organizar los datos es la creación de una tabla con las masas y las coordenadas de los centroides de cada elemento."
+CT7 = """
+El centroide representa el centro geométrico de un objeto. Para calcular las coordenadas del centroide de un objeto lineal compuesto se utilizan las siguientes ecuaciones:   
+
+$\\bar{{X}} = \\dfrac{{\\sum{{\\bar{{X_i}} \\cdot L_i}}}}{{\\sum{{L_i}}}}$      
+
+$\\bar{{Y}} = \\dfrac{{\\sum{{\\bar{{Y_i}} \\cdot L_i}}}}{{\\sum{{L_i}}}}$         
+
+Donde:     
+$\\bar{{X}}$ = Coordenada X del centroide de la figura compuesta.        
+$\\bar{{Y}}$ = Coordenada Y del centroide de la figura compuesta.      
+$i$ = Elementos de la figura conocida, una vez se divide la figura compuesta.       
+$L$ = Longitud del segemento.   
+"""
+CT8 = "El centroide es el punto en el que se puede apoyar un objeto de material uniforme y mantenerse en equilibrio."
 
 #------------------------------------- Textos para las respuestas ---------------------------------------
 
