@@ -207,6 +207,19 @@ CT_image_paths = [
 "./Imagenes/Preguntas/CT/CT_CT_D_2a.png", #[6]
 ]
 
+#================================ Imágenes Preguntas Cálculo Fuerzas distribuidas ===================================
+
+FD_image_paths =[
+#Fuerzas distribuidas _ Vigas _ Nivel fácil
+"./Imagenes/Preguntas/FD/VI/FD_VI_F_1a.png", #[0]
+"./Imagenes/Preguntas/FD/VI/FD_VI_F_2a.png", #[1]
+"./Imagenes/Preguntas/FD/VI/FD_VI_F_3a.png", #[2]
+
+#Fuerzas distribuidas _ Presión hidrostática 
+"./Imagenes/Preguntas/FD/PH/FD_PH_F_1a.png", #[3]
+"./Imagenes/Preguntas/FD/PH/FD_PH_M_1a.png", #[4]
+"./Imagenes/Preguntas/FD/PH/FD_PH_M_2a.png", #[5]
+]
 
 #==========================================RESPUESTAS CÁLCULOS==============================================
 
@@ -243,12 +256,25 @@ EQ_rtas_paths= [
 
 #================================ Imágenes Respuestas Cálculos Centroides ===================================
 CT_rtas_paths= [
-
 "./Imagenes/Respuestas/CT/R_CT_CT_F_1a.png", #[0] 
 "./Imagenes/Respuestas/CT/R_CT_CT_M_1a.png", #[1] 
 "./Imagenes/Respuestas/CT/R_CT_CT_D_1a.png", #[2] 
 ]
 
+#================================ Imágenes Respuestas Cálculos Fuerzas Distribuidas ===================================
+FD_rtas_paths= [
+#Fuerzas distribuidas _ Vigas _ Nivel fácil
+"./Imagenes/Respuestas/FD/VI/R_FD_VI_F_1a.png", #[0] 
+"./Imagenes/Respuestas/FD/VI/R_FD_VI_F_1b.png", #[1] 
+"./Imagenes/Respuestas/FD/VI/R_FD_VI_F_2a.png", #[2] 
+"./Imagenes/Respuestas/FD/VI/R_FD_VI_F_3a.png", #[3] 
+"./Imagenes/Respuestas/FD/VI/R_FD_VI_F_3b.png", #[4]
+
+#Fuerzas distribuidas _ Presión hidrostática 
+"./Imagenes/Respuestas/FD/PH/R_FD_PH_F_1a.png", #[5] 
+"./Imagenes/Respuestas/FD/PH/R_FD_PH_M_1a.png", #[6] 
+"./Imagenes/Respuestas/FD/PH/R_FD_PH_M_2a.png", #[7] 
+]
 
 #==========================================PREGUNTAS TEORÍA==============================================
 
@@ -267,8 +293,6 @@ EQ_teoria_preguntas =[
 "./Imagenes/Teoria_Preguntas/EQ/EQ/T_EQ_EQ_2.png", #[10] 
 "./Imagenes/Teoria_Preguntas/EQ/EQ/T_EQ_EQ_3.png", #[11] 
 "./Imagenes/Teoria_Preguntas/EQ/EQ/T_EQ_EQ_4.png", #[12]
-
-
 ]
 
 CT_teoria_preguntas=[

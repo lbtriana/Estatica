@@ -498,7 +498,7 @@ if authenticate_user():
         else:
             st.sidebar.header("Práctica")
             complexity = st.sidebar.radio("Nivel de dificultad", options=["Fácil", "Medio", "Díficil"])
-            topic = st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Momento", "Sistemas equivalentes", "Armaduras", "Centroides"])
+            topic = st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Momento", "Sistemas equivalentes", "Armaduras", "Centroides", "Fuerzas distribuidas"])
             
             if topic == "Equilibrio de partículas":
                 subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Vectores 2D", "Vectores 3D", "Vector unitario", "Equilibrio 2D"])
@@ -510,6 +510,8 @@ if authenticate_user():
                 subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Cerchas", "Marcos"])
             elif topic=="Centroides":
                 subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Centroides"])
+            elif topic=="Fuerzas distribuidas":
+                subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Fuerzas distribuidas"])
 
             if consent:
                 log_event(st.session_state["username"], "practice_options_selected", {
@@ -775,6 +777,15 @@ if authenticate_user():
                         st.image(CT_image_paths[1], width=300)
                     if pregunta_no == 3:
                         st.image(CT_image_paths[2], width=420)
+                if subtopic == "Fuerzas distribuidas":
+                    if pregunta_no == 1:
+                        st.image(FD_image_paths[0], width=450) 
+                    if pregunta_no == 2:
+                        st.image(FD_image_paths[1], width=300)
+                    if pregunta_no == 3:
+                        st.image(FD_image_paths[2], width=420)
+                    if pregunta_no == 4:
+                        st.image(FD_image_paths[3], width=420)
                 
             if difficulty == "Medio":
                 if subtopic == "Vectores 2D":
@@ -857,7 +868,12 @@ if authenticate_user():
                         st.image(AR_image_paths[13], width=400)  
                 if subtopic == "Centroides":
                     if pregunta_no == 1:
-                        st.image(CT_image_paths[3], width=420)        
+                        st.image(CT_image_paths[3], width=420)    
+                if subtopic == "Fuerzas distribuidas":
+                    if pregunta_no == 1:
+                        st.image(FD_image_paths[4], width=300) 
+                    if pregunta_no == 2:
+                        st.image(FD_image_paths[5], width=300)    
                 
             if difficulty == "Díficil":
                 if subtopic == "Vectores 2D":
@@ -942,6 +958,15 @@ if authenticate_user():
                 if subtopic == "Centroides":
                     if pregunta_no ==1:
                         st.image(CT_rtas_paths[0], width=200)
+                if subtopic == "Fuerzas distribuidas":
+                    if pregunta_no ==1:
+                        st.image(FD_rtas_paths[0], width=350)
+                    if pregunta_no ==2:
+                        st.image(FD_rtas_paths[1], width=200)
+                    if pregunta_no ==3:
+                        st.image(FD_rtas_paths[3], width=200)
+                    if pregunta_no ==4:
+                        st.image(FD_rtas_paths[5], width=200)
 
             if difficulty == "Medio":
                 if subtopic == "Equilibrio 2D":
@@ -950,6 +975,11 @@ if authenticate_user():
                 if subtopic == "Centroides":
                     if pregunta_no ==1:
                         st.image(CT_rtas_paths[1], width=200)
+                if subtopic == "Fuerzas distribuidas":
+                    if pregunta_no ==1:
+                        st.image(FD_rtas_paths[6], width=200)
+                    if pregunta_no ==2:
+                        st.image(FD_rtas_paths[7], width=200)
 
             if difficulty == "Díficil":
                 if subtopic == "Vectores 2D":
@@ -975,6 +1005,24 @@ if authenticate_user():
                 if subtopic == "Centroides":
                     if pregunta_no ==1:
                         st.image(CT_rtas_paths[2], width=600)                                         
+        return
+
+    def filtrar_imagenes_respuestas_P2(pregunta_no, version_no, subtopic, difficulty):
+        left_col, center_col, right_col = st.columns(3)
+
+        with left_col:
+            if difficulty == "Fácil":
+                if subtopic == "Fuerzas distribuidas":
+                    if pregunta_no ==1:
+                        st.image(FD_rtas_paths[1], width=350)
+                    if pregunta_no ==3:
+                        st.image(FD_rtas_paths[4], width=200)
+
+            if difficulty == "Medio":
+                if subtopic == "Fuerzas distribuidas":
+                    if pregunta_no ==1:
+                        st.image(FD_rtas_paths[6], width=200)
+                                                  
         return
 
     #Función para que el botón "Ayuda" muestre secuencialmente las ayudas
@@ -1044,7 +1092,9 @@ if authenticate_user():
         st.write(preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].respuesta_P1)
         filtrar_imagenes_respuestas_P1(preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].no_pregunta, preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].version, preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].subtopic, preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].complexity)
         st.write(preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].respuesta_P2) 
-            
+        filtrar_imagenes_respuestas_P2(preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].no_pregunta, preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].version, preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].subtopic, preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].complexity)
+        st.write(preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].respuesta_P3) 
+        
         if st.session_state.get("consent", False):
             log_event(st.session_state["username"], "answer_revealed", {
             "question_id": preguntas_filtradas[st.session_state[f'pregunta_actual_{username}']].no_pregunta

@@ -6241,4 +6241,418 @@ preguntas = [
         calculos='operations'
         ),
 
+    #=================================================  FUERZAS DISTRIBUIDAS =========================================================
+    #-------------------------------------------------       Vigas    --------------------------------------------
+    #-------------------------------------------------       Nivel Fácil   ---------------------------------------------------
+    #-------------------------------------------------       Code: 7110011    --------------------------------------------------
+    Questionary(#1_1
+        code = 7110011,
+        no_pregunta = 1,
+        complexity = F,
+        topic = FD,
+        subtopic = FD,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Reemplace la carga distribuida por una fuerza resultante equivalente y especifique su ubicación medida desde el punto A. Considere $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$, $w_1 = {100+m[0]:.0f} \\dfrac{{N}}{{m}}$ y $w_2 = {m[1]:.0f} \\dfrac{{N}}{{m}}$.",
+        no_answers = 2,
+        a1_name = "Magnitud fuerza resultante $|F_R|$ $[N]$",
+        a2_name = "Distancia desde el punto A $[m]$",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(((100+m[0])*d[0]+((100+m[0]-m[1])*d[3])/2+m[1]*d[3]),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(((100+m[0])*d[0]*d[0]*(1/2) + ((100+m[0]-m[1])*d[3])*(1/2)*(d[0]+d[3]/3) + m[1]*d[3]*(d[0]+d[3]/2))/((100+m[0])*d[0]+((100+m[0]-m[1])*d[3])/2+m[1]*d[3]),2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = FD1,
+        ayuda2 = FD2,
+        ayuda3 = FD3,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        Una fuerza distribuida es una carga que actúa sobre una superficie o a lo largo de un segmento, en lugar de estar concentrada en un solo punto. A continuación, se presenta la solución sugerida para el ejercicio:
+        
+        $\\textbf{{\\small 1. División de fuerza distribuida: }}$
+
+        En el ejercicio se muestra una fuerza distribuida que puede dividirse en 3 distribuciones más simples, cuyos centroides son conocidos y comunes, como triángulos y rectángulos.      
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        
+        $\\textbf{{\\small 2. Puntualización de las fuerzas: }}$
+        
+        Teniendo en cuenta la configuración mostrada, se puede determinar la ubicación de las tres fuerzas.
+        """,
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"""
+        La magnitud de cada una de las fuerzas se calcula de la siguiente forma:
+        
+        ${{\hspace{{4mm}} F_1 = w_1 \\cdot d_1}}$     
+        ${{\hspace{{4mm}} F_2 = \\dfrac{{(w_1 - w_2) \\cdot d_2}}{{2}}}}$         
+        ${{\hspace{{4mm}} F_3 = w_2 \\cdot d_2}}$     
+            
+        $\\textbf{{\\small 3. Magnitud y ubicación de fuerza resultante: }}$
+        
+        La fuerza resultante será la sumatoria de las tres fuerzas puntuales encontradas:
+        
+        ${{\hspace{{4mm}} F_R = F_1 + F_2 + F_3}}$     
+        ${{\hspace{{4mm}} F_R = {(100+m[0])*d[0]+((100+m[0]-m[1])*d[3])/2+m[1]*d[3]:.2f} \\text{{ N}}}}$
+        
+        Con este resultado se puede realizar sumatoria de momentos en A para determinar la ubicación de la fuerza resultante, medida desde A. Esto equivale a hallar el centroide de la fuerza distribuida:
+
+        ${{\hspace{{4mm}} \\sum{{M_A}} = - d \\cdot F_R}}$     
+        ${{\hspace{{4mm}} - d \\cdot F_R = - F_1 \\cdot \\dfrac{{d_1}}{{2}} - F_2 \\cdot (d_1 + \\dfrac{{d_2}}{{3}}) - F_3 \\cdot (d_1 + \\dfrac{{d_2}}{{2}})}}$     
+        ${{\hspace{{4mm}} - d \\cdot {(100+m[0])*d[0]+((100+m[0]-m[1])*d[3])/2+m[1]*d[3]:.2f} \\text{{ N}} = {-(100+m[0])*d[0]*d[0]*(1/2):.2f} \\text{{ N}} \\cdot \\text{{ m}} - {((100+m[0]-m[1])*d[3])*(1/2)*(d[0]+d[3]/3):.2f} \\text{{ N}} \\cdot \\text{{ m}} - {m[1]*d[3]*(d[0]+d[3]/2):.2f}\\text{{ N}} \\cdot \\text{{ m}}}}$     
+        ${{\hspace{{4mm}} d = {((100+m[0])*d[0]*d[0]*(1/2) + ((100+m[0]-m[1])*d[3])*(1/2)*(d[0]+d[3]/3) + m[1]*d[3]*(d[0]+d[3]/2))/((100+m[0])*d[0]+((100+m[0]-m[1])*d[3])/2+m[1]*d[3]):.2f} \\text{{ m}}}}$     
+        """,
+        calculos='operations'
+        ),
+    
+    # Questionary(#2_1
+    #     code = 7110021,
+    #     no_pregunta = 2,
+    #     complexity = F,
+    #     topic = "Fuerzas distribuidas",
+    #     subtopic = "Vigas",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"Determine el valor de $w_2$ tal que la restricción de rotación (el momento par reacción) en el apoyo sea cero. Considere $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$ y $w_1 = {f[0]:.0f} \\dfrac{{N}}{{m}}$.",
+    #     no_answers = 1,
+    #     a1_name = "$w_2$ [$\\dfrac{{N}}{{m}}$]",
+    #     a2_name = "",
+    #     a3_name = "",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round((f[0]*d[0]*(1/6)*d[0])/(d[3]*(1/2)*(d[0]+d[3]*(1/3))),2),
+    #     answer2 = lambda f, a, calc, c, d, m: 0,
+    #     answer3 = lambda f, a, calc, c, d, m: 0,
+    #     ayuda1 = "La magnitud de la fuerza resultante es igual al área bajo la curva de la fuerza distribuida",
+    #     ayuda2 = "La ubicación de la fuerza se encuentra en el centroide de la distribución",
+    #     ayuda3 = "Para simplificar el problema se puede dividir el área vajo la curva de la distribución en figuras más sencillas",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     Una fuerza distribuida es una carga que actúa sobre una superficie o a lo largo de un segmento, en lugar de estar concentrada en un solo punto. A continuación, se presenta la solución sugerida para el ejercicio:
+        
+    #     $\\textbf{{\\small 1. Puntualización de las fuerzas: }}$
+        
+    #     Frente la configuración mostrada se puede determinar la ubicación de las resutlantes de las dos fuerzas.
+        
+    #     ##Imagen##
+         
+    #     Donde las magnitudes de cada fuerza seran respectivamente:
+        
+    #     ${{\hspace{{4mm}} F_1 = \\dfrac{{w_1 \\cdot d_1}}{{2}}}}$     
+    #     ${{\hspace{{4mm}} F_2 = \\dfrac{{w_2 \\cdot d_2}}{{2}}}}$            
+            
+    #     $\\textbf{{\\small 2. Sumatoria de momentos en A: }}$
+        
+    #     Como se sabe que no debe haber restricción de rotación en el apoyo, se puede decir que la sumatoria de momentos en A debe ser igual cero, y así determinar $w_2$:
+        
+    #     ${{\hspace{{4mm}} \\sum{{M_A}} = F_2 \\cdot (d_1 + \\dfrac{{d_2}}{{3}}) - F_1 \\cdot \\dfrac{{d_1}}{{3}} = 0}}$      
+    #     ${{\hspace{{4mm}} \\dfrac{{w_2 \\cdot d_2}}{{2}} \\cdot (d_1 + \\dfrac{{d_2}}{{3}}) = \\dfrac{{w_1 \\cdot d_1}}{{2}} \\cdot \\dfrac{{d_1}}{{3}}}}$     
+    #     ${{\hspace{{4mm}} w_2 \\cdot {d[3]*(1/2)*(d[0]+d[3]*(1/3)):.2f} \\text{{ }} m^2 = {f[0]*d[0]*(1/6)*d[0]:.2f} \\text{{ N}} \\cdot \\text{{ m}}}}$     
+    #     ${{\hspace{{4mm}} w_2 = {(f[0]*d[0]*(1/6)*d[0])/(d[3]*(1/2)*(d[0]+d[3]*(1/3))):.2f} \\dfrac{{N}}{{m}}}}$     
+           
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ),
+   
+    # Questionary(#3_1
+    #     code = 7110031,
+    #     no_pregunta = 1,
+    #     complexity = F,
+    #     topic = "Fuerzas distribuidas",
+    #     subtopic = "Vigas",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"Determine las reacciones en los apoyos A y B. Considere $d_1 = {d[0]:.0f} \\text{{ m}}$, $d_2 = {d[3]:.0f}  \\text{{ m}}$, $d_3 = {d[6]:.0f} \\text{{ m}}$, $w_1 = {f[1]:.0f} \\dfrac{{N}}{{m}}$ y $w_2 = {f[2]:.0f} \\dfrac{{N}}{{m}}$ .",
+    #     no_answers = 3,
+    #     a1_name = "Reacción $A_x$ [N]",
+    #     a2_name = "Reacción $A_y$ [N]",
+    #     a3_name = "Reacción $B_y$ [N]",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round(0,2),
+    #     answer2 = lambda f, a, calc, c, d, m: np.round(f[1]*d[0]*(1/2)+f[2]*d[3]*(1/2) + f[2]*d[6]+f[1]*d[0]*(d[0]/(3*d[3])) - f[2]*d[6]*(1+(d[6]/(2*d[3]))),2),
+    #     answer3 = lambda f, a, calc, c, d, m: np.round(-f[1]*d[0]*(d[0]/(3*d[3])) + f[2]*d[3]*(1/3)+f[2]*d[6]*(1+(d[6]/(2*d[3]))),2),
+    #     ayuda1 = "La magnitud de la fuerza resultante de una distirbución es igual al área bajo la curva de la fuerza distribuida",
+    #     ayuda2 = "La ubicación de la fuerza se encuentra en el centroide de la distribución",
+    #     ayuda3 = "Para simplificar el problema se puede dividir el área vajo la curva de la distribución en figuras más sencillas",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     Una fuerza distribuida es una carga que actúa sobre una superficie o a lo largo de un segmento, en lugar de estar concentrada en un solo punto. A continuación, se presenta la solución sugerida para el ejercicio:
+        
+    #     $\\textbf{{\\small 1. División de fuerza distribuida: }}$
+    #     En el ejercicio se muestra una fuerza distribuida que puede ser divida en 3 distribuciones más simples cuyos centroides son comunes, como lo son triángulos y rectángulos.
+        
+    #     ##Imagen##
+    #     $\\textbf{{\\small 2. Puntualización de las fuerzas: }}$
+        
+    #     Dado a la configuración mostrada se puede determinar la ubicación de las resutlantes de las tres fuerzas.
+        
+    #     ##Imagen##
+         
+    #     Donde las magnitudes de cada fuerza seran respectivamente:
+        
+    #     ${{\hspace{{4mm}} F_1 = \\dfrac{{w_1 \\cdot d_1}}{{2}}}}$     
+    #     ${{\hspace{{4mm}} F_2 = \\dfrac{{w_2 \\cdot d_2}}{{2}}}}$         
+    #     ${{\hspace{{4mm}} F_3 = w_2 \\cdot d_3}}$     
+            
+    #     $\\textbf{{\\small 3. Condición de equilibrio: }}$
+        
+    #     $\\underline{{Sumatoria \\hspace{{2mm}} de \\hspace{{2mm}} momentos \\hspace{{2mm}} en \\hspace{{2mm}} A:}}$  
+        
+    #     ${{\hspace{{4mm}} \\sum{{M_A}} = F_1 \\cdot \\dfrac{{2d_1}}{{3}} - F_2 \\cdot \\dfrac{{2d_2}}{{3}} - F_3 \\cdot (d_2 + \\dfrac{{d_3}}{{2}}) + B_y \\cdot d_2 = 0 }}$     
+    #     ${{\hspace{{4mm}} B_y \\cdot d_2 =  - F_1 \\cdot \\dfrac{{2d_1}}{{3}} + F_2 \\cdot \\dfrac{{2d_2}}{{3}} + F_3 \\cdot (d_2 + \\dfrac{{d_3}}{{2}})}}$     
+    #     ${{\hspace{{4mm}} B_y =  - w_1 \\cdot d_1 \\cdot \\dfrac{{d_1}}{{3d_2}} + w_2 \\cdot d_2 \\cdot \\dfrac{{1}}{{3}} + w_2 \\cdot d_3 \\cdot (1 + \\dfrac{{d_3}}{{2d_2}})}}$     
+    #     ${{\hspace{{4mm}} B_y = {-f[1]*d[0]*(d[0]/(3*d[3])) + f[2]*d[3]*(1/3)+f[2]*d[6]*(1+(d[6]/(2*d[3]))):.2f} \\text{{ N}}}}$     
+        
+    #     $\\underline{{Sumatoria \\hspace{{2mm}} de \\hspace{{2mm}} fuerzas \\hspace{{2mm}} en \\hspace{{2mm}} X:}}$ 
+        
+    #     ${{\hspace{{4mm}} \\sum{{F_x}} = A_x = 0 }}$     
+                
+    #     $\\underline{{Sumatoria \\hspace{{2mm}} de \\hspace{{2mm}} fuerzas \\hspace{{2mm}} en \\hspace{{2mm}} Y:}}$  
+        
+    #     ${{\hspace{{4mm}} \\sum{{F_y}} = B_y + A_y - F_1 - F_2 - F_3 = 0 }}$     
+    #     ${{\hspace{{4mm}} A_y =  F_1 + F_2 + F_3 - B_y}}$     
+    #     ${{\hspace{{4mm}} A_y = \\dfrac{{w_1 \\cdot d_1}}{{2}} + \\dfrac{{w_2 \\cdot d_2}}{{2}} + w_2 \\cdot d_3 + w_1 \\cdot d_1 \\cdot \\dfrac{{d_1}}{{3d_2}} - w_2 \\cdot d_2 \\cdot \\dfrac{{1}}{{3}} - w_2 \\cdot d_3 \\cdot (1 + \\dfrac{{d_3}}{{2d_2}})}}$     
+    #     ${{\hspace{{4mm}} A_y = {f[1]*d[0]*(1/2)+f[2]*d[3]*(1/2) + f[2]*d[6]+f[1]*d[0]*(d[0]/(3*d[3])) - f[2]*d[6]*(1+(d[6]/(2*d[3]))):.2f} \\text{{ N}}}}$     
+            
+        
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ),
+    # #=================================================  FUERZAS DISTRIBUIDAS =========================================================
+    # #-------------------------------------------------       Presión hidrostática    --------------------------------------------
+    # #-------------------------------------------------       Nivel Fácil   ---------------------------------------------------
+    # #-------------------------------------------------       Code: 7210011    --------------------------------------------------
+    # Questionary(#1_1
+    #     code = 7210011,
+    #     no_pregunta = 1,
+    #     complexity = F,
+    #     topic = "Fuerzas distribuidas",
+    #     subtopic = "Presión hidrostática",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza hidrostática en kN que actúa sobre la compuerta AB, la cual tiene un ancho de $a = {d[0]:.2f} \\text{{ m}}$. Considere $d_1 = {d[3]:.0f} \\text{{ m}}$,  $d_2 = {d[6]:.0f}  \\text{{ m}}$, $d_3 = {d[9]:.0f}  \\text{{ m}}$, la densidad del agua $\\rho_1 = 1000 \\dfrac{{kg}}{{m^3}} y la aceleración debida a la gravedad $g = 9,81 \\dfrac{{m}}{{s^2}}$.",
+    #     no_answers = 1,
+    #     a1_name = "Magnitud fuerza hidrostáctica $|F_R|$ [kN]",
+    #     a2_name = "",
+    #     a3_name = "",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round(d[0]*(981/100)*(d[3]+d[6])*Calculations.magnitude(d[9],d[6])*(1/2),2),
+    #     answer2 = lambda f, a, calc, c, d, m: 0,
+    #     answer3 = lambda f, a, calc, c, d, m: 0,
+    #     ayuda1 = "La presión hidrostática definida como la presión aplicada por un fluido en reposo debido a su propio peso, esta se genera en todos los puntos y actua perpendicularmente a las superificies sumergidas.",
+    #     ayuda2 = "La presión hidrostática aumenta linealmente con la profundidad y se formula como P = $\\rho \\cdot g \\cdot h$ , siendo $\\rho$ la densidad del fluido, g la aceleración debido a la gravedad y h la profundidad desde superficie al punto a evaluar",
+    #     ayuda3 = "Para superficies, la fuerza resultante dado presión hidrostática se calcula como $F_R = P \\cdot A$ siendo P la presión distribuida sobre la superficie y A como el área de la superficie.",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     La presión hidrostática es la presión aplicada por un fluido en reposo debido a su propio peso. A continuación, se presenta la solución sugerida para el ejercicio:
+        
+    #     $\\textbf{{\\small 1. División de fuerza distribuida: }}$
+    #     Dado a la configuración de la compuerta se puede obtener una presión hidrostática que se puede dividir en 2 distribuciones más simples cuyos centroides son comunes, como lo son triángulos y rectángulos.
+        
+    #     ##Imagen##
+        
+    #     Donde, según profundidad se puede obtener los valores de $p_1$ y $p_2$ :
+        
+    #     ${{\hspace{{4mm}} p_1 = \\rho \\cdot g \\cdot d_1 }}$     
+    #     ${{\hspace{{4mm}} p_2 = \\rho \\cdot g \\cdot d_2 }}$     
+                
+    #     $\\textbf{{\\small 2. Puntualización de las fuerzas: }}$
+        
+    #     Con las nuevas distribuciones se puede encontrar la magnitud de las presiones correspondientes a cada figura
+        
+    #     ${{\hspace{{4mm}} F_1 (Rectángulo) = p_1 \\cdot \\sqrt{{(d_2)^2 + (d_3)^2}} \\cdot a}}$     
+    #     ${{\hspace{{4mm}} F_2 (Triángulo) = \\dfrac{{(p_1 - p_2) \\cdot \\sqrt{{(d_2)^2 + (d_3)^2}}}}{{2}} \\cdot a}}$         
+                   
+    #     $\\textbf{{\\small 3. Magnitud de fuerza resultante: }}$
+        
+    #     Ahora bien, la fuerza resultante sera la sumatoria de las dos fuerzas encontradas:
+        
+    #     ${{\hspace{{4mm}} F_R = F_1 + F_2 }}$     
+    #     ${{\hspace{{4mm}} F_R = p_1 \\cdot \\sqrt{{(d_2)^2 + (d_3)^2}} \\cdot a + \\dfrac{{(p_1 - p_2) \\cdot \\sqrt{{(d_2)^2 + (d_3)^2}}}}{{2}} \\cdot a}}$     
+    #     ${{\hspace{{4mm}} F_R = \\dfrac{{(p_1 + p_2) \\cdot \\sqrt{{(d_2)^2 + (d_3)^2}}}}{{2}} \\cdot a}}$     
+    #     ${{\hspace{{4mm}} F_R = \\dfrac{{\\rho \\cdot g \\cdot (d_1 + d_2) \\cdot \\sqrt{{(d_2)^2 + (d_3)^2}}}}{{2}} \\cdot a}}$     
+    #     ${{\hspace{{4mm}} F_R = {d[0]*9810*(d[3]+d[6])*Calculations.magnitude(d[9],d[6])*(1/2):.2f} \\text{{ N}} = {d[0]*(981/100)*(d[3]+d[6])*Calculations.magnitude(d[9],d[6])*(1/2):.2f} \\text{{ kN}}}}$
+        
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ),
+   
+    # #=================================================  FUERZAS DISTRIBUIDAS =========================================================
+    # #-------------------------------------------------       Presión hidrostática    --------------------------------------------
+    # #-------------------------------------------------       Nivel Medio   ---------------------------------------------------
+    # #-------------------------------------------------       Code: 7220021    --------------------------------------------------
+    # Questionary(#1_1
+    #     code = 7220011,
+    #     no_pregunta = 1,
+    #     complexity = M,
+    #     topic = "Fuerzas distribuidas",
+    #     subtopic = "Presión hidrostática",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza hidrostática (en kN) que actúa sobre la presa, la cual tiene un ancho $ a = {d[0]:.0f} \\text{{ m}}$ y tiene una forma de parabola la cual puede ser descrita por la ecuación $ Y = {((d[3]+8)/50):.2f} \\cdot X^2$. Considere $d_1 = {((d[3]+8)/50)*pow(3+(d[6]/2),2):.2f} \\text{{ m}}$,  $d_2 = {3+(d[6]/2):.2f}  \\text{{ m}}$, la densidad del agua $\\rho_1 = 1000 \\dfrac{{kg}}{{m^3}} y la aceleración debida a la gravedad $g = 9,81 \\dfrac{{m}}{{s^2}}$.",
+    #     no_answers = 1,
+    #     a1_name = "Magnitud fuerza hidrostáctica $|F_R|$ [kN]",
+    #     a2_name = "",
+    #     a3_name = "",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round(Calculations.magnitude((981/100)*d[0]*((d[3]+8)/50)*(2/3)*pow(3+(d[6]/2),3),(981/100)*(1/2)*d[0]*pow(((d[3]+8)/50)*pow(3+(d[6]/2),2),2)),2),
+    #     answer2 = lambda f, a, calc, c, d, m: 0,
+    #     answer3 = lambda f, a, calc, c, d, m: 0,
+    #     ayuda1 = "La presión hidrostática definida como la presión aplicada por un fluido en reposo debido a su propio peso, esta se genera en todos los puntos y actua perpendicularmente a las superificies sumergidas.",
+    #     ayuda2 = "La presión hidrostática aumenta linealmente con la profundidad y se formula como P = $\\rho \\cdot g \\cdot h$ , siendo $\\rho$ la densidad del fluido, g la aceleración debido a la gravedad y h la profundidad desde superficie al punto a evaluar",
+    #     ayuda3 = "Para superficies, la fuerza resultante dado presión hidrostática se calcula como $F_R = P \\cdot A$ siendo P la presión distribuida sobre la superficie y A como el área de la superficie.",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     La presión hidrostática es la presión aplicada por un fluido en reposo debido a su propio peso. A continuación, se presenta la solución sugerida para el ejercicio:
+        
+    #     $\\textbf{{\\small 1. División de fuerza distribuida: }}$
+    #     Dado a la configuración de la compuerta se puede obtener una presión hidrostática y una fuerza vertical dado al peso del agua.
+        
+    #     ##Imagen##  
+                
+    #     $\\textbf{{\\small 2. Puntualización de las fuerzas: }}$
+        
+    #     $\\underline{{Fuerza \\hspace{{2mm}} vertical:}}$ 
+                
+    #     ${{\hspace{{4mm}} W_1 = \\rho_a \\cdot g \\cdot a \\cdot (d_1 \\cdot d_2 - \\int_{{0}}^{{d_2}} {((d[3]+8)/50):.2f} \\cdot X^2\\,dx)}}$           
+    #     ${{\hspace{{4mm}} W_1 = \\rho_a \\cdot g \\cdot a \\cdot (d_1 \\cdot d_2 - {((d[3]+8)/50):.2f} \\cdot \\dfrac{{(d_2)^3}}{{3}} )}}$       
+        
+    #     La ubicación en el eje X de esta componente se puede encontrar resolviendo:
+        
+    #     ${{\hspace{{4mm}} X_w = \\dfrac{{\\dfrac{{d_1 \\cdot (d_2)^2 }}{{2}} - \\int_{{0}}^{{d_2}} {((d[3]+8)/50):.2f} \\cdot X^3 \\,dx}}{{d_1 \\cdot d_2 - \\int_{{0}}^{{d_2}} {((d[3]+8)/50):.2f} \\cdot X^2 \\,dx}} }}$
+    #     ${{\hspace{{4mm}} X_w = \\dfrac{{\\dfrac{{d_1 \\cdot (d_2)^2}}{{2}} - {((d[3]+8)/50):.2f} \\cdot \\dfrac{{(d_2)^4}}{{4}}}}{{d_1 \\cdot d_2 - {((d[3]+8)/50):.2f} \\cdot \\dfrac{{(d_2)^3}}{{3}}}}}}$
+
+    #     O a partir de la tabla del libro de propiedades geométricas de figuras comunes, se sabe que esta es:
+
+    #     ${{\hspace{{4mm}} X_w = \\dfrac{{3 \\cdot d_2}}{{8}}}}$     
+        
+    #     $\\underline{{Fuerza \\hspace{{2mm}} de \\hspace{{2mm}} presión:}}$ 
+        
+    #     ${{\hspace{{4mm}} F_P = a \\cdot \\dfrac{{p_1 \\cdot d_1}}{{2}}}}$     
+    #     ${{\hspace{{4mm}} F_P = a \\cdot \\dfrac{{\\rho_a \\cdot g \\cdot d_1 \\cdot d_1}}{{2}}}}$
+        
+    #     La ubicación en el eje Y de esta componente está a $\\dfrac{{d_1}}{{3}}$
+                              
+    #     $\\textbf{{\\small 3. Magnitud de fuerza resultante: }}$
+        
+    #     Ahora bien, la fuerza resultante sera la sumatoria de las dos fuerzas encontradas:
+        
+    #     ${{\hspace{{4mm}} F_R = \\sqrt{{(w_1)^2 + (F_P)^2}}}}$     
+    #     ${{\hspace{{4mm}} F_R = {Calculations.magnitude(9810*d[0]*((d[3]+8)/50)*(2/3)*pow(3+(d[6]/2),3),9810*(1/2)*d[0]*pow(((d[3]+8)/50)*pow(3+(d[6]/2),2),2)):.2f} \\text{{ N}}}}$     
+    #     ${{\hspace{{4mm}} F_R = {Calculations.magnitude((981/100)*d[0]*((d[3]+8)/50)*(2/3)*pow(3+(d[6]/2),3),(981/100)*(1/2)*d[0]*pow(((d[3]+8)/50)*pow(3+(d[6]/2),2),2)):.2f} \\text{{ kN}}}}$     
+               
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ),
+
+    # Questionary(#2_1
+    #     code = 7220021,
+    #     no_pregunta = 2,
+    #     complexity = M,
+    #     topic = "Fuerzas distribuidas",
+    #     subtopic = "Presión hidrostática",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"La presa de “gravedad” de concreto es mantenida en su lugar por su propio peso. Determine la dimensión $d_3$ más pequeña que impide que la presa se voltee alrededor de su extremo A. Considere $d_1 = {d[0] + d[3]*2:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$, la densidad del agua $\\rho_a = 1000 \\dfrac{{kg}}{{m^3}}, la densidad del concreto $\\rho_c = {2400+m[0]:.0f} \\dfrac{{kg}}{{m^3}} y la aceleración debida a la gravedad $g = 9,81 \\dfrac{{m}}{{s^2}}$.",
+    #     no_answers = 1,
+    #     a1_name = "Dimensión $d_3$ [m]",
+    #     a2_name = "",
+    #     a3_name = "",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round((-d[3]*(1400+m[0])+math.sqrt(3*pow((2400+m[0])*d[3],2) + 6*(2400+m[0])*1000*pow(d[3],2) + 9*pow(d[3]*1000,2) + 4*(2400+m[0])*1000*pow(d[0]+d[3]*2,2) + 8*pow(1000*(d[0]+2*d[3]))))/(2*(400+m[0])),2),
+    #     answer2 = lambda f, a, calc, c, d, m: 0,
+    #     answer3 = lambda f, a, calc, c, d, m: 0,
+    #     ayuda1 = "La presión hidrostática definida como la presión aplicada por un fluido en reposo debido a su propio peso, esta se genera en todos los puntos y actua perpendicularmente a las superificies sumergidas.",
+    #     ayuda2 = "La presión hidrostática aumenta linealmente con la profundidad y se formula como P = $\\rho \\cdot g \\cdot h$ , siendo $\\rho$ la densidad del fluido, g la aceleración debido a la gravedad y h la profundidad desde superficie al punto a evaluar",
+    #     ayuda3 = "Para superficies, la fuerza resultante dado presión hidrostática se calcula como $F_R = P \\cdot A$ siendo P la presión distribuida sobre la superficie y A como el área de la superficie.",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     La presión hidrostática es la presión aplicada por un fluido en reposo debido a su propio peso. A continuación, se presenta la solución sugerida para el ejercicio:
+        
+    #     $\\textbf{{\\small 1. Representación de ejercicio: }}$
+    #     Dado a la configuración de la compuerta se puede obtener una presión hidrostática y tres fuerzas verticales dado al peso del agua y de la presa.
+        
+    #     ##Imagen##  
+                
+    #     $\\textbf{{\\small 2. Puntualización de las fuerzas: }}$
+    #     Asumiendo un ancho "a" de 1m
+        
+    #     $\\underline{{Fuerzas \\hspace{{2mm}} verticales:}}$ 
+                
+    #     ${{\hspace{{4mm}} W_1 = \\rho_a \\cdot g \\cdot a \\cdot \\dfrac{{d_1 \\cdot (d_3 - d_2)}}{{2}}}}$     
+    #     ${{\hspace{{4mm}} W_2 = \\rho_c \\cdot g \\cdot a \\cdot \\dfrac{{d_1 \\cdot (d_3 - d_2)}}{{2}}}}$         
+    #     ${{\hspace{{4mm}} W_3 = \\rho_c \\cdot g \\cdot a \\cdot \\dfrac{{d_1 \\cdot d_2}}{{2}}}}$         
+        
+    #     $\\underline{{Fuerza \\hspace{{2mm}} de \\hspace{{2mm}} presión:}}$ 
+        
+    #     ${{\hspace{{4mm}} F_P = a \\cdot \\dfrac{{\\rho_a \\cdot g \\cdot d_1 \\cdot d_1}}{{2}}}}$     
+                   
+    #     $\\textbf{{\\small 3. Condición de equilibrio: }}$
+        
+    #     Ahora bien, tal que, la presa no se voltee alrededor de su extremo A, se debe asegurar que la sumatoria de momentos en A sea igual a cero:
+        
+    #     ${{\hspace{{4mm}} \\sum{{M_A}} = W_3 \\cdot \\dfrac{{d_2}}{{2}} + W_2 \\cdot \\dfrac{{d_3 + 2d_2}}{{3}} + W_1 \\cdot \\dfrac{{2d_3 + d_2}}{{3}} - F_P \\cdot \\dfrac{{d_1}}{{3}} = 0}}$     
+    #     ${{\hspace{{4mm}} W_2 \\cdot \\dfrac{{d_3 + 2d_2}}{{3}} + W_1 \\cdot \\dfrac{{2d_3 + d_2}}{{3}} = F_P \\cdot \\dfrac{{d_1}}{{3}} - W_3 \\cdot \\dfrac{{d_2}}{{2}}}}$     
+    #     ${{\hspace{{4mm}} \\rho_c \\cdot g \\cdot a \\cdot \\dfrac{{d_1 \\cdot (d_3 - d_2)}}{{2}} \\cdot \\dfrac{{d_3 + 2d_2}}{{3}} + \\rho_a \\cdot g \\cdot a \\cdot \\dfrac{{d_1 \\cdot (d_3 - d_2)}}{{2}} \\cdot \\dfrac{{2d_3 + d_2}}{{3}} =  a \\cdot \\dfrac{{\\rho_a \\cdot g \\cdot d_1 \\cdot d_1}}{{2}} \\cdot \\dfrac{{d_1}}{{3}} - \\rho_c \\cdot g \\cdot a \\cdot \\dfrac{{d_1 \\cdot d_2}}{{2}} \\cdot \\dfrac{{d_2}}{{2}}}}$     
+    #     ${{\hspace{{4mm}} \\rho_c \\cdot \\dfrac{{d_1 \\cdot (d_3 - d_2) \\cdot (d_3 + 2d_2)}}{{6}} + \\rho_a \\cdot \\dfrac{{d_1 \\cdot (d_3 - d_2) \\cdot (2d_3 + d_2)}}{{6}} =  \\dfrac{{\\rho_a \\cdot d_1 \\cdot d_1 \\cdot d_1}}{{6}} - \\rho_c \\cdot \\dfrac{{d_1 \\cdot d_2 \\cdot d_2 }}{{4}} }}$     
+    #     ${{\hspace{{4mm}} 2 \\cdot \\rho_c \\cdot d_1 \\cdot (d_3 - d_2) \\cdot (d_3 + 2d_2) + 2 \\cdot \\rho_a \\cdot d_1 \\cdot (d_3 - d_2) \\cdot (2d_3 + d_2) = 2 \\cdot \\rho_a \\cdot d_1 \\cdot d_1 \\cdot d_1 - 3 \\cdot \\rho_c \\cdot d_1 \\cdot d_2 \\cdot d_2 }}$     
+        
+    #     Lo que finalmente, se va a obtener una ecuación cuadrática:
+        
+    #     ${{\hspace{{4mm}} d_1 \\cdot (2 \\cdot \\rho_c + 4 \\cdot \\rho_a) \\cdot (d_3)^2 + 2 \\cdot d_1 \\cdot d_2 \\cdot (\\rho_c - \\rho_a) \\cdot d_3 - d_1 \\cdot (d_2) \\cdot (\\rho_c - 2 \\rho_a) - 2 \\cdot \\rho_a \\cdot (d_1)^2 = 0 }}$     
+        
+    #     Cuyas soluciones serán dadas por la siguiente formula:
+        
+    #     ${{\hspace{{4mm}} d_3 = \\dfrac{{- d_2 (\\rho_c - \\rho_a) \\pm \\sqrt{{3 \\cdot (\\rho_c)^2 \\cdot (d_2)^2 + 6 \\cdot \\rho_c \\cdot \\rho_a \\cdot (d_2)^2  + 9 \\cdot (\\rho_a)^2 \\cdot (d_2)^2 + 4 \\cdot \\rho_c \\cdot \\rho_a \\cdot (d_1)^2 + 8 \\cdot (\\rho_a)^2 \\cdot (d_1)^2}}}}{{2 \\cdot (\\rho_c - 2 \\cdot \\rho_a)}}}}$
+        
+    #     Dando como resultado:
+    #     ${{\hspace{{4mm}} d_3 = {(-d[3]*(1400+m[0])-math.sqrt(3*pow((2400+m[0])*d[3],2) + 6*(2400+m[0])*1000*pow(d[3],2) + 9*pow(d[3]*1000,2) + 4*(2400+m[0])*1000*pow(d[0]+d[3]*2,2) + 8*pow(1000*(d[0]+2*d[3]))))/(2*(400+m[0])):.2f} \\text{{ m}}}}$
+    #     y
+    #     ${{\hspace{{4mm}} d_3 = {(-d[3]*(1400+m[0])+math.sqrt(3*pow((2400+m[0])*d[3],2) + 6*(2400+m[0])*1000*pow(d[3],2) + 9*pow(d[3]*1000,2) + 4*(2400+m[0])*1000*pow(d[0]+d[3]*2,2) + 8*pow(1000*(d[0]+2*d[3]))))/(2*(400+m[0])):.2f} \\text{{ m}}}}$
+        
+    #     Y se procede a tomar la solución positiva.
+        
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ),
+
+    # LA SECCIÓN ESTARÁ DISPONIBLE PRONTO
+    Questionary(#1_1
+        code = 0,
+        no_pregunta = 0,
+        complexity = M,
+        topic = FD,
+        subtopic = FD,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Está sección pronto estará disponible.",
+        no_answers = 0,
+        a1_name = AX,
+        a2_name = AY,
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(0, 2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(0, 2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = A1,
+        ayuda2 = A2,
+        ayuda3 = A3,
+        respuesta_P1 = lambda fa, a, calc, c, d, m: f"",
+        respuesta_P2 = lambda fa, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda fa, a, calc, c, d, m: f"",
+        calculos = 'operations'
+        ),
+
+    Questionary(#1_1
+        code = 0,
+        no_pregunta = 1,
+        complexity = D,
+        topic = FD,
+        subtopic = FD,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Está sección pronto estará disponible.",
+        no_answers = 0,
+        a1_name = AX,
+        a2_name = AY,
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(0, 2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(0, 2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = A1,
+        ayuda2 = A2,
+        ayuda3 = A3,
+        respuesta_P1 = lambda fa, a, calc, c, d, m: f"",
+        respuesta_P2 = lambda fa, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda fa, a, calc, c, d, m: f"",
+        calculos = 'operations'
+        ),
+
+
     ]

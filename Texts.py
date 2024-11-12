@@ -21,7 +21,7 @@ VU = "Vector unitario"
 E2D = "Equilibrio 2D"
 M2D = "Momento en un punto 2D"
 M3D = "Momento en un punto 3D"
-
+FD = "Fuerzas distribuidas"
 
 #------------------------- Nombres de las respuestas ----------------------------
 AX = "Ángulo con el eje X [°]"
@@ -248,6 +248,14 @@ $i$ = Elementos de la figura conocida, una vez se divide la figura compuesta.
 $L$ = Longitud del segemento.   
 """
 CT8 = "El centroide es el punto en el que se puede apoyar un objeto de material uniforme y mantenerse en equilibrio."
+
+
+#FUERZAS DISTRIBUIDAS
+FD1 = "La magnitud de la fuerza resultante es igual al área bajo la curva de la fuerza distribuida."
+FD2 = "La localización de la fuerza resultante se encuentra en el centroide de la fuerza distribuida."
+FD3 = "Para simplificar el problema, se puede dividir el área bajo la curva de la distribución en figuras más sencillas."
+
+
 
 #------------------------------------- Textos para las respuestas ---------------------------------------
 
