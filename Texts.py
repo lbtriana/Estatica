@@ -255,6 +255,28 @@ FD1 = "La magnitud de la fuerza resultante es igual al área bajo la curva de la
 FD2 = "La localización de la fuerza resultante se encuentra en el centroide de la fuerza distribuida."
 FD3 = "Para simplificar el problema, se puede dividir el área bajo la curva de la distribución en figuras más sencillas."
 
+#PRESIONES HIDROSTÁTICAS
+PH1 = "La presión hidrostática es la presión ejercida por un fluido en reposo. Esta presión se genera en todos los puntos del fluido y actúa perpendicularmente a las superificies sumergidas."
+PH2 = """
+La presión hidrostática aumenta con la profundidad y medida como una fuerza por área unitaria se calcula como:   
+
+$P = \\rho \\cdot g \\cdot h$   
+
+Donde:
+
+$\\rho$ = la densidad del fluido.      
+$g$ = Aceleración debido a la gravedad.      
+$h$ = Profundidad desde la superficie al punto a evaluar.    
+"""
+PH3 = """
+La fuerza resultante de la presión hidrostática sobre una superficie se calcula como:    
+
+$F_R = P \\cdot A$     
+
+Donde:     
+$P$ = Presión hidrostática distribuida sobre la superficie.       
+$A$ = Área de la superficie.    
+"""
 
 
 #------------------------------------- Textos para las respuestas ---------------------------------------

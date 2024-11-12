@@ -784,8 +784,7 @@ if authenticate_user():
                         st.image(FD_image_paths[1], width=400)
                     if pregunta_no == 3:
                         st.image(FD_image_paths[2], width=450)
-                    if pregunta_no == 4:
-                        st.image(FD_image_paths[3], width=420)
+                    
                 
             if difficulty == "Medio":
                 if subtopic == "Vectores 2D":
@@ -871,8 +870,10 @@ if authenticate_user():
                         st.image(CT_image_paths[3], width=420)    
                 if subtopic == "Fuerzas distribuidas":
                     if pregunta_no == 1:
-                        st.image(FD_image_paths[4], width=300) 
+                        st.image(FD_image_paths[3], width=350)
                     if pregunta_no == 2:
+                        st.image(FD_image_paths[4], width=300) 
+                    if pregunta_no == 3:
                         st.image(FD_image_paths[5], width=300)    
                 
             if difficulty == "Díficil":
@@ -965,8 +966,7 @@ if authenticate_user():
                         st.image(FD_rtas_paths[1], width=350)
                     if pregunta_no ==3:
                         st.image(FD_rtas_paths[3], width=350)
-                    if pregunta_no ==4:
-                        st.image(FD_rtas_paths[5], width=350)
+                    
 
             if difficulty == "Medio":
                 if subtopic == "Equilibrio 2D":
@@ -977,8 +977,10 @@ if authenticate_user():
                         st.image(CT_rtas_paths[1], width=200)
                 if subtopic == "Fuerzas distribuidas":
                     if pregunta_no ==1:
-                        st.image(FD_rtas_paths[6], width=200)
+                        st.image(FD_rtas_paths[5], width=350)
                     if pregunta_no ==2:
+                        st.image(FD_rtas_paths[6], width=200)
+                    if pregunta_no ==3:
                         st.image(FD_rtas_paths[7], width=200)
 
             if difficulty == "Díficil":
@@ -1017,12 +1019,6 @@ if authenticate_user():
                         st.image(FD_rtas_paths[1], width=350)
                     if pregunta_no ==3:
                         st.image(FD_rtas_paths[4], width=350)
-
-            if difficulty == "Medio":
-                if subtopic == "Fuerzas distribuidas":
-                    if pregunta_no ==1:
-                        st.image(FD_rtas_paths[6], width=200)
-                                                  
         return
 
     #Función para que el botón "Ayuda" muestre secuencialmente las ayudas

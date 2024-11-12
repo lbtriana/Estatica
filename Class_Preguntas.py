@@ -6416,69 +6416,80 @@ preguntas = [
         calculos='operations'
         ),
 
-    # #=================================================  FUERZAS DISTRIBUIDAS =========================================================
-    # #-------------------------------------------------       Presión hidrostática    --------------------------------------------
-    # #-------------------------------------------------       Nivel Fácil   ---------------------------------------------------
-    # #-------------------------------------------------       Code: 7210011    --------------------------------------------------
-    # Questionary(#1_1
-    #     code = 7210011,
-    #     no_pregunta = 1,
-    #     complexity = F,
-    #     topic = "Fuerzas distribuidas",
-    #     subtopic = "Presión hidrostática",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza hidrostática en kN que actúa sobre la compuerta AB, la cual tiene un ancho de $a = {d[0]:.2f} \\text{{ m}}$. Considere $d_1 = {d[3]:.0f} \\text{{ m}}$,  $d_2 = {d[6]:.0f}  \\text{{ m}}$, $d_3 = {d[9]:.0f}  \\text{{ m}}$, la densidad del agua $\\rho_1 = 1000 \\dfrac{{kg}}{{m^3}} y la aceleración debida a la gravedad $g = 9,81 \\dfrac{{m}}{{s^2}}$.",
-    #     no_answers = 1,
-    #     a1_name = "Magnitud fuerza hidrostáctica $|F_R|$ [kN]",
-    #     a2_name = "",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(d[0]*(981/100)*(d[3]+d[6])*Calculations.magnitude(d[9],d[6])*(1/2),2),
-    #     answer2 = lambda f, a, calc, c, d, m: 0,
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "La presión hidrostática definida como la presión aplicada por un fluido en reposo debido a su propio peso, esta se genera en todos los puntos y actua perpendicularmente a las superificies sumergidas.",
-    #     ayuda2 = "La presión hidrostática aumenta linealmente con la profundidad y se formula como P = $\\rho \\cdot g \\cdot h$ , siendo $\\rho$ la densidad del fluido, g la aceleración debido a la gravedad y h la profundidad desde superficie al punto a evaluar",
-    #     ayuda3 = "Para superficies, la fuerza resultante dado presión hidrostática se calcula como $F_R = P \\cdot A$ siendo P la presión distribuida sobre la superficie y A como el área de la superficie.",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     La presión hidrostática es la presión aplicada por un fluido en reposo debido a su propio peso. A continuación, se presenta la solución sugerida para el ejercicio:
-        
-    #     $\\textbf{{\\small 1. División de fuerza distribuida: }}$
-    #     Dado a la configuración de la compuerta se puede obtener una presión hidrostática que se puede dividir en 2 distribuciones más simples cuyos centroides son comunes, como lo son triángulos y rectángulos.
-        
-    #     ##Imagen##
-        
-    #     Donde, según profundidad se puede obtener los valores de $p_1$ y $p_2$ :
-        
-    #     ${{\hspace{{4mm}} p_1 = \\rho \\cdot g \\cdot d_1 }}$     
-    #     ${{\hspace{{4mm}} p_2 = \\rho \\cdot g \\cdot d_2 }}$     
-                
-    #     $\\textbf{{\\small 2. Puntualización de las fuerzas: }}$
-        
-    #     Con las nuevas distribuciones se puede encontrar la magnitud de las presiones correspondientes a cada figura
-        
-    #     ${{\hspace{{4mm}} F_1 (Rectángulo) = p_1 \\cdot \\sqrt{{(d_2)^2 + (d_3)^2}} \\cdot a}}$     
-    #     ${{\hspace{{4mm}} F_2 (Triángulo) = \\dfrac{{(p_1 - p_2) \\cdot \\sqrt{{(d_2)^2 + (d_3)^2}}}}{{2}} \\cdot a}}$         
-                   
-    #     $\\textbf{{\\small 3. Magnitud de fuerza resultante: }}$
-        
-    #     Ahora bien, la fuerza resultante sera la sumatoria de las dos fuerzas encontradas:
-        
-    #     ${{\hspace{{4mm}} F_R = F_1 + F_2 }}$     
-    #     ${{\hspace{{4mm}} F_R = p_1 \\cdot \\sqrt{{(d_2)^2 + (d_3)^2}} \\cdot a + \\dfrac{{(p_1 - p_2) \\cdot \\sqrt{{(d_2)^2 + (d_3)^2}}}}{{2}} \\cdot a}}$     
-    #     ${{\hspace{{4mm}} F_R = \\dfrac{{(p_1 + p_2) \\cdot \\sqrt{{(d_2)^2 + (d_3)^2}}}}{{2}} \\cdot a}}$     
-    #     ${{\hspace{{4mm}} F_R = \\dfrac{{\\rho \\cdot g \\cdot (d_1 + d_2) \\cdot \\sqrt{{(d_2)^2 + (d_3)^2}}}}{{2}} \\cdot a}}$     
-    #     ${{\hspace{{4mm}} F_R = {d[0]*9810*(d[3]+d[6])*Calculations.magnitude(d[9],d[6])*(1/2):.2f} \\text{{ N}} = {d[0]*(981/100)*(d[3]+d[6])*Calculations.magnitude(d[9],d[6])*(1/2):.2f} \\text{{ kN}}}}$
-        
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
-   
+    #=================================================  FUERZAS DISTRIBUIDAS =========================================================
+    #-------------------------------------------------       Presión hidrostática    --------------------------------------------
+    #-------------------------------------------------       Nivel Fácil   ---------------------------------------------------
+    #-------------------------------------------------       Code: 7210011    --------------------------------------------------
+    
+
+
     # #=================================================  FUERZAS DISTRIBUIDAS =========================================================
     # #-------------------------------------------------       Presión hidrostática    --------------------------------------------
     # #-------------------------------------------------       Nivel Medio   ---------------------------------------------------
     # #-------------------------------------------------       Code: 7220021    --------------------------------------------------
-    # Questionary(#1_1
+    Questionary(#1_1
+        code = 7210011,
+        no_pregunta = 1,
+        complexity = M,
+        topic = FD,
+        subtopic = FD,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza hidrostática que actúa sobre la compuerta AB, la cual tiene un ancho de $a = {d[0]:.2f} \\text{{ m}}$. Considere $d_1 = {d[3]:.0f} \\text{{ m}}$,  $d_2 = {d[6]:.0f}  \\text{{ m}}$, $d_3 = {d[9]:.0f}  \\text{{ m}}$, la densidad del agua $\\rho_1 = 1000 \\dfrac{{kg}}{{m^3}}$ y la aceleración debida a la gravedad $g = 9,81 \\dfrac{{m}}{{s^2}}$.",
+        no_answers = 1,
+        a1_name = "Magnitud fuerza hidrostática $|F_R|$ $[kN]$",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(d[0]*9810*Calculations.magnitude(d[9],d[6])*(1/2)*(2*d[3]+d[6])*(1/1000),2),
+        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = PH1,
+        ayuda2 = PH2,
+        ayuda3 = PH3,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        La presión hidrostática es la presión ejercida por un fluido en reposo. A continuación, se presenta la solución sugerida para el ejercicio:
+        
+        $\\textbf{{\\small 1. División de fuerza distribuida: }}$
+
+        Dada la configuración de la compuerta, la presión hidrostática generada se puede dividir en 2 distribuciones más simples, cuyos centroides son comunes, como triángulos y rectángulos.
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        Donde, según profundidad se puede obtener los valores de $p_1$ y $p_2$ :
+        
+        ${{\hspace{{4mm}} p_1 = \\rho \\cdot g \\cdot d_1 }}$     
+        ${{\hspace{{4mm}} p_2 = \\rho \\cdot g \\cdot (d_1+d_2) }}$     
+                
+        $\\textbf{{\\small 2. Puntualización de las fuerzas: }}$
+        
+        Con las nuevas distribuciones se puede encontrar la magnitud de las presiones correspondientes a cada figura
+        
+        ${{\hspace{{4mm}} F_1 (Rectángulo) = p_1 \\cdot \\sqrt{{(d_2)^2 + (d_3)^2}} \\cdot a}}$     
+        
+        ${{\hspace{{4mm}} F_2 (Triángulo) = \\dfrac{{(p_2 - p_1) \\cdot \\sqrt{{(d_2)^2 + (d_3)^2}}}}{{2}} \\cdot a}}$         
+                   
+        $\\textbf{{\\small 3. Magnitud de fuerza resultante: }}$
+        
+        Ahora bien, la fuerza resultante sera la sumatoria de las dos fuerzas encontradas:
+        
+        ${{\hspace{{4mm}} F_R = F_1 + F_2 }}$     
+        
+        ${{\hspace{{4mm}} F_R = p_1 \\cdot \\sqrt{{(d_2)^2 + (d_3)^2}} \\cdot a + \\dfrac{{(p_2 - p_1) \\cdot \\sqrt{{(d_2)^2 + (d_3)^2}}}}{{2}} \\cdot a}}$     
+        
+        ${{\hspace{{4mm}} F_R = \\rho \\cdot g \\cdot d_1 \\cdot \\sqrt{{(d_2)^2 + (d_3)^2}} \\cdot a + \\dfrac{{(\\rho \\cdot g \\cdot (d_1+d_2) - \\rho \\cdot g \\cdot d_1) \\cdot \\sqrt{{(d_2)^2 + (d_3)^2}} \\cdot a}}{{2}} }}$     
+
+        ${{\hspace{{4mm}} F_R = \\dfrac{{(2 \\rho \\cdot g \\cdot d_1 \\cdot \\sqrt{{(d_2)^2 + (d_3)^2}} \\cdot a + \\rho \\cdot g \\cdot d_2 \\cdot \\sqrt{{(d_2)^2 + (d_3)^2}} \\cdot a}}{{2}} }}$     
+        
+        ${{\hspace{{4mm}} F_R = \\dfrac{{\\rho \\cdot g \\cdot \\sqrt{{(d_2)^2 + (d_3)^2}} \\cdot a}}{{2}} \\cdot (2d_1+d_2)}}$     
+       
+        ${{\hspace{{4mm}} F_R = {d[0]*9810*Calculations.magnitude(d[9],d[6])*(1/2)*(2*d[3]+d[6]):.2f} \\text{{ N}}}}$ 
+       
+        ${{\hspace{{4mm}} F_R = {d[0]*9810*Calculations.magnitude(d[9],d[6])*(1/2)*(2*d[3]+d[6])*(1/1000):.2f} \\text{{ kN}}}}$ 
+        """,
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
+   
+   
+    # Questionary(#2_1
     #     code = 7220011,
     #     no_pregunta = 1,
     #     complexity = M,
@@ -6541,7 +6552,7 @@ preguntas = [
     #     calculos='operations'
     #     ),
 
-    # Questionary(#2_1
+    # Questionary(#3_1
     #     code = 7220021,
     #     no_pregunta = 2,
     #     complexity = M,
@@ -6612,30 +6623,6 @@ preguntas = [
     #     ),
 
     # LA SECCIÓN ESTARÁ DISPONIBLE PRONTO
-    Questionary(#1_1
-        code = 0,
-        no_pregunta = 0,
-        complexity = M,
-        topic = FD,
-        subtopic = FD,
-        version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Está sección pronto estará disponible.",
-        no_answers = 0,
-        a1_name = AX,
-        a2_name = AY,
-        a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round(0, 2),
-        answer2 = lambda f, a, calc, c, d, m: np.round(0, 2),
-        answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = A1,
-        ayuda2 = A2,
-        ayuda3 = A3,
-        respuesta_P1 = lambda fa, a, calc, c, d, m: f"",
-        respuesta_P2 = lambda fa, a, calc, c, d, m: f"",
-        respuesta_P3 = lambda fa, a, calc, c, d, m: f"",
-        calculos = 'operations'
-        ),
-
     Questionary(#1_1
         code = 0,
         no_pregunta = 1,
