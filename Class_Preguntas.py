@@ -6189,82 +6189,56 @@ preguntas = [
         topic = "Centroides",
         subtopic = "Centroides",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Esta sección pronto estará disponible.",
-        no_answers = 0,
-        a1_name = "",
-        a2_name = "",
+        pregunta = lambda f, a, calc, c, d, m: f"En la imagen se muestra el perfil de un elemento con un ancho constante de ${26+d[0]:.0f} \\text{{ cm}}$ compuesto por dos materiales. Ubique la posición del centro de masa $(\\bar{{X}}, \\bar{{Y}})$. Considere $\\rho_1 = {7700+d[3]*20:.0f} \\dfrac{{ kg}}{{m^3}}$, $\\rho_2 = {2750+d[3]*100:.0f} \\dfrac{{ kg}}{{m^3}}$, $d_1 = {45+d[6]:.0f} \\text{{ cm}}$,  $d_2 = {30+d[9]:.0f}  \\text{{ cm}}$, $d_3 = {50+d[12]:.0f} \\text{{ cm}}$, $d_4 = {24+d[15]:.0f} \\text{{ cm}}$, $d_5 = {10+(d[6]-d[15])*(1/2):.2f} \\text{{ cm}}$ y $d_6 = {46+d[18]:.2f} \\text{{ cm}}$.",
+        no_answers = 2,
+        a1_name = "Distancia $\\bar{{Y}}$ [cm]",
+        a2_name = "Distancia $\\bar{{X}}$ [cm]",
         a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: 0,
-        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer1 = lambda f, a, calc, c, d, m: np.round(((1/1000000)*(96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0])*(2750+d[3]*100)*(30+d[9]+(96+d[12]+d[18])*(1/2))+(1/1000000)*(1/2)*(30+d[9])*(46+d[18])*(26+d[0])*(2750+d[3]*100)*(2/3)*(30+d[9])+(1/2)*(30+d[9])*(1/1000000)*(45+d[6])*(30+d[9])*(26+d[0])*(7700+d[3]*20)+(-1/1000000)*((math.pi*(((24+d[15])/2))**2)/2)*(26+d[0])*(7700+d[3]*20)*((30+d[9])-(2*(24+d[15]))/(3*math.pi))+(-1/1000000)*((math.pi*(((24+d[15])/2))**2)/2)*(26+d[0])*(2750+d[3]*100)*((30+d[9])+(2*(24+d[15]))/(3*math.pi))+(-1/1000000)*((math.pi*(46+d[18])**2)/4)*(26+d[0])*(2750+d[3]*100)*(126+d[9]+d[12]+d[18]-(4*(46+d[18]))/(3*math.pi)))/((1/1000000)*(96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0])*(2750+d[3]*100)+(1/1000000)*(1/2)*(30+d[9])*(46+d[18])*(26+d[0])*(2750+d[3]*100)+(1/1000000)*(45+d[6])*(30+d[9])*(26+d[0])*(7700+d[3]*20)+(-1/1000000)*((math.pi*(((24+d[15])/2))**2)/2)*(26+d[0])*(7700+d[3]*20)+(-1/1000000)*((math.pi*(((24+d[15])/2))**2)/2)*(26+d[0])*(2750+d[3]*100)+(-1/1000000)*((math.pi*(46+d[18])**2)/4)*(26+d[0])*(2750+d[3]*100)),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(((1/1000000)*(96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0])*(2750+d[3]*100)*((91+d[6]+d[18])*(1/2))+(1/1000000)*(1/2)*(30+d[9])*(46+d[18])*(26+d[0])*(2750+d[3]*100)*(45+d[6]+(1/3)*(46+d[18]))+(1/2)*(45+d[6])*(1/1000000)*(45+d[6])*(30+d[9])*(26+d[0])*(7700+d[3]*20)+(-1/1000000)*((math.pi*(((24+d[15])/2))**2)/2)*(26+d[0])*(7700+d[3]*20)*(22+d[6]*(1/2))+(-1/1000000)*((math.pi*(((24+d[15])/2))**2)/2)*(26+d[0])*(2750+d[3]*100)*(22+d[6]*(1/2))+(-1/1000000)*((math.pi*(46+d[18])**2)/4)*(26+d[0])*(2750+d[3]*100)*(45+d[6]+46+d[18]-(4*(46+d[18]))/(3*math.pi)))/((1/1000000)*(96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0])*(2750+d[3]*100)+(1/1000000)*(1/2)*(30+d[9])*(46+d[18])*(26+d[0])*(2750+d[3]*100)+(1/1000000)*(45+d[6])*(30+d[9])*(26+d[0])*(7700+d[3]*20)+(-1/1000000)*((math.pi*(((24+d[15])/2))**2)/2)*(26+d[0])*(7700+d[3]*20)+(-1/1000000)*((math.pi*(((24+d[15])/2))**2)/2)*(26+d[0])*(2750+d[3]*100)+(-1/1000000)*((math.pi*(46+d[18])**2)/4)*(26+d[0])*(2750+d[3]*100)),2),
         answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = "",
-        ayuda2 = "",      
+        ayuda1 = CT4,
+        ayuda2 = CT6,      
         ayuda3 = "",
-        respuesta_P1 = lambda f, a, calc, c, d, m: f"",   
-        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        El centro de masa es el punto en el que se considera que toda la masa de la estructura está concentrada. A continuación, se presenta la solución sugerida para el ejercicio:
+        
+        $\\textbf{{\\small 1. División de figura compuesta: }}$
+
+        Es posible dividir el perfil en 6 elementos para calcular el centro de masa. Este se puede obtener a partir de la suma de los elementos 1, 2 y 3 restando la suma de los elementos 4, 5 y 6:
+        """,
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        $\\textbf{{\\small 2. Tabulación de cálculos: }}$
+        
+        Teniendo en cuenta que la masa de cada elemento se calcula mediante el producto de la densidad por volumen se puede obtener:
+        
+        $Elemento$ $\\hspace{{6mm}}$ $V(m^3)$ $\\hspace{{6mm}}$ $\\rho (kg/m^3)$ $\\hspace{{7mm}}$ $M(kg)$ $\\hspace{{7mm}}$ $\\bar{{X}}(cm)$ $\\hspace{{6mm}}$ $\\bar{{Y}}(cm)$ $\\hspace{{8mm}}$ $\\bar{{X}} \\cdot M(kg \\cdot cm)$ $\\hspace{{6mm}}$ $\\bar{{Y}} \\cdot M(kg \\cdot cm)$     
+
+        $1$ $\\hspace{{15mm}}$ ${(1/1000000)*(96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0]):.3f}$ $\\hspace{{11mm}}$ ${2750+d[3]*100:.2f}$ $\\hspace{{10mm}}$ ${(1/1000000)*(96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0])*(2750+d[3]*100):.2f}$ $\\hspace{{9mm}}$ ${30+d[9]+(96+d[12]+d[18])*(1/2):.2f}$ $\\hspace{{10mm}}$ ${(91+d[6]+d[18])*(1/2):.2f}$ $\\hspace{{13mm}}$ ${(1/1000000)*(96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0])*(2750+d[3]*100)*(30+d[9]+(96+d[12]+d[18])*(1/2)):.2f}$ $\\hspace{{13mm}}$ ${(1/1000000)*(96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0])*(2750+d[3]*100)*((91+d[6]+d[18])*(1/2)):.2f}$     
+        $2$ $\\hspace{{15mm}}$ ${(1/1000000)*(1/2)*(30+d[9])*(46+d[18])*(26+d[0]):.3f}$ $\\hspace{{11mm}}$ ${2750+d[3]*100:.2f}$ $\\hspace{{10mm}}$ ${(1/1000000)*(1/2)*(30+d[9])*(46+d[18])*(26+d[0])*(2750+d[3]*100):.2f}$ $\\hspace{{12mm}}$ ${(2/3)*(30+d[9]):.2f}$ $\\hspace{{10mm}}$ ${45+d[6]+(1/3)*(46+d[18]):.2f}$ $\\hspace{{13mm}}$ ${(1/1000000)*(1/2)*(30+d[9])*(46+d[18])*(26+d[0])*(2750+d[3]*100)*(2/3)*(30+d[9]):.2f}$ $\\hspace{{15mm}}$ ${(1/1000000)*(1/2)*(30+d[9])*(46+d[18])*(26+d[0])*(2750+d[3]*100)*(45+d[6]+(1/3)*(46+d[18])):.2f}$     
+        $3$ $\\hspace{{15mm}}$ ${(1/1000000)*(45+d[6])*(30+d[9])*(26+d[0]):.3f}$ $\\hspace{{11mm}}$ ${7700+d[3]*20:.2f}$ $\\hspace{{10mm}}$ ${(1/1000000)*(45+d[6])*(30+d[9])*(26+d[0])*(7700+d[3]*20):.2f}$ $\\hspace{{10mm}}$ ${(1/2)*(30+d[9]):.2f}$ $\\hspace{{10mm}}$ ${(1/2)*(45+d[6]):.2f}$ $\\hspace{{13mm}}$ ${(1/2)*(30+d[9])*(1/1000000)*(45+d[6])*(30+d[9])*(26+d[0])*(7700+d[3]*20):.2f}$ $\\hspace{{15mm}}$ ${(1/2)*(45+d[6])*(1/1000000)*(45+d[6])*(30+d[9])*(26+d[0])*(7700+d[3]*20):.2f}$     
+        $4$ $\\hspace{{15mm}}$ ${(-1/1000000)*((math.pi*(((24+d[15])/2))**2)/2)*(26+d[0]):.3f}$ $\\hspace{{9mm}}$ ${7700+d[3]*20:.2f}$ $\\hspace{{10mm}}$ ${(-1/1000000)*((math.pi*(((24+d[15])/2))**2)/2)*(26+d[0])*(7700+d[3]*20):.2f}$ $\\hspace{{8mm}}$ ${(30+d[9])-(2*(24+d[15]))/(3*math.pi):.2f}$ $\\hspace{{10mm}}$ ${22+d[6]*(1/2):.2f}$ $\\hspace{{13mm}}$ ${(-1/1000000)*((math.pi*(((24+d[15])/2))**2)/2)*(26+d[0])*(7700+d[3]*20)*((30+d[9])-(2*(24+d[15]))/(3*math.pi)):.2f}$ $\\hspace{{13mm}}$ ${(-1/1000000)*((math.pi*(((24+d[15])/2))**2)/2)*(26+d[0])*(7700+d[3]*20)*(22+d[6]*(1/2)):.2f}$     
+        $5$ $\\hspace{{15mm}}$ ${(-1/1000000)*((math.pi*(((24+d[15])/2))**2)/2)*(26+d[0]):.3f}$ $\\hspace{{9mm}}$ ${2750+d[3]*100:.2f}$ $\\hspace{{10mm}}$ ${(-1/1000000)*((math.pi*(((24+d[15])/2))**2)/2)*(26+d[0])*(2750+d[3]*100):.2f}$ $\\hspace{{8mm}}$ ${(30+d[9])+(2*(24+d[15]))/(3*math.pi):.2f}$ $\\hspace{{10mm}}$ ${22+d[6]*(1/2):.2f}$ $\\hspace{{13mm}}$ ${(-1/1000000)*((math.pi*(((24+d[15])/2))**2)/2)*(26+d[0])*(2750+d[3]*100)*((30+d[9])+(2*(24+d[15]))/(3*math.pi)):.2f}$ $\\hspace{{13mm}}$ ${(-1/1000000)*((math.pi*(((24+d[15])/2))**2)/2)*(26+d[0])*(2750+d[3]*100)*(22+d[6]*(1/2)):.2f}$     
+        $6$ $\\hspace{{15mm}}$ ${(-1/1000000)*((math.pi*(46+d[18])**2)/4)*(26+d[0]):.3f}$ $\\hspace{{9mm}}$ ${2750+d[3]*100:.2f}$ $\\hspace{{10mm}}$ ${(-1/1000000)*((math.pi*(46+d[18])**2)/4)*(26+d[0])*(2750+d[3]*100):.2f}$ $\\hspace{{6mm}}$ ${126+d[9]+d[12]+d[18]-(4*(46+d[18]))/(3*math.pi):.2f}$ $\\hspace{{9mm}}$ ${45+d[6]+46+d[18]-(4*(46+d[18]))/(3*math.pi):.2f}$ $\\hspace{{13mm}}$ ${(-1/1000000)*((math.pi*(46+d[18])**2)/4)*(26+d[0])*(2750+d[3]*100)*(126+d[9]+d[12]+d[18]-(4*(46+d[18]))/(3*math.pi)):.2f}$ $\\hspace{{11mm}}$ ${(-1/1000000)*((math.pi*(46+d[18])**2)/4)*(26+d[0])*(2750+d[3]*100)*(45+d[6]+46+d[18]-(4*(46+d[18]))/(3*math.pi)):.2f}$    
+           
+        $\\textbf{{\\small 3. Determinar el centroide en X: }}$
+        
+        Se aplica la fórmula para determinar la coordenada $\\bar{{X}}$ :
+        
+        ${{\hspace{{4mm}} \\bar{{X}} = \\dfrac{{\\sum{{\\bar{{X_i}} \\cdot M_i}}}}{{\\sum{{M_i}}}}}}$     
+       
+        ${{\hspace{{4mm}} \\bar{{X}} = {((1/1000000)*(96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0])*(2750+d[3]*100)*(30+d[9]+(96+d[12]+d[18])*(1/2))+(1/1000000)*(1/2)*(30+d[9])*(46+d[18])*(26+d[0])*(2750+d[3]*100)*(2/3)*(30+d[9])+(1/2)*(30+d[9])*(1/1000000)*(45+d[6])*(30+d[9])*(26+d[0])*(7700+d[3]*20)+(-1/1000000)*((math.pi*(((24+d[15])/2))**2)/2)*(26+d[0])*(7700+d[3]*20)*((30+d[9])-(2*(24+d[15]))/(3*math.pi))+(-1/1000000)*((math.pi*(((24+d[15])/2))**2)/2)*(26+d[0])*(2750+d[3]*100)*((30+d[9])+(2*(24+d[15]))/(3*math.pi))+(-1/1000000)*((math.pi*(46+d[18])**2)/4)*(26+d[0])*(2750+d[3]*100)*(126+d[9]+d[12]+d[18]-(4*(46+d[18]))/(3*math.pi)))/((1/1000000)*(96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0])*(2750+d[3]*100)+(1/1000000)*(1/2)*(30+d[9])*(46+d[18])*(26+d[0])*(2750+d[3]*100)+(1/1000000)*(45+d[6])*(30+d[9])*(26+d[0])*(7700+d[3]*20)+(-1/1000000)*((math.pi*(((24+d[15])/2))**2)/2)*(26+d[0])*(7700+d[3]*20)+(-1/1000000)*((math.pi*(((24+d[15])/2))**2)/2)*(26+d[0])*(2750+d[3]*100)+(-1/1000000)*((math.pi*(46+d[18])**2)/4)*(26+d[0])*(2750+d[3]*100)):.2f} \\text{{ cm}}}}$     
+        
+        $\\textbf{{\\small 4. Determinar el centroide en Y: }}$
+        
+        Se aplica la fórmula para determinar la coordenada $\\bar{{Y}}$ :
+        
+        ${{\hspace{{4mm}} \\bar{{Y}} = \\dfrac{{\\sum{{\\bar{{Y_i}} \\cdot M_i}}}}{{\\sum{{M_i}}}}}}$     
+        
+        ${{\hspace{{4mm}} \\bar{{Y}} = {((1/1000000)*(96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0])*(2750+d[3]*100)*((91+d[6]+d[18])*(1/2))+(1/1000000)*(1/2)*(30+d[9])*(46+d[18])*(26+d[0])*(2750+d[3]*100)*(45+d[6]+(1/3)*(46+d[18]))+(1/2)*(45+d[6])*(1/1000000)*(45+d[6])*(30+d[9])*(26+d[0])*(7700+d[3]*20)+(-1/1000000)*((math.pi*(((24+d[15])/2))**2)/2)*(26+d[0])*(7700+d[3]*20)*(22+d[6]*(1/2))+(-1/1000000)*((math.pi*(((24+d[15])/2))**2)/2)*(26+d[0])*(2750+d[3]*100)*(22+d[6]*(1/2))+(-1/1000000)*((math.pi*(46+d[18])**2)/4)*(26+d[0])*(2750+d[3]*100)*(45+d[6]+46+d[18]-(4*(46+d[18]))/(3*math.pi)))/((1/1000000)*(96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0])*(2750+d[3]*100)+(1/1000000)*(1/2)*(30+d[9])*(46+d[18])*(26+d[0])*(2750+d[3]*100)+(1/1000000)*(45+d[6])*(30+d[9])*(26+d[0])*(7700+d[3]*20)+(-1/1000000)*((math.pi*(((24+d[15])/2))**2)/2)*(26+d[0])*(7700+d[3]*20)+(-1/1000000)*((math.pi*(((24+d[15])/2))**2)/2)*(26+d[0])*(2750+d[3]*100)+(-1/1000000)*((math.pi*(46+d[18])**2)/4)*(26+d[0])*(2750+d[3]*100)):.2f} \\text{{ cm}}}}$     
+        """,
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),
-
-    # Questionary(#1_1
-    #     code = 6130011,
-    #     no_pregunta = 1,
-    #     complexity = D,
-    #     topic = "Centroides",
-    #     subtopic = "Centroides",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"En la imagen se muestra el perfil de un elemento con un ancho constante de ${26+d[0]:.0f} \\text{{ cm}} compuesto por dos materiales.  Ubique la posición del centro de masa $(\\bar{{X}}, \\bar{{Y}})$. Considere $\\rho_1 = {7700+d[3]*20:.0f} \\dfrac{{ kg}}{{m^3}}$, $\\rho_2 = {2750+d[3]*100:.0f} \\dfrac{{ kg}}{{m^3}}$, $d_1 = {45+d[6]:.0f} \\text{{ cm}}$,  $d_2 = {30+d[9]:.0f}  \\text{{ cm}}$, $d_3 = {50+d[12]:.0f} \\text{{ cm}}$, $d_4 = {24+d[15]:.0f} \\text{{ cm}}$, $d_5 = {10+(d[6]-d[15])*(1/2):.2f} \\text{{ cm}}$ y $d_6 = {46+d[18]:.2f} \\text{{ cm}}$.",
-    #     no_answers = 2,
-    #     a1_name = "Distancia $\\bar{{Y}}$ [cm]",
-    #     a2_name = "Distancia $\\bar{{X}}$ [cm]",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(((96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0])*(2750+d[3]*100)*(30+d[9]+(96+d[12]+d[18])*(1/2))+(1/2)*(30+d[9])*(46+d[18])*(26+d[0])*(2750+d[3]*100)*(2/3)*(30+d[9])+(1/2)*(30+d[9])*(45+d[6])*(30+d[9])*(26+d[0])*(7700+d[3]*20)-(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(7700+d[3]*20)*((30+d[9])-(2*(24+d[15]))/(3*Calculations.arccosine(-1)))-(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(2750+d[3]*100)*((30+d[9])+(2*(24+d[15]))/(3*Calculations.arccosine(-1)))-(Calculations.arccosine(-1))*(46+d[18])*(46+d[18])*(26+d[0])*(1/4)*(2750+d[3]*100)*(126+d[9]+d[12]+d[18]-(4*(46+d[18]))/(3*Calculations.arccosine(-1))))/(-(Calculations.arccosine(-1))*(46+d[18])*(46+d[18])*(26+d[0])*(1/4)*(2750+d[3]*100)-(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(2750+d[3]*100)-(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(7700+d[3]*20)+(45+d[6])*(30+d[9])*(26+d[0])*(7700+d[3]*20)+(1/2)*(30+d[9])*(46+d[18])*(26+d[0])*(2750+d[3]*100)+(96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0])*(2750+d[3]*100)),2),
-    #     answer2 = lambda f, a, calc, c, d, m: np.round(((96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0])*(2750+d[3]*100)*((91+d[6]+d[18])*(1/2))+(1/2)*(30+d[9])*(46+d[18])*(26+d[0])*(2750+d[3]*100)*(45+d[6]+(1/3)*(46+d[18]))+(1/2)*(45+d[6])*(45+d[6])*(30+d[9])*(26+d[0])*(7700+d[3]*20)-(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(7700+d[3]*20)*(22+d[6]*(1/2))-(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(2750+d[3]*100)*(22+d[6]*(1/2))-(Calculations.arccosine(-1))*(46+d[18])*(46+d[18])*(26+d[0])*(1/4)*(2750+d[3]*100)*(45+d[6]+(4*(46+d[18]))/(3*Calculations.arccosine(-1))))/(-(Calculations.arccosine(-1))*(46+d[18])*(46+d[18])*(26+d[0])*(1/4)*(2750+d[3]*100)-(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(2750+d[3]*100)-(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(7700+d[3]*20)+(45+d[6])*(30+d[9])*(26+d[0])*(7700+d[3]*20)+(1/2)*(30+d[9])*(46+d[18])*(26+d[0])*(2750+d[3]*100)+(96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0])*(2750+d[3]*100)),2),
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "El centro de masa hace referencia al promedio de las posiciones de cada punto o segmento de un objeto ponderado según sus masas.",
-    #     ayuda2 = "Como un recurso para vizualizar y organizar mejor los datos es recomendable la creación de una tabla con masas y coordenadas respectivas a sus centros de masa.",      
-    #     ayuda3 = "",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     El centro de masa es posible entenderlo como el punto donde se puede considerar que toda la masa de la estructura esta concentrada. A continuación, se presenta la solución sugerida para el ejercicio:
-        
-    #     $\\textbf{{\\small 1. División de figura compuesta: }}$
-    #     Es posible dividir modelar el perfil a partir de la suma de los elementos 1, 2 y 3 restado la suma de los elementos 4, 5 y 6
-        
-    #     $\\textbf{{\\small 2. Tabulación de cálculos: }}$
-        
-    #     Teniendo en cuenta que la masa de cada elemento se calcula mediante el producto de la densidad por volumen se puede obtener:
-        
-    #     $Elemento$ $\\hspace{{6mm}}$ $V(m^3)$ $\\hspace{{6mm}}$ $\\rho (kg/m^3)$ $\\hspace{{6mm}}$ $M(kg)$ $\\hspace{{6mm}}$ $\\bar{{X}}(cm)$ $\\hspace{{6mm}}$ $\\bar{{Y}}(cm)$ $\\hspace{{6mm}}$ $\\bar{{X}} \\cdot M(kg \\cdot cm)$ $\\hspace{{6mm}}$ $\\bar{{Y}} \\cdot M(kg \\cdot cm)$     
-
-    #     $1$ $\\hspace{{15mm}}$ ${(1/1000000)*(96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0]):.3f}$ $\\hspace{{11mm}}$ ${2750+d[3]*100:.2f}$ $\\hspace{{10mm}}$ ${(1/1000000)*(96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0])*(2750+d[3]*100):.2f}$ $\\hspace{{10mm}}$ ${30+d[9]+(96+d[12]+d[18])*(1/2):.2f}$ $\\hspace{{10mm}}$ ${(91+d[6]+d[18])*(1/2):.2f}$ $\\hspace{{13mm}}$ ${(1/1000000)*(96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0])*(2750+d[3]*100)*(30+d[9]+(96+d[12]+d[18])*(1/2)):.2f}$ $\\hspace{{13mm}}$ ${(1/1000000)*(96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0])*(2750+d[3]*100)*((91+d[6]+d[18])*(1/2)):.2f}$     
-    #     $2$ $\\hspace{{15mm}}$ ${(1/1000000)*(1/2)*(30+d[9])*(46+d[18])*(26+d[0]):.3f}$ $\\hspace{{11mm}}$ ${2750+d[3]*100:.2f}$ $\\hspace{{10mm}}$ ${(1/1000000)*(1/2)*(30+d[9])*(46+d[18])*(26+d[0])*(2750+d[3]*100):.2f}$ $\\hspace{{10mm}}$ ${(2/3)*(30+d[9]):.2f}$ $\\hspace{{10mm}}$ ${45+d[6]+(1/3)*(46+d[18]):.2f}$ $\\hspace{{13mm}}$ ${(1/1000000)*(1/2)*(30+d[9])*(46+d[18])*(26+d[0])*(2750+d[3]*100)*(2/3)*(30+d[9]):.2f}$ $\\hspace{{13mm}}$ ${(1/1000000)*(1/2)*(30+d[9])*(46+d[18])*(26+d[0])*(2750+d[3]*100)*(45+d[6]+(1/3)*(46+d[18])):.2f}$     
-    #     $3$ $\\hspace{{15mm}}$ ${(1/1000000)*(45+d[6])*(30+d[9])*(26+d[0]):.3f}$ $\\hspace{{11mm}}$ ${7700+d[3]*20:.2f}$ $\\hspace{{10mm}}$ ${(1/1000000)*(45+d[6])*(30+d[9])*(26+d[0])*(7700+d[3]*20):.2f}$ $\\hspace{{10mm}}$ ${(1/2)*(30+d[9]):.2f}$ $\\hspace{{10mm}}$ ${(1/2)*(45+d[6]):.2f}$ $\\hspace{{13mm}}$ ${(1/2)*(30+d[9])*(1/1000000)*(45+d[6])*(30+d[9])*(26+d[0])*(7700+d[3]*20):.2f}$ $\\hspace{{13mm}}$ ${(1/2)*(45+d[6])*(1/1000000)*(45+d[6])*(30+d[9])*(26+d[0])*(7700+d[3]*20):.2f}$     
-    #     $4$ $\\hspace{{15mm}}$ ${(-1/1000000)*(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8):.3f}$ $\\hspace{{11mm}}$ ${7700+d[3]*20:.2f}$ $\\hspace{{10mm}}$ ${(-1/1000000)*(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(7700+d[3]*20):.2f}$ $\\hspace{{10mm}}$ ${(30+d[9])-(2*(24+d[15]))/(3*Calculations.arccosine(-1)):.2f}$ $\\hspace{{10mm}}$ ${22+d[6]*(1/2):.2f}$ $\\hspace{{13mm}}$ ${(-1/1000000)*(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(7700+d[3]*20)*((30+d[9])-(2*(24+d[15]))/(3*Calculations.arccosine(-1))):.2f}$ $\\hspace{{13mm}}$ ${(-1/1000000)*(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(7700+d[3]*20)*(22+d[6]*(1/2)):.2f}$     
-    #     $5$ $\\hspace{{15mm}}$ ${(-1/1000000)*(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8):.3f}$ $\\hspace{{11mm}}$ ${2750+d[3]*100:.2f}$ $\\hspace{{10mm}}$ ${(-1/1000000)*(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(2750+d[3]*100):.2f}$ $\\hspace{{10mm}}$ ${(30+d[9])+(2*(24+d[15]))/(3*Calculations.arccosine(-1)):.2f}$ $\\hspace{{10mm}}$ ${22+d[6]*(1/2):.2f}$ $\\hspace{{13mm}}$ ${(-1/1000000)*(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(2750+d[3]*100)*((30+d[9])+(2*(24+d[15]))/(3*Calculations.arccosine(-1))):.2f}$ $\\hspace{{13mm}}$ ${(-1/1000000)*(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(2750+d[3]*100)*(22+d[6]*(1/2)):.2f}$     
-    #     $6$ $\\hspace{{15mm}}$ ${(-1/1000000)*(Calculations.arccosine(-1))*(46+d[18])*(46+d[18])*(26+d[0])*(1/4):.3f}$ $\\hspace{{11mm}}$ ${2750+d[3]*100:.2f}$ $\\hspace{{10mm}}$ ${(-1/1000000)*(Calculations.arccosine(-1))*(46+d[18])*(46+d[18])*(26+d[0])*(1/4)*(2750+d[3]*100):.2f}$ $\\hspace{{10mm}}$ ${126+d[9]+d[12]+d[18]-(4*(46+d[18]))/(3*Calculations.arccosine(-1)):.2f}$ $\\hspace{{10mm}}$ ${45+d[6]+(4*(46+d[18]))/(3*Calculations.arccosine(-1)):.2f}$ $\\hspace{{13mm}}$ ${(-1/1000000)*(Calculations.arccosine(-1))*(46+d[18])*(46+d[18])*(26+d[0])*(1/4)*(2750+d[3]*100)*(126+d[9]+d[12]+d[18]-(4*(46+d[18]))/(3*Calculations.arccosine(-1))):.2f}$ $\\hspace{{13mm}}$ ${(-1/1000000)*(Calculations.arccosine(-1))*(46+d[18])*(46+d[18])*(26+d[0])*(1/4)*(2750+d[3]*100)*(45+d[6]+(4*(46+d[18]))/(3*Calculations.arccosine(-1))):.2f}$    
-           
-    #     $\\textbf{{\\small 3. Determinar \\bar{{X}}: }}$
-        
-    #     Se puede aplicar la formula para determinar la coordenada $\\bar{{X}}$ :
-        
-    #     ${{\hspace{{4mm}} \\bar{{X}} = \\dfrac{{\\sum{{\\bar{{X_i}} \\cdot M_i}}}}{{\\sum{{M_i}}}}}}$     
-    #     ${{\hspace{{4mm}} \\bar{{X}} = {((96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0])*(2750+d[3]*100)*(30+d[9]+(96+d[12]+d[18])*(1/2))+(1/2)*(30+d[9])*(46+d[18])*(26+d[0])*(2750+d[3]*100)*(2/3)*(30+d[9])+(1/2)*(30+d[9])*(45+d[6])*(30+d[9])*(26+d[0])*(7700+d[3]*20)-(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(7700+d[3]*20)*((30+d[9])-(2*(24+d[15]))/(3*Calculations.arccosine(-1)))-(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(2750+d[3]*100)*((30+d[9])+(2*(24+d[15]))/(3*Calculations.arccosine(-1)))-(Calculations.arccosine(-1))*(46+d[18])*(46+d[18])*(26+d[0])*(1/4)*(2750+d[3]*100)*(126+d[9]+d[12]+d[18]-(4*(46+d[18]))/(3*Calculations.arccosine(-1))))/(-(Calculations.arccosine(-1))*(46+d[18])*(46+d[18])*(26+d[0])*(1/4)*(2750+d[3]*100)-(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(2750+d[3]*100)-(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(7700+d[3]*20)+(45+d[6])*(30+d[9])*(26+d[0])*(7700+d[3]*20)+(1/2)*(30+d[9])*(46+d[18])*(26+d[0])*(2750+d[3]*100)+(96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0])*(2750+d[3]*100)):.2f} \\text{{ cm}}}}$     
-        
-    #     $\\textbf{{\\small 4. Determinar \\bar{{Y}}: }}$
-        
-    #     Se puede aplicar la formula para determinar la coordenada $\\bar{{Y}}$ :
-        
-    #     ${{\hspace{{4mm}} \\bar{{Y}} = \\dfrac{{\\sum{{\\bar{{Y_i}} \\cdot M_i}}}}{{\\sum{{M_i}}}}}}$     
-    #     ${{\hspace{{4mm}} \\bar{{Y}} = {((96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0])*(2750+d[3]*100)*((91+d[6]+d[18])*(1/2))+(1/2)*(30+d[9])*(46+d[18])*(26+d[0])*(2750+d[3]*100)*(45+d[6]+(1/3)*(46+d[18]))+(1/2)*(45+d[6])*(45+d[6])*(30+d[9])*(26+d[0])*(7700+d[3]*20)-(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(7700+d[3]*20)*(22+d[6]*(1/2))-(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(2750+d[3]*100)*(22+d[6]*(1/2))-(Calculations.arccosine(-1))*(46+d[18])*(46+d[18])*(26+d[0])*(1/4)*(2750+d[3]*100)*(45+d[6]+(4*(46+d[18]))/(3*Calculations.arccosine(-1))))/(-(Calculations.arccosine(-1))*(46+d[18])*(46+d[18])*(26+d[0])*(1/4)*(2750+d[3]*100)-(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(2750+d[3]*100)-(Calculations.arccosine(-1))*(24+d[15])*(24+d[15])*(26+d[0])*(1/8)*(7700+d[3]*20)+(45+d[6])*(30+d[9])*(26+d[0])*(7700+d[3]*20)+(1/2)*(30+d[9])*(46+d[18])*(26+d[0])*(2750+d[3]*100)+(96+d[12]+d[18])*(91+d[18]+d[6])*(26+d[0])*(2750+d[3]*100)):.2f} \\text{{ cm}}}}$     
-        
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
-
-
-
-
 
     ]

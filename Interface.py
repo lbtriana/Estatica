@@ -920,6 +920,11 @@ if authenticate_user():
                         st.image(AR_image_paths[14], width=500) 
                     if pregunta_no == 2:
                         st.image(AR_image_paths[15], width=400)
+                if subtopic == "Centroides":
+                    if pregunta_no == 1:
+                        st.image(CT_image_paths[5], width=500) 
+                    if pregunta_no == 2:
+                        st.image(CT_image_paths[6], width=500) 
                             
         return
 
@@ -966,7 +971,10 @@ if authenticate_user():
                         if version_no == 1 or version_no == 2:
                             st.image(EQ_rtas_paths[6], width=250) 
                         elif version_no == 3 or version_no == 4:
-                            st.image(EQ_rtas_paths[7], width=250)                                           
+                            st.image(EQ_rtas_paths[7], width=250)  
+                if subtopic == "Centroides":
+                    if pregunta_no ==1:
+                        st.image(CT_rtas_paths[2], width=600)                                         
         return
 
     #Función para que el botón "Ayuda" muestre secuencialmente las ayudas

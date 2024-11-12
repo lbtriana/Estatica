@@ -201,6 +201,10 @@ CT_image_paths = [
 #Centroides_Nivel medio
 "./Imagenes/Preguntas/CT/CT_CT_M_1a.png", #[3]
 "./Imagenes/Preguntas/CT/CT_CT_M_2a.png", #[4]
+
+#Centroides_Nivel díficil
+"./Imagenes/Preguntas/CT/CT_CT_D_1a.png", #[5]
+"./Imagenes/Preguntas/CT/CT_CT_D_2a.png", #[6]
 ]
 
 
@@ -239,9 +243,10 @@ EQ_rtas_paths= [
 
 #================================ Imágenes Respuestas Cálculos Centroides ===================================
 CT_rtas_paths= [
-#Centroides _ Nivel fácil
+
 "./Imagenes/Respuestas/CT/R_CT_CT_F_1a.png", #[0] 
 "./Imagenes/Respuestas/CT/R_CT_CT_M_1a.png", #[1] 
+"./Imagenes/Respuestas/CT/R_CT_CT_D_1a.png", #[2] 
 ]
 
 
