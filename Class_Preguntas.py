@@ -6614,7 +6614,7 @@ preguntas = [
     #     calculos='operations'
     #     ),
 
-    #LA SECCIÓN ESTARÁ DISPONIBLE PRONTO - NO BORRAR
+    #LA SECCIÓN ESTARÁ DISPONIBLE PRONTO - NO BORRAR -
     Questionary(#1_1
         code = 0,
         no_pregunta = 1,
