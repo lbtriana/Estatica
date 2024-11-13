@@ -6488,68 +6488,64 @@ preguntas = [
         calculos='operations'
         ),
    
-    # Questionary(#2_1
-    #     code = 7220011,
-    #     no_pregunta = 1,
-    #     complexity = M,
-    #     topic = "Fuerzas distribuidas",
-    #     subtopic = "Presión hidrostática",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza hidrostática (en kN) que actúa sobre la presa, la cual tiene un ancho $ a = {d[0]:.0f} \\text{{ m}}$ y tiene una forma de parabola la cual puede ser descrita por la ecuación $ Y = {((d[3]+8)/50):.2f} \\cdot X^2$. Considere $d_1 = {((d[3]+8)/50)*pow(3+(d[6]/2),2):.2f} \\text{{ m}}$,  $d_2 = {3+(d[6]/2):.2f}  \\text{{ m}}$, la densidad del agua $\\rho_1 = 1000 \\dfrac{{kg}}{{m^3}} y la aceleración debida a la gravedad $g = 9,81 \\dfrac{{m}}{{s^2}}$.",
-    #     no_answers = 1,
-    #     a1_name = "Magnitud fuerza hidrostáctica $|F_R|$ [kN]",
-    #     a2_name = "",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(Calculations.magnitude((981/100)*d[0]*((d[3]+8)/50)*(2/3)*pow(3+(d[6]/2),3),(981/100)*(1/2)*d[0]*pow(((d[3]+8)/50)*pow(3+(d[6]/2),2),2)),2),
-    #     answer2 = lambda f, a, calc, c, d, m: 0,
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "La presión hidrostática definida como la presión aplicada por un fluido en reposo debido a su propio peso, esta se genera en todos los puntos y actua perpendicularmente a las superificies sumergidas.",
-    #     ayuda2 = "La presión hidrostática aumenta linealmente con la profundidad y se formula como P = $\\rho \\cdot g \\cdot h$ , siendo $\\rho$ la densidad del fluido, g la aceleración debido a la gravedad y h la profundidad desde superficie al punto a evaluar",
-    #     ayuda3 = "Para superficies, la fuerza resultante dado presión hidrostática se calcula como $F_R = P \\cdot A$ siendo P la presión distribuida sobre la superficie y A como el área de la superficie.",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     La presión hidrostática es la presión aplicada por un fluido en reposo debido a su propio peso. A continuación, se presenta la solución sugerida para el ejercicio:
+    Questionary(#2_1
+        code = 7220021,
+        no_pregunta = 2,
+        complexity = M,
+        topic = FD,
+        subtopic = FD,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza hidrostática que actúa sobre la presa, la cual tiene un ancho $ a = {d[0]:.0f} \\text{{ m}}$ y una forma parabólica descrita por la ecuación $ f(X) = {((d[3]+8)/50):.2f} \\cdot X^2$. Considere $d_1=f(d_2)$, $d_2 = {3+(d[6]/2):.2f}  \\text{{ m}}$, la densidad del agua $\\rho_1 = 1000 \\dfrac{{kg}}{{m^3}}$ y la aceleración debida a la gravedad $g = 9,81 \\dfrac{{m}}{{s^2}}$.",
+        no_answers = 1,
+        a1_name = "Magnitud fuerza hidrostática $|F_R|$ [kN]",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(Calculations.magnitude((981/100)*d[0]*((d[3]+8)/50)*(2/3)*pow(3+(d[6]/2),3),(981/100)*(1/2)*d[0]*pow(((d[3]+8)/50)*pow(3+(d[6]/2),2),2)),2),
+        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = PH1,
+        ayuda2 = PH2,
+        ayuda3 = PH3,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        La presión hidrostática es la presión ejercida por un fluido en reposo. A continuación, se presenta la solución sugerida para el ejercicio:
         
-    #     $\\textbf{{\\small 1. División de fuerza distribuida: }}$
-    #     Dado a la configuración de la compuerta se puede obtener una presión hidrostática y una fuerza vertical dado al peso del agua.
-        
-    #     ##Imagen##  
-                
-    #     $\\textbf{{\\small 2. Puntualización de las fuerzas: }}$
-        
-    #     $\\underline{{Fuerza \\hspace{{2mm}} vertical:}}$ 
-                
-    #     ${{\hspace{{4mm}} W_1 = \\rho_a \\cdot g \\cdot a \\cdot (d_1 \\cdot d_2 - \\int_{{0}}^{{d_2}} {((d[3]+8)/50):.2f} \\cdot X^2\\,dx)}}$           
-    #     ${{\hspace{{4mm}} W_1 = \\rho_a \\cdot g \\cdot a \\cdot (d_1 \\cdot d_2 - {((d[3]+8)/50):.2f} \\cdot \\dfrac{{(d_2)^3}}{{3}} )}}$       
-        
-    #     La ubicación en el eje X de esta componente se puede encontrar resolviendo:
-        
-    #     ${{\hspace{{4mm}} X_w = \\dfrac{{\\dfrac{{d_1 \\cdot (d_2)^2 }}{{2}} - \\int_{{0}}^{{d_2}} {((d[3]+8)/50):.2f} \\cdot X^3 \\,dx}}{{d_1 \\cdot d_2 - \\int_{{0}}^{{d_2}} {((d[3]+8)/50):.2f} \\cdot X^2 \\,dx}} }}$
-    #     ${{\hspace{{4mm}} X_w = \\dfrac{{\\dfrac{{d_1 \\cdot (d_2)^2}}{{2}} - {((d[3]+8)/50):.2f} \\cdot \\dfrac{{(d_2)^4}}{{4}}}}{{d_1 \\cdot d_2 - {((d[3]+8)/50):.2f} \\cdot \\dfrac{{(d_2)^3}}{{3}}}}}}$
+        $\\textbf{{\\small 1. División de fuerza distribuida: }}$
 
-    #     O a partir de la tabla del libro de propiedades geométricas de figuras comunes, se sabe que esta es:
+        Dada la configuración de la presa, se puede obtener una presión hidrostática y una fuerza vertical originada por el peso del agua.
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        $\\textbf{{\\small 2. Puntualización de las fuerzas: }}$
+        
+        Primero, se halla la distancia $d_1$ aplicando la ecuación de la parábola:
 
-    #     ${{\hspace{{4mm}} X_w = \\dfrac{{3 \\cdot d_2}}{{8}}}}$     
-        
-    #     $\\underline{{Fuerza \\hspace{{2mm}} de \\hspace{{2mm}} presión:}}$ 
-        
-    #     ${{\hspace{{4mm}} F_P = a \\cdot \\dfrac{{p_1 \\cdot d_1}}{{2}}}}$     
-    #     ${{\hspace{{4mm}} F_P = a \\cdot \\dfrac{{\\rho_a \\cdot g \\cdot d_1 \\cdot d_1}}{{2}}}}$
-        
-    #     La ubicación en el eje Y de esta componente está a $\\dfrac{{d_1}}{{3}}$
-                              
-    #     $\\textbf{{\\small 3. Magnitud de fuerza resultante: }}$
-        
-    #     Ahora bien, la fuerza resultante sera la sumatoria de las dos fuerzas encontradas:
-        
-    #     ${{\hspace{{4mm}} F_R = \\sqrt{{(w_1)^2 + (F_P)^2}}}}$     
-    #     ${{\hspace{{4mm}} F_R = {Calculations.magnitude(9810*d[0]*((d[3]+8)/50)*(2/3)*pow(3+(d[6]/2),3),9810*(1/2)*d[0]*pow(((d[3]+8)/50)*pow(3+(d[6]/2),2),2)):.2f} \\text{{ N}}}}$     
-    #     ${{\hspace{{4mm}} F_R = {Calculations.magnitude((981/100)*d[0]*((d[3]+8)/50)*(2/3)*pow(3+(d[6]/2),3),(981/100)*(1/2)*d[0]*pow(((d[3]+8)/50)*pow(3+(d[6]/2),2),2)):.2f} \\text{{ kN}}}}$     
+        ${{\hspace{{4mm}} d_1 =  f(X) = {((d[3]+8)/50):.2f} \\cdot X^2 }}$          
+        ${{\hspace{{4mm}} d_1 = {((d[3]+8)/50)*(3+(d[6]/2))**2:.2f} \\text{{m}}}}$ 
+
+        $\\underline{{Fuerza \\hspace{{2mm}} vertical:}}$ 
                
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
+        ${{\hspace{{4mm}} W_1 = \\rho_a \\cdot g \\cdot a \\cdot (d_1 \\cdot d_2 - \\int_{{0}}^{{d_2}} {((d[3]+8)/50):.2f} \\cdot X^2\\,dx)}}$           
+        ${{\hspace{{4mm}} W_1 = \\rho_a \\cdot g \\cdot a \\cdot (d_1 \\cdot d_2 - {((d[3]+8)/50):.2f} \\cdot \\dfrac{{(d_2)^3}}{{3}} )}}$       
+        ${{\hspace{{4mm}} W_1 = {(1000*9.81*2*((d[3]+8)/50)*pow(3+(d[6]/2),2)*(3+(d[6]/2))*d[0]*(1/3)):.2f} \\text{{ N}}}}$  
+        
+        $\\underline{{Fuerza \\hspace{{2mm}} de \\hspace{{2mm}} presión:}}$ 
+        
+        ${{\hspace{{4mm}} F_P = a \\cdot \\dfrac{{p_1 \\cdot d_1}}{{2}}}}$     
+        ${{\hspace{{4mm}} F_P = a \\cdot \\dfrac{{\\rho_a \\cdot g \\cdot d_1 \\cdot d_1}}{{2}}}}$      
+        ${{\hspace{{4mm}} F_P = {1000*9.81*((d[3]+8)/50)*pow(3+(d[6]/2),2)*((d[3]+8)/50)*pow(3+(d[6]/2),2)*d[0]*(1/2):.2f} \\text{{ N}}}}$
+                              
+        $\\textbf{{\\small 3. Magnitud de fuerza resultante: }}$
+        
+        Ahora bien, la fuerza resultante sera la sumatoria de las dos fuerzas encontradas:
+        
+        ${{\hspace{{4mm}} F_R = \\sqrt{{(w_1)^2 + (F_P)^2}}}}$     
+       
+        ${{\hspace{{4mm}} F_R = {Calculations.magnitude(9810*d[0]*((d[3]+8)/50)*(2/3)*pow(3+(d[6]/2),3),9810*(1/2)*d[0]*pow(((d[3]+8)/50)*pow(3+(d[6]/2),2),2)):.2f} \\text{{ N}}}}$     
+        
+        ${{\hspace{{4mm}} F_R = {Calculations.magnitude((981/100)*d[0]*((d[3]+8)/50)*(2/3)*pow(3+(d[6]/2),3),(981/100)*(1/2)*d[0]*pow(((d[3]+8)/50)*pow(3+(d[6]/2),2),2)):.2f} \\text{{ kN}}}}$     
+        """,
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
 
     # Questionary(#3_1
     #     code = 7220021,
@@ -6643,8 +6639,7 @@ preguntas = [
         respuesta_P1 = lambda fa, a, calc, c, d, m: f"",
         respuesta_P2 = lambda fa, a, calc, c, d, m: f"",
         respuesta_P3 = lambda fa, a, calc, c, d, m: f"",
-        calculos = 'operations'
+        calculos = 'operations',
         ),
-
 
     ]

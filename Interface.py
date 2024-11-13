@@ -872,7 +872,7 @@ if authenticate_user():
                     if pregunta_no == 1:
                         st.image(FD_image_paths[3], width=350)
                     if pregunta_no == 2:
-                        st.image(FD_image_paths[4], width=300) 
+                        st.image(FD_image_paths[4], width=450) 
                     if pregunta_no == 3:
                         st.image(FD_image_paths[5], width=300)    
                 
@@ -979,7 +979,7 @@ if authenticate_user():
                     if pregunta_no ==1:
                         st.image(FD_rtas_paths[5], width=350)
                     if pregunta_no ==2:
-                        st.image(FD_rtas_paths[6], width=200)
+                        st.image(FD_rtas_paths[6], width=350)
                     if pregunta_no ==3:
                         st.image(FD_rtas_paths[7], width=200)
 
