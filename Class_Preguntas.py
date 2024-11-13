@@ -6548,32 +6548,31 @@ preguntas = [
         ),
 
     # Questionary(#3_1
-    #     code = 7220021,
-    #     no_pregunta = 2,
+    #     code = 7220031,
+    #     no_pregunta = 3,
     #     complexity = M,
-    #     topic = "Fuerzas distribuidas",
-    #     subtopic = "Presión hidrostática",
+    #     topic = FD,
+    #     subtopic = FD,
     #     version = 1,
     #     pregunta = lambda f, a, calc, c, d, m: f"La presa de “gravedad” de concreto es mantenida en su lugar por su propio peso. Determine la dimensión $d_3$ más pequeña que impide que la presa se voltee alrededor de su extremo A. Considere $d_1 = {d[0] + d[3]*2:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$, la densidad del agua $\\rho_a = 1000 \\dfrac{{kg}}{{m^3}}, la densidad del concreto $\\rho_c = {2400+m[0]:.0f} \\dfrac{{kg}}{{m^3}} y la aceleración debida a la gravedad $g = 9,81 \\dfrac{{m}}{{s^2}}$.",
     #     no_answers = 1,
     #     a1_name = "Dimensión $d_3$ [m]",
     #     a2_name = "",
     #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round((-d[3]*(1400+m[0])+math.sqrt(3*pow((2400+m[0])*d[3],2) + 6*(2400+m[0])*1000*pow(d[3],2) + 9*pow(d[3]*1000,2) + 4*(2400+m[0])*1000*pow(d[0]+d[3]*2,2) + 8*pow(1000*(d[0]+2*d[3]))))/(2*(400+m[0])),2),
+    #     answer1 = lambda f, a, calc, c, d, m: np.round((-d[3]*(1400+m[0])+math.sqrt(3*pow((2400+m[0])*d[3],2) + 6*(2400+m[0])*1000*pow(d[3],2) + 9*pow(d[3]*1000,2) + 4*(2400+m[0])*1000*pow(d[0]+d[3]*2,2) + 8*pow(1000*(d[0]+2*d[3]),2)))/(2*(400+m[0])),2),
     #     answer2 = lambda f, a, calc, c, d, m: 0,
     #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "La presión hidrostática definida como la presión aplicada por un fluido en reposo debido a su propio peso, esta se genera en todos los puntos y actua perpendicularmente a las superificies sumergidas.",
-    #     ayuda2 = "La presión hidrostática aumenta linealmente con la profundidad y se formula como P = $\\rho \\cdot g \\cdot h$ , siendo $\\rho$ la densidad del fluido, g la aceleración debido a la gravedad y h la profundidad desde superficie al punto a evaluar",
-    #     ayuda3 = "Para superficies, la fuerza resultante dado presión hidrostática se calcula como $F_R = P \\cdot A$ siendo P la presión distribuida sobre la superficie y A como el área de la superficie.",
+    #     ayuda1 = PH1,
+    #     ayuda2 = PH2,
+    #     ayuda3 = PH3,
     #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
     #     La presión hidrostática es la presión aplicada por un fluido en reposo debido a su propio peso. A continuación, se presenta la solución sugerida para el ejercicio:
         
     #     $\\textbf{{\\small 1. Representación de ejercicio: }}$
-    #     Dado a la configuración de la compuerta se puede obtener una presión hidrostática y tres fuerzas verticales dado al peso del agua y de la presa.
-        
-    #     ##Imagen##  
-                
-    #     $\\textbf{{\\small 2. Puntualización de las fuerzas: }}$
+    #     Dado a la configuración de la compuerta se puede obtener una presión hidrostática y tres fuerzas verticales dado al peso del agua y de la presa.        
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+    #      $\\textbf{{\\small 2. Puntualización de las fuerzas: }}$
     #     Asumiendo un ancho "a" de 1m
         
     #     $\\underline{{Fuerzas \\hspace{{2mm}} verticales:}}$ 
@@ -6605,14 +6604,12 @@ preguntas = [
     #     ${{\hspace{{4mm}} d_3 = \\dfrac{{- d_2 (\\rho_c - \\rho_a) \\pm \\sqrt{{3 \\cdot (\\rho_c)^2 \\cdot (d_2)^2 + 6 \\cdot \\rho_c \\cdot \\rho_a \\cdot (d_2)^2  + 9 \\cdot (\\rho_a)^2 \\cdot (d_2)^2 + 4 \\cdot \\rho_c \\cdot \\rho_a \\cdot (d_1)^2 + 8 \\cdot (\\rho_a)^2 \\cdot (d_1)^2}}}}{{2 \\cdot (\\rho_c - 2 \\cdot \\rho_a)}}}}$
         
     #     Dando como resultado:
-    #     ${{\hspace{{4mm}} d_3 = {(-d[3]*(1400+m[0])-math.sqrt(3*pow((2400+m[0])*d[3],2) + 6*(2400+m[0])*1000*pow(d[3],2) + 9*pow(d[3]*1000,2) + 4*(2400+m[0])*1000*pow(d[0]+d[3]*2,2) + 8*pow(1000*(d[0]+2*d[3]))))/(2*(400+m[0])):.2f} \\text{{ m}}}}$
+    #     ${{\hspace{{4mm}} d_3 = {(-d[3]*(1400+m[0])-math.sqrt(3*pow((2400+m[0])*d[3],2) + 6*(2400+m[0])*1000*pow(d[3],2) + 9*pow(d[3]*1000,2) + 4*(2400+m[0])*1000*pow(d[0]+d[3]*2,2) + 8*pow(1000*(d[0]+2*d[3]),2)))/(2*(400+m[0])):.2f} \\text{{ m}}}}$
     #     y
-    #     ${{\hspace{{4mm}} d_3 = {(-d[3]*(1400+m[0])+math.sqrt(3*pow((2400+m[0])*d[3],2) + 6*(2400+m[0])*1000*pow(d[3],2) + 9*pow(d[3]*1000,2) + 4*(2400+m[0])*1000*pow(d[0]+d[3]*2,2) + 8*pow(1000*(d[0]+2*d[3]))))/(2*(400+m[0])):.2f} \\text{{ m}}}}$
+    #     ${{\hspace{{4mm}} d_3 = {(-d[3]*(1400+m[0])+math.sqrt(3*pow((2400+m[0])*d[3],2) + 6*(2400+m[0])*1000*pow(d[3],2) + 9*pow(d[3]*1000,2) + 4*(2400+m[0])*1000*pow(d[0]+d[3]*2,2) + 8*pow(1000*(d[0]+2*d[3]),2)))/(2*(400+m[0])):.2f} \\text{{ m}}}}$
         
     #     Y se procede a tomar la solución positiva.
-        
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     """,
     #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
     #     calculos='operations'
     #     ),
