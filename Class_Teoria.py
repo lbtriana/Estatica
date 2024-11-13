@@ -1099,7 +1099,7 @@ conceptuales = [
         code = 8100010, 
         no_pregunta = 1,
         topic = "Fuerzas distribuidas",
-        subtopic = "Fuerzas distribuidas",
+        subtopic = "Vigas",
         enunciado = "¿Cuál es la reacción en cada uno de los apoyos debido al peso propio del puente de luz $(L)$ simplemente apoyado?.", 
         opcion_1 = """$W \\cdot L$ \\
         $\\text{{    }}$""",
@@ -1119,7 +1119,7 @@ conceptuales = [
         code = 8100020, 
         no_pregunta = 2,
         topic = "Fuerzas distribuidas",
-        subtopic = "Fuerzas distribuidas",
+        subtopic = "Vigas",
         enunciado =" La fuerza distribuida mostrada en la figura es equivalente luna fuerza puntual de magnitud:",    
         opcion_1 = """$(W_2 - W_1) \\cdot L $ \\
         $\\text{{    }}$""",
@@ -1151,7 +1151,7 @@ conceptuales = [
         code = 8100030, 
         no_pregunta = 3,
         topic = "Fuerzas distribuidas",
-        subtopic = "Fuerzas distribuidas",
+        subtopic = "Vigas",
         enunciado ="Considerando la siguiente figura, ¿Cómo se puede determinar una fuerza puntual equivalente para la carga distribuida?", 
         opcion_1 = "Dividir la fuerza distribuida en figuras comunes y conocidas.",
         opcion_2 = "Integrar la función f(x).",
@@ -1166,7 +1166,7 @@ conceptuales = [
         code = 8100040, 
         no_pregunta = 4,
         topic = "Fuerzas distribuidas",
-        subtopic = "Fuerzas distribuidas",
+        subtopic = "Vigas",
         enunciado ="La ubicación de una fuerza puntual equivalente para una carga distribuida es:", 
         opcion_1 = "El punto medio de la carga distribuida.",
         opcion_2 = "El centroide de la carga distribuida.",
@@ -1180,11 +1180,14 @@ conceptuales = [
      #-------------------------------------- Fuerzas distribuidas- PRESIÓN HIDROSTÁTICA ------------------------------------------
      #-------------------------------------------------       82000##0         ---------------------------------------------------
     
+#---------------------------------------------- Fuerzas distribuidas- PRESIONES HIDROSTÁTICAS -------------------------------------------------
+#-------------------------------------------------       82000##0         ---------------------------------------------------
+
     # Theory(#1
     #     code = 8200010, 
     #     no_pregunta = 1,
     #     topic = "Fuerzas distribuidas",
-    #     subtopic = "Fuerzas distribuidas",
+    #     subtopic = "Presiones hidrostáticas",
     #     enunciado ="Considere la siguiente figura y ordene de mayor a menor presión hidrostática", 
     #     opcion_1 = "II, IV, I, III",
     #     opcion_2 = "III,I,IV,III",
@@ -1196,42 +1199,47 @@ conceptuales = [
     #     Por otro, la presión hidrostática en paredes inclinadas es mayor que en paredes completamente verticales debido a la influencia del peso del agua que aparece sobre la inclinación siempre y cuando estas se encuentren a la misma altura sumergida.""",
     #     respuesta_P2 = "",
     #     ),
-    # Theory(#2
-    #     code = 8200020, 
-    #     no_pregunta = 2,
-    #     topic = "Fuerzas distribuidas",
-    #     subtopic = "Fuerzas distribuidas",
-    #     enunciado =""" Cuál(es) de las siguientes opciones es correcta:
-    #     I. la presión se representa como una carga distribuida perpendicular a la superficie.
-    #     II. Las presiones hidrostáticas son representadas por medio de una fuerza distribuida triangular.
-    #     III. Si h_agua > h_muro; es decir, si el muro está sumergido, debe tenerse en cuenta el peso del agua arriba.
-    #     IV.  Por facilidad de calculos es correcto dividir la presión en componentes donde la vertical es un peso.
-    #     """, 
-    #     opcion_1 = "I, II y IV",
-    #     opcion_2 = "II y III",
-    #     opcion_3 = "I",
-    #     opcion_4 = "Todas son correctas",
-    #     opcion_correcta = "Todas son correctas",
-    #     respuesta_P1 = """Cada una de las afirmaciones son correctas y deben aplicarse en los calculos. 
-    #     En general, la representación de la presión hidrostática es una carga distribuida triangular debido a que la presión aumenta linealmente con la profundidad.
-    #     Dicha presión actua siempre a 90° de la superficie y por ello, cuando se tienen cargas inclinadas es posible obtener componentes en x e y. 
-    #     La componente en x es una distribuida triangular y la componente vertical se obtiene como un peso.""",
-    #     respuesta_P2 = "",
-    #     ),
-    # Theory(#3
-    #     code = 8200030, 
-    #     no_pregunta = 3,
-    #     topic = "Equilibrio de partículas",
-    #     subtopic = "Fuerzas distribuidas",
-    #     enunciado ="Considerando la siguiente figura ¿Cuál(es) es(son) el(los) diagrama(s) correcto(s)?", 
-    #     opcion_1 = "Solamemte I",
-    #     opcion_2 = "I y II",
-    #     opcion_3 = "I y III",
-    #     opcion_4 = "Solamente II.",
-    #     opcion_correcta = "I y III",
-    #     respuesta_P1 = """La figura III es una presión triangular perpendicular a la superficie y la I es su forma descompuesta.""",
-    #     respuesta_P2 = "",
-    #     ),
+
+    Theory(#2
+        code = 8200020, 
+        no_pregunta = 2,
+        topic = "Fuerzas distribuidas",
+        subtopic = "Presiones hidrostáticas",
+        enunciado =""" 
+        ¿Cuál(es) de la(s) siguiente(s) opcion(es) es(son) correcta(s)?:  
+
+        I. la presión es una carga distribuida perpendicular a la superficie.    
+        II. Las presiones hidrostáticas para una superficie lineal son una fuerza distribuida triangular.    
+        III. Si la altura del agua es mayor a la altura del muro, es decir, el muro está sumergido, debe tenerse en cuenta el peso de la columna de agua sobre él.     
+        IV.  Para simplificar los cálculos, es correcto dividir la presión en componentes; la vertical es el peso del agua y la horizontal la presión del fluido.    
+        """, 
+        opcion_1 = "I, II y IV",
+        opcion_2 = "II y III",
+        opcion_3 = "I",
+        opcion_4 = "Todas son correctas",
+        opcion_correcta = "Todas son correctas",
+        respuesta_P1 = """
+        Todas las afirmaciones son correctas y deben considerarse en los cálculos:
+        
+        Para superficies rectas, la representación de la presión hidrostática es una carga distribuida triangular, debido a que la presión aumenta linealmente con la profundidad. Esta presión actúa siempre a 90° de la superficie, por lo tanto, cuando la carga es inclinada se tienen componentes en x, y. La componente en x es la presión hidrostática del fluido representada por una carga distribuida triangular y la componente vertical es el peso del fluido.
+        """,
+        respuesta_P2 = "",
+        ),
+
+    Theory(#3
+        code = 8200030, 
+        no_pregunta = 3,
+        topic = "Fuerzas distribuidas",
+        subtopic = "Presiones hidrostáticas",
+        enunciado ="Considerando la siguiente figura ¿cuál(es) es(son) el(los) diagrama(s) correcto(s)?", 
+        opcion_1 = "Solamemte I",
+        opcion_2 = "I y II",
+        opcion_3 = "I y III",
+        opcion_4 = "Solamente II.",
+        opcion_correcta = "I y III",
+        respuesta_P1 = "Las representaciones correctas son I y III. El diagrama III representa correctamente la presión triangular perpendicular a la superficie y el diagrama I es su forma descompuesta, utilizada como método de cálculo.",
+        respuesta_P2 = "",
+        ),
     
     # Theory(#4
     #     code = 8200040, 

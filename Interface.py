@@ -491,7 +491,7 @@ if authenticate_user():
             if topic == "Centroides":
                 subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Centroides"])
             if topic == "Fuerzas distribuidas":
-                subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Fuerzas distribuidas"])
+                subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Vigas", "Presiones hidrostáticas"])
 
             if consent:
                 log_event(st.session_state["username"], "theory_section_accessed", {})
@@ -1240,13 +1240,20 @@ if authenticate_user():
                     st.image(CT_teoria_preguntas[1], width=350)
                 if pregunta_no == 6:
                     st.image(CT_teoria_preguntas[2], width=300)
-            if subtopic == "Fuerzas distribuidas":
+            if subtopic == "Vigas":
                 if pregunta_no == 1:
                     st.image(FD_teoria_preguntas[0], width=520)
                 if pregunta_no == 2:
-                    st.image(FD_teoria_preguntas[1], width=450)
+                    st.image(FD_teoria_preguntas[1], width=400)
                 if pregunta_no == 3:
                     st.image(FD_teoria_preguntas[2], width=520)
+
+        with left_col:
+            if subtopic == "Presiones hidrostáticas":
+                if pregunta_no == 1:
+                    st.image(FD_teoria_preguntas[3], width=900)
+                if pregunta_no == 3:
+                    st.image(FD_teoria_preguntas[4], width=750)
         return
 
     #Función para mostrar la imagen de la respuesta

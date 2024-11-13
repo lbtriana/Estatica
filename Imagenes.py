@@ -302,9 +302,14 @@ CT_teoria_preguntas=[
 ]
 
 FD_teoria_preguntas = [
+#Vigas
 "./Imagenes/Teoria_Preguntas/FD/VI/T_FD_VI_1.png", #[0]
 "./Imagenes/Teoria_Preguntas/FD/VI/T_FD_VI_2.png", #[1]
 "./Imagenes/Teoria_Preguntas/FD/VI/T_FD_VI_3.png", #[2]
+
+#Presiones hidrostáticas
+"./Imagenes/Teoria_Preguntas/FD/PH/T_FD_PH_1.png", #[3]
+"./Imagenes/Teoria_Preguntas/FD/PH/T_FD_PH_3.png", #[4]
 ]
 
 #==========================================RESPUESTAS TEORÍA==============================================
