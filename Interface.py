@@ -1253,7 +1253,7 @@ if authenticate_user():
                 if pregunta_no == 1:
                     st.image(FD_teoria_preguntas[3], width=900)
                 if pregunta_no == 3:
-                    st.image(FD_teoria_preguntas[4], width=750)
+                    st.image(FD_teoria_preguntas[4], width=900)
         return
 
     #Función para mostrar la imagen de la respuesta
