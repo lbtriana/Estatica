@@ -6554,7 +6554,7 @@ preguntas = [
     #     topic = FD,
     #     subtopic = FD,
     #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"La presa de “gravedad” de concreto es mantenida en su lugar por su propio peso. Determine la dimensión $d_3$ más pequeña que impide que la presa se voltee alrededor de su extremo A. Considere $d_1 = {d[0] + d[3]*2:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$, la densidad del agua $\\rho_a = 1000 \\dfrac{{kg}}{{m^3}}, la densidad del concreto $\\rho_c = {2400+m[0]:.0f} \\dfrac{{kg}}{{m^3}} y la aceleración debida a la gravedad $g = 9,81 \\dfrac{{m}}{{s^2}}$.",
+    #     pregunta = lambda f, a, calc, c, d, m: f"La presa de “gravedad” de concreto es mantenida en su lugar por su propio peso. Determine la dimensión $d_3$ más pequeña que impide que la presa se voltee alrededor de su extremo $A$. Considere $d_1 = {d[0] + d[3]*2:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$, la densidad del agua $\\rho_a = 1000 \\dfrac{{kg}}{{m^3}}$, la densidad del concreto $\\rho_c = {2400+m[0]:.0f} \\dfrac{{kg}}{{m^3}}$ y la aceleración debida a la gravedad $g = 9,81 \\dfrac{{m}}{{s^2}}$.",
     #     no_answers = 1,
     #     a1_name = "Dimensión $d_3$ [m]",
     #     a2_name = "",
@@ -6614,7 +6614,7 @@ preguntas = [
     #     calculos='operations'
     #     ),
 
-    # LA SECCIÓN ESTARÁ DISPONIBLE PRONTO
+    #LA SECCIÓN ESTARÁ DISPONIBLE PRONTO
     Questionary(#1_1
         code = 0,
         no_pregunta = 1,

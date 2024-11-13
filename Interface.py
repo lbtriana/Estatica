@@ -479,7 +479,7 @@ if authenticate_user():
 
         if way == "Teoría":
             st.sidebar.header("Teoría")
-            topic=st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Apoyos y reacciones", "Centroides"])
+            topic=st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Apoyos y reacciones", "Centroides", "Fuerzas distribuidas"])
             respuesta_usuario['topic'] = topic
 
             if topic == "Equilibrio de partículas":
@@ -490,6 +490,8 @@ if authenticate_user():
                 subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Apoyos y reacciones"])
             if topic == "Centroides":
                 subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Centroides"])
+            if topic == "Fuerzas distribuidas":
+                subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Fuerzas distribuidas"])
 
             if consent:
                 log_event(st.session_state["username"], "theory_section_accessed", {})
@@ -874,7 +876,7 @@ if authenticate_user():
                     if pregunta_no == 2:
                         st.image(FD_image_paths[4], width=450) 
                     if pregunta_no == 3:
-                        st.image(FD_image_paths[5], width=300)    
+                        st.image(FD_image_paths[5], width=400)    
                 
             if difficulty == "Díficil":
                 if subtopic == "Vectores 2D":
@@ -967,7 +969,6 @@ if authenticate_user():
                     if pregunta_no ==3:
                         st.image(FD_rtas_paths[3], width=350)
                     
-
             if difficulty == "Medio":
                 if subtopic == "Equilibrio 2D":
                     if pregunta_no == 1:
@@ -981,7 +982,7 @@ if authenticate_user():
                     if pregunta_no ==2:
                         st.image(FD_rtas_paths[6], width=350)
                     if pregunta_no ==3:
-                        st.image(FD_rtas_paths[7], width=200)
+                        st.image(FD_rtas_paths[7], width=350)
 
             if difficulty == "Díficil":
                 if subtopic == "Vectores 2D":
@@ -1239,7 +1240,13 @@ if authenticate_user():
                     st.image(CT_teoria_preguntas[1], width=350)
                 if pregunta_no == 6:
                     st.image(CT_teoria_preguntas[2], width=300)
-
+            if subtopic == "Fuerzas distribuidas":
+                if pregunta_no == 1:
+                    st.image(FD_teoria_preguntas[0], width=520)
+                if pregunta_no == 2:
+                    st.image(FD_teoria_preguntas[1], width=450)
+                if pregunta_no == 3:
+                    st.image(FD_teoria_preguntas[2], width=520)
         return
 
     #Función para mostrar la imagen de la respuesta

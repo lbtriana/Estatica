@@ -301,6 +301,11 @@ CT_teoria_preguntas=[
 "./Imagenes/Teoria_Preguntas/CT/T_CT_CT_6.png", #[2] 
 ]
 
+FD_teoria_preguntas = [
+"./Imagenes/Teoria_Preguntas/FD/VI/T_FD_VI_1.png", #[0]
+"./Imagenes/Teoria_Preguntas/FD/VI/T_FD_VI_2.png", #[1]
+"./Imagenes/Teoria_Preguntas/FD/VI/T_FD_VI_3.png", #[2]
+]
 
 #==========================================RESPUESTAS TEORÍA==============================================
 
@@ -312,3 +317,4 @@ EQ_teoria_respuestas =[
 CT_teoria_respuestas =[
 "./Imagenes/Teoria_Respuestas/CT/RT_CT_CT_6.png", #[0] 
 ]
+

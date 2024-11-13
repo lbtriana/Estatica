@@ -893,7 +893,7 @@ conceptuales = [
 
 
 
-#------------------------------------------------------  Centrides-----------------------------------------------------------
+#------------------------------------------------------  Centroides-----------------------------------------------------------
 #-------------------------------------------------       71000#0         ---------------------------------------------------
     Theory(#1
         code = 7100010, 
@@ -1026,7 +1026,273 @@ conceptuales = [
 
         $\\bar{{X}}=\\dfrac{{\\int_0^6 x \\cdot x^2 dx}}{{\\int_0^6{{x^2 dx}}}}$
         """,
-        ),   
+        ),      
+    
+    # Theory(#7
+    #     code = 7100070, 
+    #     no_pregunta = 7,
+    #     topic = "Centroides",
+    #     subtopic = "Centroides",
+    #     enunciado ="Considere la siguiente figura e indique cual es su centroide en x respecto al punto O:", 
+    #     opcion_1 = "I",
+    #     opcion_2 = "II",
+    #     opcion_3 = "III",
+    #     opcion_4 = "IV",
+    #     opcion_correcta = "IV",
+    #     respuesta_P1 = """Recuerde que el centroide de un triangulos es 1/3b si se toma desde el angulo recto y 2/3b si se toma desde un ángulo agudo como ocurre en este caso. 
+    #     Dado que 2/3b no se encuentra entre las opciones, se emplea la definición de centroide cuando se tiene una ecuación.""",
+    #     respuesta_P2 = "",
+    #     ),
+    
+    # Theory(#8
+    #     code = 7100080, 
+    #     no_pregunta = 8,
+    #     topic = "Centroides",
+    #     subtopic = "Centroides",
+    #     enunciado ="Considere la siguiente figura e indique cual es su centroide en Y respecto al punto O:", 
+    #     opcion_1 = "I",
+    #     opcion_2 = "II",
+    #     opcion_3 = "III",
+    #     opcion_4 = "IV",
+    #     opcion_correcta = "II",
+    #     respuesta_P1 = """Recuerde que el centroide de un triangulos es 1/3b si se toma desde el angulo recto y 2/3b si se toma desde un ángulo agudo como ocurre en este caso. 
+    #     Dado que 2/3b no se encuentra entre las opciones, se emplea la definición de centroide cuando se tiene una ecuación.
+    #     Evidencie que dado que la base y la altura del triangulo es la misma, los limetes de la integral para x e y son los mismos.""",
+    #     respuesta_P2 = "",
+    #     ),
+    
+    # Theory(#9
+    #     code = 7100090, 
+    #     no_pregunta = 9,
+    #     topic = "Centroides",
+    #     subtopic = "Centroides",
+    #     enunciado ="¿Dónde se encuentra el centro de masa de la placa compuesta mostrada en la siguiente figura?: ", 
+    #     opcion_1 = "En el eje y se ubica en h/2 y en el eje x en b/2",
+    #     opcion_2 = "En el eje y se ubica en h/2 y en el eje x se ubica más cerca del lado de la madera.",
+    #     opcion_3 = "En el eje y se ubica en h/2 y en el eje x se ubica más cerca del lado del acero.",
+    #     opcion_4 = "En el eje y se ubica en la base y en el eje x se ubica más cerca del lado de la acero.",
+    #     opcion_correcta = "En el eje y se ubica en h/2 y en el eje x se ubica más cerca del lado del acero.",
+    #     respuesta_P1 = "El centro de masa se encuentra más cerca del material que tiene mayor densidad. Como el metal tiene una densidad mayor que la madera, el centro de masa se desplazará hacia el lado del metal, ya que esta parte contribuye con más masa al objeto total.",
+    #     respuesta_P2 = "",
+    #     ),
+    
+    # Theory(#10
+    #     code = 7100100, 
+    #     no_pregunta = 10,
+    #     topic = "Centroides",
+    #     subtopic = "Centroides",
+    #     enunciado ="Considerando la siguiente figura, si se sabe que la densidad del material inferior es mayor y que los materiales componen al cilindro en un 50-50, ¿Cuál de las siguientes afirmaciones es correcta sobre la ubicación del centro de masa? ", 
+    #     opcion_1 = "El centro de masa estará en el centro geométrico del cilindro.",
+    #     opcion_2 = "El centro de masa estará más cerca de la sección superior",
+    #     opcion_3 = "El centro de masa estará más cerca de la sección inferior.",
+    #     opcion_4 = "El centro de masa se ubicará en la línea de unión entre las dos secciones",
+    #     opcion_correcta = "El centro de masa estará más cerca de la sección inferior",
+    #     respuesta_P1 = """El centro de masa se encuentra más cerca del material que tiene mayor densidad. Como el material inferior tiene una densidad mayor, el centro de masa se desplazará hacia abajo.""",
+    #     respuesta_P2 = "",
+    #     ),
+
+
+#---------------------------------------------- Fuerzas distribuidas- VIGAS -------------------------------------------------
+#-------------------------------------------------       81000##0         ---------------------------------------------------
+    
+    Theory(#1
+        code = 8100010, 
+        no_pregunta = 1,
+        topic = "Fuerzas distribuidas",
+        subtopic = "Fuerzas distribuidas",
+        enunciado = "¿Cuál es la reacción en cada uno de los apoyos debido al peso propio del puente de luz $(L)$ simplemente apoyado?.", 
+        opcion_1 = """$W \\cdot L$ \\
+        $\\text{{    }}$""",
+        opcion_2 = """$\\dfrac{{W \\cdot L}}{{4}}$ \\
+        $\\text{{    }}$""",
+        opcion_3 = """$\\dfrac{{W \\cdot L}}{{2}}$ \\
+        $\\text{{    }}$""",
+        opcion_4 = """$\\dfrac{{3 \\cdot W \\cdot L}}{{4}}$ \\
+        $\\text{{    }}$""",
+        opcion_correcta = """$\\dfrac{{W \\cdot L}}{{2}}$ \\
+        $\\text{{    }}$""",
+        respuesta_P1 = "Para una carga uniformemente distribuida sobre una viga simplemente apoyada, la carga total se distribuye equitativamente entre los dos soportes. En este caso la carga total es $W \\cdot L$, por lo tanto, cada apoyo soporta la mitad de esta carga, $\\left(\\dfrac{{W \\cdot L}}{{2}} \\right)$.",
+        respuesta_P2 = "",
+        ),
+
+    Theory(#2
+        code = 8100020, 
+        no_pregunta = 2,
+        topic = "Fuerzas distribuidas",
+        subtopic = "Fuerzas distribuidas",
+        enunciado =" La fuerza distribuida mostrada en la figura es equivalente luna fuerza puntual de magnitud:",    
+        opcion_1 = """$(W_2 - W_1) \\cdot L $ \\
+        $\\text{{    }}$""",
+        opcion_2 = """$W_1 \\cdot x + (W_2 - W_1) \\cdot x $ \\
+        $\\text{{    }}$""",
+        opcion_3 = """$(W_2 - W_1) \\cdot x $ \\
+        $\\text{{    }}$""",
+        opcion_4 = """$\\dfrac{{W_2+W_1}}{{2}} \\cdot x$ \\
+        $\\text{{    }}$""",
+        opcion_correcta = """$\\dfrac{{W_2+W_1}}{{2}} \\cdot x$ \\
+        $\\text{{    }}$""",
+        respuesta_P1 = """
+        Se puede calcular una fuerza puntual a partir de una fuerza distribuida calculando el área de esta. En este caso, la fuerza puntual puede determinarse como el área del trapecio con base $x$, o se puede dividir la figura en partes más simple cuyos resultados se pueden sumar:
+
+        Área del trapecio:
+
+        $\\dfrac{{W_2+W_1}}{{2}} \\cdot x$
+
+        División en un rectángulo de altura $W_1$ y base $x$, y un triángulo de altura $(W_2-W_1)$ y base $x$:    
+        
+        $W_1 \\cdot x + \\dfrac{{(W_2-W_1) \\cdot x}}{{2}}$
+
+        Al simplificar la anterior expresión, se obtiene la misma área del trapecio.        
+        """,
+        respuesta_P2 = "",
+        ),
+        
+    Theory(#3
+        code = 8100030, 
+        no_pregunta = 3,
+        topic = "Fuerzas distribuidas",
+        subtopic = "Fuerzas distribuidas",
+        enunciado ="Considerando la siguiente figura, ¿Cómo se puede determinar una fuerza puntual equivalente para la carga distribuida?", 
+        opcion_1 = "Dividir la fuerza distribuida en figuras comunes y conocidas.",
+        opcion_2 = "Integrar la función f(x).",
+        opcion_3 = "Restar el producto entre L y la mayor magnitud de la carga distribuida con el producto entre L y la menor magnitud de la carga distribuida. ",
+        opcion_4 = "Multiplicar L por el promedio de las magnitudes de la carga distribuida. ",
+        opcion_correcta = "Integrar la función f(x).",
+        respuesta_P1 = "Para cargas distribuidas descritas por funciones, la fuerza puntual equivalente se calcula como la integral definida de la función, la cual representa el área bajo la curva.",
+        respuesta_P2 = "",
+        ),
+    
+    Theory(#4
+        code = 8100040, 
+        no_pregunta = 4,
+        topic = "Fuerzas distribuidas",
+        subtopic = "Fuerzas distribuidas",
+        enunciado ="La ubicación de una fuerza puntual equivalente para una carga distribuida es:", 
+        opcion_1 = "El punto medio de la carga distribuida.",
+        opcion_2 = "El centroide de la carga distribuida.",
+        opcion_3 = "En un punto sobre la línea de acción de la carga, de forma que no genere momento.",
+        opcion_4 = "En el punto donde la carga distribuida es máxima.",
+        opcion_correcta = "El centroide de la carga distribuida.",
+        respuesta_P1 = "El centroide de una carga distribuida corresponde al punto de aplicación de su representación puntual. De esta manera, se garantiza un sistema equivalente a la carga original.",
+        respuesta_P2 = "",
+        ),
+    
+     #-------------------------------------- Fuerzas distribuidas- PRESIÓN HIDROSTÁTICA ------------------------------------------
+     #-------------------------------------------------       82000##0         ---------------------------------------------------
+    # Theory(#1
+    #     code = 8200010, 
+    #     no_pregunta = 1,
+    #     topic = "Fuerzas distribuidas",
+    #     subtopic = "Fuerzas distribuidas",
+    #     enunciado ="Considere la siguiente figura y ordene de mayor a menor presión hidrostática", 
+    #     opcion_1 = "II, IV, I, III",
+    #     opcion_2 = "III,I,IV,III",
+    #     opcion_3 = "IV, II, III, I",
+    #     opcion_4 = "I, III, II, IV",
+    #     opcion_correcta = "IV, II, III, I",
+    #     respuesta_P1 = """Los principales factores que influyen en la presión hidrostática son la densidad y profundidad. 
+    #     Por un lado, a mayor densidad del fluido mayor será la presión hirostática.
+    #     Por otro, la presión hidrostática en paredes inclinadas es mayor que en paredes completamente verticales debido a la influencia del peso del agua que aparece sobre la inclinación siempre y cuando estas se encuentren a la misma altura sumergida.""",
+    #     respuesta_P2 = "",
+    #     ),
+    # Theory(#2
+    #     code = 8200020, 
+    #     no_pregunta = 2,
+    #     topic = "Fuerzas distribuidas",
+    #     subtopic = "Fuerzas distribuidas",
+    #     enunciado =""" Cuál(es) de las siguientes opciones es correcta:
+    #     I. la presión se representa como una carga distribuida perpendicular a la superficie.
+    #     II. Las presiones hidrostáticas son representadas por medio de una fuerza distribuida triangular.
+    #     III. Si h_agua > h_muro; es decir, si el muro está sumergido, debe tenerse en cuenta el peso del agua arriba.
+    #     IV.  Por facilidad de calculos es correcto dividir la presión en componentes donde la vertical es un peso.
+    #     """, 
+    #     opcion_1 = "I, II y IV",
+    #     opcion_2 = "II y III",
+    #     opcion_3 = "I",
+    #     opcion_4 = "Todas son correctas",
+    #     opcion_correcta = "Todas son correctas",
+    #     respuesta_P1 = """Cada una de las afirmaciones son correctas y deben aplicarse en los calculos. 
+    #     En general, la representación de la presión hidrostática es una carga distribuida triangular debido a que la presión aumenta linealmente con la profundidad.
+    #     Dicha presión actua siempre a 90° de la superficie y por ello, cuando se tienen cargas inclinadas es posible obtener componentes en x e y. 
+    #     La componente en x es una distribuida triangular y la componente vertical se obtiene como un peso.""",
+    #     respuesta_P2 = "",
+    #     ),
+    # Theory(#3
+    #     code = 8200030, 
+    #     no_pregunta = 3,
+    #     topic = "Equilibrio de partículas",
+    #     subtopic = "Fuerzas distribuidas",
+    #     enunciado ="Considerando la siguiente figura ¿Cuál(es) es(son) el(los) diagrama(s) correcto(s)?", 
+    #     opcion_1 = "Solamemte I",
+    #     opcion_2 = "I y II",
+    #     opcion_3 = "I y III",
+    #     opcion_4 = "Solamente II.",
+    #     opcion_correcta = "I y III",
+    #     respuesta_P1 = """La figura III es una presión triangular perpendicular a la superficie y la I es su forma descompuesta.""",
+    #     respuesta_P2 = "",
+    #     ),
+    
+    # Theory(#4
+    #     code = 8200040, 
+    #     no_pregunta = 4,
+    #     topic = "Equilibrio de partículas",
+    #     subtopic = "Fuerzas distribuidas",
+    #     enunciado ="Si se quiere determinar las dimensiones de una base debe buscarse:", 
+    #     opcion_1 = "Que los momentos generados por las fuerzas actuantes (presiones) y las fuerzas resistentes (pesos) sean iguales.",
+    #     opcion_2 = "Que la sumatoria de momentos en un punto de la presa sea mayor a 0.",
+    #     opcion_3 = "Que la base sea mayor a la altura del agua.",
+    #     opcion_4 = "Que la sumatoria de momentos generados por las fuerzas actuantes (actuantes) sea 0.",
+    #     opcion_correcta = "Que los momentos generados por las fuerzas actuantes (presiones) y las fuerzas resistentes (pesos) sean iguales.",
+    #     respuesta_P1 = """Para diseñar presas en importante tener en cuenta las fuerzas actuantes y resistentes para evitar volcamientos y/o hundimientos de la estructura.""",
+    #     respuesta_P2 = "",
+    #     ),
+    
+    #  #-------------------------------------- Fuerzas distribuidas- PRESIÓN DE SUELO ----------------------------------------------
+    #  #-------------------------------------------------       83000##0         ---------------------------------------------------
+    # Theory(#1
+    #     code = 8300010, 
+    #     no_pregunta = 1,
+    #     topic = "Equilibrio de partículas",
+    #     subtopic = "Fuerzas distribuidas",
+    #     enunciado ="Cpnsidere la figura e indique cuál de las siguientes ecuaciones permite encontrar correctamente la dimensión B de la zapata", 
+    #     opcion_1 = "I",
+    #     opcion_2 = "II",
+    #     opcion_3 = "III",
+    #     opcion_4 = "IV",
+    #     opcion_correcta = "I",
+    #     respuesta_P1 = """Para calcular B debe realizarse una sumatoria de momentos en un punto (o) multiplicando el área de cada carga distribuida por su distancia al punto.
+    #     Esto teniendo en cuenta que las fuerzas puntuales equivalentes a cada distribuida se encuentran en su ccentroide.""",
+    #     respuesta_P2 = "",
+    #     ),
+    # Theory(#2
+    #     code = 8300020, 
+    #     no_pregunta = 2,
+    #     topic = "Equilibrio de partículas",
+    #     subtopic = "Fuerzas distribuidas",
+    #     enunciado ="Considerando la siguiente figura, hacia donde se dirije la fuerza generda por el anclaje (mostrado en color negro)", 
+    #     opcion_1 = "Hacia la izquierda",
+    #     opcion_2 = "Hacia abajo",
+    #     opcion_3 = "Hacia la derecha",
+    #     opcion_4 = "Hacia arriba",
+    #     opcion_correcta = "Hacia la derecha",
+    #     respuesta_P1 = "El anclaje siempre apunta en dirección contraria a la presión del suelo debido a que su objetvo es contrarestar su efecto y ayudar a mantener en equilibrio la estructura.",
+    #     respuesta_P2 = "",
+    #     ),
+    # Theory(#3
+    #     code = 8300030, 
+    #     no_pregunta = 3,
+    #     topic = "Equilibrio de partículas",
+    #     subtopic = "Fuerzas distribuidas",
+    #     enunciado ="Considere la situación mostrada en el siguiente figura e indique si es necesario poner un anclaje", 
+    #     opcion_1 = "No. Ya que, la presión del suelo es menor que la del agua y por ello el anclaje derrumbaría el muro.",
+    #     opcion_2 = "No. Ya que, la presión del suelo es igual a la del agua y por ello no es necesario un anclaje.",
+    #     opcion_3 = "Sí. Ya que, la presión del suelo es mayor que la del agua y por ello el anclaje debe ponerse del lado del suelo.",
+    #     opcion_4 = "Sí. Ya que, la presión del suelo es mayor que la del agua y por ello el anclaje debe ponerse del lado del agua.",
+    #     opcion_correcta = "Sí. Ya que, la presión del suelo es mayor que la del agua y por ello el anclaje debe ponerse del lado del suelo.",
+    #     respuesta_P1 = "Recuerda que el anclaje jala el muro hacia el suelo. Esto quiere decir que si la presión que ejerce el suelo es mayor a lo que este puede resistir, es necesario un anclaje cuya fuerza garantice el equilibrio.",
+    #     respuesta_P2 = "",
+    #     ),
+    
 
 ]
 
