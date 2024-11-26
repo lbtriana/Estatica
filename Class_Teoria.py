@@ -1303,6 +1303,156 @@ conceptuales = [
     #     ),
     
 
+
+#--------------------------------------------------- Fuerzas internas -------------------------------------------------------
+     #-------------------------------------------------       91000##0         ---------------------------------------------------
+    
+    # Theory(#2
+    #     code = 9100020, 
+    #     no_pregunta = 2,
+    #     topic = "Fuerzas internas",
+    #     subtopic = "Fuerzas internas",
+    #     enunciado ="El análisis de fuerzas internas requiere de:", 
+    #     opcion_1 = "Igualar la resultante de fuerzas externas con las fuerzas internas sin incluir reacciones.",
+    #     opcion_2 = "Cortar la estructura en puntos cercanos a lo largo de toda la estructura y luego calcular las reacciones.",
+    #     opcion_3 = "Igualar la resultante de momentos a los momentos internos sin incluir reacciones.",
+    #     opcion_4 = "Conocer las reacciones sobre la estructura, dividirla en tramos y realizar cortes.",
+    #     opcion_correcta = "Conocer las reacciones sobre la estructura, dividirla en tramos y realizar cortes.",
+    #     respuesta_P1 = """"Para conocer las fuerzas internas de un elemento es necesario realizar, en primer lugar, un análisis global para conocer las reacciones.
+    #     Despues de esto, se divide la estructura en tramos de acuerdo con las condiciones de carga y se realizan cortes en el interior de cada tramo.""",
+    #     respuesta_P2 = "",
+    #     ),
+
+    # Theory(#3
+    #     code = 9100030, 
+    #     no_pregunta = 3,
+    #     topic = "Fuerzas internas",
+    #     subtopic = "Fuerzas internas",
+    #     enunciado ="En el análisis de fuerzas internas, dónde es correcto realizar los cortes:", 
+    #     opcion_1 = "En el punto de aplicación de una fuerza.",
+    #     opcion_2 = "Antes y después del punto de aplicación de una fuerza.",
+    #     opcion_3 = "En puntos con momento nulo.",
+    #     opcion_4 = "En el inicio y fin de cada elemento de la estructura.",
+    #     opcion_correcta = "Antes y después del punto de aplicación de una fuerza.",
+    #     respuesta_P1 = "El objetivo de los cortes es conocer los efectos de las cargas en el interior del elemento, es decir, los cambios que las fuerzas externas producen en los elementos. Por ello, se deben determinar las fuerzas internas antes y después del punto de aplicacón de la carga.",
+    #     respuesta_P2 = "",
+    #     ),
+
+    # Theory(#4
+    #     code = 9100040, 
+    #     no_pregunta = 4,
+    #     topic = "Fuerzas internas",
+    #     subtopic = "Fuerzas internas",
+    #     enunciado ="Considere la siguiente figura e indique cuántos tramos son necesarios para el análsis de fuerzas internas en la viga mostrada", 
+    #     opcion_1 = "5",
+    #     opcion_2 = "4",
+    #     opcion_3 = "3",
+    #     opcion_4 = "6",
+    #     opcion_correcta = "4",
+    #     respuesta_P1 = "La viga mostrada tiene 4 condiciones de carga diferentes debido a fuerzas puntuales, reacciones y la carga distribuida.",
+    #     respuesta_P2 = "",
+    #     ),
+
+    # Theory(#5
+    #     code = 9100050, 
+    #     no_pregunta = 5,
+    #     topic = "Fuerzas internas",
+    #     subtopic = "Fuerzas internas",
+    #     enunciado =""""Indique cuáles de las siguientes afirmaciones son verdaderas:
+    #     I. Cuando se tienen cargas distribuidas, los diagramas de cortante y momento van aumentando de grado. Es decir, si la carga es triangular el cortante es un polinomio de grado 2 y el momento uno de grado 3.
+    #     II. Cuando se tienen cargas distribuidas, los diagramas de cortante y momento van disminuyendo de grado. Es decir, si la carga es triangular el cortante es un polinomio de grado 3 y el momento uno de grado 2.
+    #     III. Para conosiderar una carga puntual, en el diagrama de cortante se suma o resta su magnitud en el punto de aplicación.
+    #     IV. Los diagramas de momentos se determinan calculando las áreas formadas en el diagrama de cortante.
+    #     V. Los momentos puntuales en un elemento deben sumarse o restarse en el diagrama de momentos y cortante.
+           
+    #         """, 
+    #     opcion_1 = "I,III,V",
+    #     opcion_2 = "II, III,IV",
+    #     opcion_3 = "I,III,IV",
+    #     opcion_4 = "II,IV,V",
+    #     opcion_correcta = "I,III,IV",
+    #     respuesta_P1 = """En los diagramas de cortante se tienen en cuenta las cargas externas y reacciones. En este, las distribuidas generan un diaagrama de grado mayor y las puntuales afectan únicamente en su punto de aplicación.
+    #     En el caso de los diagramas de momnento deben icluirse los momentos puntuales sobre la estructura y se deve tener en cuenta que el mometo es la integral del cortante. 
+    #     """,
+    #     ),
+
+    # Theory(#6
+    #     code = 9100060, 
+    #     no_pregunta = 6,
+    #     topic = "Fuerzas internas",
+    #     subtopic = "Fuerzas internas",
+    #     enunciado ="Considere la siguiente figura e indique cual es convención de signos correcta.", 
+    #     opcion_1 = "I.",
+    #     opcion_2 = "II.",
+    #     opcion_3 = "III.",
+    #     opcion_4 = "IV.",
+    #     opcion_correcta = "II.",
+    #     respuesta_P1 = """La conveción de signos estable que en el lado izquierdo de un corte, el cortante resultante (V) debe generar un momento contrario al momento puntual resultante (M). Mientras que, en el lado derecho del corte el cortante y momento generan la misma flexión sobre la viga.
+    #     Así mismo, debe tenerse en cuenta que los signos de la resultante de un lado y del otro deben ser contrarios para que la sumatoria de fuerzas y momento sea cero en el corte.""",
+    #     respuesta_P2 = "",
+    #     ),
+
+    # Theory(#7
+    #     code = 9100070, 
+    #     no_pregunta = 7,
+    #     topic = "Fuerzas internas",
+    #     subtopic = "Fuerzas internas",
+    #     enunciado ="En un diagrama de momentos flectores, un cambio lineal en el diagrama de fuerzas cortantes indica que el momento flector:", 
+    #     opcion_1 = "Es constante.",
+    #     opcion_2 = "Tiene un cambio cuadrático.",
+    #     opcion_3 = "Tiene un cambio lineal.",
+    #     opcion_4 = "Tiene un cambio cúbico.",
+    #     opcion_correcta = "Tiene un cambio lineal.",
+    #     respuesta_P1 = """"Un cambio lineal en el esfuerzo cortante implica que el momento cambia con una pendiente constante debido a que la integral de una constante es la constante multiplicada por la variable. Es decir, la pendiente del diagrama de momentos flectores es igual al valor del diagrama de fuerzas cortantes. """,
+    #     respuesta_P2 = "",
+    #     ),
+
+    # Theory(#8
+    #     code = 9100080, 
+    #     no_pregunta = 8,
+    #     topic = "Fuerzas internas",
+    #     subtopic = "Fuerzas internas",
+    #     enunciado ="¿Qué indica un salto (cambio brusco) en el diagrama de fuerzas cortantes de una viga?",
+    #     opcion_1 = "Una carga distribuida.",
+    #     opcion_2 = "Un momento aplicado.",
+    #     opcion_3 = "Una carga puntual.",
+    #     opcion_4 = "Una reacción en un apoyo fijo.",
+    #     opcion_correcta = "Una carga puntual.",
+    #     respuesta_P1 = " Un salto en el diagrama de fuerzas cortantes ocurre debido a la aplicación de una carga puntual que genera una diferencia instantánea en el esfuerzo cortante. Esto mismo ocurre en el diagrama de momentos cuando se tiene un momento puntual aplicado.",
+    #     respuesta_P2 = "",
+    #     ),
+
+    # Theory(#9
+    #     code = 9100090, 
+    #     no_pregunta = 9,
+    #     topic = "Fuerzas internas",
+    #     subtopic = "Fuerzas internas",
+    #     enunciado ="Si una viga simplemente apoyada tiene una carga distribuida uniforme, el diagrama de momentos flectores resultante será:", 
+    #     opcion_1 = "Un triángulo: lineal.",
+    #     opcion_2 = "Un rectángulo: constante.",
+    #     opcion_3 = "Una parábola.",
+    #     opcion_4 = "Un trapecio.",
+    #     opcion_correcta = "Una parábola.",
+    #     respuesta_P1 = "Para pasar de cargas extenas a momento se realiza la doble integral o se aumenta de grado dos veces.",
+    #     respuesta_P2 = "",
+    #     ),
+
+    # Theory(#10
+    #     code = 9100001, 
+    #     no_pregunta = 10,
+    #     topic = "Fuerzas internas",
+    #     subtopic = "Fuerzas internas",
+    #     enunciado ="¿Qué significa el punto donde el cortante cruza el eje cero (corte el eje horizontal)?", 
+    #     opcion_1 = "Un punto de máximo esfuerzo cortante.",
+    #     opcion_2 = "Un punto de máxima deformación.",
+    #     opcion_3 = "Un punto de inflexión.",
+    #     opcion_4 = "Un punto de momento máximo.",
+    #     opcion_correcta = "Un punto de momento máximo.",
+    #     respuesta_P1 = """Esto se debe a que el cortante es igual a la derivada del momento. Y, la pendiente (derivada) en un punto es igual a cero cuando se tiene un mínimo o máximo.
+    #     """,
+    #     ),
+
+
 ]
 
 

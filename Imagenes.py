@@ -221,6 +221,19 @@ FD_image_paths =[
 "./Imagenes/Preguntas/FD/PH/FD_PH_M_2a.png", #[5]
 ]
 
+#================================ Imágenes Preguntas Cálculo Fuerzas internas ===================================
+
+FI_image_paths =[
+#Fuerzas internas _ Nivel fácil
+"./Imagenes/Preguntas/FI/FI_FI_F_1a.png", #[0]
+
+#Fuerzas internas_Nivel medio 
+"./Imagenes/Preguntas/FI/FI_FI_M_1a.png", #[1]
+"./Imagenes/Preguntas/FI/FI_FI_M_2a.png", #[2]
+]
+
+
+
 #==========================================RESPUESTAS CÁLCULOS==============================================
 
 #================================ Imágenes Respuestas Cálculos Equilibrio ===================================
@@ -274,6 +287,13 @@ FD_rtas_paths= [
 "./Imagenes/Respuestas/FD/PH/R_FD_PH_F_1a.png", #[5] 
 "./Imagenes/Respuestas/FD/PH/R_FD_PH_M_1a.png", #[6] 
 "./Imagenes/Respuestas/FD/PH/R_FD_PH_M_2a.png", #[7] 
+]
+
+#================================ Imágenes Respuestas Cálculos Fuerzas Internas ===================================
+FI_rtas_paths= [
+#Fuerzas internas _ Nivel fácil
+"./Imagenes/Respuestas/FI/R_FI_FI_F_1a.png", #[0] 
+"./Imagenes/Respuestas/FI/R_FI_FI_F_1b.png", #[1] 
 ]
 
 #==========================================PREGUNTAS TEORÍA==============================================

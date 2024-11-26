@@ -22,6 +22,7 @@ E2D = "Equilibrio 2D"
 M2D = "Momento en un punto 2D"
 M3D = "Momento en un punto 3D"
 FD = "Fuerzas distribuidas"
+FI = "Fuerzas internas"
 
 #------------------------- Nombres de las respuestas ----------------------------
 AX = "Ángulo con el eje X [°]"
@@ -278,6 +279,10 @@ $P$ = Presión hidrostática distribuida sobre la superficie.
 $A$ = Área de la superficie.    
 """
 
+#FUERZAS INTERNAS
+FI1 = "Antes de determinar las fuerzas internas, identifique todas las fuerzas externas que actúan sobre la viga y las reacciones en los apoyos."
+FI2 = "Para calcular las fuerzas cortantes y los momentos flectores en un punto específico, se reliza un corte en dicho punto, se realiza un diagrama de cuerpo libre de la nueva sección con las fuerzas internas, y se aplican las ecuaciones de equilibrio."
+FI3 = "Cuando se realiza un corte, la convención indica que en el lado izquierdo el cortante es negativo y el momento flector es positivo. Para que exista equilibrio, en el lado derecho el cortante es positivo y el momento flector es negativo."
 
 #------------------------------------- Textos para las respuestas ---------------------------------------
 

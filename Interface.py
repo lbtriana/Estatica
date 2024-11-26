@@ -500,7 +500,7 @@ if authenticate_user():
         else:
             st.sidebar.header("Práctica")
             complexity = st.sidebar.radio("Nivel de dificultad", options=["Fácil", "Medio", "Díficil"])
-            topic = st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Momento", "Sistemas equivalentes", "Armaduras", "Centroides", "Fuerzas distribuidas"])
+            topic = st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Momento", "Sistemas equivalentes", "Armaduras", "Centroides", "Fuerzas distribuidas", "Fuerzas internas"])
             
             if topic == "Equilibrio de partículas":
                 subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Vectores 2D", "Vectores 3D", "Vector unitario", "Equilibrio 2D"])
@@ -514,6 +514,8 @@ if authenticate_user():
                 subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Centroides"])
             elif topic=="Fuerzas distribuidas":
                 subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Fuerzas distribuidas"])
+            elif topic=="Fuerzas internas":
+                subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Fuerzas internas"])
 
             if consent:
                 log_event(st.session_state["username"], "practice_options_selected", {
@@ -786,7 +788,10 @@ if authenticate_user():
                         st.image(FD_image_paths[1], width=400)
                     if pregunta_no == 3:
                         st.image(FD_image_paths[2], width=450)
-                    
+                if subtopic == "Fuerzas internas":
+                    if pregunta_no == 1:
+                        st.image(FI_image_paths[0], width=450) 
+
                 
             if difficulty == "Medio":
                 if subtopic == "Vectores 2D":
@@ -876,7 +881,12 @@ if authenticate_user():
                     if pregunta_no == 2:
                         st.image(FD_image_paths[4], width=450) 
                     if pregunta_no == 3:
-                        st.image(FD_image_paths[5], width=400)    
+                        st.image(FD_image_paths[5], width=400) 
+                if subtopic == "Fuerzas internas":
+                    if pregunta_no == 1:
+                        st.image(FI_image_paths[1], width=350)
+                    if pregunta_no == 2:
+                        st.image(FI_image_paths[2], width=450) 
                 
             if difficulty == "Díficil":
                 if subtopic == "Vectores 2D":
@@ -968,6 +978,9 @@ if authenticate_user():
                         st.image(FD_rtas_paths[1], width=350)
                     if pregunta_no ==3:
                         st.image(FD_rtas_paths[3], width=350)
+                if subtopic == "Fuerzas internas":
+                    if pregunta_no ==1:
+                        st.image(FI_rtas_paths[0], width=200)
                     
             if difficulty == "Medio":
                 if subtopic == "Equilibrio 2D":
@@ -983,6 +996,7 @@ if authenticate_user():
                         st.image(FD_rtas_paths[6], width=350)
                     if pregunta_no ==3:
                         st.image(FD_rtas_paths[7], width=350)
+                
 
             if difficulty == "Díficil":
                 if subtopic == "Vectores 2D":
@@ -1020,6 +1034,9 @@ if authenticate_user():
                         st.image(FD_rtas_paths[1], width=350)
                     if pregunta_no ==3:
                         st.image(FD_rtas_paths[4], width=350)
+                if subtopic == "Fuerzas internas":
+                    if pregunta_no ==1:
+                        st.image(FI_rtas_paths[1], width=200)
         return
 
     #Función para que el botón "Ayuda" muestre secuencialmente las ayudas
