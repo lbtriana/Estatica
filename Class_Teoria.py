@@ -469,9 +469,9 @@ conceptuales = [
         ),
 
     #----------------------------------------------------- Momentos --------------------------------------------------------
-    #-------------------------------------------------    15000##0       ---------------------------------------------------
+    #-------------------------------------------------    21000#0       ---------------------------------------------------
     Theory(#1
-       code = 1300010, 
+       code = 2100010, 
        no_pregunta = 1,
        topic = "Momento",
        subtopic = "Momento",
@@ -495,28 +495,32 @@ conceptuales = [
        respuesta_P2 = "",
        ),
          
-    # Theory(#2
-    #     code = 1300020, 
-    #     no_pregunta = 2,
-    #     topic = "Equilibrio de partículas",
-    #     subtopic = "Momentos",
-    #     enunciado ="""
-    #     De los pares de fuerza es correcto afirmar que:
-    #     I. Son fuerzas de igual magnitud, pero diferente sentido.
-    #     II. No generan momento debido que el efecto de las fuerzas del par anula el efecto de la otra.
-    #     III. Generan un solo momento independiente del punto de referencia. Es decir, del punto desde donde se calcula el momento.
-    #     IV. Generan un momento de igual magnitud, pero diferente sentido de acuerdo con el punto de referencia. 
-    #     """,
- 
-    #     opcion_1 = "Opción I y II son correctas.",
-    #     opcion_2 = "Opción I y III son correctas.",
-    #     opcion_3 = "Opción I y IV son correctas.",
-    #     opcion_4 = "Solo opción I es correcta",
-    #     opcion_correcta = "Opción I y III son correctas.",
-    #     respuesta_P1 = """Los pares de fuerza no generan efecto en la sumatoria de fuerzas pero si sobre la sumatoria de momentos ya que, el momento se calcula como: \\( \\overrightarrow{r} \) X \\( \\overrightarrow{F} \) y, cuando se trata de pares de fuerza, el  vector \\( \\overrightarrow{r} \) representa la distancia entre ellos la cual siempre es la misma. A diferencia de su sentido que si cambia respecto al punto de desde donde se calcula el momento generando esto que se genere un mismo momento.
-    #     En otras palabras, si \\( \\overrightarrow{P} \) y \\( \\overrightarrow{Q} \) generan un par de fuerzas, el momento será el mismo independientemente del puento de referencia porque: \\( \\overrightarrow{P} \) = - \\( \\overrightarrow{Q} \) y \\( \\overrightarrow{r_1} \) = - \\( \\overrightarrow{r_2} \)
-    #     """,
-    #     ),
+    Theory(#2
+        code = 2100020, 
+        no_pregunta = 2,
+        topic = "Momento",
+        subtopic = "Momento",
+        enunciado ="""
+        Con respecto a un par de fuerzas es correcto afirmar que:     
+
+        I. Son dos fuerzas paralelas de igual magnitud y direcciones opuestas.    
+        II. No generan momento, debido que el efecto de las fuerzas del par anula el efecto de la otra.    
+        III. Generan un único efecto de rotación en el cuerpo, en una dirección específica, independiente del punto de referencia.     
+        IV. Generan un momento en una dirección específica, cuyo valor corresponde a la suma de los momentos producidos por cada fuerza con respecto a un punto de referencia.    
+        """, 
+        opcion_1 = "I, II",
+        opcion_2 = "I, IV",
+        opcion_3 = "I, III",
+        opcion_4 = "Solamente I",
+        opcion_correcta = "I, III",
+        respuesta_P1 = """
+        Las opciones correctas son I y III:
+
+        I. La afirmación corresponde a la definición un par de fuerzas.      
+        III. Un par de fuerzas no tiene un efecto de traslación, pero si de rotación. El momento generado por un par de fuerzas es único y no depende del punto de referencia escogido. 
+        """,
+        respuesta_P2 = "",
+        ),
          
     # Theory(#3
     #     code = 1300030, 
