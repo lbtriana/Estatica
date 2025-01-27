@@ -523,10 +523,10 @@ conceptuales = [
         ),
          
     # Theory(#3
-    #     code = 1300030, 
+    #     code = 2100030, 
     #     no_pregunta = 3,
-    #     topic = "Equilibrio de partículas",
-    #     subtopic = "Momentos",
+    #     topic = "Momento",
+    #     subtopic = "Momento",
     #     enunciado = "En 2D la mejor estrategia para realizar sumatoria de momentos es:",
     #     opcion_1 = "Realizar el producto cruz: \\( \\overrightarrow{r} \) X \( \\overrightarrow{F} \)",
     #     opcion_2 = "Multiplicar las magnitudes de las fuerzas por la distancia perpendicular",
@@ -540,20 +540,20 @@ conceptuales = [
     #     respuesta_P2 = "",
     #     ),    
              
-    # Theory(#4
-    #     code = 1300040, 
-    #     no_pregunta = 4,
-    #     topic = "Equilibrio de partículas",
-    #     subtopic = "Momentos",
-    #     enunciado ="Es momento es:",
-    #     opcion_1 ="Un escalar positivo",
-    #     opcion_2 ="Un vector perpendicular al plano formado entre  \\( \overrightarrow{r} \) y \\( \overrightarrow{F} \)",
-    #     opcion_3 = "Un vector con un ángulo variable respecto al plano formado entre  \\( \overrightarrow{r} \) y \\( \overrightarrow{F} \)",
-    #     opcion_4 ="Un escalar negativo",
-    #     opcion_correcta = "Un vector perpendicular al plano formado entre  \\( \overrightarrow{r} \) y \\( \overrightarrow{F} \)",
-    #     respuesta_P1 = "Dado a que el momento se calcula por medio de un producto cruz, este es un vector perpendicular al plano formado entre el vector de fuerza y el vector de posición.",
-    #     respuesta_P2 = "",
-    #     ),
+    Theory(#4
+        code = 2100040, 
+        no_pregunta = 4,
+        topic = "Momento",
+        subtopic = "Momento",
+        enunciado ="El momento es:",
+        opcion_1 ="Un escalar positivo.",
+        opcion_2 ="Un vector perpendicular al plano formado entre $\\overrightarrow{r}$ y $\\overrightarrow{F}.$",
+        opcion_3 = "Un vector con un ángulo variable respecto al plano formado entre $\\overrightarrow{r}$ y $\\overrightarrow{F}$.",
+        opcion_4 ="Un escalar negativo.",
+        opcion_correcta = "Un vector perpendicular al plano formado entre $\\overrightarrow{r}$ y $\\overrightarrow{F}.$",
+        respuesta_P1 = "El momento es un vector perpendicular al plano formado entre $\\overrightarrow{r}$ y $\\overrightarrow{F}$, es decir, representa el eje alrededor del cual el cuerpo tenderá a rotar. Por tal motivo, el momento se calcula por medio del producto cruz ($\\overrightarrow{M}$ = $\\overrightarrow{r}$ X $\\overrightarrow{F}$), donde $\\overrightarrow{r}$ es el vector posición y $\\overrightarrow{F}$ el vector fuerza.",
+        respuesta_P2 = "",
+        ),
              
     # Theory(#5
     #     code = 1300050, 
@@ -641,8 +641,6 @@ conceptuales = [
     #     Y para determinar la dirección de momento generado por la fuerza de viento se tiene que: \\( \overrightarrow{k} \) X \\( \overrightarrow{-j} \) = \\( \overrightarrow{i} \).""",
     #     respuesta_P2 = "",
     #     ),   
-
-
 
     # #------------------------------------------------------ Apoyos ----------------------------------------------------------
     # #-------------------------------------------------    51000##0       ---------------------------------------------------

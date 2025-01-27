@@ -1283,6 +1283,9 @@ if authenticate_user():
                         st.image(EQ_teoria_respuestas[0],width=200)
                     if pregunta_no == 13: 
                         st.image(EQ_teoria_respuestas[1],width=250)
+                if subtopic == "Momento":
+                    if pregunta_no == 4:
+                        st.image(MO_teoria_respuestas[0],width=350)
                 if subtopic == "Centroides":
                     if pregunta_no == 6:
                         st.image(CT_teoria_respuestas[0],width=300)

@@ -339,6 +339,10 @@ EQ_teoria_respuestas =[
 "./Imagenes/Teoria_Respuestas/EQ/V/RT_EQ_V_2.png", #[1] 
 ]
 
+MO_teoria_respuestas =[
+"./Imagenes/Teoria_Respuestas/MO/RT_MO_MO_4.png", #[0] 
+]
+
 CT_teoria_respuestas =[
 "./Imagenes/Teoria_Respuestas/CT/RT_CT_CT_6.png", #[0] 
 ]
