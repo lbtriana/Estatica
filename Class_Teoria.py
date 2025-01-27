@@ -470,35 +470,30 @@ conceptuales = [
 
     #----------------------------------------------------- Momentos --------------------------------------------------------
     #-------------------------------------------------    15000##0       ---------------------------------------------------
-    #Theory(#1
-    #    code = 1300010, 
-    #    no_pregunta = 1,
-    #    topic = "Equilibrio de partículas",
-    #    subtopic = "Momentos",
-    #    enunciado ="Cuando se hace análisis sobre un cuerpo y no sobre una partícula se dice que este se encuentra en equilibrio cuando:", 
-    #    opcion_1 = """
-    #    $ \\sum F_x = 0 ; \\sum F_y = 0 ; \\sum F_z = 0 \\
-    #    $ \\sum M_x = \\sum M_y = \\sum M_z \\
-    #    """,
-    #    opcion_2 = """
-    #    $ \\sum F_x = \\sum F_y = \\sum F_z \\
-    #    $ \\sum M_x = \\sum M_y = \\sum M_z \\    
-    #    """,
-    #    opcion_3 = """
-    #    $ \\sum F_x = 0 ; \\sum F_y = 0 ; \\sum F_z = 0 \\
-    #    $ \\sum M_x = 0 ; \\sum M_y = 0 ; \\sum M_z = 0 \\
-    #    """,
-    #    opcion_4 = """
-    #    $ \\sum F_x = \\sum F_y = \\sum F_z \\
-    #    $ \\sum M_x = 0 ; \\sum M_y = 0 ; \\sum M_z = 0 \\
-    #    """,
-    #    opcion_correcta = """
-    #    $ \\sum F_x = 0 ; \\sum F_y = 0 ; \\sum F_z = 0 \\
-    #    $ \\sum M_x = 0 ; \\sum M_y = 0 ; \\sum M_z = 0 \\
-        # """,
-        # respuesta_P1 = "Un cuerpo se encuentra en equilibrio cuando la sumatoria de fuerzas y momentos sobre todos sus ejes es igual a cero ya que, esto significa que el cuerpo se encuentra completamente en reposo.",
-        # respuesta_P2 = "",
-        # ),
+    Theory(#1
+       code = 1300010, 
+       no_pregunta = 1,
+       topic = "Momento",
+       subtopic = "Momento",
+       enunciado ="Se considera que un cuerpo está en equilibrio si cumple con las siguientes condiciones:", 
+       opcion_1 = """$ \\sum F_x = 0$ ; $\\sum F_y = 0$ ; $\\sum F_z = 0$ \\
+       $ \\sum M_x = \\sum M_y = \\sum M_z$ \\
+       $\\text{{    }}$ """,
+       opcion_2 = """ $ \\sum F_x = \\sum F_y = \\sum F_z$ \\
+       $ \\sum M_x = \\sum M_y = \\sum M_z$    
+       $\\text{{    }}$ """,
+       opcion_3 = """$ \\sum F_x = 0$ ; $\\sum F_y = 0$ ; $\\sum F_z = 0$ \\
+       $ \\sum M_x = 0$ ; $\\sum M_y = 0$ ; $\\sum M_z = 0$ \\
+       $\\text{{    }}$ """,
+       opcion_4 = """$ \\sum F_x = \\sum F_y = \\sum F_z$ \\
+       $ \\sum M_x = 0$ ; $\\sum M_y = 0$ ; $\\sum M_z = 0$ \\
+       $\\text{{    }}$ """,
+       opcion_correcta = """$ \\sum F_x = 0$ ; $\\sum F_y = 0$ ; $\\sum F_z = 0$ \\
+       $ \\sum M_x = 0$ ; $\\sum M_y = 0$ ; $\\sum M_z = 0$ \\
+       $\\text{{    }}$ """,
+       respuesta_P1 = "Un cuerpo está en equilibrio cuando la sumatoria de las fuerzas y los momentos respecto a todos sus ejes es igual a cero, esto indica que el cuerpo se encuentra completamente en reposo.",     
+       respuesta_P2 = "",
+       ),
          
     # Theory(#2
     #     code = 1300020, 
