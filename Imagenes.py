@@ -267,6 +267,37 @@ EQ_rtas_paths= [
 
 ]
 
+#================================ Imágenes Respuestas Cálculos Equilibrio ===================================
+EQ_rtas_paths= [
+#Vectores 2D _ Ejes arbitrarios _ Nivel díficil
+"./Imagenes/Respuestas/EQ/V2D/R_EQ_V2D_D_1a.png", #[0] 
+"./Imagenes/Respuestas/EQ/V2D/R_EQ_V2D_D_1b.png", #[1] 
+"./Imagenes/Respuestas/EQ/V2D/R_EQ_V2D_D_1c.png", #[2] 
+"./Imagenes/Respuestas/EQ/V2D/R_EQ_V2D_D_1d.png", #[3] 
+
+#Vectores 2D _ Fuerza mínima (2 fuerzas) _ Nivel díficil
+"./Imagenes/Respuestas/EQ/V2D/R_EQ_V2D_D_2a.png", #[4] 
+"./Imagenes/Respuestas/EQ/V2D/R_EQ_V2D_D_2b.png", #[5] 
+
+#Vectores 2D _ Fuerza mínima (3 fuerzas) _ Nivel díficil
+"./Imagenes/Respuestas/EQ/V2D/R_EQ_V2D_D_5a.png", #[6] 
+"./Imagenes/Respuestas/EQ/V2D/R_EQ_V2D_D_5b.png", #[7] 
+
+#Equilibrio 2D_Poleas_Nivel medio
+"./Imagenes/Respuestas/EQ/EQ2D/R_EQ_EQ2D_M_1a.png", #[8]
+
+#Equilibrio 2D_Poleas_Nivel fácil
+"./Imagenes/Respuestas/EQ/EQ2D/R_EQ_EQ2D_F_1a.png", #[9]
+
+#Equilibrio 2D_Plano inclinado_Nivel fácil
+"./Imagenes/Respuestas/EQ/EQ2D/R_EQ_EQ2D_F_2a.png", #[10]
+"./Imagenes/Respuestas/EQ/EQ2D/R_EQ_EQ2D_F_2b.png", #[11]
+
+#Equilibrio 2D_Poleas_Nivel fácil
+"./Imagenes/Respuestas/EQ/EQ2D/R_EQ_EQ2D_F_1b.png", #[12]
+
+]
+
 #================================ Imágenes Respuestas Cálculos Centroides ===================================
 CT_rtas_paths= [
 "./Imagenes/Respuestas/CT/R_CT_CT_F_1a.png", #[0] 
@@ -296,7 +327,8 @@ FI_rtas_paths= [
 "./Imagenes/Respuestas/FI/R_FI_FI_F_1b.png", #[1] 
 ]
 
-#==========================================PREGUNTAS TEORÍA==============================================
+
+#===============================PREGUNTAS TEORÍA==============================================
 
 #================================ Imágenes Teoría Equilibrio ===================================
 EQ_teoria_preguntas =[
@@ -314,6 +346,19 @@ EQ_teoria_preguntas =[
 "./Imagenes/Teoria_Preguntas/EQ/EQ/T_EQ_EQ_3.png", #[11] 
 "./Imagenes/Teoria_Preguntas/EQ/EQ/T_EQ_EQ_4.png", #[12]
 ]
+
+#================================ Imágenes Teoría Momento ===================================
+MO_teoria_preguntas =[
+"./Imagenes/Teoria_Preguntas/MO/T_MO_MO_1.png", #[0]   
+]
+
+#================================ Imágenes Teoría Incertidumbre ===================================
+IN_teoria_preguntas =[
+"./Imagenes/Teoria_Preguntas/IN/T_IN_IN_1.png", #[0]   
+"./Imagenes/Teoria_Preguntas/IN/T_IN_IN_2.png", #[1]   
+]
+
+
 
 CT_teoria_preguntas=[
 "./Imagenes/Teoria_Preguntas/CT/T_CT_CT_1.png", #[0] 

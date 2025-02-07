@@ -571,45 +571,48 @@ conceptuales = [
     #     respuesta_P2 = "",
     #     ),
              
-    # Theory(#6
-    #     code = 1300060, 
-    #     no_pregunta = 6,
-    #     topic = "Equilibrio de partículas",
-    #     subtopic = "Momentos",
-    #     enunciado =
-    #     """ Considere la siguiente figura e indique cual de las siguientes afirmaciones son falsas:
-    #     I. El cuerpo se encuentra en equilibrio.
-    #     II. El momento sobre la viga es negativo.
-    #     III. La dirección del momento es - \\( \\overrightarrow{k} \).
-    #     IV. La dirección del momento es hacia abajo. Es decir, en - \\( \\overrightarrow{j} \).
-    #     V. La viga girará en sentido horario.
-    #     """,             
-    #     opcion_1 = "II, III, V",
-    #     opcion_2 = "Solamente IV.",
-    #     opcion_3 = "I, V.",
-    #     opcion_4 = "I, IV.",
-    #     opcion_correcta = "I, IV.",
-    #     respuesta_P1 = """
-    #     El cuerpo no se encuentra en equilibrio porque, aunque la sumatoria de fuerzas es 0, la de momentontos no lo es.
-    #     Decir que el momento se encuentra en dirección - \\( \\overrightarrow{k} \) es equivalente a decir que el sentido de la rotación es horario y a su vez, que el momento es negativo.
-    #     """,
-    #     respuesta_P2 = "",
-    #     ),
+    Theory(#6
+        code = 2100060, 
+        no_pregunta = 6,
+        topic = "Momento",
+        subtopic = "Momento",
+        enunciado =
+        """ 
+        Considere la siguiente figura e indique cualés de las siguientes afirmaciones son falsas:    
+
+        I. El cuerpo se encuentra en equilibrio.         
+        II. La dirección del momento es - $\\hat{{k}}$.     
+        III. La dirección del momento es - $\\^j$.      
+        IV. La viga tiene una tendencia a la rotación en sentido horario.      
+        """,             
+        opcion_1 = "I, II",
+        opcion_2 = "II, IV",
+        opcion_3 = "I, IV",
+        opcion_4 = "I, III",
+        opcion_correcta = "I, III",
+        respuesta_P1 = """
+        Las afirmaciones falsas son I y III:
+
+        I. El cuerpo no está en equilibrio, dado que, aunque la sumatoria de fuerzas es cero, la sumatoria de momentos no lo es.        
+        II. El momento es un vector perperdincular al plano que contiene la fuerza y el brazo del momento. En este caso, el plano es bidimensional (x, y), por lo que el momento se encuentra en la dirección de z.
+        """,
+        respuesta_P2 = "",
+        ),
              
-    # Theory(#7
-    #     code = 1300070, 
-    #     no_pregunta = 7,
-    #     topic = "Equilibrio de partículas",
-    #     subtopic = "Momentos",
-    #     enunciado ="¿Un requisito para que exista momento es que la linea de acción de la fuerza \\textbf{no} pase por el punto en el cual se está haciendo la sumatoria?",
-    #     opcion_1 = "Correcto, ya que esto hace que \\( \overrightarrow{r} \) sea 0", 
-    #     opcion_2 = "No, basta con que la fuerza no esté directamente aplicada sobre el punto para que exista mometo.",
-    #     opcion_3 = "Correcto, porque esto hace que la magnitud de la fuerza se vuelva nula y por ende no haya momento.",
-    #     opcion_4 = "Depende de la geometría del cuerpo",
-    #     opcion_correcta = "Correcto, ya que esto hace que \\( \overrightarrow{r} \) sea 0", 
-    #     respuesta_P1 = " las fuerzas actúan como vectores libres sobre su misma línea de acción y si esta pasa por el punto, puede ubicarse el vector directamente sobre él haciendo que el vector \\( \overrightarrow{r} \) sea 0 y por consiguiente, el producto cruz tambien. ",
-    #     respuesta_P2 = "",
-    #     ),
+    Theory(#7
+        code = 2100070, 
+        no_pregunta = 7,
+        topic = "Momento",
+        subtopic = "Momento",
+        enunciado ="¿Es un requisito que la línea de acción de la fuerza no pase por el punto en el que se evalúa el momento para que exista un momento?",
+        opcion_1 = "Incorrecto. Basta con que la fuerza no esté aplicada directamente sobre el punto para que exista momento.",
+        opcion_2 = "Correcto. Dado que, la magnitud de la fuerza se vuelva nula, por lo que no existe momento.",
+        opcion_3 = "Correcto. Dado que, esto hace que el vector posición $(\\overrightarrow{r})$ sea cero, y por lo tanto el momento es nulo.", 
+        opcion_4 = "No es posible responder con la información dada. Es necesario considerar la geometría del cuerpo.",
+        opcion_correcta = "Correcto. Dado que, esto hace que el vector posición $(\\overrightarrow{r})$ sea cero, y por lo tanto el momento es nulo.", 
+        respuesta_P1 = "La afirmación es correcta. Cuando la línea de acción de la fuerza cruza por el punto de evaluación, el momento es igual a cero, dado que, no existe una excentricidad entre el punto de evaluación y la línea de acción de la fuerza $(\\overrightarrow{r})$ que genere la tendencia a la rotación. Matemáticamente, el momento es $\\overrightarrow{M}=\\overrightarrow{r} \\text{{  X  }} \\overrightarrow{F}$, al ser el vector posición $(\\overrightarrow{r})$ igual a cero, el momento también es cero.",
+        respuesta_P2 = "",
+        ),
              
     # Theory(#8
     #     code = 1300080, 
@@ -641,6 +644,125 @@ conceptuales = [
     #     Y para determinar la dirección de momento generado por la fuerza de viento se tiene que: \\( \overrightarrow{k} \) X \\( \overrightarrow{-j} \) = \\( \overrightarrow{i} \).""",
     #     respuesta_P2 = "",
     #     ),   
+
+   
+    #--------------------------------------------------- Incertidumbre ----------------------------------------------------------
+    #-------------------------------------------------       31000#0      ---------------------------------------------------
+    # Theory(#1
+    #     code = 3100010, 
+    #     no_pregunta = 1,
+    #     topic = "Incertidumbre",
+    #     subtopic = "Incertidumbre",
+    #     enunciado ="Considere la siguiente figura e indique la forma correcta de obtener la probabilidad de falla para cualquier valor en las abscisas (eje X).", 
+    #     opcion_1 = "En la gráfica presentada, la probabilidad de falla corresponde a la probabilidad de excedencia.",
+    #     opcion_2 = "En la gráfica presentada, la probabilidad de falla corresponde al área bajo la curva desde X=0 hasta el valor de tensión que se quiere.",
+    #     opcion_3 = "En la gráfica presentada, la probabilidad de falla corresponde a la probabilidad de ocurrencia.",
+    #     opcion_4 = "En la gráfica presentada, la probabilidad de falla corresponde a 1 menos al área bajo la curva desde X=0 hasta el valor de tensión que se quiere.",
+    #     opcion_correcta = "En la gráfica presentada, la probabilidad de falla corresponde a la probabilidad de excedencia.",
+    #     respuesta_P1 = """Para dar respuestaa esta pregunta es necesario realizarse 2 preguntas:
+    #        1. ¿Es de frecuencia acumulada o no? ya que, en este caso, nos permite identificar que no es necesario calcular las áreas debajo la curva. 
+    #        2. ¿Cuál es la variable independiente? En caso de que sea la tensión máxima resistida, la falla se obtiene como la excedencia debido a que después de ese valor se supera la resistencia máxima del material llevandolo a falla. """,
+    #     respuesta_P2 = "",
+    #     ),
+
+    # Theory(#2
+    #     code = 3100020, 
+    #     no_pregunta = 2,
+    #     topic = "Incertidumbre",
+    #     subtopic = "Incertidumbre",
+    #     enunciado ="Considere la siguiente figura e indique la forma correcta de obtener la probabilidad de falla para cualquier valor en las abscisas (eje X).", 
+    #     opcion_1 = "En la gráfica presentada, la probabilidad de falla corresponde a la probabilidad de excedencia.",
+    #     opcion_2 = "En la gráfica presentada, la probabilidad de falla corresponde al área bajo la curva desde X=0 hasta el valor de resistencia que se quiere.",
+    #     opcion_3 = "En la gráfica presentada, la probabilidad de falla corresponde a la probabilidad de ocurrencia.",
+    #     opcion_4 = "En la gráfica presentada, la probabilidad de falla corresponde a 1 menos al área bajo la curva desde X=0 hasta el valor de resistencia que se quiere.",
+    #     opcion_correcta = "En la gráfica presentada, la probabilidad de falla corresponde a la probabilidad de ocurrencia.",
+    #     respuesta_P1 = """Para dar respuestaa esta pregunta es necesario realizarse 2 preguntas:
+    #        1. ¿Es de frecuencia acumulada o no? ya que, en este caso, nos permite identificar que no es necesario calcular las áreas debajo la curva. 
+    #        2. ¿Cuál es la variable independiente? En caso de que sea la resistencia, la falla se obtiene como la ocurrencia debido a que el valor en el eje X correspondería a la resistencia en la que falla.""",
+    #     respuesta_P2 = "",
+    #     ),
+
+    # Theory(#3
+    #     code = 3100030, 
+    #     no_pregunta = 3,
+    #     topic = "Incertidumbre",
+    #     subtopic = "Incertidumbre",
+    #     enunciado ="Indique cual de las siguientes afirmaciones en verdadera:", 
+    #     opcion_1 = "cuando se tiene la función de densidad (frecuencia relativa) la probabilidad se obtiene directamente del eje y. Si se tiene la de frecuencia acumulada, la probabilidad se obtiene a partir del área adecuada debajo de la curva.",
+    #     opcion_2 = "cuando se tiene la función de densidad (frecuencia relativa) la probabilidad no se puede obtener. Si se tiene la de frecuencia acumulada, la probabilidad se obtiene directamente del eje y.",
+    #     opcion_3 = "cuando se tiene la función de densidad (frecuencia relativa) la probabilidad se obtiene a partir del área adecuada debajo de la curva. Si se tiene la de frecuencia acumulada, la probabilidad no se puede obtener.",
+    #     opcion_4 = "cuando se tiene la función de densidad (frecuencia relativa) la probabilidad se obtiene a partir del área adecuada debajo de la curva. Si se tiene la de frecuencia acumulada, la probabilidad se obtiene directamente del eje y.",
+    #     opcion_correcta = "cuando se tiene la función de densidad (frecuencia relativa) la probabilidad se obtiene a partir del área adecuada debajo de la curva. Si se tiene la de frecuencia acumulada, la probabilidad se obtiene directamente del eje y.",
+    #     respuesta_P1 = "Las gráficas de frecuencia acumulada representan inmediatamente una probabilidad y es por ello que su valor máximo en el eje Y es 1 el cual corresponde al 100% de las probabilidades. En cambio, en las gráficas de desidad se tienen proporciones que deben ser sumadas por medio de una integral.",
+    #     respuesta_P2 = "",
+    #     ),
+
+    # Theory(#4
+    #     code = 3100040, 
+    #     no_pregunta = 4,
+    #     topic = "Incertidumbre",
+    #     subtopic = "Incertidumbre",
+    #     enunciado ="Considere la siguiente figura e indique cual es la probabilidad de que la tensión máxima resistida sea menor o igual a 850 N?", 
+    #     opcion_1 = "Sería la probabilidad de ocurrencia.Es decir, el valor de Y en ese punto.",
+    #     opcion_2 = "Sería restando a la unidad el valor de Y en ese punto.",
+    #     opcion_3 = "Sería la integral desde 0 hasta 850 de la función.",
+    #     opcion_4 = "Sería 1 - la integral desde 0 hasta 850 de la función.",
+    #     opcion_correcta = "Sería la probabilidad de ocurrencia.Es decir, el valor de Y en ese punto.",
+    #     respuesta_P1 = """Cuando no se habla de probabilidad de falla no es necesario saber cuál es la variable independiente. Basta con saber que menor o igual hace referencia a la probabilidad de ocurrencia.
+    #     Adicionalmente es importante reconocer que debido a que es una gráfica de frecuencias acumulada, no es necesario calcular integrales.""",
+    #     respuesta_P2 = "",
+    #     ),
+
+    Theory(#5
+        code = 3100050, 
+        no_pregunta = 5,
+        topic = "Incertidumbre",
+        subtopic = "Incertidumbre",
+        enunciado ="Considere la siguiente figura. ¿Indique cuál es la probabilidad de que la tensión máxima resistida sea mayor o igual a 900 N?", 
+        opcion_1 = "La probabilidad es el valor de Y en ese punto (0,2).",
+        opcion_2 = "La probabilidad es el área total bajo la curva menos el Y en ese punto (0,8).",
+        opcion_3 = "La probabilidad es la suma acumulada de la frecuencia relativa en el dominio desde 0 hasta 900 de la función (0,9).",
+        opcion_4 = "La probabilidad es el área total bajo la curva menos la suma acumulada de la frecuencia relativa en el dominio desde 0 hasta 900 de la función (0,1).",
+        opcion_correcta = "La probabilidad es el área total bajo la curva menos la suma acumulada de la frecuencia relativa en el dominio desde 0 hasta 900 de la función (0,1).",
+        respuesta_P1 = """La probabilidad de que la tensión máxima resistida sea mayor o igual a 900 N es equivalente a la probabilidad de excedencia, es decir, la probabilidad con la que se excede el valor de 900 N. La probabilidad de excedencia se calcula como:
+
+        $\\text{{Probabilidad de excedencia}} = $1$ - $\\text{{Probabilidad de ocurrencia}}$
+
+        1 hace referencia al área total bajo la curva y la probabilidad de ocurrencia es la suma acumulada de la frecuencia relativa en el dominio desde 0 hasta 900 de la función (0,1).
+        """,
+        respuesta_P2 = "",
+        ),
+
+    Theory(#6
+        code = 3100060, 
+        no_pregunta = 6,
+        topic = "Incertidumbre",
+        subtopic = "Incertidumbre",
+        enunciado ="¿Qué valor toma la función de distribución acumulada (FDA) en el extremo derecho de su dominio?", 
+        opcion_1 = "-1",
+        opcion_2 = "1",
+        opcion_3 = "0.5",
+        opcion_4 = "Un valor entre 0 y 1.",
+        opcion_correcta = "1",
+        respuesta_P1 = "El valor máximo de la función de distribución acumulada (FDA) es 1, dado que, esta se construye sumando (acumulando) las probabilidades de todos los posibles valores que puede tomar la variable aleatoria.",
+        respuesta_P2 = "",
+        ),
+
+    Theory(#7
+        code = 3100070, 
+        no_pregunta = 7,
+        topic = "Incertidumbre",
+        subtopic = "Incertidumbre",
+        enunciado ="¿Cuál es una característica de la función de densidad de probabilidad (FDP)?", 
+        opcion_1 = "Su valor máximo siempre es 1.",
+        opcion_2 = "El área bajo la curva es igual a 1.",
+        opcion_3 = "El rango de la función puede ser negativo.",
+        opcion_4 = "Siempre es simétrica.",
+        opcion_correcta = "El área bajo la curva es igual a 1.",
+        respuesta_P1 = "Una función de densidad de probabilidad (FDP) describe la distribución de los valores de una variable aleatoria continua. Una de sus propiedades clave es que el área total bajo la curva de la FDP es igual a 1, ya que esta área representa la probabilidad total de todos los eventos posibles, la cual debe ser 100%.",
+        respuesta_P2 = "",
+        ),
+
 
     # #------------------------------------------------------ Apoyos ----------------------------------------------------------
     # #-------------------------------------------------    51000##0       ---------------------------------------------------
