@@ -178,6 +178,14 @@ A76 = "Realice el diagrama de cuerpo libre (DCL) de la polea."
 A77 = "Incluya dentro de la sumatoria las componentes de la fuerza que se debe aplicar y resuelva."
 A78 = "Dibuje el diagrama de cuerpo libre (DCL) de cada una de las poleas, identifique correctamente los cambios de cuerda entre las poleas."
 
+#MOMENTO ALREDEDOR DE UN EJE
+MAE1 = """Los pasos generales para calcular el momento alrededor de un eje son:   
+1. Calcular el momento en un punto $\\overrightarrow{{M_O}}$ que está sobre el vector unitario del eje.
+2. Para calcular el momento que actúa sobre el eje, se proyecta el vector momento $\\overrightarrow{{M_O}}$ sobre el vector unitario del eje $\\overrightarrow{{\\lambda}}$. Esta proyección se realiza con producto punto."""
+MAE2 = "El momento en un punto se calcula como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. El vector posición $\\overrightarrow{{r}}$ se define desde el punto en el que se evalúa el momento hasta cualquier punto de la línea de acción de la fuerza."
+MAE3 = "El producto punto se utiliza para la proyección entre vectores. Si $\\vec{{v}} = (x_1,y_1,z_1)$ y $\\vec{{u}} = (x_2,y_2,z_2)$, entonces: $\\vec{{v}} \\cdot \\vec{{u}} = (x_1)(x_2) + (y_1)(y_2) + (z_1)(z_2)$."
+MAE4 = "Recuerde que $\\vec{r}$ es el vector de posición medido desde el punto de evaluación hasta cualquier punto de la línea de acción de la fuerza."
+MAE5 = "El momento con respecto a un punto se define como $\\vec{r} X \\vec{F}$. Si $\\vec{r} = x\\hat{i} + y\\hat{j} + z\\hat{k}$ y $\\vec{F} = a\\hat{i} + b\\hat{j} + c\\hat{k}$, entonces $\\vec{M} = (yc-bz)\\hat{i} - (xc-az)\\hat{j} + (xb-ay)\\hat{k}$."
 
 #CERCHAS
 C1 = "El grado de un apoyo corresponde al número de reacciones que genera. Si es de primer grado tiene una reacción perpendicular a la superficie. Si es de segundo grado tiene dos restricciones, impidiendo la traslación en cualquier direccion. Si es de tercer grado tiene tres restricciones, evitando la traslación y la rotación."

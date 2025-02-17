@@ -59,6 +59,9 @@ def calcular_dimensiones(num_dimensiones = 28):
         dimensiones[9] = rd.randint(values[0][0]+1, values[0][1])
         dimensiones[6] = rd.randint(values[0][0], dimensiones[9]-1)
 
+    if dimensiones[2] == 0:
+        dimensiones[2] = dimensiones[2]+1
+
     return dimensiones
 
 #Functions to calculate variables associated with moments

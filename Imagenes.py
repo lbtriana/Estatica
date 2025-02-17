@@ -142,6 +142,14 @@ MO_image_paths =[
 "./Imagenes/Preguntas/MO/M2D/MO_M2D_D_1c.png", #[11]
 ]
 
+#================= mágenes Preguntas Cálculo Momento alrededor de un eje ========================
+MAE_image_paths =[
+#Nivel fácil
+"./Imagenes/Preguntas/MO/MAE/MO_MAE_F_1a.png", #[0]
+"./Imagenes/Preguntas/MO/MAE/MO_MAE_F_2a.png", #[1]
+"./Imagenes/Preguntas/MO/MAE/MO_MAE_F_3a.png", #[2]
+"./Imagenes/Preguntas/MO/MAE/MO_MAE_F_4a.png", #[3]
+]
 
 #================================ Imágenes Preguntas Cálculo Armaduras ===================================
 AR_image_paths =[

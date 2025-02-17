@@ -17,13 +17,13 @@ import plotly.express as px
 st.set_page_config(layout="wide")
 
 #Versión final para esconder el menú y stToolbar 
-hide_streamlit_style = """
-<style>
-    #MainMenu {display: none;}
-    [data-testid="stToolbar"] {display: none;}
-</style>
-"""
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+# hide_streamlit_style = """
+# <style>
+#     #MainMenu {display: none;}
+#     [data-testid="stToolbar"] {display: none;}
+# </style>
+# """
+# st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 #División de página
 col_1, col_2, col_3 = st.columns(3)
@@ -507,7 +507,7 @@ if authenticate_user():
             if topic == "Equilibrio de partículas":
                 subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Vectores 2D", "Vectores 3D", "Vector unitario", "Equilibrio 2D"])
             elif topic=="Momento":
-                subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Momento en un punto 2D"])
+                subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Momento en un punto 2D", "Momento alrededor de un eje"])
             elif topic=="Sistemas equivalentes":
                 subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Sistemas equivalentes"])
             elif topic=="Armaduras":
@@ -751,6 +751,15 @@ if authenticate_user():
                             st.image(MO_image_paths[2], width=350)
                         elif version_no == 4:
                             st.image(MO_image_paths[3], width=350)
+                if subtopic == "Momento alrededor de un eje":
+                    if pregunta_no == 1:
+                        st.image(MAE_image_paths[0], width=450) 
+                    if pregunta_no == 2:
+                        st.image(MAE_image_paths[1], width=450) 
+                    if pregunta_no == 3:
+                        st.image(MAE_image_paths[2], width=450) 
+                    if pregunta_no == 4:
+                        st.image(MAE_image_paths[3], width=450) 
                 if subtopic == "Sistemas equivalentes":
                     if pregunta_no == 1:
                         if version_no == 1:
