@@ -149,6 +149,10 @@ MAE_image_paths =[
 "./Imagenes/Preguntas/MO/MAE/MO_MAE_F_2a.png", #[1]
 "./Imagenes/Preguntas/MO/MAE/MO_MAE_F_3a.png", #[2]
 "./Imagenes/Preguntas/MO/MAE/MO_MAE_F_4a.png", #[3]
+
+#Nivel medio
+"./Imagenes/Preguntas/MO/MAE/MO_MAE_M_1a.png", #[4]
+"./Imagenes/Preguntas/MO/MAE/MO_MAE_M_2a.png", #[5]
 ]
 
 #================================ Imágenes Preguntas Cálculo Armaduras ===================================

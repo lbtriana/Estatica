@@ -4697,190 +4697,187 @@ preguntas = [
         ),
 
 
-
-
     #=========================================================== MOMENTO ========================================================
     #--------------------------------------------     Momento alrededor de un eje      --------------------------------------------
     #-------------------------------------------------       Nivel medio      ---------------------------------------------------
     #-------------------------------------------------       Code: 23200##    ---------------------------------------------------
 
-    # Questionary(#1_1
-    #     code = 2320011,
-    #     no_pregunta = 1,
-    #     complexity = M,
-    #     topic = MO,
-    #     subtopic = "Momento alrededor de un eje",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"La compuerta tiene un peso de $W = {f[0]:.0f}[N]$ y se sostiene en su posición mediante un cable como se muestra en la figura. Determine el valor momento que genera la tensión en el cable sobre el eje X. Tenga en cuenta que $x_0 = {d[0]:.0f}[m]$, $x_1 = {d[3]:.0f}[m]$, $x_2 = {d[0]:.0f}$ y $x_3 = {d[6]:.0f}[m]$.",
-    #     no_answers = 1,
-    #     a1_name = "Momento en el eje $X$ [$N \\cdot m$]",
-    #     a2_name = "",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round((-1*d[3]*f[0]*d[0])/(Calculos.magnitude3D(-1*d[0],d[0],(d[6]-d[3]))),2),
-    #     answer2 = lambda f, a, calc, c, d, m: 0,
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "Asuma que la magnitud de la tension es igual al peso de la compuerta",
-    #     ayuda2 = "Encuentre el vector director (unitario) de la tensión y multiplique por la magintud hallada para tener el vector $\\vec{{T}}$",      
-    #     ayuda3 = "Recuerde que el vector unitario del eje $X$ es $1\\hat{{i}} + 0\\hat{{j}} + 0\\hat{{k}}$",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     El momento sobre un eje se encuentra mediante el vector momento y el vector director de dicho eje. A continuacion se presentará una posible solución del ejercicio:.
+     Questionary(#1_1
+        code = 2320011,
+        no_pregunta = 1,
+        complexity = M,
+        topic = MO,
+        subtopic = "Momento alrededor de un eje",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"La placa tiene un peso de $W = {f[0]:.0f}[N]$ y se sostiene en su posición mediante un cable como se muestra en la figura. Determine el valor momento que genera la tensión en el cable sobre el eje X. Tenga en cuenta que $x_0 = {d[0]:.0f}[m]$, $x_1 = {d[3]:.0f}[m]$, $x_2 = {d[0]:.0f}$ y $x_3 = {d[6]:.0f}[m]$.",
+        no_answers = 1,
+        a1_name = "Momento en el eje $X$ [$N \\cdot m$]",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round((-1*d[3]*f[0]*d[0])/(Calculations.magnitude3D(-1*d[0],d[0],(d[6]-d[3]))),2),
+        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = "Asuma que la magnitud de la tension es igual al peso de la compuerta",
+        ayuda2 = "Encuentre el vector director (unitario) de la tensión y multiplique por la magintud hallada para tener el vector $\\vec{{T}}$",      
+        ayuda3 = "Recuerde que el vector unitario del eje $X$ es $1\\hat{{i}} + 0\\hat{{j}} + 0\\hat{{k}}$",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        El momento sobre un eje se encuentra mediante el vector momento y el vector director de dicho eje. A continuacion se presentará una posible solución del ejercicio:.
         
-    #     Para resolver este ejercicio, debe asumir que la fuerza generada por el peso de la compuerta es igual a la tension del cable (Magnitud).
+        Para resolver este ejercicio, debe asumir que la fuerza generada por el peso de la compuerta es igual a la tension del cable (Magnitud).
         
-    #     $\\textbf{{\\small 1. Vector director de T - Vector Unitario:}}$
+        $\\textbf{{\\small 1. Vector director de T - Vector Unitario:}}$
 
 
-    #     ${{\hspace{{4mm}} \\vec{t} = -{d[0]}\\hat{i}+{d[0]}\\hat{j}+({d[6]}-{d[3]})\\hat{k}}}$     
-    #     ${{\hspace{{4mm}} \\vec{{\\lambda_t}} = \\dfrac{-1*d[0]}{{\\sqrt{{{(-1*d[0])}^2 + {d[0]}^2 + {d[6]-d[3]}^2}}}}\\hat{i}+\\dfrac{d[0]}{{\\sqrt{{{(-1*d[0])}^2 + {d[0]}^2 + {d[6]-d[3]}^2}}}}\\hat{j}+\\dfrac{d[6]-d[3]}{{\\sqrt{{{(-1*d[0])}^2 + {d[0]}^2 + {d[6]-d[3]}^2}}}}}}$
-    #     ${{\hspace{{4mm}} \\vec{{\\T}} = {f[0]}*({-1*d[0]/(Calculos.magnitud3D(-1*d[0],d[0],d[6]-d[3]))}\\hat{i} + {d[0]/(Calculos.magnitud3D(-1*d[0],d[0],d[6]-d[3]))}\\hat{j} + {(d[6]-d[3])/(Calculos.magnitud3D(-1*d[0],d[0],d[6]-d[3]))})[N]}}$
+        ${{\hspace{{4mm}} \\vec{{t}} = -{d[0]}\\hat{{i}}+{d[0]}\\hat{{j}}+({d[6]}-{d[3]})\\hat{{k}}}}$     
+        ${{\hspace{{4mm}} \\vec{{\\lambda_t}} = \\dfrac{-1*d[0]}{{\\sqrt{{{(-1*d[0])}^2 + {d[0]}^2 + {d[6]-d[3]}^2}}}}\\hat{{i}}+\\dfrac{d[0]}{{\\sqrt{{{(-1*d[0])}^2 + {d[0]}^2 + {d[6]-d[3]}^2}}}}\\hat{{j}}+\\dfrac{d[6]-d[3]}{{\\sqrt{{{(-1*d[0])}^2 + {d[0]}^2 + {d[6]-d[3]}^2}}}}}}$
+        ${{\hspace{{4mm}} \\vec{{\\T}} = {f[0]}*({-1*d[0]/(Calculations.magnitude3D(-1*d[0],d[0],d[6]-d[3]))}\\hat{{i}} + {d[0]/(Calculations.magnitude3D(-1*d[0],d[0],d[6]-d[3]))}\\hat{{j}} + {(d[6]-d[3])/(Calculations.magnitude3D(-1*d[0],d[0],d[6]-d[3]))})[N]}}$
         
-    #     $\\textbf{{\\small 2. Calculo de Momento alrededor del punto $0$:}}$
-    #     ${{\hspace{{4mm}} \\vec{M_0} = ({(-1*d[3]*{(-1*d[0]*f[0])/(Calculos.magnitud3D(-1*d[0],d[0],d[6]-d[3]))})"\\hat{{i}} - "((((d[6]-d[3])*f[0]*d[0])/(Calculos.magnitud3D(-1*d[0],d[0],d[6]-d[3])))-((-1*d[0]*f[0]*d[3])/(Calculos.magnitud3D(-1*d[0],d[0],d[6]-d[3]))))"\\hat{{j}} + "(d[0]*{(-1*d[0]*f[0])/(Calculos.magnitud3D(-1*d[0],d[0],d[6]-d[3]))})"\\hat{{k}}"})[N \\cdot m]}}$  
+        $\\textbf{{\\small 2. Calculo de Momento alrededor del punto $0$:}}$
+        ${{\hspace{{4mm}} \\vec{{M_0}} = ({(-1*d[3]*(-1*d[0]*f[0]))/(Calculations.magnitude3D(-1*d[0],d[0],d[6]-d[3])):.2f}) \\hat{{i}} - {((((d[6]-d[3])*f[0]*d[0])/(Calculations.magnitude3D(-1*d[0],d[0],d[6]-d[3])))-((-1*d[0]*f[0]*d[3])/(Calculations.magnitude3D(-1*d[0],d[0],d[6]-d[3])))):.2f} \\hat{{j}} + {(d[0]*(-1*d[0]*f[0]))/(Calculations.magnitude3D(-1*d[0],d[0],d[6]-d[3])):.2f} \\hat{{k}})[N \\cdot m]}}$  
 
-    #     $\\textbf{{\\small 3. Calculo de Momento alrededor el eje $X$:}}$
-    #     ${{\hspace{{4mm}} \\vec{M_0} \\cdot \\hat{i} = {(-1*d[3]*{(-1*d[0]*f[0])/(Calculos.magnitud3D(-1*d[0],d[0],d[6]-d[3]))})}[N \\cdot m]}}$
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ), 
+        $\\textbf{{\\small 3. Calculo de Momento alrededor el eje $X$:}}$
+        ${{\hspace{{4mm}} \\vec{{M_0}} \\cdot \\hat{{i}} = {(-1*d[3]*(-1*d[0]*f[0])/(Calculations.magnitude3D(-1*d[0],d[0],d[6]-d[3]))):.2f}[N \\cdot m]}}$
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ), 
     
-    # Questionary(#2_1
-    #     code = 2320021,
-    #     no_pregunta = 2,
-    #     complexity = M,
-    #     topic = MO,
-    #     subtopic = "Momento alrededor de un eje",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Considere las fuerzas $F = {f[0]:.0f}[N]$ pararela al eje $x$ negativo y $P = {f[1]:.0f}[N]$ paralela al eje $z$ positivo. Encuente el momento generado por $F$ y $P$ sobre el eje $z$ y la recta $L$ dada por el vector $\\vec{v} = ({d[0]:.0f}\\hat{i} - {d[3]:.0f}\\hat{j} + {d[0]+2:.0f}\\hat{k})$. Tenga en cuenta que: $x_0 = {d[6]:.0f}[m]$, $x_1 = {d[9]:.0f}[m]$, $x_2 = {d[12]:.0f}[m]$.",
-    #     no_answers = 2,
-    #     a1_name = "Momento sobre el eje $z$",
-    #     a2_name = "Momento sobre la recta $L$",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(-1*f[0]*d[12],2),
-    #     answer2 = lambda f, a, calc, c, d, m: np.round(((-1*d[3]/Calculos.magnitude3D(d[0],d[3],d[0]+2))*((-1*f[0]*d[9])-(d[6]*f[1])))+((d[0]+2)/Calculos.magnitude3D(d[0],d[3],d[0]+2)*(-1*f[0]*d[12])),2),
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "Encuentre el momento que genera cada fuerza con respecto al origen por separado.",
-    #     ayuda2 = "Realice sumatoria de momentos para encontrar el vector momento generado por ambas fuerzas",      
-    #     ayuda3 = "Encuentre la dirección de la recta (vector unitario) para poder proyectar $\\vec{{M}}$ sobre esta con el producto punto.",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     A continuacion se mostrara una posible solución al problema:
+    Questionary(#2_1
+        code = 2320021,
+        no_pregunta = 2,
+        complexity = M,
+        topic = MO,
+        subtopic = "Momento alrededor de un eje",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Considere las fuerzas $F = {f[0]:.0f}[N]$ pararela al eje $x$ negativo y $P = {f[1]:.0f}[N]$ paralela al eje $z$ positivo. Encuente el momento generado por $F$ y $P$ sobre el eje $z$ y la recta $L$ dada por el vector $\\vec{{v}} = ({d[0]:.0f}\\hat{{i}} - {d[3]:.0f}\\hat{{j}} + {d[0]+2:.0f}\\hat{{k}})$. Tenga en cuenta que: $x_0 = {d[6]:.0f}[m]$, $x_1 = {d[9]:.0f}[m]$, $x_2 = {d[12]:.0f}[m]$.",
+        no_answers = 2,
+        a1_name = "Momento sobre el eje $z$",
+        a2_name = "Momento sobre la recta $L$",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(-1*f[0]*d[12],2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(((-1*d[3]/Calculations.magnitude3D(d[0],d[3],d[0]+2))*((-1*f[0]*d[9])-(d[6]*f[1])))+((d[0]+2)/Calculations.magnitude3D(d[0],d[3],d[0]+2)*(-1*f[0]*d[12])),2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = "Encuentre el momento que genera cada fuerza con respecto al origen por separado.",
+        ayuda2 = "Realice sumatoria de momentos para encontrar el vector momento generado por ambas fuerzas",      
+        ayuda3 = "Encuentre la dirección de la recta (vector unitario) para poder proyectar $\\vec{{M}}$ sobre esta con el producto punto.",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        A continuacion se mostrara una posible solución al problema:
 
-    #     $\\textbf{{\\small 1. Momento de las fuerzas $P$ y $F$: }}$ 
-    #     Haciendo producto cruz para encontrar cada momento, nos queda lo siguiente:
+        $\\textbf{{\\small 1. Momento de las fuerzas $P$ y $F$: }}$ 
+        Haciendo producto cruz para encontrar cada momento, nos queda lo siguiente:
         
-    #     ${{\hspace{{4mm}} \\vec{M_P} = ({-1*d[6]*f[1]}\\hat{j})[N \\cdot m]}}$      
-    #     ${{\hspace{{4mm}} \\vec{M_F} = ({-1*f[0]*d[9]}\\hat{j}-{f[0]*d[12]}\\hat{k})[N \\cdot m]}}$ 
+        ${{\hspace{{4mm}} \\vec{{M_P}} = ({-1*d[6]*f[1]}\\hat{{j}})[N \\cdot m]}}$      
+        ${{\hspace{{4mm}} \\vec{{M_F}} = ({-1*f[0]*d[9]}\\hat{{j}}-{f[0]*d[12]}\\hat{{k}})[N \\cdot m]}}$ 
    
-    #     $\\textbf{{\\small 2. Sumatoria de Momentos: }}$
-    #     ${{\hspace{{4mm}} \\vec{M_P} + \\vec{M_F} = ({-1*d[6]*f[1]-(f[0]*d[9])}\\hat{j}-{f[0]*d[12]}\\hat{k})[N \\cdot m]}}$
+        $\\textbf{{\\small 2. Sumatoria de Momentos: }}$
+        ${{\hspace{{4mm}} \\vec{{M_P}} + \\vec{{M_F}} = ({-1*d[6]*f[1]-(f[0]*d[9])}\\hat{{j}}-{f[0]*d[12]}\\hat{{k}})[N \\cdot m]}}$
 
-    #     $\\textbf{{\\small 3. Momento sobre el eje $z$: }}$
-    #     ${{\hspace{{4mm}} \\vec{M} \\cdot \\hat{k} = (-{f[0]*d[12]})[N \\cdot m]}}$
-    #     ${{\hspace{{4mm}} \\vec{M} \\cdot \\hat{k} = ({-1*f[0]*d[12]}\\hat{k})[N \\cdot m]}}$
+        $\\textbf{{\\small 3. Momento sobre el eje $z$: }}$
+        ${{\hspace{{4mm}} \\vec{{M}} \\cdot \\hat{{k}} = (-{f[0]*d[12]})[N \\cdot m]}}$
+        ${{\hspace{{4mm}} \\vec{{M}} \\cdot \\hat{{k}} = ({-1*f[0]*d[12]}\\hat{{k}})[N \\cdot m]}}$
 
-    #     $\\textbf{{\\small 4. Vector director de la recta $L$ - Vector Unitario: }}$
-    #     ${{\hspace{{4mm}} \\vec{v} = ({d[0]:.0f}\\hat{i} - {d[3]:.0f}\\hat{j} + {d[0]+2:.0f}\\hat{k})}}$
-    #     ${{\hspace{{4mm}} \\vec{{\\lambda_v}} = ({d[0]/Calculos.magnitude3D(d[0],d[3],d[0]+2)}\\hat{i} - {d[3]/Calculos.magnitude3D(d[0],d[3],d[0]+2)}\\hat{j} + {(d[0]+2)/Calculos.magnitude3D(d[0],d[3],d[0]+2)}\\hat{k})}}$
+        $\\textbf{{\\small 4. Vector director de la recta $L$ - Vector Unitario: }}$
+        ${{\hspace{{4mm}} \\vec{{v}} = ({d[0]:.0f}\\hat{{i}} - {d[3]:.0f}\\hat{{j}} + {d[0]+2:.0f}\\hat{{k}})}}$
+        ${{\hspace{{4mm}} \\vec{{\\lambda_v}} = ({d[0]/Calculations.magnitude3D(d[0],d[3],d[0]+2)}\\hat{{i}} - {d[3]/Calculations.magnitude3D(d[0],d[3],d[0]+2)}\\hat{{j}} + {(d[0]+2)/Calculations.magnitude3D(d[0],d[3],d[0]+2)}\\hat{{k}})}}$
 
-    #     $\\textbf{{\\small 5. Momento sobre la recta L: }}$
-    #     ${{\hspace{{4mm}} \\vec{M} \\cdot \\vec{{\\lambda_v}} = ({(d[0]*0/Calculos.magnitude3D(d[0],d[3],d[0]+2)) - ((d[3]*{-1*d[6]*f[1]-(f[0]*d[9])})/Calculos.magnitude3D(d[0],d[3],d[0]+2)) + (((d[0]+2)*{-1*f[0]*d[12]})/Calculos.magnitude3D(d[0],d[3],d[0]+2))})[N \\cdot m]}}$
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ), 
+        $\\textbf{{\\small 5. Momento sobre la recta L: }}$
+        ${{\hspace{{4mm}} \\vec{M} \\cdot \\vec{{\\lambda_v}} = ({(d[0]*0/Calculations.magnitude3D(d[0],d[3],d[0]+2)) - ((d[3]*-1*d[6]*f[1]-(f[0]*d[9]))/Calculations.magnitude3D(d[0],d[3],d[0]+2)) + (((d[0]+2)*-1*f[0]*d[12])/Calculations.magnitude3D(d[0],d[3],d[0]+2)):.2f})[N \\cdot m]}}$
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ), 
 
-    # Questionary(#3_1
-    #     code = 2320031,
-    #     no_pregunta = 3,
-    #     complexity = M,
-    #     topic = MO,
-    #     subtopic = "Momento alrededor de un eje",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Considere las fuerzas $F = {f[0]:.0f}[N]$ y $P = {f[1]:.0f}[N]$ que se ejercen sobre el cartel publicitario. La fuerza $F$ es paralela al eje $x$ positivo y, la fuerza P se ejerce paralela al eje $z$ con un angulo de inclinacion $\\theta = {a[0]:.0f}°$. Teniendo en cuenta que $x_0 ={d[0]:.0f}[m]$, $x_1 ={d[0]-1:.0f}[m]$, $x_2 ={d[3]:.0f}[m]$ y que la fuerza $F$ se ejerce en el extremo de su respectiva cartelera y la fuerza $P$ se ejerce en el centro de su cartelera, encuentre el momento generado por $F$ y $P$ en el eje $y$.",
-    #     no_answers = 1,
-    #     a1_name = "Momento sobre el eje $y$",
-    #     a2_name = "",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(d[3]*f[0]-(d[3]/2)*f[1]*Calculations.cosine(a[0]),2),
-    #     answer2 = lambda f, a, calc, c, d, m: 0,
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "La fuerza $F$ solo tiene componente en el eje x y la fuerza $P$ tiene componentes en $y$ y en $z$. Utilice el angulo $\\theta$ para descomponerla.",
-    #     ayuda2 = "Encuentre el momento generado por cada fuerza y luego haga sumatoria de momentos.",      
-    #     ayuda3 = "El vector unitario del eje $y$ es $0\\hat{{i}}+1\\hat{{j}}+0\\hat{{k}}.",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     A continuacion se mostrara una posible solución al problema:
+    Questionary(#3_1
+        code = 2320031,
+        no_pregunta = 3,
+        complexity = M,
+        topic = MO,
+        subtopic = "Momento alrededor de un eje",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Considere las fuerzas $F = {f[0]:.0f}[N]$ y $P = {f[1]:.0f}[N]$ que se ejercen sobre el cartel publicitario. La fuerza $F$ es paralela al eje $x$ positivo y, la fuerza P se ejerce paralela al eje $z$ con un angulo de inclinacion $\\theta = {a[0]:.0f}°$. Teniendo en cuenta que $x_0 ={d[0]:.0f}[m]$, $x_1 ={d[0]-1:.0f}[m]$, $x_2 ={d[3]:.0f}[m]$ y que la fuerza $F$ se ejerce en el extremo de su respectiva cartelera y la fuerza $P$ se ejerce en el centro de su cartelera, encuentre el momento generado por $F$ y $P$ en el eje $y$.",
+        no_answers = 1,
+        a1_name = "Momento sobre el eje $y$",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(d[3]*f[0]-(d[3]/2)*f[1]*Calculations.cosine(a[0]),2),
+        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = "La fuerza $F$ solo tiene componente en el eje x y la fuerza $P$ tiene componentes en $y$ y en $z$. Utilice el angulo $\\theta$ para descomponerla.",
+        ayuda2 = "Encuentre el momento generado por cada fuerza y luego haga sumatoria de momentos.",      
+        ayuda3 = "El vector unitario del eje $y$ es $0\\hat{{i}}+1\\hat{{j}}+0\\hat{{k}}.",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        A continuacion se mostrara una posible solución al problema:
 
-    #     $\\textbf{{\\small 1. Fuerzas $F$ y $P$ y sus respectivos vectores posición: }}$ 
+        $\\textbf{{\\small 1. Fuerzas $F$ y $P$ y sus respectivos vectores posición: }}$ 
         
-    #     ${{\hspace{{4mm}} \\vec{P} = (0\\hat{i}-{f[1]*Calculations.sine(a[0])}\\hat{j}+{f[1]*Calculations.cosine(a[0])}\\hat{k})[N]}}$
-    #     ${{\hspace{{4mm}} \\vec{r_P} = ({(d[3])/2}\\hat{i}+{(d[0]+((d[0]-1)/2))}\\hat{j}+0\\hat{k})[m]}}$
-    #     ${{\hspace{{4mm}} \\vec{F} = ({f[0]}\\hat{i}+0\\hat{j}+0\\hat{k})[N]}}$
-    #     ${{\hspace{{4mm}} \\vec{r_F} = (0\\hat{i}+{(d[0]+((d[0]-1)/2))}\\hat{j}+{d[3]}\\hat{k})[m]}}$ 
+        ${{\hspace{{4mm}} \\vec{{P}} = (0\\hat{{i}}-{f[1]*Calculations.sine(a[0])}\\hat{{j}}+{f[1]*Calculations.cosine(a[0])}\\hat{{k}})[N]}}$
+        ${{\hspace{{4mm}} \\vec{{r_P}} = ({(d[3])/2}\\hat{{i}}+{(d[0]+((d[0]-1)/2))}\\hat{{j}}+0\\hat{{k}})[m]}}$
+        ${{\hspace{{4mm}} \\vec{{F}} = ({f[0]}\\hat{{i}}+0\\hat{{j}}+0\\hat{{k}})[N]}}$
+        ${{\hspace{{4mm}} \\vec{{r_F}} = (0\\hat{{i}}+{(d[0]+((d[0]-1)/2))}\\hat{{j}}+{d[3]}\\hat{{k}})[m]}}$ 
 
-    #     $\\textbf{{\\small 2. Calculo de Momento para $F$ y $P$: }}$ 
-    #     ${{\hspace{{4mm}} \\vec{M_P} = ({(d[0]+((d[0]-1)/2))*f[1]*Calculations.cosine(a[0])}\\hat{i}-{((d[3])/2)*f[1]*Calculations.cosine(a[0])}\\hat{j}-{((d[3])/2)*f[1]*Calculations.sine(a[0])}\\hat{k})[N \\cdot m]}}$
-    #     ${{\hspace{{4mm}} \\vec{M_F} = (0\\hat{i}+{f[0]*d[3]}\\hat{j}-{f[0]*(d[0]+((d[0]-1)/2))}\\hat{k})[N \\cdot m]}}$
+        $\\textbf{{\\small 2. Calculo de Momento para $F$ y $P$: }}$ 
+        ${{\hspace{{4mm}} \\vec{{M_P}} = ({(d[0]+((d[0]-1)/2))*f[1]*Calculations.cosine(a[0])}\\hat{{i}}-{((d[3])/2)*f[1]*Calculations.cosine(a[0])}\\hat{{j}}-{((d[3])/2)*f[1]*Calculations.sine(a[0])}\\hat{{k}})[N \\cdot m]}}$
+        ${{\hspace{{4mm}} \\vec{{M_F}} = (0\\hat{{i}}+{f[0]*d[3]}\\hat{{j}}-{f[0]*(d[0]+((d[0]-1)/2))}\\hat{{k}})[N \\cdot m]}}$
         
-    #     $\\textbf{{\\small 3. Sumatoria de momentos: }}$
-    #     ${{\hspace{{4mm}} \\sum{{\\vec{M}}} = {(d[0]+((d[0]-1)/2))*f[1]*Calculations.cosine(a[0])}\\hat{i}+{f[0]*d[3]-((d[3])/2)*f[1]*Calculations.cosine(a[0])}\\hat{j}-{((d[3])/2)*f[1]*Calculations.sine(a[0])+f[0]*(d[0]+((d[0]-1)/2))}\\hat{k})[N \\cdot m]}}$
+        $\\textbf{{\\small 3. Sumatoria de momentos: }}$
+        ${{\hspace{{4mm}} \\sum{{\\vec{{M}}}} = {(d[0]+((d[0]-1)/2))*f[1]*Calculations.cosine(a[0])}\\hat{{i}}+{f[0]*d[3]-((d[3])/2)*f[1]*Calculations.cosine(a[0])}\\hat{{j}}-{((d[3])/2)*f[1]*Calculations.sine(a[0])+f[0]*(d[0]+((d[0]-1)/2))}\\hat{{k}})[N \\cdot m]}}$
         
-    #     $\\textbf{{\\small 3. Momento sobre el eje $y$: }}$
-    #     ${{\hspace{{4mm}} \\sum{{\\vec{M}}} \\cdot \\hat{j} = {f[0]*d[3]-((d[3])/2)*f[1]*Calculations.cosine(a[0])}}}$
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
+        $\\textbf{{\\small 3. Momento sobre el eje $y$: }}$
+        ${{\hspace{{4mm}} \\sum{{\\vec{{M}}}} \\cdot \\hat{{j}} = {f[0]*d[3]-((d[3])/2)*f[1]*Calculations.cosine(a[0])}}}$
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
 
-    # Questionary(#4_1
-        # code = 2320041,
-        # no_pregunta = 4,
-        # complexity = M,
-        # topic = MO,
-        # subtopic = "Momento alrededor de un eje",
-        # version = 1,
-        # pregunta = lambda f, a, calc, c, d, m: f"Calcule el momento sobre la tabla de madera generado por las fuerzas $F_1 = {f[0]:.0f}[N]$, $F_2 = {f[1]:.0f}[N]$ y el peso $W = {f[2]:.0f}[N]$ del bloque de concreto aplicadas sobre este. Tenga en cuenta que la madera esta ubicada sobre el eje $x$, que $x_0 ={d[0]:.0f}[m]$, $x_1 ={d[3]:.0f}[m]$, $x_2 ={d[6]:.0f}[m]$, $\\theta = {a[0]:.0f}°$, $\\phi = {a[4]:.0f}$ y que $\\vec{F_1}$ esta aplicado en el centro del ploque paralela al eje $z$ y que $\\vec{F_2}$ se aplica en la parte superior, en el centro como se muestra en la figura, paralela al eje $x$.",
-        # no_answers = 1,
-        # a1_name = "Momento sobre el eje $x$",
-        # a2_name = "",
-        # a3_name = "",
-        # answer1 = lambda f, a, calc, c, d, m: np.round(-1*f[0]*Calculations.cosine(a[0])*(d[3]/2)-f[0]*Calculations.sine(a[0])*(d[0]/2),2),
-        # answer2 = lambda f, a, calc, c, d, m: 0,
-        # answer3 = lambda f, a, calc, c, d, m: 0,
-        # ayuda1 = "Encuentre los vectores para cada una de las fuerzas. Utilice el angulo $\\theta$ y $\\phi$ para descomponerlas.",
-        # ayuda2 = "Encuentre el momento generado por cada fuerza.",      
-        # ayuda3 = "Se puede dar cuenta que la unica fuerza que produce momento sobre la tabla de madera es $\\vec{{F_1}}$, por lo que obteniendo este valor ya conoce el momento requerido.",
-        # respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-        # A continuacion se mostrara una posible solución al problema:
+    Questionary(#4_1
+        code = 2320041,
+        no_pregunta = 4,
+        complexity = M,
+        topic = MO,
+        subtopic = "Momento alrededor de un eje",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Calcule el momento sobre la tabla de madera generado por las fuerzas $F_1 = {f[0]:.0f}[N]$, $F_2 = {f[1]:.0f}[N]$ y el peso $W = {f[2]:.0f}[N]$ del bloque de concreto aplicadas sobre este. Tenga en cuenta que la madera esta ubicada sobre el eje $x$, que $x_0 ={d[0]:.0f}[m]$, $x_1 ={d[3]:.0f}[m]$, $x_2 ={d[6]:.0f}[m]$, $\\theta = {a[0]:.0f}°$, $\\phi = {a[4]:.0f}$ y que $\\vec{{F_1}}$ esta aplicado en el centro del ploque paralela al eje $z$ y que $\\vec{{F_2}}$ se aplica en la parte superior, en el centro como se muestra en la figura, paralela al eje $x$.",
+        no_answers = 1,
+        a1_name = "Momento sobre el eje $x$",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(-1*f[0]*Calculations.cosine(a[0])*(d[3]/2)-f[0]*Calculations.sine(a[0])*(d[0]/2),2),
+        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = "Encuentre los vectores para cada una de las fuerzas. Utilice el angulo $\\theta$ y $\\phi$ para descomponerlas.",
+        ayuda2 = "Encuentre el momento generado por cada fuerza.",      
+        ayuda3 = "Se puede dar cuenta que la unica fuerza que produce momento sobre la tabla de madera es $\\vec{{F_1}}$, por lo que obteniendo este valor ya conoce el momento requerido.",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        A continuacion se mostrara una posible solución al problema:
 
-        # $\\textbf{{\\small 1. Descomposición de fuerzas y vetores posición: }}$ 
+        $\\textbf{{\\small 1. Descomposición de fuerzas y vetores posición: }}$ 
         
-        # ${{\hspace{{4mm}} \\vec{F_1} = (0\\hat{i}+{f[0]*Calculations.sine(a[0])}\\hat{j}-{f[0]*Calculations.cosine(a[0])}\\hat{k})[N]}}$
-        # ${{\hspace{{4mm}} \\vec{r_{F_1}} = ({d[3]+d[0]/2}\\hat{i}+{d[6]/2}\\hat{j}+{d[0]/2}\\hat{k})[m]}}$
-        # ${{\hspace{{4mm}} \\vec{F_2} = (-{f[1]*Calculations.cosine(a[1])}\\hat{i}-{f[1]*Calculations.sine(a[1])}\\hat{j}+0\\hat{k})[N]}}$
-        # ${{\hspace{{4mm}} \\vec{r_{F_2}} = ({d[3]+d[0]}\\hat{i}+{d[6]}\\hat{j}+0\\hat{k})[m]}}$
-        # ${{\hspace{{4mm}} \\vec{W} = (0\\hat{i}-{f[2]}\\hat{j}+0\\hat{k})[N]}}$
-        # ${{\hspace{{4mm}} \\vec{r_{W}} = ({d[3]+d[0]/2}\\hat{i}+0\\hat{j}+0\\hat{k})[m]}}$
+        ${{\hspace{{4mm}} \\vec{{F_1}} = (0\\hat{{i}}+{f[0]*Calculations.sine(a[0])}\\hat{{j}}-{f[0]*Calculations.cosine(a[0])}\\hat{{k}})[N]}}$
+        ${{\hspace{{4mm}} \\vec{{r_{{F_1}}}} = ({d[3]+d[0]/2}\\hat{{i}}+{d[6]/2}\\hat{{j}}+{d[0]/2}\\hat{{k}})[m]}}$
+        ${{\hspace{{4mm}} \\vec{{F_2}} = (-{f[1]*Calculations.cosine(a[1])}\\hat{{i}}-{f[1]*Calculations.sine(a[1])}\\hat{{j}}+0\\hat{{k}})[N]}}$
+        ${{\hspace{{4mm}} \\vec{{r_{{F_2}}}} = ({d[3]+d[0]}\\hat{{i}}+{d[6]}\\hat{{j}}+0\\hat{{k}})[m]}}$
+        ${{\hspace{{4mm}} \\vec{{W}} = (0\\hat{{i}}-{f[2]}\\hat{{j}}+0\\hat{{k}})[N]}}$
+        ${{\hspace{{4mm}} \\vec{{r_{{W}}}} = ({d[3]+d[0]/2}\\hat{{i}}+0\\hat{{j}}+0\\hat{{k}})[m]}}$
         
-        # $\\textbf{{\\small 2. Momento generado alrededor del punto $O$: }}$
-        # Para $F_1$
-        # ${{\hspace{{4mm}} \\vec{M} = ({-1*d[3]*f[0]*Calculations.cosine(a[0])-f[0]*Calculations.sine(a[0])*d[0]/2}\\hat{i}+{f[0]*Calculations.cosine(a[0])*(d[3]+d[0]/2)}\\hat{j}+{f[0]*Calculations.sine(a[0])*(d[3]+d[0]/2)}\\hat{k})[N \\cdot m]}}$
-        # Para $F_2$
-        # ${{\hspace{{4mm}} \\vec{M} = (0\\hat{i}+0\\hat{j}+{f[1]*Calculations.cosine(a[1])*d[6]-f[1]*Calculations.sine(a[1])*(d[3]+d[0])}\\hat{k})[N \\cdot m]}}$
-        # Para $W$
-        # ${{\hspace{{4mm}} \\vec{M} = (0\\hat{i}+0\\hat{j}-{f[2]*(d[3]+d[0]/2)}\\hat{k})[N \\cdot m]}}$
+        $\\textbf{{\\small 2. Momento generado alrededor del punto O: }}$
+        Para $F_1$
+        ${{\hspace{{4mm}} \\vec{M} = ({-1*d[3]*f[0]*Calculations.cosine(a[0])-f[0]*Calculations.sine(a[0])*d[0]/2}\\hat{{i}}+{f[0]*Calculations.cosine(a[0])*(d[3]+d[0]/2)}\\hat{{j}}+{f[0]*Calculations.sine(a[0])*(d[3]+d[0]/2)}\\hat{{k}})[N \\cdot m]}}$
+        Para $F_2$
+        ${{\hspace{{4mm}} \\vec{M} = (0\\hat{{i}}+0\\hat{{j}}+{f[1]*Calculations.cosine(a[1])*d[6]-f[1]*Calculations.sine(a[1])*(d[3]+d[0])}\\hat{{k}})[N \\cdot m]}}$
+        Para $W$
+        ${{\hspace{{4mm}} \\vec{M} = (0\\hat{{i}}+0\\hat{{j}}-{f[2]*(d[3]+d[0]/2)}\\hat{{k}})[N \\cdot m]}}$
 
-        # $\\textbf{{\\small 3. Momento generado sobre la tabla de madera: }}$
-        # Como se puede ver, la unica fuerza que genera momento sobre el eje $x$, esta siendo la tabla de madera, es $F_1$, por lo que:
-        # ${{\hspace{{4mm}} \\sum{{\\vec{M}}} \\cdot \\hat{i} = ({-1*d[3]*f[0]*Calculations.cosine(a[0])-f[0]*Calculations.sine(a[0])*d[0]/2})[N \\cdot m]}}$
-        # """,   
-        # respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-        # respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-        # calculos='operations'
-        # ),
-    
+        $\\textbf{{\\small 3. Momento generado sobre la tabla de madera: }}$
+        Como se puede ver, la unica fuerza que genera momento sobre el eje $x$, esta siendo la tabla de madera, es $F_1$, por lo que:
+        ${{\hspace{{4mm}} \\sum{{\\vec{{M}}}} \\cdot \\hat{{i}} = ({-1*d[3]*f[0]*Calculations.cosine(a[0])-f[0]*Calculations.sine(a[0])*d[0]/2})[N \\cdot m]}}$
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
 
     #========================================================  MOMENTO  =========================================================
     #--------------------------------------        Momento alrededor de un eje      --------------------------------------------

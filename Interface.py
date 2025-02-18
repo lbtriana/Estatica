@@ -864,6 +864,11 @@ if authenticate_user():
                             st.image(MO_image_paths[7], width=500)
                         elif version_no == 4:
                             st.image(MO_image_paths[8], width=500)
+                if subtopic == "Momento alrededor de un eje":
+                    if pregunta_no == 1:
+                        st.image(MAE_image_paths[4], width=450)
+                    if pregunta_no == 2:
+                        st.image(MAE_image_paths[5], width=350)
                 if subtopic == "Sistemas equivalentes":
                     if pregunta_no == 1:
                         st.image(SE_image_paths[4], width=450)  
