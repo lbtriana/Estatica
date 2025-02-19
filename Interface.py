@@ -869,6 +869,10 @@ if authenticate_user():
                         st.image(MAE_image_paths[4], width=450)
                     if pregunta_no == 2:
                         st.image(MAE_image_paths[5], width=350)
+                    if pregunta_no == 3:
+                        st.image(MAE_image_paths[6], width=450)
+                    if pregunta_no == 4:
+                        st.image(MAE_image_paths[7], width=400)
                 if subtopic == "Sistemas equivalentes":
                     if pregunta_no == 1:
                         st.image(SE_image_paths[4], width=450)  
@@ -1002,6 +1006,9 @@ if authenticate_user():
                 if subtopic == "Equilibrio 2D":
                     if pregunta_no == 1:
                         st.image(EQ_rtas_paths[8], width=250)
+                if subtopic == "Momento alrededor de un eje":
+                    if pregunta_no == 3:
+                        st.image(MAE_rtas_paths[0], width=350)
                 if subtopic == "Centroides":
                     if pregunta_no ==1:
                         st.image(CT_rtas_paths[1], width=200)

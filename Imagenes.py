@@ -142,7 +142,7 @@ MO_image_paths =[
 "./Imagenes/Preguntas/MO/M2D/MO_M2D_D_1c.png", #[11]
 ]
 
-#================= mágenes Preguntas Cálculo Momento alrededor de un eje ========================
+#================= Imágenes Preguntas Cálculo Momento alrededor de un eje ========================
 MAE_image_paths =[
 #Nivel fácil
 "./Imagenes/Preguntas/MO/MAE/MO_MAE_F_1a.png", #[0]
@@ -153,6 +153,8 @@ MAE_image_paths =[
 #Nivel medio
 "./Imagenes/Preguntas/MO/MAE/MO_MAE_M_1a.png", #[4]
 "./Imagenes/Preguntas/MO/MAE/MO_MAE_M_2a.png", #[5]
+"./Imagenes/Preguntas/MO/MAE/MO_MAE_M_3a.png", #[6]
+"./Imagenes/Preguntas/MO/MAE/MO_MAE_M_4a.png", #[6]
 ]
 
 #================================ Imágenes Preguntas Cálculo Armaduras ===================================
@@ -308,6 +310,12 @@ EQ_rtas_paths= [
 #Equilibrio 2D_Poleas_Nivel fácil
 "./Imagenes/Respuestas/EQ/EQ2D/R_EQ_EQ2D_F_1b.png", #[12]
 
+]
+
+#================================ Imágenes Respuestas Cálculos Momento alrededor de un eje ===================================
+MAE_rtas_paths= [
+#Nivel medio
+"./Imagenes/Respuestas/MO/MAE/R_MO_MAE_M_3a.png", #[0] 
 ]
 
 #================================ Imágenes Respuestas Cálculos Centroides ===================================
