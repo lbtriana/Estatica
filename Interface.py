@@ -862,8 +862,6 @@ if authenticate_user():
                             st.image(MO_image_paths[6], width=500)
                         elif version_no == 3:
                             st.image(MO_image_paths[7], width=500)
-                        elif version_no == 4:
-                            st.image(MO_image_paths[8], width=500)
                 if subtopic == "Momento alrededor de un eje":
                     if pregunta_no == 1:
                         st.image(MAE_image_paths[4], width=450)
