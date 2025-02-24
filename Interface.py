@@ -507,7 +507,7 @@ if authenticate_user():
             if topic == "Equilibrio de partículas":
                 subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Vectores 2D", "Vectores 3D", "Vector unitario", "Equilibrio 2D"])
             elif topic=="Momento":
-                subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Momento en un punto 2D", "Momento alrededor de un eje"])
+                subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Momento en un punto 2D", "Momento en un punto 3D", "Momento alrededor de un eje"])
             elif topic=="Sistemas equivalentes":
                 subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Sistemas equivalentes"])
             elif topic=="Armaduras":
@@ -735,22 +735,25 @@ if authenticate_user():
                 if subtopic == "Momento en un punto 2D":
                     if pregunta_no == 1 or pregunta_no == 2:
                         if version_no == 1:
-                            st.image(MO_image_paths[0], width=600) 
+                            st.image(M2D_image_paths[0], width=600) 
                         elif version_no == 2:
-                            st.image(MO_image_paths[1], width=600)
+                            st.image(M2D_image_paths[1], width=600)
                         elif version_no == 3:
-                            st.image(MO_image_paths[2], width=350)
+                            st.image(M2D_image_paths[2], width=350)
                         elif version_no == 4:
-                            st.image(MO_image_paths[3], width=350)
+                            st.image(M2D_image_paths[3], width=350)
                     if pregunta_no == 3 or pregunta_no == 4:
                         if version_no == 1:
-                            st.image(MO_image_paths[4], width=600) 
+                            st.image(M2D_image_paths[4], width=600) 
                         elif version_no == 2:
-                            st.image(MO_image_paths[1], width=350)
+                            st.image(M2D_image_paths[1], width=350)
                         elif version_no == 3:
-                            st.image(MO_image_paths[2], width=350)
+                            st.image(M2D_image_paths[2], width=350)
                         elif version_no == 4:
-                            st.image(MO_image_paths[3], width=350)
+                            st.image(M2D_image_paths[3], width=350)
+                if subtopic == "Momento en un punto 3D":
+                    if pregunta_no == 1:
+                        st.image(M3D_image_paths[0], width=400) 
                 if subtopic == "Momento alrededor de un eje":
                     if pregunta_no == 1:
                         st.image(MAE_image_paths[0], width=450) 
@@ -857,11 +860,14 @@ if authenticate_user():
                 if subtopic == "Momento en un punto 2D":
                     if pregunta_no == 1 or pregunta_no == 2 or pregunta_no == 3:
                         if version_no == 1:
-                            st.image(MO_image_paths[5], width=500) 
+                            st.image(M2D_image_paths[5], width=500) 
                         elif version_no == 2:
-                            st.image(MO_image_paths[6], width=500)
+                            st.image(M2D_image_paths[6], width=500)
                         elif version_no == 3:
-                            st.image(MO_image_paths[7], width=500)
+                            st.image(M2D_image_paths[7], width=500)
+                if subtopic == "Momento en un punto 3D":
+                    if pregunta_no == 1:
+                        st.image(M3D_image_paths[1], width=400) 
                 if subtopic == "Momento alrededor de un eje":
                     if pregunta_no == 1:
                         st.image(MAE_image_paths[4], width=450)
@@ -949,11 +955,11 @@ if authenticate_user():
                 if subtopic == "Momento en un punto 2D":
                     if pregunta_no == 1 or pregunta_no == 2: 
                         if version_no == 1:
-                            st.image(MO_image_paths[9], width=550) 
+                            st.image(M2D_image_paths[9], width=550) 
                         elif version_no == 2:
-                            st.image(MO_image_paths[10], width=550)
+                            st.image(M2D_image_paths[10], width=550)
                         elif version_no == 3:
-                            st.image(MO_image_paths[11], width=550)
+                            st.image(M2D_image_paths[11], width=550)
                 if subtopic == "Sistemas equivalentes":
                     if pregunta_no == 1:
                         st.image(SE_image_paths[6], width=450) 
@@ -986,6 +992,9 @@ if authenticate_user():
                         st.image(EQ_rtas_paths[9], width=250)
                     if pregunta_no == 4:
                         st.image(EQ_rtas_paths[10], width=350)
+                if subtopic == "Momento en un punto 3D":
+                    if pregunta_no == 1:
+                        st.image(M3D_rtas_paths[0], width=450)
                 if subtopic == "Centroides":
                     if pregunta_no ==1:
                         st.image(CT_rtas_paths[0], width=200)

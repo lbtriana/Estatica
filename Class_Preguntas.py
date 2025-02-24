@@ -3885,71 +3885,72 @@ preguntas = [
 
 
     #========================================================  MOMENTO  =========================================================
+    
     #--------------------------------------------     Momento en un punto en 3D      --------------------------------------------
-    #-------------------------------------------------       Nivel facil    ---------------------------------------------------
+    #-------------------------------------------------       Nivel fácil    ---------------------------------------------------
     #-------------------------------------------------       Code: 2210011    ---------------------------------------------------
+ 
+    Questionary(#1_1
+        code = 2210011,
+        no_pregunta = 1,
+        complexity = F,
+        topic = MO,
+        subtopic = M3D,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine el momento de la fuerza $F_1$ con respecto al origen y expréselo en forma de vector cartesiano. Considere que $F_1 = [ {d[9]:.0f}\\hat{{i}} + {d[12]:.0f} \\hat{{j}}  {d[1]:.0f} \\hat{{k}} ] \\text{{ lb}}$, $d_1 = {d[3]:.0f} \\text{{ ft}}$,  $d_2 = {d[0]:.0f}  \\text{{ ft}}$ y $d_3 = {d[6]:.0f} \\text{{ ft}}$.",
+        no_answers = 3,
+        a1_name = "Componente $\\hat{{i}}$ del momento en el origen [$lb \\cdot ft$]",
+        a2_name = "Componente $\\hat{{j}}$ del momento en el origen [$lb \\cdot ft$]",
+        a3_name = "Componente $\\hat{{k}}$ del momento en el origen [$lb \\cdot ft$]",
+        answer1 = lambda f, a, calc, c, d, m: np.round(d[3]*d[1]+d[6]*d[12],2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(-(d[0]*d[1])-d[6]*d[9],2),
+        answer3 = lambda f, a, calc, c, d, m: np.round((d[0]*d[12])-(d[3]*d[9]),2),
+        ayuda1 = MP1,
+        ayuda2 = MP4,      
+        ayuda3 = MP5,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. En 3 dimensiones, el cálculo del momento se facilita al resolver el producto cruz. A continuación, se muestra la solución sugerida para el ejercicio:      
 
-    # Questionary(#1_1
-    #     code = 2210011,
-    #     no_pregunta = 1,
-    #     complexity = F,
-    #     topic = MO,
-    #     subtopic = M3D,
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Determine el momento en el origen de la fuerza $F_1$, y expreselo en vector cartesiano. Considere que $F_1 = [ {d[9]:.0f}\\hat{{i}} + {d[12]:.0f} \\hat{{j}} + ( {d[1]:.0f} ) \\hat{{k}} ] \\text{{ lb}}$, $d_1 = {d[3]:.0f} \\text{{ ft}}$,  $d_2 = {d[0]:.0f}  \\text{{ ft}}$ y $d_3 = {d[6]:.0f} \\text{{ ft}}$.",
-    #     no_answers = 3,
-    #     a1_name = "Componente $\\hat{{i}}$ del momento en el origen [$lb \\cdot ft$]",
-    #     a2_name = "Componente $\\hat{{j}}$ del momento en el origen [$lb \\cdot ft$]",
-    #     a3_name = "Componente $\\hat{{k}}$ del momento en el origen [$lb \\cdot ft$]",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(d[3]*d[1]+d[6]*d[12],2),
-    #     answer2 = lambda f, a, calc, c, d, m: np.round(-(d[0]*d[1])-d[6]*d[9],2),
-    #     answer3 = lambda f, a, calc, c, d, m: np.round((d[0]*d[12])-(d[3]*d[9]),2),
-    #     ayuda1 = "El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. El vector posición $\\overrightarrow{{r}}$ se calcula desde el punto en el que se evalúa el momento a la línea de acción de la fuerza.",
-    #     ayuda2 = "Recordar que los signos de los componentes de $\\overrightarrow{{r}}$  y $\\overrightarrow{{F}}$ son importantes para determinar la dirección correcta del momento; recordando que el vector momento no solo indicamagnitud, sino también el eje alrededor del cual se produce la rotación el cual es perpendicular tanto al vector $\\overrightarrow{{r}}$ como $\\overrightarrow{{F}}$.",      
-    #     ayuda3 = "Se puede dividir el problema en componentes $\\hat{{i}}$, $\\hat{{j}}$ y $\\hat{{k}}$, y resolver de manera independiente las componentes del momento.",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. En 3 dimensiones es más fácil calcular el momento resolviendo producto cruz y dividiendo el ejercicios en determinar las componentes $\\hat{{i}}$, $\\hat{{j}}$ y $\\hat{{k}}$. A continuación, se presenta la solución sugerida para el ejercicio:      
+        $\\textbf{{\\small 1. Definición del vector posición:}}$       
+        
+        ${{\hspace{{4mm}} r_x = d_2 = {d[0]:.0f}{{ \\text{{ ft}}}}}}$     
+        ${{\hspace{{4mm}} r_y = d_1 = {d[3]:.0f}{{ \\text{{ ft}}}}}}$      
+        ${{\hspace{{4mm}} r_z = - d_3 = {-d[6]:.0f}{{ \\text{{ ft}}}}}}$        
 
-    #     $\\textbf{{\\small 1. Obtención del vector posición:}}$       
-        
-    #     ${{\hspace{{4mm}} r_x = d_2 = {d[0]:.0f}{{ \\text{{ ft}}}}}}$     
-    #     ${{\hspace{{4mm}} r_y = d_1 = {d[3]:.0f}{{ \\text{{ ft}}}}}}$      
-    #     ${{\hspace{{4mm}} r_z = - d_3 = {-d[6]:.0f}{{ \\text{{ ft}}}}}}$        
+        $\\textbf{{\\small 2. Calculo del momento en el origen: }}$  
 
-    #     $\\textbf{{\\small 2. Calculo del momento en el origen: }}$  
+        Las ecuaciones del producto cruz por cada componente, pueden ser halladas con el siguiente método:
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        $\\underline{{Componente \\hspace{{2mm}} \\hat{{i}} :}}$
         
-    #     $\\underline{{Componente \\hspace{{2mm}} \\hat{{i}} :}}$
+        Aplicando el producto cruz, la componente $\\hat{{i}}$ del momento se puede calcular como:
         
-    #     $\\underline{{Componente \\hspace{{2mm}} \\hat{{i}} :}}$
+        ${{\hspace{{4mm}} M_i = r_y \\cdot F_z - r_z \\cdot F_y = {d[3]:.0f}{{ \\text{{ ft}}}} \\cdot ( {d[1]:.0f} ){{ \\text{{ lb}}}} - ( {-d[6]:.0f}{{ \\text{{ ft}}}} ) \\cdot {d[12]:.0f}{{ \\text{{ lb}}}}}}$       
+        ${{\hspace{{4mm}} M_i = ( {d[3]*d[1]:.0f} ){{ \\text{{ lb}}}} \\cdot {{ \\text{{ ft}}}} - ( {-( d[6]*d[12]) :.0f} ) {{ \\text{{ lb}}}} \\cdot {{ \\text{{ ft}}}}}}$     
+        ${{\hspace{{4mm}} M_i = {d[3]*d[1]+d[6]*d[12]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$       
         
-    #     Haciendo Producto Cruz, la componente \\hat{{i}} del momento se puede calcular como:
+        $\\underline{{Componente \\hspace{{2mm}} \\hat{{j}} :}}$
         
-    #     ${{\hspace{{4mm}} M_i = r_y \\cdot F_z - r_z \\cdot F_y = {d[3]:.0f}{{ \\text{{ ft}}}} \\cdot ( {d[1]:.0f} ){{ \\text{{ lb}}}} - ( {-d[6]:.0f}{{ \\text{{ ft}}}} ) \\cdot {d[12]:.0f}{{ \\text{{ lb}}}}}}$       
-    #     ${{\hspace{{4mm}} M_i = ( {d[3]*d[1]:.0f} ){{ \\text{{ lb}}}} \\cdot {{ \\text{{ ft}}}} - ( {-( d[6]*d[12]) :.0f} ) {{ \\text{{ lb}}}} \\cdot {{ \\text{{ ft}}}}}}$     
-    #     ${{\hspace{{4mm}} M_i = {d[3]*d[1]+d[6]*d[12]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$       
+        Aplicando el producto cruz, la componente $\\hat{{j}}$ del momento se puede calcular como:
         
-    #     $\\underline{{Componente \\hspace{{2mm}} \\hat{{j}} :}}$
+        ${{\hspace{{4mm}} M_j = - ( r_x \\cdot F_z - r_z \\cdot F_x ) = -( {d[0]:.0f}{{ \\text{{ ft}}}} \\cdot ( {d[1]:.0f} ){{ \\text{{ lb}}}} - ( {-d[6]:.0f}{{ \\text{{ ft}}}} ) \\cdot {d[9]:.0f}{{ \\text{{ lb}}}} )}}$       
+        ${{\hspace{{4mm}} M_j = ( {-(d[0]*d[1]):.0f} ){{ \\text{{ lb}}}} \\cdot {{ \\text{{ ft}}}} - ( {d[6]*d[9]:.0f} ) {{ \\text{{ lb}}}} \\cdot {{ \\text{{ ft}}}} }}$     
+        ${{\hspace{{4mm}} M_j = {-(d[0]*d[1])-d[6]*d[9]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$      
         
-    #     Haciendo Producto Cruz, la componente \\hat{{j}} del momento se puede calcular como:
+        $\\underline{{Componente \\hspace{{2mm}} \\hat{{k}} :}}$
         
-    #     ${{\hspace{{4mm}} M_j = - ( r_x \\cdot F_z - r_z \\cdot F_x ) = -( {d[0]:.0f}{{ \\text{{ ft}}}} \\cdot ( {d[1]:.0f} ){{ \\text{{ lb}}}} - ( {-d[6]:.0f}{{ \\text{{ ft}}}} ) \\cdot {d[9]:.0f}{{ \\text{{ lb}}}} )}}$       
-    #     ${{\hspace{{4mm}} M_j = ( {-(d[0]*d[1]):.0f} ){{ \\text{{ lb}}}} \\cdot {{ \\text{{ ft}}}} - ( {d[6]*d[9]:.0f} ) {{ \\text{{ lb}}}} \\cdot {{ \\text{{ ft}}}} }}$     
-    #     ${{\hspace{{4mm}} M_j = {-(d[0]*d[1])-d[6]*d[9]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$      
+        Aplicando el producto cruz, la componente $\\hat{{k}}$ del momento se puede calcular como:
         
-    #     $\\underline{{Componente \\hspace{{2mm}} \\hat{{k}} :}}$
+        ${{\hspace{{4mm}} M_k =  r_x \\cdot F_y - r_y \\cdot F_x  = {d[0]:.0f}{{ \\text{{ ft}}}} \\cdot {d[12]:.0f} {{ \\text{{ lb}}}} - {d[3]:.0f}{{ \\text{{ ft}}}} \\cdot {d[9]:.0f}{{ \\text{{ lb}}}}}}$       
+        ${{\hspace{{4mm}} M_k =  {(d[0]*d[12]):.0f}{{ \\text{{ lb}}}} \\cdot {{ \\text{{ ft}}}} - {d[3]*d[9]:.0f} {{ \\text{{ lb}}}} \\cdot {{ \\text{{ ft}}}} }}$      
+        ${{\hspace{{4mm}} M_k = {(d[0]*d[12])-d[3]*d[9]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$    
         
-    #     Haciendo Producto Cruz, la componente \\hat{{k}} del momento se puede calcular como:
-        
-    #     ${{\hspace{{4mm}} M_k =  r_x \\cdot F_y - r_y \\cdot F_x  = {d[0]:.0f}{{ \\text{{ ft}}}} \\cdot {d[12]:.0f} {{ \\text{{ lb}}}} - {d[3]:.0f}{{ \\text{{ ft}}}} \\cdot {d[9]:.0f}{{ \\text{{ lb}}}}}}$       
-    #     ${{\hspace{{4mm}} M_k =  {(d[0]*d[12]):.0f}{{ \\text{{ lb}}}} \\cdot {{ \\text{{ ft}}}} - {d[3]*d[9]:.0f} {{ \\text{{ lb}}}} \\cdot {{ \\text{{ ft}}}} }}$      
-    #     ${{\hspace{{4mm}} M_k = {(d[0]*d[12])-d[3]*d[9]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$    
-        
-    #     Finalmente, se puede decir que el momento que causa $F_1$ en el origen es  $ [ {d[3]*d[1]+d[6]*d[12]:.0f}\\hat{{i}} + ( {-(d[0]*d[1])-d[6]*d[9]:.0f}) \\hat{{j}} + ({(d[0]*d[12])-d[3]*d[9]:.0f})\\hat{{k}} ]{{ \\text{{ lb}}}} \\cdot {{ \\text{{ ft}}}}$
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
+        Por lo tanto, el momento generado por $F_1$ en el origen es $ [ {d[3]*d[1]+d[6]*d[12]:.0f}\\hat{{i}} + ( {-(d[0]*d[1])-d[6]*d[9]:.0f}) \\hat{{j}} + ({(d[0]*d[12])-d[3]*d[9]:.0f})\\hat{{k}} ]{{ \\text{{ lb}}}} \\cdot {{ \\text{{ ft}}}}$
+        """,
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
 
     # Questionary(#2_1
     #     code = 2210021,
@@ -4152,62 +4153,63 @@ preguntas = [
     #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
     #     calculos='operations'
     #     ),
-
-
+    
+    
     #========================================================  MOMENTO  =========================================================
     #--------------------------------------------     Momento en un punto en 3D      --------------------------------------------
     #-------------------------------------------------       Nivel medio    ---------------------------------------------------
     #-------------------------------------------------       Code: 2220011    --------------------------------------------------
     
-    # Questionary(#1_1
-    #     code = 2220011,
-    #     no_pregunta = 1,
-    #     complexity = M,
-    #     topic = MO,
-    #     subtopic = M3D,
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Calcule la suma de momentos que causan las tres fuerzas en el Origen, y expreselo en vector cartesiano. Considere que $F_1 = [{f[0]:.0f}\\hat{{i}} + {f[1]:.0f} \\hat{{j}} + ({-f[2]:.0f})\\hat{{k}}]\\text{{ N}}$, $F_2 = [({-f[3]:.0f})\\hat{{i}} + {f[4]:.0f} \\hat{{j}} + {f[5]:.0f}\\hat{{k}}]\\text{{ N}}$, $F_3 = [{f[6]:.0f}\\hat{{i}} + (({-f[7]:.0f})\\hat{{j}} + {f[8]:.0f})\\hat{{k}}]\\text{{ N}}$, $d_1 = {d[3]:.0f} \\text{{ m}}$,  $d_2 = {d[0]:.0f}  \\text{{ m}}$ y $d_3 = {d[6]:.0f} \\text{{ m}}$.",
-    #     no_answers = 3,
-    #     a1_name = "Componente $\\hat{{i}}$ del momento en el origen [$N \\cdot m$]",
-    #     a2_name = "Componente $\\hat{{j}}$ del momento en el origen [$N \\cdot m$]",
-    #     a3_name = "Componente $\\hat{{k}}$ del momento en el origen [$N \\cdot m$]",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(d[3]*(-f[2]) + d[3]*(f[5]) + d[3]*f[8] - d[6]*(-f[7]),2),
-    #     answer2 = lambda f, a, calc, c, d, m: np.round(d[0]*f[2] + d[6]*f[6]-d[0]*f[8],2),
-    #     answer3 = lambda f, a, calc, c, d, m: np.round(d[0]*f[1]-d[3]*f[0] + d[3]*f[3] - d[0]*f[7]-d[3]*f[6],2),
-    #     ayuda1 = "El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. El vector posición $\\overrightarrow{{r}}$ se calcula desde el punto en el que se evalúa el momento a la línea de acción de la fuerza.",
-    #     ayuda2 = "Recordar que los signos de los componentes de $\\overrightarrow{{r}}$  y $\\overrightarrow{{F}}$ son importantes para determinar la dirección correcta del momento; recordando que el vector momento no solo indicamagnitud, sino también el eje alrededor del cual se produce la rotación el cual es perpendicular tanto al vector $\\overrightarrow{{r}}$ como $\\overrightarrow{{F}}$.",      
-    #     ayuda3 = "Se puede dividir el problema en componentes $\\hat{{i}}$, $\\hat{{j}}$ y $\\hat{{k}}$, y resolver de manera independiente las componentes del momento.",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. En 3 dimensiones es más fácil calcular el momento resolviendo producto cruz y dividiendo el ejercicio en determinar las componentes $\\hat{{i}}$, $\\hat{{j}}$ y $\\hat{{k}}$. A continuación, se presenta la solución sugerida para el ejercicio:      
+    Questionary(#1_1
+        code = 2220011,
+        no_pregunta = 1,
+        complexity = M,
+        topic = MO,
+        subtopic = M3D,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Calcule el momento resultante generado por las tres fuerzas en el origen y expréselo en forma de vector cartesiano. Considere que $F_1 = [{f[0]:.0f}\\hat{{i}} + {f[1]:.0f} \\hat{{j}} {-f[2]:.0f}\\hat{{k}}]\\text{{ N}}$, $F_2 = [{-f[3]:.0f}\\hat{{i}} + {f[4]:.0f} \\hat{{j}} + {f[5]:.0f}\\hat{{k}}]\\text{{ N}}$, $F_3 = [{f[6]:.0f}\\hat{{i}} {-f[7]:.0f}\\hat{{j}} + {f[8]:.0f}\\hat{{k}}]\\text{{ N}}$, $d_1 = {d[3]:.0f} \\text{{ m}}$,  $d_2 = {d[0]:.0f}  \\text{{ m}}$ y $d_3 = {d[6]:.0f} \\text{{ m}}$.",
+        no_answers = 3,
+        a1_name = "Componente $\\hat{{i}}$ del momento en el origen [$N \\cdot m$]",
+        a2_name = "Componente $\\hat{{j}}$ del momento en el origen [$N \\cdot m$]",
+        a3_name = "Componente $\\hat{{k}}$ del momento en el origen [$N \\cdot m$]",
+        answer1 = lambda f, a, calc, c, d, m: np.round(d[3]*(-f[2]) + d[3]*(f[5]) + d[3]*f[8] - d[6]*(-f[7]),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(d[0]*f[2] + d[6]*f[6]-d[0]*f[8],2),
+        answer3 = lambda f, a, calc, c, d, m: np.round(d[0]*f[1]-d[3]*f[0] + d[3]*f[3] - d[0]*f[7]-d[3]*f[6],2),
+        ayuda1 = MP1,
+        ayuda2 = MP4,
+        ayuda3 = "Se puede dividir el problema en componentes $\\hat{{i}}$, $\\hat{{j}}$ y $\\hat{{k}}$, y resolver de manera independiente las componentes del momento.",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. En 3 dimensiones, el cálculo del momento se facilita al resolver el producto cruz. A continuación, se muestra la solución sugerida para el ejercicio:      
 
-    #     $\\textbf{{\\small 1. Calculo del momento en el origen causado por F_1: }}$  
+        $\\textbf{{\\small 1. Calculo del momento en el origen causado por F1: }}$  
         
-    #     ${{\hspace{{4mm}} M_1 = (r_y \\cdot F_z - r_z \\cdot F_y)\\hat{{i}} - (r_x \\cdot F_z - r_z \\cdot F_x)\\hat{{j}} + (r_x \\cdot F_y - r_y \\cdot F_x)\\hat{{k}} }}$       
-    #     ${{\hspace{{4mm}} M_1 = ({d[3]:.0f}{{\\text{{ m}}}} \\cdot ({-f[2]:.0f}) {{\\text{{ N}}}} - 0 {{\\text{{ m}}}} \\cdot {f[1]:.0f} {{\\text{{ N}}}})\\hat{{i}} - ({d[0]:.0f}{{\\text{{ m}}}} \\cdot ({-f[2]:.0f}) {{\\text{{ N}}}} - 0 {{\\text{{ m}}}} \\cdot {f[0]:.0f} {{\\text{{ N}}}})\\hat{{j}} + ({d[0]:.0f}{{\\text{{ m}}}} \\cdot {f[1]:.0f} {{\\text{{ N}}}} - {d[3]:.0f}{{\\text{{ m}}}} \\cdot {f[0]:.0f} {{\\text{{ N}}}})\\hat{{k}}}}$       
-    #     ${{\hspace{{4mm}} M_1 = [ ({d[3]*(-f[2]):.0f})\\hat{{i}} + ({d[0]*f[2]:.0f})\\hat{{j}} + ({d[0]*f[1]-d[3]*f[0]:.0f})\\hat{{k}} ]{{\\text{{ N}} \\cdot \\text{{ m}}}}}}$ 
+        ${{\hspace{{4mm}} M_1 = (r_y \\cdot F_z - r_z \\cdot F_y)\\hat{{i}} - (r_x \\cdot F_z - r_z \\cdot F_x)\\hat{{j}} + (r_x \\cdot F_y - r_y \\cdot F_x)\\hat{{k}} }}$       
+        ${{\hspace{{4mm}} M_1 = ({d[3]:.0f}{{\\text{{ m}}}} \\cdot ({-f[2]:.0f}) {{\\text{{ N}}}} - 0 {{\\text{{ m}}}} \\cdot {f[1]:.0f} {{\\text{{ N}}}})\\hat{{i}} - ({d[0]:.0f}{{\\text{{ m}}}} \\cdot ({-f[2]:.0f}) {{\\text{{ N}}}} - 0 {{\\text{{ m}}}} \\cdot {f[0]:.0f} {{\\text{{ N}}}})\\hat{{j}} + ({d[0]:.0f}{{\\text{{ m}}}} \\cdot {f[1]:.0f} {{\\text{{ N}}}} - {d[3]:.0f}{{\\text{{ m}}}} \\cdot {f[0]:.0f} {{\\text{{ N}}}})\\hat{{k}}}}$       
+        ${{\hspace{{4mm}} M_1 = [ ({d[3]*(-f[2]):.0f})\\hat{{i}} + ({d[0]*f[2]:.0f})\\hat{{j}} + ({d[0]*f[1]-d[3]*f[0]:.0f})\\hat{{k}} ]{{\\text{{ N}} \\cdot \\text{{ m}}}}}}$ 
         
-    #     $\\textbf{{\\small 2. Calculo del momento en el origen causado por F_2: }}$  
+        $\\textbf{{\\small 2. Calculo del momento en el origen causado por F2: }}$  
         
-    #     ${{\hspace{{4mm}} M_2 = (r_y \\cdot F_z - r_z \\cdot F_y)\\hat{{i}} - (r_x \\cdot F_z - r_z \\cdot F_x)\\hat{{j}} + (r_x \\cdot F_y - r_y \\cdot F_x)\\hat{{k}} }}$       
-    #     ${{\hspace{{4mm}} M_2 = ({d[3]:.0f}{{\\text{{ m}}}} \\cdot {f[5]:.0f} {{\\text{{ N}}}} - 0 {{\\text{{ m}}}} \\cdot {f[4]:.0f} {{\\text{{ N}}}})\\hat{{i}} - ( 0 {{\\text{{ m}}}} \\cdot ({f[5]:.0f}) {{\\text{{ N}}}} - 0 {{\\text{{ m}}}} \\cdot ({-f[3]:.0f}) {{\\text{{ N}}}})\\hat{{j}} + ( 0 {{\\text{{ m}}}} \\cdot {f[4]:.0f} {{\\text{{ N}}}} - {d[3]:.0f}{{\\text{{ m}}}} \\cdot ({-f[3]:.0f}) {{\\text{{ N}}}})\\hat{{k}}}}$       
-    #     ${{\hspace{{4mm}} M_2 = [ ({d[3]*(f[5]):.0f})\\hat{{i}} + 0\\hat{{j}} + ({d[3]*f[3]:.0f})\\hat{{k}} ] {{ \\text{{ N}} \\cdot \\text{{ m}}}} }}$
+        ${{\hspace{{4mm}} M_2 = (r_y \\cdot F_z - r_z \\cdot F_y)\\hat{{i}} - (r_x \\cdot F_z - r_z \\cdot F_x)\\hat{{j}} + (r_x \\cdot F_y - r_y \\cdot F_x)\\hat{{k}} }}$       
+        ${{\hspace{{4mm}} M_2 = ({d[3]:.0f}{{\\text{{ m}}}} \\cdot {f[5]:.0f} {{\\text{{ N}}}} - 0 {{\\text{{ m}}}} \\cdot {f[4]:.0f} {{\\text{{ N}}}})\\hat{{i}} - ( 0 {{\\text{{ m}}}} \\cdot ({f[5]:.0f}) {{\\text{{ N}}}} - 0 {{\\text{{ m}}}} \\cdot ({-f[3]:.0f}) {{\\text{{ N}}}})\\hat{{j}} + ( 0 {{\\text{{ m}}}} \\cdot {f[4]:.0f} {{\\text{{ N}}}} - {d[3]:.0f}{{\\text{{ m}}}} \\cdot ({-f[3]:.0f}) {{\\text{{ N}}}})\\hat{{k}}}}$       
+        ${{\hspace{{4mm}} M_2 = [ ({d[3]*(f[5]):.0f})\\hat{{i}} + 0\\hat{{j}} + ({d[3]*f[3]:.0f})\\hat{{k}} ] {{ \\text{{ N}} \\cdot \\text{{ m}}}} }}$
         
-    #     $\\textbf{{\\small 3. Calculo del momento en el origen causado por F_3: }}$  
+        $\\textbf{{\\small 3. Calculo del momento en el origen causado por F3: }}$  
         
-    #     ${{\hspace{{4mm}} M_3 = (r_y \\cdot F_z - r_z \\cdot F_y)\\hat{{i}} - (r_x \\cdot F_z - r_z \\cdot F_x)\\hat{{j}} + (r_x \\cdot F_y - r_y \\cdot F_x)\\hat{{k}} }}$       
-    #     ${{\hspace{{4mm}} M_3 = ({d[3]:.0f}{{\\text{{ m}}}} \\cdot {f[8]:.0f}{{\\text{{ N}}}} - {d[6]:.0f}{{\\text{{ m}}}} \\cdot ({-f[7]:.0f}) {{\\text{{ N}}}})\\hat{{i}} - ({d[0]:.0f}{{\\text{{ m}}}} \\cdot {f[8]:.0f} {{\\text{{ N}}}} - {d[6]:.0f}{{\\text{{ m}}}} \\cdot {f[6]:.0f} {{\\text{{ N}}}})\\hat{{j}} + ({d[0]:.0f}{{\\text{{ m}}}} \\cdot ({-f[7]:.0f}) {{\\text{{ N}}}} - {d[3]:.0f}{{\\text{{ m}}}} \\cdot {f[6]:.0f} {{\\text{{ N}}}})\\hat{{k}}}}$       
-    #     ${{\hspace{{4mm}} M_3 = [ ({d[3]*f[8] + d[6]*f[7]:.0f})\\hat{{i}} - ({d[0]*f[8]-d[6]*f[6]:.0f})\\hat{{j}} - ({d[0]*(f[7])+d[3]*f[6]:.0f})\\hat{{k}} ]{{\\text{{ N}} \\cdot \\text{{ m}}}}}}$
+        ${{\hspace{{4mm}} M_3 = (r_y \\cdot F_z - r_z \\cdot F_y)\\hat{{i}} - (r_x \\cdot F_z - r_z \\cdot F_x)\\hat{{j}} + (r_x \\cdot F_y - r_y \\cdot F_x)\\hat{{k}} }}$       
+        ${{\hspace{{4mm}} M_3 = ({d[3]:.0f}{{\\text{{ m}}}} \\cdot {f[8]:.0f}{{\\text{{ N}}}} - {d[6]:.0f}{{\\text{{ m}}}} \\cdot ({-f[7]:.0f}) {{\\text{{ N}}}})\\hat{{i}} - ({d[0]:.0f}{{\\text{{ m}}}} \\cdot {f[8]:.0f} {{\\text{{ N}}}} - {d[6]:.0f}{{\\text{{ m}}}} \\cdot {f[6]:.0f} {{\\text{{ N}}}})\\hat{{j}} + ({d[0]:.0f}{{\\text{{ m}}}} \\cdot ({-f[7]:.0f}) {{\\text{{ N}}}} - {d[3]:.0f}{{\\text{{ m}}}} \\cdot {f[6]:.0f} {{\\text{{ N}}}})\\hat{{k}}}}$       
+        ${{\hspace{{4mm}} M_3 = [ ({d[3]*f[8] + d[6]*f[7]:.0f})\\hat{{i}} - ({d[0]*f[8]-d[6]*f[6]:.0f})\\hat{{j}} - ({d[0]*(f[7])+d[3]*f[6]:.0f})\\hat{{k}} ]{{\\text{{ N}} \\cdot \\text{{ m}}}}}}$
         
-    #     $\\textbf{{\\small 4. Sumatoria de momentos en el origen: }}$
+        $\\textbf{{\\small 4. Sumatoria de momentos en el origen: }}$
 
-    #     ${{\hspace{{4mm}} \\sum{{M_O}} = [({d[3]*(-f[2]):.0f} + {d[3]*(f[5]):.0f} + {d[3]*f[8] - d[6]*(-f[7]):.0f})\\hat{{i}} + ({d[0]*f[2]:.0f} + 0 + ({d[6]*f[6]-d[0]*f[8]:.0f}))\\hat{{j}} + ({d[0]*f[1]-d[3]*f[0]:.0f} + {d[3]*f[3]:.0f} + {d[0]*(-f[7])-d[3]*f[6]:.0f})\\hat{{k}}]{{\\text{{ N}} \\cdot \\text{{ m}}}} }}$      
-    #     ${{\hspace{{4mm}} \\sum{{M_O}} = [({d[3]*(-f[2]) + d[3]*(f[5]) + d[3]*f[8] - d[6]*(-f[7]):.2f})\\hat{{i}} + ({d[0]*f[2] + d[6]*f[6]-d[0]*f[8]:.2f})\\hat{{j}} + ({d[0]*f[1]-d[3]*f[0] + d[3]*f[3] - d[0]*f[7]-d[3]*f[6]:.2f})\\hat{{k}}] {{\\text{{ N}} \\cdot \\text{{ m}}}} }}$      
+        ${{\hspace{{4mm}} \\sum{{M_O}} = [({d[3]*(-f[2]):.0f} + {d[3]*(f[5]):.0f} + {d[3]*f[8] - d[6]*(-f[7]):.0f})\\hat{{i}} + ({d[0]*f[2]:.0f} + 0 + ({d[6]*f[6]-d[0]*f[8]:.0f}))\\hat{{j}} + ({d[0]*f[1]-d[3]*f[0]:.0f} + {d[3]*f[3]:.0f} + ({d[0]*(-f[7])-d[3]*f[6]:.0f}))\\hat{{k}}]{{\\text{{ N}} \\cdot \\text{{ m}}}} }}$      
+        ${{\hspace{{4mm}} \\sum{{M_O}} = [({d[3]*(-f[2]) + d[3]*(f[5]) + d[3]*f[8] - d[6]*(-f[7]):.2f})\\hat{{i}} + ({d[0]*f[2] + d[6]*f[6]-d[0]*f[8]:.2f})\\hat{{j}} + ({d[0]*f[1]-d[3]*f[0] + d[3]*f[3] - d[0]*f[7]-d[3]*f[6]:.2f})\\hat{{k}}] {{\\text{{ N}} \\cdot \\text{{ m}}}} }}$      
               
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),  
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
+
     # Questionary(#2_1
     #     code = 2220021,
     #     no_pregunta = 2,
@@ -4303,6 +4305,7 @@ preguntas = [
     #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
     #     calculos='operations'
     #     ),
+
     # Questionary(#3_1
     #     code = 2220031,
     #     no_pregunta = 3,
@@ -4412,11 +4415,37 @@ preguntas = [
     #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
     #     calculos='operations'
     #     ),
-        
+    
+    
+ 
     #========================================================  MOMENTO  =========================================================
     #--------------------------------------------     Momento en un punto en 3D      --------------------------------------------
     #-------------------------------------------------       Nivel Dificil   ---------------------------------------------------
     #-------------------------------------------------       Code: 2230011    --------------------------------------------------
+    Questionary(#1_1
+        code = 0,
+        no_pregunta = 1,
+        complexity = D,
+        topic = MO,
+        subtopic = M3D,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Está sección pronto estará disponible.",
+        no_answers = 0,
+        a1_name = AX,
+        a2_name = AY,
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(0, 2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(0, 2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = A1,
+        ayuda2 = A2,
+        ayuda3 = A3,
+        respuesta_P1 = lambda fa, a, calc, c, d, m: f"",
+        respuesta_P2 = lambda fa, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda fa, a, calc, c, d, m: f"",
+        calculos = 'operations',
+        ),
+    
     # Questionary(#1_1
     #     code = 2230011,
     #     no_pregunta = 1,

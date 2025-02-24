@@ -120,9 +120,9 @@ EQ_image_paths= [
 
 ]
 
-#================================ Imágenes Preguntas Cálculo Momento ===================================
+#================================ Imágenes Preguntas Cálculo Momento en un punto 2D ===================================
 
-MO_image_paths =[
+M2D_image_paths =[
 #Momento 2D en un punto _ Nivel fácil
 "./Imagenes/Preguntas/MO/M2D/MO_M2D_F_1a.png", #[0]
 "./Imagenes/Preguntas/MO/M2D/MO_M2D_F_1b.png", #[1]
@@ -140,6 +140,16 @@ MO_image_paths =[
 "./Imagenes/Preguntas/MO/M2D/MO_M2D_D_1a.png", #[9]
 "./Imagenes/Preguntas/MO/M2D/MO_M2D_D_1b.png", #[10]
 "./Imagenes/Preguntas/MO/M2D/MO_M2D_D_1c.png", #[11]
+]
+
+#================================ Imágenes Preguntas Cálculo Momento en un punto 3D ===================================
+
+M3D_image_paths =[
+#Nivel fácil
+"./Imagenes/Preguntas/MO/M3D/MO_M3D_F_1a.png", #[0]
+
+#Nivel medio
+"./Imagenes/Preguntas/MO/M3D/MO_M3D_M_1a.png", #[1]
 ]
 
 #================= Imágenes Preguntas Cálculo Momento alrededor de un eje ========================
@@ -310,6 +320,11 @@ EQ_rtas_paths= [
 #Equilibrio 2D_Poleas_Nivel fácil
 "./Imagenes/Respuestas/EQ/EQ2D/R_EQ_EQ2D_F_1b.png", #[12]
 
+]
+
+#================================ Imágenes Respuestas Cálculos Momento en un punto ===================================
+M3D_rtas_paths= [
+"./Imagenes/Respuestas/MO/M3D/R_MO_M3D_F_1a.png", #[0] 
 ]
 
 #================================ Imágenes Respuestas Cálculos Momento alrededor de un eje ===================================

@@ -179,9 +179,11 @@ A77 = "Incluya dentro de la sumatoria las componentes de la fuerza que se debe a
 A78 = "Dibuje el diagrama de cuerpo libre (DCL) de cada una de las poleas, identifique correctamente los cambios de cuerda entre las poleas."
 
 #MOMENTO EN UN PUNTO
-MP1 = "El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. El vector posición $\\overrightarrow{{r}}$ se calcula desde el punto en el que se evalúa el momento a la línea de acción de la fuerza.",
-MP2 = "Para calcular el momento en el punto de evaluación, primero obtenga las componentes del vector fuerza $\\overrightarrow{{F}}$ y el vector posición $\\overrightarrow{{r}}$. Luego, identifique la componente de la fuerza que es perpendicular al vector de posición. El momento se calcula como la multiplicación de esta componente perpendicular de la fuerza por la distancia desde el punto de evaluación.",
+MP1 = "El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. El vector posición $\\overrightarrow{{r}}$ se calcula desde el punto en el que se evalúa el momento a la línea de acción de la fuerza."
+MP2 = "Para calcular el momento en el punto de evaluación, primero obtenga las componentes del vector fuerza $\\overrightarrow{{F}}$ y el vector posición $\\overrightarrow{{r}}$. Luego, identifique la componente de la fuerza que es perpendicular al vector de posición. El momento se calcula como la multiplicación de esta componente perpendicular de la fuerza por la distancia desde el punto de evaluación."
 MP3 = "Recuerde utilizar la regla de la mano derecha para definir el signo del momento."
+MP4 = "Recuerde que el producto cruz no tiene la propiedad conmutativa. Por lo cual, $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$ no es igual a $\\overrightarrow{{F}}$ X $\\overrightarrow{{r}}$."
+MP5 = "Recuerde que los signos de los componentes de $\\overrightarrow{{r}}$  y $\\overrightarrow{{F}}$ son importantes para determinar correctamente la dirección del momento. El vector momento no solo indica magnitud, sino también el eje alrededor del cual se produce la rotación, siendo perpendicular tanto al vector $\\overrightarrow{{r}}$ como al vector $\\overrightarrow{{F}}$."
 
 #MOMENTO ALREDEDOR DE UN EJE
 MAE1 = """Los pasos generales para calcular el momento alrededor de un eje son:   
