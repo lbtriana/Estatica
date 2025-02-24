@@ -67,7 +67,7 @@ def calcular_dimensiones(num_dimensiones = 28):
 #Functions to calculate variables associated with moments
 def calcular_momentos():
     momentos=[]
-    momentos = [rd.randint(10,100) for _ in range(4)]
+    momentos = [rd.randint(10,100) for _ in range(6)]
     return momentos
 
 #=========================
