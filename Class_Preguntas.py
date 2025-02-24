@@ -3578,49 +3578,49 @@ preguntas = [
         calculos='operations'
         ),
 
-    Questionary(#4_1
-        code = 2120041,
-        no_pregunta = 4,
-        complexity = M,
-        topic = MO,
-        subtopic = M2D,
-        version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Calcule la suma de momentos alrededor del origen $\\textit{{O}}$ de las fuerza $\\overrightarrow{{F_1}} = [ {m[0]:.0f}\\hat{{i}} +  {m[3]:.0f}  \\hat{{j}} ] {{ \\text{{ kN}}}}$ que actua en un punto $A$ con vector posición $\\overrightarrow{{r_a}} = [ {d[0]:.0f}\\hat{{i}} +  {d[3]:.0f} \\hat{{j}} ]{{ \\text{{ m}}}}$ y la fuerza $\\overrightarrow{{F_2}} = [ {m[4]:.0f}\\hat{{i}} +  {m[1]:.0f}  \\hat{{j}} ] {{ \\text{{ kN}}}}$ que actúa en un punto $B$, con vector posición  $\\overrightarrow{{r_b}} = [ {d[6]:.0f} \\hat{{i}} + {d[9]:.0f}\\hat{{j}} ]{{ \\text{{ m}}}}$.",
-        no_answers = 1,
-        a1_name = "Momento en el origen $[kN \\cdot m]$",
-        a2_name = "",
-        a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round((d[0]*m[3]-d[3]*m[0]) + (d[6]*m[1]-d[9]*m[4]),2),
-        answer2 = lambda f, a, calc, c, d, m: 0,
-        answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = "El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. El vector posición $\\overrightarrow{{r}} se calcula desde el punto en el que se evalúa el momento a la línea de acción de la fuerza.",
-        ayuda2 = "Recordar que los signos de los componentes de r y F son importantes para determinar la dirección correcta del momento.",      
-        ayuda3 = "",
-        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-        El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. A continuación, se presenta la solución sugerida:  
+    # Questionary(#4_1
+    #     code = 2120041,
+    #     no_pregunta = 4,
+    #     complexity = M,
+    #     topic = MO,
+    #     subtopic = M2D,
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"Calcule la suma de momentos alrededor del origen $\\textit{{O}}$ de las fuerza $\\overrightarrow{{F_1}} = [ {m[0]:.0f}\\hat{{i}} +  {m[3]:.0f}  \\hat{{j}} ] {{ \\text{{ kN}}}}$ que actua en un punto $A$ con vector posición $\\overrightarrow{{r_a}} = [ {d[0]:.0f}\\hat{{i}} +  {d[3]:.0f} \\hat{{j}} ]{{ \\text{{ m}}}}$ y la fuerza $\\overrightarrow{{F_2}} = [ {m[4]:.0f}\\hat{{i}} +  {m[1]:.0f}  \\hat{{j}} ] {{ \\text{{ kN}}}}$ que actúa en un punto $B$, con vector posición  $\\overrightarrow{{r_b}} = [ {d[6]:.0f} \\hat{{i}} + {d[9]:.0f}\\hat{{j}} ]{{ \\text{{ m}}}}$.",
+    #     no_answers = 1,
+    #     a1_name = "Momento en el origen $[kN \\cdot m]$",
+    #     a2_name = "",
+    #     a3_name = "",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round((d[0]*m[3]-d[3]*m[0]) + (d[6]*m[1]-d[9]*m[4]),2),
+    #     answer2 = lambda f, a, calc, c, d, m: 0,
+    #     answer3 = lambda f, a, calc, c, d, m: 0,
+    #     ayuda1 = "El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. El vector posición $\\overrightarrow{{r}} se calcula desde el punto en el que se evalúa el momento a la línea de acción de la fuerza.",
+    #     ayuda2 = "Recordar que los signos de los componentes de r y F son importantes para determinar la dirección correcta del momento.",      
+    #     ayuda3 = "",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. A continuación, se presenta la solución sugerida:  
 
-        En el ejercicio planteado, es importante notar que se proporcionan las componentes de la Fuerza y del Vector posición, lo que permite resolver el problema mediante el producto cruz. Sin embargo, como el análisis se realiza en dos dimensiones, el momento resultante tendrá una única componente en la dirección $\\hat{{k}}$, perpendicular al plano. Su obtención se realiza multiplicando las componentes perpendiculares entre sí del Vector Fuerza y del vector Posición, tal que:
+    #     En el ejercicio planteado, es importante notar que se proporcionan las componentes de la Fuerza y del Vector posición, lo que permite resolver el problema mediante el producto cruz. Sin embargo, como el análisis se realiza en dos dimensiones, el momento resultante tendrá una única componente en la dirección $\\hat{{k}}$, perpendicular al plano. Su obtención se realiza multiplicando las componentes perpendiculares entre sí del Vector Fuerza y del vector Posición, tal que:
                 
-        $\\textbf{{\\small 1. Momento causado por F1:}}$
+    #     $\\textbf{{\\small 1. Momento causado por F1:}}$
         
-        ${{\hspace{{4mm}} M_1 = \\overrightarrow{{r_x}} \\cdot \\overrightarrow{{F1_y}} - \\overrightarrow{{r_y}} \\cdot \\overrightarrow{{F1_x}} = ( {d[0]:.0f}{{ \\text{{ m }}}}\\cdot {m[3]:.0f}{{ \\text{{ kN }}}} ) - ( {d[3]:.0f}{{ \\text{{ m }}}}\\cdot {m[0]:.0f}{{ \\text{{ kN}}}} )}}$     
-        ${{\hspace{{4mm}} M_1 = {(d[0]*m[3]-d[3]*m[0]):.2f}{{\\text{{ kN}} \\cdot\\text{{ m}}}}}}$    
+    #     ${{\hspace{{4mm}} M_1 = \\overrightarrow{{r_x}} \\cdot \\overrightarrow{{F1_y}} - \\overrightarrow{{r_y}} \\cdot \\overrightarrow{{F1_x}} = ( {d[0]:.0f}{{ \\text{{ m }}}}\\cdot {m[3]:.0f}{{ \\text{{ kN }}}} ) - ( {d[3]:.0f}{{ \\text{{ m }}}}\\cdot {m[0]:.0f}{{ \\text{{ kN}}}} )}}$     
+    #     ${{\hspace{{4mm}} M_1 = {(d[0]*m[3]-d[3]*m[0]):.2f}{{\\text{{ kN}} \\cdot\\text{{ m}}}}}}$    
         
-        $\\textbf{{\\small 2. Momento causado por F2:}}$
+    #     $\\textbf{{\\small 2. Momento causado por F2:}}$
         
-        ${{\hspace{{4mm}} M_2 = \\overrightarrow{{r_x}} \\cdot \\overrightarrow{{F2_y}} - \\overrightarrow{{r_y}} \\cdot \\overrightarrow{{F2_x}} = ( {d[6]:.0f}{{ \\text{{ m }}}} \\cdot {m[1]:.0f}{{ \\text{{ kN }}}} ) - ( {d[9]:.0f}{{ \\text{{ m}}}}\\cdot {m[4]:.0f}{{ \\text{{ kN}}}} )}}$     
-        ${{\hspace{{4mm}} M_2 = {(d[6]*m[1]-d[9]*m[4]):.2f}{{\\text{{ kN}} \\cdot\\text{{ m}}}}}}$
+    #     ${{\hspace{{4mm}} M_2 = \\overrightarrow{{r_x}} \\cdot \\overrightarrow{{F2_y}} - \\overrightarrow{{r_y}} \\cdot \\overrightarrow{{F2_x}} = ( {d[6]:.0f}{{ \\text{{ m }}}} \\cdot {m[1]:.0f}{{ \\text{{ kN }}}} ) - ( {d[9]:.0f}{{ \\text{{ m}}}}\\cdot {m[4]:.0f}{{ \\text{{ kN}}}} )}}$     
+    #     ${{\hspace{{4mm}} M_2 = {(d[6]*m[1]-d[9]*m[4]):.2f}{{\\text{{ kN}} \\cdot\\text{{ m}}}}}}$
         
-        $\\textbf{{\\small 3. Sumatoria de momentos:}}$ 
+    #     $\\textbf{{\\small 3. Sumatoria de momentos:}}$ 
         
-        ${{\hspace{{4mm}} M_O = M_1 + M_2 = {(d[0]*m[3]-d[3]*m[0]):.2f}{{\\text{{ kN}} \\cdot\\text{{ m}}}} + {(d[6]*m[1]-d[9]*m[4]):.2f}{{\\text{{ kN}} \\cdot\\text{{ m}}}}}}$      
-        ${{\hspace{{4mm}} M_O = {(d[0]*m[3]-d[3]*m[0]) + (d[6]*m[1]-d[9]*m[4]):.2f}{{\\text{{ kN}} \\cdot\\text{{ m}}}}}}$      
+    #     ${{\hspace{{4mm}} M_O = M_1 + M_2 = {(d[0]*m[3]-d[3]*m[0]):.2f}{{\\text{{ kN}} \\cdot\\text{{ m}}}} + {(d[6]*m[1]-d[9]*m[4]):.2f}{{\\text{{ kN}} \\cdot\\text{{ m}}}}}}$      
+    #     ${{\hspace{{4mm}} M_O = {(d[0]*m[3]-d[3]*m[0]) + (d[6]*m[1]-d[9]*m[4]):.2f}{{\\text{{ kN}} \\cdot\\text{{ m}}}}}}$      
                    
-        """,   
-        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-        calculos='operations'
-        ),
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ),
 
     
     #========================================================  MOMENTO  =========================================================
@@ -4940,6 +4940,31 @@ preguntas = [
     #--------------------------------------        Momento alrededor de un eje      --------------------------------------------
     #-------------------------------------------------       Nivel Díficil   ---------------------------------------------------
     #-------------------------------------------------      Code: 23300##    --------------------------------------------------
+
+    Questionary(#1_1
+        code = 0,
+        no_pregunta = 1,
+        complexity = D,
+        topic = MO,
+        subtopic = "Momento alrededor de un eje",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Está sección pronto estará disponible.",
+        no_answers = 0,
+        a1_name = AX,
+        a2_name = AY,
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(0, 2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(0, 2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = A1,
+        ayuda2 = A2,
+        ayuda3 = A3,
+        respuesta_P1 = lambda fa, a, calc, c, d, m: f"",
+        respuesta_P2 = lambda fa, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda fa, a, calc, c, d, m: f"",
+        calculos = 'operations',
+        ),
+
 
     # Questionary(#1_1
     #     code = 2330011,
