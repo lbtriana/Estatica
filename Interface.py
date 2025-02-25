@@ -752,7 +752,7 @@ if authenticate_user():
                         elif version_no == 4:
                             st.image(M2D_image_paths[3], width=350)
                 if subtopic == "Momento en un punto 3D":
-                    if pregunta_no == 1:
+                    if pregunta_no == 1 or pregunta_no == 2 or pregunta_no == 3:
                         st.image(M3D_image_paths[0], width=400) 
                 if subtopic == "Momento alrededor de un eje":
                     if pregunta_no == 1:

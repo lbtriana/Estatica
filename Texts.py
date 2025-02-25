@@ -184,6 +184,7 @@ MP2 = "Para calcular el momento en el punto de evaluación, primero obtenga las 
 MP3 = "Recuerde utilizar la regla de la mano derecha para definir el signo del momento."
 MP4 = "Recuerde que el producto cruz no tiene la propiedad conmutativa. Por lo cual, $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$ no es igual a $\\overrightarrow{{F}}$ X $\\overrightarrow{{r}}$."
 MP5 = "Recuerde que los signos de los componentes de $\\overrightarrow{{r}}$  y $\\overrightarrow{{F}}$ son importantes para determinar correctamente la dirección del momento. El vector momento no solo indica magnitud, sino también el eje alrededor del cual se produce la rotación, siendo perpendicular tanto al vector $\\overrightarrow{{r}}$ como al vector $\\overrightarrow{{F}}$."
+MP6 = "Para hallar incógnitas, primero identifique los datos disponibles y analice cómo se relacionan entre sí."
 
 #MOMENTO ALREDEDOR DE UN EJE
 MAE1 = """Los pasos generales para calcular el momento alrededor de un eje son:   
