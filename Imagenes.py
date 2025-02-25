@@ -147,9 +147,10 @@ M2D_image_paths =[
 M3D_image_paths =[
 #Nivel fácil
 "./Imagenes/Preguntas/MO/M3D/MO_M3D_F_1a.png", #[0]
+"./Imagenes/Preguntas/MO/M3D/MO_M3D_F_4a.png", #[1]
 
 #Nivel medio
-"./Imagenes/Preguntas/MO/M3D/MO_M3D_M_1a.png", #[1]
+"./Imagenes/Preguntas/MO/M3D/MO_M3D_M_1a.png", #[2]
 ]
 
 #================= Imágenes Preguntas Cálculo Momento alrededor de un eje ========================

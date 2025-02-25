@@ -754,6 +754,8 @@ if authenticate_user():
                 if subtopic == "Momento en un punto 3D":
                     if pregunta_no == 1 or pregunta_no == 2 or pregunta_no == 3:
                         st.image(M3D_image_paths[0], width=400) 
+                    if pregunta_no == 4:
+                        st.image(M3D_image_paths[1], width=390)
                 if subtopic == "Momento alrededor de un eje":
                     if pregunta_no == 1:
                         st.image(MAE_image_paths[0], width=450) 
@@ -867,7 +869,7 @@ if authenticate_user():
                             st.image(M2D_image_paths[7], width=500)
                 if subtopic == "Momento en un punto 3D":
                     if pregunta_no == 1:
-                        st.image(M3D_image_paths[1], width=400) 
+                        st.image(M3D_image_paths[2], width=400) 
                 if subtopic == "Momento alrededor de un eje":
                     if pregunta_no == 1:
                         st.image(MAE_image_paths[4], width=450)
@@ -993,7 +995,7 @@ if authenticate_user():
                     if pregunta_no == 4:
                         st.image(EQ_rtas_paths[10], width=350)
                 if subtopic == "Momento en un punto 3D":
-                    if pregunta_no == 1:
+                    if pregunta_no == 1 or pregunta_no == 2 or pregunta_no == 3:
                         st.image(M3D_rtas_paths[0], width=450)
                 if subtopic == "Centroides":
                     if pregunta_no ==1:

@@ -3980,7 +3980,10 @@ preguntas = [
         ${{\hspace{{4mm}} r_z = - d_3 = {-d[6]:.0f}{{ \\text{{ ft}}}}}}$         
 
         $\\textbf{{\\small 2. Expresión de ecuaciones de la componentes de momento: }}$  
-        
+
+        Las ecuaciones del producto cruz por cada componente, pueden ser halladas con el siguiente método:
+        """,    
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
         ${{\hspace{{4mm}} M_i = d_1 \\cdot F_z - (-d_3) \\cdot F_y }}$     
         ${{\hspace{{4mm}} M_j = - (d_2 \\cdot F_z - (-d_3) \\cdot F_x)}}$     
         ${{\hspace{{4mm}} M_k = d_2 \\cdot F_y - d_1 \\cdot F_x }}$     
@@ -3999,10 +4002,8 @@ preguntas = [
         ${{\hspace{{4mm}} {-m[1]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}} = - (d_2 \\cdot ( {-f[2]:.0f} ){{ \\text{{ lb}}}} - ({-d[6]:.0f}{{ \\text{{ ft}}}}) \\cdot {f[0]:.0f}{{ \\text{{ lb}}}} )}}$       
         ${{\hspace{{4mm}} {m[1]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}} - {d[6]*f[0]:.0f}{{ \\text{{ lb}}}} = d_2 \\cdot ( {-f[2]:.0f} ){{ \\text{{ lb}}}}}}$       
         ${{\hspace{{4mm}} d_2 = \\dfrac{{{m[1]-d[6]*f[0]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}{{( {-f[2]:.0f} ){{ \\text{{ lb}}}}}}}}$      
-        ${{\hspace{{4mm}} d_2 = {(m[1]-d[6]*f[0])/(-f[2]):.2f}{{ \\text{{ ft}}}} }}$    
-
-        """,   
-        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        ${{\hspace{{4mm}} d_2 = {(m[1]-d[6]*f[0])/(-f[2]):.2f}{{ \\text{{ ft}}}} }}$ 
+        """,
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),
@@ -4034,8 +4035,12 @@ preguntas = [
         ${{\hspace{{4mm}} r_y = d_1 = {d[3]:.0f}{{ \\text{{ ft}}}}}}$     
         ${{\hspace{{4mm}} r_z = - d_3 = {-d[6]:.0f}{{ \\text{{ ft}}}}}}$         
 
-        $\\textbf{{\\small 2. Expresión de ecuaciones de la componentes de momento: }}$  
-        
+        $\\textbf{{\\small 2. Expresión de ecuaciones de la componentes de momento: }}$ 
+
+        Las ecuaciones del producto cruz por cada componente, pueden ser halladas con el siguiente método:
+         
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
         ${{\hspace{{4mm}} M_i = d_1 \\cdot F_z - (-d_3) \\cdot F_y }}$     
         ${{\hspace{{4mm}} M_j = - (d_2 \\cdot F_z - (-d_3) \\cdot F_x)}}$     
         ${{\hspace{{4mm}} M_k = d_2 \\cdot F_y - d_1 \\cdot F_x }}$     
@@ -4055,108 +4060,106 @@ preguntas = [
         ${{\hspace{{4mm}} {-m[0]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}} +  {d[3]*f[2]:.0f} {{\\text{{ lb}} \\cdot \\text{{ ft}}}} = {d[6]:.0f}{{ \\text{{ ft}}}} \\cdot F_y}}$       
         ${{\hspace{{4mm}} F_y = \\dfrac{{{-m[0]+d[3]*f[2]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}{{( {d[6]:.0f} ){{ \\text{{ ft}}}}}}}}$      
         ${{\hspace{{4mm}} F_y = {(-m[0]+d[3]*f[2])/(d[6]):.2f}{{\\text{{ lb}}}} }}$     
-           
+        """,
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
+
+    Questionary(#4_1
+        code = 2210041,
+        no_pregunta = 4,
+        complexity = F,
+        topic = MO,
+        subtopic = M3D,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de los momentos en el punto $A$ generados por las fuerzas $F_1$ y $F_2$. Considere $F_1 = [ {f[0]:.0f}\\hat{{i}} + {f[1]:.0f} \\hat{{j}} + ( {-f[2]:.0f} ) \\hat{{k}} ] \\text{{ lb}}$, $F_2 = [ {-f[3]:.0f}\\hat{{i}} + {f[4]:.0f} \\hat{{j}} + ( {f[5]:.0f} ) \\hat{{k}} ] \\text{{ lb}}$, $d_1 = {d[3]:.0f} \\text{{ ft}}$,  $d_2 = {d[0]:.0f}  \\text{{ ft}}$ y $d_3 = {d[6]:.0f} \\text{{ ft}}$.",
+        no_answers = 2,
+        a1_name = "Momento en A causado por $F_1$ [$lb \\cdot ft$]",
+        a2_name = "Momento en A causado por $F_2$ [$lb \\cdot ft$]",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(Calculations.magnitude3D(d[6]*f[1],-d[6]*f[0],0),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(Calculations.magnitude3D(0,-d[0]*f[5],-d[0]*f[4]),2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = MP1,
+        ayuda2 = MP4,      
+        ayuda3 = MP5,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. En 3 dimensiones, el cálculo del momento se facilita al resolver el producto cruz. A continuación, se muestra la solución sugerida para el ejercicio:     
+
+        $\\textbf{{\\small 1. Obtención del vector posición:}}$   
+        
+        $\\underline{{Vector \\text{{ }} Posición \\text{{ }} r_1 \\text{{ }} asociado \\text{{ }} a \\text{{ }} la \\text{{ }} fuerza \\text{{ }} F_1: }}$         
+        
+        ${{\hspace{{4mm}} r_{{1x}} = 0 {{ \\text{{ ft}}}}}}$     
+        ${{\hspace{{4mm}} r_{{1y}} = 0 {{ \\text{{ ft}}}}}}$     
+        ${{\hspace{{4mm}} r_{{1z}} = - d_3 = {-d[6]:.0f}{{ \\text{{ ft}}}}}}$        
+        
+        $\\underline{{Vector \\text{{ }} Posición \\text{{ }} r2 \\text{{ }} asociado \\text{{ }} a \\text{{ }} la \\text{{ }} fuerza \\text{{ }} F_2: }}$
+        
+        ${{\hspace{{4mm}} r_{{2x}} = - d_2 = {-d[0]:.0f}{{ \\text{{ ft}}}}}}$     
+        ${{\hspace{{4mm}} r_{{2y}} = 0 {{ \\text{{ ft}}}}}}$     
+        ${{\hspace{{4mm}} r_{{2z}} = 0 {{ \\text{{ ft}}}}}}$       
+
+        $\\textbf{{\\small 2. Calculo del momento en A de F1: }}$  
+        
+        $\\underline{{Componente \\text{{ }} \\hat{{i}} :}}$
+        
+        Aplicando el producto cruz, la componente $\\hat{{i}}$ del momento se puede calcular como:
+        
+        ${{\hspace{{4mm}} M_{{1i}} = r_y \\cdot F_z - r_z \\cdot F_y = 0 {{ \\text{{ ft}}}} \\cdot ( {-f[2]:.0f} ){{ \\text{{ lb}}}} - ( {-d[6]:.0f}{{ \\text{{ ft}}}} ) \\cdot {f[1]:.0f}{{ \\text{{ lb}}}}}}$          
+        ${{\hspace{{4mm}} M_{{1i}} = {d[6]*f[1]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$       
+        
+        $\\underline{{Componente \\text{{ }} \\hat{{j}} :}}$
+        
+        Aplicando el producto cruz, la componente $\\hat{{j}}$ del momento se puede calcular como:
+        
+        ${{\hspace{{4mm}} M_{{1j}} = - ( r_x \\cdot F_z - r_z \\cdot F_x ) = -( 0 {{ \\text{{ ft}}}} \\cdot ( {-f[2]:.0f} ){{ \\text{{ lb}}}} - ( {-d[6]:.0f}{{ \\text{{ ft}}}} ) \\cdot {f[0]:.0f}{{ \\text{{ lb}}}} )}}$           
+        ${{\hspace{{4mm}} M_{{1j}} = {-d[6]*f[0]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$      
+        
+        $\\underline{{Componente \\text{{ }} \\hat{{k}} :}}$
+        
+        Aplicando el producto cruz, la componente $\\hat{{k}}$ del momento se puede calcular como:
+        
+        ${{\hspace{{4mm}} M_{{1k}} =  r_x \\cdot F_y - r_y \\cdot F_x  = 0 {{ \\text{{ ft}}}} \\cdot {f[1]:.0f} {{ \\text{{ lb}}}} - 0 {{ \\text{{ ft}}}} \\cdot {f[0]:.0f}{{ \\text{{ lb}}}}}}$         
+        ${{\hspace{{4mm}} M_{{1k}} = 0 {{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$     
+        
+        $\\underline{{Magnitud \\text{{ }} del \\text{{ }} momento \\text{{ }} causado \\text{{ }} por \\text{{ }} F_1:}}$
+        
+        ${{\hspace{{4mm}} |M_1| = \\sqrt{{ ({d[6]*f[1]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}})^{{2}} + ({-d[6]*f[0]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}})^{{2}} }} }}$     
+        ${{\hspace{{4mm}} |M_1| = {Calculations.magnitude3D(d[6]*f[1],-d[6]*f[0],0):.2f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$     
+        
+        $\\textbf{{\\small 3. Calculo del momento en A de F2: }}$  
+        
+        $\\underline{{Componente \\text{{ }} \\hat{{i}} :}}$
+        
+        Aplicando el producto cruz, la componente $\\hat{{i}}$ del momento se puede calcular como:
+        
+        ${{\hspace{{4mm}} M_{{2i}} = r_y \\cdot F_z - r_z \\cdot F_y = 0 {{ \\text{{ ft}}}} \\cdot ( {f[5]:.0f} ){{ \\text{{ lb}}}} - 0 \\cdot {f[4]:.0f}{{ \\text{{ lb}}}}}}$          
+        ${{\hspace{{4mm}} M_{{2i}} = 0 {{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$       
+        
+        $\\underline{{Componente \\text{{ }} \\hat{{j}} :}}$
+        
+        Aplicando el producto cruz, la componente $\\hat{{j}}$ del momento se puede calcular como:
+        
+        ${{\hspace{{4mm}} M_{{2j}} = - ( r_x \\cdot F_z - r_z \\cdot F_x ) = -( {-d[0]:.0f} {{ \\text{{ ft}}}} \\cdot ( {f[5]:.0f} ){{ \\text{{ lb}}}} - 0 {{ \\text{{ ft}}}} \\cdot ( {-f[3]:.0f}{{ \\text{{ lb}}}} ) )}}$           
+        ${{\hspace{{4mm}} M_{{2j}} = {d[0]*f[5]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$      
+        
+        $\\underline{{Componente \\text{{ }} \\hat{{k}} :}}$
+        
+        Aplicando el producto cruz, la componente $\\hat{{k}}$ del momento se puede calcular como:
+        
+        ${{\hspace{{4mm}} M_{{2k}} =  r_x \\cdot F_y - r_y \\cdot F_x  = {-d[0]:.0f} {{ \\text{{ ft}}}} \\cdot {f[4]:.0f} {{ \\text{{ lb}}}} - 0 {{ \\text{{ ft}}}} \\cdot ( {-f[3]:.0f}{{ \\text{{ lb}}}} )}}$    
+        ${{\hspace{{4mm}} M_{{2k}} = {-d[0]*f[4]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$     
+        
+        $\\underline{{Magnitud \\text{{ }} del \\text{{ }} momento \\text{{ }} causado \\text{{ }} por \\text{{ }} F_2:}}$
+        
+        ${{\hspace{{4mm}} |M_2| = \\sqrt{{ ({d[0]*f[5]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}})^{{2}} + ({-d[0]*f[4]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}})^{{2}} }} }}$               
+        ${{\hspace{{4mm}} |M_2| = {Calculations.magnitude3D(0,d[0]*f[5],d[0]*f[4]):.2f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}} }}$       
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),
-
-    # Questionary(#4_1
-    #     code = 2210041,
-    #     no_pregunta = 4,
-    #     complexity = F,
-    #     topic = MO,
-    #     subtopic = M3D,
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de los momentos en el punto A de las fuerza $F_1$ y $F_2$. Considere $F_1 = [ {f[0]:.0f}\\hat{{i}} + {f[1]:.0f} \\hat{{j}} + ( {-f[2]:.0f} ) \\hat{{k}} ] \\text{{ lb}}$, $F_2 = [ {-f[3]:.0f}\\hat{{i}} + {f[4]:.0f} \\hat{{j}} + ( {f[5]:.0f} ) \\hat{{k}} ] \\text{{ lb}}$ $d_1 = {d[3]:.0f} \\text{{ ft}}$,  $d_2 = {d[0]:.0f}  \\text{{ ft}}$ y $d_3 = {d[6]:.0f} \\text{{ ft}}$.",
-    #     no_answers = 2,
-    #     a1_name = "Momento en A causado por $F_1$ [$lb \\cdot ft$]",
-    #     a2_name = "Momento en A causado por $F_2$ [$lb \\cdot ft$]",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(Calculations.magnitude3D(d[6]*f[1],-d[6]*f[0],0),2),
-    #     answer2 = lambda f, a, calc, c, d, m: np.round(Calculations.magnitude3D(0,-d[0]*f[5],-d[0]*f[4]),2),
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. El vector posición $\\overrightarrow{{r}}$ se calcula desde el punto en el que se evalúa el momento a la línea de acción de la fuerza.",
-    #     ayuda2 = "Recordar que los signos de los componentes de $\\overrightarrow{{r}}$  y $\\overrightarrow{{F}}$ son importantes para determinar la dirección correcta del momento; recordando que el vector momento no solo indicamagnitud, sino también el eje alrededor del cual se produce la rotación el cual es perpendicular tanto al vector $\\overrightarrow{{r}}$ como $\\overrightarrow{{F}}$.",      
-    #     ayuda3 = "Se puede dividir el problema en componentes $\\hat{{i}}$, $\\hat{{j}}$ y $\\hat{{k}}$, y resolver de manera independiente las componentes del momento.",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. En 3 dimensiones es más fácil calcular el momento resolviendo producto cruz y dividiendo el ejercicios en determinar las componentes $\\hat{{i}}$, $\\hat{{j}}$ y $\\hat{{k}}$. A continuación, se presenta la solución sugerida para el ejercicio:      
-
-    #     $\\textbf{{\\small 1. Obtención del vector posición:}}$   
-        
-    #     $\\underline{{Vector Posición \\hspace{{2mm}} r1: }}$         
-        
-    #     ${{\hspace{{4mm}} r1_x = 0 {{ \\text{{ ft}}}}}}$     
-    #     ${{\hspace{{4mm}} r1_y = 0 {{ \\text{{ ft}}}}}}$     
-    #     ${{\hspace{{4mm}} r1_z = - d_3 = {-d[6]:.0f}{{ \\text{{ ft}}}}}}$        
-        
-    #     $\\underline{{Vector Posición \\hspace{{2mm}} r2: }}$
-        
-    #     ${{\hspace{{4mm}} r2_x = - d_2 = {-d[0]:.0f}{{ \\text{{ ft}}}}}}$     
-    #     ${{\hspace{{4mm}} r2_y = 0 {{ \\text{{ ft}}}}}}$     
-    #     ${{\hspace{{4mm}} r2_z = 0 {{ \\text{{ ft}}}}}}$       
-
-    #     $\\textbf{{\\small 2. Calculo del momento en A de F_1: }}$  
-        
-    #     $\\underline{{Componente \\hspace{{2mm}} \\hat{{i}} :}}$
-        
-    #     Haciendo Producto Cruz, la componente \\hat{{i}} del momento se puede calcular como:
-        
-    #     ${{\hspace{{4mm}} M1_i = r_y \\cdot F_z - r_z \\cdot F_y = 0 {{ \\text{{ ft}}}} \\cdot ( {-f[2]:.0f} ){{ \\text{{ lb}}}} - ( {-d[6]:.0f}{{ \\text{{ ft}}}} ) \\cdot {f[1]:.0f}{{ \\text{{ lb}}}}}}$          
-    #     ${{\hspace{{4mm}} M1_i = {d[6]*f[1]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$       
-        
-    #     $\\underline{{Componente \\hspace{{2mm}} \\hat{{j}} :}}$
-        
-    #     Haciendo Producto Cruz, la componente \\hat{{j}} del momento se puede calcular como:
-        
-    #     ${{\hspace{{4mm}} M1_j = - ( r_x \\cdot F_z - r_z \\cdot F_x ) = -( 0 {{ \\text{{ ft}}}} \\cdot ( {-f[2]:.0f} ){{ \\text{{ lb}}}} - ( {-d[6]:.0f}{{ \\text{{ ft}}}} ) \\cdot {f[0]:.0f}{{ \\text{{ lb}}}} )}}$           
-    #     ${{\hspace{{4mm}} M1_j = {-d[6]*f[0]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$      
-        
-    #     $\\underline{{Componente \\hspace{{2mm}} \\hat{{k}} :}}$
-        
-    #     Haciendo Producto Cruz, la componente \\hat{{k}} del momento se puede calcular como:
-        
-    #     ${{\hspace{{4mm}} M1_k =  r_x \\cdot F_y - r_y \\cdot F_x  = 0 {{ \\text{{ ft}}}} \\cdot {f[1]:.0f} {{ \\text{{ lb}}}} - 0 {{ \\text{{ ft}}}} \\cdot {f[0]:.0f}{{ \\text{{ lb}}}}}}$         
-    #     ${{\hspace{{4mm}} M1_k = 0 {{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$     
-        
-    #     $\\underline{{Magnitud \\hspace{{2mm}} del \\hspace{{2mm}} momento \\hspace{{2mm}} causado \\hspace{{2mm}} por \\hspace{{2mm}} F_1:}}$
-        
-    #     ${{\hspace{{4mm}} |M_1| = \\sqrt{{ ({d[6]*f[1]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}})^{{2}} + ({-d[6]*f[0]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}})^{{2}} }} }}$     
-    #     ${{\hspace{{4mm}} |M_1| = {Calculations.magnitude3D(d[6]*f[1],-d[6]*f[0],0)}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$     
-        
-    #     $\\textbf{{\\small 3. Calculo del momento en A de F_2: }}$  
-        
-    #     $\\underline{{Componente \\hspace{{2mm}} \\hat{{i}} :}}$
-        
-    #     Haciendo Producto Cruz, la componente \\hat{{i}} del momento se puede calcular como:
-        
-    #     ${{\hspace{{4mm}} M2_i = r_y \\cdot F_z - r_z \\cdot F_y = 0 {{ \\text{{ ft}}}} \\cdot ( {f[5]:.0f} ){{ \\text{{ lb}}}} - 0 \\cdot {f[4]:.0f}{{ \\text{{ lb}}}}}}$          
-    #     ${{\hspace{{4mm}} M2_i = 0 {{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$       
-        
-    #     $\\underline{{Componente \\hspace{{2mm}} \\hat{{j}} :}}$
-        
-    #     Haciendo Producto Cruz, la componente \\hat{{j}} del momento se puede calcular como:
-        
-    #     ${{\hspace{{4mm}} M2_j = - ( r_x \\cdot F_z - r_z \\cdot F_x ) = -( {-d[0]:.0f} {{ \\text{{ ft}}}} \\cdot ( {f[5]:.0f} ){{ \\text{{ lb}}}} - 0 {{ \\text{{ ft}}}} \\cdot ( {-f[3]:.0f}{{ \\text{{ lb}}}} ) )}}$           
-    #     ${{\hspace{{4mm}} M2_j = {d[0]*f[5]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$      
-        
-    #     $\\underline{{Componente \\hspace{{2mm}} \\hat{{k}} :}}$
-        
-    #     Haciendo Producto Cruz, la componente \\hat{{k}} del momento se puede calcular como:
-        
-    #     ${{\hspace{{4mm}} M2_k =  r_x \\cdot F_y - r_y \\cdot F_x  = {-d[0]:.0f} {{ \\text{{ ft}}}} \\cdot {f[4]:.0f} {{ \\text{{ lb}}}} - 0 {{ \\text{{ ft}}}} \\cdot ( {-f[3]:.0f}{{ \\text{{ lb}}}} )}}$    
-    #     ${{\hspace{{4mm}} M2_k = {-d[0]*f[4]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$     
-        
-    #     $\\underline{{Magnitud \\hspace{{2mm}} del \\hspace{{2mm}} momento \\hspace{{2mm}} causado \\hspace{{2mm}} por \\hspace{{2mm}} F_1:}}$
-        
-    #     ${{\hspace{{4mm}} |M_2| = \\sqrt{{ ({d[0]*f[5]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}})^{{2}} + ({-d[0]*f[4]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}})^{{2}} }} }}$
-    #     ${{\hspace{{4mm}} |M_2| = {Calculations.magnitude3D(0,d[0]*f[5],d[0]*f[4])}{{\\text{{ lb}} \\cdot \\text{{ ft}}}} }}$       
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
     
     
     #========================================================  MOMENTO  =========================================================
