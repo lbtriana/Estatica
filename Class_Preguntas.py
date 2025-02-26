@@ -4224,74 +4224,72 @@ preguntas = [
     #     topic = MO,
     #     subtopic = M3D,
     #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Determine las componentes  $\\hat{{j}}$ y $\\hat{{k}}$ de la fuerza $F_2$ si la sumatoria de momentos en A y en B deben ser iguales. Considere que la componente $\\hat{{k}}$ de $F_2 = {-f[3]:0f} \\text{{ N}}$; Asuma $F_1 = [{f[0]:.0f}\\hat{{i}} + {f[1]:.0f} \\hat{{j}} + ({-f[2]:.0f})\\hat{{k}}]\\text{{ N}}$, $F_3 = [{f[6]:.0f}\\hat{{i}} + ({-f[7]:.0f})\\hat{{j}} + {f[8]:.0f}\\hat{{k}}]\\text{{ N}}$, $d_1 = {d[3]:.0f} \\text{{ m}}$,  $d_2 = {d[0]:.0f}  \\text{{ m}}$ y $d_3 = {d[6]:.0f} \\text{{ m}}$.",
+    #     pregunta = lambda f, a, calc, c, d, m: f"Determine las componentes  $\\hat{{j}}$ y $\\hat{{k}}$ de la fuerza $F_2$ si la sumatoria de momentos en $A$ y en $B$ deben ser iguales. Considere que la componente $\\hat{{k}}$ de $F_2 = {-f[3]:.0f} \\text{{ N}}$. Asuma que $F_1 = [{f[0]:.0f}\\hat{{i}} + {f[1]:.0f} \\hat{{j}} + ({-f[2]:.0f})\\hat{{k}}]\\text{{ N}}$, $F_3 = [{f[6]:.0f}\\hat{{i}} + ({-f[7]:.0f})\\hat{{j}} + {f[8]:.0f}\\hat{{k}}]\\text{{ N}}$, $d_1 = {d[3]:.0f} \\text{{ m}}$,  $d_2 = {d[0]:.0f}  \\text{{ m}}$ y $d_3 = {d[6]:.0f} \\text{{ m}}$.",
     #     no_answers = 2,
-    #     a1_name = "Componente $\\hat{{j}}$ de la fuerza $F_2$ [N]",
-    #     a2_name = "Componente $\\hat{{k}}$ de la fuerza $F_2$ [N]",
+    #     a1_name = "Componente $\\hat{{j}}$ de la fuerza $F_2$ $[N]$",
+    #     a2_name = "Componente $\\hat{{k}}$ de la fuerza $F_2$ $[N]$",
     #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(f[2]-f[8],2),
-    #     answer2 = lambda f, a, calc, c, d, m: np.round(f[7]-f[1],2),
+    #     answer1 = lambda f, a, calc, c, d, m: np.round(f[7]-f[1],2),
+    #     answer2 = lambda f, a, calc, c, d, m: np.round(f[2]-f[8],2),
     #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. El vector posición $\\overrightarrow{{r}}$ se calcula desde el punto en el que se evalúa el momento a la línea de acción de la fuerza.",
-    #     ayuda2 = "Recordar que los signos de los componentes de $\\overrightarrow{{r}}$  y $\\overrightarrow{{F}}$ son importantes para determinar la dirección correcta del momento; recordando que el vector momento no solo indicamagnitud, sino también el eje alrededor del cual se produce la rotación el cual es perpendicular tanto al vector $\\overrightarrow{{r}}$ como $\\overrightarrow{{F}}$.",      
-    #     ayuda3 = "Se puede dividir el problema en componentes $\\hat{{i}}$, $\\hat{{j}}$ y $\\hat{{k}}$, y resolver de manera independiente las componentes del momento.",
+    #     ayuda1 = MP1,
+    #     ayuda2 = MP4,      
+    #     ayuda3 = MP5,
     #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. En 3 dimensiones es más fácil calcular el momento resolviendo producto cruz y dividiendo el ejercicio en determinar las componentes $\\hat{{i}}$, $\\hat{{j}}$ y $\\hat{{k}}$. 
-        
-    #     En este caso, también se va a descomponer el problema en obtener las componentes de los momentos en A y en B, para luego igualarlas con el fin de despejar los terminos que se buscan. A continuación, se presenta la solución sugerida para el ejercicio:      
+    #     El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. En 3 dimensiones, el cálculo del momento se facilita al resolver el producto cruz. Para este ejercicio, se determinarán las componentes de los momentos en $A$ y en $B$, y luego se igualarán para despejar los términos desconocidos. A continuación, se presenta la solución sugerida para el ejercicio:      
 
-    #     $\\textbf{{\\small 1. Calculo del momento en A: }}$
+    #     $\\textbf{{\\small 1. Cálculo del momento en A: }}$
         
-    #     En este caso, se puede evidenciar que las unicas fuerzas que causan momento seran $F_1$ y $F_3$ :
+    #     Las únicas fuerzas que causan momento en el punto $A$ son $F_1$ y $F_3$. Dado que, la línea de acción de la fuerza $F_2$ cruza el punto $A$:
         
-    #     $\\underline{{Momento \\hspace{{2mm}} causado \\hspace{{2mm}} por \\hspace{{2mm}} F_1 :}}$  
+    #     $\\underline{{Momento \\text{{ }} causado \\text{{ }} por \\text{{ }} F_1 :}}$  
         
     #     ${{\hspace{{4mm}} M_{{A1}} = (r_y \\cdot F_z - r_z \\cdot F_y)\\hat{{i}} - (r_x \\cdot F_z - r_z \\cdot F_x)\\hat{{j}} + (r_x \\cdot F_y - r_y \\cdot F_x)\\hat{{k}} }}$       
     #     ${{\hspace{{4mm}} M_{{A1}} = ( 0 {{\\text{{ m}}}} \\cdot ({-f[2]:.0f}) {{\\text{{ N}}}} - 0 {{\\text{{ m}}}} \\cdot {f[1]:.0f} {{\\text{{ N}}}})\\hat{{i}} - ({d[0]:.0f}{{\\text{{ m}}}} \\cdot ({-f[2]:.0f}) {{\\text{{ N}}}} - 0 {{\\text{{ m}}}} \\cdot {f[0]:.0f} {{\\text{{ N}}}})\\hat{{j}} + ({d[0]:.0f}{{\\text{{ m}}}} \\cdot {f[1]:.0f} {{\\text{{ N}}}} - 0{{\\text{{ m}}}} \\cdot {f[0]:.0f} {{\\text{{ N}}}})\\hat{{k}}}}$       
     #     ${{\hspace{{4mm}} M_{{A1}} = [ 0 \\hat{{i}} + {d[0]*f[2]:.0f}\\hat{{j}} + {d[0]*f[1]:.0f} \\hat{{k}} ]{{\\text{{ N}} \\cdot \\text{{ m}}}}}}$      
         
-    #     $\\underline{{Momento \\hspace{{2mm}} causado \\hspace{{2mm}} por \\hspace{{2mm}} F_3 :}}$  
+    #     $\\underline{{Momento \\text{{ }} causado \\text{{ }} por \\text{{ }} F_3 :}}$  
         
     #     ${{\hspace{{4mm}} M_{{A3}} = (r_y \\cdot F_z - r_z \\cdot F_y)\\hat{{i}} - (r_x \\cdot F_z - r_z \\cdot F_x)\\hat{{j}} + (r_x \\cdot F_y - r_y \\cdot F_x)\\hat{{k}} }}$       
     #     ${{\hspace{{4mm}} M_{{A3}} = ( 0 {{\\text{{ m}}}} \\cdot {f[8]:.0f}{{\\text{{ N}}}} - {d[6]:.0f}{{\\text{{ m}}}} \\cdot ({-f[7]:.0f}) {{\\text{{ N}}}})\\hat{{i}} - ({d[0]:.0f}{{\\text{{ m}}}} \\cdot {f[8]:.0f} {{\\text{{ N}}}} - {d[6]:.0f}{{\\text{{ m}}}} \\cdot {f[6]:.0f} {{\\text{{ N}}}})\\hat{{j}} + ({d[0]:.0f}{{\\text{{ m}}}} \\cdot ({-f[7]:.0f}) {{\\text{{ N}}}} - 0 {{\\text{{ m}}}} \\cdot {f[6]:.0f} {{\\text{{ N}}}})\\hat{{k}}}}$       
     #     ${{\hspace{{4mm}} M_{{A3}} = [ {d[6]*f[7]:.0f}\\hat{{i}} - ({d[0]*f[8] - d[6]*f[6]:.0f})\\hat{{j}} - ({d[0]*(f[7]):.0f})\\hat{{k}} ]{{\\text{{ N}} \\cdot \\text{{ m}}}}}}$    
         
-    #     $\\underline{{Sumatoria \\hspace{{2mm}} momentos \\hspace{{2mm}} en \\hspace{{2mm}} A :}}$ 
+    #     $\\underline{{Sumatoria \\text{{ }} momentos \\text{{ }} en \\text{{ }} A :}}$ 
          
     #     ${{\hspace{{4mm}} \\sum{{M_A}} = [ ( 0 + {d[6]*(f[7]):.0f})\\hat{{i}} + ({d[0]*f[2]:.0f} + ({d[6]*f[6]-d[0]*f[8]:.0f}))\\hat{{j}} + ({d[0]*f[1]:.0f} - {d[0]*(f[7]):.0f})\\hat{{k}}]{{\\text{{N}} \\cdot \\text{{ m}}}} }}$     
     #     ${{\hspace{{4mm}} \\sum{{M_A}} = [({d[6]*f[7]:.2f})\hat{{i}} + ({d[0]*f[2] + d[6]*f[6]-d[0]*f[8]:.2f})\\hat{{j}} + ({d[0]*f[1] - d[0]*f[7]:.2f})\\hat{{k}}] {{\\text{{ N}} \\cdot \\text{{ m}}}} }}$     
         
-    #     $\\textbf{{\\small 2. Calculo del momento en B: }}$
+    #     $\\textbf{{\\small 2. Cálculo del momento en B: }}$
         
-    #     En B, es evidente que las unicas fuerzas que causan momento son $F_2$ y $F_3$ :
+    #     Las únicas fuerzas que causan momento son $F_2$ y $F_3$. Dado que, la línea de acción de la fuerza $F_1$ cruza el punto $B$:
         
-    #     $\\underline{{Momento \\hspace{{2mm}} causado \\hspace{{2mm}} por \\hspace{{2mm}} F_2 :}}$  
+    #     $\\underline{{Momento \\text{{ }} causado \\text{{ }} por \\text{{ }} F_2 :}}$  
         
     #     ${{\hspace{{4mm}} M_{{B2}} = (r_y \\cdot F_z - r_z \\cdot F_y)\\hat{{i}} - (r_x \\cdot F_z - r_z \\cdot F_x)\\hat{{j}} + (r_x \\cdot F_y - r_y \\cdot F_x)\\hat{{k}} }}$       
     #     ${{\hspace{{4mm}} M_{{B2}} = ( 0 {{\\text{{ m}}}} \\cdot F2_z - 0 {{\\text{{ m}}}} \\cdot F2_y )\\hat{{i}} - ( {-d[0]:.0f} {{\\text{{ m}}}} \\cdot F2_z - 0 {{\\text{{ m}}}} \\cdot ({-f[3]:.0f}) {{\\text{{ N}}}})\\hat{{j}} + ( {-d[0]:.0f} {{\\text{{ m}}}} \\cdot  F2_y - 0 {{\\text{{ m}}}} \\cdot ({-f[3]:.0f}) {{\\text{{ N}}}})\\hat{{k}}}}$       
     #     ${{\hspace{{4mm}} M_{{B2}} =  0 {{ \\text{{ N}} \\cdot \\text{{ m }}}} \\hat{{i}} + {d[0]:.0f} {{\\text{{ m}}}} \\cdot F2_z \\hat{{j}} - {d[0]:.0f} {{\\text{{ m}}}} \\ cdot F2_y \\hat{{k}}  }}$
         
-    #     $\\underline{{Momento \\hspace{{2mm}} causado \\hspace{{2mm}} por \\hspace{{2mm}} F_3 :}}$  
+    #     $\\underline{{Momento \\text{{ }} causado \\text{{ }} por \\text{{ }} F_3 :}}$  
         
     #     ${{\hspace{{4mm}} M_{{B3}} = (r_y \\cdot F_z - r_z \\cdot F_y)\\hat{{i}} - (r_x \\cdot F_z - r_z \\cdot F_x)\\hat{{j}} + (r_x \\cdot F_y - r_y \\cdot F_x)\\hat{{k}} }}$       
     #     ${{\hspace{{4mm}} M_{{B3}} = ( 0 {{\\text{{ m}}}} \\cdot {f[8]:.0f}{{\\text{{ N}}}} - {d[6]:.0f}{{\\text{{ m}}}} \\cdot ({-f[7]:.0f}) {{\\text{{ N}}}})\\hat{{i}} - ( 0 {{\\text{{ m}}}} \\cdot {f[8]:.0f} {{\\text{{ N}}}} - {d[6]:.0f}{{\\text{{ m}}}} \\cdot {f[6]:.0f} {{\\text{{ N}}}})\\hat{{j}} + ( 0 {{\\text{{ m}}}} \\cdot ({-f[7]:.0f}) {{\\text{{ N}}}} - 0 {{\\text{{ m}}}} \\cdot {f[6]:.0f} {{\\text{{ N}}}})\\hat{{k}}}}$       
     #     ${{\hspace{{4mm}} M_{{B3}} = [ {d[6]*f[7]:.0f}\\hat{{i}} + {d[6]*f[6]:.0f}\\hat{{j}} - 0 \\hat{{k}} ]{{\\text{{ N}} \\cdot \\text{{ m}}}}}}$    
         
-    #     $\\underline{{Sumatoria \\hspace{{2mm}} momentos \\hspace{{2mm}} en \\hspace{{2mm}} B :}}$
+    #     $\\underline{{Sumatoria \\text{{ }} momentos \\text{{ }} en \\text{{ }} B:}}$
            
     #     ${{\hspace{{4mm}} \\sum{{M_B}} = [({d[6]*f[7]:.2f} {{\\text{{ N}} \\cdot \\text{{ m}}}})\\hat{{i}} + ({d[6]*f[6]:.2f}{{\\text{{ N}} \\cdot \\text{{ m}}}} + {d[0]:.0f} {{\\text{{ m}}}} \\cdot F2_z ) \\hat{{j}} - ({d[0]:.2f}{{\\text{{ m}}}} \\cdot F2_y)\\hat{{k}}] }}$    
         
-    #     $\\textbf{{\\small 3. Despeje de $F2_y$ y $F2_z$: }}$
+    #     $\\textbf{{\\small 3. Despeje de las componentes j y k de F2: }}$
         
-    #     Para cumplir la condición de que tanto el momento en B y el momento en A sean iguales, se observa que es necesario que sus compenentes asi lo sean. Tal que:
+    #     Para cumplir la condición de que el momento en B y el momento en A sean iguales, es necesario que sus compenentes también lo sean, tal que:
         
     #     ${{\hspace{{4mm}} 1.  ({d[6]*f[7]:.2f} {{\\text{{ N}} \\cdot \\text{{ m}}}})\\hat{{i}} = ({d[6]*f[7]:.2f} {{\\text{{ N}} \\cdot \\text{{ m}}}})\\hat{{i}} }}$      
     #     ${{\hspace{{4mm}} 2.  ({d[6]*f[6]:.2f}{{\\text{{ N}} \\cdot \\text{{ m}}}} + {d[0]:.0f} {{\\text{{ m}}}} \\cdot F2_z ) \\hat{{j}} = ({d[0]*f[2] + d[6]*f[6]-d[0]*f[8]:.2f}{{\\text{{ N}} \\cdot \\text{{ m}}}})\\hat{{j}} }}$      
     #     ${{\hspace{{4mm}} 3.  - ({d[0]:.2f}{{\\text{{ m}}}} \\cdot F2_y)\\hat{{k}} = ({d[0]*f[1] - d[0]*f[7]:.2f}{{\\text{{ N}} \\cdot \\text{{ m}}}})\\hat{{k}} }}$     
         
-    #     De lo cual, se encuentran utiles las ecuaciones 2 y 3 para obtener los valores de $F2_z$ y $F2_y$ :
+    #     Las ecuaciones 2 y 3 permiten obtener los valores de $F_{{2z}}$ y $F_{{2y}}$ :
         
-    #     $\\underline{{Despeje \\hspace{{2mm}} para \\hspace{{2mm}} F2_z :}}$
+    #     $\\underline{{Despeje \\text{{ }} para \\text{{ }} F2_z :}}$
 
     #     De la ecuación 2 se obtiene:  
         
@@ -4300,9 +4298,9 @@ preguntas = [
     #     ${{\hspace{{4mm}} F2_z = \\dfrac{{{d[0]*f[2] - d[0]*f[8]:.2f}{{\\text{{ N}} \\cdot \\text{{ m}}}}}}{{{d[0]:.2f} {{\\text{{ m}}}}}} }}$           
     #     ${{\hspace{{4mm}} F2_z = {f[2]-f[8]:.2f}{{\\text{{ N}}}}}} $ 
         
-    #     \\underline{{Despeje \\hspace{{2mm}} para \\hspace{{2mm}} F2_y :}}$ 
+    #     $\\underline{{Despeje \\text{{ }} para \\text{{ }} F2_y :}}$ 
 
-    #     De la ecuación 3 se obtiene 
+    #     De la ecuación 3 se obtiene: 
         
     #     ${{\hspace{{4mm}} - ({d[0]:.2f}{{\\text{{ m}}}} \\cdot F2_y)\\hat{{k}} = ({d[0]*f[1] - d[0]*f[7]:.2f}{{\\text{{ N}} \\cdot \\text{{ m}}}})\\hat{{k}} }}$            
     #     ${{\hspace{{4mm}} F2_y = \\dfrac{{{d[0]*f[7] - d[0]*f[1]:.2f}{{\\text{{ N}} \\cdot \\text{{ m}}}}}}{{{d[0]:.2f} {{\\text{{ m}}}}}} }}$           
