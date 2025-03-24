@@ -779,9 +779,9 @@ if authenticate_user():
                         st.image(SE_image_paths[3], width=350)
                 if subtopic == "Incertidumbre":
                     if pregunta_no == 1 or pregunta_no == 2:
-                        st.image(I_image_paths[0], width=1000) 
+                        st.image(I_image_paths[0], width=850) 
                     if pregunta_no == 3 or pregunta_no == 4:
-                        st.image(I_image_paths[1], width=1000) 
+                        st.image(I_image_paths[1], width=850) 
                 if subtopic == "Cerchas":
                     if pregunta_no == 1:
                         if version_no == 1:
