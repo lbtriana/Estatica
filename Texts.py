@@ -195,6 +195,12 @@ MAE3 = "El producto punto se utiliza para la proyección entre vectores. Si $\\v
 MAE4 = "Recuerde que $\\vec{r}$ es el vector de posición medido desde el punto de evaluación hasta cualquier punto de la línea de acción de la fuerza."
 MAE5 = "El momento con respecto a un punto se define como $\\vec{r} X \\vec{F}$. Si $\\vec{r} = x\\hat{i} + y\\hat{j} + z\\hat{k}$ y $\\vec{F} = a\\hat{i} + b\\hat{j} + c\\hat{k}$, entonces $\\vec{M} = (yc-bz)\\hat{i} - (xc-az)\\hat{j} + (xb-ay)\\hat{k}$."
 
+#INCERTIDUMBRE
+I1 = "La distribución acumulada de una variable aleatoria $(X)$ proporciona información sobre la probabilidad de ocurrencia de dicha variable, es decir, la probabilidad de que $X$ tome un valor menor o igual al que se está evaluando ($P(X \\leq x)).$"
+I2 = "La probabilidad de excedencia es la probabilidad de que la variable aleatoria $X$ tome un valor mayor al que se está evaluando."
+I3 = "La probabilidad de excedencia se calcula como: $P(X > x) = 1-P(X \\leq x)$."
+I4 = "Para determinar el valor de la variable aleatoria $X$ asociada a una probabilidad de ocurrencia dada, primero ubique dicha fuerza en el eje $X$ y proyecte su correspondiente valor en el eje $Y$. Este será el valor buscado."
+
 #CERCHAS
 C1 = "El grado de un apoyo corresponde al número de reacciones que genera. Si es de primer grado tiene una reacción perpendicular a la superficie. Si es de segundo grado tiene dos restricciones, impidiendo la traslación en cualquier direccion. Si es de tercer grado tiene tres restricciones, evitando la traslación y la rotación."
 C2 = "Para determinar las reacciones se deben considerar las condiciones de equilibrio del sistema, es decir, la sumatoria de fuerzas en cualquier dirección debe ser cero y la sumatoria de momentos con respecto a cualquier punto debe ser cero."

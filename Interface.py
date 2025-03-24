@@ -502,7 +502,7 @@ if authenticate_user():
         else:
             st.sidebar.header("Práctica")
             complexity = st.sidebar.radio("Nivel de dificultad", options=["Fácil", "Medio", "Díficil"])
-            topic = st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Momento", "Sistemas equivalentes", "Armaduras", "Centroides", "Fuerzas distribuidas", "Fuerzas internas"])
+            topic = st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Momento", "Sistemas equivalentes", "Incertidumbre", "Armaduras", "Centroides", "Fuerzas distribuidas", "Fuerzas internas"])
             
             if topic == "Equilibrio de partículas":
                 subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Vectores 2D", "Vectores 3D", "Vector unitario", "Equilibrio 2D"])
@@ -510,6 +510,8 @@ if authenticate_user():
                 subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Momento en un punto 2D", "Momento en un punto 3D", "Momento alrededor de un eje"])
             elif topic=="Sistemas equivalentes":
                 subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Sistemas equivalentes"])
+            elif topic == "Incertidumbre":
+                subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Incertidumbre"])
             elif topic=="Armaduras":
                 subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Cerchas", "Marcos"])
             elif topic=="Centroides":
@@ -775,6 +777,11 @@ if authenticate_user():
                         st.image(SE_image_paths[2], width=500)
                     if pregunta_no == 3:
                         st.image(SE_image_paths[3], width=350)
+                if subtopic == "Incertidumbre":
+                    if pregunta_no == 1 or pregunta_no == 2:
+                        st.image(I_image_paths[0], width=850) 
+                    if pregunta_no == 3 or pregunta_no == 4:
+                        st.image(I_image_paths[1], width=850) 
                 if subtopic == "Cerchas":
                     if pregunta_no == 1:
                         if version_no == 1:

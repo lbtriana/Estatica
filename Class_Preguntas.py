@@ -6175,35 +6175,218 @@ preguntas = [
         calculos='operations'
         ),
 
-    #========================================================  INCERTIFUMBRE  =========================================================
+    #========================================================  INCERTIDUMBRE  =========================================================
     #-------------------------------------------------       Nivel Fácil   ---------------------------------------------------
-    #-------------------------------------------------       Code: 5220011    --------------------------------------------------
+    #-------------------------------------------------       Code: 31100#1    --------------------------------------------------
 
-    # Questionary(#1_1
-    #     code = 5230011,
-    #     no_pregunta = 1,
-    #     complexity = F,
-    #     topic = "Incertidumbre",
-    #     subtopic = "Incertidumbre",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de las componentes vertical y horizontal de la reacción en el pasador B. Considere $F_1 = {f[0]:.0f} \\text{{ N}}$, $F_2 = {f[1]:.0f} \\text{{ N}}$, $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$, $d_3 = {d[6]:.0f} \\text{{ m}}$ y $d_4 = {d[9]:.0f} \\text{{ m}}$.",
-    #     no_answers = 2,
-    #     a1_name = "$B_x$ [N]",
-    #     a2_name = "$B_y$ [N]",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: 0,
-    #     answer2 = lambda f, a, calc, c, d, m: 0,
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = MA1,
-    #     ayuda2 = MA2,      
-    #     ayuda3 = MA3,
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
+    Questionary(#1_1
+        code = 3110011,
+        no_pregunta = 1,
+        complexity = F,
+        topic = "Incertidumbre",
+        subtopic = "Incertidumbre",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"De acuerdo con la función de probabilidad acumulada $F(x)$ mostrada, ¿Cuál es la fuerza $F$ con una probabilidad de excedencia del ${round(((m[1]-5)/5))*5:.0f}$%?",
+        no_answers = 1,
+        a1_name = "$F$ $[N]$",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(100-round(((m[1]-5)/5))*5,2),
+        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = I1,
+        ayuda2 = I2,      
+        ayuda3 = I3,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        La probabilidad de excedencia es la probabilidad de que la variable aleatoria $X$ tome un valor mayor al que se está evaluando. A continuación, se presenta la solución sugerida para el ejercicio:
 
+        $\\textbf{{\\small 1. Calcular la probabilidad de ocurrencia: }}$
+
+        Teniendo en cuenta que la probabilidad de excedencia se calcula como la diferencia entre 1 y la probabilidad de ocurrencia, primero se calcula la probabilidad de ocurrencia $(P(X \\leq x))$ asociada a la probabilidad de excedencia proporcionada en el enunciado.
+
+        ${{\hspace{{4mm}} P(X \\leq x) = 1 - P(X > x)}}$          
+        ${{\hspace{{4mm}} P(X \\leq x) = 1 - {(round(((m[1]-5)/5))*5)/100:.2f}}}$    
+        ${{\hspace{{4mm}} P(X \\leq x) = {1-((round(((m[1]-5)/5))*5)/100):.2f}  }}$
+        
+        $\\textbf{{\\small 2. Determinar la probabilidad de excedencia: }}$
+
+        En el eje $Y$, se ubica la probabilidad de ocurrencia calculada en el punto $1$. Luego, en el eje $X$, se determina la fuerza asociada, que en este caso es ${100-round(((m[1]-5)/5))*5:.2f}$ $N$.
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
+
+    Questionary(#2_1
+        code = 3110021,
+        no_pregunta = 2,
+        complexity = F,
+        topic = "Incertidumbre",
+        subtopic = "Incertidumbre",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"¿Cuál es la probabilidad de ocurrencia de la fuerza de ${round(((m[1]-5)/5))*5:.0f}$ $\\text{{ N}}$?",
+        no_answers = 1,
+        a1_name = "Probabilidad de ocurrencia [%]",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(round(((m[1]-5)/5))*5,2),
+        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = I1,
+        ayuda2 = I4,      
+        ayuda3 = "",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        La probabilidad de ocurrencia es la probabilidad de que la variable aleatoria $X$ tome un valor menor o igual al que se está evaluando $(P(X \\leq x))$. Este valor se obtiene directamente de la gráfica de distribución acumulada. 
+        
+        A continuación, se presenta la solución sugerida para el ejercicio:
+
+        $\\textbf{{\\small 1. Determinar la probabilidad de ocurrencia: }}$
+
+        Teniendo en cuenta que la probabilidad de ocurrencia se obtiene de la gráfica de distribución acumulada de la variable aleatoria $X$, primero se ubica en el eje $X$ la fuerza indicada en el enunciado ${round(((m[1]-5)/5))*5:.0f}$ $\\text{{ N}}$, y luego se proyecta su correspondiente valor en el eje $Y$. En este caso, la probabilidad es ${round(((m[1]-5)/5))*5:.2f}$%.
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
+
+    Questionary(#3_1
+        code = 3110031,
+        no_pregunta = 3,
+        complexity = F,
+        topic = "Incertidumbre",
+        subtopic = "Incertidumbre",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"De acuerdo con la función de probabilidad acumulada $F(x)$ mostrada, ¿Cuál es la fuerza $F$ con una probabilidad de ocurrencia del ${m[1]-5:.0f}$%?",
+        no_answers = 1,
+        a1_name = "$F$ $[N]$",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(math.sqrt(((m[1]-5)-1*10**-13)/0.01),2),
+        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = I1,
+        ayuda2 = I2,      
+        ayuda3 = I3,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        La probabilidad de ocurrencia es la probabilidad de que la variable aleatoria $X$ tome un valor menor o igual al que se está evaluando $(P(X \\leq x))$. Este valor se obtiene directamente de la gráfica de distribución acumulada. 
+       
+        A continuación, se presenta la solución sugerida para el ejercicio:
+
+        $\\textbf{{\\small 1. Calcular la fuerza: }}$
+
+        Para determinar la fuerza asociada a la probabilidad de ocurrencia indicada en el enunciado, se despeja $F$ de la ecuación que describe a la distribución acumulada.
+
+        ${{\hspace{{4mm}} P(X \\leq x) = 0.01F^2+1*10^{{-13}}}}$          
+
+        ${{\hspace{{4mm}} F = \\sqrt{{\\dfrac{{P(X \\leq x) - 1*10^{{-13}}}}{{0.01}} }} }}$  
+
+        ${{\hspace{{4mm}} F = {math.sqrt(((m[1]-5)-1*10**-13)/0.01):.2f} \\text{{ N}} }}$  
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
+
+    Questionary(#4_1
+        code = 3110041,
+        no_pregunta = 4,
+        complexity = F,
+        topic = "Incertidumbre",
+        subtopic = "Incertidumbre",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"¿Cuál es la probabilidad de excedencia de la fuerza de ${(m[1]-5):.0f}$ $\\text{{ N}}$?",
+        no_answers = 1,
+        a1_name = "Probabilidad de excedencia [%]",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(100-(0.01*(m[1]-5)**2+1*10**(-13)),2),
+        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = I1,
+        ayuda2 = I4,      
+        ayuda3 = "",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        La probabilidad de excedencia es la probabilidad de que la variable aleatoria $X$ tome un valor mayor al que se está evaluando. A continuación, se presenta la solución sugerida para el ejercicio:
+
+        $\\textbf{{\\small 1. Calcular la probabilidad de ocurrencia: }}$
+
+        Teniendo en cuenta que la probabilidad de excedencia se calcula como la diferencia entre 1 y la probabilidad de ocurrencia, primero se calcula la probabilidad de ocurrencia $(P(X \\leq x))$ con la ecuación que describe a la distribución acumulada.
+
+        ${{\hspace{{4mm}} P(X \\leq x) = 0.01F^2+1*10^{{-13}}}}$           
+
+        ${{\hspace{{4mm}} P(X \\leq x) = {0.01*(m[1]-5)**2+1*10**(0-13):.2f} \\% }}$  
+
+        
+        $\\textbf{{\\small 2. Calcular la probabilidad de excedencia: }}$
+
+        ${{\hspace{{4mm}} P(X > x) = 1 - P(X \\leq x)}}$ 
+
+        ${{\hspace{{4mm}} P(X > x) = 1 - {0.01*(m[1]-5)**2+1*10**(-13):.2f} \\%}}$ 
+
+        ${{\hspace{{4mm}} P(X > x) = {100-(0.01*(m[1]-5)**2+1*10**(-13)):.2f} \\%}}$ 
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
+
+    #========================================================  INCERTIDUMBRE  =========================================================
+    #-------------------------------------------------       Nivel Medio   ---------------------------------------------------
+    #-------------------------------------------------       Code: 31100#1    --------------------------------------------------
+
+    Questionary(#1_1
+        code = 3120011,
+        no_pregunta = 1,
+        complexity = M,
+        topic = "Incertidumbre",
+        subtopic = "Incertidumbre",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Esta sección de la aplicación está en implementación. ¡Pronto estará disponible!",
+        no_answers = 3,
+        a1_name = "",
+        a2_name = "",
+        a3_name = "",
+        answer1=lambda f, a, calc, c, d, m: 0,
+        answer2=lambda f, a, calc, c, d, m: 0,
+        answer3=lambda f, a, calc, c, d, m: 0,
+        ayuda1 = "",
+        ayuda2 = "",
+        ayuda3 = "",
+        respuesta_P1 = lambda f, a, calc, c, d, m:"", 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        """,
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",    
+        calculos='operations'
+        ),
+
+    #========================================================  INCERTIDUMBRE  =========================================================
+    #-------------------------------------------------       Nivel Díficil   ---------------------------------------------------
+    #-------------------------------------------------       Code: 31100#1    --------------------------------------------------
+
+    Questionary(#1_1
+        code = 3130011,
+        no_pregunta = 1,
+        complexity = D,
+        topic = "Incertidumbre",
+        subtopic = "Incertidumbre",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Esta sección de la aplicación está en implementación. ¡Pronto estará disponible!",
+        no_answers = 3,
+        a1_name = "",
+        a2_name = "",
+        a3_name = "",
+        answer1=lambda f, a, calc, c, d, m: 0,
+        answer2=lambda f, a, calc, c, d, m: 0,
+        answer3=lambda f, a, calc, c, d, m: 0,
+        ayuda1 = "",
+        ayuda2 = "",
+        ayuda3 = "",
+        respuesta_P1 = lambda f, a, calc, c, d, m:"", 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        """,
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",    
+        calculos='operations'
+        ),
 
     #========================================================  SISTEMAS EQUIVALENTES  =========================================================
     #-------------------------------------------------       Sistemas equivalentes 2D-3D      --------------------------------------------

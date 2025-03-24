@@ -168,6 +168,13 @@ MAE_image_paths =[
 "./Imagenes/Preguntas/MO/MAE/MO_MAE_M_4a.png", #[6]
 ]
 
+#================= Imágenes Preguntas Incertidumbre ========================
+I_image_paths =[
+#Nivel fácil
+"./Imagenes/Preguntas/I/I_I_F_1a.png", #[0]
+"./Imagenes/Preguntas/I/I_I_F_3a.png", #[1]
+]
+
 #================================ Imágenes Preguntas Cálculo Armaduras ===================================
 AR_image_paths =[
 #Cerchas_Nivel Fácil
