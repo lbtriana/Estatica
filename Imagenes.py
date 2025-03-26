@@ -173,6 +173,9 @@ I_image_paths =[
 #Nivel fácil
 "./Imagenes/Preguntas/I/I_I_F_1a.png", #[0]
 "./Imagenes/Preguntas/I/I_I_F_3a.png", #[1]
+
+#Nivel medio
+"./Imagenes/Preguntas/I/I_I_M_1a.png", #[2]
 ]
 
 #================================ Imágenes Preguntas Cálculo Armaduras ===================================

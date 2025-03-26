@@ -6202,11 +6202,11 @@ preguntas = [
 
         $\\textbf{{\\small 1. Calcular la probabilidad de ocurrencia: }}$
 
-        Teniendo en cuenta que la probabilidad de excedencia se calcula como la diferencia entre 1 y la probabilidad de ocurrencia, primero se calcula la probabilidad de ocurrencia $(P(X \\leq x))$ asociada a la probabilidad de excedencia proporcionada en el enunciado.
+        Teniendo en cuenta que la probabilidad de excedencia se calcula como la diferencia entre 1 y la probabilidad de ocurrencia, primero se calcula la probabilidad de ocurrencia $(P(F \\leq f))$ asociada a la probabilidad de excedencia proporcionada en el enunciado.
 
-        ${{\hspace{{4mm}} P(X \\leq x) = 1 - P(X > x)}}$          
-        ${{\hspace{{4mm}} P(X \\leq x) = 1 - {(round(((m[1]-5)/5))*5)/100:.2f}}}$    
-        ${{\hspace{{4mm}} P(X \\leq x) = {1-((round(((m[1]-5)/5))*5)/100):.2f}  }}$
+        ${{\hspace{{4mm}} P(F \\leq f) = 1 - P(F > f)}}$          
+        ${{\hspace{{4mm}} P(F \\leq f) = 1 - {(round(((m[1]-5)/5))*5)/100:.2f}}}$    
+        ${{\hspace{{4mm}} P(F \\leq f) = {1-((round(((m[1]-5)/5))*5)/100):.2f}  }}$
         
         $\\textbf{{\\small 2. Determinar la probabilidad de excedencia: }}$
 
@@ -6242,7 +6242,7 @@ preguntas = [
 
         $\\textbf{{\\small 1. Determinar la probabilidad de ocurrencia: }}$
 
-        Teniendo en cuenta que la probabilidad de ocurrencia se obtiene de la gráfica de distribución acumulada de la variable aleatoria $X$, primero se ubica en el eje $X$ la fuerza indicada en el enunciado ${round(((m[1]-5)/5))*5:.0f}$ $\\text{{ N}}$, y luego se proyecta su correspondiente valor en el eje $Y$. En este caso, la probabilidad es ${round(((m[1]-5)/5))*5:.2f}$%.
+        Teniendo en cuenta que la probabilidad de ocurrencia se obtiene de la gráfica de distribución acumulada de la variable aleatoria $F$, primero se ubica en el eje $X$ la fuerza indicada en el enunciado ${round(((m[1]-5)/5))*5:.0f}$ $\\text{{ N}}$, y luego se proyecta su correspondiente valor en el eje $Y$. En este caso, la probabilidad es ${round(((m[1]-5)/5))*5:.2f}$%.
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
@@ -6276,9 +6276,9 @@ preguntas = [
 
         Para determinar la fuerza asociada a la probabilidad de ocurrencia indicada en el enunciado, se despeja $F$ de la ecuación que describe a la distribución acumulada.
 
-        ${{\hspace{{4mm}} P(X \\leq x) = 0.01F^2+1*10^{{-13}}}}$          
+        ${{\hspace{{4mm}} P(F \\leq f) = 0.01F^2+1*10^{{-13}}}}$          
 
-        ${{\hspace{{4mm}} F = \\sqrt{{\\dfrac{{P(X \\leq x) - 1*10^{{-13}}}}{{0.01}} }} }}$  
+        ${{\hspace{{4mm}} F = \\sqrt{{\\dfrac{{P(F \\leq f) - 1*10^{{-13}}}}{{0.01}} }} }}$  
 
         ${{\hspace{{4mm}} F = {math.sqrt(((m[1]-5)-1*10**-13)/0.01):.2f} \\text{{ N}} }}$  
         """,   
@@ -6310,20 +6310,20 @@ preguntas = [
 
         $\\textbf{{\\small 1. Calcular la probabilidad de ocurrencia: }}$
 
-        Teniendo en cuenta que la probabilidad de excedencia se calcula como la diferencia entre 1 y la probabilidad de ocurrencia, primero se calcula la probabilidad de ocurrencia $(P(X \\leq x))$ con la ecuación que describe a la distribución acumulada.
+        Teniendo en cuenta que la probabilidad de excedencia se calcula como la diferencia entre 1 y la probabilidad de ocurrencia, primero se calcula la probabilidad de ocurrencia $(P(F \\leq f))$ con la ecuación que describe a la distribución acumulada.
 
-        ${{\hspace{{4mm}} P(X \\leq x) = 0.01F^2+1*10^{{-13}}}}$           
+        ${{\hspace{{4mm}} P(F \\leq f) = 0.01F^2+1*10^{{-13}}}}$           
 
-        ${{\hspace{{4mm}} P(X \\leq x) = {0.01*(m[1]-5)**2+1*10**(0-13):.2f} \\% }}$  
+        ${{\hspace{{4mm}} P(F \\leq f) = {0.01*(m[1]-5)**2+1*10**(0-13):.2f} \\% }}$  
 
         
         $\\textbf{{\\small 2. Calcular la probabilidad de excedencia: }}$
 
-        ${{\hspace{{4mm}} P(X > x) = 1 - P(X \\leq x)}}$ 
+        ${{\hspace{{4mm}} P(F > f) = 1 - P(F \\leq f)}}$ 
 
-        ${{\hspace{{4mm}} P(X > x) = 1 - {0.01*(m[1]-5)**2+1*10**(-13):.2f} \\%}}$ 
+        ${{\hspace{{4mm}} P(F > f) = 1 - {0.01*(m[1]-5)**2+1*10**(-13):.2f} \\%}}$ 
 
-        ${{\hspace{{4mm}} P(X > x) = {100-(0.01*(m[1]-5)**2+1*10**(-13)):.2f} \\%}}$ 
+        ${{\hspace{{4mm}} P(F > f) = {100-(0.01*(m[1]-5)**2+1*10**(-13)):.2f} \\%}}$ 
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
@@ -6341,18 +6341,31 @@ preguntas = [
         topic = "Incertidumbre",
         subtopic = "Incertidumbre",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Esta sección de la aplicación está en implementación. ¡Pronto estará disponible!", #¿Cuál es la probabilidad de ocurrencia del momento {d[0]+4:.0f}?
+        pregunta = lambda f, a, calc, c, d, m: f"¿Cuál es la probabilidad de ocurrencia del momento ${d[0]+5:.0f}$ $\\text{{N}} \\cdot \\text{{m}}$?", 
         no_answers = 1,
-        a1_name = "",
+        a1_name = "Probabilidad de ocurrencia [%]",
         a2_name = "",
         a3_name = "",
-        answer1=lambda f, a, calc, c, d, m: 0,
+        answer1=lambda f, a, calc, c, d, m: np.round(((d[0]+5)-5)*0.1*100,2),
         answer2=lambda f, a, calc, c, d, m: 0,
         answer3=lambda f, a, calc, c, d, m: 0,
-        ayuda1 = "",
-        ayuda2 = "",
+        ayuda1 = I5,
+        ayuda2 = I6,
         ayuda3 = "",
-        respuesta_P1 = lambda f, a, calc, c, d, m:"", 
+        respuesta_P1 = lambda f, a, calc, c, d, m:f"""
+        La probabilidad de ocurrencia de un valor en evaluación corresponde a la probabilidad acumulada hasta ese punto. En este caso, es el área desde el inicio de la función hasta el punto en evaluación.
+
+        A continuación, se presenta una solución sugerida para el ejercicio:
+
+        $\\textbf{{\\small 1. Calcular la probabilidad de ocurrencia: }}$
+
+        La probabilidad de ocurrencia se calcula desde el inicio de la función $(5)$ hasta el valor en evaluación $({d[0]+5:.0f})$.
+
+        ${{\hspace{{4mm}} P(M \\leq m) = ({d[0]+5:.0f}-5)*\\dfrac{{1}}{{10}} }}$  
+
+        ${{\hspace{{4mm}} P(M \\leq m) = {(d[0])*0.1*100:.2f} \\%}}$           
+
+        """, 
         respuesta_P2 = lambda f, a, calc, c, d, m: f"""
         """,
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",    
