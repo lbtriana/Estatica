@@ -6372,6 +6372,56 @@ preguntas = [
         calculos='operations'
         ),
 
+    Questionary(#2_1
+        code = 3120021,
+        no_pregunta = 2,
+        complexity = M,
+        topic = "Incertidumbre",
+        subtopic = "Incertidumbre",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"De acuerdo con la función de probabilidad acumulada mostrada, ¿Cuál es la tensión $(T)$ asociada a la probabilidad de excedencia del ${d[0]+5:.0f}$ $\\%$?", 
+        no_answers = 1,
+        a1_name = "Tensión $(T)$ $[N]$",
+        a2_name = "",
+        a3_name = "",
+        answer1=lambda f, a, calc, c, d, m: np.round(((((100-(d[0]+5))/100)-0.3))/0.01,2),
+        answer2=lambda f, a, calc, c, d, m: 0,
+        answer3=lambda f, a, calc, c, d, m: 0,
+        ayuda1 = I2,
+        ayuda2 = I3,
+        ayuda3 = I7,
+        respuesta_P1 = lambda f, a, calc, c, d, m:f"""
+        La distribución acumulada de la tensión $(T)$ brinda información sobre la probabilidad de ocurrencia. Por lo tanto, primero halle la probabilidad de ocurrencia asociada a la probabilidad de excedencia dada, luego calcule la ecuación de la recta y despeje el valor de la variable solicitada.
+        
+        A continuación, se presenta la solución sugerida para el ejercicio:
+        
+
+        $\\textbf{{\\small 1. Calcular la probabilidad de ocurrencia: }}$
+
+        La probabilidad de excedencia se calcula como la diferencia entre 1 y la probabilidad de ocurrencia.
+
+        ${{\hspace{{4mm}} P(T \\leq t) = 1 - P(T > t)}}$          
+        ${{\hspace{{4mm}} P(T \\leq t) = 1 - {d[0]+5:.0f} \\%}}$    
+        ${{\hspace{{4mm}} P(T \\leq t) = {100-(d[0]+5):.0f} \\% }}$
+
+        $\\textbf{{\\small 2. Despejar la variable solicitada: }}$
+
+        La probabilidad de excedencia del ${d[0]+5:.0f}$ % está descrita por la segunda recta. La ecuación de esta recta es $P(T \\leq t) = 0.01T + 0.3$. A partir de esta ecuación, se despeja la tensión $(T)$.
+
+        ${{\hspace{{4mm}} P(T \\leq t) = 0.01T + 0.3}}$   
+
+        ${{\hspace{{4mm}} T = \\dfrac{{P(T \\leq t) - 0.3}}{{0.01}} }}$    
+
+        ${{\hspace{{4mm}} T = {((((100-(d[0]+5))/100)-0.3))/0.01:.2f} \\text{{ N}} }}$
+        """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        """,
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",    
+        calculos='operations'
+        ),
+
+
+
     #========================================================  INCERTIDUMBRE  =========================================================
     #-------------------------------------------------       Nivel Díficil   ---------------------------------------------------
     #-------------------------------------------------       Code: 31100#1    --------------------------------------------------

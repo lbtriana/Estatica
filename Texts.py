@@ -202,6 +202,7 @@ I3 = "La probabilidad de excedencia se calcula como: $P(X > x) = 1-P(X \\leq x)$
 I4 = "Para determinar el valor de la variable aleatoria $X$ asociada a una probabilidad de ocurrencia dada, primero ubique dicha fuerza en el eje $X$ y proyecte su correspondiente valor en el eje $Y$. Este será el valor buscado."
 I5 = "La probabilidad de ocurrencia de un valor en evaluación corresponde a la probabilidad acumulada hasta ese punto. Es decir, es la probabilidad de que la variable aleatoria $X$ tome un valor menor o igual al evaluado ($P(X \\leq x)).$"
 I6 = "Para determinar la probabilidad de ocurrencia de un valor específico de la variable aleatoria $X$ a partir de su función de densidad, es necesario calcular el área bajo la curva de densidad desde su inicio hasta el valor en evaluación."
+I7 = "Para hallar la probabilidad de ocurrencia correspondiente a la probabilidad de excedencia dada, calcule la ecuación de la recta y despeje el valor de la variable solicitada."
 
 #CERCHAS
 C1 = "El grado de un apoyo corresponde al número de reacciones que genera. Si es de primer grado tiene una reacción perpendicular a la superficie. Si es de segundo grado tiene dos restricciones, impidiendo la traslación en cualquier direccion. Si es de tercer grado tiene tres restricciones, evitando la traslación y la rotación."

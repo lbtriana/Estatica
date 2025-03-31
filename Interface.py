@@ -894,6 +894,8 @@ if authenticate_user():
                 if subtopic == "Incertidumbre":
                     if pregunta_no == 1:
                         st.image(I_image_paths[2], width=850) 
+                    if pregunta_no == 2:
+                        st.image(I_image_paths[3], width=850) 
                 if subtopic == "Cerchas":
                     if pregunta_no == 1:
                         st.image(AR_image_paths[4], width=400) 
