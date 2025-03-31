@@ -6202,7 +6202,7 @@ preguntas = [
 
         $\\textbf{{\\small 1. Calcular la probabilidad de ocurrencia: }}$
 
-        Teniendo en cuenta que la probabilidad de excedencia se calcula como la diferencia entre 1 y la probabilidad de ocurrencia, primero se calcula la probabilidad de ocurrencia $(P(F \\leq f))$ asociada a la probabilidad de excedencia proporcionada en el enunciado.
+        Dado que la función de distribución acumulada representa la probabilidad de ocurrencia, primero se calcula esta como la diferencia entre 1 y la probabilidad de excedencia.
 
         ${{\hspace{{4mm}} P(F \\leq f) = 1 - P(F > f)}}$          
         ${{\hspace{{4mm}} P(F \\leq f) = 1 - {(round(((m[1]-5)/5))*5)/100:.2f}}}$    
@@ -6310,7 +6310,7 @@ preguntas = [
 
         $\\textbf{{\\small 1. Calcular la probabilidad de ocurrencia: }}$
 
-        Teniendo en cuenta que la probabilidad de excedencia se calcula como la diferencia entre 1 y la probabilidad de ocurrencia, primero se calcula la probabilidad de ocurrencia $(P(F \\leq f))$ con la ecuación que describe a la distribución acumulada.
+        Dado que la función de distribución acumulada representa la probabilidad de ocurrencia, primero se calcula esta como la diferencia entre 1 y la probabilidad de excedencia.
 
         ${{\hspace{{4mm}} P(F \\leq f) = 0.01F^2+1*10^{{-13}}}}$           
 
@@ -6490,6 +6490,57 @@ preguntas = [
         calculos='operations'
         ),
 
+    Questionary(#4_1
+        code = 3120041,
+        no_pregunta = 4,
+        complexity = M,
+        topic = "Incertidumbre",
+        subtopic = "Incertidumbre",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"La función de probabilidad acumulada $P(W \\leq w) = 1 - e^{{(-0.1w)}}$ describe el peso de una carga de arena en kiloNewtons. ¿Cuál es el peso $(w)$ asociado a una probabilidad de excedencia del ${d[0]+5:.0f}$ $\\%$?",
+        no_answers = 1,
+        a1_name = "Peso ($W$) $[kN]$",
+        a2_name = "",
+        a3_name = "",
+        answer1=lambda f, a, calc, c, d, m: np.round(math.log(1-(1-(d[0]+5)/100))/-0.1,2),
+        answer2=lambda f, a, calc, c, d, m: 0,
+        answer3=lambda f, a, calc, c, d, m: 0,
+        ayuda1 = I2,
+        ayuda2 = I3,
+        ayuda3 = I6,
+        respuesta_P1 = lambda f, a, calc, c, d, m:f"""
+        La probabilidad de excedencia es la probabilidad de que la variable aleatoria $X$ tome un valor mayor al que se está evaluando. A continuación, se presenta la solución sugerida para el ejercicio:
+
+        $\\textbf{{\\small 1. Cálculo de la probabilidad de ocurrencia: }}$
+
+        Dado que la función de distribución acumulada representa la probabilidad de ocurrencia, primero se calcula esta como la diferencia entre 1 y la probabilidad de excedencia.
+
+        ${{\hspace{{4mm}} P(F \\leq f) = 1 - P(F > f)}}$          
+        ${{\hspace{{4mm}} P(F \\leq f) = 1 - {(d[0]+5)/100:.2f}}}$    
+        ${{\hspace{{4mm}} P(F \\leq f) = {1-((d[0]+5)/100):.2f}  }}$
+
+
+        $\\textbf{{\\small 2. Despeje del peso (W): }}$
+
+        La función de probabilidad acumulada es $P(W \\leq w) = 1 - e^{{(-0.1w)}}$:
+        
+        ${{\hspace{{4mm}} P(W \\leq w) = 1 - e^{{(-0.1w)}} }}$      
+        
+        ${{\hspace{{4mm}} 1 - P(W \\leq w) = e^{{(-0.1w)}} }}$       
+        
+        ${{\hspace{{4mm}} ln(1 - P(W \\leq w)) = ln(e^{{(-0.1w)}})}}$        
+        
+        ${{\hspace{{4mm}} ln(1 - P(W \\leq w)) = -0.1w}}$       
+        
+        ${{\hspace{{4mm}} w = \\dfrac{{ln(1 - P(W \\leq w))}}{{-0.1}} }}$     
+        
+        ${{\hspace{{4mm}} w = {math.log(1-(1-((d[0]+5)/100)))/-0.1:.2f} \\text{{ kN}}}}$
+        """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        """,
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",    
+        calculos='operations'
+        ),
 
 
     #========================================================  INCERTIDUMBRE  =========================================================
