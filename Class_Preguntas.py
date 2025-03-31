@@ -6355,7 +6355,7 @@ preguntas = [
         respuesta_P1 = lambda f, a, calc, c, d, m:f"""
         La probabilidad de ocurrencia de un valor en evaluación corresponde a la probabilidad acumulada hasta ese punto. En este caso, es el área desde el inicio de la función hasta el punto en evaluación.
 
-        A continuación, se presenta una solución sugerida para el ejercicio:
+        A continuación, se presenta la solución sugerida para el ejercicio:
 
         $\\textbf{{\\small 1. Calcular la probabilidad de ocurrencia: }}$
 
@@ -6415,6 +6415,76 @@ preguntas = [
         ${{\hspace{{4mm}} T = {((((100-(d[0]+5))/100)-0.3))/0.01:.2f} \\text{{ N}} }}$
         """, 
         respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        """,
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",    
+        calculos='operations'
+        ),
+
+    Questionary(#3_1
+        code = 3120031,
+        no_pregunta = 3,
+        complexity = M,
+        topic = "Incertidumbre",
+        subtopic = "Incertidumbre",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"De acuerdo con la función de densidad mostrada, ¿Cuál es la distancia asociada a una probabilidad de excedencia del ${d[0]+5:.0f}$ $\\%$?", 
+        no_answers = 1,
+        a1_name = "Distancia $(D)$ $[m]$",
+        a2_name = "",
+        a3_name = "",
+        answer1=lambda f, a, calc, c, d, m: np.round(90-math.sqrt(((d[0]+5)*60)/0.025),2),
+        answer2=lambda f, a, calc, c, d, m: 0,
+        answer3=lambda f, a, calc, c, d, m: 0,
+        ayuda1 = I2,
+        ayuda2 = I3,
+        ayuda3 = I6,
+        respuesta_P1 = lambda f, a, calc, c, d, m:f"""
+        La probabilidad de excedencia es la probabilidad de que la variable aleatoria $X$ tome un valor mayor al que se está evaluando. Para calcularla a partir de la función de densidad, es necesario determinar el área bajo la curva. En el caso de la probabilidad de excedencia, esta área se encuentra al lado derecho del triángulo.
+        
+        A continuación, se presenta la solución sugerida para el ejercicio:
+
+        Para determinar la distancia, se puede aplicar la ecuación de la distribución acumulada triangular, hallar la ecuación de cada recta e integrar, o establecer una sistema de ecuaciones con geometría. Está última opción será el método utilizado para la solución.
+
+        $\\textbf{{\\small 1. Establecer sistema de ecuaciones con geometría: }}$
+
+        Las ecuaciones utilizadas surgen de establecer semejanza entre dos triángulos y conocer que el área del lado derecho equivalente a ${d[0]+5:.0f}$ $\\%$.
+
+        $\\underline{{Ecuación \\text{{ }} 1}}$
+        """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        La semejanza entre triángulos se da entre el triángulo morado y el triángulo azul:
+
+        ${{\hspace{{4mm}} \\dfrac{{30}}{{0.025}} = \\dfrac{{b}}{{h}} }}$
+
+        $\\underline{{Ecuación \\text{{ }} 2}}$
+
+        El área del triángulo azul equivale a la probabilidad de excedencia dada $({d[0]+5:.0f}$ $\\%$).
+
+        ${{\hspace{{4mm}} \\dfrac{{b \\cdot h}}{{2}} = {d[0]+5:.0f} \\% }}$
+
+
+        $\\textbf{{\\small 2. Resolver el sistema de ecuaciones: }}$
+
+        Con el sistema planteado se busca despejar $b$.
+
+        De 1:
+
+        ${{\hspace{{4mm}} h = \\dfrac{{b \\cdot 0.025}}{{30}} }}$
+
+        Reemplazar 1 en 2:
+
+        ${{\hspace{{4mm}} {d[0]+5:.0f} \\% = \\dfrac{{b^2 \\cdot 0.025}}{{60}} }}$
+
+        ${{\hspace{{4mm}} b = \\sqrt{{ \\dfrac{{ {d[0]+5:.0f} \\% \\cdot 60}}{{0.025}} }} }}$
+
+        ${{\hspace{{4mm}} b = {math.sqrt((((d[0]+5)/100)*60)/0.025):.2f} \\text{{ m}} }}$
+
+        
+        $\\textbf{{\\small 3. Halllar la distancia solicitada:}}$
+
+        ${{\hspace{{4mm}} D = 90 - b }}$
+
+        ${{\hspace{{4mm}} D = {90 - math.sqrt((((d[0]+5)/100)*60)/0.025):.2f} \\text{{ m}} }}$
         """,
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",    
         calculos='operations'

@@ -177,6 +177,7 @@ I_image_paths =[
 #Nivel medio
 "./Imagenes/Preguntas/I/I_I_M_1a.png", #[2]
 "./Imagenes/Preguntas/I/I_I_M_2a.png", #[3]
+"./Imagenes/Preguntas/I/I_I_M_3a.png", #[4]
 ]
 
 #================================ Imágenes Preguntas Cálculo Armaduras ===================================
@@ -343,6 +344,12 @@ M3D_rtas_paths= [
 MAE_rtas_paths= [
 #Nivel medio
 "./Imagenes/Respuestas/MO/MAE/R_MO_MAE_M_3a.png", #[0] 
+]
+
+#================================ Imágenes Respuestas Cálculos Incertidumbre ===================================
+I_rtas_paths= [
+#Nivel medio
+"./Imagenes/Respuestas/I/R_I_I_M_3a.png", #[0] 
 ]
 
 #================================ Imágenes Respuestas Cálculos Centroides ===================================

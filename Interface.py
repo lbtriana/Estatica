@@ -896,6 +896,8 @@ if authenticate_user():
                         st.image(I_image_paths[2], width=850) 
                     if pregunta_no == 2:
                         st.image(I_image_paths[3], width=850) 
+                    if pregunta_no == 3:
+                        st.image(I_image_paths[4], width=700) 
                 if subtopic == "Cerchas":
                     if pregunta_no == 1:
                         st.image(AR_image_paths[4], width=400) 
@@ -1030,6 +1032,9 @@ if authenticate_user():
                 if subtopic == "Momento alrededor de un eje":
                     if pregunta_no == 3:
                         st.image(MAE_rtas_paths[0], width=350)
+                if subtopic == "Incertidumbre":
+                    if pregunta_no == 3:
+                        st.image(I_rtas_paths[0], width=500)
                 if subtopic == "Centroides":
                     if pregunta_no ==1:
                         st.image(CT_rtas_paths[1], width=200)
