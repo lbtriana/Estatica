@@ -5277,6 +5277,7 @@ preguntas = [
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),
+
     Questionary(#2_1
         code = 5110021,
         no_pregunta = 2,
@@ -5445,6 +5446,7 @@ preguntas = [
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),
+
     Questionary(#2_1
         code = 5120021,
         no_pregunta = 2,
@@ -5525,6 +5527,7 @@ preguntas = [
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),
+
     Questionary(#3_1
         code = 5120031,
         no_pregunta = 3,
@@ -5616,6 +5619,7 @@ preguntas = [
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),
+
     Questionary(#4_1
         code = 5120041,
         no_pregunta = 4,
@@ -5725,6 +5729,7 @@ preguntas = [
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),
+
     Questionary(#2_1
         code = 5130021,
         no_pregunta = 2,
@@ -5883,6 +5888,7 @@ preguntas = [
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),
+
     Questionary(#1_2
         code = 5210012,
         no_pregunta = 2,
@@ -7191,68 +7197,65 @@ preguntas = [
         calculos='operations'
         ),
    
-    # Questionary(#2_1
-    #     code = 6120021,
-    #     no_pregunta = 1,
-    #     complexity = M,
-    #     topic = "Centroides",
-    #     subtopic = "Centroides",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Del marco, se sabe que los elementos AC y CE tienen una masa por unidad de longitud $\\rho_1 = {d[0]:.0f} \\dfrac{{kg}}{{m}}$ y el elemento BD un $\\rho_2 = {d[3]:.0f} \\dfrac{{kg}}{{m}}$. Ubique la posición del centro de masa $(\\bar{{X}}, \\bar{{Y}})$ y calcule la reacción momento par en A. Considere $d_1 = {d[6]:.0f} \\text{{ m}}$,  $d_2 = {d[9]:.0f}  \\text{{ m}}$, $d_3 = {d[12]:.0f} \\text{{ m}}$, $d_4 = {d[15]:.0f} \\text{{ m}}$, $d_5 = {d[18]:.0f} \\text{{ m}}$, $d_6 = {d[21]:.0f} \\text{{ m}}$ y la aceleración debida a la gravedad $g = 9,81 \\dfrac{{m}}{{s^2}}$.",
-    #     no_answers = 3,
-    #     a1_name = "Distancia $\\bar{{X}}$ [m]",
-    #     a2_name = "Distancia $\\bar{{Y}}$ [m]",
-    #     a3_name = "Reacción $M_A$ [$N \\cdot m$]",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(((d[18]+d[21])*(1/2)*d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[21])) + (1/2)*(d[18])*d[3]*Calculations.magnitude((d[12]+d[9]),d[18]))/(d[0]*(d[9]+d[6])+d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[21]))+d[3]*Calculations.magnitude((d[12]+d[9]),d[18])),2),
-    #     answer2 = lambda f, a, calc, c, d, m: np.round(((1/2)*d[0]*(d[9]+d[6])*(d[9]+d[6]) + (d[6]+d[9]+(d[12]+d[15])*(1/2))*d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[21])) + (d[6]+(d[9]+d[12])*(1/2))*d[3]*Calculations.magnitude((d[12]+d[9]),d[18]))/(d[0]*(d[9]+d[6])+d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[21]))+d[3]*Calculations.magnitude((d[12]+d[9]),d[18])),2),
-    #     answer3 = lambda f, a, calc, c, d, m: np.round((981/100)*((d[18]+d[21])*(1/2)*d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[21])) + (1/2)*(d[18])*d[3]*Calculations.magnitude((d[12]+d[9]),d[18])),2),
-    #     ayuda1 = "El centro de masa hace referencia al promedio de las posiciones de cada punto o segmento de un objeto ponderado según sus masas.",
-    #     ayuda2 = "Como un recurso para vizualizar y organizar mejor los datos es recomendable la creación de una tabla con masas y coordenadas respectivas a sus centros de masa.",      
-    #     ayuda3 = "",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     El centro de masa es posible entenderlo como el punto donde se puede considerar que toda la masa de la estructura esta concentrada. A continuación, se presenta la solución sugerida para el ejercicio:
+    Questionary(#2_1
+        code = 6120021,
+        no_pregunta = 2,
+        complexity = M,
+        topic = "Centroides",
+        subtopic = "Centroides",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"En el marco mostrado, los elementos $AC$ y $CE$ tienen una masa por unidad de longitud de $m_1 = {d[0]:.0f} \\dfrac{{kg}}{{m}}$, mientras que el elemento $BD$ una masa por unidad de longitud de $m_2 = {d[3]:.0f} \\dfrac{{kg}}{{m}}$. Ubique la posición del centro de masa $(\\bar{{X}}, \\bar{{Y}})$ y calcule la reacción a momento en el punto A. Considere los siguientes datos: $d_1 = {d[6]:.0f} \\text{{ m}}$,  $d_2 = {d[9]:.0f}  \\text{{ m}}$, $d_3 = {d[12]:.0f} \\text{{ m}}$, $d_4 = {d[15]:.0f} \\text{{ m}}$, $d_5 = {d[18]:.0f} \\text{{ m}}$ y la aceleración debida a la gravedad $g = 9,81 \\dfrac{{m}}{{s^2}}$.",
+        no_answers = 3,
+        a1_name = "Distancia $\\bar{{X}}$ $[m]$",
+        a2_name = "Distancia $\\bar{{Y}}$ $[m]$",
+        a3_name = "Reacción $M_A$ $[N \\cdot m]$",
+        answer1 = lambda f, a, calc, c, d, m: np.round(((d[18]+d[15])*(1/2)*d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[15])) + (1/2)*(d[18])*d[3]*Calculations.magnitude((d[12]+d[9]),d[18]))/(d[0]*(d[9]+d[6])+d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[15]))+d[3]*Calculations.magnitude((d[12]+d[9]),d[18])),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(((1/2)*d[0]*(d[9]+d[6])*(d[9]+d[6]) + (d[6]+d[9]+(d[12]+d[15])*(1/2))*d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[15])) + (d[6]+(d[9]+d[12])*(1/2))*d[3]*Calculations.magnitude((d[12]+d[9]),d[18]))/(d[0]*(d[9]+d[6])+d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[15]))+d[3]*Calculations.magnitude((d[12]+d[9]),d[18])),2),
+        answer3 = lambda f, a, calc, c, d, m: np.round((981/100)*((d[18]+d[15])*(1/2)*d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[15])) + (1/2)*(d[18])*d[3]*Calculations.magnitude((d[12]+d[9]),d[18])),2),
+        ayuda1 = CT4,
+        ayuda2 = CT6,      
+        ayuda3 = "",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        El centro de masa es el punto en el que se considera que toda la masa de la estructura está concentrada. A continuación, se presenta la solución sugerida para el ejercicio:
         
-    #     El marco esta compuesto por tres elementos cuyos centros de masa se encuentran en el punto medio de su longitud.
+        El marco está compuesto por tres elementos cuyos centros de masa se encuentran en el punto medio de su longitud.
         
-    #     $\\textbf{{\\small 1. Tabulación de cálculos: }}$
+        $\\textbf{{\\small 1. Tabulación de cálculos: }}$
         
-    #     Teniendo en cuenta que la masa de cada elemento se calcula mediante el producto de la densidad lineal por la longitud se puede obtener la siguiente tabla:
+        Teniendo en cuenta que la masa de cada elemento se calcula mediante el producto de la densidad por volumen se puede obtener:
         
-    #     $Elemento$ $\\hspace{{6mm}}$ $L(m)$ $\\hspace{{6mm}}$ $\\rho (kg/m)$ $\\hspace{{6mm}}$ $M(kg)$ $\\hspace{{6mm}}$ $\\bar{{X}}(m)$ $\\hspace{{6mm}}$ $\\bar{{Y}}(m)$ $\\hspace{{6mm}}$ $\\bar{{X}} \\cdot M(kg \\cdot m)$ $\\hspace{{6mm}}$ $\\bar{{Y}} \\cdot M(kg \\cdot m)$     
+        $Elemento$ $\\hspace{{6mm}}$ $L(m)$ $\\hspace{{6mm}}$ $\\rho (kg/m)$ $\\hspace{{6mm}}$ $M(kg)$ $\\hspace{{6mm}}$ $\\bar{{X}}(m)$ $\\hspace{{6mm}}$ $\\bar{{Y}}(m)$ $\\hspace{{6mm}}$ $\\bar{{X}} \\cdot M(kg \\cdot m)$ $\\hspace{{6mm}}$ $\\bar{{Y}} \\cdot M(kg \\cdot m)$     
 
-    #     $AC$ $\\hspace{{15mm}}$ ${d[9]+d[6]:.2f}$ $\\hspace{{10mm}}$ ${d[0]:.2f}$ $\\hspace{{9mm}}$ ${d[0]*(d[9]+d[6]):.2f}$ $\\hspace{{10mm}}$ $0$ $\\hspace{{15mm}}$ ${(1/2)*(d[9]+d[6]):.2f}$ $\\hspace{{12mm}}$ $0$ $\\hspace{{18mm}}$ ${(1/2)*d[0]*(d[9]+d[6])*(d[9]+d[6]):.2f}$     
-    #     $CE$ $\\hspace{{15mm}}$ ${Calculations.magnitude((d[12]+d[15]),(d[18]+d[21])):.2f}$ $\\hspace{{10mm}}$ ${d[0]:.2f}$ $\\hspace{{9mm}}$ ${d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[21])):.2f}$ $\\hspace{{10mm}}$ ${(d[18]+d[21])*(1/2):.2f}$ $\\hspace{{10mm}}$ ${d[6]+d[9]+(d[12]+d[15])*(1/2):.2f}$  $\\hspace{{10mm}}$ ${(d[18]+d[21])*(1/2)*d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[21])):.2f}$ $\\hspace{{15mm}}$ ${(d[6]+d[9]+(d[12]+d[15])*(1/2))*d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[21])):.2f}$     
-    #     $BD$ $\\hspace{{15mm}}$ ${Calculations.magnitude((d[12]+d[9]),d[18]):.2f}$ $\\hspace{{10mm}}$ ${d[3]:.2f}$ $\\hspace{{9mm}}$ ${d[3]*Calculations.magnitude((d[12]+d[9]),d[18]):.2f}$ $\\hspace{{10mm}}$ ${(1/2)*(d[18]):.2f}$ $\\hspace{{10mm}}$ ${d[6]+(d[9]+d[12])*(1/2):.2f}$ $\\hspace{{10mm}}$ ${(1/2)*(d[18])*d[3]*Calculations.magnitude((d[12]+d[9]),d[18]):.2f}$ $\\hspace{{15mm}}$ ${(d[6]+(d[9]+d[12])*(1/2))*d[3]*Calculations.magnitude((d[12]+d[9]),d[18]):.2f}$          
+        $AC$ $\\hspace{{15mm}}$ ${d[9]+d[6]:.2f}$ $\\hspace{{10mm}}$ ${d[0]:.2f}$ $\\hspace{{9mm}}$ ${d[0]*(d[9]+d[6]):.2f}$ $\\hspace{{10mm}}$ $0$ $\\hspace{{15mm}}$ ${(1/2)*(d[9]+d[6]):.2f}$ $\\hspace{{12mm}}$ $0$ $\\hspace{{18mm}}$ ${(1/2)*d[0]*(d[9]+d[6])*(d[9]+d[6]):.2f}$     
+        $CE$ $\\hspace{{15mm}}$ ${Calculations.magnitude((d[12]+d[15]),(d[18]+d[15])):.2f}$ $\\hspace{{10mm}}$ ${d[0]:.2f}$ $\\hspace{{9mm}}$ ${d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[15])):.2f}$ $\\hspace{{10mm}}$ ${(d[18]+d[15])*(1/2):.2f}$ $\\hspace{{10mm}}$ ${d[6]+d[9]+(d[12]+d[15])*(1/2):.2f}$  $\\hspace{{10mm}}$ ${(d[18]+d[15])*(1/2)*d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[15])):.2f}$ $\\hspace{{11mm}}$ ${(d[6]+d[9]+(d[12]+d[15])*(1/2))*d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[15])):.2f}$     
+        $BD$ $\\hspace{{15mm}}$ ${Calculations.magnitude((d[12]+d[9]),d[18]):.2f}$ $\\hspace{{10mm}}$ ${d[3]:.2f}$ $\\hspace{{8mm}}$ ${d[3]*Calculations.magnitude((d[12]+d[9]),d[18]):.2f}$ $\\hspace{{10mm}}$ ${(1/2)*(d[18]):.2f}$ $\\hspace{{10mm}}$ ${d[6]+(d[9]+d[12])*(1/2):.2f}$ $\\hspace{{10mm}}$ ${(1/2)*(d[18])*d[3]*Calculations.magnitude((d[12]+d[9]),d[18]):.2f}$ $\\hspace{{15mm}}$ ${(d[6]+(d[9]+d[12])*(1/2))*d[3]*Calculations.magnitude((d[12]+d[9]),d[18]):.2f}$          
         
-    #     $\\textbf{{\\small 2. Determinar \\bar{{X}}: }}$
+        $\\textbf{{\\small 2. Determinar el centroide en X: }}$
         
-    #     Se puede aplicar la formula para determinar la coordenada $\\bar{{X}}$ :
+        Se aplica la fórmula para determinar la coordenada $\\bar{{X}}$ :
         
-    #     ${{\hspace{{4mm}} \\bar{{X}} = \\dfrac{{\\sum{{\\bar{{X_i}} \\cdot M_i}}}}{{\\sum{{M_i}}}}}}$     
-    #     ${{\hspace{{4mm}} \\bar{{X}} = {((d[18]+d[21])*(1/2)*d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[21])) + (1/2)*(d[18])*d[3]*Calculations.magnitude((d[12]+d[9]),d[18]))/(d[0]*(d[9]+d[6])+d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[21]))+d[3]*Calculations.magnitude((d[12]+d[9]),d[18])):.2f} \\text{{ m}}}}$     
+        ${{\hspace{{4mm}} \\bar{{X}} = \\dfrac{{\\sum{{\\bar{{X_i}} \\cdot M_i}}}}{{\\sum{{M_i}}}}}}$     
+        ${{\hspace{{4mm}} \\bar{{X}} = {((d[18]+d[15])*(1/2)*d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[15])) + (1/2)*(d[18])*d[3]*Calculations.magnitude((d[12]+d[9]),d[18]))/(d[0]*(d[9]+d[6])+d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[15]))+d[3]*Calculations.magnitude((d[12]+d[9]),d[18])):.2f} \\text{{ m}}}}$     
            
-    #     $\\textbf{{\\small 3. Determinar \\bar{{Y}}: }}$
+        $\\textbf{{\\small 3. Determinar el centroide en Y: }}$
         
-    #     Se puede aplicar la formula para determinar la coordenada $\\bar{{Y}}$ :
+        Se aplica la fórmula para determinar la coordenada $\\bar{{Y}}$ :
         
-    #     ${{\hspace{{4mm}} \\bar{{Y}} = \\dfrac{{\\sum{{\\bar{{Y_i}} \\cdot M_i}}}}{{\\sum{{M_i}}}}}}$     
-    #     ${{\hspace{{4mm}} \\bar{{Y}} = {((1/2)*d[0]*(d[9]+d[6])*(d[9]+d[6]) + (d[6]+d[9]+(d[12]+d[15])*(1/2))*d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[21])) + (d[6]+(d[9]+d[12])*(1/2))*d[3]*Calculations.magnitude((d[12]+d[9]),d[18]))/(d[0]*(d[9]+d[6])+d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[21]))+d[3]*Calculations.magnitude((d[12]+d[9]),d[18])):.2f} \\text{{ m}}}}$     
+        ${{\hspace{{4mm}} \\bar{{Y}} = \\dfrac{{\\sum{{\\bar{{Y_i}} \\cdot M_i}}}}{{\\sum{{M_i}}}}}}$     
+        ${{\hspace{{4mm}} \\bar{{Y}} = {((1/2)*d[0]*(d[9]+d[6])*(d[9]+d[6]) + (d[6]+d[9]+(d[12]+d[15])*(1/2))*d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[15])) + (d[6]+(d[9]+d[12])*(1/2))*d[3]*Calculations.magnitude((d[12]+d[9]),d[18]))/(d[0]*(d[9]+d[6])+d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[15]))+d[3]*Calculations.magnitude((d[12]+d[9]),d[18])):.2f} \\text{{ m}}}}$     
         
-    #     $\\textbf{{\\small 4. Encontrar reacción en A: }}$
+        $\\textbf{{\\small 4. Encontrar reacción en A: }}$
         
-    #     A es un apoyo tipo 3, por lo que tiene 3 reacciones, en el enunciado solo se solicita una, que es el momento par. Teniendo presente que el peso de la estructura solo tiene componente negativa en $\\hat{{j}}$ y esta ubicada en el centro de masa, este momento se puede obtener del resultado de:
+        El punto A corresponde a un apoyo de grado 3, por lo que tiene 3 reacciones, sin embargo, en el enunciado solo se solicita la reacción a momento. Considerando que el peso de la estructura actúa en la dirección negativa de $\\hat{{j}}$ y que está aplicado en el centro de masa, dicho momento se determina como:
         
-    #     ${{\hspace{{4mm}} \\sum{{M_A}} = M_A -  W \\cdot \\bar{{X}} = 0}}$     
-    #     ${{\hspace{{4mm}} M_A - \\sum{{M_i}} \\cdot g \\cdot \\dfrac{{\\sum{{\\bar{{X_i}} \\cdot M_i}}}}{{\\sum{{M_i}}}} = 0}}$     
-    #     ${{\hspace{{4mm}} M_A = g \\cdot \\sum{{\\bar{{X_i}} \\cdot M_i}}}}$     
-    #     ${{\hspace{{4mm}} M_A = {(981/100)*((d[18]+d[21])*(1/2)*d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[21])) + (1/2)*(d[18])*d[3]*Calculations.magnitude((d[12]+d[9]),d[18])):.2f} \\text{{ N}} \\cdot \\text{{ m}}}}$     
-             
-        
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
+        ${{\hspace{{4mm}} \\sum{{M_A}} = M_A -  W \\cdot \\bar{{X}} = 0}}$     
+        ${{\hspace{{4mm}} M_A = g \\cdot \\bar{{X}} \\cdot \\sum{{M_i}} }}$     
+        ${{\hspace{{4mm}} M_A = {(981/100)*((d[18]+d[15])*(1/2)*d[0]*Calculations.magnitude((d[12]+d[15]),(d[18]+d[15])) + (1/2)*(d[18])*d[3]*Calculations.magnitude((d[12]+d[9]),d[18])):.2f} \\text{{ N}} \\cdot \\text{{ m}}}}$     
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
     
     #========================================================  CENTROIDES  =========================================================
     #-------------------------------------------------       Centroides    --------------------------------------------

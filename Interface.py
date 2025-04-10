@@ -915,6 +915,8 @@ if authenticate_user():
                 if subtopic == "Centroides":
                     if pregunta_no == 1:
                         st.image(CT_image_paths[3], width=420)    
+                    if pregunta_no == 2:
+                        st.image(CT_image_paths[4], width=250)  
                 if subtopic == "Fuerzas distribuidas":
                     if pregunta_no == 1:
                         st.image(FD_image_paths[3], width=350)
