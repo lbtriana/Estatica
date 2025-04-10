@@ -304,6 +304,11 @@ $P$ = Presión hidrostática distribuida sobre la superficie.
 $A$ = Área de la superficie.    
 """
 
+#EMPUJE DEL SUELO
+ES1 = "Para el cálculo de la presión horizontal del suelo, se debe considerar el coeficiente $k$. La presión horizontal del suelo a una profundidad $h$ se expresa como: $P = k \\cdot \\gamma_s \\cdot h$."
+ES2 = "La distribución de la presión horizontal debido al peso del suelo es de forma triangular, y la fuerza resultante del empuje actúa a un tercio de la altura desde la base del triángulo."
+ES3 = "Para verificar la estabilidad frente al volcamiento, se debe comprobar que el momento resistente sea mayor o igual al momento actuante."
+
 #FUERZAS INTERNAS
 FI1 = "Antes de determinar las fuerzas internas, identifique todas las fuerzas externas que actúan sobre la viga y las reacciones en los apoyos."
 FI2 = "Para calcular las fuerzas cortantes y los momentos flectores en un punto específico, se reliza un corte en dicho punto, se realiza un diagrama de cuerpo libre de la nueva sección con las fuerzas internas, y se aplican las ecuaciones de equilibrio."
