@@ -1302,22 +1302,20 @@ conceptuales = [
 #---------------------------------------------- Fuerzas distribuidas- PRESIONES HIDROSTÁTICAS -------------------------------------------------
 #-------------------------------------------------       82000##0         ---------------------------------------------------
 
-    # Theory(#1
-    #     code = 8200010, 
-    #     no_pregunta = 1,
-    #     topic = "Fuerzas distribuidas",
-    #     subtopic = "Presiones hidrostáticas",
-    #     enunciado ="Considere la siguiente figura y ordene de mayor a menor presión hidrostática", 
-    #     opcion_1 = "II, IV, I, III",
-    #     opcion_2 = "III,I,IV,III",
-    #     opcion_3 = "IV, II, III, I",
-    #     opcion_4 = "I, III, II, IV",
-    #     opcion_correcta = "IV, II, III, I",
-    #     respuesta_P1 = """Los principales factores que influyen en la presión hidrostática son la densidad y profundidad. 
-    #     Por un lado, a mayor densidad del fluido mayor será la presión hirostática.
-    #     Por otro, la presión hidrostática en paredes inclinadas es mayor que en paredes completamente verticales debido a la influencia del peso del agua que aparece sobre la inclinación siempre y cuando estas se encuentren a la misma altura sumergida.""",
-    #     respuesta_P2 = "",
-    #     ),
+    Theory(#1
+        code = 8200010, 
+        no_pregunta = 1,
+        topic = "Fuerzas distribuidas",
+        subtopic = "Presiones hidrostáticas",
+        enunciado ="Considere la siguiente figura. ¿Cuál de las configuraciones mostradas presenta la mayor y la menor presión hidrostática, respectivamente?", 
+        opcion_1 = "$II$, $I$",
+        opcion_2 = "$II$, $III$",
+        opcion_3 = "$IV$, $I$",
+        opcion_4 = "$IV$, $III$",
+        opcion_correcta = "$IV$, $I$",
+        respuesta_P1 = "La configuración con la mayor presión hidrostática es la $IV$, mientras que la configuración con la menor presión hidrostática es la $I$. Dado que, a mayor densidad del fluido, mayor será la presión ejercida. Además, en condiciones de igual altura sumergida, las paredes inclinadas experimentan una mayor presión debido al componente del peso del agua que actúa sobre la inclinación.",
+        respuesta_P2 = "",
+        ),
 
     Theory(#2
         code = 8200020, 
