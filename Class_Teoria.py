@@ -1393,20 +1393,20 @@ conceptuales = [
         respuesta_P2 = "",
         ),
 
-    # Theory(#2
-    #     code = 8300020, 
-    #     no_pregunta = 2,
-    #     topic = "Equilibrio de partículas",
-    #     subtopic = "Fuerzas distribuidas",
-    #     enunciado ="Considere la situación mostrada en el siguiente figura e indique si es necesario poner un anclaje", 
-    #     opcion_1 = "No. Ya que, la presión del suelo es menor que la del agua y por ello el anclaje derrumbaría el muro.",
-    #     opcion_2 = "No. Ya que, la presión del suelo es igual a la del agua y por ello no es necesario un anclaje.",
-    #     opcion_3 = "Sí. Ya que, la presión del suelo es mayor que la del agua y por ello el anclaje debe ponerse del lado del suelo.",
-    #     opcion_4 = "Sí. Ya que, la presión del suelo es mayor que la del agua y por ello el anclaje debe ponerse del lado del agua.",
-    #     opcion_correcta = "Sí. Ya que, la presión del suelo es mayor que la del agua y por ello el anclaje debe ponerse del lado del suelo.",
-    #     respuesta_P1 = "Recuerda que el anclaje jala el muro hacia el suelo. Esto quiere decir que si la presión que ejerce el suelo es mayor a lo que este puede resistir, es necesario un anclaje cuya fuerza garantice el equilibrio.",
-    #     respuesta_P2 = "",
-    #     ),
+    Theory(#2
+        code = 8300020, 
+        no_pregunta = 2,
+        topic = "Fuerzas distribuidas",
+        subtopic = "Empuje de suelo",
+        enunciado ="Considere la situación mostrada en la siguiente figura. ¿Es necesario instalar un anclaje en el muro para evitar su volcamiento?", 
+        opcion_1 = "No. Porque la presión del suelo es menor que la del agua, y un anclaje podría inducir un volcamiento hacia el terreno.",
+        opcion_2 = "No. Porque el momento generado por la presión del suelo es menor que el del agua, el anclaje no es la solución adecuada, ya que aumentaría este desequilibrio.",
+        opcion_3 = "Sí. Porque la presión del agua es menor que la del suelo, y el anclaje debe contrarrestar la fuerza ejercicda por el suelo.",
+        opcion_4 = "Sí. Porque el momento generado por la presión del suelo es mayor que el del agua, y el anclaje debe contrarrestar ese momento para evitar el volcamiento.",
+        opcion_correcta = "Sí. Porque el momento generado por la presión del suelo es mayor que el del agua, y el anclaje debe contrarrestar ese momento para evitar el volcamiento.",
+        respuesta_P1 = "Se requiere instalar un anclaje cuando el momento generado por la presión del suelo es mayor que el generado por la presión del agua, ya que en ese caso el muro tiende a volcarse hacia el lado del agua. En este caso, es necesario instalar un anclaje del lado del suelo para contrarrestar ese momento y mantener el equilibrio del sistema.",
+        respuesta_P2 = "",
+        ),
     
 
 

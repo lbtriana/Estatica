@@ -1331,6 +1331,8 @@ if authenticate_user():
             if subtopic == "Empuje de suelo":
                 if pregunta_no == 1:
                     st.image(FD_teoria_preguntas[5], width=420)
+                if pregunta_no == 2:
+                    st.image(FD_teoria_preguntas[6], width=720)
 
         with left_col:
             if subtopic == "Presiones hidrostáticas":

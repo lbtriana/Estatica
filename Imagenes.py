@@ -440,6 +440,7 @@ FD_teoria_preguntas = [
 
 #Empuje de suelo
 "./Imagenes/Teoria_Preguntas/FD/ES/T_FD_ES_1.png", #[5]
+"./Imagenes/Teoria_Preguntas/FD/ES/T_FD_ES_2.png", #[6]
 ]
 
 #==========================================RESPUESTAS TEORÍA==============================================
