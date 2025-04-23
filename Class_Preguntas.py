@@ -7763,137 +7763,119 @@ preguntas = [
     #-------------------------------------------------        Empuje de suelo  --------------------------------------------
     #-------------------------------------------------       Nivel Fácil   ---------------------------------------------------
     #-------------------------------------------------       Code: 7310011    --------------------------------------------------
-    Questionary(#1_1
-        code = 7110041,
-        no_pregunta = 4,
-        complexity = F,
-        topic = FD,
-        subtopic = FD,
-        version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine la fuerza para la cuál se debe diseñar el anclaje, de manera que no exista volcamiento alrededor del punto A. Considere que el peso específico del concreto es $\\gamma_c = {19+d[0]*(1/2):.2f} \\dfrac{{kN}}{{m^3}}$, del suelo $\\gamma_s = {15+d[3]*(1/2):.2f} \\dfrac{{kN}}{{m^3}}$, un coeficiente $k = {(12+d[6])*(1/50):.2f}$, $d_1 = {1+d[9]*(1/4):.2f} \\text{{ m}}$,  $d_2 = {(100+d[12])/100:.2f}  \\text{{ m}}$, $d_3 = {1+d[15]*(1/10):.2f}  \\text{{ m}}$ y $d_4 = {4+d[9]*(1/2):.2f}  \\text{{ m}}$.",
-        no_answers = 1,
-        a1_name = "Fuerza de anclaje $F_a$ [kN]",
-        a2_name = "",
-        a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round(((12+d[6])*(1/300)*(15+d[3]*(1/2))*(pow(4+d[9]*(1/2) + (100+ d[12])*(1/100),3)) - (19+d[0]*(1/2))*(100+d[12])*(1/100)*((100+d[12])*(1/100) + 4 + d[9]*(1/2))*(1+d[15]*(1/10) + (1/200)*(100+d[12])) - (19+d[0]*(1/2))*(100+d[12])*(1/100)*(1/2)*(pow((1+d[15]*(1/10)),2)))/(1+d[9]*(1/4)),2),
-        answer2 = lambda f, a, calc, c, d, m: 0,
-        answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = ES1,
-        ayuda2 = ES2,
-        ayuda3 = ES3,
-        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-        El empuje de suelo es la fuerza que el terreno ejerce sobre una estructura en contacto con él, como por ejemplo un muro de contención, A continuación, se presenta la solución sugerida para el ejercicio:
+    # Questionary(#1_1
+    #     code = 7110041,
+    #     no_pregunta = 4,
+    #     complexity = F,
+    #     topic = FD,
+    #     subtopic = FD,
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"Determine la fuerza para la cuál se debe diseñar el anclaje, de manera que no exista volcamiento alrededor del punto A. Considere que el peso específico del concreto es $\\gamma_c = {19+d[0]*(1/2):.2f} \\dfrac{{kN}}{{m^3}}$, del suelo $\\gamma_s = {15+d[3]*(1/2):.2f} \\dfrac{{kN}}{{m^3}}$, un coeficiente $k = {(12+d[6])*(1/50):.2f}$, $d_1 = {1+d[9]*(1/4):.2f} \\text{{ m}}$,  $d_2 = {(100+d[12])/100:.2f}  \\text{{ m}}$, $d_3 = {1+d[15]*(1/10):.2f}  \\text{{ m}}$ y $d_4 = {4+d[9]*(1/2):.2f}  \\text{{ m}}$.",
+    #     no_answers = 1,
+    #     a1_name = "Fuerza de anclaje $F_a$ [kN]",
+    #     a2_name = "",
+    #     a3_name = "",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round(((12+d[6])*(1/300)*(15+d[3]*(1/2))*(pow(4+d[9]*(1/2) + (100+ d[12])*(1/100),3)) - (19+d[0]*(1/2))*(100+d[12])*(1/100)*((100+d[12])*(1/100) + 4 + d[9]*(1/2))*(1+d[15]*(1/10) + (1/200)*(100+d[12])) - (19+d[0]*(1/2))*(100+d[12])*(1/100)*(1/2)*(pow((1+d[15]*(1/10)),2)))/(1+d[9]*(1/4)),2),
+    #     answer2 = lambda f, a, calc, c, d, m: 0,
+    #     answer3 = lambda f, a, calc, c, d, m: 0,
+    #     ayuda1 = ES1,
+    #     ayuda2 = ES2,
+    #     ayuda3 = ES3,
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     El empuje de suelo es la fuerza que el terreno ejerce sobre una estructura en contacto con él, como por ejemplo un muro de contención, A continuación, se presenta la solución sugerida para el ejercicio:
         
-        $\\textbf{{\\small 1. Representación de ejercicio: }}$
-        En la configuración del muro de contención mostrado, se identifican las siguientes fuerzas: la fuerza resultante por el empuje del suelo, la fuerza ejercida por el anclaje, y dos fuerzas verticales del peso propio del muro de contención.  
-        """,   
-        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
-        $\\textbf{{\\small 2. Puntualización de las fuerzas: }}$
+    #     $\\textbf{{\\small 1. Representación de ejercicio: }}$
+    #     En la configuración del muro de contención mostrado, se identifican las siguientes fuerzas: la fuerza resultante por el empuje del suelo, la fuerza ejercida por el anclaje, y dos fuerzas verticales del peso propio del muro de contención.  
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+    #     $\\textbf{{\\small 2. Puntualización de las fuerzas: }}$
         
-        Asumiendo un ancho "a" de 1m
+    #     Asumiendo un ancho "a" de 1m
         
-        $\\underline{{Fuerzas \\hspace{{2mm}} verticales:}}$ 
+    #     $\\underline{{Fuerzas \\hspace{{2mm}} verticales:}}$ 
                 
-        ${{\hspace{{4mm}} W_1 = \\gamma_c \\cdot a \\cdot d_2 \\cdot (d_2 + d_4)}}$     
-        ${{\hspace{{4mm}} W_2 = \\gamma_c \\cdot a \\cdot d_2 \\cdot d_3}}$         
+    #     ${{\hspace{{4mm}} W_1 = \\gamma_c \\cdot a \\cdot d_2 \\cdot (d_2 + d_4)}}$     
+    #     ${{\hspace{{4mm}} W_2 = \\gamma_c \\cdot a \\cdot d_2 \\cdot d_3}}$         
         
-        $\\underline{{Fuerza \\hspace{{2mm}} de \\hspace{{2mm}} presión:}}$ 
+    #     $\\underline{{Fuerza \\hspace{{2mm}} de \\hspace{{2mm}} presión:}}$ 
         
-        ${{\hspace{{4mm}} F_P = k \\cdot a \\cdot \\dfrac{{\\gamma_s \\cdot (d_4 + d_2)^2}}{{2}}}}$  
+    #     ${{\hspace{{4mm}} F_P = k \\cdot a \\cdot \\dfrac{{\\gamma_s \\cdot (d_4 + d_2)^2}}{{2}}}}$  
            
-        $\\textbf{{\\small 3. Estabilidad al volcamiento: }}$
+    #     $\\textbf{{\\small 3. Estabilidad al volcamiento: }}$
         
-        La fuerza mínima ejercida por el anclaje para asegurar que no exista volcamiento alrededor del punto A se despeja de la sumatoria de momentos en A:
+    #     La fuerza mínima ejercida por el anclaje para asegurar que no exista volcamiento alrededor del punto A se despeja de la sumatoria de momentos en A:
         
-        ${{\hspace{{4mm}} \\sum{{M_A}} = F_P \\cdot \\dfrac{{d_4 + d_2}}{{3}} - F_a \\cdot d_1  - W_1 \\cdot \\left(d_3 + \\dfrac{{d_2}}{{2}}\\right) - W_2 \\cdot \\dfrac{{d_3}}{{2}} = 0}}$     
+    #     ${{\hspace{{4mm}} \\sum{{M_A}} = F_P \\cdot \\dfrac{{d_4 + d_2}}{{3}} - F_a \\cdot d_1  - W_1 \\cdot \\left(d_3 + \\dfrac{{d_2}}{{2}}\\right) - W_2 \\cdot \\dfrac{{d_3}}{{2}} = 0}}$     
        
-        ${{\hspace{{4mm}} F_a \\cdot d_1 = F_P \\cdot \\dfrac{{d_4 + d_2}}{{3}} - W_1 \\cdot \\left(d_3 + \\dfrac{{d_2}}{{2}}\\right) - W_2 \\cdot \\dfrac{{d_3}}{{2}}}}$     
+    #     ${{\hspace{{4mm}} F_a \\cdot d_1 = F_P \\cdot \\dfrac{{d_4 + d_2}}{{3}} - W_1 \\cdot \\left(d_3 + \\dfrac{{d_2}}{{2}}\\right) - W_2 \\cdot \\dfrac{{d_3}}{{2}}}}$     
         
-        ${{\hspace{{4mm}} F_a \\cdot d_1 =  k \\cdot a \\cdot \\dfrac{{\\gamma_s \\cdot (d_4 + d_2)^3}}{{6}} -  \\gamma_c \\cdot a \\cdot d_2 \\cdot (d_2 + d_4) \\cdot \\left(d_3 + \\dfrac{{d_2}}{{2}}\\right) - \\gamma_c \\cdot a \\cdot d_2 \\cdot \\dfrac{{(d_3)^2}}{{2}}}}$     
+    #     ${{\hspace{{4mm}} F_a \\cdot d_1 =  k \\cdot a \\cdot \\dfrac{{\\gamma_s \\cdot (d_4 + d_2)^3}}{{6}} -  \\gamma_c \\cdot a \\cdot d_2 \\cdot (d_2 + d_4) \\cdot \\left(d_3 + \\dfrac{{d_2}}{{2}}\\right) - \\gamma_c \\cdot a \\cdot d_2 \\cdot \\dfrac{{(d_3)^2}}{{2}}}}$     
         
-        ${{\hspace{{4mm}} F_a \\cdot {1+d[9]*(1/4):.2f} \\text{{ m}} =  {(12+d[6])*(1/300)*(15+d[3]*(1/2))*(pow(4+d[9]*(1/2) + (100+ d[12])*(1/100),3)):.2f} \\text{{ kN}} \\cdot \\text{{ m}} - {(19+d[0]*(1/2))*(100+d[12])*(1/100)*((100+d[12])*(1/100)+ 4 + d[9]*(1/2))*(1+d[15]*(1/10) + (1/200)*(100+d[12])):.2f} \\text{{ kN}} \\cdot \\text{{ m}} - {(19+d[0]*(1/2))*(100+d[12])*(1/100)*(1/2)*(pow((1+d[15]*(1/10)),2)):.2f} \\text{{ kN}} \\cdot \\text{{ m}}}}$     
+    #     ${{\hspace{{4mm}} F_a \\cdot {1+d[9]*(1/4):.2f} \\text{{ m}} =  {(12+d[6])*(1/300)*(15+d[3]*(1/2))*(pow(4+d[9]*(1/2) + (100+ d[12])*(1/100),3)):.2f} \\text{{ kN}} \\cdot \\text{{ m}} - {(19+d[0]*(1/2))*(100+d[12])*(1/100)*((100+d[12])*(1/100)+ 4 + d[9]*(1/2))*(1+d[15]*(1/10) + (1/200)*(100+d[12])):.2f} \\text{{ kN}} \\cdot \\text{{ m}} - {(19+d[0]*(1/2))*(100+d[12])*(1/100)*(1/2)*(pow((1+d[15]*(1/10)),2)):.2f} \\text{{ kN}} \\cdot \\text{{ m}}}}$     
         
-        ${{\hspace{{4mm}} F_a =  {((12+d[6])*(1/300)*(15+d[3]*(1/2))*(pow(4+d[9]*(1/2) + (100+ d[12])*(1/100),3)) - (19+d[0]*(1/2))*(100+d[12])*(1/100)*((100+d[12])*(1/100) + 4 + d[9]*(1/2))*(1+d[15]*(1/10) + (1/200)*(100+d[12])) - (19+d[0]*(1/2))*(100+d[12])*(1/100)*(1/2)*(pow((1+d[15]*(1/10)),2)))/(1+d[9]*(1/4)):.2f} \\text{{ kN}} }}$     
-        """,
-        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-        calculos='operations'
-        ),
+    #     ${{\hspace{{4mm}} F_a =  {((12+d[6])*(1/300)*(15+d[3]*(1/2))*(pow(4+d[9]*(1/2) + (100+ d[12])*(1/100),3)) - (19+d[0]*(1/2))*(100+d[12])*(1/100)*((100+d[12])*(1/100) + 4 + d[9]*(1/2))*(1+d[15]*(1/10) + (1/200)*(100+d[12])) - (19+d[0]*(1/2))*(100+d[12])*(1/100)*(1/2)*(pow((1+d[15]*(1/10)),2)))/(1+d[9]*(1/4)):.2f} \\text{{ kN}} }}$     
+    #     """,
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ),
     
     #=================================================  FUERZAS DISTRIBUIDAS =========================================================
     #-------------------------------------------------        Empuje de suelo  --------------------------------------------
     #-------------------------------------------------       Nivel medio   ---------------------------------------------------
     #-------------------------------------------------       Code: 7320011    --------------------------------------------------
-    
-    # Questionary(#1_1
-    #     code = 7320011,
-    #     no_pregunta = 1,
-    #     complexity = M,
-    #     topic = "Fuerzas distribuidas",
-    #     subtopic = "Empuje de suelo",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Determine la distancia $d_4$ que se necesita para asegurar que no exista volcamiento alrededor del punto A. Considere $\\gamma_c = {18+d[0]*(1/2):2f} \\dfrac{{kN}}{{m^3}}$, $\\gamma_s = {15+d[3]*(1/2):2f} \\dfrac{{kN}}{{m^3}}$, un coeficiente $k = {(12+d[6])*(1/50):.2f}$, $d_1 = {(3/2)+d[9]*(1/2):.2f} \\text{{ m}}$,  $d_2 = {(22+d[12])/100:.2f}  \\text{{ m}}$ y $d_3 = {(1/2) + d[15]*(1/20):.2f} \\text{{ m}}$.",
-    #     no_answers = 1,
-    #     a1_name = "Distancia $d_4$ [m]",
-    #     a2_name = "",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round((1/((22+d[12])/100))*(((-1/2)*((3/2)+d[9]*(1/2))*((3/2)+d[9]*(1/2) + (1/2) + d[15]*(1/20)) - ((22+d[12])/100)*((1/2) + d[15]*(1/20))) + math.sqrt(pow(((1/2)*((3/2)+d[9]*(1/2))*((22+d[12])/100 + (1/2) + d[15]*(1/20)) + ((22+d[12])/100)*((1/2) + d[15]*(1/20))),2) + 2*((22+d[12])/100)*((1/2)*((22+d[12])/100)*((3/2)+d[9]*(1/2) + (22+d[12])/100)*((22+d[12])/100 - 2*((1/2) + d[15]*(1/20))) - (1/6)*(2*((3/2)+d[9]*(1/2)) + 3*((22+d[12])/100))*pow(((22+d[12])/100 - (1/2) + d[15]*(1/20)),2) + (1/(6*(18+d[0]*(1/2))))*(12+d[6])*(1/50)*(15+d[3]*(1/2))*pow(((3/2)+d[9]*(1/2) + (22+d[12])/100),3)))),2),
-    #     answer2 = lambda f, a, calc, c, d, m: 0,
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "En empuje de suelo se debe tener en cuenta el coeficiente k para el cálculo de presiones horizontales. Tal que la formula de presión horizontal de tierra en un punto a una profundidad h es $P = k \\cdot \\gamma_s \\cdot h.",
-    #     ayuda2 = "La presión horizontal producto del peso del suelo es triangular, y la fuerza resultante del empuje se ubicará a un tercio de la base",
-    #     ayuda3 = "Para verificar la estabilidad al vuelco se debe asegurar que el momento resistente sea mayor o igual al momento actuante.",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     El empuje de suelo es la fuerza que el suelo (dado a su peso o una sobrecarga en la superficie) ejerce sobre una estructura en contacto con él, por ejemplo, una pared de contención,. A continuación, se presenta la solución sugerida para el ejercicio:
+    Questionary(#1_1
+        code = 7110041,
+        no_pregunta = 5,
+        complexity = M,
+        topic = FD,
+        subtopic = FD,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la distancia $d_4$ que se necesita para asegurar que no exista volcamiento alrededor del punto A. Considere $\\gamma_c = {18+d[0]*(1/2):.2f} \\dfrac{{kN}}{{m^3}}$, $\\gamma_s = {15+d[3]*(1/2):.2f} \\dfrac{{kN}}{{m^3}}$, un coeficiente $k = {(12+d[6])*(1/50):.2f}$, $d_1 = {(3/2)+d[9]*(1/2):.2f} \\text{{ m}}$,  $d_2 = {(50+d[12])/100:.2f}  \\text{{ m}}$ y $d_3 = {(1/2) + d[15]*(1/20):.2f} \\text{{ m}}$.",
+        no_answers = 1,
+        a1_name = "Distancia $d_4$ [m]",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round((1/((50+d[12])/100))*(((-1/2)*((3/2)+d[9]*(1/2))*((3/2)+d[9]*(1/2) + (1/2) + d[15]*(1/20)) - ((50+d[12])/100)*((1/2) + d[15]*(1/20))) + math.sqrt(pow(((1/2)*((3/2)+d[9]*(1/2))*((50+d[12])/100 + (1/2) + d[15]*(1/20)) + ((50+d[12])/100)*((1/2) + d[15]*(1/20))),2) + 2*((50+d[12])/100)*((1/2)*((50+d[12])/100)*((3/2)+d[9]*(1/2) + (50+d[12])/100)*((50+d[12])/100 - 2*((1/2) + d[15]*(1/20))) - (1/6)*(2*((3/2)+d[9]*(1/2)) + 3*((50+d[12])/100))*pow(((50+d[12])/100 - (1/2) + d[15]*(1/20)),2) + (1/(6*(18+d[0]*(1/2))))*(12+d[6])*(1/50)*(15+d[3]*(1/2))*pow(((3/2)+d[9]*(1/2) + (50+d[12])/100),3)))),2),
+        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = "En empuje de suelo se debe tener en cuenta el coeficiente k para el cálculo de presiones horizontales. Tal que la formula de presión horizontal de tierra en un punto a una profundidad h es $P = k \\cdot \\gamma_s \\cdot h.",
+        ayuda2 = "La presión horizontal producto del peso del suelo es triangular, y la fuerza resultante del empuje se ubicará a un tercio de la base",
+        ayuda3 = "Para verificar la estabilidad al vuelco se debe asegurar que el momento resistente sea mayor o igual al momento actuante.",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        El empuje de suelo es la fuerza que el suelo (dado a su peso o una sobrecarga en la superficie) ejerce sobre una estructura en contacto con él, por ejemplo, una pared de contención,. A continuación, se presenta la solución sugerida para el ejercicio:
         
-    #     $\\textbf{{\\small 1. Representación de ejercicio: }}$
-    #     Dado a la configuración del muro de contención se identifican una fuerza reusltante por empuje de suelo, y 4 fuerzas verticales por el peso de la presa.
+        $\\textbf{{\\small 1. Representación de ejercicio: }}$
+        Dado a la configuración del muro de contención se identifican una fuerza reusltante por empuje de suelo, y 4 fuerzas verticales por el peso de la presa.
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        $\\textbf{{\\small 2. Puntualización de las fuerzas: }}$
         
-    #     ##Imagen##   
+        Asumiendo un ancho "a" de 1m:
+        
+        $\\underline{{Fuerzas \\hspace{{2mm}} verticales:}}$ 
                 
-    #     $\\textbf{{\\small 2. Puntualización de las fuerzas: }}$
+        ${{\hspace{{4mm}} W_1 = \\gamma_c \\cdot a \\cdot d_2 \\cdot (d_2 + d_1)}}$     
+        ${{\hspace{{4mm}} W_2 = \\gamma_c \\cdot a \\cdot \\dfrac{{d_1 \\cdot (d_3 - d_2)}}{{2}}}}$         
+        ${{\hspace{{4mm}} W_3 = \\gamma_c \\cdot a \\cdot d_2 \\cdot (d_3 - d_2)}}$         
+        ${{\hspace{{4mm}} W_4 = \\gamma_c \\cdot a \\cdot d_4 \\cdot d_2}}$         
         
-    #     Asumiendo un ancho "a" de 1m:
+        $\\underline{{Fuerza \\hspace{{2mm}} de \\hspace{{2mm}} presión:}}$ 
         
-    #     $\\underline{{Fuerzas \\hspace{{2mm}} verticales:}}$ 
-                
-    #     ${{\hspace{{4mm}} W_1 = \\gamma_c \\cdot a \\cdot d_2 \\cdot (d_2 + d_1)}}$     
-    #     ${{\hspace{{4mm}} W_2 = \\gamma_c \\cdot a \\cdot \\dfrac{{d_1 \\cdot (d_3 - d_2)}}{{2}}}}$         
-    #     ${{\hspace{{4mm}} W_3 = \\gamma_c \\cdot a \\cdot d_2 \\cdot (d_3 - d_2)}}$         
-    #     ${{\hspace{{4mm}} W_4 = \\gamma_c \\cdot a \\cdot d_4 \\cdot d_2}}$         
-        
-    #     $\\underline{{Fuerza \\hspace{{2mm}} de \\hspace{{2mm}} presión:}}$ 
-        
-    #     ${{\hspace{{4mm}} F_P = k \\cdot a \\cdot \\dfrac{{\\gamma_s \\cdot (d_1 + d_2)^2}}{{2}}}}$  
+        ${{\hspace{{4mm}} F_P = k \\cdot a \\cdot \\dfrac{{\\gamma_s \\cdot (d_1 + d_2)^2}}{{2}}}}$  
            
-    #     $\\textbf{{\\small 3. Estabilidad al vuelco: }}$
+        $\\textbf{{\\small 3. Estabilidad al volcamiento: }}$
         
-    #     Ahora bien, la distancia minima de $d_4$ para asegurar que no exista volcamiento alrededor del punto A se puede despejar de la sumatoria de momentos en A igualandola a cero:
+        Ahora bien, la distancia minima de $d_4$ para asegurar que no exista volcamiento alrededor del punto A se puede despejar de la sumatoria de momentos en A igualandola a cero:
         
-    #     ${{\hspace{{4mm}} \\sum{{M_A}} = F_P \\cdot \\dfrac{{d_1 + d_2}}{{3}} - W_1 \\cdot (d_4 + d_3 - \\dfrac{{d_2}}{{2}}) - W_2 \\cdot (d_4 + \\dfrac{{2(d_3 - d_2)}}{{3}}) - W_3 \\cdot  (d_4 + \\dfrac{{d_3 - d_2}}{{2}}) - W_4 \\cdot \\dfrac{{d_4}}{{2}} = 0}}$     
-    #     ${{\hspace{{4mm}} W_1 \\cdot (d_4 + d_3 - \\dfrac{{d_2}}{{2}}) + W_2 \\cdot (d_4 + \\dfrac{{2(d_3 - d_2)}}{{3}}) + W_3 \\cdot  (d_4 + \\dfrac{{d_3 - d_2}}{{2}}) + W_4 \\cdot \\dfrac{{d_4}}{{2}} = F_P \\cdot \\dfrac{{d_1 + d_2}}{{3}} }}$     
-    #     ${{\hspace{{4mm}} W_1 \\cdot d_4 + W_1 \\cdot (d_3 - \\dfrac{{d_2}}{{2}}) + W_2 \\cdot d_4 + W_2 \\cdot \\dfrac{{2(d_3 - d_2)}}{{3}} + W_3 \\cdot d_4 + W_3 \\cdot \\dfrac{{d_3 - d_2}}{{2}} + W_4 \\cdot \\dfrac{{d_4}}{{2}} = F_P \\cdot \\dfrac{{d_1 + d_2}}{{3}} }}$     
-    #     ${{\hspace{{4mm}} d_4 \\cdot (W_1 + W_2 + W_3) +  W_4 \\cdot \\dfrac{{d_4}}{{2}}= F_P \\cdot \\dfrac{{d_1 + d_2}}{{3}} - W_1 \\cdot (d_3 - \\dfrac{{d_2}}{{2}}) - W_2 \\cdot \\dfrac{{2(d_3 - d_2)}}{{3}} - W_3 \\cdot \\dfrac{{d_3 - d_2}}{{2}}}}$     
+        ${{\hspace{{4mm}} \\sum{{M_A}} = F_P \\cdot \\dfrac{{d_1 + d_2}}{{3}} - W_1 \\cdot (d_4 + d_3 - \\dfrac{{d_2}}{{2}}) - W_2 \\cdot (d_4 + \\dfrac{{2(d_3 - d_2)}}{{3}}) - W_3 \\cdot  (d_4 + \\dfrac{{d_3 - d_2}}{{2}}) - W_4 \\cdot \\dfrac{{d_4}}{{2}} = 0}}$     
         
-    #     Ahora, reemplazando, y asumiendo un ancho "a" de 1m:
+        Al realizar el despeje se obtiene que $d_4$ es:
         
-    #     ${{\hspace{{4mm}} d_4 \\cdot \\gamma_c \\cdot (d_2 \\cdot (d_2 + d_1) + \\dfrac{{d_1 \\cdot (d_3 - d_2)}}{{2}} + d_2 \\cdot (d_3 - d_2)) +  \\gamma_c \\cdot d_2 \\cdot \\dfrac{{(d_4)^2}}{{2}}= k \\cdot \\dfrac{{\\gamma_s \\cdot (d_1 + d_2)^3}}{{6}} - \\gamma_c \\cdot d_2 \\cdot (d_2 + d_1) \\cdot (d_3 - \\dfrac{{d_2}}{{2}}) - \\gamma_c \\cdot \\dfrac{{d_1 \\cdot (d_3 - d_2)^2}}{{3}} - \\gamma_c \\cdot d_2 \\cdot \\dfrac{{(d_3 - d_2)^2}}{{2}}}}$     
-    #     ${{\hspace{{4mm}} d_4 \\cdot (\\dfrac{{d_1 \\cdot (d_2 + d_3)}}{{2}} + d_3 \\cdot d_2) + \\cdot d_2 \\cdot \\dfrac{{(d_4)^2}}{{2}} = k \\cdot \\dfrac{{\\gamma_s \\cdot (d_1 + d_2)^3}}{{6 \\gamma_c}} - d_2 \\cdot (d_2 + d_1) \\cdot (d_3 - \\dfrac{{d_2}}{{2}}) - (d_3 - d_2)^2 \\cdot (\\dfrac{{d_1}}{{3}} + \\dfrac{{d_2}}{{2}})}}$     
-        
-    #     Cuyas soluciones se encuentran a partir de:
-        
-    #     ${{\hspace{{4mm}} d_4 = \\dfrac{{1}}{{d_2}} \\cdot ((-\\dfrac{{d_1 \\cdot (d_2 + d_3)}}{{2}} - d_2 \\cdot d_3) \\pm \\sqrt{{(\\dfrac{{d_1 \\cdot (d_2 + d_3)}}{{2}} + d_2 \\cdot d_3)^2 + 2d_2 \\cdot (\\dfrac{{d_2 \\cdot (d_1 + d_2) \\cdot (d_2 - 2d_3)}}{{2}} - \\dfrac{{(2d_1 + 3d_2) \\cdot (d_2 - d_3)^2}}{{6}} + \\dfrac{{k \\cdot \\gamma_s \\cdot (d_1 + d_2)^3}}{{6 \\cdot \\gamma_c}})}})}}$      
-        
-    #     Tal que, se obtiene las siguientes soluciones, y se toma como respuesta la positiva:
-    #     ${{\hspace{{4mm}} d_4 = {(1/((22+d[12])/100))*(((-1/2)*((3/2)+d[9]*(1/2))*((3/2)+d[9]*(1/2) + (1/2) + d[15]*(1/20)) - ((22+d[12])/100)*((1/2) + d[15]*(1/20))) + math.sqrt(pow(((1/2)*((3/2)+d[9]*(1/2))*((22+d[12])/100 + (1/2) + d[15]*(1/20)) + ((22+d[12])/100)*((1/2) + d[15]*(1/20))),2) + 2*((22+d[12])/100)*((1/2)*((22+d[12])/100)*((3/2)+d[9]*(1/2) + (22+d[12])/100)*((22+d[12])/100 - 2*((1/2) + d[15]*(1/20))) - (1/6)*(2*((3/2)+d[9]*(1/2)) + 3*((22+d[12])/100))*pow(((22+d[12])/100 - (1/2) + d[15]*(1/20)),2) + (1/(6*(18+d[0]*(1/2))))*(12+d[6])*(1/50)*(15+d[3]*(1/2))*pow(((3/2)+d[9]*(1/2) + (22+d[12])/100),3)))):.2f} \\text{{ m}}}}$     
-        
-    #     ${{\hspace{{4mm}} d_4 = {(1/((22+d[12])/100))*(((-1/2)*((3/2)+d[9]*(1/2))*((3/2)+d[9]*(1/2) + (1/2) + d[15]*(1/20)) - ((22+d[12])/100)*((1/2) + d[15]*(1/20))) - math.sqrt(pow(((1/2)*((3/2)+d[9]*(1/2))*((22+d[12])/100 + (1/2) + d[15]*(1/20)) + ((22+d[12])/100)*((1/2) + d[15]*(1/20))),2) + 2*((22+d[12])/100)*((1/2)*((22+d[12])/100)*((3/2)+d[9]*(1/2) + (22+d[12])/100)*((22+d[12])/100 - 2*((1/2) + d[15]*(1/20))) - (1/6)*(2*((3/2)+d[9]*(1/2)) + 3*((22+d[12])/100))*pow(((22+d[12])/100 - (1/2) + d[15]*(1/20)),2) + (1/(6*(18+d[0]*(1/2))))*(12+d[6])*(1/50)*(15+d[3]*(1/2))*pow(((3/2)+d[9]*(1/2) + (22+d[12])/100),3)))):.2f} \\text{{ m}}}}$
-        
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
-    
+        ${{\hspace{{4mm}} d_4 = {(1/((50+d[12])/100))*(((-1/2)*((3/2)+d[9]*(1/2))*((3/2)+d[9]*(1/2) + (1/2) + d[15]*(1/20)) - ((50+d[12])/100)*((1/2) + d[15]*(1/20))) - math.sqrt(pow(((1/2)*((3/2)+d[9]*(1/2))*((50+d[12])/100 + (1/2) + d[15]*(1/20)) + ((50+d[12])/100)*((1/2) + d[15]*(1/20))),2) + 2*((50+d[12])/100)*((1/2)*((50+d[12])/100)*((3/2)+d[9]*(1/2) + (50+d[12])/100)*((50+d[12])/100 - 2*((1/2) + d[15]*(1/20))) - (1/6)*(2*((3/2)+d[9]*(1/2)) + 3*((50+d[12])/100))*pow(((50+d[12])/100 - (1/2) + d[15]*(1/20)),2) + (1/(6*(18+d[0]*(1/2))))*(12+d[6])*(1/50)*(15+d[3]*(1/2))*pow(((3/2)+d[9]*(1/2) + (50+d[12])/100),3)))):.2f} \\text{{ m}}}}$
+        """,
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),  
   
 
     #=================================================  FUERZAS INTERNAS =========================================================

@@ -421,7 +421,7 @@ IN_teoria_preguntas =[
 ]
 
 
-
+#================================ Imágenes Teoría Centroide ===================================
 CT_teoria_preguntas=[
 "./Imagenes/Teoria_Preguntas/CT/T_CT_CT_1.png", #[0] 
 "./Imagenes/Teoria_Preguntas/CT/T_CT_CT_2.png", #[1] 
@@ -437,6 +437,9 @@ FD_teoria_preguntas = [
 #Presiones hidrostáticas
 "./Imagenes/Teoria_Preguntas/FD/PH/T_FD_PH_1.png", #[3]
 "./Imagenes/Teoria_Preguntas/FD/PH/T_FD_PH_3.png", #[4]
+
+#Empuje de suelo
+"./Imagenes/Teoria_Preguntas/FD/ES/T_FD_ES_1.png", #[5]
 ]
 
 #==========================================RESPUESTAS TEORÍA==============================================

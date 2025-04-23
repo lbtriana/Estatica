@@ -1375,40 +1375,27 @@ conceptuales = [
     #     respuesta_P2 = "",
     #     ),
     
-    #  #-------------------------------------- Fuerzas distribuidas- PRESIÓN DE SUELO ----------------------------------------------
+    #  #-------------------------------------- Fuerzas distribuidas- EMPUJE DE SUELO ----------------------------------------------
     #  #-------------------------------------------------       83000##0         ---------------------------------------------------
-    # Theory(#1
-    #     code = 8300010, 
-    #     no_pregunta = 1,
-    #     topic = "Equilibrio de partículas",
-    #     subtopic = "Fuerzas distribuidas",
-    #     enunciado ="Cpnsidere la figura e indique cuál de las siguientes ecuaciones permite encontrar correctamente la dimensión B de la zapata", 
-    #     opcion_1 = "I",
-    #     opcion_2 = "II",
-    #     opcion_3 = "III",
-    #     opcion_4 = "IV",
-    #     opcion_correcta = "I",
-    #     respuesta_P1 = """Para calcular B debe realizarse una sumatoria de momentos en un punto (o) multiplicando el área de cada carga distribuida por su distancia al punto.
-    #     Esto teniendo en cuenta que las fuerzas puntuales equivalentes a cada distribuida se encuentran en su ccentroide.""",
-    #     respuesta_P2 = "",
-    #     ),
+    
+    Theory(#1
+        code = 8300010, 
+        no_pregunta = 1,
+        topic = "Fuerzas distribuidas",
+        subtopic = "Empuje de suelo",
+        enunciado = "En la figura se muestra un muro de contención con un sistema de anclaje. Considerando el equilibrio de fuerzas, ¿en qué dirección actúa la fuerza que genera el anclaje y por qué?", 
+        opcion_1 = "Hacia la izquierda, para apoyar el peso del muro.",
+        opcion_2 = "Hacia la izquierda, para generar fricción entre el muro y la base.",
+        opcion_3 = "Hacia la derecha, para contrarrestar la presión lateral del suelo.",
+        opcion_4 = "Hacia la derecha, para equilibrar el peso propio del muro.",
+        opcion_correcta = "Hacia la derecha, para contrarrestar la presión lateral del suelo.",
+        respuesta_P1 = "El anclaje actúa hacia la derecha, en dirección opuesta a la presión del terreno. Su objetivo es equilibrar las fuerzas horizontales que tienden a empujar el muro hacia la izquierda, asegurando así la estabilidad de la estructura.",
+        respuesta_P2 = "",
+        ),
+
     # Theory(#2
     #     code = 8300020, 
     #     no_pregunta = 2,
-    #     topic = "Equilibrio de partículas",
-    #     subtopic = "Fuerzas distribuidas",
-    #     enunciado ="Considerando la siguiente figura, hacia donde se dirije la fuerza generda por el anclaje (mostrado en color negro)", 
-    #     opcion_1 = "Hacia la izquierda",
-    #     opcion_2 = "Hacia abajo",
-    #     opcion_3 = "Hacia la derecha",
-    #     opcion_4 = "Hacia arriba",
-    #     opcion_correcta = "Hacia la derecha",
-    #     respuesta_P1 = "El anclaje siempre apunta en dirección contraria a la presión del suelo debido a que su objetvo es contrarestar su efecto y ayudar a mantener en equilibrio la estructura.",
-    #     respuesta_P2 = "",
-    #     ),
-    # Theory(#3
-    #     code = 8300030, 
-    #     no_pregunta = 3,
     #     topic = "Equilibrio de partículas",
     #     subtopic = "Fuerzas distribuidas",
     #     enunciado ="Considere la situación mostrada en el siguiente figura e indique si es necesario poner un anclaje", 

@@ -493,7 +493,7 @@ if authenticate_user():
             if topic == "Centroides":
                 subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Centroides"])
             if topic == "Fuerzas distribuidas":
-                subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Vigas", "Presiones hidrostáticas"])
+                subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Vigas", "Presiones hidrostáticas", "Empuje de suelo"])
 
             if consent:
                 log_event(st.session_state["username"], "theory_section_accessed", {})
@@ -926,6 +926,8 @@ if authenticate_user():
                         st.image(FD_image_paths[4], width=450) 
                     if pregunta_no == 3:
                         st.image(FD_image_paths[5], width=400) 
+                    if pregunta_no == 5:
+                        st.image(FD_image_paths[7], width=400) 
                 if subtopic == "Fuerzas internas":
                     if pregunta_no == 1:
                         st.image(FI_image_paths[1], width=350)
@@ -1051,7 +1053,8 @@ if authenticate_user():
                         st.image(FD_rtas_paths[6], width=350)
                     if pregunta_no ==3:
                         st.image(FD_rtas_paths[7], width=350)
-                
+                    if pregunta_no ==4:
+                        st.image(FD_rtas_paths[9], width=350)             
 
             if difficulty == "Díficil":
                 if subtopic == "Vectores 2D":
@@ -1325,6 +1328,9 @@ if authenticate_user():
                     st.image(FD_teoria_preguntas[1], width=400)
                 if pregunta_no == 3:
                     st.image(FD_teoria_preguntas[2], width=520)
+            if subtopic == "Empuje de suelo":
+                if pregunta_no == 1:
+                    st.image(FD_teoria_preguntas[5], width=420)
 
         with left_col:
             if subtopic == "Presiones hidrostáticas":
