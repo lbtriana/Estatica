@@ -1405,6 +1405,50 @@ conceptuales = [
         respuesta_P2 = "",
         ),
     
+    Theory(#6
+        code = 8200060, 
+        no_pregunta = 6,
+        topic = "Fuerzas distribuidas",
+        subtopic = "Presiones hidrostáticas",
+        enunciado = "Determine las ecuaciones que describen las componentes vertical $(W)$ y horizontal $(P)$ de la presión del fluido que actúa sobre la compuerta $AB$. Considere el ancho de la compuerta como $1$ y el peso específico del fluido como $\\gamma$.", 
+        opcion_1 = """$W = \\gamma \\cdot \\dfrac{{b_1 \\cdot h_2}}{{2}} \\cdot 1$ \\
+        $P = \\gamma \\cdot \\dfrac{{(h_2)^2}}{{2}} \\cdot 1$ \\
+        $\\text{{    }}$""",
+        opcion_2 = """$W = \\gamma \\cdot b_1 \\cdot h_1 \\cdot 1 + \\gamma \\cdot \\dfrac{{b_1 \\cdot h_2}}{{2}} \\cdot 1$ \\
+        $P = \\gamma \\cdot \\dfrac{{(h_2)^2}}{{2}} \\cdot 1$ \\
+        $\\text{{    }}$""",
+        opcion_3 = """$W = \\gamma \\cdot b_1 \\cdot h_1 \\cdot 1 + \\gamma \\cdot \\dfrac{{b_1 \\cdot h_2}}{{2}} \\cdot 1$ \\
+        $P = \\gamma \\cdot h_1 \\cdot h_2 \\cdot 1 + \\gamma \\cdot \\dfrac{{(h_2)^2}}{{2}} \\cdot 1$ \\
+        $\\text{{    }}$""",
+        opcion_4 = """$W = \\gamma \\cdot b_1 \\cdot h_2 \\cdot 1 + \\gamma \\cdot \\dfrac{{b_1 \\cdot h_2}}{{2}} \\cdot 1$ \\
+        $P = \\gamma \\cdot h_1 \\cdot h_2 \\cdot 1 + \\gamma \\cdot \\dfrac{{h_1 \\cdot h_2}}{{2}} \\cdot 1$ \\
+        $\\text{{    }}$""",
+        opcion_correcta = """$W = \\gamma \\cdot b_1 \\cdot h_1 \\cdot 1 + \\gamma \\cdot \\dfrac{{b_1 \\cdot h_2}}{{2}} \\cdot 1$ \\
+        $P = \\gamma \\cdot h_1 \\cdot h_2 \\cdot 1 + \\gamma \\cdot \\dfrac{{(h_2)^2}}{{2}} \\cdot 1$ \\
+        $\\text{{    }}$""",
+        respuesta_P1 = """
+        La opción correcta es:
+
+        $W = \\gamma \\cdot b_1 \\cdot h_1 \\cdot 1 + \\gamma \\cdot \\dfrac{{b_1 \\cdot h_2}}{{2}} \\cdot 1$     
+        $P = \\gamma \\cdot \\dfrac{{(h_2)^2}}{{2}} \\cdot 1$ 
+        
+        Para determinar las componentes de la presión hidrostática que actúan sobre la compuerta $AB$, se diagraman las fuerzas de presión que actúan sobre esta. Tal y como se muestra en la siguiente figura:
+        """,
+        respuesta_P2 = """
+        A continuación se presenta el desglose de cada ecuación:
+
+        $W = W_1 + W_2$    
+        $W_1 = \\gamma \\cdot b_1 \\cdot h_1 \\cdot 1$     
+        $W_2 = \\gamma \\cdot \\dfrac{{b_1 \\cdot h_2}}{{2}} \\cdot 1$     
+        $W = \\gamma \\cdot b_1 \\cdot h_1 \\cdot 1 + \\gamma \\cdot \\dfrac{{b_1 \\cdot h_2}}{{2}} \\cdot 1$
+
+        $P = P_1 + P_2$    
+        $P_1 = \\gamma \\cdot h_1 \\cdot h_2 \\cdot 1$     
+        $P_2 = \\gamma \\cdot \\dfrac{{(h_2)^2}}{{2}} \\cdot 1$       
+        $P = \\gamma \\cdot h_1 \\cdot h_2 \\cdot 1 + \\gamma \\cdot \\dfrac{{(h_2)^2}}{{2}} \\cdot 1$
+        """,
+        ),
+
     #  #-------------------------------------- Fuerzas distribuidas- EMPUJE DE SUELO ----------------------------------------------
     #  #-------------------------------------------------       83000##0         ---------------------------------------------------
     

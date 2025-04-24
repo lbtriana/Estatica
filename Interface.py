@@ -1327,6 +1327,9 @@ if authenticate_user():
                     st.image(CT_teoria_preguntas[3], width=350)
                 if pregunta_no == 10:
                     st.image(CT_teoria_preguntas[4], width=300)
+            if subtopic == "Presiones hidrostáticas":
+                if pregunta_no == 6:
+                    st.image(FD_teoria_preguntas[10], width=250)
             if subtopic == "Vigas":
                 if pregunta_no == 1:
                     st.image(FD_teoria_preguntas[0], width=520)
@@ -1369,7 +1372,10 @@ if authenticate_user():
                         st.image(MO_teoria_respuestas[0],width=350)
                 if subtopic == "Centroides":
                     if pregunta_no == 6:
-                        st.image(CT_teoria_respuestas[0],width=300)
+                        st.image(CT_teoria_respuestas[0],width=200)
+                if subtopic == "Presiones hidrostáticas":
+                    if pregunta_no == 6:
+                        st.image(FD_teoria_respuestas[0],width=300)
         return
 
     def generate_theory_questions():
