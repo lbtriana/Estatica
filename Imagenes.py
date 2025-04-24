@@ -447,6 +447,7 @@ FD_teoria_preguntas = [
 
 #Vigas
 "./Imagenes/Teoria_Preguntas/FD/VI/T_FD_VI_5.png", #[7]
+"./Imagenes/Teoria_Preguntas/FD/VI/T_FD_VI_6.png", #[8]
 ]
 
 #==========================================RESPUESTAS TEORÍA==============================================

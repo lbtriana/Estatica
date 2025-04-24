@@ -1299,6 +1299,22 @@ conceptuales = [
         respuesta_P2 = "",
         ),
 
+    Theory(#6
+        code = 8100060, 
+        no_pregunta = 6,
+        topic = "Fuerzas distribuidas",
+        subtopic = "Vigas",
+        enunciado ="Considere la viga sometida a una carga distribuida que varía de uniforme a triangular. ¿Dónde se debe localizar el apoyo A para garantizar el equilibrio de la viga?", 
+        opcion_1 = "En el punto de transición entre la carga uniforme y la carga triangular.",
+        opcion_2 = "En el centroide de la carga distribuida.",
+        opcion_3 = "En la zona donde la carga es mayor.",
+        opcion_4 = "En el punto donde se genera el mayor momento sobre la viga.",
+        opcion_correcta = "En el centroide de la carga distribuida.",
+        respuesta_P1 = """En este caso, la carga distribuida tiene una forma variable, comenzando como uniforme y terminando como triangular. Para equilibrar la viga, el apoyo debe colocarse en el centroide de la carga distribuida, que es el punto en el que se puede considerar que toda la carga total actúa como una carga concentrada.""",
+        respuesta_P2 = "",
+        ),
+
+
 
 
      
