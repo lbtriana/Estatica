@@ -1470,6 +1470,21 @@ conceptuales = [
         respuesta_P2 = "",
         ),
 
+    Theory(#8
+        code = 8200080, 
+        no_pregunta = 8,
+        topic = "Fuerzas distribuidas",
+        subtopic = "Presiones hidrostáticas",
+        enunciado = "Considere la presa mostrada en la figura. ¿Cuál de las siguientes afirmaciones describe correctamente cómo varía la presión a lo largo de la superficie curva?.", 
+        opcion_1 = "La presión es constante en toda la superficie porque la profundidad promedio se mantiene igual.",
+        opcion_2 = "La presión aumenta uniformemente a lo largo de la curva.",
+        opcion_3 = "La presión aumenta de manera lineal a lo largo de la curva.",
+        opcion_4 = "La presión varía en función de la profundidad de cada punto, por lo que no sigue una distribución lineal en la superficie curva.",
+        opcion_correcta = "La presión varía en función de la profundidad de cada punto, por lo que no sigue una distribución lineal en la superficie curva.",
+        respuesta_P1 = "La presión aumenta con la profundidad según la relación $P = \\gamma \\cdot h$, donde $\\gamma$ es el peso específico del fluido y $h$ es la profundidad. En una superficie curva, cada punto se encuentra a una profundidad distinta, lo que hace que la presión no aumente de forma lineal respecto a la superficie, sino que siga una distribución que depende de la geometría y la orientación de la curva.",
+        respuesta_P2 = "",
+        ),
+
 
     #  #-------------------------------------- Fuerzas distribuidas- EMPUJE DE SUELO ----------------------------------------------
     #  #-------------------------------------------------       83000##0         ---------------------------------------------------

@@ -453,6 +453,7 @@ FD_teoria_preguntas = [
 "./Imagenes/Teoria_Preguntas/FD/PH/T_FD_PH_5.png", #[9]
 "./Imagenes/Teoria_Preguntas/FD/PH/T_FD_PH_6.png", #[10]
 "./Imagenes/Teoria_Preguntas/FD/PH/T_FD_PH_7.png", #[11]
+"./Imagenes/Teoria_Preguntas/FD/PH/T_FD_PH_8.png", #[12]
 ]
 
 #==========================================RESPUESTAS TEORÍA==============================================
