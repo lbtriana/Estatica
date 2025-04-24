@@ -1315,8 +1315,6 @@ conceptuales = [
         ),
 
 
-
-
      
 #---------------------------------------------- Fuerzas distribuidas- PRESIONES HIDROSTÁTICAS -------------------------------------------------
 #-------------------------------------------------       82000##0         ---------------------------------------------------
@@ -1389,6 +1387,21 @@ conceptuales = [
         opcion_4 = "Que la sumatoria de momentos generados por las fuerzas actuantes sea igual a cero.",
         opcion_correcta = "Que los momentos generados por las fuerzas actuantes (presión del agua) y las fuerzas resistentes (peso de la presa) estén en equilibrio.",
         respuesta_P1 = """Para diseñar una presa estable, es fundamental asegurar el equilibrio de momentos entre las fuerzas actuantes (como la presión del agua) y las fuerzas resistentes (como el peso propio de la presa), este equilibrio evita el volcamiento.""",
+        respuesta_P2 = "",
+        ),
+
+    Theory(#5
+        code = 8200050, 
+        no_pregunta = 5,
+        topic = "Fuerzas distribuidas",
+        subtopic = "Presiones hidrostáticas",
+        enunciado = "Considere un punto sumergido en un fluido. ¿Cuál de las siguientes representaciones de la presión en ese punto es incorrecta?", 
+        opcion_1 = "La representación incorrecta es I. Porque la presión en un fluido actúa únicamente de forma horizontal. ",
+        opcion_2 = "La representación incorrecta es II. Porque la presión en un punto sumergido debe actuar perpendicularmente a la superficie, no con ángulos menores a 90°.",
+        opcion_3 = "La representación incorrecta es III. Porque la presión en un fluido no solo se ejerce en una dirección horizontal, sino en todas las direcciones perpendiculares a la superficie.",
+        opcion_4 = "La representación incorrecta es IV. Porque las flechas representan el peso del fluido y no la presión ejercida sobre el punto.",
+        opcion_correcta = "La representación incorrecta es II. Porque la presión en un punto sumergido debe actuar perpendicularmente a la superficie, no con ángulos menores a 90°.",
+        respuesta_P1 = """La presión en un fluido se ejerce de manera perpendicular a cualquier superficie en contacto con el fluido. Por lo tanto, la representación incorrecta es II, ya que las flechas están orientadas en un ángulo menor a 90° con respecto a la superficie.""",
         respuesta_P2 = "",
         ),
     
