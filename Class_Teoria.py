@@ -1195,21 +1195,20 @@ conceptuales = [
     #     respuesta_P2 = "",
     #     ),
     
-    # Theory(#10
-    #     code = 7100100, 
-    #     no_pregunta = 10,
-    #     topic = "Centroides",
-    #     subtopic = "Centroides",
-    #     enunciado ="Considerando la siguiente figura, si se sabe que la densidad del material inferior es mayor y que los materiales componen al cilindro en un 50-50, ¿Cuál de las siguientes afirmaciones es correcta sobre la ubicación del centro de masa? ", 
-    #     opcion_1 = "El centro de masa estará en el centro geométrico del cilindro.",
-    #     opcion_2 = "El centro de masa estará más cerca de la sección superior",
-    #     opcion_3 = "El centro de masa estará más cerca de la sección inferior.",
-    #     opcion_4 = "El centro de masa se ubicará en la línea de unión entre las dos secciones",
-    #     opcion_correcta = "El centro de masa estará más cerca de la sección inferior",
-    #     respuesta_P1 = """El centro de masa se encuentra más cerca del material que tiene mayor densidad. Como el material inferior tiene una densidad mayor, el centro de masa se desplazará hacia abajo.""",
-    #     respuesta_P2 = "",
-    #     ),
-
+    Theory(#10
+        code = 7100100, 
+        no_pregunta = 10,
+        topic = "Centroides",
+        subtopic = "Centroides",
+        enunciado = "Considere el cilindro compuesto por dos materiales distribuidos equitativamente en volumen (50% y 50%). Si el material de la mitad inferior tiene una mayor densidad que el de la mitad superior, ¿cuál de las siguientes afirmaciones describe correctamente la ubicación del centro de masa?", 
+        opcion_1 = "El centro de masa se ubicará en el centro geométrico del cilindro.",
+        opcion_2 = "El centro de masa estará más cerca de la sección superior del cilindro.",
+        opcion_3 = "El centro de masa estará más cerca de la sección inferior del cilindro.",
+        opcion_4 = "El centro de masa coincidirá con la línea divisoria entre los dos materiales.",
+        opcion_correcta = "El centro de masa estará más cerca de la sección inferior del cilindro.",
+        respuesta_P1 = """El centro de masa se desplaza hacia la región con mayor densidad, ya que esta concentra más masa en el mismo volumen. En este caso, como el material inferior es más denso, el centro de masa se ubicará por debajo del centro geométrico, más cerca de la sección inferior del cilindro.""",
+        respuesta_P2 = "",
+        ),
 
 #---------------------------------------------- Fuerzas distribuidas- VIGAS -------------------------------------------------
 #-------------------------------------------------       81000##0         ---------------------------------------------------
@@ -1358,20 +1357,20 @@ conceptuales = [
         respuesta_P2 = "",
         ),
     
-    # Theory(#4
-    #     code = 8200040, 
-    #     no_pregunta = 4,
-    #     topic = "Equilibrio de partículas",
-    #     subtopic = "Fuerzas distribuidas",
-    #     enunciado ="Si se quiere determinar las dimensiones de una base debe buscarse:", 
-    #     opcion_1 = "Que los momentos generados por las fuerzas actuantes (presiones) y las fuerzas resistentes (pesos) sean iguales.",
-    #     opcion_2 = "Que la sumatoria de momentos en un punto de la presa sea mayor a 0.",
-    #     opcion_3 = "Que la base sea mayor a la altura del agua.",
-    #     opcion_4 = "Que la sumatoria de momentos generados por las fuerzas actuantes (actuantes) sea 0.",
-    #     opcion_correcta = "Que los momentos generados por las fuerzas actuantes (presiones) y las fuerzas resistentes (pesos) sean iguales.",
-    #     respuesta_P1 = """Para diseñar presas en importante tener en cuenta las fuerzas actuantes y resistentes para evitar volcamientos y/o hundimientos de la estructura.""",
-    #     respuesta_P2 = "",
-    #     ),
+    Theory(#4
+        code = 8200040, 
+        no_pregunta = 4,
+        topic = "Fuerzas distribuidas",
+        subtopic = "Presiones hidrostáticas",
+        enunciado = "Al momento de determinar las dimensiones de la base de una presa, ¿cuál de los siguientes criterios garantiza la estabilidad de la estructura?", 
+        opcion_1 = "Que los momentos generados por las fuerzas actuantes (presión del agua) y las fuerzas resistentes (peso de la presa) estén en equilibrio.",
+        opcion_2 = "Que la sumatoria de momentos en un punto de la presa sea mayor que cero.",
+        opcion_3 = "Que la base de la presa sea mayor que la altura del nivel del agua.",
+        opcion_4 = "Que la sumatoria de momentos generados por las fuerzas actuantes sea igual a cero.",
+        opcion_correcta = "Que los momentos generados por las fuerzas actuantes (presión del agua) y las fuerzas resistentes (peso de la presa) estén en equilibrio.",
+        respuesta_P1 = """Para diseñar una presa estable, es fundamental asegurar el equilibrio de momentos entre las fuerzas actuantes (como la presión del agua) y las fuerzas resistentes (como el peso propio de la presa), este equilibrio evita el volcamiento.""",
+        respuesta_P2 = "",
+        ),
     
     #  #-------------------------------------- Fuerzas distribuidas- EMPUJE DE SUELO ----------------------------------------------
     #  #-------------------------------------------------       83000##0         ---------------------------------------------------
