@@ -426,6 +426,8 @@ CT_teoria_preguntas=[
 "./Imagenes/Teoria_Preguntas/CT/T_CT_CT_1.png", #[0] 
 "./Imagenes/Teoria_Preguntas/CT/T_CT_CT_2.png", #[1] 
 "./Imagenes/Teoria_Preguntas/CT/T_CT_CT_6.png", #[2] 
+"./Imagenes/Teoria_Preguntas/CT/T_CT_CT_9.png", #[3] 
+"./Imagenes/Teoria_Preguntas/CT/T_CT_CT_10.png", #[4] 
 ]
 
 FD_teoria_preguntas = [
