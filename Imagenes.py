@@ -452,6 +452,7 @@ FD_teoria_preguntas = [
 #Presiones hidrostáticas
 "./Imagenes/Teoria_Preguntas/FD/PH/T_FD_PH_5.png", #[9]
 "./Imagenes/Teoria_Preguntas/FD/PH/T_FD_PH_6.png", #[10]
+"./Imagenes/Teoria_Preguntas/FD/PH/T_FD_PH_7.png", #[11]
 ]
 
 #==========================================RESPUESTAS TEORÍA==============================================

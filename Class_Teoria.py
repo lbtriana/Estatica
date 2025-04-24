@@ -1449,6 +1449,28 @@ conceptuales = [
         """,
         ),
 
+    Theory(#7
+        code = 8200070, 
+        no_pregunta = 7,
+        topic = "Fuerzas distribuidas",
+        subtopic = "Presiones hidrostáticas",
+        enunciado = "Para la estructura mostrada a continuación, seleccione el diagrama que representa correctamente la distribución de presiones hidrostáticas.", 
+        opcion_1 = "$I$",
+        opcion_2 = "$II$",
+        opcion_3 = "$III$",
+        opcion_4 = "$IV$",
+        opcion_correcta = "$I$",
+        respuesta_P1 = """
+        El diagrama $I$ representa adecuadamente las presiones hidrostáticas aplicadas sobre la estructura:
+
+        1. De $A$ a $B$, la presión inicia en cero en la superficie y aumenta linealmente con la profundidad hasta alcanzar $P_B$.
+        2. De $B$ a $C$, la presión inicia en $P_B$ y continúa aumentando linealmente hasta $P_C$. Esto se debe a que, la presión en un punto sumergido actúa perpendicular a la superficie y su magnitud es igual en todas las direcciones.
+        3. De $C$ a $D$, la presión se mantiene constante en $P_C$, dado que, no hay cambio en la profundidad.
+        """,
+        respuesta_P2 = "",
+        ),
+
+
     #  #-------------------------------------- Fuerzas distribuidas- EMPUJE DE SUELO ----------------------------------------------
     #  #-------------------------------------------------       83000##0         ---------------------------------------------------
     

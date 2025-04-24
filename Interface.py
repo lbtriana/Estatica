@@ -1330,6 +1330,8 @@ if authenticate_user():
             if subtopic == "Presiones hidrostáticas":
                 if pregunta_no == 6:
                     st.image(FD_teoria_preguntas[10], width=250)
+                if pregunta_no == 7:
+                    st.image(FD_teoria_preguntas[11], width=900)
             if subtopic == "Vigas":
                 if pregunta_no == 1:
                     st.image(FD_teoria_preguntas[0], width=520)
