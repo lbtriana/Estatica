@@ -1321,6 +1321,8 @@ if authenticate_user():
                     st.image(CT_teoria_preguntas[1], width=350)
                 if pregunta_no == 6:
                     st.image(CT_teoria_preguntas[2], width=300)
+                if pregunta_no == 7:
+                    st.image(CT_teoria_preguntas[5], width=300)
                 if pregunta_no == 9:
                     st.image(CT_teoria_preguntas[3], width=350)
                 if pregunta_no == 10:

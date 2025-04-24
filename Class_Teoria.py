@@ -1147,38 +1147,25 @@ conceptuales = [
         """,
         ),      
     
-    # Theory(#7
-    #     code = 7100070, 
-    #     no_pregunta = 7,
-    #     topic = "Centroides",
-    #     subtopic = "Centroides",
-    #     enunciado ="Considere la siguiente figura e indique cual es su centroide en x respecto al punto O:", 
-    #     opcion_1 = "I",
-    #     opcion_2 = "II",
-    #     opcion_3 = "III",
-    #     opcion_4 = "IV",
-    #     opcion_correcta = "IV",
-    #     respuesta_P1 = """Recuerde que el centroide de un triangulos es 1/3b si se toma desde el angulo recto y 2/3b si se toma desde un ángulo agudo como ocurre en este caso. 
-    #     Dado que 2/3b no se encuentra entre las opciones, se emplea la definición de centroide cuando se tiene una ecuación.""",
-    #     respuesta_P2 = "",
-    #     ),
-    
-    # Theory(#8
-    #     code = 7100080, 
-    #     no_pregunta = 8,
-    #     topic = "Centroides",
-    #     subtopic = "Centroides",
-    #     enunciado ="Considere la siguiente figura e indique cual es su centroide en Y respecto al punto O:", 
-    #     opcion_1 = "I",
-    #     opcion_2 = "II",
-    #     opcion_3 = "III",
-    #     opcion_4 = "IV",
-    #     opcion_correcta = "II",
-    #     respuesta_P1 = """Recuerde que el centroide de un triangulos es 1/3b si se toma desde el angulo recto y 2/3b si se toma desde un ángulo agudo como ocurre en este caso. 
-    #     Dado que 2/3b no se encuentra entre las opciones, se emplea la definición de centroide cuando se tiene una ecuación.
-    #     Evidencie que dado que la base y la altura del triangulo es la misma, los limetes de la integral para x e y son los mismos.""",
-    #     respuesta_P2 = "",
-    #     ),
+    Theory(#7
+        code = 7100070, 
+        no_pregunta = 7,
+        topic = "Centroides",
+        subtopic = "Centroides",
+        enunciado ="Considere la siguiente figura e indique cuál es su centroide en $x$ con respecto al origen:", 
+        opcion_1 = """$\\bar{{x}}=\\dfrac{{1 \\cdot (2)}}{{3}}$ \\
+        $\\text{{    }}$""",
+        opcion_2 = """$\\bar{{x}}=\\dfrac{{\\int_{{0}}^{{2}}x dx}}{{2}}$ \\
+        $\\text{{    }}$""",
+        opcion_3 = """$\\bar{{x}}=\\dfrac{{2 \\cdot (2)}}{{3}}$ \\
+        $\\text{{    }}$""",
+        opcion_4 = """$\\bar{{x}}=\\dfrac{{\\int_{{0}}^{{2}}x^3 dx}}{{2}}$ \\
+        $\\text{{    }}$""",
+        opcion_correcta = """$\\bar{{x}}=\\dfrac{{2 \\cdot (2)}}{{3}}$ \\
+        $\\text{{    }}$""",
+        respuesta_P1 = """En este caso, la línea recta forma un triángulo con base 2. El centroide de un triángulo rectángulo se ubica a una distancia de $\\dfrac{{1}}{{3}}$ de la base si se mide desde el vértice del ángulo recto, y a $\\dfrac{{2}}{{3}}$ si se mide desde el vértice del ángulo agudo, como ocurre en esta situación.""",
+        respuesta_P2 = "",
+        ),
     
     Theory(#9
         code = 7100090, 
