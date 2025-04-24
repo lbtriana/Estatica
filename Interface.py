@@ -1334,6 +1334,8 @@ if authenticate_user():
                     st.image(FD_teoria_preguntas[1], width=400)
                 if pregunta_no == 3:
                     st.image(FD_teoria_preguntas[2], width=520)
+                if pregunta_no == 5:
+                    st.image(FD_teoria_preguntas[7], width=800)
             if subtopic == "Empuje de suelo":
                 if pregunta_no == 1:
                     st.image(FD_teoria_preguntas[5], width=420)

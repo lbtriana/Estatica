@@ -1225,7 +1225,7 @@ conceptuales = [
         no_pregunta = 2,
         topic = "Fuerzas distribuidas",
         subtopic = "Vigas",
-        enunciado =" La fuerza distribuida mostrada en la figura es equivalente luna fuerza puntual de magnitud:",    
+        enunciado =" La fuerza distribuida mostrada en la figura es equivalente a una fuerza puntual de magnitud:",    
         opcion_1 = """$(W_2 - W_1) \\cdot L $ \\
         $\\text{{    }}$""",
         opcion_2 = """$W_1 \\cdot x + (W_2 - W_1) \\cdot x $ \\
@@ -1282,9 +1282,26 @@ conceptuales = [
         respuesta_P2 = "",
         ),
     
-     #-------------------------------------- Fuerzas distribuidas- PRESIÓN HIDROSTÁTICA ------------------------------------------
-     #-------------------------------------------------       82000##0         ---------------------------------------------------
-    
+    Theory(#5
+        code = 8100050, 
+        no_pregunta = 5,
+        topic = "Fuerzas distribuidas",
+        subtopic = "Vigas",
+        enunciado ="Si una carga distribuida uniformemente se convierte en una carga triangular manteniendo la misma fuerza total, ¿cómo se ve afectado el momento generado con respecto al apoyo A?", 
+        opcion_1 = "Disminuye, porque la fuerza se aplica más cerca del apoyo.",
+        opcion_2 = "Aumenta, porque la distribución uniforme tiene una menor distancia al apoyo.",
+        opcion_3 = "Aumenta, porque la forma triangular concentra más carga.",
+        opcion_4 = "Permanece igual, porque la carga total no cambia.",
+        opcion_correcta = "Disminuye, porque la fuerza se aplica más cerca del apoyo.",
+        respuesta_P1 = """Aunque ambas distribuciones tienen la misma fuerza total (área bajo la curva), el punto de aplicación de la fuerza cambia el momento.
+        En la carga uniforme, la fuerza equivalente actúa en el centro del tramo.
+        En cambio, en la carga triangular, la fuerza resultante se aplica más cerca del apoyo A (a $1/3$ de la base desde el ángulo recto), lo que reduce la distancia al punto de evaluación y, por tanto, el momento generado disminuye.""",
+        respuesta_P2 = "",
+        ),
+
+
+
+     
 #---------------------------------------------- Fuerzas distribuidas- PRESIONES HIDROSTÁTICAS -------------------------------------------------
 #-------------------------------------------------       82000##0         ---------------------------------------------------
 
