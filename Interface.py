@@ -818,6 +818,10 @@ if authenticate_user():
                         st.image(FD_image_paths[8], width=350) 
                     if pregunta_no == 2 or pregunta_no == 3:
                         st.image(FD_image_paths[9], width=350) 
+                    if pregunta_no == 4:
+                        st.image(FD_image_paths[10], width=320) 
+                    if pregunta_no == 5:
+                        st.image(FD_image_paths[11], width=350) 
                 if subtopic == "Fuerzas internas":
                     if pregunta_no == 1:
                         st.image(FI_image_paths[0], width=450) 
@@ -1040,6 +1044,10 @@ if authenticate_user():
                         st.image(FD_rtas_paths[10], width=350)
                     if pregunta_no ==2 or pregunta_no==3:
                         st.image(FD_rtas_paths[11], width=350)
+                    if pregunta_no ==4:
+                        st.image(FD_rtas_paths[12], width=700)
+                    if pregunta_no ==5:
+                        st.image(FD_rtas_paths[13], width=350)
                 if subtopic == "Fuerzas internas":
                     if pregunta_no ==1:
                         st.image(FI_rtas_paths[0], width=200)
