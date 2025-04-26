@@ -263,6 +263,7 @@ FD_image_paths =[
 
 #Fuerzas distribuidas _ Presión hidrostática 
 "./Imagenes/Preguntas/FD/PH/FD_PH_F_1a.png", #[8]
+"./Imagenes/Preguntas/FD/PH/FD_PH_F_2a.png", #[9]
 ]
 
 #================================ Imágenes Preguntas Cálculo Fuerzas internas ===================================
@@ -376,16 +377,17 @@ FD_rtas_paths= [
 "./Imagenes/Respuestas/FD/VI/R_FD_VI_F_3b.png", #[4]
 
 #Fuerzas distribuidas _ Presión hidrostática 
-"./Imagenes/Respuestas/FD/PH/R_FD_PH_F_1a.png", #[5] 
-"./Imagenes/Respuestas/FD/PH/R_FD_PH_M_1a.png", #[6] 
-"./Imagenes/Respuestas/FD/PH/R_FD_PH_M_2a.png", #[7] 
+"./Imagenes/Respuestas/FD/PH/R_FD_PH_M_1a.png", #[5] 
+"./Imagenes/Respuestas/FD/PH/R_FD_PH_M_2a.png", #[6] 
+"./Imagenes/Respuestas/FD/PH/R_FD_PH_M_3a.png", #[7] 
 
 #Fuerzas distribuidas _ Empuje de suelo 
 "./Imagenes/Respuestas/FD/ES/R_FD_ES_F_1a.png", #[8]
 "./Imagenes/Respuestas/FD/ES/R_FD_ES_M_1a.png", #[9]
 
 #Fuerzas distribuidas _ Presión hidrostática 
-"./Imagenes/Respuestas/FD/PH/R_FD_PH_F_2a.png", #[10] 
+"./Imagenes/Respuestas/FD/PH/R_FD_PH_F_1a.png", #[10] 
+"./Imagenes/Respuestas/FD/PH/R_FD_PH_F_2a.png", #[11] 
 ]
 
 #================================ Imágenes Respuestas Cálculos Fuerzas Internas ===================================

@@ -7574,7 +7574,7 @@ preguntas = [
         pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza hidrostática resultante que actúa sobre la presa y su ubicación medida desde la base. Considere que el ancho de la presa $a = {d[0]:.0f} \\text{{ m}}$, la densidad del agua $\\rho = 1000 \\dfrac{{kg}}{{m^3}}$, la aceleración debida a la gravedad $g = 9,81 \\dfrac{{m}}{{s^2}}$ y $d_1 = {d[0]+5:.0f} \\text{{ m}}$.",
         no_answers = 2,
         a1_name = "Magnitud fuerza hidrostática $|F_R|$ $[kN]$",
-        a2_name = "Ubicación fuerza hidrostática $\\bar{{y}}$ $[m]$",
+        a2_name = "Ubicación fuerza hidrostática $(\\bar{{y}})$ $[m]$",
         a3_name = "",
         answer1 = lambda f, a, calc, c, d, m: np.round(((9810*(d[0]+5))*((d[0]+5)*(d[0])))/2000, 2),
         answer2 = lambda f, a, calc, c, d, m: np.round((1/3)*(d[0]+5), 2),
@@ -7594,12 +7594,7 @@ preguntas = [
 
         La fuerza resultante debida a una distribución lineal (triangular) de presión hidrostática sobre una superficie se calcula mediante:    
 
-        $F_R = \\dfrac{{P \\cdot h \\cdot a}}{{2}}$     
-
-        Donde:     
-        $P$ = Presión hidrostática distribuida sobre la superficie.      
-        $h$ = Profundidad desde la superficie al punto a evaluar.       
-        $a$ = Ancho de la estructura.  
+        $F_R = \\dfrac{{P \\cdot d_1 \\cdot a}}{{2}}$     
         
         ${{\hspace{{4mm}} P = \\rho \\cdot g \\cdot d_1 }}$      
         
@@ -7618,6 +7613,88 @@ preguntas = [
         ${{\hspace{{4mm}} \\bar{{y}} = \\dfrac{{1}}{{3}}d_1}}$        
         
         ${{\hspace{{4mm}} \\bar{{y}} = {(1/3)*(d[0]+5):.2f} \\text{{ m}} }}$ 
+        """,
+        respuesta_P3 = lambda fa, a, calc, c, d, m: f"",
+        calculos = 'operations',
+        ),
+
+    Questionary(#2_1
+        code = 7210021,
+        no_pregunta = 2,
+        complexity = F,
+        topic = FD,
+        subtopic = "Presión hidrostática",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"""
+        Considere la presa de concreta mostrada en la figura. Para determinar su seguridad frente al volcamiento, calcule el momento resistente $(M_R)$ generado por el peso de la presa, y el momento actuante $(M_A)$ producido por la fuerza hidrostática del agua con respecto al punto $A$. Utilice los siguientes datos: el ancho de la presa $a = {d[3]:.0f} \\text{{ m}}$, la densidad del agua $\\rho_a = 1000 \\dfrac{{kg}}{{m^3}}$, la densidad del concreto $\\rho = 2500 \\dfrac{{kg}}{{m^3}}$, la aceleración debida a la gravedad $g = 9,81 \\dfrac{{m}}{{s^2}}$, $d_1 = {d[0]+5:.0f} \\text{{ m}}$ y $d_2 = {d[0]:.0f} \\text{{ m}}$.
+        
+        La presa será segura frente al volcamiento si el momento resistente es mayor que el momento actuante. De lo contrario, se considerará insegura.
+        """,
+        no_answers = 2,
+        a1_name = "Momento resistente $(M_R)$ $[kN \\cdot m]$",
+        a2_name = "Momento actuante $(M_A)$ $[kN \\cdot m]$",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round((2500*9.81*(d[0]+5)*(d[0])*(d[3])/2000)*((2/3)*(d[0])), 2),
+        answer2 = lambda f, a, calc, c, d, m: np.round((((9810*(d[0]+5))*((d[0]+5)*(d[3])))/2000)*((1/3)*(d[0]+5)), 2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = PH1,
+        ayuda2 = PH2,
+        ayuda3 = PH3,
+        respuesta_P1 = lambda fa, a, calc, c, d, m: f"""
+        La presión hidrostática es la presión ejercida por un fluido en reposo. Para determinar si una presa es segura a volcamiento se puede comparar el momento resistente generado por la presa de concreto y el momento actuante producido por el agua. A continuación, se presenta la solución sugerida para el ejercicio:
+        
+        $\\textbf{{\\small 1. Definición de las fuerzas actuantes: }}$
+
+        En este caso, las fuerzas actuantes son el peso de la presa $(w)$ y la fuerza hidrostática del agua.
+        """,
+        respuesta_P2 = lambda fa, a, calc, c, d, m: f"""
+        $\\textbf{{\\small 2. Cálculo del momento resistente:}}$
+
+        Primero, se calcula el peso de la presa de concreto:
+
+        $W = \\rho_c \\cdot g \\cdot \\dfrac{{d_1 \\cdot d_2 \\cdot a}}{{2}}$   
+        $W = {2500*9.81*(d[0]+5)*(d[0])*(d[3])/2000:.2f} \\text{{ kN}}$ 
+
+        Luego, se halla la ubicación de esta fuerza con respecto al punto A, la cual se encuentra a $\\dfrac{{2}}{{3}}$ de la distancia $d_2$:
+
+        ${{\hspace{{4mm}} \\bar{{x_c}} = \\dfrac{{2}}{{3}}d_2}}$        
+        
+        ${{\hspace{{4mm}} \\bar{{x_c}} = {(2/3)*(d[0]):.2f} \\text{{ m}} }}$ 
+
+        Finalmente, se cálcula el momento resistente $(M_R)$:
+
+        ${{\hspace{{4mm}} M_R = W \\cdot \\bar{{x_c}}}}$        
+        
+        ${{\hspace{{4mm}} M_R = {(2500*9.81*(d[0]+5)*(d[0])*(d[3])/2000)*((2/3)*(d[0])):.2f} \\text{{ kN}} \\cdot \\text{{m}} }}$ 
+
+        
+        $\\textbf{{\\small 2. Cálculo del momento actuante:}}$
+
+        Primero, se calcula la fuerza hidrostática $(F_H)$:
+
+        $F_H = \\dfrac{{P \\cdot d_1 \\cdot a}}{{2}}$     
+        
+        ${{\hspace{{4mm}} P = \\rho \\cdot g \\cdot d_1 }}$      
+        
+        ${{\hspace{{4mm}} P = 1000 \\dfrac{{kg}}{{m^3}} \\cdot 9,81 \\dfrac{{m}}{{s^2}} \\cdot {d[0]+5:.0f} \\text{{ m}} }}$      
+        
+        ${{\hspace{{4mm}} P = {9810*(d[0]+5):.2f}  \\dfrac{{N}}{{m^2}} }}$ 
+
+        ${{\hspace{{4mm}} F_H = \\dfrac{{P \\cdot h \\cdot a}}{{2}}}}$      
+        
+        ${{\hspace{{4mm}} F_H = {((9810*(d[0]+5))*((d[0]+5)*(d[3])))/2000:.2f} \\text{{ kN}} }}$ 
+
+        Luego, se halla la ubicación de esta fuerza con respecto al punto A, la cual se encuentra a $\\dfrac{{1}}{{3}}$ de la distancia $d_1$:
+
+        ${{\hspace{{4mm}} \\bar{{y_a}} = \\dfrac{{1}}{{3}}d_1}}$        
+        
+        ${{\hspace{{4mm}} \\bar{{y_a}} = {(1/3)*(d[0]+5):.2f} \\text{{ m}} }}$ 
+
+        Finalmente, se cálcula el momento actuante $(M_A)$:
+
+        ${{\hspace{{4mm}} M_A = F_H \\cdot \\bar{{y_a}}}}$        
+        
+        ${{\hspace{{4mm}} M_A = {(((9810*(d[0]+5))*((d[0]+5)*(d[3])))/2000)*((1/3)*(d[0]+5)):.2f} \\text{{ kN}} \\cdot \\text{{m}}}}$
         """,
         respuesta_P3 = lambda fa, a, calc, c, d, m: f"",
         calculos = 'operations',
