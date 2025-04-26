@@ -1025,7 +1025,7 @@ if authenticate_user():
                     if pregunta_no ==1:
                         st.image(FD_rtas_paths[0], width=350)
                     if pregunta_no ==2:
-                        st.image(FD_rtas_paths[1], width=350)
+                        st.image(FD_rtas_paths[2], width=350)
                     if pregunta_no ==3:
                         st.image(FD_rtas_paths[3], width=350)
                     if pregunta_no ==4:
