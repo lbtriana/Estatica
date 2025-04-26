@@ -1316,14 +1316,14 @@ conceptuales = [
 
 
      
-#---------------------------------------------- Fuerzas distribuidas- PRESIONES HIDROSTÁTICAS -------------------------------------------------
+#---------------------------------------------- Fuerzas distribuidas- PRESIÓN HIDROSTÁTICA -------------------------------------------------
 #-------------------------------------------------       82000##0         ---------------------------------------------------
 
     Theory(#1
         code = 8200010, 
         no_pregunta = 1,
         topic = "Fuerzas distribuidas",
-        subtopic = "Presiones hidrostáticas",
+        subtopic = "Presión hidrostática",
         enunciado ="Considere la siguiente figura. ¿Cuál de las configuraciones mostradas presenta la mayor y la menor presión hidrostática, respectivamente?", 
         opcion_1 = "$II$, $I$",
         opcion_2 = "$II$, $III$",
@@ -1338,7 +1338,7 @@ conceptuales = [
         code = 8200020, 
         no_pregunta = 2,
         topic = "Fuerzas distribuidas",
-        subtopic = "Presiones hidrostáticas",
+        subtopic = "Presión hidrostática",
         enunciado =""" 
         ¿Cuál(es) de la(s) siguiente(s) opcion(es) es(son) correcta(s)?:  
 
@@ -1364,7 +1364,7 @@ conceptuales = [
         code = 8200030, 
         no_pregunta = 3,
         topic = "Fuerzas distribuidas",
-        subtopic = "Presiones hidrostáticas",
+        subtopic = "Presión hidrostática",
         enunciado ="Considerando la siguiente figura ¿cuál(es) es(son) el(los) diagrama(s) correcto(s)?", 
         opcion_1 = "Solamente I",
         opcion_2 = "I y II",
@@ -1379,7 +1379,7 @@ conceptuales = [
         code = 8200040, 
         no_pregunta = 4,
         topic = "Fuerzas distribuidas",
-        subtopic = "Presiones hidrostáticas",
+        subtopic = "Presión hidrostática",
         enunciado = "Al momento de determinar las dimensiones de la base de una presa, ¿cuál de los siguientes criterios garantiza la estabilidad de la estructura?", 
         opcion_1 = "Que los momentos generados por las fuerzas actuantes (presión del agua) y las fuerzas resistentes (peso de la presa) estén en equilibrio.",
         opcion_2 = "Que la sumatoria de momentos en un punto de la presa sea mayor que cero.",
@@ -1394,7 +1394,7 @@ conceptuales = [
         code = 8200050, 
         no_pregunta = 5,
         topic = "Fuerzas distribuidas",
-        subtopic = "Presiones hidrostáticas",
+        subtopic = "Presión hidrostática",
         enunciado = "Considere un punto sumergido en un fluido. ¿Cuál de las siguientes representaciones de la presión en ese punto es incorrecta?", 
         opcion_1 = "La representación incorrecta es I. Porque la presión en un fluido actúa únicamente de forma horizontal. ",
         opcion_2 = "La representación incorrecta es II. Porque la presión en un punto sumergido debe actuar perpendicularmente a la superficie, no con ángulos menores a 90°.",
@@ -1409,7 +1409,7 @@ conceptuales = [
         code = 8200060, 
         no_pregunta = 6,
         topic = "Fuerzas distribuidas",
-        subtopic = "Presiones hidrostáticas",
+        subtopic = "Presión hidrostática",
         enunciado = "Determine las ecuaciones que describen las componentes vertical $(W)$ y horizontal $(P)$ de la presión del fluido que actúa sobre la compuerta $AB$. Considere el ancho de la compuerta como $1$ y el peso específico del fluido como $\\gamma$.", 
         opcion_1 = """$W = \\gamma \\cdot \\dfrac{{b_1 \\cdot h_2}}{{2}} \\cdot 1$ \\
         $P = \\gamma \\cdot \\dfrac{{(h_2)^2}}{{2}} \\cdot 1$ \\
@@ -1453,7 +1453,7 @@ conceptuales = [
         code = 8200070, 
         no_pregunta = 7,
         topic = "Fuerzas distribuidas",
-        subtopic = "Presiones hidrostáticas",
+        subtopic = "Presión hidrostática",
         enunciado = "Para la estructura mostrada a continuación, seleccione el diagrama que representa correctamente la distribución de presiones hidrostáticas.", 
         opcion_1 = "$I$",
         opcion_2 = "$II$",
@@ -1474,7 +1474,7 @@ conceptuales = [
         code = 8200080, 
         no_pregunta = 8,
         topic = "Fuerzas distribuidas",
-        subtopic = "Presiones hidrostáticas",
+        subtopic = "Presión hidrostática",
         enunciado = "Considere la presa mostrada en la figura. ¿Cuál de las siguientes afirmaciones describe correctamente cómo varía la presión a lo largo de la superficie curva?.", 
         opcion_1 = "La presión es constante en toda la superficie porque la profundidad promedio se mantiene igual.",
         opcion_2 = "La presión aumenta uniformemente a lo largo de la curva.",

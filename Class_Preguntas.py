@@ -6919,7 +6919,7 @@ preguntas = [
 #========================================================  CENTROIDES  =========================================================
     #-------------------------------------------------       Centroides    --------------------------------------------
     #-------------------------------------------------       Nivel Fácil   ---------------------------------------------------
-    #-------------------------------------------------       Code: 6110011    --------------------------------------------------
+    #-------------------------------------------------       Code: 61100#1    --------------------------------------------------
 
     Questionary(#1_1
         code = 6110011,
@@ -7133,7 +7133,7 @@ preguntas = [
     #========================================================  CENTROIDES  =========================================================
     #-------------------------------------------------       Centroides    --------------------------------------------
     #-------------------------------------------------       Nivel Medio   ---------------------------------------------------
-    #-------------------------------------------------       Code: 6120011    --------------------------------------------------
+    #-------------------------------------------------       Code: 61200#1    --------------------------------------------------
 
     Questionary(#1_1
         code = 6120011,
@@ -7260,7 +7260,7 @@ preguntas = [
     #========================================================  CENTROIDES  =========================================================
     #-------------------------------------------------       Centroides    --------------------------------------------
     #-------------------------------------------------       Nivel Díficil   ---------------------------------------------------
-    #-------------------------------------------------       Code: 6130011    --------------------------------------------------
+    #-------------------------------------------------       Code: 61300#1    --------------------------------------------------
 
     Questionary(#1_1
         code = 6130011,
@@ -7324,13 +7324,13 @@ preguntas = [
     #=================================================  FUERZAS DISTRIBUIDAS =========================================================
     #-------------------------------------------------       Vigas    --------------------------------------------
     #-------------------------------------------------       Nivel Fácil   ---------------------------------------------------
-    #-------------------------------------------------       Code: 7110011    --------------------------------------------------
+    #-------------------------------------------------       Code: 71100#1    --------------------------------------------------
     Questionary(#1_1
         code = 7110011,
         no_pregunta = 1,
         complexity = F,
         topic = FD,
-        subtopic = FD,
+        subtopic = "Vigas",
         version = 1,
         pregunta = lambda f, a, calc, c, d, m: f"Reemplace la carga distribuida por una fuerza resultante equivalente y especifique su ubicación medida desde el punto A. Considere $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$, $w_1 = {100+m[0]:.0f} \\dfrac{{N}}{{m}}$ y $w_2 = {m[1]:.0f} \\dfrac{{N}}{{m}}$.",
         no_answers = 2,
@@ -7385,7 +7385,7 @@ preguntas = [
         no_pregunta = 2,
         complexity = F,
         topic = FD,
-        subtopic = FD,
+        subtopic = "Vigas",
         version = 1,
         pregunta = lambda f, a, calc, c, d, m: f"Determine el valor de $w_2$ de modo que la restricción de rotación (momento de reacción) en el apoyo sea igual a cero. Considere $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$ y $w_1 = {f[0]:.0f} \\dfrac{{N}}{{m}}$.",
         no_answers = 1,
@@ -7433,7 +7433,7 @@ preguntas = [
         no_pregunta = 3,
         complexity = F,
         topic = FD,
-        subtopic = FD,
+        subtopic = "Vigas",
         version = 1,
         pregunta = lambda f, a, calc, c, d, m: f"Determine las reacciones en los apoyos $A$ y $B$. Considere $d_1 = {d[6]:.0f} \\text{{ m}}$, $d_2 = {d[9]*2:.0f}  \\text{{ m}}$, $d_3 = {(d[6]/2)+1:.1f} \\text{{ m}}$, $w_1 = {f[1]:.0f} \\dfrac{{N}}{{m}}$ y $w_2 = {f[2]+10:.0f} \\dfrac{{N}}{{m}}$ .",
         no_answers = 3,
@@ -7496,23 +7496,108 @@ preguntas = [
         calculos='operations'
         ),
 
+
+    
+    #=================================================  FUERZAS DISTRIBUIDAS =========================================================
+    #-------------------------------------------------       Vigas    --------------------------------------------
+    #-------------------------------------------------       Nivel Medio   ---------------------------------------------------
+    #-------------------------------------------------       Code: 71200#1    --------------------------------------------------
+    
+    Questionary(#1_1
+        code = 0,
+        no_pregunta = 1,
+        complexity = M,
+        topic = FD,
+        subtopic = "Vigas",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Está sección pronto estará disponible.",
+        no_answers = 0,
+        a1_name = "",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(0, 2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(0, 2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = "",
+        ayuda2 = "",
+        ayuda3 = "",
+        respuesta_P1 = lambda fa, a, calc, c, d, m: f"",
+        respuesta_P2 = lambda fa, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda fa, a, calc, c, d, m: f"",
+        calculos = 'operations',
+        ),
+
+
+    #=================================================  FUERZAS DISTRIBUIDAS =========================================================
+    #-------------------------------------------------       Vigas    --------------------------------------------
+    #-------------------------------------------------       Nivel Díficil   ---------------------------------------------------
+    #-------------------------------------------------       Code: 71300#1    --------------------------------------------------
+    
+    Questionary(#1_1
+        code = 0,
+        no_pregunta = 1,
+        complexity = D,
+        topic = FD,
+        subtopic = "Vigas",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Está sección pronto estará disponible.",
+        no_answers = 0,
+        a1_name = "",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(0, 2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(0, 2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = "",
+        ayuda2 = "",
+        ayuda3 = "",
+        respuesta_P1 = lambda fa, a, calc, c, d, m: f"",
+        respuesta_P2 = lambda fa, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda fa, a, calc, c, d, m: f"",
+        calculos = 'operations',
+        ),
+
+
+
     #=================================================  FUERZAS DISTRIBUIDAS =========================================================
     #-------------------------------------------------       Presión hidrostática    --------------------------------------------
     #-------------------------------------------------       Nivel Fácil   ---------------------------------------------------
-    #-------------------------------------------------       Code: 7210011    --------------------------------------------------
+    #-------------------------------------------------       Code: 72100#1    --------------------------------------------------
     
-    
+    Questionary(#1_1
+        code = 0,
+        no_pregunta = 1,
+        complexity = D,
+        topic = FD,
+        subtopic = "Presión hidrostática",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Está sección pronto estará disponible.",
+        no_answers = 0,
+        a1_name = "",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(0, 2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(0, 2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = "",
+        ayuda2 = "",
+        ayuda3 = "",
+        respuesta_P1 = lambda fa, a, calc, c, d, m: f"",
+        respuesta_P2 = lambda fa, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda fa, a, calc, c, d, m: f"",
+        calculos = 'operations',
+        ),
 
     # #=================================================  FUERZAS DISTRIBUIDAS =========================================================
     # #-------------------------------------------------       Presión hidrostática    --------------------------------------------
     # #-------------------------------------------------       Nivel Medio   ---------------------------------------------------
-    # #-------------------------------------------------       Code: 7220021    --------------------------------------------------
+    # #-------------------------------------------------       Code: 72200#1    --------------------------------------------------
     Questionary(#1_1
-        code = 7210011,
+        code = 7220011,
         no_pregunta = 1,
         complexity = M,
         topic = FD,
-        subtopic = FD,
+        subtopic = "Presión hidrostática",
         version = 1,
         pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza hidrostática que actúa sobre la compuerta AB, la cual tiene un ancho de $a = {d[0]:.2f} \\text{{ m}}$. Considere $d_1 = {d[3]:.0f} \\text{{ m}}$,  $d_2 = {d[6]:.0f}  \\text{{ m}}$, $d_3 = {d[9]:.0f}  \\text{{ m}}$, la densidad del agua $\\rho_1 = 1000 \\dfrac{{kg}}{{m^3}}$ y la aceleración debida a la gravedad $g = 9,81 \\dfrac{{m}}{{s^2}}$.",
         no_answers = 1,
@@ -7573,7 +7658,7 @@ preguntas = [
         no_pregunta = 2,
         complexity = M,
         topic = FD,
-        subtopic = FD,
+        subtopic = "Presión hidrostática",
         version = 1,
         pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza hidrostática que actúa sobre la presa, la cual tiene un ancho $ a = {d[0]:.0f} \\text{{ m}}$ y una forma parabólica descrita por la ecuación $ f(X) = {((d[3]+8)/50):.2f} \\cdot X^2$. Considere $d_1=f(d_2)$, $d_2 = {3+(d[6]/2):.2f}  \\text{{ m}}$, la densidad del agua $\\rho_1 = 1000 \\dfrac{{kg}}{{m^3}}$ y la aceleración debida a la gravedad $g = 9,81 \\dfrac{{m}}{{s^2}}$.",
         no_answers = 1,
@@ -7632,7 +7717,7 @@ preguntas = [
     #     no_pregunta = 3,
     #     complexity = M,
     #     topic = FD,
-    #     subtopic = FD,
+    #     subtopic = "Presión hidrostática",
     #     version = 1,
     #     pregunta = lambda f, a, calc, c, d, m: f"La presa de “gravedad” de concreto es mantenida en su lugar por su propio peso. Determine la dimensión $d_3$ más pequeña que impide que la presa se voltee alrededor de su extremo $A$. Considere $d_1 = {d[0] + d[3]*2:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$, la densidad del agua $\\rho_a = 1000 \\dfrac{{kg}}{{m^3}}$, la densidad del concreto $\\rho_c = {2400+m[0]:.0f} \\dfrac{{kg}}{{m^3}}$ y la aceleración debida a la gravedad $g = 9,81 \\dfrac{{m}}{{s^2}}$.",
     #     no_answers = 1,
@@ -7760,15 +7845,74 @@ preguntas = [
     #     ),
 
     #=================================================  FUERZAS DISTRIBUIDAS =========================================================
+    #-------------------------------------------------       Presión hidrostática    --------------------------------------------
+    #-------------------------------------------------       Nivel Díficil   ---------------------------------------------------
+    #-------------------------------------------------       Code: 72300#1    --------------------------------------------------
+    
+    Questionary(#1_1
+        code = 0,
+        no_pregunta = 1,
+        complexity = D,
+        topic = FD,
+        subtopic = "Presión hidrostática",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Está sección pronto estará disponible.",
+        no_answers = 0,
+        a1_name = "",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(0, 2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(0, 2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = "",
+        ayuda2 = "",
+        ayuda3 = "",
+        respuesta_P1 = lambda fa, a, calc, c, d, m: f"",
+        respuesta_P2 = lambda fa, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda fa, a, calc, c, d, m: f"",
+        calculos = 'operations',
+        ),
+
+
+
+    #=================================================  FUERZAS DISTRIBUIDAS =========================================================
     #-------------------------------------------------        Empuje de suelo  --------------------------------------------
     #-------------------------------------------------       Nivel Fácil   ---------------------------------------------------
-    #-------------------------------------------------       Code: 7310011    --------------------------------------------------
+    #-------------------------------------------------       Code: 73100#1    --------------------------------------------------
+    Questionary(#1_1
+        code = 0,
+        no_pregunta = 1,
+        complexity = F,
+        topic = FD,
+        subtopic = "Empuje de suelo",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Está sección pronto estará disponible.",
+        no_answers = 0,
+        a1_name = "",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(0, 2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(0, 2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = "",
+        ayuda2 = "",
+        ayuda3 = "",
+        respuesta_P1 = lambda fa, a, calc, c, d, m: f"",
+        respuesta_P2 = lambda fa, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda fa, a, calc, c, d, m: f"",
+        calculos = 'operations',
+        ),
+
+    
+    
+    
+    
     # Questionary(#1_1
     #     code = 7110041,
     #     no_pregunta = 4,
     #     complexity = F,
     #     topic = FD,
-    #     subtopic = FD,
+    #     subtopic = "Empuje de suelo",
     #     version = 1,
     #     pregunta = lambda f, a, calc, c, d, m: f"Determine la fuerza para la cuál se debe diseñar el anclaje, de manera que no exista volcamiento alrededor del punto A. Considere que el peso específico del concreto es $\\gamma_c = {19+d[0]*(1/2):.2f} \\dfrac{{kN}}{{m^3}}$, del suelo $\\gamma_s = {15+d[3]*(1/2):.2f} \\dfrac{{kN}}{{m^3}}$, un coeficiente $k = {(12+d[6])*(1/50):.2f}$, $d_1 = {1+d[9]*(1/4):.2f} \\text{{ m}}$,  $d_2 = {(100+d[12])/100:.2f}  \\text{{ m}}$, $d_3 = {1+d[15]*(1/10):.2f}  \\text{{ m}}$ y $d_4 = {4+d[9]*(1/2):.2f}  \\text{{ m}}$.",
     #     no_answers = 1,
@@ -7822,13 +7966,13 @@ preguntas = [
     #=================================================  FUERZAS DISTRIBUIDAS =========================================================
     #-------------------------------------------------        Empuje de suelo  --------------------------------------------
     #-------------------------------------------------       Nivel medio   ---------------------------------------------------
-    #-------------------------------------------------       Code: 7320011    --------------------------------------------------
+    #-------------------------------------------------       Code: 73200#1    --------------------------------------------------
     Questionary(#1_1
-        code = 7110041,
-        no_pregunta = 5,
+        code = 7320011,
+        no_pregunta = 1,
         complexity = M,
         topic = FD,
-        subtopic = FD,
+        subtopic = "Empuje de suelo",
         version = 1,
         pregunta = lambda f, a, calc, c, d, m: f"Determine la distancia $d_4$ que se necesita para asegurar que no exista volcamiento alrededor del punto A. Considere $\\gamma_c = {18+d[0]*(1/2):.2f} \\dfrac{{kN}}{{m^3}}$, $\\gamma_s = {15+d[3]*(1/2):.2f} \\dfrac{{kN}}{{m^3}}$, un coeficiente $k = {(12+d[6])*(1/50):.2f}$, $d_1 = {(3/2)+d[9]*(1/2):.2f} \\text{{ m}}$,  $d_2 = {(50+d[12])/100:.2f}  \\text{{ m}}$ y $d_3 = {(1/2) + d[15]*(1/20):.2f} \\text{{ m}}$.",
         no_answers = 1,
@@ -7877,6 +8021,35 @@ preguntas = [
         calculos='operations'
         ),  
   
+    #=================================================  FUERZAS DISTRIBUIDAS =========================================================
+    #-------------------------------------------------       Empuje de suelo    --------------------------------------------
+    #-------------------------------------------------       Nivel Díficil   ---------------------------------------------------
+    #-------------------------------------------------       Code: 73100#1    --------------------------------------------------
+    
+    Questionary(#1_1
+        code = 0,
+        no_pregunta = 1,
+        complexity = D,
+        topic = FD,
+        subtopic = "Empuje de suelo",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Está sección pronto estará disponible.",
+        no_answers = 0,
+        a1_name = "",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(0, 2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(0, 2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = "",
+        ayuda2 = "",
+        ayuda3 = "",
+        respuesta_P1 = lambda fa, a, calc, c, d, m: f"",
+        respuesta_P2 = lambda fa, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda fa, a, calc, c, d, m: f"",
+        calculos = 'operations',
+        ),
+
 
     #=================================================  FUERZAS INTERNAS =========================================================
     #-------------------------------------------------       Fuerzas internas    --------------------------------------------

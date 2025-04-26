@@ -493,7 +493,7 @@ if authenticate_user():
             if topic == "Centroides":
                 subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Centroides"])
             if topic == "Fuerzas distribuidas":
-                subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Vigas", "Presiones hidrostáticas", "Empuje de suelo"])
+                subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Vigas", "Presión hidrostática", "Empuje de suelo"])
 
             if consent:
                 log_event(st.session_state["username"], "theory_section_accessed", {})
@@ -517,7 +517,7 @@ if authenticate_user():
             elif topic=="Centroides":
                 subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Centroides"])
             elif topic=="Fuerzas distribuidas":
-                subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Fuerzas distribuidas"])
+                subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Vigas", "Presión hidrostática", "Empuje de suelo"])
             elif topic=="Fuerzas internas":
                 subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Fuerzas internas"])
 
@@ -804,7 +804,7 @@ if authenticate_user():
                         st.image(CT_image_paths[1], width=300)
                     if pregunta_no == 3:
                         st.image(CT_image_paths[2], width=420)
-                if subtopic == "Fuerzas distribuidas":
+                if subtopic == "Vigas":
                     if pregunta_no == 1:
                         st.image(FD_image_paths[0], width=450) 
                     if pregunta_no == 2:
@@ -919,14 +919,15 @@ if authenticate_user():
                         st.image(CT_image_paths[3], width=420)    
                     if pregunta_no == 2:
                         st.image(CT_image_paths[4], width=250)  
-                if subtopic == "Fuerzas distribuidas":
+                if subtopic == "Presión hidrostática":
                     if pregunta_no == 1:
                         st.image(FD_image_paths[3], width=350)
                     if pregunta_no == 2:
                         st.image(FD_image_paths[4], width=450) 
                     if pregunta_no == 3:
                         st.image(FD_image_paths[5], width=400) 
-                    if pregunta_no == 5:
+                if subtopic == "Empuje de suelo":
+                    if pregunta_no == 1:
                         st.image(FD_image_paths[7], width=400) 
                 if subtopic == "Fuerzas internas":
                     if pregunta_no == 1:
@@ -1020,7 +1021,7 @@ if authenticate_user():
                 if subtopic == "Centroides":
                     if pregunta_no ==1:
                         st.image(CT_rtas_paths[0], width=200)
-                if subtopic == "Fuerzas distribuidas":
+                if subtopic == "Vigas":
                     if pregunta_no ==1:
                         st.image(FD_rtas_paths[0], width=350)
                     if pregunta_no ==2:
@@ -1046,14 +1047,15 @@ if authenticate_user():
                 if subtopic == "Centroides":
                     if pregunta_no ==1:
                         st.image(CT_rtas_paths[1], width=200)
-                if subtopic == "Fuerzas distribuidas":
+                if subtopic == "Presión hidrostática":
                     if pregunta_no ==1:
                         st.image(FD_rtas_paths[5], width=350)
                     if pregunta_no ==2:
                         st.image(FD_rtas_paths[6], width=350)
                     if pregunta_no ==3:
                         st.image(FD_rtas_paths[7], width=350)
-                    if pregunta_no ==4:
+                if subtopic == "Empuje de suelo":
+                    if pregunta_no ==1:
                         st.image(FD_rtas_paths[9], width=350)             
 
             if difficulty == "Díficil":
@@ -1087,7 +1089,7 @@ if authenticate_user():
 
         with left_col:
             if difficulty == "Fácil":
-                if subtopic == "Fuerzas distribuidas":
+                if subtopic == "Vigas":
                     if pregunta_no ==1:
                         st.image(FD_rtas_paths[1], width=350)
                     if pregunta_no ==3:
@@ -1327,7 +1329,7 @@ if authenticate_user():
                     st.image(CT_teoria_preguntas[3], width=350)
                 if pregunta_no == 10:
                     st.image(CT_teoria_preguntas[4], width=300)
-            if subtopic == "Presiones hidrostáticas":
+            if subtopic == "Presión hidrostática":
                 if pregunta_no == 6:
                     st.image(FD_teoria_preguntas[10], width=250)
                 if pregunta_no == 7:
@@ -1352,7 +1354,7 @@ if authenticate_user():
                     st.image(FD_teoria_preguntas[6], width=720)
 
         with left_col:
-            if subtopic == "Presiones hidrostáticas":
+            if subtopic == "Presión hidrostática":
                 if pregunta_no == 1:
                     st.image(FD_teoria_preguntas[3], width=900)
                 if pregunta_no == 3:
@@ -1377,7 +1379,7 @@ if authenticate_user():
                 if subtopic == "Centroides":
                     if pregunta_no == 6:
                         st.image(CT_teoria_respuestas[0],width=200)
-                if subtopic == "Presiones hidrostáticas":
+                if subtopic == "Presión hidrostática":
                     if pregunta_no == 6:
                         st.image(FD_teoria_respuestas[0],width=300)
         return
