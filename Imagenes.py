@@ -454,6 +454,7 @@ FD_teoria_preguntas = [
 "./Imagenes/Teoria_Preguntas/FD/PH/T_FD_PH_6.png", #[10]
 "./Imagenes/Teoria_Preguntas/FD/PH/T_FD_PH_7.png", #[11]
 "./Imagenes/Teoria_Preguntas/FD/PH/T_FD_PH_8.png", #[12]
+"./Imagenes/Teoria_Preguntas/FD/PH/T_FD_PH_9.png", #[13]
 ]
 
 #==========================================RESPUESTAS TEORÍA==============================================
@@ -473,4 +474,5 @@ CT_teoria_respuestas =[
 
 FD_teoria_respuestas =[
 "./Imagenes/Teoria_Respuestas/FD/PH/RT_FD_PH_6.png", #[0] 
+"./Imagenes/Teoria_Respuestas/FD/PH/RT_FD_PH_9.png", #[1] 
 ]
