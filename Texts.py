@@ -304,6 +304,7 @@ $P$ = Presión hidrostática distribuida sobre la superficie.
 $h$ = Profundidad desde la superficie al punto a evaluar. 
 $a$ = Ancho de la estructura.  
 """
+PH4 = "Las dimensiones mínimas que debe tener una presa, o el nivel máximo de agua permitido para evitar el volcamiento, se determinan a partir de la sumatoria de momentos de las fuerzas actuantes (peso de la presa y presión hidrostática del agua) respecto al extremo en el que puede ocurrir el volcamiento."
 
 #EMPUJE DEL SUELO
 ES1 = "Para el cálculo de la presión horizontal del suelo, se debe considerar el coeficiente $k$. La presión horizontal del suelo a una profundidad $h$ se expresa como: $P = k \\cdot \\gamma_s \\cdot h$."

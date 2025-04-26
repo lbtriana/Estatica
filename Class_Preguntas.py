@@ -7626,7 +7626,7 @@ preguntas = [
         subtopic = "Presión hidrostática",
         version = 1,
         pregunta = lambda f, a, calc, c, d, m: f"""
-        Considere la presa de concreta mostrada en la figura. Para determinar su seguridad frente al volcamiento, calcule el momento resistente $(M_R)$ generado por el peso de la presa, y el momento actuante $(M_A)$ producido por la fuerza hidrostática del agua con respecto al punto $A$. Utilice los siguientes datos: el ancho de la presa $a = {d[3]:.0f} \\text{{ m}}$, la densidad del agua $\\rho_a = 1000 \\dfrac{{kg}}{{m^3}}$, la densidad del concreto $\\rho = 2500 \\dfrac{{kg}}{{m^3}}$, la aceleración debida a la gravedad $g = 9,81 \\dfrac{{m}}{{s^2}}$, $d_1 = {d[0]+5:.0f} \\text{{ m}}$ y $d_2 = {d[0]:.0f} \\text{{ m}}$.
+        Considere la presa de concreto mostrada en la figura. Para determinar su seguridad frente al volcamiento, calcule el momento resistente $(M_R)$ generado por el peso de la presa, y el momento actuante $(M_A)$ producido por la fuerza hidrostática del agua con respecto al punto $A$. Utilice los siguientes datos: el ancho de la presa $a = {d[3]:.0f} \\text{{ m}}$, la densidad del agua $\\rho_a = 1000 \\dfrac{{kg}}{{m^3}}$, la densidad del concreto $\\rho = 2500 \\dfrac{{kg}}{{m^3}}$, la aceleración debida a la gravedad $g = 9,81 \\dfrac{{m}}{{s^2}}$, $d_1 = {d[0]+5:.0f} \\text{{ m}}$ y $d_2 = {d[0]:.0f} \\text{{ m}}$.
         
         La presa será segura frente al volcamiento si el momento resistente es mayor que el momento actuante. De lo contrario, se considerará insegura.
         """,
@@ -7695,6 +7695,85 @@ preguntas = [
         ${{\hspace{{4mm}} M_A = F_H \\cdot \\bar{{y_a}}}}$        
         
         ${{\hspace{{4mm}} M_A = {(((9810*(d[0]+5))*((d[0]+5)*(d[3])))/2000)*((1/3)*(d[0]+5)):.2f} \\text{{ kN}} \\cdot \\text{{m}}}}$
+        """,
+        respuesta_P3 = lambda fa, a, calc, c, d, m: f"",
+        calculos = 'operations',
+        ),
+
+    Questionary(#3_1
+        code = 7210031,
+        no_pregunta = 3,
+        complexity = F,
+        topic = FD,
+        subtopic = "Presión hidrostática",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Considere la presa de concreto mostrada en la figura. Determine la dimensión $d_2$ mínima para impedir que la presa se voltee alrededor de $A$. Utilice los siguientes datos: el ancho de la presa $a = {d[3]:.0f} \\text{{ m}}$, la densidad del agua $\\rho_a = 1000 \\dfrac{{kg}}{{m^3}}$, la densidad del concreto $\\rho_c = 2500 \\dfrac{{kg}}{{m^3}}$, la aceleración debida a la gravedad $g = 9,81 \\dfrac{{m}}{{s^2}}$ y $d_1 = {d[0]+5:.0f} \\text{{ m}}$.",
+        no_answers = 1,
+        a1_name = "$d_2$ $[m]$",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(math.sqrt(((((9810*(d[0]+5))*((d[0]+5)*(d[3])))/2000)*((1/3)*(d[0]+5))*3)/((d[0]+5)*24.525*d[3])), 2),
+        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = PH2,
+        ayuda2 = PH3,
+        ayuda3 = PH4,
+        respuesta_P1 = lambda fa, a, calc, c, d, m: f"""
+        La presión hidrostática es la presión ejercida por un fluido en reposo. Para determinar si una presa es segura a volcamiento se puede comparar el momento resistente generado por la presa de concreto y el momento actuante producido por el agua. A continuación, se presenta la solución sugerida para el ejercicio:
+        
+        $\\textbf{{\\small 1. Definición de las fuerzas actuantes: }}$
+
+        En este caso, las fuerzas actuantes son el peso de la presa $(w)$ y la fuerza hidrostática del agua.
+        """,
+        respuesta_P2 = lambda fa, a, calc, c, d, m: f"""
+        $\\textbf{{\\small 2. Sumatoria de momentos alrededor de A:}}$
+
+        $\\underline{{Fuerzas \\text{{ }} actuantes:}}$  
+
+        Peso de la presa de concreto ($W$):
+
+        $W = \\rho_c \\cdot g \\cdot \\dfrac{{d_1 \\cdot d_2 \\cdot a}}{{2}}$  
+
+        Fuerza hidrostática $(F_H)$:
+
+        $F_H = \\dfrac{{P \\cdot d_1 \\cdot a}}{{2}}$     
+        
+        ${{\hspace{{4mm}} P = \\rho \\cdot g \\cdot d_1 }}$      
+        
+        ${{\hspace{{4mm}} P = 1000 \\dfrac{{kg}}{{m^3}} \\cdot 9,81 \\dfrac{{m}}{{s^2}} \\cdot {d[0]+5:.0f} \\text{{ m}} }}$      
+        
+        ${{\hspace{{4mm}} P = {9810*(d[0]+5):.2f}  \\dfrac{{N}}{{m^2}} }}$ 
+
+        ${{\hspace{{4mm}} F_H = \\dfrac{{P \\cdot h \\cdot a}}{{2}}}}$      
+        
+        ${{\hspace{{4mm}} F_H = {((9810*(d[0]+5))*((d[0]+5)*(d[3])))/2000:.2f} \\text{{ kN}} }}$ 
+
+        
+        $\\underline{{Ubicación \\text{{ }} de \\text{{ }} las \\text{{ }} fuerzas \\text{{ }} con \\text{{ }} respecto \\text{{ }} a \\text{{ }} A:}}$  
+
+        Ubicación del peso de la presa de concreto ($\\bar{{x_c}}$):
+
+        ${{\hspace{{4mm}} \\bar{{x_c}} = \\dfrac{{2}}{{3}}d_2}}$        
+
+        Ubicación de la fuerza hidrostática ($\\bar{{y_a}}$):
+
+        ${{\hspace{{4mm}} \\bar{{y_a}} = \\dfrac{{1}}{{3}}d_1}}$        
+        
+        ${{\hspace{{4mm}} \\bar{{y_a}} = {(1/3)*(d[0]+5):.2f} \\text{{ m}} }}$ 
+
+
+        $\\underline{{Sumatoria \\text{{ }} de \\text{{ }} momentos:}}$  
+
+        ${{\hspace{{4mm}} \\sum{{M_A}} = W \\cdot \\bar{{x_c}} - F_H \\cdot \\bar{{y_a}} = 0}}$
+
+        ${{\hspace{{4mm}} \\sum{{M_A}} = (\\rho_c \\cdot g \\cdot \\dfrac{{d_1 \\cdot d_2 \\cdot a}}{{2}}) \\cdot \\left(\\dfrac{{2}}{{3}}d_2\\right) - \\left(\\dfrac{{P \\cdot h \\cdot a}}{{2}}\\right) \\cdot \\dfrac{{1}}{{3}}d_1 = 0}}$
+       
+        
+        $\\underline{{Despeje \\text{{ }} de \\text{{ }} la \\text{{ }} distancia:}}$ 
+     
+        ${{\hspace{{4mm}} d_2 = \\sqrt{{\\dfrac{{F_H}}{{a \\cdot \\rho_c \\cdot g}} }} }}$     
+          
+        ${{\hspace{{4mm}} d_2 = {math.sqrt(((((9810*(d[0]+5))*((d[0]+5)*(d[3])))/2000)*((1/3)*(d[0]+5))*3)/((d[0]+5)*24.525*d[3])):.2f} \\text{{ m}}}}$
         """,
         respuesta_P3 = lambda fa, a, calc, c, d, m: f"",
         calculos = 'operations',
