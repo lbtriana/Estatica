@@ -813,6 +813,9 @@ if authenticate_user():
                         st.image(FD_image_paths[2], width=450)
                     if pregunta_no == 4:
                         st.image(FD_image_paths[6], width=350)
+                if subtopic == "Presión hidrostática":
+                    if pregunta_no == 1:
+                        st.image(FD_image_paths[8], width=350) 
                 if subtopic == "Fuerzas internas":
                     if pregunta_no == 1:
                         st.image(FI_image_paths[0], width=450) 
@@ -1030,6 +1033,9 @@ if authenticate_user():
                         st.image(FD_rtas_paths[3], width=350)
                     if pregunta_no ==4:
                         st.image(FD_rtas_paths[8], width=350)
+                if subtopic == "Presión hidrostática":
+                    if pregunta_no ==1:
+                        st.image(FD_rtas_paths[10], width=350)
                 if subtopic == "Fuerzas internas":
                     if pregunta_no ==1:
                         st.image(FI_rtas_paths[0], width=200)

@@ -7565,25 +7565,60 @@ preguntas = [
     #-------------------------------------------------       Code: 72100#1    --------------------------------------------------
     
     Questionary(#1_1
-        code = 0,
+        code = 7210011,
         no_pregunta = 1,
         complexity = F,
         topic = FD,
         subtopic = "Presión hidrostática",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Está sección pronto estará disponible.",
-        no_answers = 0,
-        a1_name = "",
-        a2_name = "",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza hidrostática resultante que actúa sobre la presa y su ubicación medida desde la base. Considere que el ancho de la presa $a = {d[0]:.0f} \\text{{ m}}$, la densidad del agua $\\rho = 1000 \\dfrac{{kg}}{{m^3}}$, la aceleración debida a la gravedad $g = 9,81 \\dfrac{{m}}{{s^2}}$ y $d_1 = {d[0]+5:.0f} \\text{{ m}}$.",
+        no_answers = 2,
+        a1_name = "Magnitud fuerza hidrostática $|F_R|$ $[kN]$",
+        a2_name = "Ubicación fuerza hidrostática $\\bar{{y}}$ $[m]$",
         a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round(0, 2),
-        answer2 = lambda f, a, calc, c, d, m: np.round(0, 2),
+        answer1 = lambda f, a, calc, c, d, m: np.round(((9810*(d[0]+5))*((d[0]+5)*(d[0])))/2000, 2),
+        answer2 = lambda f, a, calc, c, d, m: np.round((1/3)*(d[0]+5), 2),
         answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = "",
-        ayuda2 = "",
-        ayuda3 = "",
-        respuesta_P1 = lambda fa, a, calc, c, d, m: f"",
-        respuesta_P2 = lambda fa, a, calc, c, d, m: f"",
+        ayuda1 = PH1,
+        ayuda2 = PH2,
+        ayuda3 = PH3,
+        respuesta_P1 = lambda fa, a, calc, c, d, m: f"""
+        La presión hidrostática es la presión ejercida por un fluido en reposo. A continuación, se presenta la solución sugerida para el ejercicio:
+        
+        $\\textbf{{\\small 1. Distribución de la fuerza hidrostática: }}$
+
+        En este caso, la presión hidrostática se distribuye de forma lineal, aumentando con la profundidad.
+        """,
+        respuesta_P2 = lambda fa, a, calc, c, d, m: f"""
+        $\\textbf{{\\small 2. Cálculo de la fuerza hidrostática resultante:}}$
+
+        La fuerza resultante debida a una distribución lineal (triangular) de presión hidrostática sobre una superficie se calcula mediante:    
+
+        $F_R = \\dfrac{{P \\cdot h \\cdot a}}{{2}}$     
+
+        Donde:     
+        $P$ = Presión hidrostática distribuida sobre la superficie.      
+        $h$ = Profundidad desde la superficie al punto a evaluar.       
+        $a$ = Ancho de la estructura.  
+        
+        ${{\hspace{{4mm}} P = \\rho \\cdot g \\cdot d_1 }}$      
+        
+        ${{\hspace{{4mm}} P = 1000 \\dfrac{{kg}}{{m^3}} \\cdot 9,81 \\dfrac{{m}}{{s^2}} \\cdot {d[0]+5:.0f} \\text{{ m}} }}$      
+        
+        ${{\hspace{{4mm}} P = {9810*(d[0]+5):.2f}  \\dfrac{{N}}{{m^2}} }}$ 
+
+        ${{\hspace{{4mm}} F_R = \\dfrac{{P \\cdot h \\cdot a}}{{2}}}}$      
+        
+        ${{\hspace{{4mm}} F_R = {((9810*(d[0]+5))*((d[0]+5)*(d[0])))/2000:.2f} \\text{{ kN}} }}$ 
+
+        $\\textbf{{\\small 3. Ubicación de la fuerza hidrostática resultante desde la base:}}$
+
+        La presión hidrostática se distribuye de forma triangular, por lo tanto, su ubicación desde la base es a $\\dfrac{{1}}{{3}}$ de la distancia $d_1$:
+
+        ${{\hspace{{4mm}} \\bar{{y}} = \\dfrac{{1}}{{3}}d_1}}$        
+        
+        ${{\hspace{{4mm}} \\bar{{y}} = {(1/3)*(d[0]+5):.2f} \\text{{ m}} }}$ 
+        """,
         respuesta_P3 = lambda fa, a, calc, c, d, m: f"",
         calculos = 'operations',
         ),

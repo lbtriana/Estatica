@@ -295,13 +295,14 @@ $g$ = Aceleración debido a la gravedad.
 $h$ = Profundidad desde la superficie al punto a evaluar.    
 """
 PH3 = """
-La fuerza resultante de la presión hidrostática sobre una superficie se calcula como:    
+La fuerza resultante debida a una distribución lineal (triangular) de presión hidrostática sobre una superficie se calcula mediante:    
 
-$F_R = P \\cdot A$     
+$F_R = \\dfrac{{P \\cdot h \\cdot a}}{{2}}$     
 
 Donde:     
-$P$ = Presión hidrostática distribuida sobre la superficie.       
-$A$ = Área de la superficie.    
+$P$ = Presión hidrostática distribuida sobre la superficie.      
+$h$ = Profundidad desde la superficie al punto a evaluar. 
+$a$ = Ancho de la estructura.  
 """
 
 #EMPUJE DEL SUELO
