@@ -7994,6 +7994,105 @@ preguntas = [
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),
+    
+    Questionary(#3_1
+        code = 7220031,
+        no_pregunta = 3,
+        complexity = M,
+        topic = "Fuerzas distribuidas",
+        subtopic = "Presión hidrostática",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Un pantano de agua dulce se drena al océano mediante una compuerta de marea automática con un ancho $ a = {d[0]:.0f} \\text{{ m}}$. Determine el nivel del océano $d_2$, tal que, la compuerta se abra. Considere $d_1 = {4 + d[3]*(1/4):.2f} \\text{{ m}}$, $d_3 = {1 + d[6]*(1/4):.2f} \\text{{ m}}$, la densidad del agua del pantano $\\rho_p = {1000 + d[9]*(1/2):.2f} \\dfrac{{kg}}{{m^3}}$, la densidad del agua salada $\\rho_o = {1020 + d[12]:.2f} \\dfrac{{kg}}{{m^3}}$ y la aceleración debida a la gravedad $g = 9,81 \\dfrac{{m}}{{s^2}}$.",
+        no_answers = 1,
+        a1_name = "$d_2$ $[m]$",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(((1000+d[9]*(1/4))/(1020+d[12]))*(4+d[3]*(1/4)) - (((1000+d[9]*(1/4))*(1+d[6]*(1/4)))/((1020+d[12])*3)) + (1/3)*(1+d[6]*(1/4)),2),
+        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = PH1,
+        ayuda2 = PH2,
+        ayuda3 = PH5,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        La presión hidrostática es la presión ejercida por un fluido en reposo. La fuerza hidrostática vertical hace referencia al peso del agua que está sobre la estructura. A continuación, se presenta la solución sugerida para el ejercicio:
+        
+        $\\textbf{{\\small 1. Representación de ejercicio: }}$
+
+        Debido a la configuración de la compuerta, se generan fuerzas asociadas a la presión hidrostática tanto en el lado del océano como en el del pantano. Además, no se considera la reacción en el bloque $B$, ya que el análisis corresponde a la situación en la que la compuerta se encuentra abierta.
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        Donde $p_1$, $p_2$, $p_3$ y $p_4$ se determinan mediante:
+        
+        ${{\hspace{{4mm}} p_1 = \\rho_p \\cdot g \\cdot (d_1 - d_3) }}$     
+        ${{\hspace{{4mm}} p_2 = \\rho_p \\cdot g \\cdot d_1 }}$     
+        ${{\hspace{{4mm}} p_3 = \\rho_o \\cdot g \\cdot (d_2 - d_3) }}$     
+        ${{\hspace{{4mm}} p_4 = \\rho_o \\cdot g \\cdot d_2 }}$     
+                
+        $\\textbf{{\\small 2. Puntualización de las fuerzas: }}$
+        
+        Con base en la configuración mostrada, se pueden identificar cuatro fuerzas resultantes. No se considera la reacción en el bloque $B$, ya que la situación de análisis es cuando la compuerta se encuentra abierta.    
+        """,
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"""
+        Las magnitudes de cada fuerza son:
+        
+        ${{\hspace{{4mm}} F_{{P1}} = a \\cdot p_1 \\cdot d_3}}$     
+        
+        ${{\hspace{{4mm}} F_{{P2}} = a \\cdot \\dfrac{{ d_3 \\cdot (p_2 - p_1)}}{{2}}}}$         
+        
+        ${{\hspace{{4mm}} F_{{O1}} = a \\cdot p_3 \\cdot d_3}}$     
+        
+        ${{\hspace{{4mm}} F_{{O2}} = a \\cdot \\dfrac{{ d_3 \\cdot (p_4 - p_3)}}{{2}}}}$         
+        
+                   
+        $\\textbf{{\\small 3. Condición de equilibrio: }}$
+        
+       Para que la compuerta pueda abrirse, se requiere que el nivel del océano sea, al menos, tal que la sumatoria de momentos respecto al punto $A$ sea igual a cero. A partir de esta condición, se procede a resolver."
+        
+        ${{\hspace{{4mm}} \\sum{{M_A}} = F_{{P1}} \\cdot \\dfrac{{d_3}}{{2}} + F_{{P2}} \\cdot \\dfrac{{2d_3}}{{3}} - F_{{O1}} \\cdot \\dfrac{{d_3}}{{2}} - F_{{O2}} \\cdot \\dfrac{{2d_3}}{{3}} = 0}}$     
+       
+        ${{\hspace{{4mm}} a \\cdot p_3 \\cdot d_3 \\cdot \\dfrac{{d_3}}{{2}} + a \\cdot \\dfrac{{ d_3 \\cdot (p_4 - p_3)}}{{2}} \\cdot \\dfrac{{2d_3}}{{3}} = a \\cdot p_1 \\cdot d_3 \\cdot \\dfrac{{d_3}}{{2}} + a \\cdot \\dfrac{{ d_3 \\cdot (p_2 - p_1)}}{{2}} \\cdot \\dfrac{{2d_3}}{{3}} }}$     
+        
+        ${{\hspace{{4mm}} \\rho_o \\cdot g \\cdot (d_2 - d_3) \\cdot \\dfrac{{1}}{{2}} + \\dfrac{{\\rho_o \\cdot g \\cdot d_2 - \\rho_o \\cdot g \\cdot (d_2 - d_3)}}{{3}} = \\rho_p \\cdot g \\cdot (d_1 - d_3) \\cdot \\dfrac{{1}}{{2}} + \\dfrac{{\\rho_p \\cdot g \\cdot d_1 - \\rho_p \\cdot g \\cdot (d_1 - d_3)}}{{3}}}}$     
+        
+        ${{\hspace{{4mm}} \\rho_o \\cdot (d_2 - d_3) \\cdot \\dfrac{{1}}{{2}} + \\dfrac{{\\rho_o \\cdot d_3}}{{3}} = \\rho_p \\cdot (d_1 - d_3) \\cdot \\dfrac{{1}}{{2}} + \\dfrac{{\\rho_p \\cdot d_3}}{{3}}}}$     
+        
+        ${{\hspace{{4mm}} \\rho_o \\cdot d_2 \\cdot \\dfrac{{1}}{{2}} = \\rho_p \\cdot (d_1 - d_3) \\cdot \\dfrac{{1}}{{2}} + \\dfrac{{\\rho_p \\cdot d_3}}{{3}} + \\dfrac{{\\rho_o \\cdot d_3}}{{6}}}}$     
+        
+        ${{\hspace{{4mm}} d_2  = \\dfrac{{\\rho_p}}{{\\rho_o}} \\cdot d_1 - \\dfrac{{\\rho_p \\cdot d_3}}{{3 \\cdot \\rho_o}} + \\dfrac{{d_3}}{{3}}}}$     
+        
+        ${{\hspace{{4mm}} d_2  = {((1000+d[9]*(1/4))/(1020+d[12]))*(4+d[3]*(1/4)) - (((1000+d[9]*(1/4))*(1+d[6]*(1/4)))/((1020+d[12])*3)) + (1/3)*(1+d[6]*(1/4)):.2f} \\text{{ m}}}}$         
+        """,
+        calculos='operations'
+        ),
+
+    #=================================================  FUERZAS DISTRIBUIDAS =========================================================
+    #-------------------------------------------------       Presión hidrostática    --------------------------------------------
+    #-------------------------------------------------       Nivel Díficil   ---------------------------------------------------
+    #-------------------------------------------------       Code: 72300#1    --------------------------------------------------
+    
+    Questionary(#1_1
+        code = 0,
+        no_pregunta = 1,
+        complexity = D,
+        topic = FD,
+        subtopic = "Presión hidrostática",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Está sección pronto estará disponible.",
+        no_answers = 0,
+        a1_name = "",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(0, 2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(0, 2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = "",
+        ayuda2 = "",
+        ayuda3 = "",
+        respuesta_P1 = lambda fa, a, calc, c, d, m: f"",
+        respuesta_P2 = lambda fa, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda fa, a, calc, c, d, m: f"",
+        calculos = 'operations',
+        ),
 
     # Questionary(#3_1
     #     code = 7220031,
@@ -8061,101 +8160,6 @@ preguntas = [
     #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
     #     calculos='operations'
     #     ),
-
-    # Questionary(#3_1
-    #     code = 7220031,
-    #     no_pregunta = 3,
-    #     complexity = M,
-    #     topic = "Fuerzas distribuidas",
-    #     subtopic = "Presión hidrostática",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Un pantano de agua dulce se drena al océano mediante una compuerta de marea automática con un ancho $ a = {d[0]:.0f} \\text{{ m}}$. Determine el nivel del océano $d_2$, tal que, la compuerta se abra. Considere $d_1 = {4 + d[3]*(1/4):.2f} \\text{{ m}}$,  $d_3 = {1 + d[6]*(1/4):.2f}  \\text{{ m}}$, la densidad del agua del pantano $\\rho_p = {1000 + d[9]*(1/2):.2f} \\dfrac{{kg}}{{m^3}}, la densidad del agua salada $\\rho_o = {1020 + d[12]:.2f} \\dfrac{{kg}}{{m^3}} y la aceleración debida a la gravedad $g = 9,81 \\dfrac{{m}}{{s^2}}$.",
-    #     no_answers = 1,
-    #     a1_name = "Dimensión $d_2$ [m]",
-    #     a2_name = "",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(((1000+d[9]*(1/4))/(1020+d[12]))*(4+d[3]*(1/4)) - (((1000+d[9]*(1/4))*(1+d[6]*(1/4)))/((1020+d[12])*3)) + (1/3)*(1+d[6]*(1/4)),2),
-    #     answer2 = lambda f, a, calc, c, d, m: 0,
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "La presión hidrostática definida como la presión aplicada por un fluido en reposo debido a su propio peso, esta se genera en todos los puntos y actua perpendicularmente a las superificies sumergidas.",
-    #     ayuda2 = "La presión hidrostática aumenta linealmente con la profundidad y se formula como P = $\\rho \\cdot g \\cdot h$ , siendo $\\rho$ la densidad del fluido, g la aceleración debido a la gravedad y h la profundidad desde superficie al punto a evaluar",
-    #     ayuda3 = "Para superficies, la fuerza resultante dado presión hidrostática se calcula como $F_R = P \\cdot A$ siendo P la presión distribuida sobre la superficie y A como el área de la superficie.",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     La presión hidrostática es la presión aplicada por un fluido en reposo debido a su propio peso. A continuación, se presenta la solución sugerida para el ejercicio:
-        
-    #     $\\textbf{{\\small 1. Representación de ejercicio: }}$
-    #     Dado a la configuración de la presa se puede obtener fuerzas asociadas a presión hidrostática tanto en el lado del océano como del pantano. Por otro lado no se considera la reacción en el apoyo en B, dado que la situación presentada es cuando se abre la compuerta.
-        
-    #     ##Imagen##  
-        
-    #     Donde, según profundidad se puede obtener los valores de $p_1$, $p_2$, $p_3$ y $p_4$ :
-        
-    #     ${{\hspace{{4mm}} p_1 = \\rho_p \\cdot g \\cdot (d_1 - d_3) }}$     
-    #     ${{\hspace{{4mm}} p_2 = \\rho_p \\cdot g \\cdot d_1 }}$     
-    #     ${{\hspace{{4mm}} p_3 = \\rho_o \\cdot g \\cdot (d_2 - d_3) }}$     
-    #     ${{\hspace{{4mm}} p_4 = \\rho_o \\cdot g \\cdot d_2 }}$     
-                
-    #     $\\textbf{{\\small 2. Puntualización de las fuerzas: }}$
-        
-    #     Dado a la configuración mostrada se puede determinar la ubicación de cuatro fuerzas resultantes. No aparece una reacción del apoyo B, puesto se asume la situación donde la compuerta se abre.
-        
-    #     ##Imagen##
-         
-    #     Donde las magnitudes de cada fuerza serán respectivamente:
-        
-    #     ${{\hspace{{4mm}} F_{{P1}} = a \\cdot p_1 \\cdot d_3}}$     
-    #     ${{\hspace{{4mm}} F_{{P2}} = a \\cdot \\dfrac{{ d_3 \\cdot (p_2 - p_1)}}{{2}}}}$         
-    #     ${{\hspace{{4mm}} F_{{O1}} = a \\cdot p_3 \\cdot d_3}}$     
-    #     ${{\hspace{{4mm}} F_{{O2}} = a \\cdot \\dfrac{{ d_3 \\cdot (p_4 - p_3)}}{{2}}}}$         
-        
-                   
-    #     $\\textbf{{\\small 3. Condición de equilibrio: }}$
-        
-    #     Ahora bien, para que se cumpla que la compuerta se abra, se infiere que el nivel del océano debe ser, por lo menos, tal que la sumatoria de momentos respecto a A debe ser cero. Utilizando esta condición se resuelve
-        
-    #     ${{\hspace{{4mm}} \\sum{{M_A}} = F_{{P1}} \\cdot \\dfrac{{d_3}}{{2}} + F_{{P2}} \\cdot \\dfrac{{2d_3}}{{3}} - F_{{O1}} \\cdot \\dfrac{{d_3}}{{2}} - F_{{O2}} \\cdot \\dfrac{{2d_3}}{{3}} = 0}}$     
-    #     ${{\hspace{{4mm}} a \\cdot p_3 \\cdot d_3 \\cdot \\dfrac{{d_3}}{{2}} + a \\cdot \\dfrac{{ d_3 \\cdot (p_4 - p_3)}}{{2}} \\cdot \\dfrac{{2d_3}}{{3}} = a \\cdot p_1 \\cdot d_3 \\cdot \\dfrac{{d_3}}{{2}} + a \\cdot \\dfrac{{ d_3 \\cdot (p_2 - p_1)}}{{2}} \\cdot \\dfrac{{2d_3}}{{3}} }}$     
-    #     ${{\hspace{{4mm}} \\rho_o \\cdot g \\cdot (d_2 - d_3) \\cdot \\dfrac{{1}}{{2}} + \\dfrac{{\\rho_o \\cdot g \\cdot d_2 - \\rho_o \\cdot g \\cdot (d_2 - d_3)}}{{3}} = \\rho_p \\cdot g \\cdot (d_1 - d_3) \\cdot \\dfrac{{1}}{{2}} + \\dfrac{{\\rho_p \\cdot g \\cdot d_1 - \\rho_p \\cdot g \\cdot (d_1 - d_3)}}{{3}}}}$     
-    #     ${{\hspace{{4mm}} \\rho_o \\cdot (d_2 - d_3) \\cdot \\dfrac{{1}}{{2}} + \\dfrac{{\\rho_o \\cdot d_3}}{{3}} = \\rho_p \\cdot (d_1 - d_3) \\cdot \\dfrac{{1}}{{2}} + \\dfrac{{\\rho_p \\cdot d_3}}{{3}}}}$     
-    #     ${{\hspace{{4mm}} \\rho_o \\cdot d_2 \\cdot \\dfrac{{1}}{{2}} = \\rho_p \\cdot (d_1 - d_3) \\cdot \\dfrac{{1}}{{2}} + \\dfrac{{\\rho_p \\cdot d_3}}{{3}} + \\dfrac{{\\rho_o \\cdot d_3}}{{6}}}}$     
-    #     ${{\hspace{{4mm}} d_2  = \\dfrac{{\\rho_p}}{{\\rho_o}} \\cdot d_1 - \\dfrac{{\\rho_p \\cdot d_3}}{{3 \\cdot \\rho_o}} + \\dfrac{{d_3}}{{3}}}}$     
-    #     ${{\hspace{{4mm}} d_2  = {((1000+d[9]*(1/4))/(1020+d[12]))*(4+d[3]*(1/4)) - (((1000+d[9]*(1/4))*(1+d[6]*(1/4)))/((1020+d[12])*3)) + (1/3)*(1+d[6]*(1/4)):.2f} \\text{{ m}}}}$     
-            
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
-
-    #=================================================  FUERZAS DISTRIBUIDAS =========================================================
-    #-------------------------------------------------       Presión hidrostática    --------------------------------------------
-    #-------------------------------------------------       Nivel Díficil   ---------------------------------------------------
-    #-------------------------------------------------       Code: 72300#1    --------------------------------------------------
-    
-    Questionary(#1_1
-        code = 0,
-        no_pregunta = 1,
-        complexity = D,
-        topic = FD,
-        subtopic = "Presión hidrostática",
-        version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Está sección pronto estará disponible.",
-        no_answers = 0,
-        a1_name = "",
-        a2_name = "",
-        a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round(0, 2),
-        answer2 = lambda f, a, calc, c, d, m: np.round(0, 2),
-        answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = "",
-        ayuda2 = "",
-        ayuda3 = "",
-        respuesta_P1 = lambda fa, a, calc, c, d, m: f"",
-        respuesta_P2 = lambda fa, a, calc, c, d, m: f"",
-        respuesta_P3 = lambda fa, a, calc, c, d, m: f"",
-        calculos = 'operations',
-        ),
-
 
 
     #=================================================  FUERZAS DISTRIBUIDAS =========================================================

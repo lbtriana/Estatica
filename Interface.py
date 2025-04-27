@@ -934,7 +934,7 @@ if authenticate_user():
                     if pregunta_no == 2:
                         st.image(FD_image_paths[4], width=450) 
                     if pregunta_no == 3:
-                        st.image(FD_image_paths[5], width=400) 
+                        st.image(FD_image_paths[5], width=350) 
                 if subtopic == "Empuje de suelo":
                     if pregunta_no == 1:
                         st.image(FD_image_paths[7], width=400) 
@@ -1115,6 +1115,11 @@ if authenticate_user():
                 if subtopic == "Fuerzas internas":
                     if pregunta_no ==1:
                         st.image(FI_rtas_paths[1], width=200)
+
+            if difficulty == "Medio":
+                if subtopic == "Presión hidrostática":
+                    if pregunta_no == 3:
+                        st.image(FD_rtas_paths[15], width=350)
         return
 
     #Función para que el botón "Ayuda" muestre secuencialmente las ayudas
