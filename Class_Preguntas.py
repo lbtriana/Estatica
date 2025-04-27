@@ -7822,6 +7822,53 @@ preguntas = [
         respuesta_P3 = lambda fa, a, calc, c, d, m: f"",
         calculos = 'operations',
         ),
+
+    Questionary(#5_1
+        code = 7210051,
+        no_pregunta = 5,
+        complexity = F,
+        topic = FD,
+        subtopic = "Presión hidrostática",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"El túnel semicircular pasa bajo un cuerpo de agua que tiene $d_1 = {d[0]+5} \\text{{ m}}$ de profundidad. Determine la fuerza hidrostática vertical que actúa por metro de longitud. Considere que el diámetro del túnel $d_2 = {d[0]+3:.0f} \\text{{ m}}$, la densidad del agua $\\rho = 1000 \\dfrac{{kg}}{{m^3}}$ y la aceleración debida a la gravedad $g = 9,81 \\dfrac{{m}}{{s^2}}$.",
+        no_answers = 1,
+        a1_name = "Fuerza hidrostática vertical $|F_V|$ $[kN/m]$",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round((9.81*(d[0]+3)*((d[0]+5)-((d[0]+3)/2)))+(9.81*((d[0]+3)*((d[0]+3)/2)-((math.pi*((d[0]+3)/2)**2)/2))), 2),
+        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = PH1,
+        ayuda2 = PH2,
+        ayuda3 = PH3,
+        respuesta_P1 = lambda fa, a, calc, c, d, m: f"""
+        La presión hidrostática es la presión ejercida por un fluido en reposo. La fuerza hidrostática vertical hace referencia al peso del agua que está sobre la estructura. A continuación, se presenta la solución sugerida para el ejercicio:
+        
+        $\\textbf{{\\small 1. Diagrama de la fuerza hidrostática vertical: }}$
+
+        En la siguiente figura se presenta el diagrama utilizado para el cálculo de la fuerza hidrostática vertical.
+        """,
+        respuesta_P2 = lambda fa, a, calc, c, d, m: f"""
+        $\\textbf{{\\small 2. Cálculo de la fuerza hidrostática vertical:}}$
+
+        Para este caso, se usará la distribución triangular de presiones:
+
+        ${{\hspace{{4mm}} F_V = W_1 + W_2}}$        
+        
+        ${{\hspace{{4mm}} W_1 = \\rho \\cdot g \\cdot d_2 \\cdot \\left(d_1-\\dfrac{{d_2}}{{2}}\\right)}}$  
+
+        ${{\hspace{{4mm}} W_1 = {9.81*(d[0]+3)*((d[0]+5)-((d[0]+3)/2)):.2f} \\dfrac{{kN}}{{m}}}}$ 
+
+        ${{\hspace{{4mm}} W_2 = \\rho \\cdot g \\cdot \\left(d_2 \\cdot \\dfrac{{d_2}}{{2}}-\\dfrac{{\\pi \\cdot \\left(\\dfrac{{d_2}}{{2}}\\right)^2}}{{2}}\\right)}}$  
+            
+        ${{\hspace{{4mm}} W_2 = {9.81*((d[0]+3)*((d[0]+3)/2)-((math.pi*((d[0]+3)/2)**2)/2)):.2f} \\dfrac{{kN}}{{m}}}}$ 
+        
+        
+        ${{\hspace{{4mm}} F_V = {(9.81*(d[0]+3)*((d[0]+5)-((d[0]+3)/2)))+(9.81*((d[0]+3)*((d[0]+3)/2)-((math.pi*((d[0]+3)/2)**2)/2))):.2f} \\dfrac{{kN}}{{m}} }}$ 
+        """,
+        respuesta_P3 = lambda fa, a, calc, c, d, m: f"",
+        calculos = 'operations',
+        ),
     
 
     # #=================================================  FUERZAS DISTRIBUIDAS =========================================================
