@@ -1009,7 +1009,10 @@ if authenticate_user():
                     if pregunta_no == 1:
                         st.image(CT_image_paths[5], width=500) 
                     if pregunta_no == 2:
-                        st.image(CT_image_paths[6], width=500) 
+                        st.image(CT_image_paths[6], width=500)
+                if subtopic == "Presión hidrostática":
+                    if pregunta_no == 1:
+                        st.image(FD_image_paths[12], width=400)
                             
         return
 
@@ -1047,7 +1050,7 @@ if authenticate_user():
                     if pregunta_no ==4:
                         st.image(FD_rtas_paths[12], width=700)
                     if pregunta_no ==5:
-                        st.image(FD_rtas_paths[13], width=350)
+                        st.image(FD_rtas_paths[14], width=350)
                 if subtopic == "Fuerzas internas":
                     if pregunta_no ==1:
                         st.image(FI_rtas_paths[0], width=200)
@@ -1099,7 +1102,10 @@ if authenticate_user():
                             st.image(EQ_rtas_paths[7], width=250)  
                 if subtopic == "Centroides":
                     if pregunta_no ==1:
-                        st.image(CT_rtas_paths[2], width=600)                                         
+                        st.image(CT_rtas_paths[2], width=600)      
+                if subtopic == "Presión hidrostática":
+                    if pregunta_no ==1:
+                        st.image(FD_rtas_paths[13], width=350)                                   
         return
 
     def filtrar_imagenes_respuestas_P2(pregunta_no, version_no, subtopic, difficulty):

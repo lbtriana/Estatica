@@ -266,6 +266,7 @@ FD_image_paths =[
 "./Imagenes/Preguntas/FD/PH/FD_PH_F_2a.png", #[9]
 "./Imagenes/Preguntas/FD/PH/FD_PH_F_4a.png", #[10]
 "./Imagenes/Preguntas/FD/PH/FD_PH_F_5a.png", #[11]
+"./Imagenes/Preguntas/FD/PH/FD_PH_D_1a.png", #[12]
 ]
 
 #================================ Imágenes Preguntas Cálculo Fuerzas internas ===================================
@@ -391,7 +392,7 @@ FD_rtas_paths= [
 "./Imagenes/Respuestas/FD/PH/R_FD_PH_F_1a.png", #[10] 
 "./Imagenes/Respuestas/FD/PH/R_FD_PH_F_2a.png", #[11] 
 "./Imagenes/Respuestas/FD/PH/R_FD_PH_F_4a.png", #[12]
-"./Imagenes/Respuestas/FD/PH/R_FD_PH_F_4b.png", #[13]  
+"./Imagenes/Respuestas/FD/PH/R_FD_PH_D_1a.png", #[13]  
 "./Imagenes/Respuestas/FD/PH/R_FD_PH_F_5a.png", #[14] 
 "./Imagenes/Respuestas/FD/PH/R_FD_PH_M_3b.png", #[15] 
 ]
