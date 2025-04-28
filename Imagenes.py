@@ -267,6 +267,12 @@ FD_image_paths =[
 "./Imagenes/Preguntas/FD/PH/FD_PH_F_4a.png", #[10]
 "./Imagenes/Preguntas/FD/PH/FD_PH_F_5a.png", #[11]
 "./Imagenes/Preguntas/FD/PH/FD_PH_D_1a.png", #[12]
+
+#Fuerzas distribuidas _ Vigas 
+"./Imagenes/Preguntas/FD/VI/FD_VI_M_1a.png", #[13]
+"./Imagenes/Preguntas/FD/VI/FD_VI_M_2a.png", #[14]
+"./Imagenes/Preguntas/FD/VI/FD_VI_D_1a.png", #[15]
+"./Imagenes/Preguntas/FD/VI/FD_VI_D_2a.png", #[16]
 ]
 
 #================================ Imágenes Preguntas Cálculo Fuerzas internas ===================================
@@ -395,6 +401,11 @@ FD_rtas_paths= [
 "./Imagenes/Respuestas/FD/PH/R_FD_PH_D_1a.png", #[13]  
 "./Imagenes/Respuestas/FD/PH/R_FD_PH_F_5a.png", #[14] 
 "./Imagenes/Respuestas/FD/PH/R_FD_PH_M_3b.png", #[15] 
+
+#Fuerzas distribuidas _ Vigas
+"./Imagenes/Respuestas/FD/VI/R_FD_VI_M_1a.png", #[16]
+"./Imagenes/Respuestas/FD/VI/R_FD_VI_M_1b.png", #[17]
+"./Imagenes/Respuestas/FD/VI/R_FD_VI_D_2a.png", #[18]
 ]
 
 #================================ Imágenes Respuestas Cálculos Fuerzas Internas ===================================
