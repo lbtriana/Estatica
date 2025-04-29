@@ -7508,102 +7508,103 @@ preguntas = [
         topic = FD,
         subtopic = "Vigas",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"ENcuentre las reacciones en los apoyos teniendo en cuenta que $W_1 = {m[0]:.0f}[\\dfrac{{kN}}{{m}}]$, $W_2 = {m[1]:.0f}[\\dfrac{{kN}}{{m}}]$, $W_3 = {m[2]:.0f}[\\dfrac{{kN}}{{m}}]$;$F={f[0]:.0f}[kN]$ y $d_0 = {d[0]:.0f}[m]$, $d_1 = {d[3]:.0f}[m]$ y $d_2 = {d[6]:.0f}[m]$.Tenga en cuenta que la fuerza $F$ esta siendo aplicada en centro de su sección.",
-        no_answers = 2,
-        a1_name = "Reacción en el apoyo $A$ $[kN]$",
-        a2_name = "Reacción en el apoyo $B$ $[kN]$",
-        a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round(m[0]*d[0]/2 + m[0]*d[3] + (m[1]-m[0])*d[3]/2 + m[2]*d[6]-(((m[0]*d[0])/2*(2*d[0])/3+m[0]*d[3]*(d[0]+d[1]/2)+(m[1]-m[0])*d[3]/2*(d[0]+((2*d[3])/3))+m[2]*d[6]*(d[0]+((3*d[3])/2)+d[6]/2)+f[0]*(d[0]+((5*d[3])/4)))/(d[0]+((3*d[3])/2)+d[6])),2),
-        answer2 = lambda f, a, calc, c, d, m: np.round(((m[0]*d[0])/2*(2*d[0])/3+m[0]*d[3]*(d[0]+d[1]/2)+(m[1]-m[0])*d[3]/2*(d[0]+((2*d[3])/3))+m[2]*d[6]*(d[0]+((3*d[3])/2)+d[6]/2)+f[0]*(d[0]+((5*d[3])/4)))/(d[0]+((3*d[3])/2)+d[6]),2),
-        answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = "Encuentre las fuerzas puntuales generadas por las cargas distribuidas teniendo en cuenta su geometria y su distancia respectiva.",
-        ayuda2 = "Identifique el tipo de figura que tienen las cargas distribuidas y encuentre su centroide a partir de esto.",      
-        ayuda3 = "Haga sumatoria de fuerzas y momentos globales para encontrar las reacciones en los apoyos.",
+        pregunta = lambda f, a, calc, c, d, m: f"Encuentre las reacciones en los apoyos teniendo en cuenta que $W_1 = {m[0]:.0f} \\dfrac{{kN}}{{m}}$, $W_2 = {m[0]+5:.0f}\\dfrac{{kN}}{{m}}$, $W_3 = {m[2]:.0f}\\dfrac{{kN}}{{m}}$, $F={f[0]:.0f} \\text{{ kN}}$ y $d_0 = {d[0]:.0f} \\text{{ m}}$, $d_1 = {d[3]:.0f}\\text{{ m}}$ y $d_2 = {d[6]:.0f}\\text{{ m}}$. Adicionalmente, considere que la fuerza $F$ esta siendo aplicada en centro de su sección.",
+        no_answers = 3,
+        a1_name = "Reacción $A_x$ $[kN]$",
+        a2_name = "Reacción $A_y$ $[kN]$",
+        a3_name = "Reacción $B_y$ $[kN]$",
+        answer1 = lambda f, a, calc, c, d, m: 0,
+        answer2 = lambda f, a, calc, c, d, m: np.round(((m[0]*d[0])/2)+(m[0]*d[3])+((m[0]+5-m[0])*d[3]/2)+(m[2]*d[6])+f[0]-(((m[0]*d[0])/2)*(2*d[0]/3)+(m[0]*d[3])*(d[0]+(d[3]/2))+((m[0]+5-m[0])*(d[3]/2))*(d[0]+(2*d[3]/3))+f[0]*(d[0]+d[3]+((d[3]/2)/2))+((m[2]*d[6])*(d[0]+d[3]+(d[3]/2)+(d[6]/2))))/(d[0]+d[3]+(d[3]/2)+d[6]),2),
+        answer3 = lambda f, a, calc, c, d, m: np.round((((m[0]*d[0])/2)*(2*d[0]/3)+(m[0]*d[3])*(d[0]+(d[3]/2))+((m[0]+5-m[0])*(d[3]/2))*(d[0]+(2*d[3]/3))+f[0]*(d[0]+d[3]+((d[3]/2)/2))+((m[2]*d[6])*(d[0]+d[3]+(d[3]/2)+(d[6]/2))))/(d[0]+d[3]+(d[3]/2)+d[6]),2),
+        ayuda1 = FD1,
+        ayuda2 = FD2,      
+        ayuda3 = FD4,
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-        A continuacion se expondra la solucion sugerida del ejercicio:
-        $\\textbf{{\\small 1. Fuerzas y centroides: }}$
-        
-        ${{\hspace{{4mm}} F_1 = \\dfrac{{W_1 \\cdot d_0}}{{2}} }}$
-        ${{\hspace{{4mm}} F_1 = {(m[0]*d[0])/2}[kN]}}$
-        ${{\hspace{{4mm}} \\bar{{x_1}} = \\dfrac{{2 \\cdot d_0}}{{3}}}}$
-        ${{\hspace{{4mm}} \\bar{{x_1}} = {(2*d[0])/3}[m]}}$
-        ${{\hspace{{4mm}} F_2 = W_1 \\cdot d_1 }}$
-        ${{\hspace{{4mm}} F_2 = {m[0]*d[3]}[kN]}}$
-        ${{\hspace{{4mm}} \\bar{{x_2}} = \\dfrac{{d_1}}{{2}} }}$
-        ${{\hspace{{4mm}} \\bar{{x_2}} = {d[1]/2}[m]}}$
-        ${{\hspace{{4mm}} F_3 = \\dfrac{{(W_2-W_1) \\cdot d_1}}{{2}} }}$
-        ${{\hspace{{4mm}} F_3 = {(m[1]-m[0])*d[3]/2}[kN]}}$
-        ${{\hspace{{4mm}} \\bar{{x_3}} = \\dfrac{{2 \\cdot d_1}}{{3}} }}$
-        ${{\hspace{{4mm}} \\bar{{x_3}} = {(2*d[3])/3}[m]}}$
-        ${{\hspace{{4mm}} F_4 = W_3 \\cdot d_2 }}$
-        ${{\hspace{{4mm}} F_4 = {m[2]*d[6]}[kN]}}$
-        ${{\hspace{{4mm}} \\bar{{x_4}} = \\dfrac{{d_2}}{{2}} }}$
-        ${{\hspace{{4mm}} \\bar{{x_4}} = {d[6]/2}[m]}}$
+        Una fuerza distribuida es una carga que actúa sobre una superficie o a lo largo de un segmento, en lugar de estar concentrada en un solo punto. A continuación, se presenta la solución sugerida para el ejercicio:
 
-        $\\textbf{{\\small 2. Reacciones - Sumatoria de fuerzas y de momentos: }}$
-        ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$
-        ${{\hspace{{4mm}} A_x = 0 }}$
-        ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$
-        ${{\hspace{{4mm}} A_y + B_y - F_1 - F_2 - F_3 - F_4 = 0}}$
-        ${{\hspace{{4mm}} A_y + B_y = F_1 + F_2 + F_3 + F_4}}$
-        ${{\hspace{{4mm}} A_y + B_y = {m[0]*d[0]/2} + {m[0]*d[3]} + {(m[1]-m[0])*d[3]/2} + {m[2]*d[6]}}}$
-        ${{\hspace{{4mm}} A_y + B_y = {m[0]*d[0]/2 + m[0]*d[3] + (m[1]-m[0])*d[3]/2 + m[2]*d[6]}}}$
-        ${{\hspace{{4mm}} \\sum{{M_A}} = 0 }}$
-        ${{\hspace{{4mm}} -F_1 \\cdot \\bar{{x_1}} - F_2 \\cdot (d_0 + \\bar{{x_2}}) - F_3 \\cdot (d_0 + \\bar{{x_3}}) - F_4 \\cdot (d_0 + \\dfrac{{3 \\cdot d_1}}{{2}} + \\bar{{x_4}}) - F(d_0 + \\dfrac{{5 \\cdot d_1}}{{4}}) + B_y \\cdot (d_0 + \\dfrac{{3 \\cdot d_1}}{{2}} + d_2) = 0 }}$
-        ${{\hspace{{4mm}} B_y \\cdot (d_0 + \\dfrac{{3 \\cdot d_1}}{{2}} + d_2) = F_1 \\cdot \\bar{{x_1}} + F_2 \\cdot (d_0 + \\bar{{x_2}}) + F_3 \\cdot (d_0 + \\bar{{x_3}}) + F_4 \\cdot (d_0 + \\dfrac{{3 \\cdot d_1}}{{2}} + \\bar{{x_4}}) + F(d_0 + \\dfrac{{5 \\cdot d_1}}{{4}})}}$
-        ${{\hspace{{4mm}} B_y = \\dfrac{{F_1 \\cdot \\bar{{x_1}} + F_2 \\cdot (d_0 + \\bar{{x_2}}) + F_3 \\cdot (d_0 + \\bar{{x_3}}) + F_4 \\cdot (d_0 + \\dfrac{{3 \\cdot d_1}}{{2}} + \\bar{{x_4}}) + F(d_0 + \\dfrac{{5 \\cdot d_1}}{{4}})}}{{(d_0 + \\dfrac{{3 \\cdot d_1}}{{2}} + d_2)}}}}$
-        ${{\hspace{{4mm}} B_y ={((m[0]*d[0])/2*(2*d[0])/3+m[0]*d[3]*(d[0]+d[1]/2)+(m[1]-m[0])*d[3]/2*(d[0]+((2*d[3])/3))+m[2]*d[6]*(d[0]+((3*d[3])/2)+d[6]/2)+f[0]*(d[0]+((5*d[3])/4)))/(d[0]+((3*d[3])/2)+d[6])}[kN]}}$
-        ${{\hspace{{4mm}} A_y = {m[0]*d[0]/2 + m[0]*d[3] + (m[1]-m[0])*d[3]/2 + m[2]*d[6]}- B_y}}$
-        ${{\hspace{{4mm}} A_y = {m[0]*d[0]/2 + m[0]*d[3] + (m[1]-m[0])*d[3]/2 + m[2]*d[6]-(((m[0]*d[0])/2*(2*d[0])/3+m[0]*d[3]*(d[0]+d[1]/2)+(m[1]-m[0])*d[3]/2*(d[0]+((2*d[3])/3))+m[2]*d[6]*(d[0]+((3*d[3])/2)+d[6]/2)+f[0]*(d[0]+((5*d[3])/4)))/(d[0]+((3*d[3])/2)+d[6]))}[kN]}}$
+        $\\textbf{{\\small 1. División de fuerza distribuida: }}$
 
-
-
+        En el ejercicio se muestra una fuerza distribuida que puede dividirse en 3 distribuciones más simples, cuyos centroides son conocidos y comunes, como triángulos y rectángulos.      
         """,   
-        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        $\\textbf{{\\small 2. Puntualización de las fuerzas: }}$
+        
+        Teniendo en cuenta la configuración mostrada, se puede determinar la ubicación de las tres fuerzas.
+        """,
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"""
+        La magnitud de cada una de las fuerzas se calcula de la siguiente forma:
+        
+        ${{\hspace{{4mm}} F_1 = \\dfrac{{W_1 \\cdot d_0}}{{2}} }}$    
+        ${{\hspace{{4mm}} F_1 = {(m[0]*d[0])/2:.2f} \\text{{ kN}}}}$    
+          
+        ${{\hspace{{4mm}} F_2 = W_1 \\cdot d_1 }}$    
+        ${{\hspace{{4mm}} F_2 = {m[0]*d[3]:.2f} \\text{{ kN}}}}$    
+         
+        ${{\hspace{{4mm}} F_3 = \\dfrac{{(W_2-W_1) \\cdot d_1}}{{2}} }}$    
+        ${{\hspace{{4mm}} F_3 = {(m[0]+5-m[0])*d[3]/2:.2f} \\text{{ kN}}}}$    
+            
+        ${{\hspace{{4mm}} F_4 = W_3 \\cdot d_2 }}$    
+        ${{\hspace{{4mm}} F_4 = {m[2]*d[6]:.2f} \\text{{ kN}}}}$    
+          
+
+        $\\textbf{{\\small 3. Cálculo de las reacciones en los apoyos: }}$
+        
+        ${{\hspace{{4mm}} \\sum{{F_x}} = A_x = 0 }}$     
+        ${{\hspace{{4mm}} A_x = 0 }}$
+
+        ${{\hspace{{4mm}} \\sum{{M_A}} = 0 }}$      
+        ${{\hspace{{4mm}} \\sum{{M_A}} = -F_1 \\cdot \\dfrac{{2d_0}}{{3}} - F_2 \\cdot (d_0 + \\dfrac{{d_1}}{{2}}) - F_3 \\cdot (d_0 + \\dfrac{{2d_1}}{{3}}) - F_4 \\cdot (d_0 + \\dfrac{{3 \\cdot d_1}}{{2}} + \\dfrac{{d_2}}{{2}}) - F(d_0 + \\dfrac{{5 \\cdot d_1}}{{4}}) + B_y \\cdot (d_0 + \\dfrac{{3 \\cdot d_1}}{{2}} + d_2) = 0 }}$      
+        ${{\hspace{{4mm}} B_y = \\dfrac{{F_1 \\cdot \\dfrac{{2d_0}}{{3}} + F_2 \\cdot (d_0 + \\dfrac{{d_1}}{{2}}) + F_3 \\cdot (d_0 + \\dfrac{{2d_1}}{{3}}) + F_4 \\cdot (d_0 + \\dfrac{{3 \\cdot d_1}}{{2}} + \\dfrac{{d_2}}{{2}}) + F(d_0 + \\dfrac{{5 \\cdot d_1}}{{4}})}}{{d_0 + \\dfrac{{3 \\cdot d_1}}{{2}} + d_2}}}}$       
+        ${{\hspace{{4mm}} B_y ={(((m[0]*d[0])/2)*(2*d[0]/3)+(m[0]*d[3])*(d[0]+(d[3]/2))+((m[0]+5-m[0])*(d[3]/2))*(d[0]+(2*d[3]/3))+f[0]*(d[0]+d[3]+((d[3]/2)/2))+((m[2]*d[6])*(d[0]+d[3]+(d[3]/2)+(d[6]/2))))/(d[0]+d[3]+(d[3]/2)+d[6]):.2f} \\text{{ kN}}}}$      
+
+        ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$       
+        ${{\hspace{{4mm}} \\sum{{F_y}} = A_y + B_y - F_1 - F_2 - F_3 - F_4 = 0}}$       
+        ${{\hspace{{4mm}} \\sum{{F_y}} = A_y = F_1 + F_2 + F_3 + F_4 - B_y}}$             
+        ${{\hspace{{4mm}} A_y = {((m[0]*d[0])/2)+(m[0]*d[3])+((m[0]+5-m[0])*d[3]/2)+(m[2]*d[6])+f[0]-(((m[0]*d[0])/2)*(2*d[0]/3)+(m[0]*d[3])*(d[0]+(d[3]/2))+((m[0]+5-m[0])*(d[3]/2))*(d[0]+(2*d[3]/3))+f[0]*(d[0]+d[3]+((d[3]/2)/2))+((m[2]*d[6])*(d[0]+d[3]+(d[3]/2)+(d[6]/2))))/(d[0]+d[3]+(d[3]/2)+d[6]):.2f} \\text{{ kN}}}}$
+        """,
         calculos='operations'
     ),
 
-    Questionary(#2_1
-        code = 7120011,
-        no_pregunta = 2,
-        complexity = M,
-        topic = FD,
-        subtopic = "Vigas",
-        version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Teniendo en cuenta que la carga distribuida se comporta como la función $y = c \\cdot \\sqrt{{x}}$, encuentre la fuerza en $N$ que se genera apartir de esta carga y donde se ubica sobre la viga. Considere que $d_0 = {d[0]:.0f}[m]$ y $c = {c[0]:.0f}$.",
-        no_answers = 2,
-        a1_name = "Fuerza producida por la carga distribuida en [N]",
-        a2_name = "Centroide de la carga distribuida en [m]",
-        a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round(2*c[0]*(d[0])**(3/2)/3,2),
-        answer2 = lambda f, a, calc, c, d, m: np.round(3*d[0]/5,2),
-        answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = "Tenga en cuenta que la fuerza se calcula como $F = \(\int_{0}^{a} f(x) \,dx\)$, donde a es la distancia donde se ejerce la carga distribuida.",
-        ayuda2 = "Tenga en cuenta que el centroido de la carga se calcula como $\\bar{x} = \\dfrac{\(\int_{0}^{a} x \\cdot f(x) \,dx\)}{\(\int_{0}^{a} f(x) \,dx\)}$, donde a es la distancia donde se ejerce la carga distribuida.",      
-        ayuda3 = "",
-        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-        A continuación, se presenta la solución sugerida para el ejercicio:
+    # Questionary(#2_1
+    #     code = 7120011,
+    #     no_pregunta = 2,
+    #     complexity = M,
+    #     topic = FD,
+    #     subtopic = "Vigas",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"Teniendo en cuenta que la carga distribuida se comporta como la función $y = c \\cdot \\sqrt{{x}}$, encuentre la fuerza en $N$ que se genera apartir de esta carga y donde se ubica sobre la viga. Considere que $d_0 = {d[0]:.0f}[m]$ y $c = {c[0]:.0f}$.",
+    #     no_answers = 2,
+    #     a1_name = "Fuerza producida por la carga distribuida en [N]",
+    #     a2_name = "Centroide de la carga distribuida en [m]",
+    #     a3_name = "",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round(2*c[0]*(d[0])**(3/2)/3,2),
+    #     answer2 = lambda f, a, calc, c, d, m: np.round(3*d[0]/5,2),
+    #     answer3 = lambda f, a, calc, c, d, m: 0,
+    #     ayuda1 = "Tenga en cuenta que la fuerza se calcula como $F = \(\int_{0}^{a} f(x) \,dx\)$, donde a es la distancia donde se ejerce la carga distribuida.",
+    #     ayuda2 = "Tenga en cuenta que el centroido de la carga se calcula como $\\bar{x} = \\dfrac{\(\int_{0}^{a} x \\cdot f(x) \,dx\)}{\(\int_{0}^{a} f(x) \,dx\)}$, donde a es la distancia donde se ejerce la carga distribuida.",      
+    #     ayuda3 = "",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     A continuación, se presenta la solución sugerida para el ejercicio:
         
-        $\\textbf{{\\small 1. Fuerza: }}$
+    #     $\\textbf{{\\small 1. Fuerza: }}$
         
-        ${{\hspace{{4mm}} F = \(\int_{0}^{d[0]} c\sqrt{{x}} \,dx\)$ }}$
-        ${{\hspace{{4mm}} F = \(\left[ \\dfrac{2}{3} x^{3/2} \\right]_{0}^{d[0]} \) }}$
-        ${{\hspace{{4mm}} F = \\dfrac{2}{3} c \cdot d[0]^{3/2} }}$
-        ${{\hspace{{4mm}} F = {(2*c[0]*(d[0])**(3/2))/3}[N] }}$
+    #     ${{\hspace{{4mm}} F = \(\int_{0}^{d[0]} c\sqrt{{x}} \,dx\)$ }}$
+    #     ${{\hspace{{4mm}} F = \(\left[ \\dfrac{2}{3} x^{3/2} \\right]_{0}^{d[0]} \) }}$
+    #     ${{\hspace{{4mm}} F = \\dfrac{2}{3} c \cdot d[0]^{3/2} }}$
+    #     ${{\hspace{{4mm}} F = {(2*c[0]*(d[0])**(3/2))/3}[N] }}$
 
-        $\\textbf{{\\small 2. Centroide: }}$
+    #     $\\textbf{{\\small 2. Centroide: }}$
 
-        ${{\hspace{{4mm}} \\bar{{x}} = \\dfrac{{\(\int_{0}^{d[0]} x \cdot c\sqrt{{x}} \,dx\)}}{{\(\int_{0}^{d[0]} c\sqrt{{x}} \,dx\)}} }}$
-        ${{\hspace{{4mm}} \\bar{{x}} = \\dfrac{{\(\left[ \\dfrac{2}{5} x^{5/2} \\right]_{0}^{d[0]} \)}}{{\(\left[ \\dfrac{2}{3} x^{3/2} \\right]_{0}^{d[0]} \)}} }}$
-        ${{\hspace{{4mm}} \\bar{{x}} = \\dfrac{{\\dfrac{2}{5} d[0]^{5/2}}}{{\\dfrac{2}{3} d[0]^{3/2}}} }}$
-        ${{\hspace{{4mm}} \\bar{{x}} = \\dfrac{3}{5} d[0] }}$
-        ${{\hspace{{4mm}} \\bar{{x}} = {(3*d[0])/5}[m] }}$
-        """,   
-        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-        calculos='operations'
-        ),
+    #     ${{\hspace{{4mm}} \\bar{{x}} = \\dfrac{{\(\int_{0}^{d[0]} x \cdot c\sqrt{{x}} \,dx\)}}{{\(\int_{0}^{d[0]} c\sqrt{{x}} \,dx\)}} }}$
+    #     ${{\hspace{{4mm}} \\bar{{x}} = \\dfrac{{\(\left[ \\dfrac{2}{5} x^{5/2} \\right]_{0}^{d[0]} \)}}{{\(\left[ \\dfrac{2}{3} x^{3/2} \\right]_{0}^{d[0]} \)}} }}$
+    #     ${{\hspace{{4mm}} \\bar{{x}} = \\dfrac{{\\dfrac{2}{5} d[0]^{5/2}}}{{\\dfrac{2}{3} d[0]^{3/2}}} }}$
+    #     ${{\hspace{{4mm}} \\bar{{x}} = \\dfrac{3}{5} d[0] }}$
+    #     ${{\hspace{{4mm}} \\bar{{x}} = {(3*d[0])/5}[m] }}$
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ),
    
 
 

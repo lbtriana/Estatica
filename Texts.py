@@ -280,6 +280,7 @@ CT8 = "El centroide es el punto en el que se puede apoyar un objeto de material 
 FD1 = "La magnitud de la fuerza resultante es igual al área bajo la curva de la fuerza distribuida."
 FD2 = "La localización de la fuerza resultante se encuentra en el centroide de la fuerza distribuida."
 FD3 = "Para simplificar el problema, se puede dividir el área bajo la curva de la distribución en figuras más sencillas."
+FD4 = "Realice la sumatoria de fuerzas y momentos globales para encontrar las reacciones en los apoyos."
 
 #PRESIONES HIDROSTÁTICAS
 PH1 = "La presión hidrostática es la presión ejercida por un fluido en reposo. Esta presión se genera en todos los puntos del fluido y actúa perpendicularmente a las superificies sumergidas."

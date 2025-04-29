@@ -1018,14 +1018,14 @@ if authenticate_user():
                         st.image(CT_image_paths[5], width=500) 
                     if pregunta_no == 2:
                         st.image(CT_image_paths[6], width=500)
-                if subtopic == "Vigas":
-                    if pregunta_no == 1:
-                        st.image(FD_image_paths[15], width=450)  
-                    if pregunta_no == 2:
-                        st.image(FD_image_paths[16], width=450)
-                if subtopic == "Presión hidrostática":
-                    if pregunta_no == 1:
-                        st.image(FD_image_paths[12], width=400)
+                # if subtopic == "Vigas":
+                #     if pregunta_no == 1:
+                #         st.image(FD_image_paths[15], width=450)  
+                #     if pregunta_no == 2:
+                #         st.image(FD_image_paths[16], width=450)
+                # if subtopic == "Presión hidrostática":
+                #     if pregunta_no == 1:
+                #         st.image(FD_image_paths[12], width=400)
                             
         return
 
@@ -1086,7 +1086,7 @@ if authenticate_user():
                         st.image(CT_rtas_paths[1], width=200)
                 if subtopic == "Vigas":
                     if pregunta_no ==1:
-                        st.image(FD_rtas_paths[13], width=350)
+                        st.image(FD_rtas_paths[16], width=350)
                 if subtopic == "Presión hidrostática":
                     if pregunta_no ==1:
                         st.image(FD_rtas_paths[5], width=350)
@@ -1148,6 +1148,9 @@ if authenticate_user():
                 if subtopic == "Presión hidrostática":
                     if pregunta_no == 3:
                         st.image(FD_rtas_paths[15], width=350)
+                if subtopic == "Vigas":
+                    if pregunta_no ==1:
+                        st.image(FD_rtas_paths[17], width=350)
         return
 
     #Función para que el botón "Ayuda" muestre secuencialmente las ayudas
