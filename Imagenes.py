@@ -407,6 +407,7 @@ FD_rtas_paths= [
 "./Imagenes/Respuestas/FD/VI/R_FD_VI_M_1b.png", #[17]
 "./Imagenes/Respuestas/FD/VI/R_FD_VI_D_1a.png", #[18]
 "./Imagenes/Respuestas/FD/VI/R_FD_VI_D_2a.png", #[19]
+"./Imagenes/Respuestas/FD/VI/R_FD_VI_D_2b.png", #[20]
 ]
 
 #================================ Imágenes Respuestas Cálculos Fuerzas Internas ===================================

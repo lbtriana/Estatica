@@ -1021,8 +1021,8 @@ if authenticate_user():
                 if subtopic == "Vigas":
                     if pregunta_no == 1:
                         st.image(FD_image_paths[15], width=450)  
-                #     if pregunta_no == 2:
-                #         st.image(FD_image_paths[16], width=450)
+                    if pregunta_no == 2:
+                        st.image(FD_image_paths[16], width=450)
                 # if subtopic == "Presión hidrostática":
                 #     if pregunta_no == 1:
                 #         st.image(FD_image_paths[12], width=400)
@@ -1124,7 +1124,9 @@ if authenticate_user():
                         st.image(CT_rtas_paths[2], width=600)  
                 if subtopic == "Vigas":
                     if pregunta_no ==1:
-                        st.image(FD_rtas_paths[18], width=350)    
+                        st.image(FD_rtas_paths[18], width=350)  
+                    if pregunta_no ==2:
+                        st.image(FD_rtas_paths[19], width=350)  
                 if subtopic == "Presión hidrostática":
                     if pregunta_no ==1:
                         st.image(FD_rtas_paths[13], width=350)                                   
@@ -1151,6 +1153,12 @@ if authenticate_user():
                 if subtopic == "Vigas":
                     if pregunta_no ==1:
                         st.image(FD_rtas_paths[17], width=350)
+
+            if difficulty == "Díficil":
+                if subtopic == "Vigas":
+                    if pregunta_no ==2:
+                        st.image(FD_rtas_paths[20], width=350)
+
         return
 
     #Función para que el botón "Ayuda" muestre secuencialmente las ayudas
