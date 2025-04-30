@@ -1022,10 +1022,10 @@ if authenticate_user():
                     if pregunta_no == 1:
                         st.image(FD_image_paths[15], width=450)  
                     if pregunta_no == 2:
-                        st.image(FD_image_paths[16], width=450)
-                # if subtopic == "Presión hidrostática":
-                #     if pregunta_no == 1:
-                #         st.image(FD_image_paths[12], width=400)
+                        st.image(FD_image_paths[16], width=500)
+                if subtopic == "Presión hidrostática":
+                    if pregunta_no == 1:
+                        st.image(FD_image_paths[12], width=400)
                             
         return
 

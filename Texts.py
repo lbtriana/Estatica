@@ -283,6 +283,7 @@ FD3 = "Para simplificar el problema, se puede dividir el área bajo la curva de 
 FD4 = "Realice la sumatoria de fuerzas y momentos globales para encontrar las reacciones en los apoyos."
 FD5 = "La fuerza es el área bajo la curva de la integral, se calcula mediante la expresión: $\\int dA$."
 FD6 = "El centroide de la carga distribuida se calcula con la siguiente expresión: $\\dfrac{{\\int x \\cdot dA \\text{{ }}}}{{\\int dA \\text{{ }}}}$."
+FD7 = "Determine la fuerza generada por cada una de las secciones en que se divide la carga distribuida, teniendo en cuenta la geometría de cada una. Además, calcule la posición del centroide correspondiente a cada sección."
 
 
 #PRESIONES HIDROSTÁTICAS
