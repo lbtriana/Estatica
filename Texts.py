@@ -281,6 +281,9 @@ FD1 = "La magnitud de la fuerza resultante es igual al área bajo la curva de la
 FD2 = "La localización de la fuerza resultante se encuentra en el centroide de la fuerza distribuida."
 FD3 = "Para simplificar el problema, se puede dividir el área bajo la curva de la distribución en figuras más sencillas."
 FD4 = "Realice la sumatoria de fuerzas y momentos globales para encontrar las reacciones en los apoyos."
+FD5 = "La fuerza es el área bajo la curva de la integral, se calcula mediante la expresión: $\\int dA$."
+FD6 = "El centroide de la carga distribuida se calcula con la siguiente expresión: $\\dfrac{{\\int x \\cdot dA \\text{{ }}}}{{\\int dA \\text{{ }}}}$."
+
 
 #PRESIONES HIDROSTÁTICAS
 PH1 = "La presión hidrostática es la presión ejercida por un fluido en reposo. Esta presión se genera en todos los puntos del fluido y actúa perpendicularmente a las superificies sumergidas."

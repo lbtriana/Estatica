@@ -7565,46 +7565,51 @@ preguntas = [
         calculos='operations'
     ),
 
-    # Questionary(#2_1
-    #     code = 7120011,
-    #     no_pregunta = 2,
-    #     complexity = M,
-    #     topic = FD,
-    #     subtopic = "Vigas",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Teniendo en cuenta que la carga distribuida se comporta como la función $y = c \\cdot \\sqrt{{x}}$, encuentre la fuerza en $N$ que se genera apartir de esta carga y donde se ubica sobre la viga. Considere que $d_0 = {d[0]:.0f}[m]$ y $c = {c[0]:.0f}$.",
-    #     no_answers = 2,
-    #     a1_name = "Fuerza producida por la carga distribuida en [N]",
-    #     a2_name = "Centroide de la carga distribuida en [m]",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(2*c[0]*(d[0])**(3/2)/3,2),
-    #     answer2 = lambda f, a, calc, c, d, m: np.round(3*d[0]/5,2),
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "Tenga en cuenta que la fuerza se calcula como $F = \(\int_{0}^{a} f(x) \,dx\)$, donde a es la distancia donde se ejerce la carga distribuida.",
-    #     ayuda2 = "Tenga en cuenta que el centroido de la carga se calcula como $\\bar{x} = \\dfrac{\(\int_{0}^{a} x \\cdot f(x) \,dx\)}{\(\int_{0}^{a} f(x) \,dx\)}$, donde a es la distancia donde se ejerce la carga distribuida.",      
-    #     ayuda3 = "",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     A continuación, se presenta la solución sugerida para el ejercicio:
+    Questionary(#2_1
+        code = 7120011,
+        no_pregunta = 2,
+        complexity = M,
+        topic = FD,
+        subtopic = "Vigas",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"La carga distribuida sobre la viga se describe mediante la función $y = c \\cdot \\sqrt{{x}}$, determine la fuerza generada por esta carga, y la posición sobre la viga donde se aplica dicha fuerza. Considere que $d_0 = {d[0]:.0f} \\text{{ m}}$ y $c = {d[3]:.0f}$.",
+        no_answers = 2,
+        a1_name = "Fuerza total $[N]$",
+        a2_name = "Centroide de la carga distribuida $[m]$",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(2*d[3]*(d[0])**(3/2)/3,2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(3*d[0]/5,2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = FD5,
+        ayuda2 = FD6,      
+        ayuda3 = "",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        A continuación, se presenta la solución sugerida para el ejercicio:
         
-    #     $\\textbf{{\\small 1. Fuerza: }}$
+        $\\textbf{{\\small 1. Fuerza: }}$
+
+        La fuerza corresponde al área bajo la curva de la integral.
         
-    #     ${{\hspace{{4mm}} F = \(\int_{0}^{d[0]} c\sqrt{{x}} \,dx\)$ }}$
-    #     ${{\hspace{{4mm}} F = \(\left[ \\dfrac{2}{3} x^{3/2} \\right]_{0}^{d[0]} \) }}$
-    #     ${{\hspace{{4mm}} F = \\dfrac{2}{3} c \cdot d[0]^{3/2} }}$
-    #     ${{\hspace{{4mm}} F = {(2*c[0]*(d[0])**(3/2))/3}[N] }}$
+        ${{\hspace{{4mm}} F = \\int_{0}^{d[0]} {d[3]:.0f}\\sqrt{{x}} \\text{{ }}dx }}$     
+        
+        ${{\hspace{{4mm}} F = {d[3]:.0f}\\left[ \\dfrac{{2}}{{3}} x^{{3/2}} \\right]_{0}^{d[0]} }}$          
+        
+        ${{\hspace{{4mm}} F = {(2*d[3]*(d[0])**(3/2))/3:.2f} \\text{{ N}} }}$
 
-    #     $\\textbf{{\\small 2. Centroide: }}$
+        $\\textbf{{\\small 2. Centroide: }}$
 
-    #     ${{\hspace{{4mm}} \\bar{{x}} = \\dfrac{{\(\int_{0}^{d[0]} x \cdot c\sqrt{{x}} \,dx\)}}{{\(\int_{0}^{d[0]} c\sqrt{{x}} \,dx\)}} }}$
-    #     ${{\hspace{{4mm}} \\bar{{x}} = \\dfrac{{\(\left[ \\dfrac{2}{5} x^{5/2} \\right]_{0}^{d[0]} \)}}{{\(\left[ \\dfrac{2}{3} x^{3/2} \\right]_{0}^{d[0]} \)}} }}$
-    #     ${{\hspace{{4mm}} \\bar{{x}} = \\dfrac{{\\dfrac{2}{5} d[0]^{5/2}}}{{\\dfrac{2}{3} d[0]^{3/2}}} }}$
-    #     ${{\hspace{{4mm}} \\bar{{x}} = \\dfrac{3}{5} d[0] }}$
-    #     ${{\hspace{{4mm}} \\bar{{x}} = {(3*d[0])/5}[m] }}$
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
+        El centroide se calcula con la siguiente expresión: $\\dfrac{{\\int x \\cdot dA \\text{{ }}}}{{\\int dA \\text{{ }}}}$
+
+        ${{\hspace{{4mm}} \\bar{{x}} = \\dfrac{{\\int_{0}^{d[0]} x \\cdot {d[3]:.0f}\\sqrt{{x}} \\text{{ }} dx}}{{\\int_{0}^{d[0]} {d[3]:.0f}\\sqrt{{x}} \\text{{ }}}} }}$      
+        
+        ${{\hspace{{4mm}} \\bar{{x}} = \\dfrac{{{d[3]:.0f}\\left[ \\dfrac{2}{5} x^{{5/2}} \\right]_{0}^{d[0]}}}{{{d[3]:.0f}\\left[ \\dfrac{2}{3} x^{{3/2}} \\right]_{0}^{d[0]}}} }}$            
+        
+        ${{\hspace{{4mm}} \\bar{{x}} = {(3*d[0])/5}  \\text{{ m}} }}$
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
    
 
 
