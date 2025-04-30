@@ -273,6 +273,9 @@ FD_image_paths =[
 "./Imagenes/Preguntas/FD/VI/FD_VI_M_2a.png", #[14]
 "./Imagenes/Preguntas/FD/VI/FD_VI_D_1a.png", #[15]
 "./Imagenes/Preguntas/FD/VI/FD_VI_D_2a.png", #[16]
+
+#Fuerzas distribuidas _ Empuje de suelo 
+"./Imagenes/Preguntas/FD/ES/FD_ES_D_1a.png", #[17]
 ]
 
 #================================ Imágenes Preguntas Cálculo Fuerzas internas ===================================
@@ -408,6 +411,9 @@ FD_rtas_paths= [
 "./Imagenes/Respuestas/FD/VI/R_FD_VI_D_1a.png", #[18]
 "./Imagenes/Respuestas/FD/VI/R_FD_VI_D_2a.png", #[19]
 "./Imagenes/Respuestas/FD/VI/R_FD_VI_D_2b.png", #[20]
+
+#Fuerzas distribuidas _ Empuje de suelo
+"./Imagenes/Respuestas/FD/ES/R_FD_ES_D_1a.png", #[21]
 ]
 
 #================================ Imágenes Respuestas Cálculos Fuerzas Internas ===================================

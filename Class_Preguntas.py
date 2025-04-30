@@ -8288,7 +8288,7 @@ preguntas = [
         version = 1,
         pregunta = lambda f, a, calc, c, d, m: f"La presa de “gravedad” de concreto es mantenida en su lugar por su propio peso. Determine la dimensión $d_3$ más pequeña que impide que la presa se voltee alrededor de su extremo $A$. Considere $d_1 = {d[0] + d[3]*2:.0f} \\text{{ m}}$,  $d_2 = {d[3]/2:.1f}  \\text{{ m}}$, la densidad del agua $\\rho_a = 1000 \\dfrac{{kg}}{{m^3}}$, la densidad del concreto $\\rho_c = {2400+m[0]:.0f} \\dfrac{{kg}}{{m^3}}$ y la aceleración debida a la gravedad $g = 9,81 \\dfrac{{m}}{{s^2}}$.",
         no_answers = 1,
-        a1_name = "Dimensión $d_3$ [m]",
+        a1_name = "Dimensión $d_3$ $[m]$",
         a2_name = "",
         a3_name = "",
         answer1 = lambda f, a, calc, c, d, m: np.round((-((((2400+m[0])*9.81*(d[0]+d[3]*2)*d[3]*0.5)/2)+((1000*9.81*(d[0]+d[3]*2)*d[3]*0.5)/2))+math.sqrt(((((2400+m[0])*9.81*(d[0]+d[3]*2)*d[3]*0.5)/2)+((1000*9.81*(d[0]+d[3]*2)*d[3]*0.5)/2))**2-4*((((2400+m[0])*9.81*(d[0]+d[3]*2))/6)+((1000*9.81*(d[0]+d[3]*2))/3))*(((2400+m[0])*9.81*(d[0]+d[3]*2)*d[3]*0.5*((0.5*d[3])/2))-((1000*9.81*(d[0]+d[3]*2)**3))/6)))/(2*((((2400+m[0])*9.81*(d[0]+d[3]*2))/6)+((1000*9.81*(d[0]+d[3]*2))/3))),2),
@@ -8409,6 +8409,64 @@ preguntas = [
         topic = FD,
         subtopic = "Empuje de suelo",
         version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la distancia $d_3$ que se necesita para asegurar que no exista volcamiento alrededor del punto $A$. Considere que el peso específico del concreto es $\\gamma_c = {18+d[0]*(1/2):.2f} \\dfrac{{kN}}{{m^3}}$, el peso específico del suelo es $\\gamma_s = {15+d[3]*(1/2):.2f} \\dfrac{{kN}}{{m^3}}$, el coeficiente de presión lateral de tierra $k = {(12+d[6])*(1/50):.2f}$, $d_1 = {(100+d[12])/100:.2f}  \\text{{ m}}$, $d_2 = {1+d[15]*(1/10):.2f}  \\text{{ m}}$ y $d_3 = {4+d[9]*(1/2):.2f} \\text{{ m}}}}$.",
+        no_answers = 1,
+        a1_name = "Dimensión $d_3$ $[m]$",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round((-((((2400+m[0])*9.81*(d[0]+d[3]*2)*d[3]*0.5)/2)+((1000*9.81*(d[0]+d[3]*2)*d[3]*0.5)/2))+math.sqrt(((((2400+m[0])*9.81*(d[0]+d[3]*2)*d[3]*0.5)/2)+((1000*9.81*(d[0]+d[3]*2)*d[3]*0.5)/2))**2-4*((((2400+m[0])*9.81*(d[0]+d[3]*2))/6)+((1000*9.81*(d[0]+d[3]*2))/3))*(((2400+m[0])*9.81*(d[0]+d[3]*2)*d[3]*0.5*((0.5*d[3])/2))-((1000*9.81*(d[0]+d[3]*2)**3))/6)))/(2*((((2400+m[0])*9.81*(d[0]+d[3]*2))/6)+((1000*9.81*(d[0]+d[3]*2))/3))),2),
+        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = PH1,
+        ayuda2 = PH2,
+        ayuda3 = PH3,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        El empuje de suelo es la fuerza que el terreno ejerce sobre una estructura en contacto con él, por ejemplo, un muro de contención. A continuación, se presenta la solución sugerida para el ejercicio:
+        
+        $\\textbf{{\\small 1. Representación de ejercicio: }}$
+
+        En la configuración del muro de contención mostrado, se identifican las siguientes fuerzas: la fuerza resultante del empuje del suelo y cuatro fuerzas verticales del peso propio del muro de contención.  
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+         $\\textbf{{\\small 2. Puntualización de las fuerzas: }}$
+        
+        Asumiendo un ancho "a" de 1m:
+        
+        $\\underline{{Fuerzas \\hspace{{2mm}} verticales:}}$ 
+                
+        ${{\hspace{{4mm}} W_1 = \\gamma_c \\cdot a \\cdot d_2 \\cdot (d_2 + d_1)}}$     
+        ${{\hspace{{4mm}} W_2 = \\gamma_c \\cdot a \\cdot \\dfrac{{d_1 \\cdot (d_3 - d_2)}}{{2}}}}$         
+        
+        $\\underline{{Fuerza \\hspace{{2mm}} de \\hspace{{2mm}} presión:}}$ 
+        
+        ${{\hspace{{4mm}} F_P = k \\cdot a \\cdot \\dfrac{{\\gamma_s \\cdot (d_1 + d_2)^2}}{{2}}}}$  
+           
+        $\\textbf{{\\small 3. Estabilidad al volcamiento: }}$
+        
+        Ahora bien, la distancia minima de $d_3$ para asegurar que no exista volcamiento alrededor del punto $A$ se puede despejar de la sumatoria de momentos en $A$, igualándola a cero:
+        
+        ${{\hspace{{4mm}} \\sum{{M_A}} = F_P \\cdot \\dfrac{{d_1 + d_2}}{{3}} - W_1 \\cdot \\left(d_4 + d_3 - \\dfrac{{d_2}}{{2}}\\right) - W_2 \\cdot \\left(d_4 + \\dfrac{{2(d_3 - d_2)}}{{3}}\\right) - W_3 \\cdot  \\left(d_4 + \\dfrac{{d_3 - d_2}}{{2}}\\right) - W_4 \\cdot \\dfrac{{d_4}}{{2}} = 0}}$     
+        
+        Al realizar el despeje se obtiene que $d_4$ es:
+       
+        ${{\hspace{{4mm}} d_3 = {(-(-(18+d[0]*(1/2))*((50+d[12])/100)*(((3/2)+d[9]*(1/2))+((50+d[12])/100))-(18+d[0]*(1/2))*((((3/2)+d[9]*(1/2))*(((1/2) + d[15]*(1/20))-((50+d[12])/100)))/2)-(18+d[0]*(1/2))*(((1/2) + d[15]*(1/20))-((50+d[12])/100))*((50+d[12])/100))-(math.sqrt(((-(18+d[0]*(1/2))*((50+d[12])/100)*(((3/2)+d[9]*(1/2))+((50+d[12])/100))-(18+d[0]*(1/2))*((((3/2)+d[9]*(1/2))*(((1/2) + d[15]*(1/20))-((50+d[12])/100)))/2)-(18+d[0]*(1/2))*(((1/2) + d[15]*(1/20))-((50+d[12])/100))*((50+d[12])/100)))**2-(4*(((-(18+d[0]*(1/2))*((50+d[12])/100)*(((3/2)+d[9]*(1/2))+((50+d[12])/100))*((1/2) + d[15]*(1/20))))+((18+d[0]*(1/2))*((50+d[12])/100)*(((3/2)+d[9]*(1/2))+((50+d[12])/100))*(((50+d[12])/100)/2))-((18+d[0]*(1/2))*((((3/2)+d[9]*(1/2))*(((1/2) + d[15]*(1/20))-((50+d[12])/100)))/2)*(2/3)*((((1/2) + d[15]*(1/20)))-(((50+d[12])/100))))-((18+d[0]*(1/2))*(((1/2) + d[15]*(1/20))-((50+d[12])/100))*((50+d[12])/100)*(((((1/2) + d[15]*(1/20)))-(((50+d[12])/100)))/2))+((15+d[3]*(1/2))*((12+d[6])*(1/50))*(1/2)*(((3/2)+d[9]*(1/2))+((50+d[12])/100))**2)*(1/3)*(((3/2)+d[9]*(1/2))+((50+d[12])/100)))*((-((18+d[0]*(1/2))*((50+d[12])/100))/2))))))/(2*((-((18+d[0]*(1/2))*((50+d[12])/100))/2))):.2f} \\text{{ m}}}}$
+        """,
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
+  
+    #=================================================  FUERZAS DISTRIBUIDAS =========================================================
+    #-------------------------------------------------       Empuje de suelo    --------------------------------------------
+    #-------------------------------------------------       Nivel Díficil   ---------------------------------------------------
+    #-------------------------------------------------       Code: 73100#1    --------------------------------------------------
+ 
+    Questionary(#1_1
+        code = 7320011,
+        no_pregunta = 1,
+        complexity = D,
+        topic = FD,
+        subtopic = "Empuje de suelo",
+        version = 1,
         pregunta = lambda f, a, calc, c, d, m: f"Determine la distancia $d_4$ que se necesita para asegurar que no exista volcamiento alrededor del punto $A$. Considere que el peso específico del concreto es $\\gamma_c = {18+d[0]*(1/2):.2f} \\dfrac{{kN}}{{m^3}}$, el peso específico del suelo es $\\gamma_s = {15+d[3]*(1/2):.2f} \\dfrac{{kN}}{{m^3}}$, el coeficiente de presión lateral de tierra $k = {(12+d[6])*(1/50):.2f}$, $d_1 = {(3/2)+d[9]*(1/2):.2f} \\text{{ m}}$,  $d_2 = {(50+d[12])/100:.2f}  \\text{{ m}}$ y $d_3 = {(1/2) + d[15]*(1/20):.2f} \\text{{ m}}$.",
         no_answers = 1,
         a1_name = "Distancia $d_4$ [m]",
@@ -8455,36 +8513,9 @@ preguntas = [
         """, 
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
-        ),  
-  
-    #=================================================  FUERZAS DISTRIBUIDAS =========================================================
-    #-------------------------------------------------       Empuje de suelo    --------------------------------------------
-    #-------------------------------------------------       Nivel Díficil   ---------------------------------------------------
-    #-------------------------------------------------       Code: 73100#1    --------------------------------------------------
-    
-    Questionary(#1_1
-        code = 0,
-        no_pregunta = 1,
-        complexity = D,
-        topic = FD,
-        subtopic = "Empuje de suelo",
-        version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Está sección pronto estará disponible.",
-        no_answers = 0,
-        a1_name = "",
-        a2_name = "",
-        a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round(0, 2),
-        answer2 = lambda f, a, calc, c, d, m: np.round(0, 2),
-        answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = "",
-        ayuda2 = "",
-        ayuda3 = "",
-        respuesta_P1 = lambda fa, a, calc, c, d, m: f"",
-        respuesta_P2 = lambda fa, a, calc, c, d, m: f"",
-        respuesta_P3 = lambda fa, a, calc, c, d, m: f"",
-        calculos = 'operations',
         ),
+
+    
 
 
     #=================================================  FUERZAS INTERNAS =========================================================

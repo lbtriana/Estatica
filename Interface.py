@@ -945,7 +945,7 @@ if authenticate_user():
                         st.image(FD_image_paths[5], width=350) 
                 if subtopic == "Empuje de suelo":
                     if pregunta_no == 1:
-                        st.image(FD_image_paths[7], width=400) 
+                        st.image(FD_image_paths[17], width=400) 
                 if subtopic == "Fuerzas internas":
                     if pregunta_no == 1:
                         st.image(FI_image_paths[1], width=350)
@@ -1026,6 +1026,9 @@ if authenticate_user():
                 if subtopic == "Presión hidrostática":
                     if pregunta_no == 1:
                         st.image(FD_image_paths[12], width=400)
+                if subtopic == "Empuje de suelo":
+                    if pregunta_no == 1:
+                        st.image(FD_image_paths[7], width=400) 
                             
         return
 
@@ -1096,7 +1099,7 @@ if authenticate_user():
                         st.image(FD_rtas_paths[7], width=350)
                 if subtopic == "Empuje de suelo":
                     if pregunta_no ==1:
-                        st.image(FD_rtas_paths[9], width=350)             
+                        st.image(FD_rtas_paths[21], width=350)             
 
             if difficulty == "Díficil":
                 if subtopic == "Vectores 2D":
@@ -1129,7 +1132,10 @@ if authenticate_user():
                         st.image(FD_rtas_paths[19], width=350)  
                 if subtopic == "Presión hidrostática":
                     if pregunta_no ==1:
-                        st.image(FD_rtas_paths[13], width=350)                                   
+                        st.image(FD_rtas_paths[13], width=350)     
+                if subtopic == "Empuje de suelo":
+                    if pregunta_no ==1:
+                        st.image(FD_rtas_paths[9], width=350)                                
         return
 
     def filtrar_imagenes_respuestas_P2(pregunta_no, version_no, subtopic, difficulty):
