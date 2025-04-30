@@ -8286,12 +8286,12 @@ preguntas = [
         topic = FD,
         subtopic = "Presión hidrostática",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"La presa de “gravedad” de concreto es mantenida en su lugar por su propio peso. Determine la dimensión $d_3$ más pequeña que impide que la presa se voltee alrededor de su extremo $A$. Considere $d_1 = {d[0] + d[3]*2:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$, la densidad del agua $\\rho_a = 1000 \\dfrac{{kg}}{{m^3}}$, la densidad del concreto $\\rho_c = {2400+m[0]:.0f} \\dfrac{{kg}}{{m^3}}$ y la aceleración debida a la gravedad $g = 9,81 \\dfrac{{m}}{{s^2}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"La presa de “gravedad” de concreto es mantenida en su lugar por su propio peso. Determine la dimensión $d_3$ más pequeña que impide que la presa se voltee alrededor de su extremo $A$. Considere $d_1 = {d[0] + d[3]*2:.0f} \\text{{ m}}$,  $d_2 = {d[3]/2:.1f}  \\text{{ m}}$, la densidad del agua $\\rho_a = 1000 \\dfrac{{kg}}{{m^3}}$, la densidad del concreto $\\rho_c = {2400+m[0]:.0f} \\dfrac{{kg}}{{m^3}}$ y la aceleración debida a la gravedad $g = 9,81 \\dfrac{{m}}{{s^2}}$.",
         no_answers = 1,
         a1_name = "Dimensión $d_3$ [m]",
         a2_name = "",
         a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round((-d[3]*(1400+m[0])+math.sqrt(3*pow((2400+m[0])*d[3],2) + 6*(2400+m[0])*1000*pow(d[3],2) + 9*pow(d[3]*1000,2) + 4*(2400+m[0])*1000*pow(d[0]+d[3]*2,2) + 8*pow(1000*(d[0]+2*d[3]),2)))/(2*(400+m[0])),2),
+        answer1 = lambda f, a, calc, c, d, m: np.round((-((((2400+m[0])*9.81*(d[0]+d[3]*2)*d[3]*0.5)/2)+((1000*9.81*(d[0]+d[3]*2)*d[3]*0.5)/2))+math.sqrt(((((2400+m[0])*9.81*(d[0]+d[3]*2)*d[3]*0.5)/2)+((1000*9.81*(d[0]+d[3]*2)*d[3]*0.5)/2))**2-4*((((2400+m[0])*9.81*(d[0]+d[3]*2))/6)+((1000*9.81*(d[0]+d[3]*2))/3))*(((2400+m[0])*9.81*(d[0]+d[3]*2)*d[3]*0.5*((0.5*d[3])/2))-((1000*9.81*(d[0]+d[3]*2)**3))/6)))/(2*((((2400+m[0])*9.81*(d[0]+d[3]*2))/6)+((1000*9.81*(d[0]+d[3]*2))/3))),2),
         answer2 = lambda f, a, calc, c, d, m: 0,
         answer3 = lambda f, a, calc, c, d, m: 0,
         ayuda1 = PH1,
@@ -8309,9 +8309,9 @@ preguntas = [
         
         $\\underline{{Fuerzas \\hspace{{2mm}} verticales:}}$ 
                 
-        ${{\hspace{{4mm}} W_1 = \\rho_a \\cdot g \\cdot a \\cdot \\dfrac{{d_1 \\cdot (d_3 - d_2)}}{{2}}}}$     
-        ${{\hspace{{4mm}} W_2 = \\rho_c \\cdot g \\cdot a \\cdot \\dfrac{{d_1 \\cdot (d_3 - d_2)}}{{2}}}}$         
-        ${{\hspace{{4mm}} W_3 = \\rho_c \\cdot g \\cdot a \\cdot \\dfrac{{d_1 \\cdot d_2}}{{2}}}}$         
+        ${{\hspace{{4mm}} W_1 = \\rho_a \\cdot g \\cdot a \\cdot \\dfrac{{d_1 \\cdot d_3}}{{2}}}}$     
+        ${{\hspace{{4mm}} W_2 = \\rho_c \\cdot g \\cdot a \\cdot \\dfrac{{d_1 \\cdot d_3}}{{2}}}}$         
+        ${{\hspace{{4mm}} W_3 = \\rho_c \\cdot g \\cdot a \\cdot d_1 \\cdot d_2}}$         
         
         $\\underline{{Fuerza \\hspace{{2mm}} de \\hspace{{2mm}} presión:}}$ 
         
@@ -8319,28 +8319,17 @@ preguntas = [
                    
         $\\textbf{{\\small 3. Condición de equilibrio: }}$
         
-        Ahora bien, tal que, la presa no se voltee alrededor de su extremo A, se debe asegurar que la sumatoria de momentos en A sea igual a cero:
+        Para garantizar que la presa no gire alrededor de su extremo $A$, es necesario que se cumpla que la sumatoria de momentos respecto al punto $A$ sea igual a cero:
         
-        ${{\hspace{{4mm}} \\sum{{M_A}} = W_3 \\cdot \\dfrac{{d_2}}{{2}} + W_2 \\cdot \\dfrac{{d_3 + 2d_2}}{{3}} + W_1 \\cdot \\dfrac{{2d_3 + d_2}}{{3}} - F_P \\cdot \\dfrac{{d_1}}{{3}} = 0}}$     
-        ${{\hspace{{4mm}} W_2 \\cdot \\dfrac{{d_3 + 2d_2}}{{3}} + W_1 \\cdot \\dfrac{{2d_3 + d_2}}{{3}} = F_P \\cdot \\dfrac{{d_1}}{{3}} - W_3 \\cdot \\dfrac{{d_2}}{{2}}}}$     
-        ${{\hspace{{4mm}} \\rho_c \\cdot g \\cdot a \\cdot \\dfrac{{d_1 \\cdot (d_3 - d_2)}}{{2}} \\cdot \\dfrac{{d_3 + 2d_2}}{{3}} + \\rho_a \\cdot g \\cdot a \\cdot \\dfrac{{d_1 \\cdot (d_3 - d_2)}}{{2}} \\cdot \\dfrac{{2d_3 + d_2}}{{3}} =  a \\cdot \\dfrac{{\\rho_a \\cdot g \\cdot d_1 \\cdot d_1}}{{2}} \\cdot \\dfrac{{d_1}}{{3}} - \\rho_c \\cdot g \\cdot a \\cdot \\dfrac{{d_1 \\cdot d_2}}{{2}} \\cdot \\dfrac{{d_2}}{{2}}}}$     
-        ${{\hspace{{4mm}} \\rho_c \\cdot \\dfrac{{d_1 \\cdot (d_3 - d_2) \\cdot (d_3 + 2d_2)}}{{6}} + \\rho_a \\cdot \\dfrac{{d_1 \\cdot (d_3 - d_2) \\cdot (2d_3 + d_2)}}{{6}} =  \\dfrac{{\\rho_a \\cdot d_1 \\cdot d_1 \\cdot d_1}}{{6}} - \\rho_c \\cdot \\dfrac{{d_1 \\cdot d_2 \\cdot d_2 }}{{4}} }}$     
-        ${{\hspace{{4mm}} 2 \\cdot \\rho_c \\cdot d_1 \\cdot (d_3 - d_2) \\cdot (d_3 + 2d_2) + 2 \\cdot \\rho_a \\cdot d_1 \\cdot (d_3 - d_2) \\cdot (2d_3 + d_2) = 2 \\cdot \\rho_a \\cdot d_1 \\cdot d_1 \\cdot d_1 - 3 \\cdot \\rho_c \\cdot d_1 \\cdot d_2 \\cdot d_2 }}$     
+        ${{\hspace{{4mm}} \\sum{{M_A}} = W_3 \\cdot \\dfrac{{d_2}}{{2}} + W_2 \\cdot \\left(d_2+\\dfrac{{d_3}}{{3}}\\right) + W_1 \\cdot \\left(d_2+\\dfrac{{2d_3}}{{3}}\\right) - F_P \\cdot \\dfrac{{d_1}}{{3}} = 0}}$     
         
-        Lo que finalmente, se va a obtener una ecuación cuadrática:
+        Reemplazando, se llega  la ecuación cuadrática:
         
-        ${{\hspace{{4mm}} d_1 \\cdot (2 \\cdot \\rho_c + 4 \\cdot \\rho_a) \\cdot (d_3)^2 + 2 \\cdot d_1 \\cdot d_2 \\cdot (\\rho_c - \\rho_a) \\cdot d_3 - d_1 \\cdot (d_2) \\cdot (\\rho_c - 2 \\rho_a) - 2 \\cdot \\rho_a \\cdot (d_1)^2 = 0 }}$     
-        
-        Cuyas soluciones serán dadas por la siguiente formula:
-        
-        ${{\hspace{{4mm}} d_3 = \\dfrac{{- d_2 (\\rho_c - \\rho_a) \\pm \\sqrt{{3 \\cdot (\\rho_c)^2 \\cdot (d_2)^2 + 6 \\cdot \\rho_c \\cdot \\rho_a \\cdot (d_2)^2  + 9 \\cdot (\\rho_a)^2 \\cdot (d_2)^2 + 4 \\cdot \\rho_c \\cdot \\rho_a \\cdot (d_1)^2 + 8 \\cdot (\\rho_a)^2 \\cdot (d_1)^2}}}}{{2 \\cdot (\\rho_c - 2 \\cdot \\rho_a)}}}}$
+        ${{\hspace{{4mm}} (d_3)^2 \\left(\\dfrac{{\\rho_c \\cdot g \\cdot d_1}}{{6}}+\\dfrac{{\\rho_a \\cdot g \\cdot d_1}}{{3}}\\right) + d_3 \\left(\\dfrac{{\\rho_c \\cdot g \\cdot d_1 \\cdot d_2}}{{2}} + \\dfrac{{\\rho_a \\cdot g \\cdot d_1 \\cdot d_2}}{{2}} \\right) + \\left(w_3 \\cdot \\dfrac{{d_2}}{{3}} - \\dfrac{{\\rho_a \\cdot g \\cdot d_1 \\cdot d_1}}{{2}} \\cdot \\dfrac{{d_1}}{{3}} \\right)= 0 }}$     
         
         Dando como resultado:
-        ${{\hspace{{4mm}} d_3 = {(-d[3]*(1400+m[0])-math.sqrt(3*pow((2400+m[0])*d[3],2) + 6*(2400+m[0])*1000*pow(d[3],2) + 9*pow(d[3]*1000,2) + 4*(2400+m[0])*1000*pow(d[0]+d[3]*2,2) + 8*pow(1000*(d[0]+2*d[3]),2)))/(2*(400+m[0])):.2f} \\text{{ m}}}}$
-        y
-        ${{\hspace{{4mm}} d_3 = {(-d[3]*(1400+m[0])+math.sqrt(3*pow((2400+m[0])*d[3],2) + 6*(2400+m[0])*1000*pow(d[3],2) + 9*pow(d[3]*1000,2) + 4*(2400+m[0])*1000*pow(d[0]+d[3]*2,2) + 8*pow(1000*(d[0]+2*d[3]),2)))/(2*(400+m[0])):.2f} \\text{{ m}}}}$
         
-        Y se procede a tomar la solución positiva.
+        ${{\hspace{{4mm}} d_3 = {(-((((2400+m[0])*9.81*(d[0]+d[3]*2)*d[3]*0.5)/2)+((1000*9.81*(d[0]+d[3]*2)*d[3]*0.5)/2))+math.sqrt(((((2400+m[0])*9.81*(d[0]+d[3]*2)*d[3]*0.5)/2)+((1000*9.81*(d[0]+d[3]*2)*d[3]*0.5)/2))**2-4*((((2400+m[0])*9.81*(d[0]+d[3]*2))/6)+((1000*9.81*(d[0]+d[3]*2))/3))*(((2400+m[0])*9.81*(d[0]+d[3]*2)*d[3]*0.5*((0.5*d[3])/2))-((1000*9.81*(d[0]+d[3]*2)**3))/6)))/(2*((((2400+m[0])*9.81*(d[0]+d[3]*2))/6)+((1000*9.81*(d[0]+d[3]*2))/3))):.2f} \\text{{ m}}}}$
         """,
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
