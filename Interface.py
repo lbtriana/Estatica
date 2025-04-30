@@ -1018,9 +1018,9 @@ if authenticate_user():
                         st.image(CT_image_paths[5], width=500) 
                     if pregunta_no == 2:
                         st.image(CT_image_paths[6], width=500)
-                # if subtopic == "Vigas":
-                #     if pregunta_no == 1:
-                #         st.image(FD_image_paths[15], width=450)  
+                if subtopic == "Vigas":
+                    if pregunta_no == 1:
+                        st.image(FD_image_paths[15], width=450)  
                 #     if pregunta_no == 2:
                 #         st.image(FD_image_paths[16], width=450)
                 # if subtopic == "Presión hidrostática":
@@ -1124,7 +1124,7 @@ if authenticate_user():
                         st.image(CT_rtas_paths[2], width=600)  
                 if subtopic == "Vigas":
                     if pregunta_no ==1:
-                        st.image(FD_rtas_paths[15], width=350)    
+                        st.image(FD_rtas_paths[18], width=350)    
                 if subtopic == "Presión hidrostática":
                     if pregunta_no ==1:
                         st.image(FD_rtas_paths[13], width=350)                                   

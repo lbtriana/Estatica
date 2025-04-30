@@ -405,7 +405,8 @@ FD_rtas_paths= [
 #Fuerzas distribuidas _ Vigas
 "./Imagenes/Respuestas/FD/VI/R_FD_VI_M_1a.png", #[16]
 "./Imagenes/Respuestas/FD/VI/R_FD_VI_M_1b.png", #[17]
-"./Imagenes/Respuestas/FD/VI/R_FD_VI_D_2a.png", #[18]
+"./Imagenes/Respuestas/FD/VI/R_FD_VI_D_1a.png", #[18]
+"./Imagenes/Respuestas/FD/VI/R_FD_VI_D_2a.png", #[19]
 ]
 
 #================================ Imágenes Respuestas Cálculos Fuerzas Internas ===================================
