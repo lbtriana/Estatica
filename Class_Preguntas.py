@@ -7755,7 +7755,7 @@ preguntas = [
 
         ${{\hspace{{4mm}} \\sum{{M_A}} = 0 }}$
         ${{\hspace{{4mm}} \\sum{{M_A}} = -F_1 \\cdot \\bar{{x_1}} - F_2 \\cdot \\bar{{x_2}} - F_3 \\cdot (d_0 + \\bar{{x_3}}) - F_4 \\cdot (d_0 + d_1 + d_2 + \\bar{{x_4}}) - F_5 \\cdot (d_0 + d_1 + d_2 + d_3 + \\bar{{x_5}}) + B_y \\cdot (d_0 + d_1 + d_2 + d_3 + d_4) = 0 }}$
-        ${{\hspace{{4mm}} B_y = \\dfrac{{F_1 \\cdot \\bar{{x_1}} + F_2 \\cdot \\bar{{x_2}} + F_3 \\cdot (d_0 + \\bar{{x_3}}) + F_4 \\cdot (d_0 + d_1 + d_2 + \\bar{{x_4}}) + F_5 \\cdot (d_0 + d_1 + d_2 + d_3 + \\bar{{x_5}})}}{{(d[0]+d[3]+d[6]+d[9]+d[12])}}}}$     
+        ${{\hspace{{4mm}} B_y = \\dfrac{{F_1 \\cdot \\bar{{x_1}} + F_2 \\cdot \\bar{{x_2}} + F_3 \\cdot (d_0 + \\bar{{x_3}}) + F_4 \\cdot (d_0 + d_1 + d_2 + \\bar{{x_4}}) + F_5 \\cdot (d_0 + d_1 + d_2 + d_3 + \\bar{{x_5}})}}{{(d_0 + d_1 + d_2 + d_3 + d_4)}}}}$     
         ${{\hspace{{4mm}} B_y ={(((m[0]-3)*(d[0]+d[3]+d[6]+d[9]+d[12])**2)/(2)+(3*d[0]**2)/(2)+(3*d[3])/(2)*(d[0]+d[3]/2)+((m[0]-1-(m[0]-3))*d[9])/(2)*(d[0]+d[3]+d[6]+2*d[9]/3)+((m[0]-1-(m[0]-3))*d[12])/(2)*(d[0]+d[3]+d[6]+d[9]+d[12]/3))/(d[0]+d[3]+d[6]+d[9]+d[12]):.2f} \\text{{ kN}}}}$      
         
         ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$       
