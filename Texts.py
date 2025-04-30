@@ -315,7 +315,7 @@ PH5 = "La presión sobre las compuertas ubicadas por debajo del nivel de la supe
 
 #EMPUJE DEL SUELO
 ES1 = "Para el cálculo de la presión horizontal del suelo, se debe considerar el coeficiente de presión lateral de tierra $k$. La presión horizontal del suelo a una profundidad $h$ se expresa como: $P = k \\cdot \\gamma_s \\cdot h$."
-ES2 = "La distribución de la presión horizontal debido al peso del suelo es de forma triangular, y la fuerza resultante del empuje actúa a un tercio de la altura desde la base del triángulo."
+ES2 = "La distribución de la presión horizontal del suelo es de forma triangular, y la fuerza resultante del empuje actúa a un tercio de la altura desde la base del triángulo."
 ES3 = "Para verificar la estabilidad frente al volcamiento, se debe comprobar que el momento resistente sea mayor o igual al momento actuante."
 
 #FUERZAS INTERNAS
