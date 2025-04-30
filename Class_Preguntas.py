@@ -7626,13 +7626,13 @@ preguntas = [
         subtopic = "Vigas",
         version = 1,
         pregunta = lambda f, a, calc, c, d, m: f"Encuentre las reacciones en los apoyos. Considere que la primera carga distribuida se comporta como la función $y = c \\cdot x^3$ y sus unidades son $\\dfrac{{kN}}{{m}}$, $c = {d[9]:.0f}$, $F = {f[0]:.0f} \\text{{ kN}}$, $W_1 = {m[0]:.0f} \\dfrac{{kN}}{{m}}$ y $d_0 = {d[0]:.0f} \\text{{ m}}$, $d_1 = {d[3]:.0f} \\text{{ m}}$ y $d_2 = {d[6]:.0f} \\text{{ m}}$.",
-        no_answers = 2,
-        a1_name = "Reacción en el apoyo $A$ $[kN]$",
-        a2_name = "Reacción en el apoyo $B$ $[kN]$",
-        a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round((d[9]*d[0]**4)/4+m[0]*d[3]+f[0]-((d[9]*d[0]**5)/5+f[0]*(d[0]+d[3])+m[0]*d[6]*(d[0]+d[3]+d[6]/2))/(d[0]+d[3]+d[6]),2),
-        answer2 = lambda f, a, calc, c, d, m: np.round(((d[9]*d[0]**5)/5+f[0]*(d[0]+d[3])+m[0]*d[6]*(d[0]+d[3]+d[6]/2))/(d[0]+d[3]+d[6]),2),
-        answer3 = lambda f, a, calc, c, d, m: 0,
+        no_answers = 3,
+        a1_name = "Reacción $A_x$ $[kN]$",
+        a2_name = "Reacción $A_y$ $[kN]$",
+        a3_name = "Reacción $B_y$ $[kN]$",
+        answer1 = lambda f, a, calc, c, d, m: np.round(0,2),
+        answer2 = lambda f, a, calc, c, d, m: np.round((f[0])+((d[9]*d[0]**4)/4)+(m[0]*d[6])-((d[9]*d[0]**5)/5+f[0]*(d[0]+d[3])+m[0]*d[6]*(d[0]+d[3]+d[6]/2))/(d[0]+d[3]+d[6]),2),
+        answer3 = lambda f, a, calc, c, d, m: np.round(((d[9]*d[0]**5)/5+f[0]*(d[0]+d[3])+m[0]*d[6]*(d[0]+d[3]+d[6]/2))/(d[0]+d[3]+d[6]),2),
         ayuda1 = FD1,
         ayuda2 = FD2,      
         ayuda3 = FD4,
@@ -7676,7 +7676,7 @@ preguntas = [
         ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$       
         ${{\hspace{{4mm}} \\sum{{F_y}} = A_y + B_y - F_1 - F_2 - F = 0}}$      
         ${{\hspace{{4mm}} A_y = F_1 + F_2 + F - B_y}}$     
-        ${{\hspace{{4mm}} A_y = {(d[9]*d[0]**4)/4+m[0]*d[3]+f[0]-((d[9]*d[0]**5)/5+f[0]*(d[0]+d[3])+m[0]*d[6]*(d[0]+d[3]+d[6]/2))/(d[0]+d[3]+d[6]):.2f} \\text{{ kN}}}}$
+        ${{\hspace{{4mm}} A_y = {(f[0])+((d[9]*d[0]**4)/4)+(m[0]*d[6])-((d[9]*d[0]**5)/5+f[0]*(d[0]+d[3])+m[0]*d[6]*(d[0]+d[3]+d[6]/2))/(d[0]+d[3]+d[6]):.2f} \\text{{ kN}}}}$
         """,
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
