@@ -276,6 +276,7 @@ FD_image_paths =[
 
 #Fuerzas distribuidas _ Empuje de suelo 
 "./Imagenes/Preguntas/FD/ES/FD_ES_D_1a.png", #[17]
+"./Imagenes/Preguntas/FD/ES/FD_ES_F_2a.png", #[18]
 ]
 
 #================================ Imágenes Preguntas Cálculo Fuerzas internas ===================================
@@ -414,6 +415,7 @@ FD_rtas_paths= [
 
 #Fuerzas distribuidas _ Empuje de suelo
 "./Imagenes/Respuestas/FD/ES/R_FD_ES_D_1a.png", #[21]
+"./Imagenes/Respuestas/FD/ES/R_FD_ES_F_2a.png", #[22]
 ]
 
 #================================ Imágenes Respuestas Cálculos Fuerzas Internas ===================================
