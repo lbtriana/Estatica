@@ -8397,6 +8397,49 @@ preguntas = [
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),
+
+     Questionary(#2_1
+        code = 7310011,
+        no_pregunta = 2,
+        complexity = F,
+        topic = FD,
+        subtopic = "Empuje de suelo",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza de presión de tierra que actúa sobre el muro de contención  y su ubicación medida desde la base. Considere que el ancho del muro $a = {d[0]:.0f} \\text{{ m}}$, el peso específico del suelo es $\\gamma_s = {14+d[3]*(1/2):.2f} \\dfrac{{kN}}{{m^3}}$,  el coeficiente de presión lateral de tierra $k = {(12+d[6])*(1/50):.2f}$ y $d_1 = {((100+d[12])/100)+3.5:.2f} \\text{{ m}}$.",
+        no_answers = 2,
+        a1_name = "Magnitud fuerza de presión de tierra $|F_P|$ $[kN]$",
+        a2_name = "Ubicación fuerza de presión de tierra $(\\bar{{y}})$ $[m]$",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(0.5*(14+d[3]*0.5)*((12+d[6])*(1/50))*d[0]*(((100+d[12])/100)+3.5)**2, 2),
+        answer2 = lambda f, a, calc, c, d, m: np.round((1/3)*(((100+d[12])/100)+3.5), 2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = ES1,
+        ayuda2 = ES2,
+        ayuda3 = "",
+        respuesta_P1 = lambda fa, a, calc, c, d, m: f"""
+        El empuje de suelo es la fuerza que el terreno ejerce sobre una estructura en contacto con él, por ejemplo, un muro de contención. A continuación, se presenta la solución sugerida para el ejercicio:
+        
+        $\\textbf{{\\small 1. Representación de ejercicio: }}$
+
+        Se identifica la fuerza de presión de tierra:  
+        """,
+        respuesta_P2 = lambda fa, a, calc, c, d, m: f"""
+        $\\textbf{{\\small 2. Cálculo de la fuerza de presión de tierra: }}$
+          
+        ${{\hspace{{4mm}} F_P = \\dfrac{{k \\cdot a \\cdot \\gamma_s \\cdot (d_1)^2}}{{2}}}}$  
+        ${{\hspace{{4mm}} F_P = {0.5*(14+d[3]*0.5)*((12+d[6])*(1/50))*d[0]*(((100+d[12])/100)+3.5)**2:.2f} \\text{{ kN}}}}$  
+
+        $\\textbf{{\\small 3. Ubicación de la fuerza de presión de tierra desde la base:}}$
+
+        La fuerza de presión de tierra se distribuye de forma triangular, por lo tanto, su ubicación desde la base es a $\\dfrac{{1}}{{3}}$ de la distancia $d_1$:
+
+        ${{\hspace{{4mm}} \\bar{{y}} = \\dfrac{{1}}{{3}}d_1}}$        
+        
+        ${{\hspace{{4mm}} \\bar{{y}} = {(1/3)*(((100+d[12])/100)+3.5):.2f} \\text{{ m}} }}$ 
+        """,
+        respuesta_P3 = lambda fa, a, calc, c, d, m: f"",
+        calculos = 'operations',
+        ),
     
     #=================================================  FUERZAS DISTRIBUIDAS =========================================================
     #-------------------------------------------------        Empuje de suelo  --------------------------------------------

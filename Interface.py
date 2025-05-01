@@ -1103,7 +1103,7 @@ if authenticate_user():
                         st.image(FD_rtas_paths[7], width=350)
                 if subtopic == "Empuje de suelo":
                     if pregunta_no ==1:
-                        st.image(FD_rtas_paths[21], width=350)             
+                        st.image(FD_rtas_paths[21], width=300)             
 
             if difficulty == "Díficil":
                 if subtopic == "Vectores 2D":
