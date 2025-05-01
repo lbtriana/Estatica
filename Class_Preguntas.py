@@ -8409,12 +8409,12 @@ preguntas = [
         topic = FD,
         subtopic = "Empuje de suelo",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine la distancia $d_2$ que se necesita para asegurar que no exista volcamiento alrededor del punto $A$. Considere que el peso específico del concreto es $\\gamma_c = {19+d[0]*(1/2):.2f} \\dfrac{{kN}}{{m^3}}$, el peso específico del suelo es $\\gamma_s = {15+d[3]*(1/2):.2f} \\dfrac{{kN}}{{m^3}}$, el coeficiente de presión lateral de tierra $k = {(12+d[6])*(1/50):.2f}$, $d_1 = {(100+d[12])/100:.2f}  \\text{{ m}}$ y $d_3 = {4+d[9]*(1/2):.2f} \\text{{ m}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la distancia $d_2$ que se necesita para asegurar que no exista volcamiento alrededor del punto $A$. Considere que el peso específico del concreto es $\\gamma_c = {20+d[0]*(1/2):.2f} \\dfrac{{kN}}{{m^3}}$, el peso específico del suelo es $\\gamma_s = {15+d[3]*(1/2):.2f} \\dfrac{{kN}}{{m^3}}$, el coeficiente de presión lateral de tierra $k = {(12+d[6])*(1/50):.2f}$, $d_1 = {(100+d[12])/100:.2f}  \\text{{ m}}$ y $d_3 = {3+d[9]*(1/2):.2f} \\text{{ m}}$.",
         no_answers = 1,
         a1_name = "Dimensión $d_2$ $[m]$",
         a2_name = "",
         a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round((-((((2400+m[0])*9.81*(d[0]+d[3]*2)*d[3]*0.5)/2)+((1000*9.81*(d[0]+d[3]*2)*d[3]*0.5)/2))+math.sqrt(((((2400+m[0])*9.81*(d[0]+d[3]*2)*d[3]*0.5)/2)+((1000*9.81*(d[0]+d[3]*2)*d[3]*0.5)/2))**2-4*((((2400+m[0])*9.81*(d[0]+d[3]*2))/6)+((1000*9.81*(d[0]+d[3]*2))/3))*(((2400+m[0])*9.81*(d[0]+d[3]*2)*d[3]*0.5*((0.5*d[3])/2))-((1000*9.81*(d[0]+d[3]*2)**3))/6)))/(2*((((2400+m[0])*9.81*(d[0]+d[3]*2))/6)+((1000*9.81*(d[0]+d[3]*2))/3))),2),
+        answer1 = lambda f, a, calc, c, d, m: np.round((-(-(20+d[0]*(1/2))*((100+d[12])/100)*(((100+d[12])/100)+(3+d[9]*0.5)))-math.sqrt((-(20+d[0]*(1/2))*((100+d[12])/100)*(((100+d[12])/100)+(3+d[9]*0.5)))**2-4*(-((20+d[0]*(1/2))*((100+d[12])/100))/2)*(((-(20+d[0]*0.5)*((100+d[12])/100)*(((100+d[12])/100)+(3+d[9]*0.5))*((100+d[12])/100)/2))+(((((100+d[12])/100)+(3+d[9]*0.5))**3)*(1/6)*((12+d[6])*(1/50))*(15+d[3]*0.5)))))/(2*(-((20+d[0]*(1/2))*((100+d[12])/100))/2)),2),
         answer2 = lambda f, a, calc, c, d, m: 0,
         answer3 = lambda f, a, calc, c, d, m: 0,
         ayuda1 = ES1,
@@ -8445,11 +8445,11 @@ preguntas = [
         
         Ahora bien, la distancia minima de $d_2$ para asegurar que no exista volcamiento alrededor del punto $A$ se puede despejar de la sumatoria de momentos en $A$, igualándola a cero:
         
-        ${{\hspace{{4mm}} \\sum{{M_A}} = F_P \\cdot \\dfrac{{d_1 + d_3}}{{3}} - W_1 \\cdot \\left(d_2 - \\dfrac{{d_1}}{{2}}\\right) - W_2 \\cdot \\left(\\dfrac{{d_2)}}{{2}}\\right) = 0}}$     
+        ${{\hspace{{4mm}} \\sum{{M_A}} = F_P \\cdot \\dfrac{{d_1 + d_3}}{{3}} - W_1 \\cdot \\left(d_2 + \\dfrac{{d_1}}{{2}}\\right) - W_2 \\cdot \\left(\\dfrac{{d_2}}{{2}}\\right) = 0}}$     
         
         Al realizar el despeje se obtiene que $d_2$ es:
-       
-        ${{\hspace{{4mm}} d_2 = {0:.2f} \\text{{ m}}}}$
+        
+        ${{\hspace{{4mm}} d_2 = {(-(-(20+d[0]*(1/2))*((100+d[12])/100)*(((100+d[12])/100)+(3+d[9]*0.5)))-math.sqrt((-(20+d[0]*(1/2))*((100+d[12])/100)*(((100+d[12])/100)+(3+d[9]*0.5)))**2-4*(-((20+d[0]*(1/2))*((100+d[12])/100))/2)*(((-(20+d[0]*0.5)*((100+d[12])/100)*(((100+d[12])/100)+(3+d[9]*0.5))*((100+d[12])/100)/2))+(((((100+d[12])/100)+(3+d[9]*0.5))**3)*(1/6)*((12+d[6])*(1/50))*(15+d[3]*0.5)))))/(2*(-((20+d[0]*(1/2))*((100+d[12])/100))/2)):.2f} \\text{{ m}}}}$
         """,
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
