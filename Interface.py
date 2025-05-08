@@ -1426,6 +1426,9 @@ if authenticate_user():
                     st.image(FD_teoria_preguntas[5], width=420)
                 if pregunta_no == 2:
                     st.image(FD_teoria_preguntas[6], width=720)
+            if subtopic == "Fuerzas internas":
+                if pregunta_no == 2:
+                    st.image(FI_teoria_preguntas[0], width=600)
 
         with left_col:
             if subtopic == "Presión hidrostática":
@@ -1456,6 +1459,9 @@ if authenticate_user():
                 if subtopic == "Presión hidrostática":
                     if pregunta_no == 6:
                         st.image(FD_teoria_respuestas[0],width=300)
+                if subtopic == "Fuerzas internas":
+                    if pregunta_no == 2:
+                        st.image(FI_teoria_respuestas[0],width=500)
         return
 
     def generate_theory_questions():

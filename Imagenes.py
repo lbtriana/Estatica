@@ -428,8 +428,7 @@ FI_rtas_paths= [
 
 #===============================PREGUNTAS TEORÍA==============================================
 
-#================================ Imágenes Teoría Equilibrio ===================================
-EQ_teoria_preguntas =[
+EQ_teoria_preguntas =[#Equilibrio
 "./Imagenes/Teoria_Preguntas/EQ/V/T_EQ_V_1.png", #[0] 
 "./Imagenes/Teoria_Preguntas/EQ/V/T_EQ_V_2.png", #[1] 
 "./Imagenes/Teoria_Preguntas/EQ/V/T_EQ_V_4.png", #[2] 
@@ -445,20 +444,16 @@ EQ_teoria_preguntas =[
 "./Imagenes/Teoria_Preguntas/EQ/EQ/T_EQ_EQ_4.png", #[12]
 ]
 
-#================================ Imágenes Teoría Momento ===================================
-MO_teoria_preguntas =[
+MO_teoria_preguntas =[#Momento
 "./Imagenes/Teoria_Preguntas/MO/T_MO_MO_1.png", #[0]   
 ]
 
-#================================ Imágenes Teoría Incertidumbre ===================================
-IN_teoria_preguntas =[
+IN_teoria_preguntas =[#Incertidumbre
 "./Imagenes/Teoria_Preguntas/IN/T_IN_IN_1.png", #[0]   
 "./Imagenes/Teoria_Preguntas/IN/T_IN_IN_2.png", #[1]   
 ]
 
-
-#================================ Imágenes Teoría Centroide ===================================
-CT_teoria_preguntas=[
+CT_teoria_preguntas=[#Centroides
 "./Imagenes/Teoria_Preguntas/CT/T_CT_CT_1.png", #[0] 
 "./Imagenes/Teoria_Preguntas/CT/T_CT_CT_2.png", #[1] 
 "./Imagenes/Teoria_Preguntas/CT/T_CT_CT_6.png", #[2] 
@@ -467,7 +462,7 @@ CT_teoria_preguntas=[
 "./Imagenes/Teoria_Preguntas/CT/T_CT_CT_7.png", #[5] 
 ]
 
-FD_teoria_preguntas = [
+FD_teoria_preguntas = [#Fuerzas distribuidas
 #Vigas
 "./Imagenes/Teoria_Preguntas/FD/VI/T_FD_VI_1.png", #[0]
 "./Imagenes/Teoria_Preguntas/FD/VI/T_FD_VI_2.png", #[1]
@@ -493,22 +488,31 @@ FD_teoria_preguntas = [
 "./Imagenes/Teoria_Preguntas/FD/PH/T_FD_PH_9.png", #[13]
 ]
 
+FI_teoria_preguntas=[#Fuerzas internas
+"./Imagenes/Teoria_Preguntas/FI/T_FI_FI_2.png", #[0] 
+]
+
+
 #==========================================RESPUESTAS TEORÍA==============================================
 
-EQ_teoria_respuestas =[
+EQ_teoria_respuestas =[#Equilibrio
 "./Imagenes/Teoria_Respuestas/EQ/V/RT_EQ_V_1.png", #[0] 
 "./Imagenes/Teoria_Respuestas/EQ/V/RT_EQ_V_2.png", #[1] 
 ]
 
-MO_teoria_respuestas =[
+MO_teoria_respuestas =[#Momento
 "./Imagenes/Teoria_Respuestas/MO/RT_MO_MO_4.png", #[0] 
 ]
 
-CT_teoria_respuestas =[
+CT_teoria_respuestas =[#Centroides
 "./Imagenes/Teoria_Respuestas/CT/RT_CT_CT_6.png", #[0] 
 ]
 
-FD_teoria_respuestas =[
+FD_teoria_respuestas =[#Fuerzas distribuidas
 "./Imagenes/Teoria_Respuestas/FD/PH/RT_FD_PH_6.png", #[0] 
 "./Imagenes/Teoria_Respuestas/FD/PH/RT_FD_PH_9.png", #[1] 
+]
+
+FI_teoria_respuestas =[#Fuerzas internas
+"./Imagenes/Teoria_Respuestas/FI/RT_FI_FI_2.png", #[0] 
 ]
