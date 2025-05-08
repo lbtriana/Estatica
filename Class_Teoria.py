@@ -1486,8 +1486,8 @@ conceptuales = [
         ),
 
 
-    #  #-------------------------------------- Fuerzas distribuidas- EMPUJE DE SUELO ----------------------------------------------
-    #  #-------------------------------------------------       83000##0         ---------------------------------------------------
+#-------------------------------------- Fuerzas distribuidas- EMPUJE DE SUELO ----------------------------------------------
+#-------------------------------------------------       83000##0         ---------------------------------------------------
     
     Theory(#1
         code = 8300010, 
@@ -1522,38 +1522,22 @@ conceptuales = [
 
 
 #--------------------------------------------------- Fuerzas internas -------------------------------------------------------
-     #-------------------------------------------------       91000##0         ---------------------------------------------------
-    
-    # Theory(#2
-    #     code = 9100020, 
-    #     no_pregunta = 2,
-    #     topic = "Fuerzas internas",
-    #     subtopic = "Fuerzas internas",
-    #     enunciado ="El análisis de fuerzas internas requiere de:", 
-    #     opcion_1 = "Igualar la resultante de fuerzas externas con las fuerzas internas sin incluir reacciones.",
-    #     opcion_2 = "Cortar la estructura en puntos cercanos a lo largo de toda la estructura y luego calcular las reacciones.",
-    #     opcion_3 = "Igualar la resultante de momentos a los momentos internos sin incluir reacciones.",
-    #     opcion_4 = "Conocer las reacciones sobre la estructura, dividirla en tramos y realizar cortes.",
-    #     opcion_correcta = "Conocer las reacciones sobre la estructura, dividirla en tramos y realizar cortes.",
-    #     respuesta_P1 = """"Para conocer las fuerzas internas de un elemento es necesario realizar, en primer lugar, un análisis global para conocer las reacciones.
-    #     Despues de esto, se divide la estructura en tramos de acuerdo con las condiciones de carga y se realizan cortes en el interior de cada tramo.""",
-    #     respuesta_P2 = "",
-    #     ),
+#-------------------------------------------------       91000##0         ---------------------------------------------------
 
-    # Theory(#3
-    #     code = 9100030, 
-    #     no_pregunta = 3,
-    #     topic = "Fuerzas internas",
-    #     subtopic = "Fuerzas internas",
-    #     enunciado ="En el análisis de fuerzas internas, dónde es correcto realizar los cortes:", 
-    #     opcion_1 = "En el punto de aplicación de una fuerza.",
-    #     opcion_2 = "Antes y después del punto de aplicación de una fuerza.",
-    #     opcion_3 = "En puntos con momento nulo.",
-    #     opcion_4 = "En el inicio y fin de cada elemento de la estructura.",
-    #     opcion_correcta = "Antes y después del punto de aplicación de una fuerza.",
-    #     respuesta_P1 = "El objetivo de los cortes es conocer los efectos de las cargas en el interior del elemento, es decir, los cambios que las fuerzas externas producen en los elementos. Por ello, se deben determinar las fuerzas internas antes y después del punto de aplicacón de la carga.",
-    #     respuesta_P2 = "",
-    #     ),
+    Theory(#1
+        code = 9100010, 
+        no_pregunta = 1,
+        topic = "Fuerzas internas",
+        subtopic = "Fuerzas internas",
+        enunciado ="¿En qué lugares es correcto realizar los cortes al analizar las fuerzas internas en una estructura?", 
+        opcion_1 = "En el punto de aplicación de una fuerza.",
+        opcion_2 = "Antes de un cambio en las cargas aplicadas.",
+        opcion_3 = "En puntos donde el momento interno es nulo.",
+        opcion_4 = "En los extremos de la estructura.",
+        opcion_correcta = "Antes de un cambio en las cargas aplicadas.",
+        respuesta_P1 = "Los cortes se realizan para identificar cómo varían las fuerzas internas a lo largo del elemento. Es fundamental hacerlos antes de un cambio en las cargas aplicadas, como una fuerza puntual o un cambio en una carga distribuida.",
+        respuesta_P2 = "",
+        ),
 
     # Theory(#4
     #     code = 9100040, 
@@ -1668,6 +1652,7 @@ conceptuales = [
     #     respuesta_P1 = """Esto se debe a que el cortante es igual a la derivada del momento. Y, la pendiente (derivada) en un punto es igual a cero cuando se tiene un mínimo o máximo.
     #     """,
     #     ),
+
 
 
 ]

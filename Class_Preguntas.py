@@ -8424,7 +8424,7 @@ preguntas = [
         Se identifica la fuerza de presión de tierra:  
         """,
         respuesta_P2 = lambda fa, a, calc, c, d, m: f"""
-        $\\textbf{{\\small 2. Cálculo de la fuerza de presión de tierra: }}$
+        $\\textbf{{\\small 2. Cálculo de la fuerza de presión de tierra: }}$d
           
         ${{\hspace{{4mm}} F_P = \\dfrac{{k \\cdot a \\cdot \\gamma_s \\cdot (d_1)^2}}{{2}}}}$  
         ${{\hspace{{4mm}} F_P = {0.5*(14+d[3]*0.5)*((12+d[6])*(1/50))*d[0]*(((100+d[12])/100)+3.5)**2:.2f} \\text{{ kN}}}}$  

@@ -479,7 +479,7 @@ if authenticate_user():
 
         if way == "Teoría":
             st.sidebar.header("Teoría")
-            topic=st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Momento", "Incertidumbre", "Apoyos y reacciones", "Centroides", "Fuerzas distribuidas"])
+            topic=st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Momento", "Incertidumbre", "Apoyos y reacciones", "Centroides", "Fuerzas distribuidas", "Fuerzas internas"])
             respuesta_usuario['topic'] = topic
 
             if topic == "Equilibrio de partículas":
@@ -494,6 +494,8 @@ if authenticate_user():
                 subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Centroides"])
             if topic == "Fuerzas distribuidas":
                 subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Vigas", "Presión hidrostática", "Empuje de suelo"])
+            if topic == "Fuerzas internas":
+                subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Fuerzas internas"])
 
             if consent:
                 log_event(st.session_state["username"], "theory_section_accessed", {})
