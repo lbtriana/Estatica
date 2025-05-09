@@ -490,6 +490,7 @@ FD_teoria_preguntas = [#Fuerzas distribuidas
 
 FI_teoria_preguntas=[#Fuerzas internas
 "./Imagenes/Teoria_Preguntas/FI/T_FI_FI_2.png", #[0] 
+"./Imagenes/Teoria_Preguntas/FI/T_FI_FI_4.png", #[1] 
 ]
 
 

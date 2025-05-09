@@ -1429,6 +1429,8 @@ if authenticate_user():
             if subtopic == "Fuerzas internas":
                 if pregunta_no == 2:
                     st.image(FI_teoria_preguntas[0], width=600)
+                if pregunta_no == 4:
+                    st.image(FI_teoria_preguntas[1], width=400)
 
         with left_col:
             if subtopic == "Presión hidrostática":

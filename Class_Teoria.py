@@ -1577,21 +1577,20 @@ conceptuales = [
         respuesta_P2 = "",
         ),
 
-    # Theory(#6
-    #     code = 9100060, 
-    #     no_pregunta = 6,
-    #     topic = "Fuerzas internas",
-    #     subtopic = "Fuerzas internas",
-    #     enunciado ="Considere la siguiente figura e indique cual es convención de signos correcta.", 
-    #     opcion_1 = "I.",
-    #     opcion_2 = "II.",
-    #     opcion_3 = "III.",
-    #     opcion_4 = "IV.",
-    #     opcion_correcta = "II.",
-    #     respuesta_P1 = """La conveción de signos estable que en el lado izquierdo de un corte, el cortante resultante (V) debe generar un momento contrario al momento puntual resultante (M). Mientras que, en el lado derecho del corte el cortante y momento generan la misma flexión sobre la viga.
-    #     Así mismo, debe tenerse en cuenta que los signos de la resultante de un lado y del otro deben ser contrarios para que la sumatoria de fuerzas y momento sea cero en el corte.""",
-    #     respuesta_P2 = "",
-    #     ),
+    Theory(#4
+        code = 9100040, 
+        no_pregunta = 4,
+        topic = "Fuerzas internas",
+        subtopic = "Fuerzas internas",
+        enunciado ="Considere la figura mostrada e indique cuál de las siguientes representaciones corresponde a la convención de signos correcta.", 
+        opcion_1 = "$I$",
+        opcion_2 = "$II$",
+        opcion_3 = "$III$",
+        opcion_4 = "$IV$",
+        opcion_correcta = "$II$",
+        respuesta_P1 = "El diagrama correcto es la opción $II$. La convención de signos establece que, al realizar un corte en una viga, el cortante (V) y el momento flector (M) deben aplicarse de forma que aseguren el equilibrio interno del elemento. En el lado izquierdo del corte, el cortante se representa apuntando hacia abajo y el momento en sentido antihorario. En el lado derecho, el cortante va hacia arriba y el momento en sentido horario.",
+        respuesta_P2 = "",
+        ),
 
     # Theory(#7
     #     code = 9100070, 
@@ -1653,7 +1652,7 @@ conceptuales = [
     #     """,
     #     ),
 
-
+#FORMULA PARA CALCULAR MOMENTO A PARTIR DE UN DIAGRAMA
 
 ]
 
