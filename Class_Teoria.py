@@ -1554,28 +1554,28 @@ conceptuales = [
         respuesta_P2 = "",
         ),
 
-    # Theory(#5
-    #     code = 9100050, 
-    #     no_pregunta = 5,
-    #     topic = "Fuerzas internas",
-    #     subtopic = "Fuerzas internas",
-    #     enunciado =""""Indique cuáles de las siguientes afirmaciones son verdaderas:
-    #     I. Cuando se tienen cargas distribuidas, los diagramas de cortante y momento van aumentando de grado. Es decir, si la carga es triangular el cortante es un polinomio de grado 2 y el momento uno de grado 3.
-    #     II. Cuando se tienen cargas distribuidas, los diagramas de cortante y momento van disminuyendo de grado. Es decir, si la carga es triangular el cortante es un polinomio de grado 3 y el momento uno de grado 2.
-    #     III. Para conosiderar una carga puntual, en el diagrama de cortante se suma o resta su magnitud en el punto de aplicación.
-    #     IV. Los diagramas de momentos se determinan calculando las áreas formadas en el diagrama de cortante.
-    #     V. Los momentos puntuales en un elemento deben sumarse o restarse en el diagrama de momentos y cortante.
-           
-    #         """, 
-    #     opcion_1 = "I,III,V",
-    #     opcion_2 = "II, III,IV",
-    #     opcion_3 = "I,III,IV",
-    #     opcion_4 = "II,IV,V",
-    #     opcion_correcta = "I,III,IV",
-    #     respuesta_P1 = """En los diagramas de cortante se tienen en cuenta las cargas externas y reacciones. En este, las distribuidas generan un diaagrama de grado mayor y las puntuales afectan únicamente en su punto de aplicación.
-    #     En el caso de los diagramas de momnento deben icluirse los momentos puntuales sobre la estructura y se deve tener en cuenta que el mometo es la integral del cortante. 
-    #     """,
-    #     ),
+    Theory(#3
+        code = 9100030, 
+        no_pregunta = 3,
+        topic = "Fuerzas internas",
+        subtopic = "Fuerzas internas",
+        enunciado ="""
+        Indique cuáles de las siguientes afirmaciones son verdaderas respecto al análisis de los diagramas de esfuerzo cortante y momento flector:
+
+        I. Cuando se aplican cargas distribuidas, los diagramas de cortante y momento aumentan su grado. Por ejemplo, si la carga es triangular (grado 1), el cortante será un polinomio de grado 2 y el momento uno de grado 3.    
+        II. Cuando se aplican cargas distribuidas, los diagramas de cortante y momento disminuyen su grado. Por ejemplo, si la carga es triangular, el cortante será de grado 3 y el momento de grado 2.    
+        III. Una carga puntual genera un salto en el diagrama de cortante, en el punto de aplicación, igual a su magnitud, sumándose o restándose según la dirección de la carga.    
+        IV. El diagrama de momento se obtiene integrando el diagrama de cortante, es decir, calculando el área bajo la curva del cortante.    
+        V. Los momentos puntuales deben considerarse tanto en el diagrama de momento como en el de cortante, sumándolos o restándolos según su sentido.   
+        """, 
+        opcion_1 = "I, III, V",
+        opcion_2 = "II, III, IV",
+        opcion_3 = "I, III, IV",
+        opcion_4 = "II, IV, V",
+        opcion_correcta = "I, III, IV",
+        respuesta_P1 = "Los diagramas de cortante y momento flector se construyen a partir de las condiciones de carga sobre una estructura. Cuando se aplican cargas distribuidas, el grado del polinomio del diagrama de cortante aumenta en relación con el de la carga, y el del momento aumenta con respecto al cortante (por integración). Por ejemplo, una carga triangular (grado 1) genera un cortante de grado 2 y un momento de grado 3. Una carga puntual afecta únicamente el diagrama de cortante, provocando un salto de magnitud igual a la carga. El diagrama de momento se construye integrando el cortante, lo que equivale a calcular el área bajo su curva. Los momentos puntuales solo afectan el diagrama de momento, no el de cortante.",
+        respuesta_P2 = "",
+        ),
 
     # Theory(#6
     #     code = 9100060, 
