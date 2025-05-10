@@ -1607,20 +1607,20 @@ conceptuales = [
         respuesta_P2 = "",
         ),
 
-    # Theory(#8
-    #     code = 9100080, 
-    #     no_pregunta = 8,
-    #     topic = "Fuerzas internas",
-    #     subtopic = "Fuerzas internas",
-    #     enunciado ="¿Qué indica un salto (cambio brusco) en el diagrama de fuerzas cortantes de una viga?",
-    #     opcion_1 = "Una carga distribuida.",
-    #     opcion_2 = "Un momento aplicado.",
-    #     opcion_3 = "Una carga puntual.",
-    #     opcion_4 = "Una reacción en un apoyo fijo.",
-    #     opcion_correcta = "Una carga puntual.",
-    #     respuesta_P1 = " Un salto en el diagrama de fuerzas cortantes ocurre debido a la aplicación de una carga puntual que genera una diferencia instantánea en el esfuerzo cortante. Esto mismo ocurre en el diagrama de momentos cuando se tiene un momento puntual aplicado.",
-    #     respuesta_P2 = "",
-    #     ),
+    Theory(#6
+        code = 9100060, 
+        no_pregunta = 6,
+        topic = "Fuerzas internas",
+        subtopic = "Fuerzas internas",
+        enunciado ="¿Qué representa un salto en el diagrama de fuerzas cortantes de una viga?",
+        opcion_1 = "Una carga distribuida.",
+        opcion_2 = "Un momento aplicado.",
+        opcion_3 = "Una carga puntual.",
+        opcion_4 = "Una reacción en un apoyo fijo.",
+        opcion_correcta = "Una carga puntual.",
+        respuesta_P1 = " Un salto en el diagrama de fuerzas cortantes ocurre cuando se aplica una carga puntual en la viga. Esta carga provoca una discontinuidad instantánea en el esfuerzo cortante. De manera similar, en el diagrama de momentos, un momento puntual aplicado también genera un salto en el diagrama de momento flector.",
+        respuesta_P2 = "",
+        ),
 
     # Theory(#9
     #     code = 9100090, 
@@ -1653,6 +1653,7 @@ conceptuales = [
     #     ),
 
 #FORMULA PARA CALCULAR MOMENTO A PARTIR DE UN DIAGRAMA
+#ECUACIÓN DE UN TRAMO
 
 ]
 
