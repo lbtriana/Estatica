@@ -1637,23 +1637,70 @@ conceptuales = [
         respuesta_P2 = "",
         ),
 
-    # Theory(#10
-    #     code = 9100001, 
-    #     no_pregunta = 10,
-    #     topic = "Fuerzas internas",
-    #     subtopic = "Fuerzas internas",
-    #     enunciado ="¿Qué significa el punto donde el cortante cruza el eje cero (corte el eje horizontal)?", 
-    #     opcion_1 = "Un punto de máximo esfuerzo cortante.",
-    #     opcion_2 = "Un punto de máxima deformación.",
-    #     opcion_3 = "Un punto de inflexión.",
-    #     opcion_4 = "Un punto de momento máximo.",
-    #     opcion_correcta = "Un punto de momento máximo.",
-    #     respuesta_P1 = """Esto se debe a que el cortante es igual a la derivada del momento. Y, la pendiente (derivada) en un punto es igual a cero cuando se tiene un mínimo o máximo.
-    #     """,
-    #     ),
+    Theory(#8
+        code = 9100008, 
+        no_pregunta = 8,
+        topic = "Fuerzas internas",
+        subtopic = "Fuerzas internas",
+        enunciado ="¿Qué indica el punto donde el diagrama de fuerza cortante es cero (donde corta el eje horizontal)?", 
+        opcion_1 = "Un punto de máximo esfuerzo cortante.",
+        opcion_2 = "Un punto de máxima deformación.",
+        opcion_3 = "Un punto de inflexión.",
+        opcion_4 = "Un punto de momento máximo.",
+        opcion_correcta = "Un punto de momento máximo.",
+        respuesta_P1 = "El esfuerzo cortante es la derivada del diagrama de momentos. Cuando el diagrama de cortante cruza el eje cero, la pendiente del diagrama de momentos es cero, lo que indica que el momento flector alcanza un valor máximo o mínimo en ese punto. En este caso corresponde a un punto de momento máximo.",
+        respuesta_P2 = "",
+        ),
+
+    Theory(#9
+        code = 9100009, 
+        no_pregunta = 9,
+        topic = "Fuerzas internas",
+        subtopic = "Fuerzas internas",
+        enunciado ="Determine la ecuación de cortante $(V(x))$ y de momento flector $(M(x))$ para la viga mostrada.", 
+        opcion_1 = """$V(x) = W \\left(\\dfrac{{L}}{{2}}+x\\right)$\\
+        $M(x) = \\dfrac{{W}}{{2}}x^2 - \\dfrac{{WL}}{{2}}x + M_1$ \\
+        $\\text{{    }}$""",
+        opcion_2 = """$V(x) = W \\left(\\dfrac{{L}}{{2}}-x\\right)$\\
+        $M(x) = -\\dfrac{{W}}{{2}}x^2 + \\dfrac{{WL}}{{2}}x - M_1$ \\
+        $\\text{{    }}$""",
+        opcion_3 = """$V(x) = W \\left(L-x\\right)$\\
+        $M(x) = -\\dfrac{{WL}}{{2}}x^2 + \\dfrac{{WL}}{{2}}x - M_1$ \\
+        $\\text{{    }}$""",
+        opcion_4 = """$V(x) = W \\left(L+x\\right)$\\
+        $M(x) = \\dfrac{{WL}}{{2}}x^2 - \\dfrac{{WL}}{{2}}x + M_1$ \\
+        $\\text{{    }}$""",
+        opcion_correcta = """$V(x) = W \\left(\\dfrac{{L}}{{2}}-x\\right)$\\
+        $M(x) = -\\dfrac{{W}}{{2}}x^2 + \\dfrac{{WL}}{{2}}x - M_1$ \\
+        $\\text{{    }}$""",
+        respuesta_P1 = """
+        Las ecuaciones de cortante y momento son: 
+
+        $V(x) = W \\left(\\dfrac{{L}}{{2}}-x\\right)$\\
+        $M(x) = -\\dfrac{{W}}{{2}}x^2 + \\dfrac{{WL}}{{2}}x - M_1$ \\
+        $\\text{{    }}$
+        
+        Para determinar las ecuaciones, primero se hayan las reacciones verticales en los apoyos. Dado que la viga y las cargas aplicadas son simétricas, ambas reacciones son iguales:
+
+        $\\sum{{M_A}}=B_y \\cdot L + M_1 - M_1 - \\cdot W\\dfrac{{L^2}}{{2}}$         
+        $A_y = B_y = \\dfrac{{WL}}{{2}}$
+
+        Luego, se procede a cortar la viga y a calcular las ecuaciones:
+        """,
+        respuesta_P2 = """
+        Para hallar la ecuación de cortante se realiza la sumatoria de fuerzas en y:
+
+        $\\sum{{F_y}}= -V(x) -Wx + \\dfrac{{WL}}{{2}} = 0$       
+        $V(x) = -Wx + \\dfrac{{WL}}{{2}} = W\\left(\\dfrac{{L}}{{2}}-x\\right)$
+
+        Para hallar la ecuación de momento se realiza sumatoria de momentos en el punto de corte:
+
+        $\\sum{{M}}= M(x) + M_1 + \\dfrac{{W}}{{2}} x^2 - \\dfrac{{WL}}{{2}} x = 0$           
+        $M(x) = -\\dfrac{{W}}{{2}}x^2 + \\dfrac{{WL}}{{2}}x - M_1$
+        """,
+        ),
 
 #FORMULA PARA CALCULAR MOMENTO A PARTIR DE UN DIAGRAMA
-#ECUACIÓN DE UN TRAMO
 
 ]
 
