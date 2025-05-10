@@ -1700,7 +1700,33 @@ conceptuales = [
         """,
         ),
 
-#FORMULA PARA CALCULAR MOMENTO A PARTIR DE UN DIAGRAMA
+    Theory(#10
+        code = 9100010, 
+        no_pregunta = 10,
+        topic = "Fuerzas internas",
+        subtopic = "Fuerzas internas",
+        enunciado ="""
+        Considere el siguiente diagrama de momento flector para una viga. ¿Cuáles de las siguientes afirmaciones son incorrectas?
+
+        I. Entre $a$ y $b$ la fuerza cortante es constante.           
+        II. Entre $d$ y $e$ hay una carga distribuida triangular.             
+        III. Entre $b$ y $d$ la fuerza cortante es menor a cero.            
+        IV. En $d$ hay un momento externo aplicado. 
+        """, 
+        opcion_1 = "I, III",
+        opcion_2 = "I, II",
+        opcion_3 = "II, III",
+        opcion_4 = "II, IV",
+        opcion_correcta = "II, IV",
+        respuesta_P1 = """
+        Las afirmaciones incorrectas son II y IV.             
+        
+        Entre $d$ y $e$, el diagrama de momento tiene forma parabólica, lo cual indica que la carga distribuida es uniforme. Si la carga fuera triangular, el diagrama tendría una cúbica en este tramo.   
+        
+        Por otro lado, en $d$ no hay un salto en el diagrama de momento, lo que implica que no hay un momento externo aplicado en este punto.
+        """,
+        respuesta_P2 = "",
+        ),
 
 ]
 

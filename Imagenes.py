@@ -495,6 +495,7 @@ FI_teoria_preguntas=[#Fuerzas internas
 "./Imagenes/Teoria_Preguntas/FI/T_FI_FI_7.png", #[3] 
 "./Imagenes/Teoria_Preguntas/FI/T_FI_FI_8.png", #[4] 
 "./Imagenes/Teoria_Preguntas/FI/T_FI_FI_9.png", #[5] 
+"./Imagenes/Teoria_Preguntas/FI/T_FI_FI_10.png", #[6]
 ]
 
 

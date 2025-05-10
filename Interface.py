@@ -1439,6 +1439,8 @@ if authenticate_user():
                     st.image(FI_teoria_preguntas[4], width=620)
                 if pregunta_no == 9:
                     st.image(FI_teoria_preguntas[5], width=520)
+                if pregunta_no == 10:
+                    st.image(FI_teoria_preguntas[6], width=520)
 
         with left_col:
             if subtopic == "Presión hidrostática":
