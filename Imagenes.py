@@ -494,6 +494,7 @@ FI_teoria_preguntas=[#Fuerzas internas
 "./Imagenes/Teoria_Preguntas/FI/T_FI_FI_5.png", #[2] 
 "./Imagenes/Teoria_Preguntas/FI/T_FI_FI_7.png", #[3] 
 "./Imagenes/Teoria_Preguntas/FI/T_FI_FI_8.png", #[4] 
+"./Imagenes/Teoria_Preguntas/FI/T_FI_FI_9.png", #[5] 
 ]
 
 
@@ -520,4 +521,5 @@ FD_teoria_respuestas =[#Fuerzas distribuidas
 FI_teoria_respuestas =[#Fuerzas internas
 "./Imagenes/Teoria_Respuestas/FI/RT_FI_FI_2.png", #[0] 
 "./Imagenes/Teoria_Respuestas/FI/RT_FI_FI_8.png", #[1] 
+"./Imagenes/Teoria_Respuestas/FI/RT_FI_FI_9.png", #[2] 
 ]
