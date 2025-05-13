@@ -952,9 +952,7 @@ if authenticate_user():
                         st.image(FD_image_paths[17], width=400) 
                 if subtopic == "Fuerzas internas":
                     if pregunta_no == 1:
-                        st.image(FI_image_paths[1], width=350)
-                    if pregunta_no == 2:
-                        st.image(FI_image_paths[2], width=450) 
+                        st.image(FI_image_paths[1], width=500)
                 
             if difficulty == "Díficil":
                 if subtopic == "Vectores 2D":
@@ -1105,7 +1103,10 @@ if authenticate_user():
                         st.image(FD_rtas_paths[7], width=350)
                 if subtopic == "Empuje de suelo":
                     if pregunta_no ==1:
-                        st.image(FD_rtas_paths[21], width=300)             
+                        st.image(FD_rtas_paths[21], width=300)     
+                if subtopic == "Fuerzas internas":
+                    if pregunta_no ==1:
+                        st.image(FI_rtas_paths[2], width=300)        
 
             if difficulty == "Díficil":
                 if subtopic == "Vectores 2D":
@@ -1165,6 +1166,9 @@ if authenticate_user():
                 if subtopic == "Vigas":
                     if pregunta_no ==1:
                         st.image(FD_rtas_paths[17], width=350)
+                if subtopic == "Fuerzas internas":
+                    if pregunta_no ==1:
+                        st.image(FI_rtas_paths[3], width=300)
 
             if difficulty == "Díficil":
                 if subtopic == "Vigas":

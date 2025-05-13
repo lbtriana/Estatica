@@ -2,8 +2,7 @@
 
 #==========================================PREGUNTAS CÁLCULOS==============================================
 
-#================================ Imágenes Preguntas Cálculo Equilibrio de partículas ===================================
-EQ_image_paths= [
+EQ_image_paths= [#Imágenes Preguntas Cálculo Equilibrio de partículas
 #Vectores 2D _ Cálculo de los ángulos _ Nivel fácil
 "./Imagenes/Preguntas/EQ/Fvec_0a.png", #[0] 
 "./Imagenes/Preguntas/EQ/Fvec_0b.png", #[1]
@@ -120,9 +119,7 @@ EQ_image_paths= [
 
 ]
 
-#================================ Imágenes Preguntas Cálculo Momento en un punto 2D ===================================
-
-M2D_image_paths =[
+M2D_image_paths =[#Imágenes Preguntas Cálculo Momento en un punto 2D
 #Momento 2D en un punto _ Nivel fácil
 "./Imagenes/Preguntas/MO/M2D/MO_M2D_F_1a.png", #[0]
 "./Imagenes/Preguntas/MO/M2D/MO_M2D_F_1b.png", #[1]
@@ -142,9 +139,7 @@ M2D_image_paths =[
 "./Imagenes/Preguntas/MO/M2D/MO_M2D_D_1c.png", #[11]
 ]
 
-#================================ Imágenes Preguntas Cálculo Momento en un punto 3D ===================================
-
-M3D_image_paths =[
+M3D_image_paths =[#Imágenes Preguntas Cálculo Momento en un punto 3D
 #Nivel fácil
 "./Imagenes/Preguntas/MO/M3D/MO_M3D_F_1a.png", #[0]
 "./Imagenes/Preguntas/MO/M3D/MO_M3D_F_4a.png", #[1]
@@ -153,8 +148,7 @@ M3D_image_paths =[
 "./Imagenes/Preguntas/MO/M3D/MO_M3D_M_1a.png", #[2]
 ]
 
-#================= Imágenes Preguntas Cálculo Momento alrededor de un eje ========================
-MAE_image_paths =[
+MAE_image_paths =[#Imágenes Preguntas Cálculo Momento alrededor de un eje
 #Nivel fácil
 "./Imagenes/Preguntas/MO/MAE/MO_MAE_F_1a.png", #[0]
 "./Imagenes/Preguntas/MO/MAE/MO_MAE_F_2a.png", #[1]
@@ -168,8 +162,7 @@ MAE_image_paths =[
 "./Imagenes/Preguntas/MO/MAE/MO_MAE_M_4a.png", #[6]
 ]
 
-#================= Imágenes Preguntas Incertidumbre ========================
-I_image_paths =[
+I_image_paths =[#Imágenes Preguntas Incertidumbre
 #Nivel fácil
 "./Imagenes/Preguntas/I/I_I_F_1a.png", #[0]
 "./Imagenes/Preguntas/I/I_I_F_3a.png", #[1]
@@ -180,8 +173,7 @@ I_image_paths =[
 "./Imagenes/Preguntas/I/I_I_M_3a.png", #[4]
 ]
 
-#================================ Imágenes Preguntas Cálculo Armaduras ===================================
-AR_image_paths =[
+AR_image_paths =[#Imágenes Preguntas Cálculo Armaduras
 #Cerchas_Nivel Fácil
 "./Imagenes/Preguntas/AR/CE/AR_CE_F_1a.png", #[0]
 "./Imagenes/Preguntas/AR/CE/AR_CE_F_1b.png", #[1]
@@ -211,8 +203,7 @@ AR_image_paths =[
 "./Imagenes/Preguntas/AR/MA/AR_MA_D_2a.png", #[15]
 ]
 
-#================================ Imágenes Preguntas Cálculo Sistemas Equivalentes ===================================
-SE_image_paths =[
+SE_image_paths =[#Imágenes Preguntas Cálculo Sistemas Equivalentes
 #Cerchas_Nivel Fácil
 "./Imagenes/Preguntas/SE/SE_SE_F_1a.png", #[0]
 "./Imagenes/Preguntas/SE/SE_SE_F_1b.png", #[1]
@@ -227,9 +218,7 @@ SE_image_paths =[
 "./Imagenes/Preguntas/SE/SE_SE_D_1a.png", #[6]
 ]
 
-#================================ Imágenes Preguntas Cálculo Centroides ===================================
-
-CT_image_paths = [
+CT_image_paths = [#Imágenes Preguntas Cálculo Centroides
 #Centroides _ Nivel fácil
 "./Imagenes/Preguntas/CT/CT_CT_F_1a.png", #[0]
 "./Imagenes/Preguntas/CT/CT_CT_F_2a.png", #[1]
@@ -244,9 +233,7 @@ CT_image_paths = [
 "./Imagenes/Preguntas/CT/CT_CT_D_2a.png", #[6]
 ]
 
-#================================ Imágenes Preguntas Cálculo Fuerzas distribuidas ===================================
-
-FD_image_paths =[
+FD_image_paths =[#Imágenes Preguntas Cálculo Fuerzas distribuidas
 #Fuerzas distribuidas _ Vigas _ Nivel fácil
 "./Imagenes/Preguntas/FD/VI/FD_VI_F_1a.png", #[0]
 "./Imagenes/Preguntas/FD/VI/FD_VI_F_2a.png", #[1]
@@ -279,23 +266,19 @@ FD_image_paths =[
 "./Imagenes/Preguntas/FD/ES/FD_ES_F_2a.png", #[18]
 ]
 
-#================================ Imágenes Preguntas Cálculo Fuerzas internas ===================================
-
-FI_image_paths =[
+FI_image_paths =[#Imágenes Preguntas Cálculo Fuerzas internas
 #Fuerzas internas _ Nivel fácil
 "./Imagenes/Preguntas/FI/FI_FI_F_1a.png", #[0]
 
 #Fuerzas internas_Nivel medio 
 "./Imagenes/Preguntas/FI/FI_FI_M_1a.png", #[1]
-"./Imagenes/Preguntas/FI/FI_FI_M_2a.png", #[2]
 ]
 
 
 
 #==========================================RESPUESTAS CÁLCULOS==============================================
 
-#================================ Imágenes Respuestas Cálculos Equilibrio ===================================
-EQ_rtas_paths= [
+EQ_rtas_paths= [#Imágenes Respuestas Cálculos Equilibrio
 #Vectores 2D _ Ejes arbitrarios _ Nivel díficil
 "./Imagenes/Respuestas/EQ/V2D/R_EQ_V2D_D_1a.png", #[0] 
 "./Imagenes/Respuestas/EQ/V2D/R_EQ_V2D_D_1b.png", #[1] 
@@ -325,8 +308,7 @@ EQ_rtas_paths= [
 
 ]
 
-#================================ Imágenes Respuestas Cálculos Equilibrio ===================================
-EQ_rtas_paths= [
+EQ_rtas_paths= [#Imágenes Respuestas Cálculos Equilibrio
 #Vectores 2D _ Ejes arbitrarios _ Nivel díficil
 "./Imagenes/Respuestas/EQ/V2D/R_EQ_V2D_D_1a.png", #[0] 
 "./Imagenes/Respuestas/EQ/V2D/R_EQ_V2D_D_1b.png", #[1] 
@@ -356,32 +338,27 @@ EQ_rtas_paths= [
 
 ]
 
-#================================ Imágenes Respuestas Cálculos Momento en un punto ===================================
-M3D_rtas_paths= [
+M3D_rtas_paths= [#Imágenes Respuestas Cálculos Momento en un punto
 "./Imagenes/Respuestas/MO/M3D/R_MO_M3D_F_1a.png", #[0] 
 ]
 
-#================================ Imágenes Respuestas Cálculos Momento alrededor de un eje ===================================
-MAE_rtas_paths= [
+MAE_rtas_paths= [#Imágenes Respuestas Cálculos Momento alrededor de un eje
 #Nivel medio
 "./Imagenes/Respuestas/MO/MAE/R_MO_MAE_M_3a.png", #[0] 
 ]
 
-#================================ Imágenes Respuestas Cálculos Incertidumbre ===================================
-I_rtas_paths= [
+I_rtas_paths= [#Imágenes Respuestas Cálculos Incertidumbre
 #Nivel medio
 "./Imagenes/Respuestas/I/R_I_I_M_3a.png", #[0] 
 ]
 
-#================================ Imágenes Respuestas Cálculos Centroides ===================================
-CT_rtas_paths= [
+CT_rtas_paths= [#Imágenes Respuestas Cálculos Centroides
 "./Imagenes/Respuestas/CT/R_CT_CT_F_1a.png", #[0] 
 "./Imagenes/Respuestas/CT/R_CT_CT_M_1a.png", #[1] 
 "./Imagenes/Respuestas/CT/R_CT_CT_D_1a.png", #[2] 
 ]
 
-#================================ Imágenes Respuestas Cálculos Fuerzas Distribuidas ===================================
-FD_rtas_paths= [
+FD_rtas_paths= [#Imágenes Respuestas Cálculos Fuerzas Distribuidas
 #Fuerzas distribuidas _ Vigas _ Nivel fácil
 "./Imagenes/Respuestas/FD/VI/R_FD_VI_F_1a.png", #[0] 
 "./Imagenes/Respuestas/FD/VI/R_FD_VI_F_1b.png", #[1] 
@@ -418,12 +395,16 @@ FD_rtas_paths= [
 "./Imagenes/Respuestas/FD/ES/R_FD_ES_F_2a.png", #[22]
 ]
 
-#================================ Imágenes Respuestas Cálculos Fuerzas Internas ===================================
-FI_rtas_paths= [
+FI_rtas_paths= [#Imágenes Respuestas Cálculos Fuerzas Internas
 #Fuerzas internas _ Nivel fácil
 "./Imagenes/Respuestas/FI/R_FI_FI_F_1a.png", #[0] 
 "./Imagenes/Respuestas/FI/R_FI_FI_F_1b.png", #[1] 
+
+#Fuerzas internas _ Nivel medio
+"./Imagenes/Respuestas/FI/R_FI_FI_M_1a.png", #[2] 
+"./Imagenes/Respuestas/FI/R_FI_FI_M_1b.png", #[3] 
 ]
+
 
 
 #===============================PREGUNTAS TEORÍA==============================================
@@ -497,6 +478,7 @@ FI_teoria_preguntas=[#Fuerzas internas
 "./Imagenes/Teoria_Preguntas/FI/T_FI_FI_9.png", #[5] 
 "./Imagenes/Teoria_Preguntas/FI/T_FI_FI_10.png", #[6]
 ]
+
 
 
 #==========================================RESPUESTAS TEORÍA==============================================
