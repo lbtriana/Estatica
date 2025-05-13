@@ -275,6 +275,9 @@ FI_image_paths =[#Imágenes Preguntas Cálculo Fuerzas internas
 
 #Fuerzas internas_Nivel díficil 
 "./Imagenes/Preguntas/FI/FI_FI_D_1a.png", #[2]
+
+#Fuerzas internas _ Nivel fácil
+"./Imagenes/Preguntas/FI/FI_FI_F_2a.png", #[3]
 ]
 
 

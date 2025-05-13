@@ -322,6 +322,7 @@ ES3 = "Para verificar la estabilidad frente al volcamiento, se debe comprobar qu
 FI1 = "Antes de determinar las fuerzas internas, identifique todas las fuerzas externas que actúan sobre la viga y las reacciones en los apoyos."
 FI2 = "Para calcular las fuerzas cortantes y los momentos flectores en un punto específico, se reliza un corte en dicho punto, se realiza un diagrama de cuerpo libre de la nueva sección con las fuerzas internas, y se aplican las ecuaciones de equilibrio."
 FI3 = "Cuando se realiza un corte, la convención indica que en el lado izquierdo el cortante es negativo y el momento flector es positivo. Para que exista equilibrio, en el lado derecho el cortante es positivo y el momento flector es negativo."
+FI4 = "Para resolver este ejercicio, se recomienda expresar en valor absoluto tanto el momento flector interno máximo en el tramo $AB$ como el momento flector en el punto $B$ en función de las variables $w$, $d_1$ y $d_2$."
 
 #------------------------------------- Textos para las respuestas ---------------------------------------
 

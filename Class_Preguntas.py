@@ -8636,156 +8636,62 @@ preguntas = [
     # Questionary(#2_1
     #     code = 8110021,
     #     no_pregunta = 2,
-    #     complexity = M,
+    #     complexity = F,
     #     topic = "Fuerzas internas",
     #     subtopic = "Fuerzas internas",
     #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"La viga fallará cuando el momento máximo sea $M_{{max}} = {m[0]:.0f} \\text{{ kN}} \\cdot \\text{{ m}}$ o la fuerza cortante máxima sea $V_{{max}} = {d[0] + 2 :.0f} \\text{{ kN}}. Determine la máxima carga distribuida w que la carga puede soportar. Considere $d_1 = {3 + d[3]*(1/5):.2f} \\text{{ m}}$ y  $d_2 = {5 + d[6]*(1/5):.2f}  \\text{{ m}}$.",
+    #     pregunta = lambda f, a, calc, c, d, m: f"La viga fallará cuando el momento máximo sea $M_{{max}} = {m[0]*(1/5) + 80:.2f} \\text{{ kN}} \\cdot \\text{{ m}}$ o la fuerza cortante máxima sea $V_{{max}} = {d[0] + 30:.0f} \\text{{ kN}}$. Determine la máxima carga distribuida w que la carga puede soportar. Considere $d_1 = {d[3]*(1/2)+5:.2f} \\text{{ m}}$",
     #     no_answers = 1,
-    #     a1_name = "Carga distribuida w [$\\dfrac{{kN}}{{m}}$]",
+    #     a1_name = "Carga distribuida w $\\left[\\dfrac{{kN}}{{m}}\\right]$",
     #     a2_name = "",
     #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round((d[0] + 2)/((3 + d[3]*(1/5))*(1/2) + ((5 + d[6]*(1/5))/(6 + d[3]*(2/5)))*(3 + d[3]*(1/5) + (1/3)*(5 + d[6]*(1/5))) - (1/2)(5 + d[6]*(1/5))),2),
+    #     answer1 = lambda f, a, calc, c, d, m: np.round(3*(m[0]*(1/5) + 80)*(1/(pow(d[3]*(1/2)+5,2))),2),
     #     answer2 = lambda f, a, calc, c, d, m: 0,
     #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "Antes de determinar fuerzas internas, identifica todas las fuerzas externas y reacciones de los apoyos que se aplican sobre la viga ",
-    #     ayuda2 = "Para determinar las fuerzas cortantes y momentos flectores en cierto punto, se corta la viga por el punto, se realiza diagrama de cuerpo libre de la nueva sección con las fuerzas internas y se utilizan ecuaciones de equilibrio.",
-    #     ayuda3 = "Para la sección recortada se asume que las fuerzas internas estan dirigidas de la siguiente manera, para obtener los signos de manera correcta: #IMAGEN#",
+    #     ayuda1 = FI1,
+    #     ayuda2 = FI2,
+    #     ayuda3 = FI3,
     #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     Las fuerzas internas se pueden definir como las fuerzas que actuan dentro de un elemento en respuesta a la aplicación de fuerzas externas.
+    #     Las fuerzas internas se definen como las fuerzas que actúan dentro de un elemento y se obtienen mediante un corte teórico en el cuerpo. A continuación, se presenta la solución sugerida para el ejercicio:
+        
+    #     Para este ejercicio, desde un inicio, se puede llegar a inferir que tanto el cortante máximo como el momento flector máximo de la viga en voladizo estarán ubicados en su único apoyo, tal que, se determina reacciones en apoyos y se fija la condición suministrada:
         
     #     $\\textbf{{\\small 1. Reacciones en los apoyos: }}$
-    #     Antes de empezar a determinar las ecuaciones de cortante y momento flector en cada tramo, se debe identificar las reacciones en los apoyos:
-        
-    #     ${{\hspace{{4mm}} \\sum{{F_x}} = R_{{Ax}} = 0}}$     
+                
+    #     ${{\hspace{{4mm}} \\sum{{F_x}} = A_x = 0}}$     
              
-    #     ${{\hspace{{4mm}} \\sum{{M_A}} = R_{{By}} \\cdot d_1 - w \\cdot \\dfrac{{(d_1)^2}}{{2}} - \\dfrac{{w \\cdot d_2}}{{2}} \\cdot (d_1 + \\dfrac{{d_2}}{{3}}) = 0}}$     
-    #     ${{\hspace{{4mm}} R_{{By}} =  w \\cdot \\dfrac{{d_1}}{{2}} + \\dfrac{{w \\cdot d_2}}{{2d_1}} \\cdot (d_1 + \\dfrac{{d_2}}{{3}}) }}$     
+    #     ${{\hspace{{4mm}} \\sum{{F_y}} = A_y - \\dfrac{{w \\cdot d_1}}{{2}} = 0}}$     
+    #     ${{\hspace{{4mm}} A_y = \\dfrac{{w \\cdot d_1}}{{2}} }}$     
              
-    #     ${{\hspace{{4mm}} \\sum{{F_y}} = R_{{Ay}} + R_{{By}} - w \\cdot d_1 - \\dfrac{{w \\cdot d_2}}{{2}} = 0}}$     
-    #     ${{\hspace{{4mm}} R_{{Ay}} = w \\cdot d_1 + \\dfrac{{w \\cdot d_2}}{{2}} - R_{{By}}}}$     
-    #     ${{\hspace{{4mm}} R_{{Ay}} = w \\cdot d_1 + \\dfrac{{w \\cdot d_2}}{{2}} -  w \\cdot \\dfrac{{d_1}}{{2}} - \\dfrac{{w \\cdot d_2}}{{2d_1}} \\cdot (d_1 + \\dfrac{{d_2}}{{3}})}}$     
-    #     ${{\hspace{{4mm}} R_{{Ay}} = \\dfrac{{w \\cdot d_2}}{{2}} + w \\cdot \\dfrac{{d_1}}{{2}} - \\dfrac{{w \\cdot d_2}}{{2d_1}} \\cdot (d_1 + \\dfrac{{d_2}}{{3}})}}$     
-        
-    #     A partir de conocer las fuerzas que actuan sobre la viga, se puede realizar los siguientes diagramas, recordando que el cambio en la fuerza cortante es igual al área bajo la curva de la carga, y así mismo, el cambio del momento flexionante es igual al área bajo el diagrama de fuerza cortante:
-        
-    #     #IMAGENES# 
-        
-    #     Tal que, solo es necesario tener prente las ecuaciones del tramo A-B para calcular el momento máximo (puesto se ubica en $x = d_1$), dado que el valor del cortante máximo es $|R_{{Ay}} - w \\cdot d_1|$:
-        
-    #     $\\textbf{{\\small 2. Fuerzas internas en tramo A-B: }}$
-        
-    #     Se hace el corte mostrado en la imagen para encontrar las ecuaciones de las fuerzas internas en el tramo A-B:
-        
-    #     ##Imagen##
-              
-    #     $\\underline{{Fuerza \\hspace{{2mm}} cortante:}}$
-        
-    #     ${{\hspace{{4mm}} \\sum{{F_y}} = R_{{Ay}} - w \\cdot x - V_1 = 0}}$     
-    #     ${{\hspace{{4mm}} V_1 = R_{{Ay}} - w \\cdot x}}$     
-        
-    #     $\\underline{{Momento \\hspace{{2mm}} flector:}}$
-        
-    #     ${{\hspace{{4mm}} \\sum{{M_x}} = w \\cdot \\dfrac{{x^2}}{{2}} - R_{{Ay}} \\cdot x + M_1 = 0}}$     
-    #     ${{\hspace{{4mm}} M_1 = R_{{Ay}} \\cdot x - w \\cdot \\dfrac{{x^2}}{{2}}}}$     
-        
-    #     Y el valor máximo de momento flexionante sera:
-        
-    #     ${{\hspace{{4mm}} M_{{max}} = R_{{Ay}} \\cdot d_1 - w \\cdot \\dfrac{{(d_1)^2}}{{2}} }}$     
-        
+    #     ${{\hspace{{4mm}} \\sum{{M_A}} = M_A - \\dfrac{{w \\cdot d_1}}{{2}} \\cdot \\dfrac{{2d_1}}{{3}} = 0}}$     
+    #     ${{\hspace{{4mm}} M_A = \\dfrac{{w \\cdot (d_1)^2}}{{3}} }}$     
+             
+    #     A partir de conocer las fuerzas que actuan sobre la viga, se puede realizar los siguientes diagramas, recordando que el cambio en la fuerza cortante es igual al área bajo la curva de la carga, y así mismo, el cambio del momento flexionante es igual al área bajo la curva de la fuerza cortante:                           
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"""
     #     $\\textbf{{\\small 3. Evaluación de la condición de resistencia máxima: }}$     
         
     #     $\\underline{{Cortante \\hspace{{2mm}} máximo:}}$      
         
-    #     A partir de la condición de que la fuerza cortante máxima es $V_{{max}} = {d[0] + 2 :.0f} \\text{{ kN}}, se calcula:
+    #     A partir de la condición de que la fuerza cortante máxima es $V_{{max}} = {d[0] + 30 :.0f} \\text{{ kN}}, se calcula:
         
-    #     ${{\hspace{{4mm}} V_{{max}} = |R_{{Ay}} - w \\cdot d_1| = |\\dfrac{{w \\cdot d_2}}{{2}} + w \\cdot \\dfrac{{d_1}}{{2}} - \\dfrac{{w \\cdot d_2}}{{2d_1}} \\cdot (d_1 + \\dfrac{{d_2}}{{3}}) - w \\cdot d_1|}}$     
-    #     ${{\hspace{{4mm}} V_{{max}} = |\\dfrac{{w \\cdot d_2}}{{2}} - w \\cdot \\dfrac{{d_1}}{{2}} - \\dfrac{{w \\cdot d_2}}{{2d_1}} \\cdot (d_1 + \\dfrac{{d_2}}{{3}})|}}$     
-    #     ${{\hspace{{4mm}} V_{{max}} = w \\cdot (\\dfrac{{d_1}}{{2}} + \\dfrac{{d_2}}{{2d_1}} \\cdot (d_1 + \\dfrac{{d_2}}{{3}}) - \\dfrac{{d_2}}{{2}})}}$     
-    #     ${{\hspace{{4mm}} w  = \\dfrac{{V_{{max}}}}{{\\dfrac{{d_1}}{{2}} + \\dfrac{{d_2}}{{2d_1}} \\cdot (d_1 + \\dfrac{{d_2}}{{3}}) - \\dfrac{{d_2}}{{2}}}}}}$     
-    #     ${{\hspace{{4mm}} w  = {(d[0] + 2)/((3 + d[3]*(1/5))*(1/2) + ((5 + d[6]*(1/5))/(6 + d[3]*(2/5)))*(3 + d[3]*(1/5) + (1/3)*(5 + d[6]*(1/5))) - (1/2)(5 + d[6]*(1/5))):.2f} \\dfrac{{ kN}}{{m}}}}$     
+    #     ${{\hspace{{4mm}} V_{{max}} = A_y = \\dfrac{{w \\cdot d_1}}{{2}}}}$     
+    #     ${{\hspace{{4mm}} w  = \\dfrac{{2V_{{max}}}}{{d_1}}  }}$     
+    #     ${{\hspace{{4mm}} w  = {2*(d[0] + 30)*(1/(d[3]*(1/2)+5)):.2f} \\dfrac{{ kN}}{{m}}}}$     
                 
     #     $\\underline{{Momento \\hspace{{2mm}} máximo:}}$  
         
-    #     A partir de la condición de que el momento máximo es $M_{{max}} = {m[0]:.0f} \\text{{ kN}} \\cdot \\text{{ m}}$, se calcula:
+    #     A partir de la condición de que el momento máximo es $M_{{max}} = {m[0]*(1/5) + 80:.0f} \\text{{ kN}} \\cdot \\text{{ m}}$, se calcula:
         
-    #     ${{\hspace{{4mm}} M_{{max}} = |R_{{Ay}} \\cdot d_1 - w \\cdot \\dfrac{{(d_1)^2}}{{2}} |}}$     
-    #     ${{\hspace{{4mm}} M_{{max}} = |(\\dfrac{{w \\cdot d_2}}{{2}} + w \\cdot \\dfrac{{d_1}}{{2}} - \\dfrac{{w \\cdot d_2}}{{2d_1}} \\cdot (d_1 + \\dfrac{{d_2}}{{3}})) \\cdot d_1 - w \\cdot \\dfrac{{(d_1)^2}}{{2}} |}}$     
-    #     ${{\hspace{{4mm}} M_{{max}} = \\dfrac{{w \\cdot d_2}}{{2}} \\cdot (d_1 + \\dfrac{{d_2}}{{3}}) - \\dfrac{{w \\cdot d_2 \\cdot d_1}}{{2}} }}$     
-    #     ${{\hspace{{4mm}} M_{{max}} = w \\cdot (\\dfrac{{d_2}}{{2}} \\cdot (d_1 + \\dfrac{{d_2}}{{3}}) - \\dfrac{{d_2 \\cdot d_1}}{{2}} ) }}$     
-    #     ${{\hspace{{4mm}} w = \\dfrac{{M_{{max}}}}{{\\dfrac{{d_2}}{{2}} \\cdot (d_1 + \\dfrac{{d_2}}{{3}}) - \\dfrac{{d_2 \\cdot d_1}}{{2}}}} }}$     
-    #     ${{\hspace{{4mm}} w =  {(m[0])/((5 + d[6]*(1/5))*(1/2)*(3 + d[3]*(1/5) + (1/3)*(5 + d[6]*(1/5))) - (5 + d[6]*(1/5))*(3 + d[3]*(1/5))*(1/2)):.2f} \\dfrac{{ kN}}{{m}}}}$     
-        
+    #     ${{\hspace{{4mm}} M_{{max}} = |M_max| = \\dfrac{{w \\cdot (d_1)^2}}{{3}} }}$     
+    #     ${{\hspace{{4mm}} w = \\dfrac{{3M_{{max}}}}{{(d_1)^2}} }}$     
+    #     ${{\hspace{{4mm}} w =  {3*(m[0]*(1/5) + 80)*(1/(pow(d[3]*(1/2)+5,2))):.2f} \\dfrac{{ kN}}{{m}}}}$     
         
     #     Finalmente, se selecciona la respuesta menor, siendo que, si seleccionará la mayor, significa que fallaría bajo la otra condición.
-                           
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     """,
     #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
     #     calculos='operations'
     #     ),
-
-    # Questionary(#3_1
-    #     code = 8120031,
-    #     no_pregunta = 3,
-    #     complexity = M,
-    #     topic = "Fuerzas internas",
-    #     subtopic = "Fuerzas internas",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Determine la distancia $d_2$ de la viga colocada simétricamente en los apoyos, de manera que el momento flector interno en el centro de la viga sea cero. Considere $d_1 = {d[0]:.0f} \\text{{ m}}$ y  $w = {m[0]:.2f}  \\dfrac{{N}}{{m}}$.",
-    #     no_answers = 1,
-    #     a1_name = "Distancia $d_2$ [m]",
-    #     a2_name = "",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(d[0] + d[0]*math.sqrt(3),2),
-    #     answer2 = lambda f, a, calc, c, d, m: 0,
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "Antes de determinar fuerzas internas, identifica todas las fuerzas externas y reacciones de los apoyos que se aplican sobre la viga ",
-    #     ayuda2 = "Para determinar las fuerzas cortantes y momentos flectores en cierto punto, se corta la viga por el punto, se realiza diagrama de cuerpo libre de la nueva sección con las fuerzas internas y se utilizan ecuaciones de equilibrio.",
-    #     ayuda3 = "Para la sección recortada se asume que las fuerzas internas estan dirigidas de la siguiente manera, para obtener los signos de manera correcta: #IMAGEN#",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     Las fuerzas internas se pueden definir como las fuerzas que actuan dentro de un elemento en respuesta a la aplicación de fuerzas externas.
-        
-    #     $\\textbf{{\\small 1. Identificar fuerzas aplicadas sobre viga: }}$
-    #     Antes de empezar a revisar la condición suministrada, se identifica tanto las fuerzas externas como las reacciones en los apoyos que se aplican sobre la viga. Para ello, se representa la fuerza distribuida y las reacciones de la siguiente manera, conociendo que no hay fuerzas en X y que la viga es simétrica:
-        
-    #     #IMAGEN_1#
-        
-    #     Tal que:
-        
-    #     ${{\hspace{{4mm}} F_1 = \\dfrac{{w \\cdot (d_2 - d_1)}}{{4}}}}$     
-             
-    #     ${{\hspace{{4mm}} F_2 = w \\cdot d_1}}$     
-                   
-    #     ${{\hspace{{4mm}} \\sum{{F_y}} = 2R - 2F_1 - F_2 = 0}}$     
-    #     ${{\hspace{{4mm}} R = F_1 + \\dfrac{{F_2}}{{2}} }}$     
-        
-    #     $\\textbf{{\\small 2. Fuerzas internas en centro de la viga: }}$
-        
-    #     Se hace el corte mostrado en la imagen y luego se determina cual es el valor de $d_2$ tal que el momento flector interno en el centro de la viga sea cero:
-        
-    #     ##Imagen##
-    
-    #     ${{\hspace{{4mm}} \\sum{{M_c}} = \\dfrac{{F_2 \\cdot d_1}}{{8}} + F_1 \\cdot (\\dfrac{{d_2 - d_1}}{{6}} + \\dfrac{{d_1}}{{2}}) - \\dfrac{{R \\cdot d_1}}{{2}} + M_c = 0}}$     
-    #     ${{\hspace{{4mm}} \\dfrac{{F_2 \\cdot d_1}}{{8}} + F_1 \\cdot \\dfrac{{d_2}}{{6}} + F_1 \\cdot \\dfrac{{d_1}}{{3}} - (F_1 + \\dfrac{{F_2}}{{2}}) \\cdot \\dfrac{{d_1}}{{2}} = 0}}$     
-    #     ${{\hspace{{4mm}} F_1 \\cdot \\dfrac{{d_2}}{{6}} - F_1 \\cdot \\dfrac{{d_1}}{{6}} - \\dfrac{{F_2 \\cdot d_1}}{{8}} = 0}}$     
-    #     ${{\hspace{{4mm}} \\dfrac{{w \\cdot (d_2 - d_1) \\cdot d_2}}{{24}}  - \\dfrac{{w \\cdot (d_2 - d_1) \\cdot d_1}}{{24}} - \\dfrac{{w \\cdot (d_1)^2}}{{8}} = 0}}$     
-    #     ${{\hspace{{4mm}} \\dfrac{{(d_2)^2}}{{24}}  - \\dfrac{{d_2 \\cdot d_1}}{{12}} - \\dfrac{{(d_1)^2}}{{12}} = 0}}$     
-    #     ${{\hspace{{4mm}} (d_2)^2  - 2 \\cdot d_2 \\cdot d_1 - 2 \\cdot (d_1)^2 = 0}}$     
-        
-    #     Cuya solución será:
-    #     ${{\hspace{{4mm}} d_2 = d_1 \\pm d_1 \\cdot \\sqrt{{3}}}}$     
-        
-    #     Donde se toma la solución postiva:
-        
-    #     ${{\hspace{{4mm}} d_2 = {d[0] + d[0]*math.sqrt(3):.2f} \\text{{ m}}}}$     
-                          
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
-
 
     #=================================================  FUERZAS INTERNAS =========================================================
     #-------------------------------------------------       Fuerzas internas    --------------------------------------------
@@ -9087,17 +8993,17 @@ preguntas = [
         topic = "Fuerzas internas",
         subtopic = "Fuerzas internas",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine la distancia $d_1$, de manera que el momento flector interno máximo en el tramo AB tenga la misma magnitud (en valor absoluto) al momento flector en B.  Considere $d_2 = {d[0]:.0f} \\text{{ m}}$ y  $w = {m[0]:.2f}  \\dfrac{{N}}{{m}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la distancia $d_1$, de manera que el momento flector interno máximo en el tramo $AB$ tenga la misma magnitud (valor absoluto) que el momento flector en el punto $B$. Considere los siguientes datos: $d_2 = {d[0]:.0f} \\text{{ m}}$ y $w = {m[0]:.2f} \\dfrac{{N}}{{m}}$.",     
         no_answers = 1,
-        a1_name = "Distancia $d_1$ [m]",
+        a1_name = "Distancia $d_1$ $[m]$",
         a2_name = "",
         a3_name = "",
         answer1 = lambda f, a, calc, c, d, m: np.round(d[0] + d[0]*math.sqrt(3),2),
         answer2 = lambda f, a, calc, c, d, m: 0,
         answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = "Para resolver este ejercicio, se sugiere dejar tanto el momento flector máximo como el momento flector en B en terminos de w, $d_2$ y $d_1$ asegurarando valores positivos, antes de generar la equivalencia.",
-        ayuda2 = "Para determinar las fuerzas cortantes y momentos flectores en cierto punto, se corta la viga por el punto, se realiza diagrama de cuerpo libre de la nueva sección con las fuerzas internas y se utilizan ecuaciones de equilibrio.",
-        ayuda3 = "Para la sección recortada se asume que las fuerzas internas estan dirigidas de la siguiente manera, para obtener los signos de manera correcta: #IMAGEN#",
+        ayuda1 = FI4,
+        ayuda2 = FI2,
+        ayuda3 = FI3,
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
         Las fuerzas internas se pueden definir como las fuerzas que actuan dentro de un elemento en respuesta a la aplicación de fuerzas externas. A continuación, se muestra una solución del ejercicio: 
         
@@ -9140,7 +9046,7 @@ preguntas = [
         
         $\\textbf{{\\small 4. Momento flector en B: }}$
         
-        Se determina cual es el momento flector en B, reemplazando en la ecuación de momento la distancia $d_1$:
+        Se determina cual es el momento flector en $B$, reemplazando en la ecuación de momento la distancia $d_1$:
 
         ${{\hspace{{4mm}} M_B = A_y \\cdot d_1 - \\dfrac{{w \\cdot (d_1)^2}}{{2}}}}$     
         ${{\hspace{{4mm}} M_B = \\dfrac{{w}}{{2}} \\cdot (2d_1 \\cdot d_2 - (d_2)^2 - (d_1)^2) }}$     
