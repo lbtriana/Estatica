@@ -8825,7 +8825,7 @@ preguntas = [
         
         ${{\hspace{{4mm}} A_y = {((m[1]*pow((2*d[3] + d[6]),2))*(1/6) + (1/2)*m[0]*d[0]*(2*d[3] + d[6] + d[0]*(1/3)) + f[0]*(d[3]+d[6]))/(d[0] + 2*d[3] + d[6]):.2f} \\text{{ kN}}}}$     
         
-        De igual manera, se contempla una nueva variable $w_2'$, la cual, se puede determinar utilizando triángulos semejantes:
+        De igual manera, se contempla una nueva variable $w_2'$, la cual puede determinarse aplicando triángulos semejantes:
         
         ${{\hspace{{4mm}} \\dfrac{{w_2}}{{2d_2 + d_3}} = \\dfrac{{w_2'}}{{2d_2}}}}$     
         
@@ -8833,10 +8833,10 @@ preguntas = [
         
         ${{\hspace{{4mm}} w_2' = {(2*m[1]*d[3])/(2*d[3] + d[6]):.2f} \\dfrac{{kN}}{{m}}}}$     
         
-        Ahora bien, se determina el siguiente sistema equivalente aplicable al ejercicio:  
+        Después, se define el siguiente sistema equivalente, en el que se traslada la fuerza $F_1$ sobre la viga y se aplica el momento correspondiente ($M_1$):  
         """,
         respuesta_P3 = lambda f, a, calc, c, d, m: f"""
-        Donde, se puede calcular las fuerzas $F_2$ y $F_3$, y, el momento par $M_1$:
+        Las fuerzas $F_2$ y $F_3$ y el momento par $M_1$ del sistema son:
         
         ${{\hspace{{4mm}} M_1 = F_1 \\cdot d_2}}$     
         ${{\hspace{{4mm}} M_1 = {f[0]*d[3]:.2f} \\text{{ kN}} \\cdot \\text{{ m}}}}$     
@@ -8856,9 +8856,9 @@ preguntas = [
         
         $\\underline{{Momento \\hspace{{2mm}} flector:}}$
         
-        ${{\hspace{{4mm}} \\sum{{M_C}} = \\dfrac{{2d_2 \\cdot F_3}}{{3}} + F_2 \\cdot (2d_2 + \\dfrac{{d_1}}{{3}}) - A_y \\cdot (d_1 + 2d_2) + M_1 + M_C = 0}}$     
+        ${{\hspace{{4mm}} \\sum{{M_C}} = \\dfrac{{2d_2 \\cdot F_3}}{{3}} + F_2 \\cdot \\left(2d_2 + \\dfrac{{d_1}}{{3}}\\right) - A_y \\cdot (d_1 + 2d_2) + M_1 + M_C = 0}}$     
         
-        ${{\hspace{{4mm}} M_C = - M_1 + A_y \\cdot (d_1 + 2d_2) - \\dfrac{{2d_2 \\cdot F_3}}{{3}} - F_2 \\cdot (2d_2 + \\dfrac{{d_1}}{{3}})}}$     
+        ${{\hspace{{4mm}} M_C = - M_1 + A_y \\cdot (d_1 + 2d_2) - \\dfrac{{2d_2 \\cdot F_3}}{{3}} - F_2 \\cdot \\left(2d_2 + \\dfrac{{d_1}}{{3}}\\right)}}$     
         
         ${{\hspace{{4mm}} M_C = {-f[0]*d[3] + (((m[1]*pow((2*d[3] + d[6]),2))*(1/6) + (1/2)*m[0]*d[0]*(2*d[3] + d[6] + d[0]*(1/3)) + f[0]*(d[3]+d[6]))/(d[0] + 2*d[3] + d[6]))*(d[0] + 2*d[3]) - (2/3)*d[3]*((2*m[1]*d[3])/(2*d[3] + d[6]))*d[3] - m[0]*d[0]*(1/2)*(2*d[3] + d[0]*(1/3)):.2f} \\text{{ kN}} \\cdot \\text{{ m}}}}$     
         """,
