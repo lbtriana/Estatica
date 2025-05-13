@@ -9087,7 +9087,7 @@ preguntas = [
         topic = "Fuerzas internas",
         subtopic = "Fuerzas internas",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine la distancia $d_1$, de manera que el momento flector interno máximo en el tramo AB tenga la misma magnitud (en valor ABSOLUTO) al momento flector en B.  Considere $d_2 = {d[0]:.0f} \\text{{ m}}$ y  $w = {m[0]:.2f}  \\dfrac{{N}}{{m}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la distancia $d_1$, de manera que el momento flector interno máximo en el tramo AB tenga la misma magnitud (en valor absoluto) al momento flector en B.  Considere $d_2 = {d[0]:.0f} \\text{{ m}}$ y  $w = {m[0]:.2f}  \\dfrac{{N}}{{m}}$.",
         no_answers = 1,
         a1_name = "Distancia $d_1$ [m]",
         a2_name = "",
