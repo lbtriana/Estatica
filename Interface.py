@@ -1031,6 +1031,9 @@ if authenticate_user():
                 if subtopic == "Empuje de suelo":
                     if pregunta_no == 1:
                         st.image(FD_image_paths[7], width=400) 
+                if subtopic == "Fuerzas internas":
+                    if pregunta_no == 1:
+                        st.image(FI_image_paths[2], width=400)
                             
         return
 
@@ -1142,7 +1145,10 @@ if authenticate_user():
                         st.image(FD_rtas_paths[13], width=350)     
                 if subtopic == "Empuje de suelo":
                     if pregunta_no ==1:
-                        st.image(FD_rtas_paths[9], width=350)                                
+                        st.image(FD_rtas_paths[9], width=350)    
+                if subtopic == "Fuerzas internas":
+                    if pregunta_no ==1:
+                        st.image(FI_rtas_paths[4], width=200)                            
         return
 
     def filtrar_imagenes_respuestas_P2(pregunta_no, version_no, subtopic, difficulty):

@@ -9081,108 +9081,82 @@ preguntas = [
     #-------------------------------------------------       Nivel Díficil    ---------------------------------------------------
     #-------------------------------------------------       Code: 8110011    --------------------------------------------------
     Questionary(#1_1
-        code = 0,
+        code = 8130011,
         no_pregunta = 1,
         complexity = D,
-        topic = FI,
-        subtopic = FI,
+        topic = "Fuerzas internas",
+        subtopic = "Fuerzas internas",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Está sección pronto estará disponible.",
-        no_answers = 0,
-        a1_name = AX,
-        a2_name = AY,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la distancia $d_1$, de manera que el momento flector interno máximo en el tramo AB tenga la misma magnitud (en valor ABSOLUTO) al momento flector en B.  Considere $d_2 = {d[0]:.0f} \\text{{ m}}$ y  $w = {m[0]:.2f}  \\dfrac{{N}}{{m}}$.",
+        no_answers = 1,
+        a1_name = "Distancia $d_1$ [m]",
+        a2_name = "",
         a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round(0, 2),
-        answer2 = lambda f, a, calc, c, d, m: np.round(0, 2),
+        answer1 = lambda f, a, calc, c, d, m: np.round(d[0] + d[0]*math.sqrt(3),2),
+        answer2 = lambda f, a, calc, c, d, m: 0,
         answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = A1,
-        ayuda2 = A2,
-        ayuda3 = A3,
-        respuesta_P1 = lambda fa, a, calc, c, d, m: f"",
-        respuesta_P2 = lambda fa, a, calc, c, d, m: f"",
-        respuesta_P3 = lambda fa, a, calc, c, d, m: f"",
-        calculos = 'operations',
-        ),
-
-    # Questionary(#3_1
-    #     code = 8130031,
-    #     no_pregunta = 3,
-    #     complexity = D,
-    #     topic = "Fuerzas internas",
-    #     subtopic = "Fuerzas internas",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Determine la distancia $d_1$, de manera que el momento flector interno máximo en el tramo AB tenga la misma magnitud (en valor ABSOLUTO) al momento flector en B.  Considere $d_2 = {d[0]:.0f} \\text{{ m}}$ y  $w = {m[0]:.2f}  \\dfrac{{N}}{{m}}$.",
-    #     no_answers = 1,
-    #     a1_name = "Distancia $d_1$ [m]",
-    #     a2_name = "",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(d[0] + d[0]*math.sqrt(3),2),
-    #     answer2 = lambda f, a, calc, c, d, m: 0,
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "Para resolver este ejercicio, se sugiere dejar tanto el momento flector máximo como el momento flector en B en terminos de w, $d_2$ y $d_1$ asegurarando valores positivos, antes de generar la equivalencia.",
-    #     ayuda2 = "Para determinar las fuerzas cortantes y momentos flectores en cierto punto, se corta la viga por el punto, se realiza diagrama de cuerpo libre de la nueva sección con las fuerzas internas y se utilizan ecuaciones de equilibrio.",
-    #     ayuda3 = "Para la sección recortada se asume que las fuerzas internas estan dirigidas de la siguiente manera, para obtener los signos de manera correcta: #IMAGEN#",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     Las fuerzas internas se pueden definir como las fuerzas que actuan dentro de un elemento en respuesta a la aplicación de fuerzas externas. A continuación, se muestra una solución del ejercicio: 
+        ayuda1 = "Para resolver este ejercicio, se sugiere dejar tanto el momento flector máximo como el momento flector en B en terminos de w, $d_2$ y $d_1$ asegurarando valores positivos, antes de generar la equivalencia.",
+        ayuda2 = "Para determinar las fuerzas cortantes y momentos flectores en cierto punto, se corta la viga por el punto, se realiza diagrama de cuerpo libre de la nueva sección con las fuerzas internas y se utilizan ecuaciones de equilibrio.",
+        ayuda3 = "Para la sección recortada se asume que las fuerzas internas estan dirigidas de la siguiente manera, para obtener los signos de manera correcta: #IMAGEN#",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        Las fuerzas internas se pueden definir como las fuerzas que actuan dentro de un elemento en respuesta a la aplicación de fuerzas externas. A continuación, se muestra una solución del ejercicio: 
         
-    #     $\\textbf{{\\small 1. Reacciones en los apoyos: }}$
+        $\\textbf{{\\small 1. Reacciones en los apoyos: }}$
         
-    #     ${{\hspace{{4mm}} \\sum{{M_A}} = B_y \\cdot d_1 - \\dfrac{{w \\cdot (d_2)^2}}{{2}} = 0 }}$     
-    #     ${{\hspace{{4mm}} B_y = \\dfrac{{w \\cdot (d_2)^2}}{{2d_1}} }}$     
+        ${{\hspace{{4mm}} \\sum{{M_A}} = B_y \\cdot d_1 - \\dfrac{{w \\cdot (d_2)^2}}{{2}} = 0 }}$     
+        ${{\hspace{{4mm}} B_y = \\dfrac{{w \\cdot (d_2)^2}}{{2d_1}} }}$     
              
-    #     ${{\hspace{{4mm}} \\sum{{F_y}} = B_y + A_y - w \\cdot d_2 = 0}}$     
-    #     ${{\hspace{{4mm}} A_y = w \\cdot d_2 - B_y}}$     
-    #     ${{\hspace{{4mm}} A_y = \\dfrac{{w \\cdot d_2}}{{2d_1}} \\cdot (2d_1 - d_2)  }}$     
+        ${{\hspace{{4mm}} \\sum{{F_y}} = B_y + A_y - w \\cdot d_2 = 0}}$     
+        ${{\hspace{{4mm}} A_y = w \\cdot d_2 - B_y}}$     
+        ${{\hspace{{4mm}} A_y = \\dfrac{{w \\cdot d_2}}{{2d_1}} \\cdot (2d_1 - d_2)  }}$     
                 
-    #     $\\textbf{{\\small 2. Fuerzas internas en tramo AB: }}$
+        $\\textbf{{\\small 2. Fuerzas internas en tramo AB: }}$
         
-    #     Se hace el corte mostrado en la imagen :
+        Se hace el corte mostrado en la imagen :        
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        $\\underline{{Ecuación\\hspace{{2mm}} de \\hspace{{2mm}} cortante:}}$    
         
-    #     ##Imagen##
-        
-    #     $\\underline{{Ecuación\\hspace{{2mm}} de \\hspace{{2mm}} cortante:}}$    
-        
-    #     ${{\hspace{{4mm}} \\sum{{F_y}} = A_y - w \\cdot x - V_1 = 0}}$     
-    #     ${{\hspace{{4mm}} V_1 = A_y - w \\cdot x }}$     
+        ${{\hspace{{4mm}} \\sum{{F_y}} = A_y - w \\cdot x - V_1 = 0}}$     
+        ${{\hspace{{4mm}} V_1 = A_y - w \\cdot x }}$     
              
-    #     $\\underline{{Ecuación\\hspace{{2mm}} de \\hspace{{2mm}} momento:}}$    
+        $\\underline{{Ecuación\\hspace{{2mm}} de \\hspace{{2mm}} momento:}}$    
                     
-    #     ${{\hspace{{4mm}} \\sum{{M_x}} = \\dfrac{{w \\cdot x^2}}{{2}} - A_y \\cdot x + M_1 = 0}}$     
-    #     ${{\hspace{{4mm}} M_1 = A_y \\cdot x - \\dfrac{{w \\cdot x^2}}{{2}}}}$     
+        ${{\hspace{{4mm}} \\sum{{M_x}} = \\dfrac{{w \\cdot x^2}}{{2}} - A_y \\cdot x + M_1 = 0}}$     
+        ${{\hspace{{4mm}} M_1 = A_y \\cdot x - \\dfrac{{w \\cdot x^2}}{{2}}}}$     
         
-    #     $\\textbf{{\\small 3. Momento flector máximo: }}$
+        $\\textbf{{\\small 3. Momento flector máximo: }}$
         
-    #     El momento máximo en el tramo AB se encontrará justamente cuando $V_1 = 0$, es decir :
+        El momento máximo en el tramo AB se encontrará justamente cuando $V_1 = 0$, es decir :
         
-    #     ${{\hspace{{4mm}} V_1 = A_y - w \\cdot x = 0}}$     
-    #     ${{\hspace{{4mm}} x = \\dfrac{{A_y}}{{w}}}}$     
+        ${{\hspace{{4mm}} V_1 = A_y - w \\cdot x = 0}}$     
+        ${{\hspace{{4mm}} x = \\dfrac{{A_y}}{{w}}}}$     
                 
-    #     Del cuál, se obtiene el valor de momento flector máximo:
+        Del cuál, se obtiene el valor de momento flector máximo:
         
-    #     ${{\hspace{{4mm}} M_{{max}} = A_y \\cdot \\dfrac{{A_y}}{{w}} - \\dfrac{{w \\cdot (\\dfrac{{A_y}}{{w}})^2}}{{2}}}}$     
-    #     ${{\hspace{{4mm}} M_{{max}} = \\dfrac{{(A_y)^2}}{{2w}}}}$     
-    #     ${{\hspace{{4mm}} M_{{max}} = \\dfrac{{w}}{{8 \\cdot (d_1)^2}} \\cdot (2d_1 \\cdot d_2 - (d_2)^2)^2}}$     
+        ${{\hspace{{4mm}} M_{{max}} = A_y \\cdot \\dfrac{{A_y}}{{w}} - \\dfrac{{w \\cdot (\\dfrac{{A_y}}{{w}})^2}}{{2}}}}$     
+        ${{\hspace{{4mm}} M_{{max}} = \\dfrac{{(A_y)^2}}{{2w}}}}$     
+        ${{\hspace{{4mm}} M_{{max}} = \\dfrac{{w}}{{8 \\cdot (d_1)^2}} \\cdot (2d_1 \\cdot d_2 - (d_2)^2)^2}}$     
         
-    #     $\\textbf{{\\small 4. Momento flector en B: }}$
+        $\\textbf{{\\small 4. Momento flector en B: }}$
         
-    #     Se determina cual es el momento flector en B, reemplazando en la ecuación de momento la distancia $d_1$:
-    #     ${{\hspace{{4mm}} M_B = A_y \\cdot d_1 - \\dfrac{{w \\cdot (d_1)^2}}{{2}}}}$     
-    #     ${{\hspace{{4mm}} M_B = \\dfrac{{w}}{{2}} \\cdot (2d_1 \\cdot d_2 - (d_2)^2 - (d_1)^2) }}$     
-    #     ${{\hspace{{4mm}} M_B = - \\dfrac{{w}}{{2}} \\cdot (d_2 - d_1)^2}}$     
+        Se determina cual es el momento flector en B, reemplazando en la ecuación de momento la distancia $d_1$:
+
+        ${{\hspace{{4mm}} M_B = A_y \\cdot d_1 - \\dfrac{{w \\cdot (d_1)^2}}{{2}}}}$     
+        ${{\hspace{{4mm}} M_B = \\dfrac{{w}}{{2}} \\cdot (2d_1 \\cdot d_2 - (d_2)^2 - (d_1)^2) }}$     
+        ${{\hspace{{4mm}} M_B = - \\dfrac{{w}}{{2}} \\cdot (d_2 - d_1)^2}}$     
         
         
-    #     $\\textbf{{\\small 5. Despeje de d_1: }}$
+        $\\textbf{{\\small 5. Despeje de d1: }}$
         
-    #     ${{\hspace{{4mm}} |M_B| = |M_{{max}}| }}$     
-    #     ${{\hspace{{4mm}} \\dfrac{{w}}{{2}} \\cdot (d_2 - d_1)^2 = \\dfrac{{w}}{{8 \\cdot (d_1)^2}} \\cdot (2d_1 \\cdot d_2 - (d_2)^2)^2 }}$     
-    #     ${{\hspace{{4mm}} 4 \\cdot (d_1)^2 \\cdot (d_2 - d_1)^2 = (2d_1 \\cdot d_2 - (d_2)^2)^2 }}$     
-    #     ${{\hspace{{4mm}} 2 \\cdot d_1 \\cdot (d_2 - d_1) = 2d_1 \\cdot d_2 - (d_2)^2 }}$     
-    #     ${{\hspace{{4mm}} d_1 = \\dfrac{{d_2}}{{sqrt{{2}}}}}}$     
-    #     ${{\hspace{{4mm}} d_1 = {d[0]/(math.sqrt(2)) :.2f} \\text{{ m}}}}$       
-        
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
+        ${{\hspace{{4mm}} |M_B| = |M_{{max}}| }}$     
+        ${{\hspace{{4mm}} \\dfrac{{w}}{{2}} \\cdot (d_2 - d_1)^2 = \\dfrac{{w}}{{8 \\cdot (d_1)^2}} \\cdot (2d_1 \\cdot d_2 - (d_2)^2)^2 }}$     
+        ${{\hspace{{4mm}} 4 \\cdot (d_1)^2 \\cdot (d_2 - d_1)^2 = (2d_1 \\cdot d_2 - (d_2)^2)^2 }}$     
+        ${{\hspace{{4mm}} 2 \\cdot d_1 \\cdot (d_2 - d_1) = 2d_1 \\cdot d_2 - (d_2)^2 }}$     
+        ${{\hspace{{4mm}} d_1 = \\dfrac{{d_2}}{{\\sqrt{{2}}}}}}$     
+        ${{\hspace{{4mm}} d_1 = {d[0]/(math.sqrt(2)) :.2f} \\text{{ m}}}}$   
+        """,
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
     ]
