@@ -461,6 +461,7 @@ AR_teoria_preguntas =[#Armaduras
 "./Imagenes/Teoria_Preguntas/AR/CE/T_AR_CE_1.png", #[0] 
 "./Imagenes/Teoria_Preguntas/AR/MA/T_AR_MA_1.png", #[1] 
 "./Imagenes/Teoria_Preguntas/AR/MA/T_AR_MA_2.png", #[2] 
+"./Imagenes/Teoria_Preguntas/AR/CE/T_AR_CE_2.png", #[3] 
 ]
 
 CT_teoria_preguntas=[#Centroides
@@ -515,6 +516,10 @@ FI_teoria_preguntas=[#Fuerzas internas
 EQ_teoria_respuestas =[#Equilibrio
 "./Imagenes/Teoria_Respuestas/EQ/V/RT_EQ_V_1.png", #[0] 
 "./Imagenes/Teoria_Respuestas/EQ/V/RT_EQ_V_2.png", #[1] 
+]
+
+AR_teoria_respuestas =[#Armaduras
+"./Imagenes/Teoria_Respuestas/AR/CE/RT_AR_CE_2.png", #[0] 
 ]
 
 CT_teoria_respuestas =[#Centroides

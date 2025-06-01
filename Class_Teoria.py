@@ -876,24 +876,24 @@ conceptuales = [
         respuesta_P2 = "",
         ),
 
+    Theory(#2
+        code = 6100020, 
+        no_pregunta = 2,
+        topic = "Armaduras",
+        subtopic = "Cerchas",
+        enunciado ="De acuerdo con el análisis conceptual del comportamiento de la cercha, se puede concluir que el elemento $AH$:", 
+        opcion_1 = "No se puede concluir nada sobre el comportamiento del elemento $AH$, el análisis conceptual es incorrecto.",
+        opcion_2 = "Está a compresión. Las flechas sugieren la reducción en la longitud del elemento $AH$.",
+        opcion_3 = "Está a tensión. Dado que existe equilibrio entre los nodos y los elementos, si el nodo se encuentra a tensión, el elemento también lo está.",
+        opcion_4 = "No se puede concluir determinar el comportamiento del elemento $AH$ sin realizar un análisis matemático para conocer la fuerza a la que está sometido.",
+        opcion_correcta = "Está a tensión. Dado que existe equilibrio entre los nodos y los elementos, si el nodo se encuentra a tensión, el elemento también lo está.",
+        respuesta_P1 = "El elemento $AH$ se encuentra a tensión. Las flechas muestran el análisis realizado sobre los nodos, los cuales a su vez indican el comportamiento de los elementos. El equilibrio interno entre los nodos y los elementos muestran que tanto el nodo como el elemento están a tensión.",
+        respuesta_P2 = "",
+        ),
+           
     # Theory(#3
     #     code = 6100030, 
     #     no_pregunta = 3,
-    #     topic = "Equilibrio de partículas",
-    #     subtopic = "Cerchas",
-    #     enunciado ="Convencionalmente se dice que un elemento está en tensión cuando:", 
-    #     opcion_1 = " ",
-    #     opcion_2 = "Las flechas en los extremos apuntan hacia fuera del elemento generando el alargamiento del elemento.",
-    #     opcion_3 = " ",
-    #     opcion_4 = " ",
-    #     opcion_correcta = "Las flechas en los extremos apuntan hacia fuera del elemento generando el alargamiento del elemento.",
-    #     respuesta_P1 = """ """,
-    #     respuesta_P2 = "",
-    #     ),
-                     
-    # Theory(#4
-    #     code = 6100040, 
-    #     no_pregunta = 4,
     #     topic = "Equilibrio de partículas",
     #     subtopic = "Cerchas",
     #     enunciado ="Convencionalmente se dice que un elemento está en compresión cuando:", 
@@ -905,57 +905,6 @@ conceptuales = [
     #     respuesta_P1 = """ """,
     #     respuesta_P2 = "",
     #     ),
-                     
-    # Theory(#5
-    #     code = 6100050, 
-    #     no_pregunta = 5,
-    #     topic = "Equilibrio de partículas",
-    #     subtopic = "Cerchas",
-    #     enunciado =""""
-    #     Cuáles de las siguientes afirmaciones son verdaderas:
-    #         I.	Si una armadura es estable sus nodos están en equilibrio.
-    #         II.	Para analizar cerchas deben conocerse las reacciones
-    #         III.	En los nodos el momento siempre es 0. En 2d Las fuerzas son coplanares y concurrentes. Solo se hacen sumatorias de fuerzas para determinar el equilibrio 
-    #     """, 
-    #     opcion_1 = " ",
-    #     opcion_2 = " ",
-    #     opcion_3 = " ",
-    #     opcion_4 = " ",
-    #     opcion_correcta = " ",
-    #     respuesta_P1 = """ """,
-    #     respuesta_P2 = "",
-    #     ),
-                         
-    # Theory(#6
-    #     code = 6100060, 
-    #     no_pregunta = 6,
-    #     topic = "Equilibrio de partículas",
-    #     subtopic = "Cerchas",
-    #     enunciado ="Cuando se hace el diagrama de cuerpo libre de un nodo una recomendación es:", 
-    #     opcion_1 = " ",
-    #     opcion_2 = " ",
-    #     opcion_3 = "Imaginar que las fuerzas están saliendo del nodo.",
-    #     opcion_4 = " ",
-    #     opcion_correcta = "Las flechas en los extremos apuntan hacia el elemento generando el acortamiento del elemento.",
-    #     respuesta_P1 = """De esta forma, si el escalar da positivo es correcto asumir que el elemento está a tensión y si da negativo, se sabe que el elemento está en compresión. """,
-    #     respuesta_P2 = "",
-    #     ),
-
-    # Theory(#7
-    #     code = 6100070, 
-    #     no_pregunta = 7,
-    #     topic = "Equilibrio de partículas",
-    #     subtopic = "Cerchas",
-    #     enunciado ="Un elemento de la cercha es de fuerza cero cuando:", 
-    #     opcion_1 = " ",
-    #     opcion_2 = " ",
-    #     opcion_3 = "Imaginar que las fuerzas están saliendo del nodo.",
-    #     opcion_4 = " ",
-    #     opcion_correcta = "Las flechas en los extremos apuntan hacia el elemento generando el acortamiento del elemento.",
-    #     respuesta_P1 = """De esta forma, si el escalar da positivo es correcto asumir que el elemento está a tensión y si da negativo, se sabe que el elemento está en compresión. """,
-    #     respuesta_P2 = "",
-    #     ),                 
-
 
 #-----------------------------------------------------  Armaduras ----------------------------------------------------------
 #------------------------------------------------------  Marcos -----------------------------------------------------------

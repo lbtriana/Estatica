@@ -1429,6 +1429,8 @@ if authenticate_user():
             if subtopic == "Cerchas":
                 if pregunta_no == 1:
                     st.image(AR_teoria_preguntas[0], width=350) 
+                if pregunta_no == 2:
+                    st.image(AR_teoria_preguntas[3], width=550) 
             if subtopic == "Marcos":
                 if pregunta_no == 1:
                     st.image(AR_teoria_preguntas[1], width=250) 
@@ -1506,6 +1508,9 @@ if authenticate_user():
                         st.image(EQ_teoria_respuestas[0],width=200)
                     if pregunta_no == 13: 
                         st.image(EQ_teoria_respuestas[1],width=250)
+                if subtopic == "Cerchas":
+                    if pregunta_no == 2: 
+                        st.image(AR_teoria_respuestas[0],width=500)
                 if subtopic == "Centroides":
                     if pregunta_no == 6:
                         st.image(CT_teoria_respuestas[0],width=200)
