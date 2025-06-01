@@ -468,7 +468,8 @@ conceptuales = [
         respuesta_P2 = "",
         ),
 
-    #----------------------------------------------------- Momentos --------------------------------------------------------
+    #----------------------------------------------------- Momentos -------------------------------------------------------
+    #------------------------------------------------ Momento en un punto -------------------------------------------------
     #-------------------------------------------------    21000#0       ---------------------------------------------------
     Theory(#1
        code = 2100010, 
@@ -556,7 +557,7 @@ conceptuales = [
         ),
              
     # Theory(#5
-    #     code = 1300050, 
+    #     code = 2100050, 
     #     no_pregunta = 5,
     #     topic = "Equilibrio de partículas",
     #     subtopic = "Momentos",
@@ -615,7 +616,7 @@ conceptuales = [
         ),
              
     # Theory(#8
-    #     code = 1300080, 
+    #     code = 2100080, 
     #     no_pregunta = 8,
     #     topic = "Equilibrio de partículas",
     #     subtopic = "Momentos",
@@ -630,7 +631,7 @@ conceptuales = [
     #     ),
              
     # Theory(#9
-    #     code = 1300090, 
+    #     code = 2100090, 
     #     no_pregunta = 9,
     #     topic = "Equilibrio de partículas",
     #     subtopic = "Momentos",
@@ -645,7 +646,20 @@ conceptuales = [
     #     respuesta_P2 = "",
     #     ),   
 
-   
+
+
+    #----------------------------------------------------- Momentos -------------------------------------------------------
+    #------------------------------------------------ Momento alrededor de un eje -------------------------------------------------
+    #-------------------------------------------------    22000#0       ---------------------------------------------------
+
+
+
+    #----------------------------------------------------- Momentos -------------------------------------------------------
+    #------------------------------------------------ Momentos pares -------------------------------------------------
+    #-------------------------------------------------    23000#0       ---------------------------------------------------
+
+
+
     #--------------------------------------------------- Incertidumbre ----------------------------------------------------------
     #-------------------------------------------------       31000#0      ---------------------------------------------------
     # Theory(#1
@@ -764,10 +778,79 @@ conceptuales = [
         ),
 
 
+
+    #-------------------------------------------------  Sistemas equivalentes ---------------------------------------------------
+    #-------------------------------------------------       41000##0         ---------------------------------------------------
+    # Theory(#1
+    #     code = 4100010, 
+    #     no_pregunta = 1,
+    #     topic = "Equilibrio de partículas",
+    #     subtopic = "Sistemas equivalentes",
+    #     enunciado ="Dos sistemas de fuerzas son equivalentes cuando:", 
+    #     opcion_1 = "Tienen el mismo número de fuerzas con igual magnitud pero diferente ubicación.",
+    #     opcion_2 = "Actúan sobre cuerpos con la misma geometría.",
+    #     opcion_3 = "Tienen la misma resultante y el mismo momento con respecto a un punto.",
+    #     opcion_4 = "La sumatoria de las resultantes de cada sistema es igual a 0. ",
+    #     opcion_correcta = "Tienen la misma resultante y el mismo momento con respecto a un punto.",
+    #     respuesta_P1 = "Dos sistemas son equivalentes si, al reducirlos, generan la misma fuerza resultante y el mismo momento respecto a un punto dado. Esto significa que, aunque las fuerzas individuales sean diferentes, su efecto global sobre el cuerpo es el mismo.",
+    #     respuesta_P2 = "",
+    #     ),
+
+    # Theory(#2
+    #     code = 4100020, 
+    #     no_pregunta = 2,
+    #     topic = "Equilibrio de partículas",
+    #     subtopic = "Sistemas equivalentes",
+    #     enunciado ="¿Cuál es la principal utilidad de reducir un sistema de fuerzas a una fuerza resultante y un momento?", 
+    #     opcion_1 = "Simplificar el análisis de equilibrio y distribución de cargas en un cuerpo rígido.",
+    #     opcion_2 = "Aumentar la precisión en el cálculo de deformaciones en estructuras.",
+    #     opcion_3 = "Determinar el centro de masa exacto de un objeto.",
+    #     opcion_4 = "Estudiar cómo una estructura se deforma",
+    #     opcion_correcta = "Simplificar el análisis de equilibrio y distribución de cargas en un cuerpo rígido.",
+    #     respuesta_P1 = "Reducir un sistema de fuerzas a una fuerza resultante y un momento permite trabajar con una representación más sencilla del sistema. Esto es especialmente útil en estructuras, donde analizar todas las fuerzas individualmente sería complejo.",
+    #     respuesta_P2 = "",
+    #     ),
+
+    # Theory(#3
+    #     code = 4100030, 
+    #     no_pregunta = 3,
+    #     topic = "Equilibrio de partículas",
+    #     subtopic = "Sistemas equivalentes",
+    #     enunciado ="La forma de reducir un sistema de fuerzas es:", 
+    #     opcion_1 = "Encontrar la resultante y ubicarla en el punto medio entre ellas.",
+    #     opcion_2 = "Convertir las fuerzas distribuidas en fuerzas puntuales y viceversa.",
+    #     opcion_3 = "Cambiar las magnitudes de la fuerzas de tal forma que la resultante sea la misma.",
+    #     opcion_4 = "Encontrar la resultante y ubicarla en el punto en el que el momento generado por esta sea el mismo.",
+    #     opcion_correcta = "Encontrar la resultante y ubicarla en el punto en el que el momento generado por esta sea el mismo.",
+    #     respuesta_P1 = """El procedimiento general para encontrar un sistema de fuerzas equivalentes es:
+    #     1. Se hace la suma vectorial de todas las fuerzas aplicadas al sistema. 
+    #     2. Se calcula el momento en el sistema original respecto a un punto cualquiera (O) usando producto cruz y se suman los momentos.
+    #     3. Se calcula la posición de la resultante \\( \overrightarrow{r} \) utilizando producto cruz. Esto teniendo en cuenta que la fuerza que debe tomarse es la resultante calculada y que el momento tomado es el calculado en el paso anterior.
+    #     De esta forma se encuentra la ubicación de la resultante que permite que los momentos en ambos sean iguales medido desde el mismo punto (O).
+    #     Nota: Cuando es un sistema en 2D lo usual es calcular el momento con las distancias perpendiculares.""",
+    #     respuesta_P2 = "",
+    #     ),
+                     
+    # Theory(#4
+    #     code = 4100040, 
+    #     no_pregunta = 4,
+    #     topic = "Equilibrio de partículas",
+    #     subtopic = "Sistemas equivalentes",
+    #     enunciado ="El sistema de fuerzas equivalente al de la siguiente figura es:", 
+    #     opcion_1 = "Opción I",
+    #     opcion_2 = "Opción II",
+    #     opcion_3 = "Opción III",
+    #     opcion_4 = "Ninguna",
+    #     opcion_correcta = "Opción I",
+    #     respuesta_P1 = "Note que la opción I tiene la fuerza resultante ubicada a una distancia x calculada a partir del momento del sistema original.",
+    #     respuesta_P2 = "",
+    #     ),
+
+
     # #------------------------------------------------------ Apoyos ----------------------------------------------------------
     # #-------------------------------------------------    51000##0       ---------------------------------------------------
     # Theory(#1
-    #     code = 1400010, 
+    #     code = 5100010, 
     #     no_pregunta = 1,
     #     topic = "Apoyos y reacciones",
     #     subtopic = "Apoyos y reacciones",
@@ -797,7 +880,7 @@ conceptuales = [
         ),
              
     # Theory(#3
-    #     code = 1400030, 
+    #     code = 5100030, 
     #     no_pregunta = 3,
     #     topic = "Apoyos y reacciones",
     #     subtopic = "Apoyos y reacciones",
@@ -830,78 +913,11 @@ conceptuales = [
         ),
                  
 
-
-    # #-------------------------------------------------  Sistemas equivalentes ---------------------------------------------------
-    # #-------------------------------------------------       15000##0         ---------------------------------------------------
+    #-----------------------------------------------------  Armaduras ----------------------------------------------------------
+    #------------------------------------------------------  Cerchas -----------------------------------------------------------
+    #-------------------------------------------------      61000##0         ---------------------------------------------------
     # Theory(#1
-    #     code = 1500010, 
-    #     no_pregunta = 1,
-    #     topic = "Equilibrio de partículas",
-    #     subtopic = "Sistemas equivalentes",
-    #     enunciado ="Dos sistemas de fuerzas son equivalentes cuando:", 
-    #     opcion_1 = "Tienen el mismo número de fuerzas con igual magnitud pero diferente ubicación.",
-    #     opcion_2 = "Actúan sobre cuerpos con la misma geometría.",
-    #     opcion_3 = "Tienen la misma resultante y el mismo momento con respecto a un punto.",
-    #     opcion_4 = "La sumatoria de las resultantes de cada sistema es igual a 0. ",
-    #     opcion_correcta = "Tienen la misma resultante y el mismo momento con respecto a un punto.",
-    #     respuesta_P1 = "Dos sistemas son equivalentes si, al reducirlos, generan la misma fuerza resultante y el mismo momento respecto a un punto dado. Esto significa que, aunque las fuerzas individuales sean diferentes, su efecto global sobre el cuerpo es el mismo.",
-    #     respuesta_P2 = "",
-    #     ),
-
-    # Theory(#2
-    #     code = 1500020, 
-    #     no_pregunta = 2,
-    #     topic = "Equilibrio de partículas",
-    #     subtopic = "Sistemas equivalentes",
-    #     enunciado ="¿Cuál es la principal utilidad de reducir un sistema de fuerzas a una fuerza resultante y un momento?", 
-    #     opcion_1 = "Simplificar el análisis de equilibrio y distribución de cargas en un cuerpo rígido.",
-    #     opcion_2 = "Aumentar la precisión en el cálculo de deformaciones en estructuras.",
-    #     opcion_3 = "Determinar el centro de masa exacto de un objeto.",
-    #     opcion_4 = "Estudiar cómo una estructura se deforma",
-    #     opcion_correcta = "Simplificar el análisis de equilibrio y distribución de cargas en un cuerpo rígido.",
-    #     respuesta_P1 = "Reducir un sistema de fuerzas a una fuerza resultante y un momento permite trabajar con una representación más sencilla del sistema. Esto es especialmente útil en estructuras, donde analizar todas las fuerzas individualmente sería complejo.",
-    #     respuesta_P2 = "",
-    #     ),
-
-    # Theory(#3
-    #     code = 1500030, 
-    #     no_pregunta = 3,
-    #     topic = "Equilibrio de partículas",
-    #     subtopic = "Sistemas equivalentes",
-    #     enunciado ="La forma de reducir un sistema de fuerzas es:", 
-    #     opcion_1 = "Encontrar la resultante y ubicarla en el punto medio entre ellas.",
-    #     opcion_2 = "Convertir las fuerzas distribuidas en fuerzas puntuales y viceversa.",
-    #     opcion_3 = "Cambiar las magnitudes de la fuerzas de tal forma que la resultante sea la misma.",
-    #     opcion_4 = "Encontrar la resultante y ubicarla en el punto en el que el momento generado por esta sea el mismo.",
-    #     opcion_correcta = "Encontrar la resultante y ubicarla en el punto en el que el momento generado por esta sea el mismo.",
-    #     respuesta_P1 = """El procedimiento general para encontrar un sistema de fuerzas equivalentes es:
-    #     1. Se hace la suma vectorial de todas las fuerzas aplicadas al sistema. 
-    #     2. Se calcula el momento en el sistema original respecto a un punto cualquiera (O) usando producto cruz y se suman los momentos.
-    #     3. Se calcula la posición de la resultante \\( \overrightarrow{r} \) utilizando producto cruz. Esto teniendo en cuenta que la fuerza que debe tomarse es la resultante calculada y que el momento tomado es el calculado en el paso anterior.
-    #     De esta forma se encuentra la ubicación de la resultante que permite que los momentos en ambos sean iguales medido desde el mismo punto (O).
-    #     Nota: Cuando es un sistema en 2D lo usual es calcular el momento con las distancias perpendiculares.""",
-    #     respuesta_P2 = "",
-    #     ),
-                     
-    # Theory(#4
-    #     code = 1500040, 
-    #     no_pregunta = 4,
-    #     topic = "Equilibrio de partículas",
-    #     subtopic = "Sistemas equivalentes",
-    #     enunciado ="El sistema de fuerzas equivalente al de la siguiente figura es:", 
-    #     opcion_1 = "Opción I",
-    #     opcion_2 = "Opción II",
-    #     opcion_3 = "Opción III",
-    #     opcion_4 = "Ninguna",
-    #     opcion_correcta = "Opción I",
-    #     respuesta_P1 = "Note que la opción I tiene la fuerza resultante ubicada a una distancia x calculada a partir del momento del sistema original.",
-    #     respuesta_P2 = "",
-    #     ),
-
-    #------------------------------------------------------  Cerchas ------------------------------------------------------------
-    #-------------------------------------------------       16000##0         ---------------------------------------------------
-    # Theory(#1
-    #     code = 1600010, 
+    #     code = 6100010, 
     #     no_pregunta = 1,
     #     topic = "Equilibrio de partículas",
     #     subtopic = "Cerchas",
@@ -916,7 +932,7 @@ conceptuales = [
     #     ),
 
     # Theory(#2
-    #     code = 1600020, 
+    #     code = 6100020, 
     #     no_pregunta = 2,
     #     topic = "Equilibrio de partículas",
     #     subtopic = "Cerchas",
@@ -931,7 +947,7 @@ conceptuales = [
     #     ),
 
     # Theory(#3
-    #     code = 1600030, 
+    #     code = 6100030, 
     #     no_pregunta = 3,
     #     topic = "Equilibrio de partículas",
     #     subtopic = "Cerchas",
@@ -946,7 +962,7 @@ conceptuales = [
     #     ),
                      
     # Theory(#4
-    #     code = 1600040, 
+    #     code = 6100040, 
     #     no_pregunta = 4,
     #     topic = "Equilibrio de partículas",
     #     subtopic = "Cerchas",
@@ -961,7 +977,7 @@ conceptuales = [
     #     ),
                      
     # Theory(#5
-    #     code = 1600050, 
+    #     code = 6100050, 
     #     no_pregunta = 5,
     #     topic = "Equilibrio de partículas",
     #     subtopic = "Cerchas",
@@ -981,7 +997,7 @@ conceptuales = [
     #     ),
                          
     # Theory(#6
-    #     code = 1600060, 
+    #     code = 6100060, 
     #     no_pregunta = 6,
     #     topic = "Equilibrio de partículas",
     #     subtopic = "Cerchas",
@@ -996,7 +1012,7 @@ conceptuales = [
     #     ),
 
     # Theory(#7
-    #     code = 1700060, 
+    #     code = 6100070, 
     #     no_pregunta = 7,
     #     topic = "Equilibrio de partículas",
     #     subtopic = "Cerchas",
@@ -1010,6 +1026,10 @@ conceptuales = [
     #     respuesta_P2 = "",
     #     ),                 
 
+
+#-----------------------------------------------------  Armaduras ----------------------------------------------------------
+#------------------------------------------------------  Marcos -----------------------------------------------------------
+#-------------------------------------------------      62000##0         ---------------------------------------------------
 
 
 #------------------------------------------------------  Centroides-----------------------------------------------------------
@@ -1197,8 +1217,9 @@ conceptuales = [
         respuesta_P2 = "",
         ),
 
-#---------------------------------------------- Fuerzas distribuidas- VIGAS -------------------------------------------------
-#-------------------------------------------------       81000##0         ---------------------------------------------------
+#---------------------------------------------- Fuerzas distribuidas ----------------------------------
+#----------------------------------------------------- Vigas ------------------------------------------
+#-------------------------------------------------   81000##0   ---------------------------------------
     
     Theory(#1
         code = 8100010, 
@@ -1315,9 +1336,9 @@ conceptuales = [
         ),
 
 
-     
-#---------------------------------------------- Fuerzas distribuidas- PRESIÓN HIDROSTÁTICA -------------------------------------------------
-#-------------------------------------------------       82000##0         ---------------------------------------------------
+#---------------------------------------------- Fuerzas distribuidas ----------------------------------
+#---------------------------------------------- Presión hidrostática ----------------------------------
+#-------------------------------------------------   82000##0    --------------------------------------
 
     Theory(#1
         code = 8200010, 
@@ -1395,7 +1416,7 @@ conceptuales = [
         no_pregunta = 5,
         topic = "Fuerzas distribuidas",
         subtopic = "Presión hidrostática",
-        enunciado = "Considere un punto sumergido en un fluido. ¿Cuál de las siguientes representaciones de la presión en ese punto es incorrecta?", 
+        enunciado = "Considere una esfera sumergida en un fluido. ¿Cuál de las siguientes representaciones de la presión sobre la esfera es incorrecta?", 
         opcion_1 = "La representación incorrecta es I. Porque la presión en un fluido actúa únicamente de forma horizontal. ",
         opcion_2 = "La representación incorrecta es II. Porque la presión en un punto sumergido debe actuar perpendicularmente a la superficie, no con ángulos menores a 90°.",
         opcion_3 = "La representación incorrecta es III. Porque la presión en un fluido no solo se ejerce en una dirección horizontal, sino en todas las direcciones perpendiculares a la superficie.",
@@ -1486,8 +1507,9 @@ conceptuales = [
         ),
 
 
-#-------------------------------------- Fuerzas distribuidas- EMPUJE DE SUELO ----------------------------------------------
-#-------------------------------------------------       83000##0         ---------------------------------------------------
+#---------------------------------------------- Fuerzas distribuidas -------------------------------
+#------------------------------------------------ Empuje de suelo ----------------------------------
+#-------------------------------------------------    83000##0   -----------------------------------
     
     Theory(#1
         code = 8300010, 
