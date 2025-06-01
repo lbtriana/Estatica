@@ -448,6 +448,11 @@ IN_teoria_preguntas =[#Incertidumbre
 "./Imagenes/Teoria_Preguntas/IN/T_IN_IN_4.png", #[3] 
 ]
 
+SI_teoria_preguntas =[#Sistemas equivalentes
+"./Imagenes/Teoria_Preguntas/SI/T_SI_SI_2.png", #[0]  
+"./Imagenes/Teoria_Preguntas/SI/T_SI_SI_3.png", #[1]  
+]
+
 CT_teoria_preguntas=[#Centroides
 "./Imagenes/Teoria_Preguntas/CT/T_CT_CT_1.png", #[0] 
 "./Imagenes/Teoria_Preguntas/CT/T_CT_CT_2.png", #[1] 

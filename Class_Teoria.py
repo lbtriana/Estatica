@@ -759,62 +759,43 @@ conceptuales = [
         enunciado ="Dos sistemas de fuerzas se consideran equivalentes cuando:", 
         opcion_1 = "Tienen el mismo número de fuerzas con igual magnitud pero diferente ubicación.",
         opcion_2 = "Actúan sobre cuerpos con la misma geometría.",
-        opcion_3 = "Tienen la misma fuerza resultante y el mismo momento en cualquier punto del cuerpo.",
+        opcion_3 = "Tienen la misma fuerza resultante y el mismo momento con respecto a un punto dado.",
         opcion_4 = "La sumatoria de las fuerzas resultantes de cada sistema es igual a cero. ",
-        opcion_correcta = "Tienen la misma fuerza resultante y el mismo momento en cualquier punto del cuerpo.",
+        opcion_correcta = "Tienen la misma fuerza resultante y el mismo momento con respecto a un punto dado.",
         respuesta_P1 = "Dos sistemas son equivalentes si, generan la misma fuerza resultante y el mismo momento respecto a un punto dado. Esto significa que, el efecto global de los dos sistemas sobre el cuerpo es idéntico.",
         respuesta_P2 = "",
         ),
 
-    # Theory(#2
-    #     code = 4100020, 
-    #     no_pregunta = 2,
-    #     topic = "Equilibrio de partículas",
-    #     subtopic = "Sistemas equivalentes",
-    #     enunciado ="¿Cuál es la principal utilidad de reducir un sistema de fuerzas a una fuerza resultante y un momento?", 
-    #     opcion_1 = "Simplificar el análisis de equilibrio y distribución de cargas en un cuerpo rígido.",
-    #     opcion_2 = "Aumentar la precisión en el cálculo de deformaciones en estructuras.",
-    #     opcion_3 = "Determinar el centro de masa exacto de un objeto.",
-    #     opcion_4 = "Estudiar cómo una estructura se deforma",
-    #     opcion_correcta = "Simplificar el análisis de equilibrio y distribución de cargas en un cuerpo rígido.",
-    #     respuesta_P1 = "Reducir un sistema de fuerzas a una fuerza resultante y un momento permite trabajar con una representación más sencilla del sistema. Esto es especialmente útil en estructuras, donde analizar todas las fuerzas individualmente sería complejo.",
-    #     respuesta_P2 = "",
-    #     ),
+    Theory(#2
+        code = 4100020, 
+        no_pregunta = 2,
+        topic = "Sistemas equivalentes",
+        subtopic = "Sistemas equivalentes",
+        enunciado ="Considere los sistemas de fuerzas mostrados en la figura. ¿Cuáles de los siguientes sistemas se pueden considerar equivalentes?", 
+        opcion_1 = "$I$, $III$",
+        opcion_2 = "$I$, $II$, $IV$",
+        opcion_3 = "$I$, $IV$",
+        opcion_4 = "$I$, $III$, $IV$",
+        opcion_correcta = "$I$, $IV$",
+        respuesta_P1 = "Los sistemas $I$ y $IV$ son equivalentes, en cada uno de ellos la fuerza resultante es $F$ y el momento con respecto a cualquier punto es igual: el momento con respecto al punto $A$ es igual a cero y el momento con respecto al punto $B$ es igual a $2FL-2M$.",
+        respuesta_P2 = "",
+        ),
 
-    # Theory(#3
-    #     code = 4100030, 
-    #     no_pregunta = 3,
-    #     topic = "Equilibrio de partículas",
-    #     subtopic = "Sistemas equivalentes",
-    #     enunciado ="La forma de reducir un sistema de fuerzas es:", 
-    #     opcion_1 = "Encontrar la resultante y ubicarla en el punto medio entre ellas.",
-    #     opcion_2 = "Convertir las fuerzas distribuidas en fuerzas puntuales y viceversa.",
-    #     opcion_3 = "Cambiar las magnitudes de la fuerzas de tal forma que la resultante sea la misma.",
-    #     opcion_4 = "Encontrar la resultante y ubicarla en el punto en el que el momento generado por esta sea el mismo.",
-    #     opcion_correcta = "Encontrar la resultante y ubicarla en el punto en el que el momento generado por esta sea el mismo.",
-    #     respuesta_P1 = """El procedimiento general para encontrar un sistema de fuerzas equivalentes es:
-    #     1. Se hace la suma vectorial de todas las fuerzas aplicadas al sistema. 
-    #     2. Se calcula el momento en el sistema original respecto a un punto cualquiera (O) usando producto cruz y se suman los momentos.
-    #     3. Se calcula la posición de la resultante \\( \overrightarrow{r} \) utilizando producto cruz. Esto teniendo en cuenta que la fuerza que debe tomarse es la resultante calculada y que el momento tomado es el calculado en el paso anterior.
-    #     De esta forma se encuentra la ubicación de la resultante que permite que los momentos en ambos sean iguales medido desde el mismo punto (O).
-    #     Nota: Cuando es un sistema en 2D lo usual es calcular el momento con las distancias perpendiculares.""",
-    #     respuesta_P2 = "",
-    #     ),
-                     
-    # Theory(#4
-    #     code = 4100040, 
-    #     no_pregunta = 4,
-    #     topic = "Equilibrio de partículas",
-    #     subtopic = "Sistemas equivalentes",
-    #     enunciado ="El sistema de fuerzas equivalente al de la siguiente figura es:", 
-    #     opcion_1 = "Opción I",
-    #     opcion_2 = "Opción II",
-    #     opcion_3 = "Opción III",
-    #     opcion_4 = "Ninguna",
-    #     opcion_correcta = "Opción I",
-    #     respuesta_P1 = "Note que la opción I tiene la fuerza resultante ubicada a una distancia x calculada a partir del momento del sistema original.",
-    #     respuesta_P2 = "",
-    #     ),
+    Theory(#3
+        code = 4100030, 
+        no_pregunta = 3,
+        topic = "Sistemas equivalentes",
+        subtopic = "Sistemas equivalentes",
+        enunciado ="¿El sistema $B$ es equivalente al sistema $A$? Si no, ¿qué se debe hacer para que ambos sistemas sean equivalentes?", 
+        opcion_1 = "Sí. El sistema $B$ tiene la misma fuerza resultante que el sistema $A$. No es necesario realizar alguna modificación.",
+        opcion_2 = "No. Los dos sistemas no tienen el mismo comportamiento rotacional. Para que el sistema B sea equivalente al sistema A, es necesario aplicar en el punto A del sistema B un momento igual al momento generado en $A$ por las fuerzas del sistema $A$.",
+        opcion_3 = "Sí. El sistema $B$ conserva tanto la resultante como el momento en cualquier punto. No es necesario realizar alguna modificación.",
+        opcion_4 = "No. No es posible hacer que el sistema sea equivalente manteniendo la fuerza resultante en el punto $A$. Dado que, se tiene que ubicar la fuerza a lo largo de la viga AB de forma que genere el mismo efecto rotacional del sistema $A$.",
+        opcion_correcta =  "No. Los dos sistemas no tienen el mismo comportamiento rotacional. Para que el sistema B sea equivalente al sistema A, es necesario aplicar en el punto A del sistema B un momento igual al momento generado en $A$ por las fuerzas del sistema $A$.",
+        respuesta_P1 = "Cuando una fuerza se traslada de su punto original a otro diferente, ya no genera el mismo momento respecto a ciertos puntos. Para que dos sistemas de fuerzas sean equivalentes, deben generar la misma resultante y el mismo momento respecto a un punto de referencia (en este caso, el punto $A$). En el sistema $B$, la fuerza ha sido trasladada sin conservar el momento respecto a $A$. Por lo tanto, es necesario añadir un momento adicional en $A$ que reproduzca el efecto rotacional del sistema $A$. Solo así se garantiza que ambos sistemas sean equivalentes.",
+        respuesta_P2 = "",
+        ),
+
 
 
     # #------------------------------------------------------ Apoyos ----------------------------------------------------------

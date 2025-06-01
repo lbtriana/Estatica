@@ -1416,6 +1416,11 @@ if authenticate_user():
                     st.image(IN_teoria_preguntas[3], width=550)
                 if pregunta_no == 5:
                     st.image(IN_teoria_preguntas[1], width=550) 
+            if subtopic == "Sistemas equivalentes":
+                if pregunta_no == 2:
+                    st.image(SI_teoria_preguntas[0], width=800) 
+                if pregunta_no == 3:
+                    st.image(SI_teoria_preguntas[1], width=800) 
             if subtopic == "Centroides":
                 if pregunta_no == 1:
                     st.image(CT_teoria_preguntas[0], width=350)
