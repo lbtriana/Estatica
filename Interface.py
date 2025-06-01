@@ -479,7 +479,7 @@ if authenticate_user():
 
         if way == "Teoría":
             st.sidebar.header("Teoría")
-            topic=st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Momento", "Incertidumbre", "Sistemas equivalentes", "Apoyos y reacciones", "Centroides", "Fuerzas distribuidas", "Fuerzas internas"])
+            topic=st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Momento", "Incertidumbre", "Sistemas equivalentes", "Apoyos y reacciones", "Armaduras", "Centroides", "Fuerzas distribuidas", "Fuerzas internas"])
             respuesta_usuario['topic'] = topic
 
             if topic == "Equilibrio de partículas":
@@ -492,6 +492,8 @@ if authenticate_user():
                 subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Sistemas equivalentes"])
             if topic == "Apoyos y reacciones":
                 subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Apoyos y reacciones"])
+            if topic == "Armaduras":
+                subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Cerchas", "Marcos"])
             if topic == "Centroides":
                 subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Centroides"])
             if topic == "Fuerzas distribuidas":
@@ -1424,6 +1426,14 @@ if authenticate_user():
             if subtopic == "Apoyos y reacciones":
                 if pregunta_no == 1:
                     st.image(AP_teoria_preguntas[0], width=600) 
+            if subtopic == "Cerchas":
+                if pregunta_no == 1:
+                    st.image(AR_teoria_preguntas[0], width=350) 
+            if subtopic == "Marcos":
+                if pregunta_no == 1:
+                    st.image(AR_teoria_preguntas[1], width=250) 
+                if pregunta_no == 2:
+                    st.image(AR_teoria_preguntas[2], width=350) 
             if subtopic == "Centroides":
                 if pregunta_no == 1:
                     st.image(CT_teoria_preguntas[0], width=350)

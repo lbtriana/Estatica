@@ -457,6 +457,12 @@ AP_teoria_preguntas =[#Apoyos y reacciones
 "./Imagenes/Teoria_Preguntas/AP/T_AP_AP_1.png", #[0] 
 ]
 
+AR_teoria_preguntas =[#Armaduras
+"./Imagenes/Teoria_Preguntas/AR/CE/T_AR_CE_1.png", #[0] 
+"./Imagenes/Teoria_Preguntas/AR/MA/T_AR_MA_1.png", #[1] 
+"./Imagenes/Teoria_Preguntas/AR/MA/T_AR_MA_2.png", #[2] 
+]
+
 CT_teoria_preguntas=[#Centroides
 "./Imagenes/Teoria_Preguntas/CT/T_CT_CT_1.png", #[0] 
 "./Imagenes/Teoria_Preguntas/CT/T_CT_CT_2.png", #[1] 

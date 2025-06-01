@@ -854,20 +854,27 @@ conceptuales = [
     #-----------------------------------------------------  Armaduras ----------------------------------------------------------
     #------------------------------------------------------  Cerchas -----------------------------------------------------------
     #-------------------------------------------------      61000##0         ---------------------------------------------------
-    # Theory(#1
-    #     code = 6100010, 
-    #     no_pregunta = 1,
-    #     topic = "Equilibrio de partículas",
-    #     subtopic = "Cerchas",
-    #     enunciado ="¿Cuáles de las siguientes son las hipótesis de diseño de armaduras o cerchas?", 
-    #     opcion_1 = "Todas las cargas se aplican en los nodos y no existe fricción en las uniones.",
-    #     opcion_2 = "Las cargas se alican en los nodos en elemento horizontales y verticales. Y, en elementos inclinados se aplican en el centro del elemento.",
-    #     opcion_3 = "Todas las cargas se aplican en el centro de los elementos y no existe fricción en las uniones.",
-    #     opcion_4 = "Todas las cargas se aplican en los nodos y existe fricción en las uniones.",
-    #     opcion_correcta =  "Todas las cargas se aplican en los nodos y no existe fricción en las uniones.",
-    #     respuesta_P1 = " ",
-    #     respuesta_P2 = "",
-    #     ),
+    Theory(#1
+        code = 6100010, 
+        no_pregunta = 1,
+        topic = "Armaduras",
+        subtopic = "Cerchas",
+        enunciado ="""
+        ¿Cuáles de las siguientes son características de las cerchas?
+ 
+        $I$. Las fuerzas se aplican únicamente en los nodos.          
+        $II$. Se pueden aplicar momentos sobre los nodos y los elementos.               
+        $III$. Los elementos están sometidos únicamente a fuerzas axiales (tensión o compresión).              
+        $IV$. Las cerchas pueden tener cualquier forma, no necesariamente basada en triángulos, siempre y cuando se mantenga estable.
+        """, 
+        opcion_1 = "$I$ y $III$",
+        opcion_2 = "$I$ y $II$",
+        opcion_3 = "$II$ y $III$",
+        opcion_4 = "$III$ y $IV$",
+        opcion_correcta = "$I$ y $III$",
+        respuesta_P1 = "Las afirmaciones correctas son $I$ y $III$. La afirmación $II$ es falsa porque en las cerchas no se aplican momentos y la afirmación $IV$ también es falsa porque su topología si está basada en triángulos, necesarios para garantizar su estabilidad.",
+        respuesta_P2 = "",
+        ),
 
     # Theory(#3
     #     code = 6100030, 
@@ -953,7 +960,49 @@ conceptuales = [
 #-----------------------------------------------------  Armaduras ----------------------------------------------------------
 #------------------------------------------------------  Marcos -----------------------------------------------------------
 #-------------------------------------------------      62000##0         ---------------------------------------------------
-
+    Theory(#1
+        code = 6200010, 
+        no_pregunta = 1,
+        topic = "Armaduras",
+        subtopic = "Marcos",
+        enunciado ="""
+        ¿Cuáles de las siguientes son características de los marcos?
+ 
+        $I$. Las fuerzas únicamente pueden aplicarse en los elementos.          
+        $II$. Los elementos de un marco están conectados con articulaciones.               
+        $III$. Los elementos están sometidos únicamente a fuerzas axiales (tensión o compresión).         
+        $IV$. Se pueden aplicar momentos sobre los nodos como en los elementos.
+        """, 
+        opcion_1 = "$I$ y $III$",
+        opcion_2 = "$II$ y $III$",
+        opcion_3 = "$II$ y $IV$",
+        opcion_4 = "$III$ y $IV$",
+        opcion_correcta = "$II$ y $IV$",
+        respuesta_P1 = "Las afirmaciones correctas son $II$ y $IV$. La afirmación $I$ es incorrecta porque las fuerzas pueden aplicarse tanto en los nodos como en los elementos y la afirmación $III$ es falsa porque los elementos pueden estar sometidos a flexión, resultado de los momentos aplicados.",
+        respuesta_P2 = "",
+        ),
+    
+    Theory(#2
+        code = 6200020, 
+        no_pregunta = 2,
+        topic = "Armaduras",
+        subtopic = "Marcos",
+        enunciado ="""
+        Para la armadura mostrada en la figura, ¿Cuáles de las siguientes afirmaciones son incorrectas?
+ 
+        $I$. La armadura tiene las características de una cercha. Su geometría está conformada por triángulos para garantizar su estabilidad.         
+        $II$. La armadura tiene las características de un marco. Las fuerzas están aplicadas en un nodo y un elemento.             
+        $III$. Las reacciones verticales en los apoyos son de distinta magnitud.         
+        $IV$. Las reacciones verticales en los apoyos son de igual magnitud, pero en sentidos opuestos.
+        """, 
+        opcion_1 = "$I$ y $III$",
+        opcion_2 = "$I$ y $IV$",
+        opcion_3 = "$II$ y $III$",
+        opcion_4 = "$II$ y $IV$",
+        opcion_correcta = "$II$ y $IV$",
+        respuesta_P1 = "Las afirmaciones correctas son $II$ y $IV$. La afirmación $I$ es incorrecta porque los marcos también pueden tener una estructura triangular y la afirmación $III$ es falsa porque las reacciones son de igual magnitud.",
+        respuesta_P2 = "",
+        ),
 
 #------------------------------------------------------  Centroides-----------------------------------------------------------
 #-------------------------------------------------       71000#0         ---------------------------------------------------
