@@ -469,7 +469,7 @@ conceptuales = [
         ),
 
     #----------------------------------------------------- Momentos -------------------------------------------------------
-    #------------------------------------------------ Momento en un punto -------------------------------------------------
+    #------------------------------------------------------ Momento -------------------------------------------------
     #-------------------------------------------------    21000#0       ---------------------------------------------------
     Theory(#1
        code = 2100010, 
@@ -522,28 +522,10 @@ conceptuales = [
         """,
         respuesta_P2 = "",
         ),
-         
-    # Theory(#3
-    #     code = 2100030, 
-    #     no_pregunta = 3,
-    #     topic = "Momento",
-    #     subtopic = "Momento",
-    #     enunciado = "En 2D la mejor estrategia para realizar sumatoria de momentos es:",
-    #     opcion_1 = "Realizar el producto cruz: \\( \\overrightarrow{r} \) X \( \\overrightarrow{F} \)",
-    #     opcion_2 = "Multiplicar las magnitudes de las fuerzas por la distancia perpendicular",
-    #     opcion_3 = "Realizar el producto cruz: ,\\( \\overrightarrow{F} \) X \( \\overrightarrow{r} \)",
-    #     opcion_4 = "Descomponer las fuerzas sobre los ejes x e y, y multiplicar cada una de ellas por las distancias perpendiculares ",
-    #     opcion_correcta = "Descomponer las fuerzas sobre los ejes x e y, y multiplicar cada una de ellas por las distancias perpendiculares ",
-    #     respuesta_P1 = """
-    #     Siempre que se tenga un sistema en 2D es recomendable utilizar el método de distancias perpendiculares debido a que, muchas veces, al definir el vector \( \overrightarrow{r} \) solo una de sus componentes es diiferente de 0. 
-    #     No obstante, es importante tener en cuenta que la aplicación de este método requiere la descomposición de las fuerzas debido a que el ángulo entre \( \overrightarrow{r} \) y \( \overrightarrow{F} \) debe ser 90° para que el producto cruz se convierta en multiplicación de magnitudes.
-    #     """,
-    #     respuesta_P2 = "",
-    #     ),    
-             
-    Theory(#4
-        code = 2100040, 
-        no_pregunta = 4,
+
+    Theory(#3
+        code = 2100030, 
+        no_pregunta = 3,
         topic = "Momento",
         subtopic = "Momento",
         enunciado ="El momento es:",
@@ -555,22 +537,41 @@ conceptuales = [
         respuesta_P1 = "El momento es un vector perpendicular al plano formado entre $\\overrightarrow{r}$ y $\\overrightarrow{F}$, es decir, representa el eje alrededor del cual el cuerpo tenderá a rotar. Por tal motivo, el momento se calcula por medio del producto cruz ($\\overrightarrow{M}$ = $\\overrightarrow{r}$ X $\\overrightarrow{F}$), donde $\\overrightarrow{r}$ es el vector posición y $\\overrightarrow{F}$ el vector fuerza.",
         respuesta_P2 = "",
         ),
-             
-    # Theory(#5
-    #     code = 2100050, 
-    #     no_pregunta = 5,
-    #     topic = "Equilibrio de partículas",
-    #     subtopic = "Momentos",
-    #     enunciado ="¿Cuál es el entido del momento generado por una fuerza que hace girar a un cuerpo en sentido antihorario?", 
-    #     opcion_1 = "Hacia abajo",
-    #     opcion_2 = "Hacia arriba",
-    #     opcion_3 = "Hacia adentro de un plano imaginario",
-    #     opcion_4 = "Hacia afuera de un plano imaginario",
-    #     opcion_correcta = "Hacia afuera de un plano imaginario",
-    #     respuesta_P1 = """El sentido del momento se determina con el sentido de la rotación que induce una fuerza sobre el cuerpo de tal manera que, por convención, se considera positivo si la rotación es en sentido antihorrio y negativo si la rotación es en sentido horario.
-    #     Así mismo su dirección se determina por medio de la regla de la mano derecha donde, si al aplicarla, el pulgar apunta hacia ti el momento es positivo y en esa dirección. Y, si apunta hacia afuera, el momento es negativo y se dirige en esa dirección.""",
-    #     respuesta_P2 = "",
-    #     ),
+
+    Theory(#4
+        code = 2100040, 
+        no_pregunta = 4,
+        topic = "Momento",
+        subtopic = "Momento",
+        enunciado ="Para girar la mesa se aplica un par de fuerzas $F$. ¿Cuál de las siguientes expresiones permite calcular el momento generado por este par de fuerzas?", 
+        opcion_1 = """$-2F \\cdot cos(\\alpha) \\cdot b - 2F \\cdot sin(\\alpha) \\cdot h$\\
+        $\\text{{   }}$""",
+        opcion_2 = """$-2F \\cdot \\sqrt{{b^2+h^2}}$ \\
+        $\\text{{   }}$""",
+        opcion_3 = """$-F \\cdot \\sqrt{{b^2+h^2}}$ \\
+        $\\text{{   }}$""",
+        opcion_4 = """$-F \\cdot cos(\\alpha) \\cdot b - F \\cdot sin(\\alpha) \\cdot h$\\
+        $\\text{{   }}$""",
+        opcion_correcta = """$-F \\cdot cos(\\alpha) \\cdot b - F \\cdot sin(\\alpha) \\cdot h$\\
+        $\\text{{   }}$""",
+        respuesta_P1 = "El momento generado por un par de fuerzas se define como el producto de la magnitud de la fuerza por la distancia perpendicular entre sus líneas de acción. En este caso, es incorrecto asumir que la distancia perpendicular entre las fuerzas es la hipotenusa formada por $b$ y $h$. Por lo tanto, el momento total se obtiene sumando los momentos generados por cada componente de la fuerza respecto a su respectiva distancia perpendicular: $-F \\cdot cos(\\alpha) \\cdot b - F \\cdot sin(\\alpha) \\cdot h$.",
+        respuesta_P2 = "",
+        ),
+
+    Theory(#5
+        code = 2100050, 
+        no_pregunta = 5,
+        topic = "Momento",
+        subtopic = "Momento",
+        enunciado ="Aplicando la regla de la mano derecha, ¿cuál es la dirección del momento generado por la componente $x$ de la fuerza y la componente $y$ del vector posición?", 
+        opcion_1 = "$\\hat{{i}}$",
+        opcion_2 = "$-\\hat{{k}}$",
+        opcion_3 = "$-\\hat{{i}}$",
+        opcion_4 = "$\\hat{{k}}$",
+        opcion_correcta = "$-\\hat{{k}}$",
+        respuesta_P1 = "Para aplicar la regla de la mano derecha, se coloca la mano derecha siguiendo la dirección del vector posición, y se gira la mano en el sentido de la fuerza hasta cerrar los dedos hacia ella. En este caso, al cerrar la mano el pulgar apunta hacia adentro del plano. Esto indica que la dirección del momento es negativa en el eje $z$, es decir, -$\\hat{{k}}$.",
+        respuesta_P2 = "",
+        ),
              
     Theory(#6
         code = 2100060, 
@@ -614,135 +615,119 @@ conceptuales = [
         respuesta_P1 = "La afirmación es correcta. Cuando la línea de acción de la fuerza cruza por el punto de evaluación, el momento es igual a cero, dado que, no existe una excentricidad entre el punto de evaluación y la línea de acción de la fuerza $(\\overrightarrow{r})$ que genere la tendencia a la rotación. Matemáticamente, el momento es $\\overrightarrow{M}=\\overrightarrow{r} \\text{{  X  }} \\overrightarrow{F}$, al ser el vector posición $(\\overrightarrow{r})$ igual a cero, el momento también es cero.",
         respuesta_P2 = "",
         ),
+
+    Theory(#8
+        code = 2100080, 
+        no_pregunta = 8,
+        topic = "Momento",
+        subtopic = "Momento",
+        enunciado ="""
+        Para calcular la magnitud del momento generado por la fuerza $F$ respecto al poste $OL$, se realiza el siguiente procedimiento:
+        
+        1. Se calcula el momento generado por la fuerza en el punto $L$: $(\\overrightarrow{{M_L}})$.
+        2. Se determina el vector unitario del eje $OL$: $\\overrightarrow{{\\lambda_{{OL}}}}$.
+        3. Se proyecta el momento $\\overrightarrow{{M_L}}$ sobre el eje $\\overrightarrow{{\\lambda_{{OL}}}}$ utilizando el producto punto.
+
+        Con base en este procedimiento, se puede afirmar que:
+        """,
+        opcion_1 = "Es incorrecto. En el paso 1, el momento debe calcularse con respecto al origen.",
+        opcion_2 = "Es correcto. Los pasos descritos permiten hallar la magnitud del momento de la fuerza $F$ respecto al eje $OL$.",
+        opcion_3 = "Es incorrecto. En el paso 2, no es necesario calcular el vector unitario del eje.", 
+        opcion_4 = "Es incorrecto. En el paso 3, se debe utilizar el producto cruz para realizar la proyección.",
+        opcion_correcta = "Es correcto. Los pasos descritos permiten hallar la magnitud del momento de la fuerza $F$ respecto al eje $OL$.",
+        respuesta_P1 = """
+        El procedimiento descrito es correcto para calcular la magnitud del momento de una fuerza respecto a un eje. Primero se determina el vector momento respecto a un punto del eje (en este caso, el punto $L$). Luego, se obtiene el vector unitario del eje para definir su dirección. Finalmente, se proyecta el momento sobre ese eje utilizando el producto punto: 
+
+        $\\overrightarrow{{M_OL}} = \\overrightarrow{M_L} \\cdot \\overrightarrow{\\lambda_{OL}}$
+
+        Esto proporciona la magnitud del momento de la fuerza en la dirección del eje $OL$.""",
+        respuesta_P2 = "",
+        ),
              
-    # Theory(#8
-    #     code = 2100080, 
-    #     no_pregunta = 8,
-    #     topic = "Equilibrio de partículas",
-    #     subtopic = "Momentos",
-    #     enunciado ="Considere la siguiente figura e indique cuál de las siguientes situaciones (A ó B) hace más fácil desajustar la tuerca teniendo en cuenta que la fuerza aplicada es igual en ambos casos.",
-    #     opcion_1 = "Situación A, ya que a menor \\( \overrightarrow{r} \) mayor momento", 
-    #     opcion_2 = "Es igual en ambos casos dado que la fuerza tinene la misma magnitud y dirección",
-    #     opcion_3 = "Situación B, ya que a mayor \\( \overrightarrow{r} \) mayor momento",
-    #     opcion_4 = "Situación B ya que en esta el momento generado es negativo.",
-    #     opcion_correcta = "Situación B, ya que a mayor \\( \overrightarrow{r} \) mayor momento", 
-    #     respuesta_P1 = " Dado que el momento se calcula como \\( \overrightarrow{r} \) X \\( \overrightarrow{F} \) a mayor distancia entre la fuerza y el punto de referencia, mayor será la magnitud del momento generado y por ende, será mas facil desajustar la turca. Además, entre mayor sea el r menor fuerza se requerirá. ",
-    #     respuesta_P2 = "",
-    #     ),
              
-    # Theory(#9
-    #     code = 2100090, 
-    #     no_pregunta = 9,
-    #     topic = "Equilibrio de partículas",
-    #     subtopic = "Momentos",
-    #     enunciado ="Considere el poste de luz de la figura e indique las direcciones del momento generado por el peso del transformador y la fuerza de viento respecto al punto O",
-    #     opcion_1 = "Momento W = \\( \overrightarrow{j} \); Momento Fv = \\( \overrightarrow{i} \);", 
-    #     opcion_2 = "Momento W = \\( \overrightarrow{j} \); Momento Fv = -\\( \overrightarrow{i} \);",
-    #     opcion_3 = "Momento W = \\( \overrightarrow{j} \); Momento Fv = \\( \overrightarrow{k} \);",
-    #     opcion_4 = "Momento W = \\( \overrightarrow{k} \); Momento Fv = \\( \overrightarrow{i} \);",
-    #     opcion_correcta = "Momento W = \\( \overrightarrow{j} \); Momento Fv = \\( \overrightarrow{i} \);", 
-    #     respuesta_P1 = """"Para determinar la dirección de momento generado por el peso del transformador se tiene que: \\( \overrightarrow{i} \) X \\( \overrightarrow{-K} \) = \\( \overrightarrow{j} \).
-    #     Y para determinar la dirección de momento generado por la fuerza de viento se tiene que: \\( \overrightarrow{k} \) X \\( \overrightarrow{-j} \) = \\( \overrightarrow{i} \).""",
-    #     respuesta_P2 = "",
-    #     ),   
-
-
-
-    #----------------------------------------------------- Momentos -------------------------------------------------------
-    #------------------------------------------------ Momento alrededor de un eje -------------------------------------------------
-    #-------------------------------------------------    22000#0       ---------------------------------------------------
-
-
-
-    #----------------------------------------------------- Momentos -------------------------------------------------------
-    #------------------------------------------------ Momentos pares -------------------------------------------------
-    #-------------------------------------------------    23000#0       ---------------------------------------------------
-
-
 
     #--------------------------------------------------- Incertidumbre ----------------------------------------------------------
     #-------------------------------------------------       31000#0      ---------------------------------------------------
-    # Theory(#1
-    #     code = 3100010, 
-    #     no_pregunta = 1,
-    #     topic = "Incertidumbre",
-    #     subtopic = "Incertidumbre",
-    #     enunciado ="Considere la siguiente figura e indique la forma correcta de obtener la probabilidad de falla para cualquier valor en las abscisas (eje X).", 
-    #     opcion_1 = "En la gráfica presentada, la probabilidad de falla corresponde a la probabilidad de excedencia.",
-    #     opcion_2 = "En la gráfica presentada, la probabilidad de falla corresponde al área bajo la curva desde X=0 hasta el valor de tensión que se quiere.",
-    #     opcion_3 = "En la gráfica presentada, la probabilidad de falla corresponde a la probabilidad de ocurrencia.",
-    #     opcion_4 = "En la gráfica presentada, la probabilidad de falla corresponde a 1 menos al área bajo la curva desde X=0 hasta el valor de tensión que se quiere.",
-    #     opcion_correcta = "En la gráfica presentada, la probabilidad de falla corresponde a la probabilidad de excedencia.",
-    #     respuesta_P1 = """Para dar respuestaa esta pregunta es necesario realizarse 2 preguntas:
-    #        1. ¿Es de frecuencia acumulada o no? ya que, en este caso, nos permite identificar que no es necesario calcular las áreas debajo la curva. 
-    #        2. ¿Cuál es la variable independiente? En caso de que sea la tensión máxima resistida, la falla se obtiene como la excedencia debido a que después de ese valor se supera la resistencia máxima del material llevandolo a falla. """,
-    #     respuesta_P2 = "",
-    #     ),
+    Theory(#1
+        code = 3100010, 
+        no_pregunta = 1,
+        topic = "Incertidumbre",
+        subtopic = "Incertidumbre",
+        enunciado ="Considere que la cuerda $AB$ de la Figura 1 está sometida a una tensión de $800$ $N$. Según el histograma de frecuencia relativa acumulada de la Figura 2, indique cuál es la probabilidad de que la cuerda falle.", 
+        opcion_1 = "$0.5$, correspondiente al área bajo la curva acumulada hasta $800$ $N$.",
+        opcion_2 = "$0.45$, correspondiente a 1 menos el área bajo la curva hasta $800$ $N$.",
+        opcion_3 = "$0.4$, correspondiente a la probabilidad de ocurrencia.",
+        opcion_4 = "$0.6$, correspondiente a la probabilidad de excedencia.",
+        opcion_correcta = "$0.4$, correspondiente a la probabilidad de ocurrencia.",
+        respuesta_P1 = "La probabilidad de falla es $0.4$, correspondiente a la probabilidad de que la resistencia de la cuerda sea menor que la carga aplicada de $800$ $N$. Esta probabilidad, es la probabilidad de ocurrencia que es dada directamente por el histograma de frecuencia acumulada.",
+        respuesta_P2 = "",
+        ),
 
-    # Theory(#2
-    #     code = 3100020, 
-    #     no_pregunta = 2,
-    #     topic = "Incertidumbre",
-    #     subtopic = "Incertidumbre",
-    #     enunciado ="Considere la siguiente figura e indique la forma correcta de obtener la probabilidad de falla para cualquier valor en las abscisas (eje X).", 
-    #     opcion_1 = "En la gráfica presentada, la probabilidad de falla corresponde a la probabilidad de excedencia.",
-    #     opcion_2 = "En la gráfica presentada, la probabilidad de falla corresponde al área bajo la curva desde X=0 hasta el valor de resistencia que se quiere.",
-    #     opcion_3 = "En la gráfica presentada, la probabilidad de falla corresponde a la probabilidad de ocurrencia.",
-    #     opcion_4 = "En la gráfica presentada, la probabilidad de falla corresponde a 1 menos al área bajo la curva desde X=0 hasta el valor de resistencia que se quiere.",
-    #     opcion_correcta = "En la gráfica presentada, la probabilidad de falla corresponde a la probabilidad de ocurrencia.",
-    #     respuesta_P1 = """Para dar respuestaa esta pregunta es necesario realizarse 2 preguntas:
-    #        1. ¿Es de frecuencia acumulada o no? ya que, en este caso, nos permite identificar que no es necesario calcular las áreas debajo la curva. 
-    #        2. ¿Cuál es la variable independiente? En caso de que sea la resistencia, la falla se obtiene como la ocurrencia debido a que el valor en el eje X correspondería a la resistencia en la que falla.""",
-    #     respuesta_P2 = "",
-    #     ),
+    Theory(#2
+        code = 3100020, 
+        no_pregunta = 2,
+        topic = "Incertidumbre",
+        subtopic = "Incertidumbre",
+        enunciado ="¿Cuál es una característica de la función de densidad de probabilidad (FDP)?", 
+        opcion_1 = "Su valor máximo siempre es 1.",
+        opcion_2 = "El área bajo la curva es igual a 1.",
+        opcion_3 = "El rango de la función puede ser negativo.",
+        opcion_4 = "Siempre es simétrica.",
+        opcion_correcta = "El área bajo la curva es igual a 1.",
+        respuesta_P1 = "Una función de densidad de probabilidad (FDP) describe la distribución de los valores de una variable aleatoria continua. Una de sus propiedades clave es que el área total bajo la curva de la FDP es igual a 1, ya que esta área representa la probabilidad total de todos los eventos posibles, la cual debe ser 100%.",
+        respuesta_P2 = "",
+        ),
 
-    # Theory(#3
-    #     code = 3100030, 
-    #     no_pregunta = 3,
-    #     topic = "Incertidumbre",
-    #     subtopic = "Incertidumbre",
-    #     enunciado ="Indique cual de las siguientes afirmaciones en verdadera:", 
-    #     opcion_1 = "cuando se tiene la función de densidad (frecuencia relativa) la probabilidad se obtiene directamente del eje y. Si se tiene la de frecuencia acumulada, la probabilidad se obtiene a partir del área adecuada debajo de la curva.",
-    #     opcion_2 = "cuando se tiene la función de densidad (frecuencia relativa) la probabilidad no se puede obtener. Si se tiene la de frecuencia acumulada, la probabilidad se obtiene directamente del eje y.",
-    #     opcion_3 = "cuando se tiene la función de densidad (frecuencia relativa) la probabilidad se obtiene a partir del área adecuada debajo de la curva. Si se tiene la de frecuencia acumulada, la probabilidad no se puede obtener.",
-    #     opcion_4 = "cuando se tiene la función de densidad (frecuencia relativa) la probabilidad se obtiene a partir del área adecuada debajo de la curva. Si se tiene la de frecuencia acumulada, la probabilidad se obtiene directamente del eje y.",
-    #     opcion_correcta = "cuando se tiene la función de densidad (frecuencia relativa) la probabilidad se obtiene a partir del área adecuada debajo de la curva. Si se tiene la de frecuencia acumulada, la probabilidad se obtiene directamente del eje y.",
-    #     respuesta_P1 = "Las gráficas de frecuencia acumulada representan inmediatamente una probabilidad y es por ello que su valor máximo en el eje Y es 1 el cual corresponde al 100% de las probabilidades. En cambio, en las gráficas de desidad se tienen proporciones que deben ser sumadas por medio de una integral.",
-    #     respuesta_P2 = "",
-    #     ),
+    Theory(#3
+        code = 3100030, 
+        no_pregunta = 3,
+        topic = "Incertidumbre",
+        subtopic = "Incertidumbre",
+        enunciado ="¿Cuál de las siguientes afirmaciones es verdadera con respecto a obtener la probabilidad a partir de la función de densidad de probabilidad y la función de distribución acumulada?", 
+        opcion_1 = "Para la función de densidad, la probabilidad se obtiene directamente del eje y. Para la distribución acumulada, la probabilidad se obtiene a partir del área bajo la curva.",
+        opcion_2 = "Para la función de densidad, no se puede obtener la probabilidad. Para la distribución acumulada, la probabilidad se obtiene directamente del eje y.",
+        opcion_3 = "Para la función de densidad, la probabilidad se obtiene a partir del área bajo la curva. Para la distribución acumulada, no se puede obtener la probabilidad.",
+        opcion_4 = "Para la función de densidad, la probabilidad se obtiene a partir del área bajo la curva. Para la distribución acumulada, la probabilidad se obtiene directamente del eje y.",
+        opcion_correcta = "Para la función de densidad, la probabilidad se obtiene a partir del área bajo la curva. Para la distribución acumulada, la probabilidad se obtiene directamente del eje y.",
+        respuesta_P1 = """
+        La función de distribución acumulada muestra directamente la probabilidad de que una variable aleatoria tome un valor menor o igual a una variable determinada. Por ello, su valor en el eje Y representa la probabilidad acumulada hasta ese punto, y su máximo es 1.
 
-    # Theory(#4
-    #     code = 3100040, 
-    #     no_pregunta = 4,
-    #     topic = "Incertidumbre",
-    #     subtopic = "Incertidumbre",
-    #     enunciado ="Considere la siguiente figura e indique cual es la probabilidad de que la tensión máxima resistida sea menor o igual a 850 N?", 
-    #     opcion_1 = "Sería la probabilidad de ocurrencia.Es decir, el valor de Y en ese punto.",
-    #     opcion_2 = "Sería restando a la unidad el valor de Y en ese punto.",
-    #     opcion_3 = "Sería la integral desde 0 hasta 850 de la función.",
-    #     opcion_4 = "Sería 1 - la integral desde 0 hasta 850 de la función.",
-    #     opcion_correcta = "Sería la probabilidad de ocurrencia.Es decir, el valor de Y en ese punto.",
-    #     respuesta_P1 = """Cuando no se habla de probabilidad de falla no es necesario saber cuál es la variable independiente. Basta con saber que menor o igual hace referencia a la probabilidad de ocurrencia.
-    #     Adicionalmente es importante reconocer que debido a que es una gráfica de frecuencias acumulada, no es necesario calcular integrales.""",
-    #     respuesta_P2 = "",
-    #     ),
+        En cambio, la función de densidad de probabilidad no entrega directamente la probabilidad en un punto, sino que indica qué tan probable es un valor relativo a otros. La probabilidad de un intervalo se obtiene calculando el área bajo la curva en ese rango.""",
+        respuesta_P2 = "",
+        ),
+
+    Theory(#4
+        code = 3100040, 
+        no_pregunta = 4,
+        topic = "Incertidumbre",
+        subtopic = "Incertidumbre",
+        enunciado ="Considere la siguiente figura. ¿Cuál es forma correcta de determinar la probabilidad de que la tensión máxima resistida sea menor o igual a 850 N?", 
+        opcion_1 = "La probabilidad es el valor de Y para 850 N.",
+        opcion_2 = "La probabilidad es el área total bajo la curva menos el Y para 850 N.",
+        opcion_3 = "La probabilidad es la suma acumulada de la frecuencia relativa en el dominio desde 0 hasta 850.",
+        opcion_4 = "La probabilidad es el área total bajo la curva menos la suma acumulada de la frecuencia relativa en el dominio desde 0 hasta 850.",
+        opcion_correcta = "La probabilidad es el valor de Y para 850 N.",
+        respuesta_P1 = "El histograma de frecuencia relativa acumulada proporciona la probabilidad de ocurrencia, es decir, la probabilidad de que la Tensión máxima resistida sea menor o igual a un valor determinado. Por lo tanto, en este caso se busca el valor en el eje Y correspondiente a 850 N (0.7).",
+        respuesta_P2 = "",
+        ),
 
     Theory(#5
         code = 3100050, 
         no_pregunta = 5,
         topic = "Incertidumbre",
         subtopic = "Incertidumbre",
-        enunciado ="Considere la siguiente figura. ¿Indique cuál es la probabilidad de que la tensión máxima resistida sea mayor o igual a 900 N?", 
-        opcion_1 = "La probabilidad es el valor de Y en ese punto (0,2).",
-        opcion_2 = "La probabilidad es el área total bajo la curva menos el Y en ese punto (0,8).",
-        opcion_3 = "La probabilidad es la suma acumulada de la frecuencia relativa en el dominio desde 0 hasta 900 de la función (0,9).",
-        opcion_4 = "La probabilidad es el área total bajo la curva menos la suma acumulada de la frecuencia relativa en el dominio desde 0 hasta 900 de la función (0,1).",
-        opcion_correcta = "La probabilidad es el área total bajo la curva menos la suma acumulada de la frecuencia relativa en el dominio desde 0 hasta 900 de la función (0,1).",
-        respuesta_P1 = """La probabilidad de que la tensión máxima resistida sea mayor o igual a 900 N es equivalente a la probabilidad de excedencia, es decir, la probabilidad con la que se excede el valor de 900 N. La probabilidad de excedencia se calcula como:
+        enunciado ="Considere la siguiente figura. ¿Cuál es la probabilidad de que la tensión máxima resistida sea mayor a 900 N?", 
+        opcion_1 = "La probabilidad es el valor de Y en ese punto (0.2).",
+        opcion_2 = "La probabilidad es el área total bajo la curva menos el Y en ese punto (0.8).",
+        opcion_3 = "La probabilidad es la suma acumulada de la frecuencia relativa en el dominio desde 0 hasta 900 (0.9).",
+        opcion_4 = "La probabilidad es el área total bajo la curva menos la suma acumulada de la frecuencia relativa en el dominio desde 0 hasta 900 (0.1).",
+        opcion_correcta = "La probabilidad es el área total bajo la curva menos la suma acumulada de la frecuencia relativa en el dominio desde 0 hasta 900 (0.1).",
+        respuesta_P1 = """
+        La probabilidad de que la tensión máxima resistida sea mayor o igual a 900 N es equivalente a la probabilidad de excedencia, es decir, la probabilidad con la que se excede el valor de 900 N. La probabilidad de excedencia se calcula como:
 
-        $\\text{{Probabilidad de excedencia}} = $1$ - $\\text{{Probabilidad de ocurrencia}}$
+        $\\text{{Probabilidad de excedencia}}$ = $1$ - $\\text{{Probabilidad de ocurrencia}}$
 
-        1 hace referencia al área total bajo la curva y la probabilidad de ocurrencia es la suma acumulada de la frecuencia relativa en el dominio desde 0 hasta 900 de la función (0,1).
+        1 hace referencia al área total bajo la curva y la probabilidad de ocurrencia es la suma acumulada de la frecuencia relativa en el dominio desde 0 hasta 900 de la función (0.1).
         """,
         respuesta_P2 = "",
         ),
@@ -762,39 +747,24 @@ conceptuales = [
         respuesta_P2 = "",
         ),
 
-    Theory(#7
-        code = 3100070, 
-        no_pregunta = 7,
-        topic = "Incertidumbre",
-        subtopic = "Incertidumbre",
-        enunciado ="¿Cuál es una característica de la función de densidad de probabilidad (FDP)?", 
-        opcion_1 = "Su valor máximo siempre es 1.",
-        opcion_2 = "El área bajo la curva es igual a 1.",
-        opcion_3 = "El rango de la función puede ser negativo.",
-        opcion_4 = "Siempre es simétrica.",
-        opcion_correcta = "El área bajo la curva es igual a 1.",
-        respuesta_P1 = "Una función de densidad de probabilidad (FDP) describe la distribución de los valores de una variable aleatoria continua. Una de sus propiedades clave es que el área total bajo la curva de la FDP es igual a 1, ya que esta área representa la probabilidad total de todos los eventos posibles, la cual debe ser 100%.",
-        respuesta_P2 = "",
-        ),
-
 
 
     #-------------------------------------------------  Sistemas equivalentes ---------------------------------------------------
     #-------------------------------------------------       41000##0         ---------------------------------------------------
-    # Theory(#1
-    #     code = 4100010, 
-    #     no_pregunta = 1,
-    #     topic = "Equilibrio de partículas",
-    #     subtopic = "Sistemas equivalentes",
-    #     enunciado ="Dos sistemas de fuerzas son equivalentes cuando:", 
-    #     opcion_1 = "Tienen el mismo número de fuerzas con igual magnitud pero diferente ubicación.",
-    #     opcion_2 = "Actúan sobre cuerpos con la misma geometría.",
-    #     opcion_3 = "Tienen la misma resultante y el mismo momento con respecto a un punto.",
-    #     opcion_4 = "La sumatoria de las resultantes de cada sistema es igual a 0. ",
-    #     opcion_correcta = "Tienen la misma resultante y el mismo momento con respecto a un punto.",
-    #     respuesta_P1 = "Dos sistemas son equivalentes si, al reducirlos, generan la misma fuerza resultante y el mismo momento respecto a un punto dado. Esto significa que, aunque las fuerzas individuales sean diferentes, su efecto global sobre el cuerpo es el mismo.",
-    #     respuesta_P2 = "",
-    #     ),
+    Theory(#1
+        code = 4100010, 
+        no_pregunta = 1,
+        topic = "Sistemas equivalentes",
+        subtopic = "Sistemas equivalentes",
+        enunciado ="Dos sistemas de fuerzas se consideran equivalentes cuando:", 
+        opcion_1 = "Tienen el mismo número de fuerzas con igual magnitud pero diferente ubicación.",
+        opcion_2 = "Actúan sobre cuerpos con la misma geometría.",
+        opcion_3 = "Tienen la misma fuerza resultante y el mismo momento en cualquier punto del cuerpo.",
+        opcion_4 = "La sumatoria de las fuerzas resultantes de cada sistema es igual a cero. ",
+        opcion_correcta = "Tienen la misma fuerza resultante y el mismo momento en cualquier punto del cuerpo.",
+        respuesta_P1 = "Dos sistemas son equivalentes si, generan la misma fuerza resultante y el mismo momento respecto a un punto dado. Esto significa que, el efecto global de los dos sistemas sobre el cuerpo es idéntico.",
+        respuesta_P2 = "",
+        ),
 
     # Theory(#2
     #     code = 4100020, 

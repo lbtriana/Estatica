@@ -479,7 +479,7 @@ if authenticate_user():
 
         if way == "Teoría":
             st.sidebar.header("Teoría")
-            topic=st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Momento", "Incertidumbre", "Apoyos y reacciones", "Centroides", "Fuerzas distribuidas", "Fuerzas internas"])
+            topic=st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Momento", "Incertidumbre", "Sistemas equivalentes", "Apoyos y reacciones", "Centroides", "Fuerzas distribuidas", "Fuerzas internas"])
             respuesta_usuario['topic'] = topic
 
             if topic == "Equilibrio de partículas":
@@ -488,6 +488,8 @@ if authenticate_user():
                 subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Momento"])
             if topic == "Incertidumbre":
                 subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Incertidumbre"])
+            if topic == "Sistemas equivalentes":
+                subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Sistemas equivalentes"])
             if topic == "Apoyos y reacciones":
                 subtopic=st.sidebar.selectbox("Seleccione el subtema", options=["Apoyos y reacciones"])
             if topic == "Centroides":
@@ -1397,9 +1399,21 @@ if authenticate_user():
                 if pregunta_no == 9: 
                     st.image(EQ_teoria_preguntas[12], width=450)    
             if subtopic == "Momento":
+                if pregunta_no == 4:
+                    st.image(MO_teoria_preguntas[2], width=550) 
+                if pregunta_no == 5:
+                    st.image(MO_teoria_preguntas[1], width=150) 
                 if pregunta_no == 6:
                     st.image(MO_teoria_preguntas[0], width=550) 
+                if pregunta_no == 8:
+                    st.image(MO_teoria_preguntas[3], width=350) 
             if subtopic == "Incertidumbre":
+                if pregunta_no == 1 or pregunta_no == 2:
+                    st.image(IN_teoria_preguntas[0], width=800) 
+                if pregunta_no == 3:
+                    st.image(IN_teoria_preguntas[2], width=400) 
+                if pregunta_no == 4:
+                    st.image(IN_teoria_preguntas[3], width=550)
                 if pregunta_no == 5:
                     st.image(IN_teoria_preguntas[1], width=550) 
             if subtopic == "Centroides":
@@ -1474,9 +1488,6 @@ if authenticate_user():
                         st.image(EQ_teoria_respuestas[0],width=200)
                     if pregunta_no == 13: 
                         st.image(EQ_teoria_respuestas[1],width=250)
-                if subtopic == "Momento":
-                    if pregunta_no == 4:
-                        st.image(MO_teoria_respuestas[0],width=350)
                 if subtopic == "Centroides":
                     if pregunta_no == 6:
                         st.image(CT_teoria_respuestas[0],width=200)

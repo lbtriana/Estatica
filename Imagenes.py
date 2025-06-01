@@ -435,12 +435,17 @@ EQ_teoria_preguntas =[#Equilibrio
 ]
 
 MO_teoria_preguntas =[#Momento
-"./Imagenes/Teoria_Preguntas/MO/T_MO_MO_1.png", #[0]   
+"./Imagenes/Teoria_Preguntas/MO/T_MO_MO_6.png", #[0]   
+"./Imagenes/Teoria_Preguntas/MO/T_MO_MO_5.png", #[1]
+"./Imagenes/Teoria_Preguntas/MO/T_MO_MO_4.png", #[2]  
+"./Imagenes/Teoria_Preguntas/MO/T_MO_MO_8.png", #[3]  
 ]
 
 IN_teoria_preguntas =[#Incertidumbre
 "./Imagenes/Teoria_Preguntas/IN/T_IN_IN_1.png", #[0]   
-"./Imagenes/Teoria_Preguntas/IN/T_IN_IN_2.png", #[1]   
+"./Imagenes/Teoria_Preguntas/IN/T_IN_IN_5.png", #[1]   
+"./Imagenes/Teoria_Preguntas/IN/T_IN_IN_3.png", #[2]   
+"./Imagenes/Teoria_Preguntas/IN/T_IN_IN_4.png", #[3] 
 ]
 
 CT_teoria_preguntas=[#Centroides
@@ -495,10 +500,6 @@ FI_teoria_preguntas=[#Fuerzas internas
 EQ_teoria_respuestas =[#Equilibrio
 "./Imagenes/Teoria_Respuestas/EQ/V/RT_EQ_V_1.png", #[0] 
 "./Imagenes/Teoria_Respuestas/EQ/V/RT_EQ_V_2.png", #[1] 
-]
-
-MO_teoria_respuestas =[#Momento
-"./Imagenes/Teoria_Respuestas/MO/RT_MO_MO_4.png", #[0] 
 ]
 
 CT_teoria_respuestas =[#Centroides
