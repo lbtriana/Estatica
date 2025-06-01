@@ -1421,6 +1421,9 @@ if authenticate_user():
                     st.image(SI_teoria_preguntas[0], width=800) 
                 if pregunta_no == 3:
                     st.image(SI_teoria_preguntas[1], width=800) 
+            if subtopic == "Apoyos y reacciones":
+                if pregunta_no == 1:
+                    st.image(AP_teoria_preguntas[0], width=600) 
             if subtopic == "Centroides":
                 if pregunta_no == 1:
                     st.image(CT_teoria_preguntas[0], width=350)

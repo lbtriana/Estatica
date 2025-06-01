@@ -798,23 +798,28 @@ conceptuales = [
 
 
 
-    # #------------------------------------------------------ Apoyos ----------------------------------------------------------
-    # #-------------------------------------------------    51000##0       ---------------------------------------------------
-    # Theory(#1
-    #     code = 5100010, 
-    #     no_pregunta = 1,
-    #     topic = "Apoyos y reacciones",
-    #     subtopic = "Apoyos y reacciones",
-    #     enunciado ="¿Cuál de los siguientes tipos de apoyos genera una reacción vertical y una reacción horizontal, pero no un momento?", 
-    #     opcion_1 = "Apoyo fijo o empotramiento",
-    #     opcion_2 = "Apoyo con articulación",
-    #     opcion_3 = "Apoyo tipo rodillo o patín",
-    #     opcion_4 = "Apoyo con collarín",
-    #     opcion_correcta = "Apoyo con articulación",
-    #     respuesta_P1 = "Un apoyo con articulación es un apoyo de segundo grado.Por ello, genera 2 reacciones las cuales restringen el desplazamiento pero no el giro o momento.",
-    #     respuesta_P2 = "",
-    #     ),
-             
+    #------------------------------------------------------ Apoyos ----------------------------------------------------------
+    #-------------------------------------------------    51000##0       ---------------------------------------------------
+    Theory(#1
+        code = 5100010, 
+        no_pregunta = 1,
+        topic = "Apoyos y reacciones",
+        subtopic = "Apoyos y reacciones",
+        enunciado = "Se puede afirmar sobre las reacciones de los apoyos $A$ y $B$ mostradas en la siguiente figura que:", 
+        opcion_1 = "Son correctas. Las reacciones corresponden al número de grados de libertad del apoyo; por lo tanto, un apoyo de primer grado tiene dos reacciones y un apoyo de segundo grado tiene una reacción.",
+        opcion_2 = "Son incorrectas. Las reacciones corresponden al número de restricciones del apoyo; por lo tanto, un apoyo de primer grado tiene una reacción y un apoyo de segundo grado tiene dos reacciones.",
+        opcion_3 = "Son incorrectas. Ambos apoyos generan el mismo número de reacciones para mantener el equilibrio.",
+        opcion_4 = "Son correctas. La suma de las reacciones de un apoyo de primer y segundo grado es tres.",
+        opcion_correcta = "Son incorrectas. Las reacciones corresponden al número de restricciones del apoyo; por lo tanto, un apoyo de primer grado tiene una reacción y un apoyo de segundo grado tiene dos reacciones.",
+        respuesta_P1 ="""
+        Son incorrectas. El grado del apoyo está relacionado con el número de restricciones que impone al movimiento del cuerpo.   
+
+        Un apoyo de primer grado, restringe únicamente la traslación en una dirección, por lo que genera una única reacción.  
+        Un apoyo de segundo grado, restringe las traslaciones en dos direcciones, por lo que genera dos reacciones. 
+        """,
+        respuesta_P2 = "",
+        ),
+   
     Theory(#2
         code = 5100020, 
         no_pregunta = 2,
@@ -829,28 +834,10 @@ conceptuales = [
         respuesta_P1 = "Los apoyos de primer grado, tanto en 2D como en 3D, son aquellos que impiden el desplazamiento en una sola dirección, lo cual genera una sola reacción.",
         respuesta_P2 = "",
         ),
-             
-    # Theory(#3
-    #     code = 5100030, 
-    #     no_pregunta = 3,
-    #     topic = "Apoyos y reacciones",
-    #     subtopic = "Apoyos y reacciones",
-    #     enunciado = "Considere las siguientes figuras e indique el número de restricciones o reacciones que generan teniendo en cuenta un sistema de tres cordenadas (3D) :",
-    #     opcion_1 = "I: 6; II: 3; III: 2",
-    #     opcion_2 = "I: 3; II: 2; III: 1",
-    #     opcion_3 = "I: 5; II: 6; III: 0",
-    #     opcion_4 = "I: 6; II: 5; III: 1",
-    #     opcion_correcta = "I: 6; II: 5; III: 1",
-    #     respuesta_P1 = """
-    #     La figura 1 es un apoyo fijo que no permite desplazamieto ni momento en ninguna dirección (x,y,z).
-    #     La figura 2 es un pasador y por ende permite únicamente el giro en una sola dirección. De tal forma que: #reacciones (3D) = 6 - Grados de libertad = 6 - 1 = 5.
-    #     La figura 3 permite el giro en las tres direcciones (Mx, My, Mz) y el desplazamiento en todo el plano del suelo (convencionalmente x-y) pero no hacia arriba. Del tal forma que: #reacciones (3D) = 6 - Grados de libertad = 6 - 5 = 1.""",
-    #     respuesta_P2 = "",
-    #     ),    
-
-    Theory(#4
-        code = 5100040, 
-        no_pregunta = 4,
+               
+    Theory(#3
+        code = 5100030, 
+        no_pregunta = 3,
         topic = "Apoyos y reacciones",
         subtopic = "Apoyos y reacciones",
         enunciado = "¿Cuáles reacciones genera un apoyo empotrado en un estructura bidimensional?",
@@ -879,21 +866,6 @@ conceptuales = [
     #     opcion_4 = "Todas las cargas se aplican en los nodos y existe fricción en las uniones.",
     #     opcion_correcta =  "Todas las cargas se aplican en los nodos y no existe fricción en las uniones.",
     #     respuesta_P1 = " ",
-    #     respuesta_P2 = "",
-    #     ),
-
-    # Theory(#2
-    #     code = 6100020, 
-    #     no_pregunta = 2,
-    #     topic = "Equilibrio de partículas",
-    #     subtopic = "Cerchas",
-    #     enunciado ="¿Cuál es la condición básica para que una cercha sea estáticamente determinada?", 
-    #     opcion_1 = "El número de elementos debe ser igual al número de nodos.",
-    #     opcion_2 = "El número de elementos debe ser mayor que el número de nodos.",
-    #     opcion_3 = "El número de elementos debe ser igual a 2n−3.",
-    #     opcion_4 = "El número de nodos debe ser igual al número de apoyos.",
-    #     opcion_correcta = "El número de elementos debe ser igual a 2n−3.",
-    #     respuesta_P1 = "Para que una cercha sea estáticamente determinada, el número de barras debe cumplir la ecuación m=2n−3, donde m es el número de barras y n es el número de nodos. Esta relación asegura que la estructura puede analizarse usando las ecuaciones de equilibrio sin necesidad de recurrir a métodos avanzados de análisis.",
     #     respuesta_P2 = "",
     #     ),
 

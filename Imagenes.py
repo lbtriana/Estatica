@@ -453,6 +453,10 @@ SI_teoria_preguntas =[#Sistemas equivalentes
 "./Imagenes/Teoria_Preguntas/SI/T_SI_SI_3.png", #[1]  
 ]
 
+AP_teoria_preguntas =[#Apoyos y reacciones
+"./Imagenes/Teoria_Preguntas/AP/T_AP_AP_1.png", #[0] 
+]
+
 CT_teoria_preguntas=[#Centroides
 "./Imagenes/Teoria_Preguntas/CT/T_CT_CT_1.png", #[0] 
 "./Imagenes/Teoria_Preguntas/CT/T_CT_CT_2.png", #[1] 
