@@ -795,6 +795,45 @@ conceptuales = [
         respuesta_P1 = "Cuando una fuerza se traslada de su punto original a otro diferente, ya no genera el mismo momento respecto a ciertos puntos. Para que dos sistemas de fuerzas sean equivalentes, deben generar la misma resultante y el mismo momento respecto a un punto de referencia (en este caso, el punto $A$). En el sistema $B$, la fuerza ha sido trasladada sin conservar el momento respecto a $A$. Por lo tanto, es necesario añadir un momento adicional en $A$ que reproduzca el efecto rotacional del sistema $A$. Solo así se garantiza que ambos sistemas sean equivalentes.",
         respuesta_P2 = "",
         ),
+    
+    Theory(#4
+        code = 4100040, 
+        no_pregunta = 4,
+        topic = "Sistemas equivalentes",
+        subtopic = "Sistemas equivalentes",
+        enunciado ="Los sistemas $A$ y $B$ son equivalentes si:", 
+        opcion_1 = "Los momentos $M_1$ y $M_2$ son iguales.",
+        opcion_2 = "El momento resultante del sistema $A$ es igual al del sistema $B$.",
+        opcion_3 = "El punto de aplicación de la fuerza resultante es el mismo en ambos sistemas.",
+        opcion_4 = "Todas las anteriores.",
+        opcion_correcta = "El momento resultante del sistema $A$ es igual al del sistema $B$.",
+        respuesta_P1 = "Dos sistemas son equivalentes si tienen la misma fuerza resultante y el mismo efecto rotacional sobre el cuerpo. En este caso, los dos sistemas tienen la misma fuerza resultante, solo faltaría garantizar que el momento resultante del sistema $A$ sea igual al del sistema $B$.",
+        respuesta_P2 = "",
+        ),
+
+    Theory(#5
+        code = 4100050, 
+        no_pregunta = 5,
+        topic = "Sistemas equivalentes",
+        subtopic = "Sistemas equivalentes",
+        enunciado ="Los sistemas $1$ y $2$ son equivalentes al sistema original si:", 
+        opcion_1 = "En el sistema $1$, $M_O$ es equivalente al momento respecto a $O$ que generan las tres fuerzas del sistema original. En el sistema $2$, la fuerza aplicada genera el mismo momento respecto a $O$ que el generado por las tres fuerzas del sistema original.",
+        opcion_2 = "No es posible que el sistema $1$ sea equivalente al sistema original. En el sistema $2$, la fuerza aplicada genera el mismo momento respecto a $O$ que el generado por las tres fuerzas del sistema original.",
+        opcion_3 ="En el sistema $1$, $M_O$ es equivalente al momento respecto a $O$ que generan las tres fuerzas del sistema original. No es posible que el sistema $2$ sea equivalente al sistema original.",
+        opcion_4 = "En el sistema $1$, $M_O$ genera el mismo efecto rotacional que el sistema original. En el sistema $2$, la fuerza no genera momento con respecto a $O$.",
+        opcion_correcta = "En el sistema $1$, $M_O$ es equivalente al momento respecto a $O$ que generan las tres fuerzas del sistema original. En el sistema $2$, la fuerza aplicada genera el mismo momento respecto a $O$ que el generado por las tres fuerzas del sistema original.",
+        respuesta_P1 = """
+        Ambos sistemas pueden ser equivalentes al original si cumplen con las siguientes condiciones:
+
+        - En el sistema $1$, la combinación de la fuerza y el momento $M_O$ genera el mismo efecto que las tres fuerzas originales: misma fuerza resultante y mismo momento respecto al punto $O$.
+        - En el sistema $2$, si la fuerza aplicada genera el mismo momento respecto al punto $O$ que el conjunto de las tres fuerzas originales.
+        """,
+        respuesta_P2 = "",
+        ),
+
+
+
+
 
 
 
@@ -825,6 +864,59 @@ conceptuales = [
         no_pregunta = 2,
         topic = "Apoyos y reacciones",
         subtopic = "Apoyos y reacciones",
+        enunciado = "Considere la viga con una carga puntual en el centro de su luz. ¿Cómo son las reacciones verticales en sus apoyos?",
+        opcion_1 = "Las reacciones verticales son iguales en magnitud y diferentes en sentido.",
+        opcion_2 = "Las reacciones verticales son diferentes en magnitud e iguales en sentido.",
+        opcion_3 = "Las reacciones verticales son iguales en magnitud y sentido.",
+        opcion_4 = "No hay suficiente información para determinar cómo son las reacciones",
+        opcion_correcta = "Las reacciones verticales son iguales en magnitud y sentido.",
+        respuesta_P1 = "Teniendo en cuenta que la carga esta centrada y la viga es simétrica, las reacciones verticales son iguales en magnitud $\\left(\\dfrac{{F}}{{2}}\\right)$ y sentido $(\\hat{{j}})$.",
+        respuesta_P2 = "",
+        ),
+
+    Theory(#3
+        code = 5100030, 
+        no_pregunta = 3,
+        topic = "Apoyos y reacciones",
+        subtopic = "Apoyos y reacciones",
+        enunciado = "¿La siguiente cercha se encuentra en equilibrio?. Si no, ¿qué se debe hacer para que lo esté?",
+        opcion_1 = "La cercha está en equilibrio. No es necesario realizar modificaciones.",
+        opcion_2 = "La cercha no está en equilibrio. Se debe quitar uno de los apoyos y ubicar el restante en el punto $D$.",
+        opcion_3 = "La cercha no está en equilibrio. Es necesario cambiar el apoyo $A$ por un apoyo de segundo grado.",
+        opcion_4 = "La cercha no está en equilibrio. Se debe girar el apoyo $A$ de forma vertical y reubicar el apoyo $B$ en el punto $D$ de forma vertical.",
+        opcion_correcta = "La cercha no está en equilibrio. Es necesario cambiar el apoyo $A$ por un apoyo de segundo grado.",
+        respuesta_P1 = "La cercha no está en equilibrio, dado que la fuerza $F_1$ no está siendo contrarrestada por una reacción. Para lograr el equilibrio se debe cambiar el apoyo $A$ por uno de segundo grado, de forma que la reacción vertical del apoyo contrarrestre a la fuerza $F_1$.",
+        respuesta_P2 = "",
+        ),
+
+    Theory(#4
+        code = 5100040, 
+        no_pregunta = 4,
+        topic = "Apoyos y reacciones",
+        subtopic = "Apoyos y reacciones",
+        enunciado = "¿Cuál es la relación entre el grado de un apoyo y el número de reacciones que genera en una estructura bidimensional?",
+        opcion_1 = "Entre mayor sea el grado del apoyo, menos reacciones genera.",
+        opcion_2 = "El grado del apoyo indica el número de movimientos en libertad que tiene, por lo tanto, el número de reacciones que genera es tres menos su grado.",
+        opcion_3 = "El grado del apoyo indica el número de reacciones que genera.",
+        opcion_4 = "No hay una relación directa entre el grado del apoyo y el número de reacciones genera.",
+        opcion_correcta = "El grado del apoyo indica el número de reacciones que genera.",
+        respuesta_P1 = """
+        El grado del apoyo indica cuántos movimientos restringe, lo que equivale al número de reacciones que genera. 
+
+        Por ejemplo:
+        
+        - Un apoyo de primer grado restringe un movimiento (1 reacción).
+        - Un apoyo de segundo grado restringe dos movimientos (2 reacciones).
+        - Un apoyo de tercer grado restringe tres movimientos(3 reacciones).
+        """,
+        respuesta_P2 = "",
+        ),
+
+    Theory(#5
+        code = 5100050, 
+        no_pregunta = 5,
+        topic = "Apoyos y reacciones",
+        subtopic = "Apoyos y reacciones",
         enunciado = "Un apoyo de primer grado es aquel que:",
         opcion_1 = "Tiene una sola restricción.",
         opcion_2 = "Permite un solo movimiento.",
@@ -835,12 +927,12 @@ conceptuales = [
         respuesta_P2 = "",
         ),
                
-    Theory(#3
-        code = 5100030, 
-        no_pregunta = 3,
+    Theory(#6
+        code = 5100060, 
+        no_pregunta = 6,
         topic = "Apoyos y reacciones",
         subtopic = "Apoyos y reacciones",
-        enunciado = "¿Cuáles reacciones genera un apoyo empotrado en un estructura bidimensional?",
+        enunciado = "¿Cuál(es) reacciones genera un apoyo empotrado en un estructura bidimensional?",
         opcion_1 = "Una fuerza.",
         opcion_2 = "Dos fuerzas y un momento.",
         opcion_3 = "Dos fuerzas sin momento.",
@@ -849,6 +941,8 @@ conceptuales = [
         respuesta_P1 = "Un apoyo empotrado en una estructura bidimensional es un apoyo de tercer grado. Este tipo de apoyo restringe todos los movimientos del cuerpo, es decir, impide la traslación (horizontal y vertical) y la rotación. Debido a esto, genera dos reacciones (horizontal y vertical) y un momento.",
         respuesta_P2 = "",
         ),
+    
+    
                  
 
     #-----------------------------------------------------  Armaduras ----------------------------------------------------------
@@ -890,21 +984,97 @@ conceptuales = [
         respuesta_P1 = "El elemento $AH$ se encuentra a tensión. Las flechas muestran el análisis realizado sobre los nodos, los cuales a su vez indican el comportamiento de los elementos. El equilibrio interno entre los nodos y los elementos muestran que tanto el nodo como el elemento están a tensión.",
         respuesta_P2 = "",
         ),
+
+    Theory(#3
+        code = 6100030, 
+        no_pregunta = 3,
+        topic = "Armaduras",
+        subtopic = "Cerchas",
+        enunciado ="¿Cuántos elementos de fuerza cero tiene la armadura Baltimore mostrada?", 
+        opcion_1 = "5",
+        opcion_2 = "6",
+        opcion_3 = "7",
+        opcion_4 = "9",
+        opcion_correcta = "6",
+        respuesta_P1 = """
+        Una cercha es una estructura compuesta por elementos rectos que se conectan entre sí por puntos llamados nodos, formando triángulos. Un elemento de fuerza cero se define como un miembro de la armadura que no experimenta ninguna fuerza axial (Tensión o compresión). A continuación, se presenta la solución sugerida para el ejercicio: 
+          
+        Inicialmente, para resolver el problema es necesario notar que la cercha es simétrica en geometría y carga. Esto implica que las fuerzas internas y las reacciones se distribuyen de forma simétrica; por ejemplo, $F_{{AF}} = F_{{EI}}$.
+        
+        Además, se debe tener en cuenta que si hay tres elementos conectados en un nodo, donde dos de ellos son colineales y no hay cargas externas aplicadas en el nodo, el tercer miembro va a ser de fuerza cero. Esto nos permite identificar que los elementos $FB, GB, HD$ e $ID$ son de fuerza cero.
+        
+        Una vez identificados los anteriores elementos de fuerza cero, si se realiza la sumatoria de fuerzas en los nodos $B$ y $D$, se encontrará que los elementos $BJ$ y $DL$ también son de fuerza cero.    
+        
+        En resumen, se identifican un total de 6 elementos de fuerza cero: $FB, GB, HD, ID, BJ$ y $DL$. 
+        """,
+        respuesta_P2 = "",
+        ),
+
+    Theory(#4
+        code = 6100040, 
+        no_pregunta = 4,
+        topic = "Armaduras",
+        subtopic = "Cerchas",
+        enunciado ="¿Cuál es la razón entre el número de elementos a tensión $(N_t)$ y el número de elementos a compresión $(N_c)$ en la siguiente cercha?", 
+        opcion_1 = """$\\dfrac{{N_t}}{{N_c}} = 1.33$ \\
+        $\\text{{  }}$""",
+        opcion_2 = """$\\dfrac{{N_t}}{{N_c}} = 2.5$ \\
+        $\\text{{  }}$""",
+        opcion_3 = """$\\dfrac{{N_t}}{{N_c}} = 0.4$ \\
+        $\\text{{  }}$""",
+        opcion_4 = """$\\dfrac{{N_t}}{{N_c}} = 0.75$ \\
+        $\\text{{  }}$""",
+        opcion_correcta = """$\\dfrac{{N_t}}{{N_c}} = 2.5$ \\
+        $\\text{{  }}$""",
+        respuesta_P1 = """
+        La cercha tiene 2 elementos a compresión ($AE$ y $ED$) y 5 elementos a tensión ($AB$, $BC$, $CD$, $BE$ y $CE$) como se muestra en la siguiente figura. Por lo tanto, la razón entre el número de elementos a tensión $(N_t)$ y el número de elementos a compresión $(N_c)$ es 2.5. 
+        """,
+        respuesta_P2 = "",
+        ),
+
+    Theory(#5
+        code = 6100050, 
+        no_pregunta = 5,
+        topic = "Armaduras",
+        subtopic = "Cerchas",
+        enunciado ="Para hallar la magnitud de la fuerza que actúa a lo largo del elemento $IK$ se realiza el corte $A'-A'$ mostrado. Sobre este corte, es correcto afirmar:", 
+        opcion_1 = "El corte $A'-A'$ permite hallar la fuerza $IK$ directamente, dado que, hay tres fuerzas desconocidas más la incógnita de interés $(IK)$.",
+        opcion_2 = "El corte $A'-A'$ no permite hallar la fuerza $IK$ directamente, dado que, hay más incógnitas (4) que ecuaciones disponibles (3).",
+        opcion_3 = "El corte $A'-A'$ permite hallar la fuerza $IK$ directamente, dado que, hay tres fuerzas desconocidas, igual al número de ecuaciones disponibles, porque el elemento $(IJ)$ es de fuerza cero.",
+        opcion_4 = "El corte $A'-A'$ no permite hallar la fuerza $IK$ directamente, dado que, no es posible aplicar condiciones de equilibrio a las subestructuras generadas.",
+        opcion_correcta = "El corte $A'-A'$ no permite hallar la fuerza $IK$ directamente, dado que, hay más incógnitas (4) que ecuaciones disponibles (3).",
+        respuesta_P1 = """
+        Para utilizar el método de secciones de forma que se pueda hallar la fuerza incógnita directamente, el corte debe generar máximo 3 incógnitas, ya que se tienen 3 ecuaciones disponibles ($\\sum F_x = 0$, $\\sum F_y = 0$, $\\sum M = 0$). En este caso, el corte $A'-A'$ genera 4 fuerzas incógnitas en los elementos $JL, IL, IK, EK$, por lo tanto, no permite hallar directamente la fuerza del elemento $IK$.
+        """,
+        respuesta_P2 = "",
+        ),
            
-    # Theory(#3
-    #     code = 6100030, 
-    #     no_pregunta = 3,
-    #     topic = "Equilibrio de partículas",
-    #     subtopic = "Cerchas",
-    #     enunciado ="Convencionalmente se dice que un elemento está en compresión cuando:", 
-    #     opcion_1 = " ",
-    #     opcion_2 = " ",
-    #     opcion_3 = " ",
-    #     opcion_4 = "Las flechas en los extremos apuntan hacia el elemento generando el acortamiento del elemento.",
-    #     opcion_correcta = "Las flechas en los extremos apuntan hacia el elemento generando el acortamiento del elemento.",
-    #     respuesta_P1 = """ """,
-    #     respuesta_P2 = "",
-    #     ),
+    Theory(#6
+        code = 6100060, 
+        no_pregunta = 6,
+        topic = "Armaduras",
+        subtopic = "Cerchas",
+        enunciado ="Dentro del análisis conceptual de elementos de fuerza cero, se obtuvieron los siguientes diagramas de cuerpo libre para los nodos $A$, $B$, $C$ y $D$. Si cada fuerza $(F)$ representa un elemento de la cercha, ¿cuántos elementos de fuerza cero se pueden identificar en cada nodo?", 
+        opcion_1 = "$A:2$; $\\text{{  }}$ $B:1$; $\\text{{  }}$ $C:1$;  $\\text{{  }}$ $D:1$ ",
+        opcion_2 = "$A:2$; $\\text{{  }}$ $B:0$; $\\text{{  }}$ $C:0$;  $\\text{{  }}$ $D:1$ ",
+        opcion_3 = "$A:2$; $\\text{{  }}$ $B:2$; $\\text{{  }}$ $C:1$;  $\\text{{  }}$ $D:1$ ",
+        opcion_4 = "$A:2$; $\\text{{  }}$ $B:2$; $\\text{{  }}$ $C:0$;  $\\text{{  }}$ $D:1$ ",
+        opcion_correcta = "$A:2$; $\\text{{  }}$ $B:2$; $\\text{{  }}$ $C:1$;  $\\text{{  }}$ $D:1$ ",
+        respuesta_P1 = """ 
+        La respuesta correcta es: $A:2$; $\\text{{  }}$ $B:2$; $\\text{{  }}$ $C:1$;  $\\text{{  }}$ $D:1$.       
+
+        - **Nodo $A$:** Tiene dos elementos de fuerza cero. Aplicando equilibrio en $x$ y $y$:       
+            $\\sum{{F_y}}=0$: La fuerza $F_1$ no tiene una fuerza que lo contrarrestre, por lo tanto, debe ser un elemento de fuerza cero.      
+            $\\sum{{F_x}}=0$: La fuerza $F_2$ no tiene una fuerza que lo contrarrestre, por lo tanto, debe ser un elemento de fuerza cero.      
+        - **Nodo $B$:** Tiene dos elementos de fuerza cero.       
+            $\\sum{{F_y}}=0$: La fuerza $F_2$ no tiene una fuerza que lo contrarrestre, por lo tanto, debe ser un elemento de fuerza cero.      
+            $\\sum{{F_x}}=0$: La fuerza $F_1$ no tiene una fuerza que lo contrarrestre, por lo tanto, debe ser un elemento de fuerza cero.       
+        - **Nodo $C$:** Tiene un elemento de fuerza cero. En este caso, $\\sum{{F_x}}=0$ indica que la fuerza $F_3$ no tiene contrapartida, por lo que debe ser un elemento de fuerza cero.       
+        - **Nodo $D$:** Tiene un elemento de fuerza cero. Al realizar $\\sum{{F_x}}=0$ señala $F_3$ no se equilibra con ninguna otra fuerza horizontal, por lo que tiene que ser un elemento de fuerza cero.  
+        """,
+        respuesta_P2 = "",
+        ),
+
 
 #-----------------------------------------------------  Armaduras ----------------------------------------------------------
 #------------------------------------------------------  Marcos -----------------------------------------------------------
@@ -952,6 +1122,7 @@ conceptuales = [
         respuesta_P1 = "Las afirmaciones correctas son $II$ y $IV$. La afirmación $I$ es incorrecta porque los marcos también pueden tener una estructura triangular y la afirmación $III$ es falsa porque las reacciones son de igual magnitud.",
         respuesta_P2 = "",
         ),
+
 
 #------------------------------------------------------  Centroides-----------------------------------------------------------
 #-------------------------------------------------       71000#0         ---------------------------------------------------

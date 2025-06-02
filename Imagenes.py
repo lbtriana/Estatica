@@ -178,7 +178,7 @@ AR_image_paths =[#Imágenes Preguntas Cálculo Armaduras
 "./Imagenes/Preguntas/AR/CE/AR_CE_F_1a.png", #[0]
 "./Imagenes/Preguntas/AR/CE/AR_CE_F_1b.png", #[1]
 "./Imagenes/Preguntas/AR/CE/AR_CE_F_2a.png", #[2]
-"./Imagenes/Preguntas/AR/CE/AR_CE_F_3a.png", #[3]
+"./Imagenes/Preguntas/AR/CE/AR_CE_F_3a.png", #[3] No utilizada
 
 #Cerchas_Nivel Medio
 "./Imagenes/Preguntas/AR/CE/AR_CE_M_1a.png", #[4]
@@ -451,10 +451,14 @@ IN_teoria_preguntas =[#Incertidumbre
 SI_teoria_preguntas =[#Sistemas equivalentes
 "./Imagenes/Teoria_Preguntas/SI/T_SI_SI_2.png", #[0]  
 "./Imagenes/Teoria_Preguntas/SI/T_SI_SI_3.png", #[1]  
+"./Imagenes/Teoria_Preguntas/SI/T_SI_SI_4.png", #[2] 
+"./Imagenes/Teoria_Preguntas/SI/T_SI_SI_5.png", #[3] 
 ]
 
 AP_teoria_preguntas =[#Apoyos y reacciones
 "./Imagenes/Teoria_Preguntas/AP/T_AP_AP_1.png", #[0] 
+"./Imagenes/Teoria_Preguntas/AP/T_AP_AP_2.png", #[1] 
+"./Imagenes/Teoria_Preguntas/AP/T_AP_AP_3.png", #[2] 
 ]
 
 AR_teoria_preguntas =[#Armaduras
@@ -462,6 +466,11 @@ AR_teoria_preguntas =[#Armaduras
 "./Imagenes/Teoria_Preguntas/AR/MA/T_AR_MA_1.png", #[1] 
 "./Imagenes/Teoria_Preguntas/AR/MA/T_AR_MA_2.png", #[2] 
 "./Imagenes/Teoria_Preguntas/AR/CE/T_AR_CE_2.png", #[3] 
+"./Imagenes/Teoria_Preguntas/AR/CE/T_AR_CE_3.png", #[4] 
+"./Imagenes/Teoria_Preguntas/AR/CE/T_AR_CE_4.png", #[5] 
+"./Imagenes/Teoria_Preguntas/AR/CE/T_AR_CE_5.png", #[6] 
+"./Imagenes/Teoria_Preguntas/AR/CE/T_AR_CE_6.png", #[7] 
+"./Imagenes/Teoria_Preguntas/AR/MA/T_AR_MA_3.png", #[8]
 ]
 
 CT_teoria_preguntas=[#Centroides
@@ -520,6 +529,7 @@ EQ_teoria_respuestas =[#Equilibrio
 
 AR_teoria_respuestas =[#Armaduras
 "./Imagenes/Teoria_Respuestas/AR/CE/RT_AR_CE_2.png", #[0] 
+"./Imagenes/Teoria_Respuestas/AR/CE/RT_AR_CE_4.png", #[1] 
 ]
 
 CT_teoria_respuestas =[#Centroides

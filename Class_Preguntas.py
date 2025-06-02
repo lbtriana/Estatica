@@ -5359,39 +5359,7 @@ preguntas = [
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),
-    Questionary(#3_1
-        code = 5110031,
-        no_pregunta = 3,
-        complexity = F,
-        topic = "Armaduras",
-        subtopic = "Cerchas",
-        version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"¿Cuántos elementos de fuerza cero tiene la armadura Baltimore mostrada?.",
-        no_answers = 1,
-        a1_name = "Número de elementos de fuerza cero",
-        a2_name = "",
-        a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round(7,2),
-        answer2 = lambda f, a, calc, c, d, m: 0,
-        answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = C3,
-        ayuda2 = C4,      
-        ayuda3 = C5,
-        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-        Una cercha es una estructura compuesta por elementos rectos que se conectan entre sí por puntos llamados nodos, formando triángulos. Un elemento de fuerza cero se define como un miembro de la armadura que no experimenta ninguna fuerza axial (Tension o compresión). A continuación, se presenta la solución sugerida para el ejercicio: 
-          
-        Inicialmente, para resolver el problema es necesario notar que la cercha es simétrica en geometría y carga. Esto implica que las fuerzas internas y las reacciones se distribuyen de forma simétrica; por ejemplo, $F_{{AF}} = F_{{EI}}$.
-        
-        Además, se debe tener en cuenta que si hay tres elementos conectados en un nodo, donde dos de ellos son colineales y no hay cargas externas aplicadas en el nodo, el tercer miembro va a ser de fuerza cero. Esto nos permite identificar que los elementos $FB, GB, HD, ID$ y $KC$ son de fuerza cero.
-        
-        Una vez identificados los anteriores elementos de fuerza cero, si se realiza la sumatoria de fuerzas en los nodos B y D, se encontrará que los elementos $BJ$ y $DL$ también son de fuerza cero.    
-        
-        En resumen, se identifican un total de 7 elementos de fuerza cero: $FB, GB, HD, ID, KC, BJ$ y $DL$.       
-        """,   
-        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-        calculos='operations'
-        ),
+    
 
     #========================================================  ARMADURAS  =========================================================
     #-------------------------------------------------         Cerchas      --------------------------------------------
