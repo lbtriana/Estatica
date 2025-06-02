@@ -1450,6 +1450,8 @@ if authenticate_user():
                     st.image(AR_teoria_preguntas[1], width=250) 
                 if pregunta_no == 2:
                     st.image(AR_teoria_preguntas[2], width=350) 
+                if pregunta_no == 3:
+                    st.image(AR_teoria_preguntas[8], width=500) 
             if subtopic == "Centroides":
                 if pregunta_no == 1:
                     st.image(CT_teoria_preguntas[0], width=350)
@@ -1470,6 +1472,8 @@ if authenticate_user():
                     st.image(FD_teoria_preguntas[11], width=900)
                 if pregunta_no == 8:
                     st.image(FD_teoria_preguntas[12], width=350)
+                if pregunta_no == 9:
+                    st.image(FD_teoria_preguntas[13], width=500)
             if subtopic == "Vigas":
                 if pregunta_no == 1:
                     st.image(FD_teoria_preguntas[0], width=520)
@@ -1486,6 +1490,8 @@ if authenticate_user():
                     st.image(FD_teoria_preguntas[5], width=420)
                 if pregunta_no == 2:
                     st.image(FD_teoria_preguntas[6], width=720)
+                if pregunta_no == 3:
+                    st.image(FD_teoria_preguntas[14], width=400)
             if subtopic == "Fuerzas internas":
                 if pregunta_no == 2:
                     st.image(FI_teoria_preguntas[0], width=600)

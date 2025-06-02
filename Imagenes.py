@@ -506,6 +506,9 @@ FD_teoria_preguntas = [#Fuerzas distribuidas
 "./Imagenes/Teoria_Preguntas/FD/PH/T_FD_PH_7.png", #[11]
 "./Imagenes/Teoria_Preguntas/FD/PH/T_FD_PH_8.png", #[12]
 "./Imagenes/Teoria_Preguntas/FD/PH/T_FD_PH_9.png", #[13]
+
+#Empuje de suelo
+"./Imagenes/Teoria_Preguntas/FD/ES/T_FD_ES_3.png", #[14]
 ]
 
 FI_teoria_preguntas=[#Fuerzas internas
@@ -538,7 +541,6 @@ CT_teoria_respuestas =[#Centroides
 
 FD_teoria_respuestas =[#Fuerzas distribuidas
 "./Imagenes/Teoria_Respuestas/FD/PH/RT_FD_PH_6.png", #[0] 
-"./Imagenes/Teoria_Respuestas/FD/PH/RT_FD_PH_9.png", #[1] 
 ]
 
 FI_teoria_respuestas =[#Fuerzas internas

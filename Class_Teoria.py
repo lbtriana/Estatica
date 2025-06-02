@@ -1123,6 +1123,29 @@ conceptuales = [
         respuesta_P2 = "",
         ),
 
+    Theory(#3
+        code = 6200030, 
+        no_pregunta = 3,
+        topic = "Armaduras",
+        subtopic = "Marcos",
+        enunciado ="""
+        Para determinar las reacciones de los apoyos de la viga articulada en $D$ se realiza el siguiente procedimiento:
+        
+        1. Se divide la viga en la articulación $D$.
+        2. Se toma la sección de la izquierda de la viga para hallar la reacción vertical en el apoyo $A$.
+        3. Se analiza la sección de la derecha para hallar las reacciones en los apoyos $B$ y $C$.
+
+        Con base en este procedimiento, se puede afirmar que:
+        """, 
+        opcion_1 = "Es incorrecto. No es posible hallar las reacciones de los apoyos, ya que hay más incógnitas (4) que ecuaciones disponibles (3). ",
+        opcion_2 = "Es correcto. La articulación $D$ permite separar la viga en dos secciones y resolverlas por separado. ",
+        opcion_3 = "Es incorrecto. Antes del paso 3, se deben hallar las reacciones internas en la articulación $D$; de lo contrario, la sección de la derecha no puede resolverse.",
+        opcion_4 = "Es incorrecto. En el paso 1 no se debe dividir la viga, ya que la articulación no lo permite. Se debe realizar un análisis global de equilibrio.",
+        opcion_correcta = "Es incorrecto. Antes del paso 3, se deben hallar las reacciones internas en la articulación $D$; de lo contrario, la sección de la derecha no puede resolverse.",
+        respuesta_P1 = "La estructura presenta más incógnitas (4 reacciones en total) que ecuaciones disponibles (3 ecuaciones de equilibrio), por lo tanto, es necesario dividir la viga en la articulación $D$ para resolverla por partes. Sin embargo, el procedimiento omite un paso antes de analizar la sección de la derecha, el cual es determinar las reacciones (vertical y horizontal) de la articulación $D$.",
+        respuesta_P2 = "",
+        ),
+
 
 #------------------------------------------------------  Centroides-----------------------------------------------------------
 #-------------------------------------------------       71000#0         ---------------------------------------------------
@@ -1598,6 +1621,35 @@ conceptuales = [
         respuesta_P2 = "",
         ),
 
+    Theory(#9
+        code = 8200090, 
+        no_pregunta = 9,
+        topic = "Fuerzas distribuidas",
+        subtopic = "Presión hidrostática",
+        enunciado = """
+        Considere el siguiente sistema. La presión en los puntos $A$, $B$ y $C$ es:
+
+        $A = 0$                 
+        $B = \\gamma_a \\cdot h_1$                
+        $C = \\gamma_L \\cdot (h_1+h_2)$                
+
+        Es correcto afirmar que:
+        """, 
+        opcion_1 = "La presión en el punto $C$ está mal definida, ya que no considera la contribución del agua sobre el limo.",
+        opcion_2 = "La presión en el punto $B$ es incorrecta, pues debería incluir también la contribución del limo.",
+        opcion_3 = "La presión en el punto $A$ es incorrecta, ya que está en contacto con el agua.",
+        opcion_4 = "La presión está correctamente definida en todos los puntos.",
+        opcion_correcta = "La presión en el punto $C$ está mal definida, ya que no considera la contribución del agua sobre el limo.",
+        respuesta_P1 = """
+        La presión en un punto sumergido se calcula acumulando la presión generada por todos los estratos de fluido que están sobre él.
+
+        - En $A$, la presión es $0$ porque está en la superficie libre del agua.            
+        - En $B$, la presión es $\\gamma_a \\cdot h_1$, ya que está sumergido en agua a una profundidad $h_1$.              
+        - En $C$, se deben considerar las dos capas: $h_1$ de agua y $h_2$ de limo. Por lo tanto, la presión correcta es $\\gamma_a \\cdot h_1 + \\gamma_L \\cdot h_2$. La expresión dada en el enunciado para $C$ solo considera el limo, lo cual es incorrecto.
+        """,
+        respuesta_P2 = "",
+        ),
+
 
 #---------------------------------------------- Fuerzas distribuidas -------------------------------
 #------------------------------------------------ Empuje de suelo ----------------------------------
@@ -1632,8 +1684,32 @@ conceptuales = [
         respuesta_P1 = "Se requiere instalar un anclaje cuando el momento generado por la presión del suelo es mayor que el generado por la presión del agua, ya que en ese caso el muro tiende a volcarse hacia el lado del agua. En este caso, es necesario instalar un anclaje del lado del suelo para contrarrestar ese momento y mantener el equilibrio del sistema.",
         respuesta_P2 = "",
         ),
-    
 
+    Theory(#3
+        code = 8300030, 
+        no_pregunta = 3,
+        topic = "Fuerzas distribuidas",
+        subtopic = "Empuje de suelo",
+        enunciado ="""
+        El Factor de Seguridad $(F_S)$ se define como $F_S=\\dfrac{{M_R}}{{M_A}}$; donde el Momento Resistente $(M_R)$ y el Momento Actuante $(M_A)$ se calculan con respecto al punto $A$. Para determinar el factor de seguridad del siguiente sistema se realiza el siguiente procedimiento:
+        
+        1. Se calcula la fuerza del empuje del suelo.
+        2. Se calcula el momento que realiza el empuje del suelo $(M_R)$ con respecto al punto $A$.
+        3. Se calcula el peso del muro de contención.
+        4. Se calcula el momento que realiza el peso del muro de contención $(M_A)$ con respecto al punto $A$.
+        5. Se calcula el factor de seguridad.
+
+        Con base en este procedimiento, se puede afirmar que:
+        """, 
+        opcion_1 = "Es correcto. El empuje del suelo es la fuerza resistente, y el peso del muro es la carga actuante.",
+        opcion_2 = "Es incorrecto. El empuje del suelo y el peso del muro generan el mismo tipo de momento, por lo tanto no se puede definir un factor de seguridad.",
+        opcion_3 = "Es incorrecto. El empuje del suelo representa la carga actuante, y el peso del muro representa la carga resistente. Se invirtieron $M_R$ y $M_A$.",
+        opcion_4 = "Es correcto. El orden de los cálculos no altera el resultado final del factor de seguridad.",
+        opcion_correcta = "Es incorrecto. El empuje del suelo representa la carga actuante, y el peso del muro representa la carga resistente. Se invirtieron $M_R$ y $M_A$.",
+        respuesta_P1 = "El procedimiento define incorrectamente al momento resistente y al momento actuante. El empuje del suelo es la causa del posible volcamiento del muro, por lo tanto, genera el momento actuante $(M_A)$. En cambio, el peso del muro impide el volcamiento, por lo que genera el momento resistente $(M_R)$.",
+        respuesta_P2 = "",
+        ),
+    
 
 #--------------------------------------------------- Fuerzas internas -------------------------------------------------------
 #-------------------------------------------------       91000##0         ---------------------------------------------------
