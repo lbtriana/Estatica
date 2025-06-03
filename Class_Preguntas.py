@@ -5285,11 +5285,11 @@ preguntas = [
         topic = "Armaduras",
         subtopic = "Cerchas",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine las fuerzas internas de los miembros AC, AD y BC (Use el signo negativo si el elemento está en compresión y el signo positivo si el elemento esta en tensión). Considere $F_1 = {f[0]:.0f} \\text{{ lb}}$, $d_1 = {d[0]:.0f} \\text{{ ft}}$, $\\alpha_1 = {(a[2]/7):.2f}°$ y $\\alpha_2 = {(a[1]/4):.2f}°$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine las fuerzas internas de los miembros AC, AD y BC (Use el signo negativo si el elemento está en compresión y el signo positivo si el elemento esta en tensión). Considere $F_1 = {f[0]:.0f} \\text{{ kN}}$, $d_1 = {d[0]:.0f} \\text{{ m}}$, $\\alpha_1 = {(a[2]/7):.2f}°$ y $\\alpha_2 = {(a[1]/4):.2f}°$.",
         no_answers = 3,
-        a1_name = "Fuerza en AC [lb]",
-        a2_name = "Fuerza en AD [lb]",
-        a3_name = "Fuerza en BC [lb]",
+        a1_name = "Fuerza en AC $[kN]$",
+        a2_name = "Fuerza en AD $[kN]$",
+        a3_name = "Fuerza en BC $[kN]$",
         answer1 = lambda f, a, calc, c, d, m: np.round((f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))))),2),
         answer2 = lambda f, a, calc, c, d, m: np.round(((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.sine((a[2]/7))))- (f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7)))))*((Calculations.cosine((a[1]/4)))/(Calculations.sine((a[2]/7)))),2),
         answer3 = lambda f, a, calc, c, d, m: np.round((-f[0] + (Calculations.sine((a[1]/4)))*(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))))))/(Calculations.sine((a[1]/4))), 2),
@@ -5303,16 +5303,16 @@ preguntas = [
         
         ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$               
         ${{\hspace{{4mm}} \\sum{{F_x}} = A_x + F_1= 0}}$     
-        ${{\hspace{{4mm}} A_x = {-f[0]:.0f} \\text{{ lb}} }}$         
+        ${{\hspace{{4mm}} A_x = {-f[0]:.0f} \\text{{ kN}} }}$         
               
         ${{\hspace{{4mm}} \\sum{{M_A}} = 0 }}$     
-        ${{\hspace{{4mm}} \\sum{{M_A}} = - F_1 \\cdot \\left(\\dfrac{{d_1}}{{tan(\\alpha_2)}}\\right) + B_y \\cdot (2 \\cdot d_1 ) = - {f[0]:.0f} \\text{{ lb}} \\cdot {(d[0])/(Calculations.tangent((a[1]/4))):.0f} \\text{{ ft}} + B_y \\cdot {2*d[0]:.0f} \\text{{ ft}} = 0}}$     
-        ${{\hspace{{4mm}} B_y \\cdot {2*d[0]:.0f} \\text{{ ft}} = {f[0]*((d[0])/(Calculations.tangent((a[1]/4)))):.0f} \\text{{ lb}} \\cdot \\text{{ ft}} }}$         
-        ${{\hspace{{4mm}} B_y = {(f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]):.2f} \\text{{ lb}} }}$     
+        ${{\hspace{{4mm}} \\sum{{M_A}} = - F_1 \\cdot \\left(\\dfrac{{d_1}}{{tan(\\alpha_2)}}\\right) + B_y \\cdot (2 \\cdot d_1 ) = - {f[0]:.0f} \\text{{ kN}} \\cdot {(d[0])/(Calculations.tangent((a[1]/4))):.0f} \\text{{ m}} + B_y \\cdot {2*d[0]:.0f} \\text{{ m}} = 0}}$     
+        ${{\hspace{{4mm}} B_y \\cdot {2*d[0]:.0f} \\text{{ m}} = {f[0]*((d[0])/(Calculations.tangent((a[1]/4)))):.0f} \\text{{ kN}} \\cdot \\text{{ m}} }}$         
+        ${{\hspace{{4mm}} B_y = {(f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]):.2f} \\text{{ kN}} }}$     
              
         ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$          
-        ${{\hspace{{4mm}} \\sum{{F_y}} = A_y + B_y = A_y +  {(f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]):.2f} \\text{{ lb}} = 0}}$     
-        ${{\hspace{{4mm}} A_y = {-((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0])) :.2f} \\text{{ lb}} }}$
+        ${{\hspace{{4mm}} \\sum{{F_y}} = A_y + B_y = A_y +  {(f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]):.2f} \\text{{ kN}} = 0}}$     
+        ${{\hspace{{4mm}} A_y = {-((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0])) :.2f} \\text{{ kN}} }}$
         
         $\\textbf{{\\small 2. Nodo A: }}$
 
@@ -5320,39 +5320,39 @@ preguntas = [
     
         A continuación, se presenta la solución utilizando el primer método, en el cual se resolverá el sistema de ecuaciones mediante sustitución:
 
-        ${{\hspace{{4mm}} 1. \\sum{{F_x}} = F_{{AD}} \\cdot \\cos(\\alpha_1) + F{{AC}} \\cdot \\sin(\\alpha_2) - |A_x| = F_{{AD}} \\cdot {Calculations.cosine((a[2]/7)):.2f} + F_{{AC}} \\cdot {Calculations.sine((a[1]/4)):.2f} - {f[0]:.0f} \\text{{ lb}}  = 0 }}$     
-        ${{\hspace{{4mm}} 2. \\sum{{F_y}} = F_{{AD}} \\cdot \\sin(\\alpha_1) + F{{AC}} \\cdot \\cos(\\alpha_2) - |A_y| = F_{{AD}} \\cdot {Calculations.sine((a[2]/7)):.2f} + F_{{AC}} \\cdot {Calculations.cosine((a[1]/4)):.2f} - {((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0])) :.2f} \\text{{ lb}} = 0 }}$      
+        ${{\hspace{{4mm}} 1. \\sum{{F_x}} = F_{{AD}} \\cdot \\cos(\\alpha_1) + F{{AC}} \\cdot \\sin(\\alpha_2) - |A_x| = F_{{AD}} \\cdot {Calculations.cosine((a[2]/7)):.2f} + F_{{AC}} \\cdot {Calculations.sine((a[1]/4)):.2f} - {f[0]:.0f} \\text{{ kN}}  = 0 }}$     
+        ${{\hspace{{4mm}} 2. \\sum{{F_y}} = F_{{AD}} \\cdot \\sin(\\alpha_1) + F{{AC}} \\cdot \\cos(\\alpha_2) - |A_y| = F_{{AD}} \\cdot {Calculations.sine((a[2]/7)):.2f} + F_{{AC}} \\cdot {Calculations.cosine((a[1]/4)):.2f} - {((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0])) :.2f} \\text{{ kN}} = 0 }}$      
         
         De la ecuación 2, se despeja $F_{{AD}}$ en términos de $F_{{AC}}$:
         
-        ${{\hspace{{4mm}} F_{{AD}} \\cdot {Calculations.sine((a[2]/7)):.2f} + F_{{AC}} \\cdot {Calculations.cosine((a[1]/4)):.2f} - {((f[0]*d[3])/(2*d[0])) :.2f} \\text{{ lb}} = 0 }}$      
-        ${{\hspace{{4mm}} F_{{AD}} = {((f[0]*d[3])/(2*d[0]*Calculations.sine((a[2]/7)))):.2f} \\text{{ lb}} - F_{{AC}} \\cdot {(Calculations.cosine((a[1]/4)))/(Calculations.sine((a[2]/7))):.2f} }}$ 
+        ${{\hspace{{4mm}} F_{{AD}} \\cdot {Calculations.sine((a[2]/7)):.2f} + F_{{AC}} \\cdot {Calculations.cosine((a[1]/4)):.2f} - {((f[0]*d[3])/(2*d[0])) :.2f} \\text{{ kN}} = 0 }}$      
+        ${{\hspace{{4mm}} F_{{AD}} = {((f[0]*d[3])/(2*d[0]*Calculations.sine((a[2]/7)))):.2f} \\text{{ kN}} - F_{{AC}} \\cdot {(Calculations.cosine((a[1]/4)))/(Calculations.sine((a[2]/7))):.2f} }}$ 
         
         Se reemplaza en la ecuación 1:     
               
-        ${{\hspace{{4mm}} F_{{AD}} \\cdot {Calculations.cosine((a[2]/7)):.2f} + F_{{AC}} \\cdot {Calculations.sine((a[1]/4)):.2f} - {f[0]:.0f} \\text{{ lb}} = 0 }}$      
-        ${{\hspace{{4mm}} ({((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))) :.2f} \\text{{ lb}} - F_{{AC}} \\cdot {(Calculations.cosine((a[1]/4)))/(Calculations.sine((a[2]/7))):.2f} ) \\cdot {Calculations.cosine((a[2]/7)):.2f} + F_{{AC}} \\cdot {Calculations.sine((a[1]/4)):.2f} = {f[0]:.0f} \\text{{ lb}}}}$       
-        ${{\hspace{{4mm}} F_{{AC}} \\cdot ({Calculations.sine((a[1]/4)) - (Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))):.2f}) = {f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))):.2f} \\text{{ lb}}}}$      
-        ${{\hspace{{4mm}} F_{{AC}} = {(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))))):.2f} \\text{{ lb}} }}$       
+        ${{\hspace{{4mm}} F_{{AD}} \\cdot {Calculations.cosine((a[2]/7)):.2f} + F_{{AC}} \\cdot {Calculations.sine((a[1]/4)):.2f} - {f[0]:.0f} \\text{{ kN}} = 0 }}$      
+        ${{\hspace{{4mm}} ({((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))) :.2f} \\text{{ kN}} - F_{{AC}} \\cdot {(Calculations.cosine((a[1]/4)))/(Calculations.sine((a[2]/7))):.2f} ) \\cdot {Calculations.cosine((a[2]/7)):.2f} + F_{{AC}} \\cdot {Calculations.sine((a[1]/4)):.2f} = {f[0]:.0f} \\text{{ kN}}}}$       
+        ${{\hspace{{4mm}} F_{{AC}} \\cdot ({Calculations.sine((a[1]/4)) - (Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))):.2f}) = {f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))):.2f} \\text{{ kN}}}}$      
+        ${{\hspace{{4mm}} F_{{AC}} = {(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))))):.2f} \\text{{ kN}} }}$       
               
         Se calcula $F_{{AD}}$:
         
-        ${{\hspace{{4mm}} F_{{AD}} = {((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.sine((a[2]/7)))):.2f} \\text{{ lb}} - F_{{AC}} \\cdot {(Calculations.cosine((a[1]/4)))/(Calculations.sine((a[2]/7))):.2f}}}$      
-        ${{\hspace{{4mm}} F_{{AD}} = {((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.sine((a[2]/7)))):.2f} \\text{{ lb}} - {(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7)))))*(Calculations.cosine((a[1]/4)))/(Calculations.sine((a[2]/7))):.2f} \\text{{ lb}} }}$     
-        ${{\hspace{{4mm}} F_{{AD}} = {((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.sine((a[2]/7))))- (f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7)))))*(Calculations.cosine((a[1]/4)))/(Calculations.sine((a[2]/7))):.2f} \\text{{ lb}} }}$     
+        ${{\hspace{{4mm}} F_{{AD}} = {((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.sine((a[2]/7)))):.2f} \\text{{ kN}} - F_{{AC}} \\cdot {(Calculations.cosine((a[1]/4)))/(Calculations.sine((a[2]/7))):.2f}}}$      
+        ${{\hspace{{4mm}} F_{{AD}} = {((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.sine((a[2]/7)))):.2f} \\text{{ kN}} - {(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7)))))*(Calculations.cosine((a[1]/4)))/(Calculations.sine((a[2]/7))):.2f} \\text{{ kN}} }}$     
+        ${{\hspace{{4mm}} F_{{AD}} = {((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.sine((a[2]/7))))- (f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7)))))*(Calculations.cosine((a[1]/4)))/(Calculations.sine((a[2]/7))):.2f} \\text{{ kN}} }}$     
         
         $\\textbf{{\\small 3. Nodo C: }}$
 
         Para el nodo C, se obtienen las siguientes ecuaciones:
         
-        ${{\hspace{{4mm}} 1. \\sum{{F_x}} = F_{{CB}} \\cdot \\sin(\\alpha_2) + ({-(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))))):.2f} \\text{{ lb}} ) \\cdot \\sin(\\alpha_2) + F_1 = F_{{CB}} \\cdot {Calculations.sine((a[1]/4)):.2f} + ( {-(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))))):.2f} \\text{{ lb}} ) \\cdot {Calculations.sine((a[1]/4)):.2f} + {f[0]:.0f} \\text{{ lb}} = 0 }}$      
-        ${{\hspace{{4mm}} 2. \\sum{{F_y}} = F_{{CB}} \\cdot \\cos(\\alpha_2) + ({-(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))))):.2f} \\text{{ lb}} ) \\cdot \\cos(\\alpha_2) + F_{{CD}} = F_{{CB}} \\cdot {Calculations.cosine((a[1]/4)):.2f} + ( {-(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))))):.2f} \\text{{ lb}} ) \\cdot {Calculations.cosine((a[1]/4)):.2f} + F_{{CD}} = 0 }}$      
+        ${{\hspace{{4mm}} 1. \\sum{{F_x}} = F_{{CB}} \\cdot \\sin(\\alpha_2) + ({-(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))))):.2f} \\text{{ kN}} ) \\cdot \\sin(\\alpha_2) + F_1 = F_{{CB}} \\cdot {Calculations.sine((a[1]/4)):.2f} + ( {-(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))))):.2f} \\text{{ kN}} ) \\cdot {Calculations.sine((a[1]/4)):.2f} + {f[0]:.0f} \\text{{ kN}} = 0 }}$      
+        ${{\hspace{{4mm}} 2. \\sum{{F_y}} = F_{{CB}} \\cdot \\cos(\\alpha_2) + ({-(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))))):.2f} \\text{{ kN}} ) \\cdot \\cos(\\alpha_2) + F_{{CD}} = F_{{CB}} \\cdot {Calculations.cosine((a[1]/4)):.2f} + ( {-(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))))):.2f} \\text{{ kN}} ) \\cdot {Calculations.cosine((a[1]/4)):.2f} + F_{{CD}} = 0 }}$      
         
         Dada la pregunta del ejercicio, solo se necesita despejar F_{{CB}} de la primera ecuación:
         
-        ${{\hspace{{4mm}} F_{{CB}} \\cdot {Calculations.sine((a[1]/4)):.2f} + ( {-(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))))):.2f} \\text{{ lb}} ) \\cdot {Calculations.sine((a[1]/4)):.2f} + {f[0]:.0f} \\text{{ lb}} = 0 }}$      
-        ${{\hspace{{4mm}} F_{{CB}} \\cdot {Calculations.sine((a[1]/4)):.2f} = {-f[0] + (Calculations.sine((a[1]/4)))*(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))))):.2f} \\text{{ lb}}}}$      
-        ${{\hspace{{4mm}} F_{{CB}} = {(-f[0] + (Calculations.sine((a[1]/4)))*(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))))))/(Calculations.sine((a[1]/4))):.2f} \\text{{ lb}}}}$      
+        ${{\hspace{{4mm}} F_{{CB}} \\cdot {Calculations.sine((a[1]/4)):.2f} + ( {-(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))))):.2f} \\text{{ kN}} ) \\cdot {Calculations.sine((a[1]/4)):.2f} + {f[0]:.0f} \\text{{ kN}} = 0 }}$      
+        ${{\hspace{{4mm}} F_{{CB}} \\cdot {Calculations.sine((a[1]/4)):.2f} = {-f[0] + (Calculations.sine((a[1]/4)))*(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))))):.2f} \\text{{ kN}}}}$      
+        ${{\hspace{{4mm}} F_{{CB}} = {(-f[0] + (Calculations.sine((a[1]/4)))*(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))))))/(Calculations.sine((a[1]/4))):.2f} \\text{{ kN}}}}$      
         
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
@@ -5422,11 +5422,11 @@ preguntas = [
         topic = "Armaduras",
         subtopic = "Cerchas",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine las fuerzas internas de los miembros AB, FD y CE de la armadura Gambrel presentada (Use el signo negativo si el elemento está en compresión y el signo positivo si el elemento esta en tensión). Considere $F_1 = {f[0]:.0f} \\text{{ lb}}$, $F_2 = {f[1]:.0f} \\text{{ lb}}$, $F_3 = {f[2]:.0f} \\text{{ lb}}$, $d_1 = {d[0]:.0f} \\text{{ ft}}$, $d_2 = {d[3]:.0f}  \\text{{ ft}}$,  $d_3 = {d[6]:.0f} \\text{{ ft}}$ y $d_4 = {d[9]:.0f}  \\text{{ ft}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine las fuerzas internas de los miembros AB, FD y CE de la armadura Gambrel presentada (Use el signo negativo si el elemento está en compresión y el signo positivo si el elemento esta en tensión). Considere $F_1 = {f[0]:.0f} \\text{{ kN}}$, $F_2 = {f[1]:.0f} \\text{{ kN}}$, $F_3 = {f[2]:.0f} \\text{{ kN}}$, $d_1 = {d[0]:.0f} \\text{{ m}}$, $d_2 = {d[3]:.0f}  \\text{{ m}}$,  $d_3 = {d[6]:.0f} \\text{{ m}}$ y $d_4 = {d[9]:.0f}  \\text{{ m}}$.",
         no_answers = 3,
-        a1_name = "Fuerza en AB [lb]",
-        a2_name = "Fuerza en DF [lb]",
-        a3_name = "Fuerza en CE [lb]",
+        a1_name = "Fuerza en AB $[kN]$",
+        a2_name = "Fuerza en DF $[kN]$",
+        a3_name = "Fuerza en CE $[kN]$",
         answer1 = lambda f, a, calc, c, d, m: np.round(-((f[1] + (f[0]/2))/((d[6])/(Calculations.magnitude(d[0],d[6])))),2),
         answer2 = lambda f, a, calc, c, d, m: np.round(-((f[0]/2) + ((f[1] + (f[0]/2))*(d[0]/d[3])))/(((d[9] + d[6])/(Calculations.magnitude(d[3],d[9])))),2),
         answer3 = lambda f, a, calc, c, d, m: np.round(((f[1] + (f[0]/2))/(d[6]))*(d[0]), 2),
@@ -5444,28 +5444,28 @@ preguntas = [
         Dado que la cercha es simétrica, se sabe que $H_y$ = $A_y$. Tal que, se puede obtener el siguiente resultado de la sumatoria de fuerzas en Y: 
         
         ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$          
-        ${{\hspace{{4mm}} \\sum{{F_y}} = A_y + H_y - (2F_3 + 2F_2 + F_1) = 2A_y - {2*f[2] + 2*f[1] + f[0]:.0f} \\text{{ lb}} = 0}}$     
-        ${{\hspace{{4mm}} H_y = A_y = {f[2] + f[1] + (f[0]/2):.2f} \\text{{ lb}} }}$
+        ${{\hspace{{4mm}} \\sum{{F_y}} = A_y + H_y - (2F_3 + 2F_2 + F_1) = 2A_y - {2*f[2] + 2*f[1] + f[0]:.0f} \\text{{ kN}} = 0}}$     
+        ${{\hspace{{4mm}} H_y = A_y = {f[2] + f[1] + (f[0]/2):.2f} \\text{{ kN}} }}$
         
         $\\textbf{{\\small 2. Nodo A: }}$
 
         En el nodo A se pueden obtener las siguientes ecuaciones:
         
         ${{\hspace{{4mm}} 1. \\sum{{F_x}} = F_{{AC}} - F_{{AB}} \\cdot \\dfrac{{d_1}}{{\\sqrt{{(d_1)^{{2}} + (d_3)^{{2}}}}}} = F_{{AC}} - F_{{AB}} \\cdot {(d[0])/(Calculations.magnitude(d[0],d[6])):.2f} = 0 }}$     
-        ${{\hspace{{4mm}} 2. \\sum{{F_y}} = A_y - F_3 - F_{{AB}} \\cdot \\dfrac{{d_3}}{{\\sqrt{{(d_1)^{{2}} + (d_3)^{{2}}}}}}= {f[2] + f[1] + (f[0]/2):.2f} \\text{{ lb}} - {f[2]:.2f} \\text{{ lb}} - F_{{AB}} \\cdot {(d[6])/(Calculations.magnitude(d[0],d[6])):.2f} = 0 }}$      
+        ${{\hspace{{4mm}} 2. \\sum{{F_y}} = A_y - F_3 - F_{{AB}} \\cdot \\dfrac{{d_3}}{{\\sqrt{{(d_1)^{{2}} + (d_3)^{{2}}}}}}= {f[2] + f[1] + (f[0]/2):.2f} \\text{{ kN}} - {f[2]:.2f} \\text{{ kN}} - F_{{AB}} \\cdot {(d[6])/(Calculations.magnitude(d[0],d[6])):.2f} = 0 }}$      
         
         De la ecuación 2, se obtiene $F_{{AB}}$:
         
-        ${{\hspace{{4mm}} {f[2] + f[1] + (f[0]/2):.2f} \\text{{ lb}} - {f[2]:.2f} \\text{{ lb}} - F_{{AB}} \\cdot {(d[6])/(Calculations.magnitude(d[0],d[6])):.2f}= 0}}$      
-        ${{\hspace{{4mm}} F_{{AB}} \\cdot {(d[6])/(Calculations.magnitude(d[0],d[6])):.2f} = {f[1] + (f[0]/2):.2f} \\text{{ lb}}}}$      
-        ${{\hspace{{4mm}} F_{{AB}} = {(f[1] + (f[0]/2))/((d[6])/(Calculations.magnitude(d[0],d[6]))):.2f} \\text{{ lb}}}}$      
+        ${{\hspace{{4mm}} {f[2] + f[1] + (f[0]/2):.2f} \\text{{ kN}} - {f[2]:.2f} \\text{{ kN}} - F_{{AB}} \\cdot {(d[6])/(Calculations.magnitude(d[0],d[6])):.2f}= 0}}$      
+        ${{\hspace{{4mm}} F_{{AB}} \\cdot {(d[6])/(Calculations.magnitude(d[0],d[6])):.2f} = {f[1] + (f[0]/2):.2f} \\text{{ kN}}}}$      
+        ${{\hspace{{4mm}} F_{{AB}} = {(f[1] + (f[0]/2))/((d[6])/(Calculations.magnitude(d[0],d[6]))):.2f} \\text{{ kN}}}}$      
         
         El elemento AB se encuentra a $\\textbf{{\\small Compresión}}$.
 
         Ahora bien, al analizar el nodo C, se observa que solo estan involucradas las fuerzas $F_{{AC}}$ y $F_{{CE}}$, dado que, el elemento BC es de fuerza cero. De este modo, se puede calcular $F_{{CE}}$ calculando $F_{{AC}}$ de la ecuación 1 del nodo A, reemplazando el dato de $F_{{AB}}$ obtenido previamente:
         
-        ${{\hspace{{4mm}} F_{{AC}} - {(f[1] + (f[0]/2))/((d[6])/(Calculations.magnitude(d[0],d[6]))):.2f} \\text{{ lb}} \\cdot {(d[0])/(Calculations.magnitude(d[0],d[6])):.2f} = 0}}$      
-        ${{\hspace{{4mm}} F_{{CE}} = F_{{AC}} = {((f[1] + (f[0]/2))/(d[6]))*(d[0]):.2f} \\text{{ lb}} }}$       
+        ${{\hspace{{4mm}} F_{{AC}} - {(f[1] + (f[0]/2))/((d[6])/(Calculations.magnitude(d[0],d[6]))):.2f} \\text{{ kN}} \\cdot {(d[0])/(Calculations.magnitude(d[0],d[6])):.2f} = 0}}$      
+        ${{\hspace{{4mm}} F_{{CE}} = F_{{AC}} = {((f[1] + (f[0]/2))/(d[6]))*(d[0]):.2f} \\text{{ kN}} }}$       
         
         El elemento CE se encuentra a $\\textbf{{\\small Tensión}}$.
 
@@ -5473,21 +5473,21 @@ preguntas = [
 
         Como la cercha es simétrica se podrá resolver para el nodo B el resultado de $F_{{BD}}$, que va a ser el mismo que $F_{{DF}}$:
         
-        ${{\hspace{{4mm}} 1. \\sum{{F_x}} = F_{{AB}} \\cdot \\dfrac{{d_1}}{{\\sqrt{{(d_1)^{{2}} + (d_3)^{{2}}}}}} - F_{{BE}} \\cdot \\dfrac{{d_2}}{{\\sqrt{{(d_2)^{{2}} + (d_3)^{{2}}}}}} - F_{{BD}} \\cdot \\dfrac{{d_2}}{{\\sqrt{{(d_2)^{{2}} + (d_4)^{{2}}}}}} = {((f[1] + (f[0]/2))/(d[6]))*(d[0]):.2f} \\text{{ lb}}  - F_{{BE}} \\cdot {(d[3])/(Calculations.magnitude(d[3],d[6])):.2f} - F_{{BD}} \\cdot {(d[3])/(Calculations.magnitude(d[3],d[9])):.2f} = 0}}$      
-        ${{\hspace{{4mm}} 2. \\sum{{F_y}} = - F_2 + F_{{AB}} \\cdot \\dfrac{{d_3}}{{\\sqrt{{(d_1)^{{2}} + (d_3)^{{2}}}}}} + F_{{BE}} \\cdot \\dfrac{{d_3}}{{\\sqrt{{(d_2)^{{2}} + (d_3)^{{2}}}}}} - F_{{BD}} \\cdot \\dfrac{{d_4}}{{\\sqrt{{(d_2)^{{2}} + (d_4)^{{2}}}}}} = - {f[1]:.0f}\\text{{ lb}} + {(f[1] + (f[0]/2)):.2f} \\text{{ lb}}  + F_{{BE}} \\cdot {(d[6])/(Calculations.magnitude(d[3],d[6])):.2f} - F_{{BD}} \\cdot {(d[9])/(Calculations.magnitude(d[3],d[9])):.2f}  = 0 }}$      
+        ${{\hspace{{4mm}} 1. \\sum{{F_x}} = F_{{AB}} \\cdot \\dfrac{{d_1}}{{\\sqrt{{(d_1)^{{2}} + (d_3)^{{2}}}}}} - F_{{BE}} \\cdot \\dfrac{{d_2}}{{\\sqrt{{(d_2)^{{2}} + (d_3)^{{2}}}}}} - F_{{BD}} \\cdot \\dfrac{{d_2}}{{\\sqrt{{(d_2)^{{2}} + (d_4)^{{2}}}}}} = {((f[1] + (f[0]/2))/(d[6]))*(d[0]):.2f} \\text{{ kN}}  - F_{{BE}} \\cdot {(d[3])/(Calculations.magnitude(d[3],d[6])):.2f} - F_{{BD}} \\cdot {(d[3])/(Calculations.magnitude(d[3],d[9])):.2f} = 0}}$      
+        ${{\hspace{{4mm}} 2. \\sum{{F_y}} = - F_2 + F_{{AB}} \\cdot \\dfrac{{d_3}}{{\\sqrt{{(d_1)^{{2}} + (d_3)^{{2}}}}}} + F_{{BE}} \\cdot \\dfrac{{d_3}}{{\\sqrt{{(d_2)^{{2}} + (d_3)^{{2}}}}}} - F_{{BD}} \\cdot \\dfrac{{d_4}}{{\\sqrt{{(d_2)^{{2}} + (d_4)^{{2}}}}}} = - {f[1]:.0f}\\text{{ kN}} + {(f[1] + (f[0]/2)):.2f} \\text{{ kN}}  + F_{{BE}} \\cdot {(d[6])/(Calculations.magnitude(d[3],d[6])):.2f} - F_{{BD}} \\cdot {(d[9])/(Calculations.magnitude(d[3],d[9])):.2f}  = 0 }}$      
         
         Se observa que a partir de la primera ecuación se puede despejar $F_{{BE}}$ en términos de $F_{{BD}}$. Luego, se realiza la sustitución en la segunda ecuación para resolver $F_{{BD}}$:
         
-        ${{\hspace{{4mm}} {(f[1] + (f[0]/2))*(d[0]/d[6]):.2f} \\text{{ lb}}  - F_{{BE}} \\cdot {(d[3])/(Calculations.magnitude(d[3],d[6])):.2f} - F_{{BD}} \\cdot {(d[3])/(Calculations.magnitude(d[3],d[9])):.2f} = 0}}$      
-        ${{\hspace{{4mm}} F_{{BE}} \\cdot {(d[3])/(Calculations.magnitude(d[3],d[6])):.2f} = {(f[1] + (f[0]/2))*(d[0]/d[6]):.2f} \\text{{ lb}}  - F_{{BD}} \\cdot {(d[3])/(Calculations.magnitude(d[3],d[9])):.2f}}}$      
-        ${{\hspace{{4mm}} F_{{BE}} = {((f[1] + (f[0]/2))*((d[0]*(Calculations.magnitude(d[3],d[6])))/(d[6]*d[3]))):.2f} \\text{{ lb}} - F_{{BD}} \\cdot {(Calculations.magnitude(d[3],d[6]))/(Calculations.magnitude(d[3],d[9])):.2f}}}$     
+        ${{\hspace{{4mm}} {(f[1] + (f[0]/2))*(d[0]/d[6]):.2f} \\text{{ kN}}  - F_{{BE}} \\cdot {(d[3])/(Calculations.magnitude(d[3],d[6])):.2f} - F_{{BD}} \\cdot {(d[3])/(Calculations.magnitude(d[3],d[9])):.2f} = 0}}$      
+        ${{\hspace{{4mm}} F_{{BE}} \\cdot {(d[3])/(Calculations.magnitude(d[3],d[6])):.2f} = {(f[1] + (f[0]/2))*(d[0]/d[6]):.2f} \\text{{ kN}}  - F_{{BD}} \\cdot {(d[3])/(Calculations.magnitude(d[3],d[9])):.2f}}}$      
+        ${{\hspace{{4mm}} F_{{BE}} = {((f[1] + (f[0]/2))*((d[0]*(Calculations.magnitude(d[3],d[6])))/(d[6]*d[3]))):.2f} \\text{{ kN}} - F_{{BD}} \\cdot {(Calculations.magnitude(d[3],d[6]))/(Calculations.magnitude(d[3],d[9])):.2f}}}$     
         
         Finalmente:       
-        ${{\hspace{{4mm}} {(f[0]/2):.2f} \\text{{ lb}} + F_{{BE}} \\cdot {(d[6])/(Calculations.magnitude(d[3],d[6])):.2f} - F_{{BD}} \\cdot {(d[9])/(Calculations.magnitude(d[3],d[9])):.2f} = 0 }}$      
-        ${{\hspace{{4mm}} F_{{BD}} \\cdot {(d[9])/(Calculations.magnitude(d[3],d[9])):.2f} =  {(f[0]/2):.2f} \\text{{ lb}} + ({((f[1] + (f[0]/2))*((d[0]*(Calculations.magnitude(d[3],d[6])))/(d[6]*d[3]))):.2f} \\text{{ lb}} - F_{{BD}} \\cdot {(Calculations.magnitude(d[3],d[6]))/(Calculations.magnitude(d[3],d[9])):.2f}) \\cdot {(d[6])/(Calculations.magnitude(d[3],d[6])):.2f}}}$      
-        ${{\hspace{{4mm}} F_{{BD}} \\cdot {(d[9])/(Calculations.magnitude(d[3],d[9])):.2f} =  {(f[0]/2) + ((f[1] + (f[0]/2))*(d[0]/d[3])):.2f} \\text{{ lb}} - F_{{BD}} \\cdot {(d[6])/(Calculations.magnitude(d[3],d[9])):.2f} }}$      
-        ${{\hspace{{4mm}} F_{{BD}} \\cdot {((d[9] + d[6])/(Calculations.magnitude(d[3],d[9]))):.2f} = {(f[0]/2) + ((f[1] + (f[0]/2))*(d[0]/d[3])):.2f} \\text{{ lb}}}}$      
-        ${{\hspace{{4mm}} F_{{DF}} = F_{{BD}} = {((f[0]/2) + ((f[1] + (f[0]/2))*(d[0]/d[3])))/(((d[9] + d[6])/(Calculations.magnitude(d[3],d[9])))):.2f} \\text{{ lb}}}}$                       
+        ${{\hspace{{4mm}} {(f[0]/2):.2f} \\text{{ kN}} + F_{{BE}} \\cdot {(d[6])/(Calculations.magnitude(d[3],d[6])):.2f} - F_{{BD}} \\cdot {(d[9])/(Calculations.magnitude(d[3],d[9])):.2f} = 0 }}$      
+        ${{\hspace{{4mm}} F_{{BD}} \\cdot {(d[9])/(Calculations.magnitude(d[3],d[9])):.2f} =  {(f[0]/2):.2f} \\text{{ kN}} + ({((f[1] + (f[0]/2))*((d[0]*(Calculations.magnitude(d[3],d[6])))/(d[6]*d[3]))):.2f} \\text{{ kN}} - F_{{BD}} \\cdot {(Calculations.magnitude(d[3],d[6]))/(Calculations.magnitude(d[3],d[9])):.2f}) \\cdot {(d[6])/(Calculations.magnitude(d[3],d[6])):.2f}}}$      
+        ${{\hspace{{4mm}} F_{{BD}} \\cdot {(d[9])/(Calculations.magnitude(d[3],d[9])):.2f} =  {(f[0]/2) + ((f[1] + (f[0]/2))*(d[0]/d[3])):.2f} \\text{{ kN}} - F_{{BD}} \\cdot {(d[6])/(Calculations.magnitude(d[3],d[9])):.2f} }}$      
+        ${{\hspace{{4mm}} F_{{BD}} \\cdot {((d[9] + d[6])/(Calculations.magnitude(d[3],d[9]))):.2f} = {(f[0]/2) + ((f[1] + (f[0]/2))*(d[0]/d[3])):.2f} \\text{{ kN}}}}$      
+        ${{\hspace{{4mm}} F_{{DF}} = F_{{BD}} = {((f[0]/2) + ((f[1] + (f[0]/2))*(d[0]/d[3])))/(((d[9] + d[6])/(Calculations.magnitude(d[3],d[9])))):.2f} \\text{{ kN}}}}$                       
        
         El elemento DF se encuentra a $\\textbf{{\\small Compresión}}$.
         """,   
@@ -5634,11 +5634,11 @@ preguntas = [
         topic = "Armaduras",
         subtopic = "Cerchas",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine las fuerzas internas de los miembros DC, HC y DH de la armadura presentada (Use negativo si el elemento esta en compresión y positivo si el elemento esta tensión). Considere $F_1 = {f[0]:.0f} \\text{{ lb}}$, $F_2 = {f[1]:.0f} \\text{{ lb}}$, $F_3 = {f[2]:.0f} \\text{{ lb}}$, $F_4 = {f[3]:.0f} \\text{{ lb}}$, $d_1 = {d[0]:.0f} \\text{{ ft}}$ y $d_2 = {d[3]:.0f}  \\text{{ ft}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine las fuerzas internas de los miembros DC, HC y DH de la armadura presentada (Use negativo si el elemento esta en compresión y positivo si el elemento esta tensión). Considere $F_1 = {f[0]:.0f} \\text{{ kN}}$, $F_2 = {f[1]:.0f} \\text{{ kN}}$, $F_3 = {f[2]:.0f} \\text{{ kN}}$, $F_4 = {f[3]:.0f} \\text{{ kN}}$, $d_1 = {d[0]:.0f} \\text{{ m}}$ y $d_2 = {d[3]:.0f}  \\text{{ m}}$.",
         no_answers = 3,
-        a1_name = "Fuerza en DC [lb]",
-        a2_name = "Fuerza en HC [lb]",
-        a3_name = "Fuerza en DH [lb]",
+        a1_name = "Fuerza en DC $[kN]$",
+        a2_name = "Fuerza en HC $[kN]$",
+        a3_name = "Fuerza en DH $[kN]$",
         answer1 = lambda f, a, calc, c, d, m: np.round(-(f[3]*d[3]+f[2]*2*d[3])/((d[0]*d[3])/(Calculations.magnitude(d[0],d[3]))),2),
         answer2 = lambda f, a, calc, c, d, m: np.round(f[3] + 2*f[2],2),
         answer3 = lambda f, a, calc, c, d, m: np.round((f[3]+f[2]*2)*(d[3]/d[0]) - f[1], 2),
@@ -5652,15 +5652,15 @@ preguntas = [
         
         ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$               
         ${{\hspace{{4mm}} \\sum{{F_x}} = A_x - F_3 - F_4 = 0}}$             
-        ${{\hspace{{4mm}} A_x = F_3 + F_4 = {f[2] + f[3] :.0f} \\text{{ lb}}}}$        
+        ${{\hspace{{4mm}} A_x = F_3 + F_4 = {f[2] + f[3] :.0f} \\text{{ kN}}}}$        
              
         ${{\hspace{{4mm}} \\sum{{M_A}} = 0 }}$     
         ${{\hspace{{4mm}} \\sum{{M_A}} = F_4 \\cdot d_2 + F_3 \\cdot 2d_2 + F_1 \\cdot d_1 - F_y \\cdot 2d_1 = 0}}$     
-        ${{\hspace{{4mm}} F_y = \\dfrac{{F_4 \\cdot d_2 + F_3 \\cdot 2d_2 + F_1 \\cdot d_1}}{{2d_1}} = {(f[3]*d[3]+f[2]*2*d[3]+f[0]*d[0])/(2*d[0]):.2f} \\text{{ lb}} }}$     
+        ${{\hspace{{4mm}} F_y = \\dfrac{{F_4 \\cdot d_2 + F_3 \\cdot 2d_2 + F_1 \\cdot d_1}}{{2d_1}} = {(f[3]*d[3]+f[2]*2*d[3]+f[0]*d[0])/(2*d[0]):.2f} \\text{{ kN}} }}$     
              
         ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$          
         ${{\hspace{{4mm}} \\sum{{F_y}} = A_y + F_y - F_1 - F_2 = 0}}$     
-        ${{\hspace{{4mm}} A_y = F_1 + F_2 - F_y = {f[0] + f[1] - (f[3]*d[3]+f[2]*2*d[3]+f[0]*d[0])/(2*d[0]) :.2f} \\text{{ lb}} }}$     
+        ${{\hspace{{4mm}} A_y = F_1 + F_2 - F_y = {f[0] + f[1] - (f[3]*d[3]+f[2]*2*d[3]+f[0]*d[0])/(2*d[0]) :.2f} \\text{{ kN}} }}$     
         
         $\\textbf{{\\small 2. Condición de equilibrio del corte seleccionado: }}$     
         
@@ -5668,9 +5668,9 @@ preguntas = [
 
         $\\underline{{Despeje \\hspace{{2mm}} de \\hspace{{2mm}} F_{{DC}}:}}$    
         
-        ${{\hspace{{4mm}} \\sum{{M_H}} = F_1 \\cdot d_1 - F_y \\cdot 2d_1 - F_{{DC}} \\cdot  \\dfrac{{d_1}}{{\\sqrt{{(d_1)^{{2}} + (d_2)^{{2}}}}}}  \\cdot d_2 = {f[0]*d[0]:.2f} \\text{{ lb}} \\cdot \\text{{ ft}} - {(f[3]*d[3]+f[2]*2*d[3]+f[0]*d[0]):.2f} \\text{{ lb}} \\cdot \\text{{ ft}} - F_{{DC}} \\cdot {(d[0]*d[3])/(Calculations.magnitude(d[0],d[3])):.2f} \\text{{ ft}} = 0 }}$      
-        ${{\hspace{{4mm}} F_{{DC}} \\cdot {(d[0]*d[3])/(Calculations.magnitude(d[0],d[3])):.2f} \\text{{ ft}} = {- (f[3]*d[3]+f[2]*2*d[3]):.2f} \\text{{ lb}} \\cdot \\text{{ ft}} }}$      
-        ${{\hspace{{4mm}} F_{{DC}} = {-(f[3]*d[3]+f[2]*2*d[3])/((d[0]*d[3])/(Calculations.magnitude(d[0],d[3]))):.2f} \\text{{ lb}}  }}$   
+        ${{\hspace{{4mm}} \\sum{{M_H}} = F_1 \\cdot d_1 - F_y \\cdot 2d_1 - F_{{DC}} \\cdot  \\dfrac{{d_1}}{{\\sqrt{{(d_1)^{{2}} + (d_2)^{{2}}}}}}  \\cdot d_2 = {f[0]*d[0]:.2f} \\text{{ kN}} \\cdot \\text{{ m}} - {(f[3]*d[3]+f[2]*2*d[3]+f[0]*d[0]):.2f} \\text{{ kN}} \\cdot \\text{{ m}} - F_{{DC}} \\cdot {(d[0]*d[3])/(Calculations.magnitude(d[0],d[3])):.2f} \\text{{ m}} = 0 }}$      
+        ${{\hspace{{4mm}} F_{{DC}} \\cdot {(d[0]*d[3])/(Calculations.magnitude(d[0],d[3])):.2f} \\text{{ m}} = {- (f[3]*d[3]+f[2]*2*d[3]):.2f} \\text{{ kN}} \\cdot \\text{{ m}} }}$      
+        ${{\hspace{{4mm}} F_{{DC}} = {-(f[3]*d[3]+f[2]*2*d[3])/((d[0]*d[3])/(Calculations.magnitude(d[0],d[3]))):.2f} \\text{{ kN}}  }}$   
 
         {'El elemento DC está a Tensión.' if (-(f[3]*d[3]+f[2]*2*d[3])/((d[0]*d[3])/(Calculations.magnitude(d[0],d[3])))) > 0 else 'El elemento DC está a Compresión.'}  
         
@@ -5678,8 +5678,8 @@ preguntas = [
 
         Teniendo en cuenta que el elemento DC está en compresión :
         
-        ${{\hspace{{4mm}} \\sum{{F_x}} = F_{{HC}} - F_{{DC}} \\cdot \\dfrac{{d_1}}{{\\sqrt{{(d_1)^{{2}} + (d_2)^{{2}}}}}} = F_{{HC}} - {f[3] + 2*f[2]:.2f} \\text{{ lb}} = 0 }}$     
-        ${{\hspace{{4mm}} F_{{HC}} = {f[3] + 2*f[2]:.2f} \\text{{ lb}} }}$  
+        ${{\hspace{{4mm}} \\sum{{F_x}} = F_{{HC}} - F_{{DC}} \\cdot \\dfrac{{d_1}}{{\\sqrt{{(d_1)^{{2}} + (d_2)^{{2}}}}}} = F_{{HC}} - {f[3] + 2*f[2]:.2f} \\text{{ kN}} = 0 }}$     
+        ${{\hspace{{4mm}} F_{{HC}} = {f[3] + 2*f[2]:.2f} \\text{{ kN}} }}$  
 
         {'El elemento HC está a Tensión.' if (f[3] + 2*f[2]) > 0 else 'El elemento HC está a Compresión.'}     
         
@@ -5687,8 +5687,8 @@ preguntas = [
         
         Para encontrar la fuerza $F_{{DH}}$, se puede evaluar el nodo D:
         
-        ${{\hspace{{4mm}} \\sum{{F_y}} = F_{{DH}} - F_2 + F_{{DC}} \\cdot \\dfrac{{d_2}}{{\\sqrt{{(d_1)^{{2}} + (d_2)^{{2}}}}}} = F_{{DH}} - {f[1]:.2f} \\text{{ lb}} + {(f[3]+f[2]*2)*(d[3]/d[0]):.2f} \\text{{ lb}} = 0 }}$      
-        ${{\hspace{{4mm}} F_{{DH}} =  {f[1] - (f[3]+f[2]*2)*(d[3]/d[0]):.2f} \\text{{ lb}} }}$  
+        ${{\hspace{{4mm}} \\sum{{F_y}} = F_{{DH}} - F_2 + F_{{DC}} \\cdot \\dfrac{{d_2}}{{\\sqrt{{(d_1)^{{2}} + (d_2)^{{2}}}}}} = F_{{DH}} - {f[1]:.2f} \\text{{ kN}} + {(f[3]+f[2]*2)*(d[3]/d[0]):.2f} \\text{{ kN}} = 0 }}$      
+        ${{\hspace{{4mm}} F_{{DH}} =  {f[1] - (f[3]+f[2]*2)*(d[3]/d[0]):.2f} \\text{{ kN}} }}$  
 
         {'El elemento DH está a Tensión.' if (f[1] - (f[3]+f[2]*2)*(d[3]/d[0])) < 0 else 'El elemento DH está a Compresión.'}   
                         
@@ -6557,11 +6557,11 @@ preguntas = [
         topic = "Sistemas equivalentes",
         subtopic = "Sistemas equivalentes",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Reemplace las fuerzas que actúan sobre la viga por una sola fuerza resultante. Determine las componentes de dicha fuerza (Indique el signo de la dirección de las fuerzas) y la ubicación de esta fuerza medida desde el extremo A. Considere $F_1 = {f[0]:.0f} \\text{{ lb}}$, $F_2 = {f[1]:.0f} \\text{{ lb}}$, $F_3 = {f[2]:.0f} \\text{{ lb}}$, $\\alpha_1 = {a[0]:.0f}°$, $d_1 = {d[0]:.0f} \\text{{ ft}}$,  $d_2 = {d[3]:.0f}  \\text{{ ft}}$ y $d_3 = {d[6]:.0f} \\text{{ ft}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Reemplace las fuerzas que actúan sobre la viga por una sola fuerza resultante. Determine las componentes de dicha fuerza (Indique el signo de la dirección de las fuerzas) y la ubicación de esta fuerza medida desde el extremo A. Considere $F_1 = {f[0]:.0f} \\text{{ N}}$, $F_2 = {f[1]:.0f} \\text{{ N}}$, $F_3 = {f[2]:.0f} \\text{{ N}}$, $\\alpha_1 = {a[0]:.0f}°$, $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ fm}}$ y $d_3 = {d[6]:.0f} \\text{{ m}}$.",
         no_answers = 3,
-        a1_name = "Componente $F_{{Rx}}$ [lb]",
-        a2_name = "Componente $F_{{Ry}}$ [lb]",
-        a3_name = "Distancia desde el extremo A [ft]",
+        a1_name = "Componente $F_{{Rx}}$ $[N]$",
+        a2_name = "Componente $F_{{Ry}}$ $[N]$",
+        a3_name = "Distancia desde el extremo A $[m]$",
         answer1 = lambda f, a, calc, c, d, m: np.round(f[1]*calc['sin1'] - f[2]*(3/5),2),
         answer2 = lambda f, a, calc, c, d, m: np.round(-f[0] -  f[1]*calc['cos1'] - f[2]*(4/5),2),
         answer3 = lambda f, a, calc, c, d, m: np.round((f[1]*calc['cos1']*d[0] + f[2]*(4/5)*(d[0] + d[3]))/(f[0] + f[1]*calc['cos1'] + f[2]*(4/5)), 2),
@@ -6598,6 +6598,7 @@ preguntas = [
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),
+
     Questionary(#2_1
         code = 4110021,
         no_pregunta = 2,
@@ -6646,6 +6647,7 @@ preguntas = [
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),  
+
     Questionary(#3_1
         code = 4110031,
         no_pregunta = 3,
@@ -6653,11 +6655,11 @@ preguntas = [
         topic = "Sistemas equivalentes",
         subtopic = "Sistemas equivalentes",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Se utiliza un puntual ajustable BC para colocar la estructura en posición vertical. Reemplace el sistema mostrado con un sistema equivalente fuerza-par en A y determine las componentes del momento resultante. Considere $F_1 = {f[0]:.0f} \\text{{ lb}}$, $d_1 = {2 + d[0]:.0f} \\text{{ ft}}$,  $d_2 = {d[0]:.0f}  \\text{{ ft}}$, $d_3 = {d[3]:.0f} \\text{{ ft}}$ y $d_4 = {d[6]:.0f} \\text{{ ft}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Se utiliza un puntual ajustable BC para colocar la estructura en posición vertical. Reemplace el sistema mostrado con un sistema equivalente fuerza-par en A y determine las componentes del momento resultante. Considere $F_1 = {f[0]:.0f} \\text{{ kN}}$, $d_1 = {2 + d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[0]:.0f}  \\text{{ m}}$, $d_3 = {d[3]:.0f} \\text{{ m}}$ y $d_4 = {d[6]:.0f} \\text{{ m}}$.",
         no_answers = 3,
-        a1_name = "Componente $M_{{Rx}}$ [$lb \\cdot ft$]",
-        a2_name = "Componente $M_{{Ry}}$ [$lb \\cdot ft$]",
-        a3_name = "Componente $M_{{Rz}}$ [$lb \\cdot ft$]",
+        a1_name = "Componente $M_{{Rx}}$ [$kN \\cdot m$]",
+        a2_name = "Componente $M_{{Ry}}$ [$kN \\cdot m$]",
+        a3_name = "Componente $M_{{Rz}}$ [$kN \\cdot m$]",
         answer1 = lambda f, a, calc, c, d, m: np.round(d[6]*(f[0]*(d[3]))/(Calculations.magnitude3D(d[3],d[6],2)),2),
         answer2 = lambda f, a, calc, c, d, m: np.round(-(d[0])*(f[0]*d[6])/(Calculations.magnitude3D(d[3],d[6],2)),2),
         answer3 = lambda f, a, calc, c, d, m: np.round(-(d[0]+2)*(f[0]*(d[3]))/(Calculations.magnitude3D(d[3],d[6],2)), 2),
@@ -6672,8 +6674,8 @@ preguntas = [
         $\\textbf{{\\small 1. Descomposición F1: }}$
         
         ${{\hspace{{4mm}} \\overrightarrow{{F_1}} = |\\overrightarrow{{F_1}}| \\cdot \\lambda_{{CB}}}}$    
-        ${{\hspace{{4mm}} \\overrightarrow{{F_1}} = {f[0]:.0f}{{\\text{{ lb}}}} \\cdot [ ( {(2)/(Calculations.magnitude3D(2,d[3],d[6])):.2f} )\\hat{{i}} + ( {-(d[3])/(Calculations.magnitude3D(2,d[3],d[6])):.2f} )\\hat{{j}} + ( {(d[6])/(Calculations.magnitude3D(2,d[3],d[6])):.2f} )\\hat{{k}}]}}$    
-        ${{\hspace{{4mm}} \\overrightarrow{{F_1}} = [ {(f[0]*2)/(Calculations.magnitude3D(2,d[6],d[3])):.2f} \\hat{{i}} - {(f[0]*(d[3]))/(Calculations.magnitude3D(d[3],d[6],2)):.2f} \\hat{{j}} + ( {(f[0]*d[6])/(Calculations.magnitude3D(d[3],d[6],2)):.2f} )\\hat{{k}}] {{\\text{{ lb}}}}}}$     
+        ${{\hspace{{4mm}} \\overrightarrow{{F_1}} = {f[0]:.0f}{{\\text{{ kN}}}} \\cdot [ ( {(2)/(Calculations.magnitude3D(2,d[3],d[6])):.2f} )\\hat{{i}} + ( {-(d[3])/(Calculations.magnitude3D(2,d[3],d[6])):.2f} )\\hat{{j}} + ( {(d[6])/(Calculations.magnitude3D(2,d[3],d[6])):.2f} )\\hat{{k}}]}}$    
+        ${{\hspace{{4mm}} \\overrightarrow{{F_1}} = [ {(f[0]*2)/(Calculations.magnitude3D(2,d[6],d[3])):.2f} \\hat{{i}} - {(f[0]*(d[3]))/(Calculations.magnitude3D(d[3],d[6],2)):.2f} \\hat{{j}} + ( {(f[0]*d[6])/(Calculations.magnitude3D(d[3],d[6],2)):.2f} )\\hat{{k}}] {{\\text{{ kN}}}}}}$     
         
        
         $\\textbf{{\\small 2. Calculo del momento resultante: }}$  
@@ -6682,22 +6684,22 @@ preguntas = [
         
         Haciendo Producto Cruz, la componente $\\hat{{i}}$ del momento se puede calcular como:
         
-        ${{\hspace{{4mm}} M_i = r_y \\cdot F_z - r_z \\cdot F_y = 0 \\text{{ ft}} \\cdot  {(f[0]*d[6])/(Calculations.magnitude3D(d[3],d[6],2)):.2f}  \\text{{ lb}} + {d[6]:.0f} \\text{{ ft}} \\cdot {(f[0]*(d[3]))/(Calculations.magnitude3D(d[3],d[6],2)):.2f} \\text{{ lb}}}}$       
-        ${{\hspace{{4mm}} M_i = {d[6]*(f[0]*(d[3]))/(Calculations.magnitude3D(d[3],d[6],2)):.2f} \\text{{ lb}} \\cdot \\text{{ ft}} }}$       
+        ${{\hspace{{4mm}} M_i = r_y \\cdot F_z - r_z \\cdot F_y = 0 \\text{{ m}} \\cdot  {(f[0]*d[6])/(Calculations.magnitude3D(d[3],d[6],2)):.2f}  \\text{{ kN}} + {d[6]:.0f} \\text{{ m}} \\cdot {(f[0]*(d[3]))/(Calculations.magnitude3D(d[3],d[6],2)):.2f} \\text{{ kN}}}}$       
+        ${{\hspace{{4mm}} M_i = {d[6]*(f[0]*(d[3]))/(Calculations.magnitude3D(d[3],d[6],2)):.2f} \\text{{ kN}} \\cdot \\text{{ m}} }}$       
         
         $\\underline{{Componente \\hspace{{2mm}} \\hat{{j}} :}}$
         
         Haciendo Producto Cruz, la componente $\\hat{{j}}$ del momento se puede calcular como:
         
-        ${{\hspace{{4mm}} M_j = - ( r_x \\cdot F_z - r_z \\cdot F_x ) = -( {d[0]+2:.0f} \\text{{ ft}} \\cdot {(f[0]*d[6])/(Calculations.magnitude3D(d[3],d[6],2)):.2f} \\text{{ lb}} - {d[6]:.0f} \\text{{ ft}} \\cdot {(f[0]*2)/(Calculations.magnitude3D(2,d[6],d[3])):.2f} \\text{{ lb}} )}}$       
-        ${{\hspace{{4mm}} M_j =  {d[6]*(f[0]*2)/(Calculations.magnitude3D(2,d[6],d[3])):.2f} \\text{{ lb}} \\cdot \\text{{ ft}} - {(d[0]+2)*(f[0]*d[6])/(Calculations.magnitude3D(d[3],d[6],2)):.2f} \\text{{ lb}} \\cdot \\text{{ ft}} = {-(d[0])*(f[0]*d[6])/(Calculations.magnitude3D(d[3],d[6],2)):.2f} \\text{{ lb}} \\cdot \\text{{ ft}}}}$   
+        ${{\hspace{{4mm}} M_j = - ( r_x \\cdot F_z - r_z \\cdot F_x ) = -( {d[0]+2:.0f} \\text{{ m}} \\cdot {(f[0]*d[6])/(Calculations.magnitude3D(d[3],d[6],2)):.2f} \\text{{ kN}} - {d[6]:.0f} \\text{{ m}} \\cdot {(f[0]*2)/(Calculations.magnitude3D(2,d[6],d[3])):.2f} \\text{{ kN}} )}}$       
+        ${{\hspace{{4mm}} M_j =  {d[6]*(f[0]*2)/(Calculations.magnitude3D(2,d[6],d[3])):.2f} \\text{{ kN}} \\cdot \\text{{ m}} - {(d[0]+2)*(f[0]*d[6])/(Calculations.magnitude3D(d[3],d[6],2)):.2f} \\text{{ kN}} \\cdot \\text{{ m}} = {-(d[0])*(f[0]*d[6])/(Calculations.magnitude3D(d[3],d[6],2)):.2f} \\text{{ kN}} \\cdot \\text{{ m}}}}$   
         
         $\\underline{{Componente \\hspace{{2mm}} \\hat{{k}} :}}$
         
         Haciendo Producto Cruz, la componente $\\hat{{k}}$ del momento se puede calcular como:
         
-        ${{\hspace{{4mm}} M_k=  r_x \\cdot F_y - r_y \\cdot F_x  = {d[0] + 2:.0f} \\text{{ ft}} \\cdot {-(f[0]*(d[3]))/(Calculations.magnitude3D(d[3],d[6],2)):.2f} \\text{{ lb}} - 0 \\text{{ ft}} \\cdot {(f[0]*2)/(Calculations.magnitude3D(2,d[6],d[3])):.2f}{{ \\text{{ lb}}}}}}$       
-        ${{\hspace{{4mm}} M_k = {-(d[0]+2)*(f[0]*(d[3]))/(Calculations.magnitude3D(d[3],d[6],2)):.2f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$   
+        ${{\hspace{{4mm}} M_k=  r_x \\cdot F_y - r_y \\cdot F_x  = {d[0] + 2:.0f} \\text{{ m}} \\cdot {-(f[0]*(d[3]))/(Calculations.magnitude3D(d[3],d[6],2)):.2f} \\text{{ kN}} - 0 \\text{{ m}} \\cdot {(f[0]*2)/(Calculations.magnitude3D(2,d[6],d[3])):.2f}{{ \\text{{ kN}}}}}}$       
+        ${{\hspace{{4mm}} M_k = {-(d[0]+2)*(f[0]*(d[3]))/(Calculations.magnitude3D(d[3],d[6],2)):.2f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}$   
         
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
@@ -6940,10 +6942,10 @@ preguntas = [
     #     topic = "Sistemas equivalentes",
     #     subtopic = "Sistemas equivalentes",
     #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de $F_1$ (Sin signo) y la coordenada en X de la fuerza resultante que reemplaza el sistema mostrado, si se sabe que debe estar ubicada sobre el tramo AB. Considere $M = {32+m[0]*(1/10):.2f} \\text{{ lb}} \\cdot \\text{{ ft}}$, $F_2 = {79+m[1]*(1/5):.2f} \\text{{ lb}}$, $F_3 = {24+m[0]*(3/40):.2f} \\text{{ lb}}$, $F_4 = {119+m[2]*(1/5):.2f} \\text{{ lb}}$, $d_1 = {(31+d[0])/4:.2f} \\text{{ ft}}$,  $d_2 = {d[3]:.2f} \\text{{ ft}}$, $d_3 = {6+d[6]*(1/5):.2f} \\text{{ ft}}, $d_4 = {(23+d[0])/4:.2f} \\text{{ ft}}$, $d_5 = {(19+d[0])/4:.2f} \\text{{ ft}}$, $\\alpha_1 = {72+d[9]*(2/5):.2f}°$ y $\\alpha_2 = {60+d[9]*(2/5):.2f}°$.",
+    #     pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de $F_1$ (Sin signo) y la coordenada en X de la fuerza resultante que reemplaza el sistema mostrado, si se sabe que debe estar ubicada sobre el tramo AB. Considere $M = {32+m[0]*(1/10):.2f} \\text{{ kN}} \\cdot \\text{{ m}}$, $F_2 = {79+m[1]*(1/5):.2f} \\text{{ kN}}$, $F_3 = {24+m[0]*(3/40):.2f} \\text{{ kN}}$, $F_4 = {119+m[2]*(1/5):.2f} \\text{{ kN}}$, $d_1 = {(31+d[0])/4:.2f} \\text{{ m}}$,  $d_2 = {d[3]:.2f} \\text{{ m}}$, $d_3 = {6+d[6]*(1/5):.2f} \\text{{ m}}, $d_4 = {(23+d[0])/4:.2f} \\text{{ m}}$, $d_5 = {(19+d[0])/4:.2f} \\text{{ m}}$, $\\alpha_1 = {72+d[9]*(2/5):.2f}°$ y $\\alpha_2 = {60+d[9]*(2/5):.2f}°$.",
     #     no_answers = 2,
-    #     a1_name = "$F_1$ [lb]",
-    #     a2_name = "Coordenada en X [ft]",
+    #     a1_name = "$F_1$ [kN]",
+    #     a2_name = "Coordenada en X [m]",
     #     a3_name = "",
     #     answer1 = lambda f, a, calc, c, d, m: np.round(((24+m[0]*(3/40))*((119+m[2]*(1/5))*Calculations.cosine(60+d[9]*(2/5))*((21+d[0])/2) + (79+m[1]*(1/5))*(6+d[6]*(1/5))))/(Calculations.cosine(72+d[9]*(2/5))*((119+m[2]*(1/5))*Calculations.cosine(60+d[9]*(2/5))*((21+d[0])/2) + (79+m[1]*(1/5))*(6+d[6]*(1/5))) + ((32+m[0]*(1/10))-(24+m[0]*(3/40))*((31+d[0])/4))*Calculations.sine(72+d[9]*(2/5))),2),
     #     answer2 = lambda f, a, calc, c, d, m: np.round(((Calculations.cosine(72+d[9]*(2/5))*((119+m[2]*(1/5))*Calculations.cosine(60+d[9]*(2/5))*((21+d[0])/2) + (79+m[1]*(1/5))*(6+d[6]*(1/5))) + ((32+m[0]*(1/10))-(24+m[0]*(3/40))*((31+d[0])/4))*Calculations.sine(72+d[9]*(2/5)))/((24+m[0]*(3/40))*Calculations.sine(72+d[9]*(2/5)))) + (31+d[0])/4,2),
@@ -6995,12 +6997,12 @@ preguntas = [
     #     ${{\hspace{{4mm}} \\dfrac{{M_{{par}} + M_2}}{{F_1 \\cdot \\sin(\\alpha_1)}} \\cdot F_1 \\cdot \\cos(\\alpha_1) + d_1 \\cdot F_1 \\cdot \\cos(\\alpha_1) - F_3 \\cdot (\\dfrac{{M_{{par}} + M_2}}{{F_1 \\cdot \\sin(\\alpha_1)}} + d_1 ) = d_1 \\cdot F_1 \\cos(\\alpha_1) - M}}$     
     #     ${{\hspace{{4mm}} \\dfrac{{\\cos(\\alpha_1) }}{{\\sin(\\alpha_1)}} \\cdot (M_{{par}} + M_2) - F_3 \\cdot d_1 + M = F_3 \\cdot \\dfrac{{M_{{par}} + M_2}}{{F_1 \\cdot \\sin(\\alpha_1)}}}}$     
     #     ${{\hspace{{4mm}} F_1 = F_3 \\cdot \\dfrac{{M_{{par}} + M_2}}{{(\\cos(\\alpha_1) \\cdot (M_{{par}} + M_2) + (M - F_3 \\cdot d_1) \\cdot \\sin(\\alpha_1)}}}}$     
-    #     ${{\hspace{{4mm}} F_1 = {((24+m[0]*(3/40))*((119+m[2]*(1/5))*Calculations.cosine(60+d[9]*(2/5))*((21+d[0])/2) + (79+m[1]*(1/5))*(6+d[6]*(1/5))))/(Calculations.cosine(72+d[9]*(2/5))*((119+m[2]*(1/5))*Calculations.cosine(60+d[9]*(2/5))*((21+d[0])/2) + (79+m[1]*(1/5))*(6+d[6]*(1/5))) + ((32+m[0]*(1/10))-(24+m[0]*(3/40))*((31+d[0])/4))*Calculations.sine(72+d[9]*(2/5))):.2f} \\text{{ lb}}}}$     
+    #     ${{\hspace{{4mm}} F_1 = {((24+m[0]*(3/40))*((119+m[2]*(1/5))*Calculations.cosine(60+d[9]*(2/5))*((21+d[0])/2) + (79+m[1]*(1/5))*(6+d[6]*(1/5))))/(Calculations.cosine(72+d[9]*(2/5))*((119+m[2]*(1/5))*Calculations.cosine(60+d[9]*(2/5))*((21+d[0])/2) + (79+m[1]*(1/5))*(6+d[6]*(1/5))) + ((32+m[0]*(1/10))-(24+m[0]*(3/40))*((31+d[0])/4))*Calculations.sine(72+d[9]*(2/5))):.2f} \\text{{ kN}}}}$     
         
     #     Finalmente se puede encontrar x, resolviendo:
         
     #     ${{\hspace{{4mm}} x = \\dfrac{{M_{{par}} + M_2}}{{F_1 \\cdot \\sin(\\alpha_1)}} + d_1 }}$     
-    #     ${{\hspace{{4mm}} x = {((Calculations.cosine(72+d[9]*(2/5))*((119+m[2]*(1/5))*Calculations.cosine(60+d[9]*(2/5))*((21+d[0])/2) + (79+m[1]*(1/5))*(6+d[6]*(1/5))) + ((32+m[0]*(1/10))-(24+m[0]*(3/40))*((31+d[0])/4))*Calculations.sine(72+d[9]*(2/5)))/((24+m[0]*(3/40))*Calculations.sine(72+d[9]*(2/5)))) + (31+d[0])/4:.2f} \\text{{ ft}}}}$
+    #     ${{\hspace{{4mm}} x = {((Calculations.cosine(72+d[9]*(2/5))*((119+m[2]*(1/5))*Calculations.cosine(60+d[9]*(2/5))*((21+d[0])/2) + (79+m[1]*(1/5))*(6+d[6]*(1/5))) + ((32+m[0]*(1/10))-(24+m[0]*(3/40))*((31+d[0])/4))*Calculations.sine(72+d[9]*(2/5)))/((24+m[0]*(3/40))*Calculations.sine(72+d[9]*(2/5)))) + (31+d[0])/4:.2f} \\text{{ m}}}}$
     #     """,   
     #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
     #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
@@ -8667,11 +8669,11 @@ preguntas = [
         topic = FI,
         subtopic = FI,
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine la fuerza cortante en los puntos $B$ y $D$, así como el momento flector en $B$. Considere $d_1 = {d[0]:.0f} \\text{{ ft}}$,  $d_2 = {d[0]+d[3]:.0f}  \\text{{ ft}}$, $d_3 = {d[6]+2:.0f} \\text{{ ft}}$,  $d_4 = {d[6]:.0f}  \\text{{ ft}}$, $F_1 = {f[0]:.0f}  \\text{{ lb}}$, $w_1 = {50+m[0]:.0f} \\dfrac{{lb}}{{ft}}$ y $w_2 = {m[1]*(1/2):.2f} \\dfrac{{lb}}{{ft}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la fuerza cortante en los puntos $B$ y $D$, así como el momento flector en $B$. Considere $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[0]+d[3]:.0f}  \\text{{ m}}$, $d_3 = {d[6]+2:.0f} \\text{{ m}}$,  $d_4 = {d[6]:.0f}  \\text{{ m}}$, $F_1 = {f[0]:.0f}  \\text{{ kN}}$, $w_1 = {50+m[0]:.0f} \\dfrac{{kN}}{{m}}$ y $w_2 = {m[1]*(1/2):.2f} \\dfrac{{kN}}{{m}}$.",
         no_answers = 3,
-        a1_name = "Fuerza cortante en $B$ ($V_B$) $[lb]$",
-        a2_name = "Fuerza cortante en $D$ ($V_D$) $[lb]$",
-        a3_name = "Momento flector en $B$ ($M_B$) [$lb \\cdot ft$]",
+        a1_name = "Fuerza cortante en $B$ ($V_B$) $[kN]$",
+        a2_name = "Fuerza cortante en $D$ ($V_D$) $[kN]$",
+        a3_name = "Momento flector en $B$ ($M_B$) [$kN \\cdot m$]",
         answer1 = lambda f, a, calc, c, d, m: np.round(((-(f[0]*(4/5)*(d[6]+2))+((d[0]+d[3])*(m[1]*0.5)*(d[0]+d[3])/2)+((((50+m[0])-(m[1]*0.5))*(d[0]+d[3])/2)*((2/3)*(d[0]+d[3]))))/(d[0]+d[3]))-(d[0]*((((d[0]+d[3])-d[0])*((50+m[0])-(m[1]*0.5))/(d[0]+d[3]))+(m[1]*0.5)))-0.5*d[0]*((50+m[0])-((((d[0]+d[3])-d[0])*((50+m[0])-(m[1]*0.5))/(d[0]+d[3]))+(m[1]*0.5))),2),
         answer2 = lambda f, a, calc, c, d, m: np.round((4/5)*f[0],2),
         answer3 = lambda f, a, calc, c, d, m: np.round((((-(f[0]*(4/5)*(d[6]+2))+((d[0]+d[3])*(m[1]*0.5)*(d[0]+d[3])/2)+((((50+m[0])-(m[1]*0.5))*(d[0]+d[3])/2)*((2/3)*(d[0]+d[3]))))/(d[0]+d[3]))*d[0]-(d[0]*((((d[0]+d[3])-d[0])*((50+m[0])-(m[1]*0.5))/(d[0]+d[3]))+(m[1]*0.5)))*(d[0]/2)-d[0]*((50+m[0])-((((d[0]+d[3])-d[0])*((50+m[0])-(m[1]*0.5))/(d[0]+d[3]))+(m[1]*0.5)))*(d[0]/3)),2),
@@ -8690,12 +8692,12 @@ preguntas = [
 
         ${{\hspace{{4mm}} \\sum{{M_C}} = \\dfrac{{d_2 \\cdot (w_1 - w_2)}}{{2}} \\cdot \\dfrac{{2d_2}}{{3}} + w_2 \\cdot \\dfrac{{(d_2)^2}}{{2}} - \\dfrac{{4F_1}}{{5}} \\cdot d_3 - A_y \\cdot d_2 = 0 }}$     
         ${{\hspace{{4mm}} A_y = \\dfrac{{d_2 \\cdot (w_1 - w_2)}}{{3}} + w_2 \\cdot \\dfrac{{d_2}}{{2}} - \\dfrac{{4F_1 \\cdot d_3}}{{5d_2}}}}$     
-        ${{\hspace{{4mm}} A_y = {(-(f[0]*(4/5)*(d[6]+2))+((d[0]+d[3])*(m[1]*0.5)*(d[0]+d[3])/2)+((((50+m[0])-(m[1]*0.5))*(d[0]+d[3])/2)*((2/3)*(d[0]+d[3]))))/(d[0]+d[3]):.2f} \\text{{ lb}}}}$     
+        ${{\hspace{{4mm}} A_y = {(-(f[0]*(4/5)*(d[6]+2))+((d[0]+d[3])*(m[1]*0.5)*(d[0]+d[3])/2)+((((50+m[0])-(m[1]*0.5))*(d[0]+d[3])/2)*((2/3)*(d[0]+d[3]))))/(d[0]+d[3]):.2f} \\text{{ kN}}}}$     
         
         De igual manera, se contempla una nueva variable w', la cual, se puede determinar utilizando triángulos semejantes:
         ${{\hspace{{4mm}} \\dfrac{{w' - w_2}}{{d_2 - d_1}} = \\dfrac{{w_1 - w_2}}{{d_2}}}}$     
         ${{\hspace{{4mm}} w' = \\dfrac{{(d_2 - d_1) \\cdot (w_1 - w_2)}}{{d_2}} + w_2}}$      
-        ${{\hspace{{4mm}} w' = {(((d[0]+d[3])-d[0])*((50+m[0])-(m[1]*0.5))/(d[0]+d[3]))+(m[1]*0.5):.2f} \\dfrac{{lb}}{{ft}} }}$ 
+        ${{\hspace{{4mm}} w' = {(((d[0]+d[3])-d[0])*((50+m[0])-(m[1]*0.5))/(d[0]+d[3]))+(m[1]*0.5):.2f} \\dfrac{{kN}}{{m}} }}$ 
 
         
         A partir de lo anterior, se calcula tanto la fuerza cortante como el momento flector en $B$:
@@ -8704,13 +8706,13 @@ preguntas = [
         
         ${{\hspace{{4mm}} \\sum{{F_y}} = A_y - \\dfrac{{d_1 \\cdot (w_1 - w')}}{{2}} - w' \\cdot d_1 - V_B = 0}}$     
         ${{\hspace{{4mm}} V_B = A_y - \\dfrac{{d_1 \\cdot (w_1 - w')}}{{2}} - w' \\cdot d_1}}$     
-        ${{\hspace{{4mm}} V_B = {((-(f[0]*(4/5)*(d[6]+2))+((d[0]+d[3])*(m[1]*0.5)*(d[0]+d[3])/2)+((((50+m[0])-(m[1]*0.5))*(d[0]+d[3])/2)*((2/3)*(d[0]+d[3]))))/(d[0]+d[3]))-(d[0]*((((d[0]+d[3])-d[0])*((50+m[0])-(m[1]*0.5))/(d[0]+d[3]))+(m[1]*0.5)))-0.5*d[0]*((50+m[0])-((((d[0]+d[3])-d[0])*((50+m[0])-(m[1]*0.5))/(d[0]+d[3]))+(m[1]*0.5))):.2f} \\text{{ lb}} }}$     
+        ${{\hspace{{4mm}} V_B = {((-(f[0]*(4/5)*(d[6]+2))+((d[0]+d[3])*(m[1]*0.5)*(d[0]+d[3])/2)+((((50+m[0])-(m[1]*0.5))*(d[0]+d[3])/2)*((2/3)*(d[0]+d[3]))))/(d[0]+d[3]))-(d[0]*((((d[0]+d[3])-d[0])*((50+m[0])-(m[1]*0.5))/(d[0]+d[3]))+(m[1]*0.5)))-0.5*d[0]*((50+m[0])-((((d[0]+d[3])-d[0])*((50+m[0])-(m[1]*0.5))/(d[0]+d[3]))+(m[1]*0.5))):.2f} \\text{{ kN}} }}$     
         
         $\\underline{{Momento \\hspace{{2mm}} flector:}}$
         
         ${{\hspace{{4mm}} \\sum{{M_B}} = \\dfrac{{(d_1)^2 \\cdot (w_1 - w')}}{{3}} + w' \\cdot \\dfrac{{(d_1)^2}}{{2}} - A_y \\cdot d_1 + M_B = 0}}$     
         ${{\hspace{{4mm}} M_B = -\\dfrac{{(d_1)^2 \\cdot (w_1 - w')}}{{3}} - w' \\cdot \\dfrac{{(d_1)^2}}{{2}} + A_y \\cdot d_1}}$  
-        ${{\hspace{{4mm}} M_B = {((-(f[0]*(4/5)*(d[6]+2))+((d[0]+d[3])*(m[1]*0.5)*(d[0]+d[3])/2)+((((50+m[0])-(m[1]*0.5))*(d[0]+d[3])/2)*((2/3)*(d[0]+d[3]))))/(d[0]+d[3]))*d[0]-(d[0]*((((d[0]+d[3])-d[0])*((50+m[0])-(m[1]*0.5))/(d[0]+d[3]))+(m[1]*0.5)))*(d[0]/2)-d[0]*((50+m[0])-((((d[0]+d[3])-d[0])*((50+m[0])-(m[1]*0.5))/(d[0]+d[3]))+(m[1]*0.5)))*(d[0]/3):.2f} \\text{{ lb}} \\cdot \\text{{ ft}}}}$     
+        ${{\hspace{{4mm}} M_B = {((-(f[0]*(4/5)*(d[6]+2))+((d[0]+d[3])*(m[1]*0.5)*(d[0]+d[3])/2)+((((50+m[0])-(m[1]*0.5))*(d[0]+d[3])/2)*((2/3)*(d[0]+d[3]))))/(d[0]+d[3]))*d[0]-(d[0]*((((d[0]+d[3])-d[0])*((50+m[0])-(m[1]*0.5))/(d[0]+d[3]))+(m[1]*0.5)))*(d[0]/2)-d[0]*((50+m[0])-((((d[0]+d[3])-d[0])*((50+m[0])-(m[1]*0.5))/(d[0]+d[3]))+(m[1]*0.5)))*(d[0]/3):.2f} \\text{{ kN}} \\cdot \\text{{ m}}}}$     
         
         $\\textbf{{\\small 2. Fuerzas internas en D: }}$
         
@@ -8723,7 +8725,7 @@ preguntas = [
         
         ${{\hspace{{4mm}} \\sum{{F_y}} = V_D - \\dfrac{{4F_1}}{{5}} = 0}}$     
         ${{\hspace{{4mm}} V_D = \\dfrac{{4F_1}}{{5}}}}$     
-        ${{\hspace{{4mm}} V_D = {(4/5)*f[0]:.2f} \\text{{ lb}}}}$ 
+        ${{\hspace{{4mm}} V_D = {(4/5)*f[0]:.2f} \\text{{ kN}}}}$ 
         """,
         calculos='operations'
         ),
