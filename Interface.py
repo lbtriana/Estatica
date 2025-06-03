@@ -957,6 +957,10 @@ if authenticate_user():
                 if subtopic == "Fuerzas internas":
                     if pregunta_no == 1:
                         st.image(FI_image_paths[1], width=500)
+                    if pregunta_no == 2:
+                        st.image(FI_image_paths[4], width=500)
+                    if pregunta_no == 3:
+                        st.image(FI_image_paths[5], width=500)
                 
             if difficulty == "Díficil":
                 if subtopic == "Vectores 2D":
@@ -1117,8 +1121,12 @@ if authenticate_user():
                     if pregunta_no ==1:
                         st.image(FD_rtas_paths[21], width=300)     
                 if subtopic == "Fuerzas internas":
-                    if pregunta_no ==1:
-                        st.image(FI_rtas_paths[2], width=300)        
+                    if pregunta_no == 1:
+                        st.image(FI_rtas_paths[2], width=300)   
+                    if pregunta_no == 2:
+                        st.image(FI_rtas_paths[6], width=400)   
+                    if pregunta_no == 3:
+                        st.image(FI_rtas_paths[8], width=400)       
 
             if difficulty == "Díficil":
                 if subtopic == "Vectores 2D":
@@ -1182,8 +1190,12 @@ if authenticate_user():
                     if pregunta_no ==1:
                         st.image(FD_rtas_paths[17], width=350)
                 if subtopic == "Fuerzas internas":
-                    if pregunta_no ==1:
+                    if pregunta_no == 1:
                         st.image(FI_rtas_paths[3], width=300)
+                    if pregunta_no == 2:
+                        st.image(FI_rtas_paths[7], width=200)
+                    if pregunta_no == 3:
+                        st.image(FI_rtas_paths[9], width=300)
 
             if difficulty == "Díficil":
                 if subtopic == "Vigas":

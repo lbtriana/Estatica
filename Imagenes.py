@@ -281,6 +281,10 @@ FI_image_paths =[#Imágenes Preguntas Cálculo Fuerzas internas
 
 #Fuerzas internas _ Nivel fácil
 "./Imagenes/Preguntas/FI/FI_FI_F_2a.png", #[3]
+
+#Fuerzas internas_Nivel medio 
+"./Imagenes/Preguntas/FI/FI_FI_M_2a.png", #[4]
+"./Imagenes/Preguntas/FI/FI_FI_M_3a.png", #[5]
 ]
 
 
@@ -418,6 +422,12 @@ FI_rtas_paths= [#Imágenes Respuestas Cálculos Fuerzas Internas
 
 #Fuerzas internas _ Nivel fácil
 "./Imagenes/Respuestas/FI/R_FI_FI_F_2a.png", #[5] 
+
+#Fuerzas internas _ Nivel medio
+"./Imagenes/Respuestas/FI/R_FI_FI_M_2a.png", #[6] 
+"./Imagenes/Respuestas/FI/R_FI_FI_M_2b.png", #[7]
+"./Imagenes/Respuestas/FI/R_FI_FI_M_3a.png", #[8] 
+"./Imagenes/Respuestas/FI/R_FI_FI_M_3b.png", #[9]
 ]
 
 
