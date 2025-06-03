@@ -4423,120 +4423,96 @@ preguntas = [
     #========================================================  MOMENTO  =========================================================
     #--------------------------------------------     Momento en un punto en 3D      --------------------------------------------
     #-------------------------------------------------       Nivel Dificil   ---------------------------------------------------
-    #-------------------------------------------------       Code: 2230011    --------------------------------------------------
+    #-------------------------------------------------       Code: 2230011    -------------------------------------------------- 
     Questionary(#1_1
-        code = 0,
-        no_pregunta = 20,
+        code = 2230011,
+        no_pregunta = 1,
         complexity = D,
         topic = MO,
         subtopic = M3D,
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Está sección pronto estará disponible.",
-        no_answers = 0,
-        a1_name = AX,
-        a2_name = AY,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza $F_1$ aplicada sobre la barra $OA$ y la tensión en el cable $AC$ ($T_{{AC}}$), sabiendo que la estructura no gira con respecto al origen $O$. Considere que la magnitud de la tensión del cable $AB$ es ${f[0]:.2f}{{\\text{{ N}}}}$. Se sabe que $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$, $d_3 = {d[6]:.0f} \\text{{ m}}$, $d_4 = {d[9]:.0f} \\text{{ m}}$,  $d_5 = {d[12]:.0f}  \\text{{ m}}$ y  $d_6 = {d[15]:.0f} \\text{{ m}}$.",
+        no_answers = 2,
+        a1_name = "Magnitud Fuerza $F_1$ $[N]$",
+        a2_name = "Magnitud Tension $T_{{AC}}$ $[N]$",
         a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round(0, 2),
-        answer2 = lambda f, a, calc, c, d, m: np.round(0, 2),
+        answer1 = lambda f, a, calc, c, d, m: np.round((((d[3]+d[0])*((f[0]*d[6])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])))) + ((d[3]+d[0])*((d[15])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15])))*(((f[0]*d[9])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])))/((d[12])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15]))))))/d[0],2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(((f[0]*d[9])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])))/((d[12])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15]))),2),
         answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = A1,
-        ayuda2 = A2,
-        ayuda3 = A3,
-        respuesta_P1 = lambda fa, a, calc, c, d, m: f"",
-        respuesta_P2 = lambda fa, a, calc, c, d, m: f"",
-        respuesta_P3 = lambda fa, a, calc, c, d, m: f"",
-        calculos = 'operations',
-        ),
-    
-    # Questionary(#1_1
-    #     code = 2230011,
-    #     no_pregunta = 1,
-    #     complexity = D,
-    #     topic = MO,
-    #     subtopic = M3D,
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Determine la fuerza $F_1$ aplicada sobre la barra $OA$ a una distancia $d_1$, sabiendo que la estructura no gira con respecto al origen. Además, calcule la tensión en el cable $AC$ ($T_{{AC}}$), considere que la magnitud de la tensión del cable $AB$ es de ${f[0]:.2f}{{\\text{{ N}}}}$. Se sabe que $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$, $d_3 = {d[6]:.0f} \\text{{ m}}$, $d_4 = {d[9]:.0f} \\text{{ m}}$,  $d_5 = {d[12]:.0f}  \\text{{ m}}$ y  $d_6 = {d[15]:.0f} \\text{{ m}}$.",
-    #     no_answers = 2,
-    #     a1_name = "Magnitud Fuerza $F_1$ $[N]$",
-    #     a2_name = "Magnitud Tension $T_{{AC}}$ $[N]$",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round((((d[3]+d[0])*((f[0]*d[6])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])))) + ((d[3]+d[0])*((d[15])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15])))*(((f[0]*d[9])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])))/((d[12])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15]))))))/d[0],2),
-    #     answer2 = lambda f, a, calc, c, d, m: np.round(((f[0]*d[9])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])))/((d[12])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15]))),2),
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = MP1,
-    #     ayuda2 = MP5,      
-    #     ayuda3 = MP7,
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. En 3 dimensiones es más fácil calcular el momento resolviendo producto cruz y dividiendo el ejercicio en determinar las componentes $\\hat{{i}}$, $\\hat{{j}}$ y $\\hat{{k}}$. A continuación, se presenta la solución sugerida para el ejercicio:   
+        ayuda1 = MP1,
+        ayuda2 = MP5,      
+        ayuda3 = MP7,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. En 3 dimensiones es más fácil calcular el momento resolviendo producto cruz y dividiendo el ejercicio en determinar las componentes $\\hat{{i}}$, $\\hat{{j}}$ y $\\hat{{k}}$. A continuación, se presenta la solución sugerida para el ejercicio:   
         
-    #     $\\textbf{{\\small 1. Calculo de componentes de cada tensión: }}$    
+        $\\textbf{{\\small 1. Calculo de componentes de cada tensión: }}$    
         
-    #     Antes de iniciar el cálculo de los momentos mediante el producto cruz, es necesario hallar las componentes de ambas tensiones. Para ello, se utiliza el vector Unitario asociado a cada una: 
+        Antes de iniciar el cálculo de los momentos mediante el producto cruz, es necesario hallar las componentes de ambas tensiones. Para ello, se utiliza el vector Unitario asociado a cada una: 
         
-    #     $\\underline{{Componentes\\hspace{{2mm}} de \\hspace{{2mm}}T_{{AB}}:}}$
+        $\\underline{{Componentes\\hspace{{2mm}} de \\hspace{{2mm}}T_{{AB}}:}}$
         
-    #     ${{\hspace{{4mm}} \\overrightarrow{{T_{{AB}}}} = |\\overrightarrow{{T_{{AB}}}}| \\cdot \\lambda_{{AB}}}}$    
-    #     ${{\hspace{{4mm}} \\overrightarrow{{T_{{AB}}}} = {f[0]:.2f}{{\\text{{ N}}}} \\cdot [ ( {(d[9])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])):.2f} )\\hat{{i}} + ( {-(d[0]+d[3])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])):.2f} )\\hat{{j}} + ( {(d[6])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])):.2f} )\\hat{{k}}]}}$    
-    #     ${{\hspace{{4mm}} \\overrightarrow{{T_{{AB}}}} = [ ( {(f[0]*d[9])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])):.2f} )\\hat{{i}} +  ( {(-f[0]*(d[0]+d[3]))/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])):.2f} )\\hat{{j}} + ( {(f[0]*d[6])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])):.2f} )\\hat{{k}}] {{\\text{{ N}}}}}}$     
+        ${{\hspace{{4mm}} \\overrightarrow{{T_{{AB}}}} = |\\overrightarrow{{T_{{AB}}}}| \\cdot \\lambda_{{AB}}}}$    
+        ${{\hspace{{4mm}} \\overrightarrow{{T_{{AB}}}} = {f[0]:.2f}{{\\text{{ N}}}} \\cdot [ ( {(d[9])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])):.2f} )\\hat{{i}} + ( {-(d[0]+d[3])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])):.2f} )\\hat{{j}} + ( {(d[6])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])):.2f} )\\hat{{k}}]}}$    
+        ${{\hspace{{4mm}} \\overrightarrow{{T_{{AB}}}} = [ ( {(f[0]*d[9])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])):.2f} )\\hat{{i}} +  ( {(-f[0]*(d[0]+d[3]))/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])):.2f} )\\hat{{j}} + ( {(f[0]*d[6])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])):.2f} )\\hat{{k}}] {{\\text{{ N}}}}}}$     
         
-    #     $\\underline{{Componentes\\hspace{{2mm}} de \\hspace{{2mm}}T_{{AC}}:}}$
+        $\\underline{{Componentes\\hspace{{2mm}} de \\hspace{{2mm}}T_{{AC}}:}}$
         
-    #     ${{\hspace{{4mm}} \\overrightarrow{{T_{{AC}}}} = |\\overrightarrow{{T_{{AC}}}}| \\cdot \\lambda_{{AC}}}}$    
-    #     ${{\hspace{{4mm}} \\overrightarrow{{T_{{AC}}}} = |\\overrightarrow{{T_{{AC}}}}| \\cdot [ ( {(-d[12])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15])):.2f} )\\hat{{i}} +  ( {-(d[0]+d[3])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15])):.2f} )\\hat{{j}} + ( {(d[15])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15])):.2f} )\\hat{{k}}]}}$       
+        ${{\hspace{{4mm}} \\overrightarrow{{T_{{AC}}}} = |\\overrightarrow{{T_{{AC}}}}| \\cdot \\lambda_{{AC}}}}$    
+        ${{\hspace{{4mm}} \\overrightarrow{{T_{{AC}}}} = |\\overrightarrow{{T_{{AC}}}}| \\cdot [ ( {(-d[12])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15])):.2f} )\\hat{{i}} +  ( {-(d[0]+d[3])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15])):.2f} )\\hat{{j}} + ( {(d[15])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15])):.2f} )\\hat{{k}}]}}$       
 
-    #     $\\textbf{{\\small 2. Calculo del momento en el origen: }}$ 
+        $\\textbf{{\\small 2. Calculo del momento en el origen: }}$ 
         
-    #     $\\underline{{Momento \\hspace{{2mm}} causado \\hspace{{2mm}} por \\hspace{{2mm}} F_1 :}}$ 
+        $\\underline{{Momento \\hspace{{2mm}} causado \\hspace{{2mm}} por \\hspace{{2mm}} F_1 :}}$ 
         
-    #     ${{\hspace{{4mm}} M_{{F_1}} = (r_y \\cdot F_z - r_z \\cdot F_y)\\hat{{i}} - (r_x \\cdot F_z - r_z \\cdot F_x)\\hat{{j}} + (r_x \\cdot F_y - r_y \\cdot F_x)\\hat{{k}} }}$       
-    #     ${{\hspace{{4mm}} M_{{F_1}} = (-F_1 \\cdot {d[0]:.0f}{{\\text{{ m}}}})\\hat{{i}} + 0 {{\\text{{N}} \\cdot \\text{{ m}}}}\\hat{{j}} + 0 {{\\text{{N}} \\cdot \\text{{ m}}}}\\hat{{k}} }}$      
+        ${{\hspace{{4mm}} M_{{F_1}} = (r_y \\cdot F_z - r_z \\cdot F_y)\\hat{{i}} - (r_x \\cdot F_z - r_z \\cdot F_x)\\hat{{j}} + (r_x \\cdot F_y - r_y \\cdot F_x)\\hat{{k}} }}$       
+        ${{\hspace{{4mm}} M_{{F_1}} = (-F_1 \\cdot {d[0]:.0f}{{\\text{{ m}}}})\\hat{{i}} + 0 {{\\text{{N}} \\cdot \\text{{ m}}}}\\hat{{j}} + 0 {{\\text{{N}} \\cdot \\text{{ m}}}}\\hat{{k}} }}$      
         
-    #     $\\underline{{Momento \\hspace{{2mm}} causado \\hspace{{2mm}} por \\hspace{{2mm}} T_{{AB}} :}}$  
+        $\\underline{{Momento \\hspace{{2mm}} causado \\hspace{{2mm}} por \\hspace{{2mm}} T_{{AB}} :}}$  
         
-    #     ${{\hspace{{4mm}} M_{{T_{{AB}}}} = (r_y \\cdot F_z - r_z \\cdot F_y)\\hat{{i}} - (r_x \\cdot F_z - r_z \\cdot F_x)\\hat{{j}} + (r_x \\cdot F_y - r_y \\cdot F_x)\\hat{{k}} }}$       
-    #     ${{\hspace{{4mm}} M_{{T_{{AB}}}} = ({(d[3]+d[0]) :.0f}{{\\text{{ m}}}} \\cdot {(f[0]*d[6])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])):.2f} {{\\text{{ N}}}} - 0 {{\\text{{ m}}}} \\cdot ({-(f[0]*(d[0]+d[3]))/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])):.2f} ) {{\\text{{ N}}}} )\\hat{{i}} - ( 0 {{\\text{{ m}}}} \\cdot  {(f[0]*d[6])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])):.2f} {{\\text{{ N}}}} - 0 {{\\text{{ m}}}} \\cdot {(f[0]*d[9])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])):.2f} {{\\text{{ N}}}})\\hat{{j}} + ( 0 {{\\text{{ m}}}} \\cdot ({(-f[0]*(d[0]+d[3]))/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])):.2f}){{\\text{{ N}}}} - {d[3]+d[0]:.0f}{{\\text{{ m}}}} \\cdot {(f[0]*d[9])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])):.2f} {{\\text{{ N}}}})\\hat{{k}}}}$       
-    #     ${{\hspace{{4mm}} M_{{T_{{AB}}}} = [ {(d[3]+d[0])*((f[0]*d[6])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9]))):.2f}\\hat{{i}} + 0 \\hat{{j}} - {(d[3]+d[0])*((f[0]*d[9])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9]))):.2f}\\hat{{k}} ] {{ \\text{{N}} \\cdot \\text{{ m}}}} }}$     
+        ${{\hspace{{4mm}} M_{{T_{{AB}}}} = (r_y \\cdot F_z - r_z \\cdot F_y)\\hat{{i}} - (r_x \\cdot F_z - r_z \\cdot F_x)\\hat{{j}} + (r_x \\cdot F_y - r_y \\cdot F_x)\\hat{{k}} }}$       
+        ${{\hspace{{4mm}} M_{{T_{{AB}}}} = ({(d[3]+d[0]) :.0f}{{\\text{{ m}}}} \\cdot {(f[0]*d[6])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])):.2f} {{\\text{{ N}}}} - 0 {{\\text{{ m}}}} \\cdot ({-(f[0]*(d[0]+d[3]))/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])):.2f} ) {{\\text{{ N}}}} )\\hat{{i}} - ( 0 {{\\text{{ m}}}} \\cdot  {(f[0]*d[6])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])):.2f} {{\\text{{ N}}}} - 0 {{\\text{{ m}}}} \\cdot {(f[0]*d[9])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])):.2f} {{\\text{{ N}}}})\\hat{{j}} + ( 0 {{\\text{{ m}}}} \\cdot ({(-f[0]*(d[0]+d[3]))/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])):.2f}){{\\text{{ N}}}} - {d[3]+d[0]:.0f}{{\\text{{ m}}}} \\cdot {(f[0]*d[9])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])):.2f} {{\\text{{ N}}}})\\hat{{k}}}}$       
+        ${{\hspace{{4mm}} M_{{T_{{AB}}}} = [ {(d[3]+d[0])*((f[0]*d[6])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9]))):.2f}\\hat{{i}} + 0 \\hat{{j}} - {(d[3]+d[0])*((f[0]*d[9])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9]))):.2f}\\hat{{k}} ] {{ \\text{{N}} \\cdot \\text{{ m}}}} }}$     
         
-    #     $\\underline{{Momento \\hspace{{2mm}} causado \\hspace{{2mm}} por \\hspace{{2mm}} T_{{AC}} :}}$  
+        $\\underline{{Momento \\hspace{{2mm}} causado \\hspace{{2mm}} por \\hspace{{2mm}} T_{{AC}} :}}$  
         
-    #     ${{\hspace{{4mm}} M_{{T_{{AC}}}} = (r_y \\cdot F_z - r_z \\cdot F_y)\\hat{{i}} - (r_x \\cdot F_z - r_z \\cdot F_x)\\hat{{j}} + (r_x \\cdot F_y - r_y \\cdot F_x)\\hat{{k}} }}$       
-    #     ${{\hspace{{4mm}} M_{{T_{{AC}}}} = ({(d[3]+d[0]) :.0f}{{\\text{{ m}}}} \\cdot T_{{AC}} \\cdot {(d[15])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15])):.2f}  - 0 {{\\text{{ m}}}} \\cdot T_{{AC}} \\cdot ({-(d[0]+d[3])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15])):.2f}) )\\hat{{i}} - ( 0 {{\\text{{ m}}}} \\cdot  T_{{AC}} \\cdot {(d[15])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15])):.2f} - 0 {{\\text{{ m}}}} \\cdot T_{{AC}} \\cdot ( {(-d[12])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15])):.2f} ))\\hat{{j}} + ( 0 {{\\text{{ m}}}} \\cdot T_{{AC}} \\cdot ({(-(d[0]+d[3]))/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15])):.2f}) - {d[3]+d[0]:.0f}{{\\text{{ m}}}} \\cdot T_{{AC}} \\cdot  ( {(-d[12])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15])):.2f} ))\\hat{{k}}}}$       
-    #     ${{\hspace{{4mm}} M_{{T_{{AC}}}} = {(d[3]+d[0])*((d[15])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15]))):.2f}{{\\text{{ m}}}} \\cdot T_{{AC}} \\hat{{i}} + 0 {{ \\text{{N}} \\cdot \\text{{ m}}}} \\hat{{j}} + {(d[3]+d[0])*((d[12])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15]))):.2f}{{\\text{{ m}}}} \\cdot T_{{AC}}\\hat{{k}}  }}$      
+        ${{\hspace{{4mm}} M_{{T_{{AC}}}} = (r_y \\cdot F_z - r_z \\cdot F_y)\\hat{{i}} - (r_x \\cdot F_z - r_z \\cdot F_x)\\hat{{j}} + (r_x \\cdot F_y - r_y \\cdot F_x)\\hat{{k}} }}$       
+        ${{\hspace{{4mm}} M_{{T_{{AC}}}} = ({(d[3]+d[0]) :.0f}{{\\text{{ m}}}} \\cdot T_{{AC}} \\cdot {(d[15])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15])):.2f}  - 0 {{\\text{{ m}}}} \\cdot T_{{AC}} \\cdot ({-(d[0]+d[3])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15])):.2f}) )\\hat{{i}} - ( 0 {{\\text{{ m}}}} \\cdot  T_{{AC}} \\cdot {(d[15])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15])):.2f} - 0 {{\\text{{ m}}}} \\cdot T_{{AC}} \\cdot ( {(-d[12])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15])):.2f} ))\\hat{{j}} + ( 0 {{\\text{{ m}}}} \\cdot T_{{AC}} \\cdot ({(-(d[0]+d[3]))/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15])):.2f}) - {d[3]+d[0]:.0f}{{\\text{{ m}}}} \\cdot T_{{AC}} \\cdot  ( {(-d[12])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15])):.2f} ))\\hat{{k}}}}$       
+        ${{\hspace{{4mm}} M_{{T_{{AC}}}} = {(d[3]+d[0])*((d[15])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15]))):.2f}{{\\text{{ m}}}} \\cdot T_{{AC}} \\hat{{i}} + 0 {{ \\text{{N}} \\cdot \\text{{ m}}}} \\hat{{j}} + {(d[3]+d[0])*((d[12])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15]))):.2f}{{\\text{{ m}}}} \\cdot T_{{AC}}\\hat{{k}}  }}$      
         
-    #     $\\underline{{Sumatoria \\hspace{{2mm}} de \\hspace{{2mm}} momentos \\hspace{{2mm}} en \\hspace{{2mm}} el \\hspace{{2mm}} origen :}}$
+        $\\underline{{Sumatoria \\hspace{{2mm}} de \\hspace{{2mm}} momentos \\hspace{{2mm}} en \\hspace{{2mm}} el \\hspace{{2mm}} origen :}}$
         
-    #     ${{\hspace{{4mm}} \\sum{{M_O}} = ({(d[3]+d[0])*((f[0]*d[6])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9]))):.2f}{{\\text{{N}} \\cdot \\text{{ m}}}} + {(d[3]+d[0])*((d[15])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15]))):.2f}{{\\text{{ m}}}} \\cdot T_{{AC}} - F_1 \\cdot {d[0]:.0f}{{\\text{{ m}}}})\\hat{{i}} + 0 \\hat{{j}} + ({(d[3]+d[0])*((d[12])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15]))):.2f}{{\\text{{ m}}}} \\cdot T_{{AC}} -{(d[3]+d[0])*((f[0]*d[9])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9]))):.2f}{{ \\text{{N}} \\cdot \\text{{ m}}}})\\hat{{k}} = 0\\hat{{i}} + 0\\hat{{j}} + 0\\hat{{k}}}}$      
+        ${{\hspace{{4mm}} \\sum{{M_O}} = ({(d[3]+d[0])*((f[0]*d[6])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9]))):.2f}{{\\text{{N}} \\cdot \\text{{ m}}}} + {(d[3]+d[0])*((d[15])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15]))):.2f}{{\\text{{ m}}}} \\cdot T_{{AC}} - F_1 \\cdot {d[0]:.0f}{{\\text{{ m}}}})\\hat{{i}} + 0 \\hat{{j}} + ({(d[3]+d[0])*((d[12])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15]))):.2f}{{\\text{{ m}}}} \\cdot T_{{AC}} -{(d[3]+d[0])*((f[0]*d[9])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9]))):.2f}{{ \\text{{N}} \\cdot \\text{{ m}}}})\\hat{{k}} = 0\\hat{{i}} + 0\\hat{{j}} + 0\\hat{{k}}}}$      
         
-    #     $\\textbf{{\\small 3. Despeje de la tensión en el cable AC y la fuerza 1: }}$
+        $\\textbf{{\\small 3. Despeje de la tensión en el cable AC y la fuerza 1: }}$
         
-    #     Para que se cumpla la condición de igualdad entre el momento calculado en el punto $A$ y el momento en el punto $B$, es necesario que sus componentes también sean iguales. Tal que:
+        Para que la barra permanezcca en equilibrio y no gire con respecto al origen $O$, la sumatoria de momentos respecto a dicho punto debe ser igual a cero. Esto implica que cada una de las componentes del momento resultante es igual a cero. Tal que:
         
-    #     ${{\hspace{{4mm}} 1.  ({(d[3]+d[0])*((f[0]*d[6])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9]))):.2f}{{\\text{{N}} \\cdot \\text{{ m}}}} + {(d[3]+d[0])*((d[15])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15]))):.2f}{{\\text{{ m}}}} \\cdot T_{{AC}} - F_1 \\cdot {d[0]:.0f}{{\\text{{ m}}}})\\hat{{i}} = 0{{\\text{{N}} \\cdot \\text{{ m}}}} \\hat{{i}} }}$      
-    #     ${{\hspace{{4mm}} 2.  0{{\\text{{N}} \\cdot \\text{{ m}}}} \\hat{{j}} =  0 {{\\text{{N}} \\cdot \\text{{ m}}}}\\hat{{j}}}}$      
-    #     ${{\hspace{{4mm}} 3.  ({(d[3]+d[0])*((d[12])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15]))):.2f}{{\\text{{ m}}}} \\cdot T_{{AC}} - {(d[3]+d[0])*((f[0]*d[9])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9]))):.2f}{{ \\text{{N}} \\cdot \\text{{ m}}}})\\hat{{k}} =  0 {{\\text{{ N}} \\cdot \\text{{ m}}}}\\hat{{k}} }}$     
+        ${{\hspace{{4mm}} 1.  ({(d[3]+d[0])*((f[0]*d[6])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9]))):.2f}{{\\text{{N}} \\cdot \\text{{ m}}}} + {(d[3]+d[0])*((d[15])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15]))):.2f}{{\\text{{ m}}}} \\cdot T_{{AC}} - F_1 \\cdot {d[0]:.0f}{{\\text{{ m}}}})\\hat{{i}} = 0{{\\text{{N}} \\cdot \\text{{ m}}}} \\hat{{i}} }}$      
+        ${{\hspace{{4mm}} 2.  0{{\\text{{N}} \\cdot \\text{{ m}}}} \\hat{{j}} =  0 {{\\text{{N}} \\cdot \\text{{ m}}}}\\hat{{j}}}}$      
+        ${{\hspace{{4mm}} 3.  ({(d[3]+d[0])*((d[12])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15]))):.2f}{{\\text{{ m}}}} \\cdot T_{{AC}} - {(d[3]+d[0])*((f[0]*d[9])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9]))):.2f}{{ \\text{{N}} \\cdot \\text{{ m}}}})\\hat{{k}} =  0 {{\\text{{ N}} \\cdot \\text{{ m}}}}\\hat{{k}} }}$     
         
-    #     Las ecuaciones 1 y 3 permiten obtener los valores de $F_1$ y $T_{{AC}}$ :
+        Las ecuaciones 1 y 3 permiten obtener los valores de $F_1$ y $T_{{AC}}$ :
         
-    #     $\\underline{{Despeje \\hspace{{2mm}} para \\hspace{{2mm}} T_{{AC}} :}}$  
+        $\\underline{{Despeje \\hspace{{2mm}} para \\hspace{{2mm}} T_{{AC}} :}}$  
         
-    #     De la ecuación 3 se obtiene:
+        De la ecuación 3 se obtiene:
         
-    #     ${{\hspace{{4mm}} ({(d[3]+d[0])*((d[12])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15]))):.2f}{{\\text{{ m}}}} \\cdot T_{{AC}} - {(d[3]+d[0])*((f[0]*d[9])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9]))):.2f}{{ \\text{{N}} \\cdot \\text{{ m}}}})\\hat{{k}} =  0 {{\\text{{ N}} \\cdot \\text{{ m}}}}\\hat{{k}} }}$      
-    #     ${{\hspace{{4mm}} {(d[3]+d[0])*((d[12])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15]))):.2f}{{\\text{{ m}}}} \\cdot T_{{AC}}  = {(d[3]+d[0])*((f[0]*d[9])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9]))):.2f}{{ \\text{{N}} \\cdot \\text{{ m}}}}}}$      
-    #     ${{\hspace{{4mm}} T_{{AC}} = {((f[0]*d[9])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])))/((d[12])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15]))):.2f}{{\\text{{ N}}}}}} $ 
+        ${{\hspace{{4mm}} ({(d[3]+d[0])*((d[12])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15]))):.2f}{{\\text{{ m}}}} \\cdot T_{{AC}} - {(d[3]+d[0])*((f[0]*d[9])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9]))):.2f}{{ \\text{{N}} \\cdot \\text{{ m}}}})\\hat{{k}} =  0 {{\\text{{ N}} \\cdot \\text{{ m}}}}\\hat{{k}} }}$      
+        ${{\hspace{{4mm}} {(d[3]+d[0])*((d[12])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15]))):.2f}{{\\text{{ m}}}} \\cdot T_{{AC}}  = {(d[3]+d[0])*((f[0]*d[9])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9]))):.2f}{{ \\text{{N}} \\cdot \\text{{ m}}}}}}$      
+        ${{\hspace{{4mm}} T_{{AC}} = {((f[0]*d[9])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])))/((d[12])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15]))):.2f}{{\\text{{ N}}}}}} $ 
         
-    #     $\\underline{{Despeje \\hspace{{2mm}} de \\hspace{{2mm}} por \\hspace{{2mm}} F_1 :}}$
+        $\\underline{{Despeje \\hspace{{2mm}} de \\hspace{{2mm}} por \\hspace{{2mm}} F_1 :}}$
         
-    #     Con el dato obtenido anteriormente, de la ecuación 1 se obtiene:  
+        Con el dato obtenido de la ecuación 1 se obtiene:  
         
-    #     ${{\hspace{{4mm}} ({(d[3]+d[0])*((f[0]*d[6])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9]))):.2f}{{\\text{{N}} \\cdot \\text{{ m}}}} + {(d[3]+d[0])*((d[15])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15]))):.2f}{{\\text{{ m}}}} \\cdot{((f[0]*d[9])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])))/((d[12])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15]))):.2f}{{\\text{{ N}}}}  - F_1 \\cdot {d[0]:.0f}{{\\text{{ m}}}})\\hat{{i}} = 0{{\\text{{N}} \\cdot \\text{{ m}}}} \\hat{{i}} }}$      
-    #     ${{\hspace{{4mm}} F_1 \\cdot {d[0]:.0f}{{\\text{{ m}}}} = {((d[3]+d[0])*((f[0]*d[6])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])))) + ((d[3]+d[0])*((d[15])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15])))*(((f[0]*d[9])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])))/((d[12])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15]))))):.2f}{{\\text{{ N}} \\cdot \\text{{ m}}}} }}$       
-    #     ${{\hspace{{4mm}} F_1 = {(((d[3]+d[0])*((f[0]*d[6])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])))) + ((d[3]+d[0])*((d[15])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15])))*(((f[0]*d[9])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])))/((d[12])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15]))))))/d[0]:.2f}{{\\text{{ N}}}}}} $     
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
+        ${{\hspace{{4mm}} ({(d[3]+d[0])*((f[0]*d[6])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9]))):.2f}{{\\text{{N}} \\cdot \\text{{ m}}}} + {(d[3]+d[0])*((d[15])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15]))):.2f}{{\\text{{ m}}}} \\cdot{((f[0]*d[9])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])))/((d[12])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15]))):.2f}{{\\text{{ N}}}}  - F_1 \\cdot {d[0]:.0f}{{\\text{{ m}}}})\\hat{{i}} = 0{{\\text{{N}} \\cdot \\text{{ m}}}} \\hat{{i}} }}$      
+        ${{\hspace{{4mm}} F_1 \\cdot {d[0]:.0f}{{\\text{{ m}}}} = {((d[3]+d[0])*((f[0]*d[6])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])))) + ((d[3]+d[0])*((d[15])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15])))*(((f[0]*d[9])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])))/((d[12])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15]))))):.2f}{{\\text{{ N}} \\cdot \\text{{ m}}}} }}$       
+        ${{\hspace{{4mm}} F_1 = {(((d[3]+d[0])*((f[0]*d[6])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])))) + ((d[3]+d[0])*((d[15])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15])))*(((f[0]*d[9])/(Calculations.magnitude3D(d[0]+d[3],d[6],d[9])))/((d[12])/(Calculations.magnitude3D(d[0]+d[3],d[12],d[15]))))))/d[0]:.2f}{{\\text{{ N}}}}}} $     
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
 
    
     #========================================================  MOMENTO  =========================================================
