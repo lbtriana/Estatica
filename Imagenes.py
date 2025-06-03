@@ -146,6 +146,9 @@ M3D_image_paths =[#Imágenes Preguntas Cálculo Momento en un punto 3D
 
 #Nivel medio
 "./Imagenes/Preguntas/MO/M3D/MO_M3D_M_1a.png", #[2]
+
+#Nivel difícil
+"./Imagenes/Preguntas/MO/M3D/MO_M3D_D_1a.png", #[3]
 ]
 
 MAE_image_paths =[#Imágenes Preguntas Cálculo Momento alrededor de un eje

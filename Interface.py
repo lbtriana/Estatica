@@ -1006,6 +1006,9 @@ if authenticate_user():
                             st.image(M2D_image_paths[10], width=550)
                         elif version_no == 3:
                             st.image(M2D_image_paths[11], width=550)
+                if subtopic == "Momento en un punto 3D":
+                    if pregunta_no == 1:
+                        st.image(M3D_image_paths[3], width=400)
                 if subtopic == "Sistemas equivalentes":
                     if pregunta_no == 1:
                         st.image(SE_image_paths[6], width=450) 
