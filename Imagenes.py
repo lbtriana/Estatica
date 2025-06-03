@@ -415,6 +415,9 @@ FI_rtas_paths= [#Imágenes Respuestas Cálculos Fuerzas Internas
 
 #Fuerzas internas _ Nivel Díficil
 "./Imagenes/Respuestas/FI/R_FI_FI_D_1a.png", #[4]
+
+#Fuerzas internas _ Nivel fácil
+"./Imagenes/Respuestas/FI/R_FI_FI_F_2a.png", #[5] 
 ]
 
 

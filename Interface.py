@@ -1087,6 +1087,8 @@ if authenticate_user():
                 if subtopic == "Fuerzas internas":
                     if pregunta_no ==1:
                         st.image(FI_rtas_paths[0], width=200)
+                    if pregunta_no ==2:
+                        st.image(FI_rtas_paths[5], width=400)
                     
             if difficulty == "Medio":
                 if subtopic == "Equilibrio 2D":

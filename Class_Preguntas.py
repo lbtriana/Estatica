@@ -4514,6 +4514,7 @@ preguntas = [
         calculos='operations'
         ),
 
+
    
     #========================================================  MOMENTO  =========================================================
     #--------------------------------------        Momento alrededor de un eje      --------------------------------------------
@@ -4700,6 +4701,7 @@ preguntas = [
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),
+
 
 
     #=========================================================== MOMENTO ========================================================
@@ -8725,65 +8727,61 @@ preguntas = [
         calculos='operations'
         ),
 
-    # Questionary(#2_1
-    #     code = 8110021,
-    #     no_pregunta = 2,
-    #     complexity = F,
-    #     topic = "Fuerzas internas",
-    #     subtopic = "Fuerzas internas",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"La viga fallará cuando el momento máximo sea $M_{{max}} = {m[0]*(1/5) + 80:.2f} \\text{{ kN}} \\cdot \\text{{ m}}$ o la fuerza cortante máxima sea $V_{{max}} = {d[0] + 30:.0f} \\text{{ kN}}$. Determine la máxima carga distribuida w que la carga puede soportar. Considere $d_1 = {d[3]*(1/2)+5:.2f} \\text{{ m}}$",
-    #     no_answers = 1,
-    #     a1_name = "Carga distribuida w $\\left[\\dfrac{{kN}}{{m}}\\right]$",
-    #     a2_name = "",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(3*(m[0]*(1/5) + 80)*(1/(pow(d[3]*(1/2)+5,2))),2),
-    #     answer2 = lambda f, a, calc, c, d, m: 0,
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = FI1,
-    #     ayuda2 = FI2,
-    #     ayuda3 = FI3,
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     Las fuerzas internas se definen como las fuerzas que actúan dentro de un elemento y se obtienen mediante un corte teórico en el cuerpo. A continuación, se presenta la solución sugerida para el ejercicio:
+    Questionary(#2_1
+        code = 8110021,
+        no_pregunta = 2,
+        complexity = F,
+        topic = "Fuerzas internas",
+        subtopic = "Fuerzas internas",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"La viga fallará cuando el momento máximo sea $M_{{max}} = {m[0]*(1/5) + 80:.2f} \\text{{ kN}} \\cdot \\text{{ m}}$ o la fuerza cortante máxima sea $V_{{max}} = {d[0] + 30:.0f} \\text{{ kN}}$. Determine la máxima carga distribuida $w$ que la viga puede soportar. Considere $d_1 = {d[3]*(1/2)+5:.2f} \\text{{ m}}$",
+        no_answers = 1,
+        a1_name = "Carga distribuida $w$ $\\left[\\dfrac{{kN}}{{m}}\\right]$",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(3*(m[0]*(1/5) + 80)*(1/(pow(d[3]*(1/2)+5,2))),2),
+        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = FI1,
+        ayuda2 = FI2,
+        ayuda3 = FI3,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        Las fuerzas internas se definen como las fuerzas que actúan dentro de un elemento y se obtienen mediante un corte teórico en el cuerpo. A continuación, se presenta la solución sugerida para el ejercicio:
         
-    #     Para este ejercicio, desde un inicio, se puede llegar a inferir que tanto el cortante máximo como el momento flector máximo de la viga en voladizo estarán ubicados en su único apoyo, tal que, se determina reacciones en apoyos y se fija la condición suministrada:
+        En este ejercicio se puede inferir que tanto el cortante máximo como el momento flector máximo de la viga en voladizo estan ubicados en su único apoyo, por tal motivo, se determinan las reacciones en el apoyo y se fija la condición suministrada:
         
-    #     $\\textbf{{\\small 1. Reacciones en los apoyos: }}$
+        $\\textbf{{\\small 1. Reacciones en los apoyos: }}$
                 
-    #     ${{\hspace{{4mm}} \\sum{{F_x}} = A_x = 0}}$     
+        ${{\hspace{{4mm}} \\sum{{F_x}} = A_x = 0}}$     
              
-    #     ${{\hspace{{4mm}} \\sum{{F_y}} = A_y - \\dfrac{{w \\cdot d_1}}{{2}} = 0}}$     
-    #     ${{\hspace{{4mm}} A_y = \\dfrac{{w \\cdot d_1}}{{2}} }}$     
+        ${{\hspace{{4mm}} \\sum{{F_y}} = A_y - \\dfrac{{w \\cdot d_1}}{{2}} = 0}}$     
+        ${{\hspace{{4mm}} A_y = \\dfrac{{w \\cdot d_1}}{{2}} }}$     
              
-    #     ${{\hspace{{4mm}} \\sum{{M_A}} = M_A - \\dfrac{{w \\cdot d_1}}{{2}} \\cdot \\dfrac{{2d_1}}{{3}} = 0}}$     
-    #     ${{\hspace{{4mm}} M_A = \\dfrac{{w \\cdot (d_1)^2}}{{3}} }}$     
+        ${{\hspace{{4mm}} \\sum{{M_A}} = M_A - \\dfrac{{w \\cdot d_1}}{{2}} \\cdot \\dfrac{{2d_1}}{{3}} = 0}}$     
+        ${{\hspace{{4mm}} M_A = \\dfrac{{w \\cdot (d_1)^2}}{{3}} }}$     
              
-    #     A partir de conocer las fuerzas que actuan sobre la viga, se puede realizar los siguientes diagramas, recordando que el cambio en la fuerza cortante es igual al área bajo la curva de la carga, y así mismo, el cambio del momento flexionante es igual al área bajo la curva de la fuerza cortante:                           
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"""
-    #     $\\textbf{{\\small 3. Evaluación de la condición de resistencia máxima: }}$     
+        Con dichas reacciones se realizan los siguientes diagramas:
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        $\\textbf{{\\small 3. Evaluación de la condición de resistencia máxima: }}$     
         
-    #     $\\underline{{Cortante \\hspace{{2mm}} máximo:}}$      
+        $\\underline{{Cortante \\hspace{{2mm}} máximo:}}$      
         
-    #     A partir de la condición de que la fuerza cortante máxima es $V_{{max}} = {d[0] + 30 :.0f} \\text{{ kN}}, se calcula:
-        
-    #     ${{\hspace{{4mm}} V_{{max}} = A_y = \\dfrac{{w \\cdot d_1}}{{2}}}}$     
-    #     ${{\hspace{{4mm}} w  = \\dfrac{{2V_{{max}}}}{{d_1}}  }}$     
-    #     ${{\hspace{{4mm}} w  = {2*(d[0] + 30)*(1/(d[3]*(1/2)+5)):.2f} \\dfrac{{ kN}}{{m}}}}$     
+        ${{\hspace{{4mm}} V_{{max}} = A_y = \\dfrac{{w \\cdot d_1}}{{2}}}}$     
+        ${{\hspace{{4mm}} w  = \\dfrac{{2V_{{max}}}}{{d_1}}  }}$     
+        ${{\hspace{{4mm}} w  = {2*(d[0] + 30)*(1/(d[3]*(1/2)+5)):.2f} \\dfrac{{ kN}}{{m}}}}$     
                 
-    #     $\\underline{{Momento \\hspace{{2mm}} máximo:}}$  
+        $\\underline{{Momento \\hspace{{2mm}} máximo:}}$  
         
-    #     A partir de la condición de que el momento máximo es $M_{{max}} = {m[0]*(1/5) + 80:.0f} \\text{{ kN}} \\cdot \\text{{ m}}$, se calcula:
+        ${{\hspace{{4mm}} M_{{max}} = |M_max| = \\dfrac{{w \\cdot (d_1)^2}}{{3}} }}$     
+        ${{\hspace{{4mm}} w = \\dfrac{{3M_{{max}}}}{{(d_1)^2}} }}$     
+        ${{\hspace{{4mm}} w =  {3*(m[0]*(1/5) + 80)*(1/(pow(d[3]*(1/2)+5,2))):.2f} \\dfrac{{ kN}}{{m}}}}$     
         
-    #     ${{\hspace{{4mm}} M_{{max}} = |M_max| = \\dfrac{{w \\cdot (d_1)^2}}{{3}} }}$     
-    #     ${{\hspace{{4mm}} w = \\dfrac{{3M_{{max}}}}{{(d_1)^2}} }}$     
-    #     ${{\hspace{{4mm}} w =  {3*(m[0]*(1/5) + 80)*(1/(pow(d[3]*(1/2)+5,2))):.2f} \\dfrac{{ kN}}{{m}}}}$     
-        
-    #     Finalmente, se selecciona la respuesta menor, siendo que, si seleccionará la mayor, significa que fallaría bajo la otra condición.
-    #     """,
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
+        Finalmente, se selecciona la carga de menor magnitud, dado que, si selecciona la mayor, la viga fallará bajo la otra condición.
+        """,
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
 
     #=================================================  FUERZAS INTERNAS =========================================================
     #-------------------------------------------------       Fuerzas internas    --------------------------------------------
