@@ -9010,45 +9010,46 @@ preguntas = [
     #     topic = "Fuerzas internas",
     #     subtopic = "Fuerzas internas",
     #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Determine las magnitudes de las fuerzas $F_1$ y $F_2$$ aplicadas sobre la viga, si se sabe que el momento flector interno en el punto A es de $M_A = {-(180 + m[0]*(1/5)):.2f} \\text{{ N}} \\cdot \\text{{ m}}$ y el del punto B es de $M_B ={-(135+m[0]*(1/5)):.2f} \\text{{ N}} \\cdot \\text{{ m}}$ . Considere $d_1 = {(20+d[0])*(1/100):.2f} \\text{{ m}}$, $d_2 = {(40+d[3])*(1/100):.2f} \\text{{ m}}$, $d_3 = {(70+d[6])*(1/100):.2f} \\text{{ m}}$, y  $w = {(38+d[9])*(1/2):.2f}  \\dfrac{{N}}{{m}}$.",
+    #     pregunta = lambda f, a, calc, c, d, m: f"Determine las magnitudes de las fuerzas $F_1$ y $F_2$ aplicadas sobre la viga, sabiendo que el momento flector interno en el punto $A$ es $M_A = {-(180 + m[0]*(1/5)):.2f} \\text{{ N}} \\cdot \\text{{ m}}$ y en el punto $B$ es $M_B ={-(135+m[0]*(1/5)):.2f} \\text{{ N}} \\cdot \\text{{ m}}$. Considere $d_1 = {(20+d[0])*(1/100):.2f} \\text{{ m}}$, $d_2 = {(40+d[3])*(1/100):.2f} \\text{{ m}}$, $d_3 = {(70+d[6])*(1/100):.2f} \\text{{ m}}$, y  $w = {(38+d[9])*(1/2):.2f}  \\dfrac{{N}}{{m}}$.",
     #     no_answers = 2,
-    #     a1_name = "Fuerza $F_1$ [N]",
-    #     a2_name = "Fuerza $F_2$ [N]",
+    #     a1_name = "Fuerza $F_1$ $[N]$",
+    #     a2_name = "Fuerza $F_2$ $[N]$",
     #     a3_name = "",
     #     answer1 = lambda f, a, calc, c, d, m: np.round(((1/2)*((38+d[9])*(1/2))*pow((60+d[3]+d[0])*(1/100),2) + ((45/((20 + d[0])*(1/100))) - (1/2)*((38 + d[9])*(1/2))*(20+d[0])*(1/100) - ((38 + d[9])*(1/2))*(40 + d[3])*(1/100))*((130 + d[0] + d[6] + d[9])*(1/100)) - (180 + m[0]*(1/5)))/((70 + d[6])*(1/100)),2),
     #     answer2 = lambda f, a, calc, c, d, m: np.round(((45/((20 + d[0])*(1/100))) - (1/2)*((38 + d[9])*(1/2))*(20+d[0])*(1/100) - ((38 + d[9])*(1/2))*(40 + d[3])*(1/100)) - ((1/2)*((38+d[9])*(1/2))*pow((60+d[3]+d[0])*(1/100),2) + ((45/((20 + d[0])*(1/100))) - (1/2)*((38 + d[9])*(1/2))*(20+d[0])*(1/100) - ((38 + d[9])*(1/2))*(40 + d[3])*(1/100))*((130 + d[0] + d[6] + d[9])*(1/100)) - (180 + m[0]*(1/5)))/((70 + d[6])*(1/100)),2),
     #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "Antes de determinar fuerzas internas, identifica todas las fuerzas externas y reacciones de los apoyos que se aplican sobre la viga ",
-    #     ayuda2 = "Para determinar las fuerzas cortantes y momentos flectores en cierto punto, se corta la viga por el punto, se realiza diagrama de cuerpo libre de la nueva sección con las fuerzas internas y se utilizan ecuaciones de equilibrio.",
-    #     ayuda3 = "Para la sección recortada se asume que las fuerzas internas estan dirigidas de la siguiente manera, para obtener los signos de manera correcta: #IMAGEN#",
+    #     ayuda1 = FI1,
+    #     ayuda2 = FI2,
+    #     ayuda3 = FI3,
     #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     Las fuerzas internas se pueden definir como las fuerzas que actuan dentro de un elemento en respuesta a la aplicación de fuerzas externas. A continuación una solución sugerida:
+    #     Las fuerzas internas se definen como las fuerzas que actúan dentro de un elemento y se obtienen mediante un corte teórico en el cuerpo. A continuación, se presenta la solución sugerida para el ejercicio:
         
-    #     $\\textbf{{\\small 1. Identificar fuerzas aplicadas sobre viga - Punto A: }}$
-    #     Primero, dado que el momento flector suministrado en el enunciado en el punto A se encuentra justo sobre el apoyo de tercer grado, se infiere que su valor en signo opuesto es la reacción del soporte que restringe la rotación ($M_R = -M_A$). Tal que, evaluando condición de momento en la estructura se obtiene la siguiente ecuación:
-        
+    #     $\\textbf{{\\small 1. Identificar las fuerzas aplicadas sobre la viga - Punto A: }}$
+
+    #     Primero, dado que el momento flector suministrado en el punto $A$ corresponde al valor justo en el apoyo de tercer grado, se infiere que la reacción en momento en dicho apoyo es igual en magnitud pero de signo opuesto, es decir, $M_R = -M_A$. A partir de esto, al aplicar la condición de equilibrio de momentos para toda la estructura, se puede plantear la siguiente ecuación:
+         
     #     ${{\hspace{{4mm}} \\sum{{M_A}} = M_R - w \\cdot \\dfrac{{(d_1 + d_2)^2}}{{2}} - F_1 \\cdot (d_1 + d_2) - F_2 \\cdot (d_1 + d_2 + d_3) = 0 }}$          
     #     ${{\hspace{{4mm}} w \\cdot \\dfrac{{(d_1 + d_2)^2}}{{2}} + F_1 \\cdot (d_1 + d_2) + F_2 \\cdot (d_1 + d_2 + d_3) = - M_A }}$         
                  
-    #     $\\textbf{{\\small 2. Identificar fuerzas aplicadas sobre viga - Punto C: }}$
-    #     Se hace el corte mostrado en la imagen  para encontrar la ecuación de momento flector en B (Teniendo en cuenta que el valor que nos dan de $M_B$ es negativo):
+    #     $\\textbf{{\\small 2. Identificar las fuerzas aplicadas sobre la viga - Punto C: }}$
         
-    #     ##Imagen##
-        
-    #     Donde lo unico que se desconoce es el valor de $R_y$ (ya que, al no haber ninguna fuerza externa horizonal, no se agrega reacción en X), que se puede calcular haciendo equilibrio global:
-        
+    #     Se realiza el corte en la ubicación mostrada en la imagen para obtener la ecuación del momento flector en el punto $B$ (Teniendo en cuenta que el valor que nos dan de $M_B$ es negativo):
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+    #     En esta ecuación, la única incógnita es el valor de $R_y$, ya que no existe ninguna fuerza externa en la dirección horizontal, por lo tanto, no se considera reacción en $X$. El valor de $R_y$ puede determinarse aplicando equilibrio global:
+
     #     ${{\hspace{{4mm}} \\sum{{F_y}} = R_y - w \\cdot (d_1 + d_2) - F_1 - F_2 = 0}}$     
     #     ${{\hspace{{4mm}} R_y = w \\cdot (d_1 + d_2) + F_1 + F_2}}$     
         
-    #     Tal que finalmente, se logra obtener la siguiente ecuación a partir de la sumatoria de momentos en B del corte realizado:
+    #     Se obtiene la siguiente ecuación a partir de la sumatoria de momentos en $B$ con el corte realizado:
         
     #     ${{\hspace{{4mm}} \\sum{{M_B}} = M_R - |M_B| - R_y \\cdot d_1 + \\dfrac{{w \\cdot (d_1)^2}}{{2}} = 0}}$     
     #     ${{\hspace{{4mm}} - (M_A +|M_B|) - (w \\cdot (d_1 + d_2) + F_1 + F_2) \\cdot d_1 + \\dfrac{{w \\cdot (d_1)^2}}{{2}} = 0}}$     
     #     ${{\hspace{{4mm}} - \\dfrac{{(M_A + |M_B|)}}{{d_1}} - \\dfrac{{w \\cdot d_1}}{{2}} - w \\cdot d_2 - F_1 = F_2}}$     
         
-    #     $\\textbf{{\\small 3. Despeje fuerzas F_1 y F_2: }}$
+    #     $\\textbf{{\\small 3. Despeje fuerzas F1 y F2: }}$
         
-    #     La ecuación obtenida en el segundo apartado se puede integrar en la de primer apartado, tal que se logra obtener el resultado de $F_1$:
+    #     La ecuación obtenida en el segundo apartado se puede integrar en la de primer apartado, de forma que se logra obtener el resultado de $F_1$:
         
     #     ${{\hspace{{4mm}} w \\cdot \\dfrac{{(d_1 + d_2)^2}}{{2}} + F_1 \\cdot (d_1 + d_2) + (- \\dfrac{{(M_A + |M_B|)}}{{d_1}} - \\dfrac{{w \\cdot d_1}}{{2}} - w \\cdot d_2 - F_1) \\cdot (d_1 + d_2 + d_3) = - M_A }}$         
     #     ${{\hspace{{4mm}} F_1 \\cdot d_3 = w \\cdot \\dfrac{{(d_1 + d_2)^2}}{{2}} - (\\dfrac{{(M_A + |M_B|)}}{{d_1}} + \\dfrac{{w \\cdot d_1}}{{2}} + w \\cdot d_2) \\cdot (d_1 + d_2 + d_3) + M_A }}$         
@@ -9057,8 +9058,7 @@ preguntas = [
     #     Y se determina $F_2$ con la ecuación del segundo apartado:
         
     #     ${{\hspace{{4mm}} F_2 = {((45/((20 + d[0])*(1/100))) - (1/2)*((38 + d[9])*(1/2))*(20+d[0])*(1/100) - ((38 + d[9])*(1/2))*(40 + d[3])*(1/100)) - ((1/2)*((38+d[9])*(1/2))*pow((60+d[3]+d[0])*(1/100),2) + ((45/((20 + d[0])*(1/100))) - (1/2)*((38 + d[9])*(1/2))*(20+d[0])*(1/100) - ((38 + d[9])*(1/2))*(40 + d[3])*(1/100))*((130 + d[0] + d[6] + d[9])*(1/100)) - (180 + m[0]*(1/5)))/((70 + d[6])*(1/100)):.2f} \\text{{ N}} }}$     
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     """,
     #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
     #     calculos='operations'
     #     ),
@@ -9146,4 +9146,5 @@ preguntas = [
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),
+    
     ]
