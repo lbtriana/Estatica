@@ -3136,10 +3136,10 @@ preguntas = [
         topic = MO,
         subtopic = M2D,
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de las fuerzas $F_1$ y $F_2$, si en el punto D el momento que ejerce la fuerza $F1$ es ${m[0]:.0f}{{\\text{{ lb}} \\cdot\\text{{ ft}}}}$, y el momento que ejerce la fuerza $F2$ es ${m[1]:.0f}{{\\text{{ lb}} \\cdot\\text{{ ft}}}}$. Considere que $\\alpha_1 = {a[0]:.0f}°$, $X_1 = {d[0]:.0f} \\text{{ ft}}$,  $X_2 = {d[3]:.0f}  \\text{{ ft}}$ y $X_3 = {d[6]:.0f} \\text{{ ft}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de las fuerzas $F_1$ y $F_2$, si en el punto D el momento que ejerce la fuerza $F1$ es ${m[0]:.0f}{{\\text{{ kN}} \\cdot\\text{{ m}}}}$, y el momento que ejerce la fuerza $F2$ es ${m[1]:.0f}{{\\text{{ kN}} \\cdot\\text{{ m}}}}$. Considere que $\\alpha_1 = {a[0]:.0f}°$, $X_1 = {d[0]:.0f} \\text{{ m}}$,  $X_2 = {d[3]:.0f}  \\text{{ m}}$ y $X_3 = {d[6]:.0f} \\text{{ m}}$.",
         no_answers = 2,
-        a1_name = "Fuerza $F_1 [lb]$",
-        a2_name = "Fuerza $F_2 [lb]$",
+        a1_name = "Fuerza $F_1 [kN]$",
+        a2_name = "Fuerza $F_2 [kN]$",
         a3_name = "",
         answer1 = lambda f, a, calc, c, d, m: np.round((m[0])/(d[3]+d[6]),2),
         answer2 = lambda f, a, calc, c, d, m: np.round((m[1])/(d[6]*calc['sin1']),2),
@@ -3154,8 +3154,8 @@ preguntas = [
         
         En este caso, los vectores posición solo tienen componente en la dirección X y son equivalentes a la magnitud de las distancias de D al punto de acción de la fuerza. 
 
-        ${{\hspace{{4mm}} r_1 = X_2 + X_3 = {d[3] + d[6]:.0f}{{\\text{{ ft}}}}}}$       
-        ${{\hspace{{4mm}} r_2 = X_3 = {(d[6]):.0f}{{\\text{{ ft}}}}}}$      
+        ${{\hspace{{4mm}} r_1 = X_2 + X_3 = {d[3] + d[6]:.0f}{{\\text{{ m}}}}}}$       
+        ${{\hspace{{4mm}} r_2 = X_3 = {(d[6]):.0f}{{\\text{{ m}}}}}}$      
         
         $\\textbf{{\\small 2. Descomposición de las fuerzas F1 y F2: }}$
        
@@ -3176,9 +3176,9 @@ preguntas = [
 
         ${{\hspace{{4mm}} F_1 = \\dfrac{{M_{{1D}}}}{{r_1x}}}}$  
 
-        ${{\hspace{{4mm}} F_1 = ( \\dfrac{{{m[0]:.0f}{{\\text{{ lb}} \\cdot\\text{{ ft}}}}}}{{{d[3]+d[6]:.0f}{{\\text{{ ft}}}}}} ) }}$      
+        ${{\hspace{{4mm}} F_1 = ( \\dfrac{{{m[0]:.0f}{{\\text{{ kN}} \\cdot\\text{{ m}}}}}}{{{d[3]+d[6]:.0f}{{\\text{{ m}}}}}} ) }}$      
 
-        ${{\hspace{{4mm}} F_1  = {(m[0])/(d[3]+d[6]):.2f}{{\\text{{ lb}}}}}}$      
+        ${{\hspace{{4mm}} F_1  = {(m[0])/(d[3]+d[6]):.2f}{{\\text{{ kN}}}}}}$      
         
         $\\underline{{Fuerza  \\hspace{{2mm}} F_2 :}}$ 
         
@@ -3188,9 +3188,9 @@ preguntas = [
 
         ${{\hspace{{4mm}} F_2 = \\dfrac{{M_{{2D}}}}{{r_2 \\cdot sen(\\alpha_1)}}}}$      
 
-        ${{\hspace{{4mm}} F_2 = ( \\dfrac{{{m[1]:.0f}{{\\text{{ lb}} \\cdot\\text{{ ft}}}}}}{{{d[6]*calc['sin1']:.2f}{{\\text{{ ft}}}}}} ) }}$      
+        ${{\hspace{{4mm}} F_2 = ( \\dfrac{{{m[1]:.0f}{{\\text{{ kN}} \\cdot\\text{{ m}}}}}}{{{d[6]*calc['sin1']:.2f}{{\\text{{ m}}}}}} ) }}$      
 
-        ${{\hspace{{4mm}} F_2  = {(m[1])/(d[6]*calc['sin1']):.2f}{{\\text{{ lb}}}}}}$      
+        ${{\hspace{{4mm}} F_2  = {(m[1])/(d[6]*calc['sin1']):.2f}{{\\text{{ kN}}}}}}$      
         
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
