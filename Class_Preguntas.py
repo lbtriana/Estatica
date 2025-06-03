@@ -3775,7 +3775,7 @@ preguntas = [
     #     topic = MO,
     #     subtopic = M2D,
     #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Si el trabajador ubicado en B ejerce una fuerza  $F_2 = {f[1]:.0f} \\text{{ lb}}$ sobre su cuerda, y el que está ubicado en C realiza otra fuerza $F_1 = {f[0]:.0f} \\text{{ lb}}$. Calcular el ángulo asociado a la fuerza F2 para evitar que gire el poste. Considerar $\\alpha_1 = {a[0]:.0f}°$, $X_1 = {d[0]:.0f} \\text{{ ft}}$  y $X_2 = {d[3]:.0f}  \\text{{ ft}}$.",
+    #     pregunta = lambda f, a, calc, c, d, m: f"Si el trabajador ubicado en B ejerce una fuerza  $F_2 = {f[1]:.0f} \\text{{ kN}}$ sobre su cuerda, y el que está ubicado en C realiza otra fuerza $F_1 = {f[0]:.0f} \\text{{ kN}}$. Calcular el ángulo asociado a la fuerza F2 para evitar que gire el poste. Considerar $\\alpha_1 = {a[0]:.0f}°$, $X_1 = {d[0]:.0f} \\text{{ m}}$  y $X_2 = {d[3]:.0f}  \\text{{ m}}$.",
     #     no_answers = 1,
     #     a1_name = "Ángulo $\\alpha_2 [°]",
     #     a2_name = "",
@@ -3795,42 +3795,42 @@ preguntas = [
 
     #     $\\underline{{Fuerza  \\hspace{{2mm}} F1 :}}$ 
         
-    #     ${{\hspace{{4mm}} |F1_x| = |\\overrightarrow{{F1}}| \\cdot \\sin(\\alpha_1) = {f[0]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['sin1']:.2f} = {f[0]*calc['sin1']:.2f}{{ \\text{{ lb}}}}}}$             
-    #     ${{\hspace{{4mm}} |F1_y| = |\\overrightarrow{{F1}}| \\cdot \\cos(\\alpha_1) = {f[0]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['cos1']:.2f} = {f[0]*calc['cos1']:.2f}{{ \\text{{ lb}}}}}}$            
+    #     ${{\hspace{{4mm}} |F1_x| = |\\overrightarrow{{F1}}| \\cdot \\sin(\\alpha_1) = {f[0]:.0f}{{\\text{{ kN }} \\cdot\\hspace{{1mm}}}}{calc['sin1']:.2f} = {f[0]*calc['sin1']:.2f}{{ \\text{{ kN}}}}}}$             
+    #     ${{\hspace{{4mm}} |F1_y| = |\\overrightarrow{{F1}}| \\cdot \\cos(\\alpha_1) = {f[0]:.0f}{{\\text{{ kN }} \\cdot\\hspace{{1mm}}}}{calc['cos1']:.2f} = {f[0]*calc['cos1']:.2f}{{ \\text{{ kN}}}}}}$            
 
     #     $\\underline{{Fuerza  \\hspace{{2mm}} F2 :}}$ 
 
-    #     ${{\hspace{{4mm}} |F2_x| = |\\overrightarrow{{F2}}| \\cdot \\cos(\\alpha_2) = {f[1]:.0f}{{\\text{{ lb }}}} \\cdot \\cos(\\alpha_2) }}$      
-    #     ${{\hspace{{4mm}} |F2_y| = |\\overrightarrow{{F2}}| \\cdot \\sin(\\alpha_2) = {f[1]:.0f}{{\\text{{ lb }}}} \\cdot \\sin(\\alpha_2) }}$      
+    #     ${{\hspace{{4mm}} |F2_x| = |\\overrightarrow{{F2}}| \\cdot \\cos(\\alpha_2) = {f[1]:.0f}{{\\text{{ kN }}}} \\cdot \\cos(\\alpha_2) }}$      
+    #     ${{\hspace{{4mm}} |F2_y| = |\\overrightarrow{{F2}}| \\cdot \\sin(\\alpha_2) = {f[1]:.0f}{{\\text{{ kN }}}} \\cdot \\sin(\\alpha_2) }}$      
 
     #     $\\textbf{{\\small 2. Obtención del vector posición:}}$ 
 
-    #     ${{\hspace{{4mm}} r1 \\text{{ = }} X_1 = {d[0]:.0f}{{ \\text{{ ft}}}}}}$     
-    #     ${{\hspace{{4mm}} r2 \\text{{ = }} X_1 + X_2 = {(d[0]+d[3]):.0f}{{ \\text{{ ft}}}}}}$      
+    #     ${{\hspace{{4mm}} r1 \\text{{ = }} X_1 = {d[0]:.0f}{{ \\text{{ m}}}}}}$     
+    #     ${{\hspace{{4mm}} r2 \\text{{ = }} X_1 + X_2 = {(d[0]+d[3]):.0f}{{ \\text{{ m}}}}}}$      
         
     #     $\\textbf{{\\small 3.1 Momento de la fuerza F1: }}$ 
 
     #     Para calcular el momento de F1 en A vemos que la componente perpendicular al vector posición asociado r1 es $F1_x$, y que por la Regla de la mano de derecha el momento sera negativo (Sentido horario). Tal que: 
 
-    #     ${{\hspace{{4mm}} M1_A = - r1 \\cdot |\\overrightarrow{{F1}}| \\cdot \\sin(\\alpha_1) = - {d[0]:.0f}{{ \\text{{ ft}}}} \\cdot {f[0]*calc['sin1']:.2f}{{ \\text{{ lb}}}}}}$     
-    #     ${{\hspace{{4mm}} M1_A = - {d[0]*f[0]*calc['sin1']:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$     
+    #     ${{\hspace{{4mm}} M1_A = - r1 \\cdot |\\overrightarrow{{F1}}| \\cdot \\sin(\\alpha_1) = - {d[0]:.0f}{{ \\text{{ m}}}} \\cdot {f[0]*calc['sin1']:.2f}{{ \\text{{ kN}}}}}}$     
+    #     ${{\hspace{{4mm}} M1_A = - {d[0]*f[0]*calc['sin1']:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}$     
         
     #     $\\textbf{{\\small 3.2 Momento de la fuerza F2: }}$ 
 
     #     En el momento de la fuerza F2, notamos que la componente de la fuerza que es perpendicular al vector posición r2 es $F2_x$, y por la Regla de la mano de derecha el momento es positivo (Sentido antihorario). Tal que podemos considerar: 
 
-    #     ${{\hspace{{4mm}} M2_A = \\overrightarrow{{r_2}} X \\overrightarrow{{F2}} = r2 \\cdot\\hspace{{1mm}} F2_x = {(d[0] + d[3]):.0f} {{ \\text{{ ft}}}} \\cdot\\hspace{{1mm}}{f[1]:.0f}{{\\text{{ lb }}}} \\cdot \\cos(\\alpha_2)}}$     
-    #     ${{\hspace{{4mm}} M2_A = ( \\cos(\\alpha_2)\\cdot\\hspace{{1mm}}{(f[1]*(d[0]+d[3])):.2f} ) {{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$    
+    #     ${{\hspace{{4mm}} M2_A = \\overrightarrow{{r_2}} X \\overrightarrow{{F2}} = r2 \\cdot\\hspace{{1mm}} F2_x = {(d[0] + d[3]):.0f} {{ \\text{{ m}}}} \\cdot\\hspace{{1mm}}{f[1]:.0f}{{\\text{{ kN }}}} \\cdot \\cos(\\alpha_2)}}$     
+    #     ${{\hspace{{4mm}} M2_A = ( \\cos(\\alpha_2)\\cdot\\hspace{{1mm}}{(f[1]*(d[0]+d[3])):.2f} ) {{\\text{{ kN}} \\cdot \\text{{ m}}}}}}$    
         
     #     $\\textbf{{\\small 4. Sumatoria de momentos en A: }}$ 
 
     #     Hacemos sumatoria de momentos en A y la igualamos a cero: 
         
     #     ${{\hspace{{4mm}} \\sum M_A = M1_A + M2_A = 0}}$      
-    #     ${{\hspace{{4mm}}  - {d[0]*f[0]*calc['sin1']:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}} + ( \\cos(\\alpha_2)\\cdot\\hspace{{1mm}}{(f[1]*(d[0]+d[3])):.2f} ) {{\\text{{ lb}} \\cdot \\text{{ ft}}}} = 0}}$         
-    #     ${{\hspace{{4mm}} ( \\cos(\\alpha_2)\\cdot\\hspace{{1mm}}{(f[1]*(d[0]+d[3])):.2f} ) {{\\text{{ lb}} \\cdot \\text{{ ft}}}} = {d[0]*f[0]*calc['sin1']:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}} }}$     
-    #     ${{\hspace{{4mm}} \\cos(\\alpha_2) = ( \\dfrac{{{d[0]*f[0]*calc['sin1']:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}{{{(f[1]*(d[0]+d[3])):.2f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}} ) }}$     
-    #     ${{\hspace{{4mm}} \\alpha_2 = arcocoseno ( \\dfrac{{{d[0]*f[0]*calc['sin1']:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}{{{(f[1]*(d[0]+d[3])):.2f} {{\\text{{ lb}} \\cdot \\text{{ ft}}}}}} ) }}$
+    #     ${{\hspace{{4mm}}  - {d[0]*f[0]*calc['sin1']:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}} + ( \\cos(\\alpha_2)\\cdot\\hspace{{1mm}}{(f[1]*(d[0]+d[3])):.2f} ) {{\\text{{ kN}} \\cdot \\text{{ m}}}} = 0}}$         
+    #     ${{\hspace{{4mm}} ( \\cos(\\alpha_2)\\cdot\\hspace{{1mm}}{(f[1]*(d[0]+d[3])):.2f} ) {{\\text{{ kN}} \\cdot \\text{{ m}}}} = {d[0]*f[0]*calc['sin1']:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}} }}$     
+    #     ${{\hspace{{4mm}} \\cos(\\alpha_2) = ( \\dfrac{{{d[0]*f[0]*calc['sin1']:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}{{{(f[1]*(d[0]+d[3])):.2f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}} ) }}$     
+    #     ${{\hspace{{4mm}} \\alpha_2 = arcocoseno ( \\dfrac{{{d[0]*f[0]*calc['sin1']:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}{{{(f[1]*(d[0]+d[3])):.2f} {{\\text{{ kN}} \\cdot \\text{{ m}}}}}} ) }}$
     #     ${{\hspace{{4mm}} \\alpha_2 = {Calculations.arccosine((d[0]*f[0]*calc['sin1'])/(f[1]*(d[0]+d[3]))):.2f}°}}     
     #     """,   
     #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
@@ -3897,11 +3897,11 @@ preguntas = [
         topic = MO,
         subtopic = M3D,
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine el momento de la fuerza $F_1$ con respecto al origen y expréselo en forma de vector cartesiano. Considere que $F_1 = [ {d[9]:.0f}\\hat{{i}} + {d[12]:.0f} \\hat{{j}}  {d[1]:.0f} \\hat{{k}} ] \\text{{ lb}}$, $d_1 = {d[3]:.0f} \\text{{ ft}}$,  $d_2 = {d[0]:.0f}  \\text{{ ft}}$ y $d_3 = {d[6]:.0f} \\text{{ ft}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine el momento de la fuerza $F_1$ con respecto al origen y expréselo en forma de vector cartesiano. Considere que $F_1 = [ {d[9]:.0f}\\hat{{i}} + {d[12]:.0f} \\hat{{j}}  {d[1]:.0f} \\hat{{k}} ] \\text{{ kN}}$, $d_1 = {d[3]:.0f} \\text{{ m}}$,  $d_2 = {d[0]:.0f}  \\text{{ m}}$ y $d_3 = {d[6]:.0f} \\text{{ m}}$.",
         no_answers = 3,
-        a1_name = "Componente $\\hat{{i}}$ del momento en el origen [$lb \\cdot ft$]",
-        a2_name = "Componente $\\hat{{j}}$ del momento en el origen [$lb \\cdot ft$]",
-        a3_name = "Componente $\\hat{{k}}$ del momento en el origen [$lb \\cdot ft$]",
+        a1_name = "Componente $\\hat{{i}}$ del momento en el origen [$kN \\cdot m$]",
+        a2_name = "Componente $\\hat{{j}}$ del momento en el origen [$kN \\cdot m$]",
+        a3_name = "Componente $\\hat{{k}}$ del momento en el origen [$kN \\cdot m$]",
         answer1 = lambda f, a, calc, c, d, m: np.round(d[3]*d[1]+d[6]*d[12],2),
         answer2 = lambda f, a, calc, c, d, m: np.round(-(d[0]*d[1])-d[6]*d[9],2),
         answer3 = lambda f, a, calc, c, d, m: np.round((d[0]*d[12])-(d[3]*d[9]),2),
@@ -3913,9 +3913,9 @@ preguntas = [
 
         $\\textbf{{\\small 1. Definición del vector posición:}}$       
         
-        ${{\hspace{{4mm}} r_x = d_2 = {d[0]:.0f}{{ \\text{{ ft}}}}}}$     
-        ${{\hspace{{4mm}} r_y = d_1 = {d[3]:.0f}{{ \\text{{ ft}}}}}}$      
-        ${{\hspace{{4mm}} r_z = - d_3 = {-d[6]:.0f}{{ \\text{{ ft}}}}}}$        
+        ${{\hspace{{4mm}} r_x = d_2 = {d[0]:.0f}{{ \\text{{ m}}}}}}$     
+        ${{\hspace{{4mm}} r_y = d_1 = {d[3]:.0f}{{ \\text{{ m}}}}}}$      
+        ${{\hspace{{4mm}} r_z = - d_3 = {-d[6]:.0f}{{ \\text{{ m}}}}}}$        
 
         $\\textbf{{\\small 2. Calculo del momento en el origen: }}$  
 
@@ -3926,27 +3926,27 @@ preguntas = [
         
         Aplicando el producto cruz, la componente $\\hat{{i}}$ del momento se puede calcular como:
         
-        ${{\hspace{{4mm}} M_i = r_y \\cdot F_z - r_z \\cdot F_y = {d[3]:.0f}{{ \\text{{ ft}}}} \\cdot ( {d[1]:.0f} ){{ \\text{{ lb}}}} - ( {-d[6]:.0f}{{ \\text{{ ft}}}} ) \\cdot {d[12]:.0f}{{ \\text{{ lb}}}}}}$       
-        ${{\hspace{{4mm}} M_i = ( {d[3]*d[1]:.0f} ){{ \\text{{ lb}}}} \\cdot {{ \\text{{ ft}}}} - ( {-( d[6]*d[12]) :.0f} ) {{ \\text{{ lb}}}} \\cdot {{ \\text{{ ft}}}}}}$     
-        ${{\hspace{{4mm}} M_i = {d[3]*d[1]+d[6]*d[12]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$       
+        ${{\hspace{{4mm}} M_i = r_y \\cdot F_z - r_z \\cdot F_y = {d[3]:.0f}{{ \\text{{ m}}}} \\cdot ( {d[1]:.0f} ){{ \\text{{ kN}}}} - ( {-d[6]:.0f}{{ \\text{{ m}}}} ) \\cdot {d[12]:.0f}{{ \\text{{ kN}}}}}}$       
+        ${{\hspace{{4mm}} M_i = ( {d[3]*d[1]:.0f} ){{ \\text{{ kN}}}} \\cdot {{ \\text{{ m}}}} - ( {-( d[6]*d[12]) :.0f} ) {{ \\text{{ kN}}}} \\cdot {{ \\text{{ m}}}}}}$     
+        ${{\hspace{{4mm}} M_i = {d[3]*d[1]+d[6]*d[12]:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}$       
         
         $\\underline{{Componente \\hspace{{2mm}} \\hat{{j}} :}}$
         
         Aplicando el producto cruz, la componente $\\hat{{j}}$ del momento se puede calcular como:
         
-        ${{\hspace{{4mm}} M_j = - ( r_x \\cdot F_z - r_z \\cdot F_x ) = -( {d[0]:.0f}{{ \\text{{ ft}}}} \\cdot ( {d[1]:.0f} ){{ \\text{{ lb}}}} - ( {-d[6]:.0f}{{ \\text{{ ft}}}} ) \\cdot {d[9]:.0f}{{ \\text{{ lb}}}} )}}$       
-        ${{\hspace{{4mm}} M_j = ( {-(d[0]*d[1]):.0f} ){{ \\text{{ lb}}}} \\cdot {{ \\text{{ ft}}}} - ( {d[6]*d[9]:.0f} ) {{ \\text{{ lb}}}} \\cdot {{ \\text{{ ft}}}} }}$     
-        ${{\hspace{{4mm}} M_j = {-(d[0]*d[1])-d[6]*d[9]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$      
+        ${{\hspace{{4mm}} M_j = - ( r_x \\cdot F_z - r_z \\cdot F_x ) = -( {d[0]:.0f}{{ \\text{{ m}}}} \\cdot ( {d[1]:.0f} ){{ \\text{{ kN}}}} - ( {-d[6]:.0f}{{ \\text{{ m}}}} ) \\cdot {d[9]:.0f}{{ \\text{{ kN}}}} )}}$       
+        ${{\hspace{{4mm}} M_j = ( {-(d[0]*d[1]):.0f} ){{ \\text{{ kN}}}} \\cdot {{ \\text{{ m}}}} - ( {d[6]*d[9]:.0f} ) {{ \\text{{ kN}}}} \\cdot {{ \\text{{ m}}}} }}$     
+        ${{\hspace{{4mm}} M_j = {-(d[0]*d[1])-d[6]*d[9]:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}$      
         
         $\\underline{{Componente \\hspace{{2mm}} \\hat{{k}} :}}$
         
         Aplicando el producto cruz, la componente $\\hat{{k}}$ del momento se puede calcular como:
         
-        ${{\hspace{{4mm}} M_k =  r_x \\cdot F_y - r_y \\cdot F_x  = {d[0]:.0f}{{ \\text{{ ft}}}} \\cdot {d[12]:.0f} {{ \\text{{ lb}}}} - {d[3]:.0f}{{ \\text{{ ft}}}} \\cdot {d[9]:.0f}{{ \\text{{ lb}}}}}}$       
-        ${{\hspace{{4mm}} M_k =  {(d[0]*d[12]):.0f}{{ \\text{{ lb}}}} \\cdot {{ \\text{{ ft}}}} - {d[3]*d[9]:.0f} {{ \\text{{ lb}}}} \\cdot {{ \\text{{ ft}}}} }}$      
-        ${{\hspace{{4mm}} M_k = {(d[0]*d[12])-d[3]*d[9]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$    
+        ${{\hspace{{4mm}} M_k =  r_x \\cdot F_y - r_y \\cdot F_x  = {d[0]:.0f}{{ \\text{{ m}}}} \\cdot {d[12]:.0f} {{ \\text{{ kN}}}} - {d[3]:.0f}{{ \\text{{ m}}}} \\cdot {d[9]:.0f}{{ \\text{{ kN}}}}}}$       
+        ${{\hspace{{4mm}} M_k =  {(d[0]*d[12]):.0f}{{ \\text{{ kN}}}} \\cdot {{ \\text{{ m}}}} - {d[3]*d[9]:.0f} {{ \\text{{ kN}}}} \\cdot {{ \\text{{ m}}}} }}$      
+        ${{\hspace{{4mm}} M_k = {(d[0]*d[12])-d[3]*d[9]:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}$    
         
-        Por lo tanto, el momento generado por $F_1$ en el origen es $ [ {d[3]*d[1]+d[6]*d[12]:.0f}\\hat{{i}} + ( {-(d[0]*d[1])-d[6]*d[9]:.0f}) \\hat{{j}} + ({(d[0]*d[12])-d[3]*d[9]:.0f})\\hat{{k}} ]{{ \\text{{ lb}}}} \\cdot {{ \\text{{ ft}}}}$
+        Por lo tanto, el momento generado por $F_1$ en el origen es $ [ {d[3]*d[1]+d[6]*d[12]:.0f}\\hat{{i}} + ( {-(d[0]*d[1])-d[6]*d[9]:.0f}) \\hat{{j}} + ({(d[0]*d[12])-d[3]*d[9]:.0f})\\hat{{k}} ]{{ \\text{{ kN}}}} \\cdot {{ \\text{{ m}}}}$
         """,
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
@@ -3959,10 +3959,10 @@ preguntas = [
         topic = MO,
         subtopic = M3D,
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de $d_1$ y $d_2$, si el momento en el origen generado por $F_1$ es $ [ {-m[0]:.0f}\\hat{{i}} + ( {-m[1]:.0f}) \\hat{{j}} + ({ (f[1]*m[1]+m[0]*f[0])/(-f[2]):.2f})\\hat{{k}} ]{{ \\text{{ lb}}}} \\cdot {{ \\text{{ ft}}}}$. Considere que $F_1 = [ {f[0]:.0f}\\hat{{i}} + {f[1]:.0f} \\hat{{j}} + ( {-f[2]:.0f} ) \\hat{{k}} ] \\text{{ lb}}$ y $d_3 = {d[6]:.0f} \\text{{ ft}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de $d_1$ y $d_2$, si el momento en el origen generado por $F_1$ es $ [ {-m[0]:.0f}\\hat{{i}} + ( {-m[1]:.0f}) \\hat{{j}} + ({ (f[1]*m[1]+m[0]*f[0])/(-f[2]):.2f})\\hat{{k}} ]{{ \\text{{ kN}}}} \\cdot {{ \\text{{ m}}}}$. Considere que $F_1 = [ {f[0]:.0f}\\hat{{i}} + {f[1]:.0f} \\hat{{j}} + ( {-f[2]:.0f} ) \\hat{{k}} ] \\text{{ kN}}$ y $d_3 = {d[6]:.0f} \\text{{ m}}$.",
         no_answers = 2,
-        a1_name = "$d_1$ $[ft]$",
-        a2_name = "$d_2$ $[ft]$",
+        a1_name = "$d_1$ $[m]$",
+        a2_name = "$d_2$ $[m]$",
         a3_name = "",
         answer1 = lambda f, a, calc, c, d, m: np.round((-m[0]-d[6]*f[1])/(-f[2]),2),
         answer2 = lambda f, a, calc, c, d, m: np.round((m[1]-d[6]*f[0])/(-f[2]),2),
@@ -3977,7 +3977,7 @@ preguntas = [
         
         ${{\hspace{{4mm}} r_x = d_2}}$     
         ${{\hspace{{4mm}} r_y = d_1}}$      
-        ${{\hspace{{4mm}} r_z = - d_3 = {-d[6]:.0f}{{ \\text{{ ft}}}}}}$         
+        ${{\hspace{{4mm}} r_z = - d_3 = {-d[6]:.0f}{{ \\text{{ m}}}}}}$         
 
         $\\textbf{{\\small 2. Expresión de ecuaciones de la componentes de momento: }}$  
 
@@ -3992,17 +3992,17 @@ preguntas = [
         
         $\\underline{{Despejar \\text{{ }} d_1 \\text{{ }} de \\text{{ }} la \\text{{ }} ecuación \\text{{ }} 1:}}$        
        
-        ${{\hspace{{4mm}} {-m[0]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}} = d_1 \\cdot ( {-f[2]:.0f} ){{ \\text{{ lb}}}} - ( {-d[6]:.0f}{{ \\text{{ ft}}}}) \\cdot {f[1]:.0f}{{ \\text{{ lb}}}}}}$       
-        ${{\hspace{{4mm}} {-m[0]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}} -  {d[6]*f[1]:.0f} {{\\text{{ lb}} \\cdot \\text{{ ft}}}} = d_1 \\cdot ( {-f[2]:.0f} ){{ \\text{{ lb}}}}}}$       
-        ${{\hspace{{4mm}} d_1 = \\dfrac{{{-m[0]-d[6]*f[1]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}{{( {-f[2]:.0f} ){{ \\text{{ lb}}}}}}}}$      
-        ${{\hspace{{4mm}} d_1 = {(-m[0]-d[6]*f[1])/(-f[2]):.2f}{{\\text{{ ft}}}} }}$     
+        ${{\hspace{{4mm}} {-m[0]:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}} = d_1 \\cdot ( {-f[2]:.0f} ){{ \\text{{ kN}}}} - ( {-d[6]:.0f}{{ \\text{{ m}}}}) \\cdot {f[1]:.0f}{{ \\text{{ kN}}}}}}$       
+        ${{\hspace{{4mm}} {-m[0]:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}} -  {d[6]*f[1]:.0f} {{\\text{{ kN}} \\cdot \\text{{ m}}}} = d_1 \\cdot ( {-f[2]:.0f} ){{ \\text{{ kN}}}}}}$       
+        ${{\hspace{{4mm}} d_1 = \\dfrac{{{-m[0]-d[6]*f[1]:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}{{( {-f[2]:.0f} ){{ \\text{{ kN}}}}}}}}$      
+        ${{\hspace{{4mm}} d_1 = {(-m[0]-d[6]*f[1])/(-f[2]):.2f}{{\\text{{ m}}}} }}$     
         
         $\\underline{{Despejar \\text{{ }} d_2 \\text{{ }} de \\text{{ }} la \\text{{ }} ecuación \\text{{ }} 2:}}$       
         
-        ${{\hspace{{4mm}} {-m[1]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}} = - (d_2 \\cdot ( {-f[2]:.0f} ){{ \\text{{ lb}}}} - ({-d[6]:.0f}{{ \\text{{ ft}}}}) \\cdot {f[0]:.0f}{{ \\text{{ lb}}}} )}}$       
-        ${{\hspace{{4mm}} {m[1]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}} - {d[6]*f[0]:.0f}{{ \\text{{ lb}}}} = d_2 \\cdot ( {-f[2]:.0f} ){{ \\text{{ lb}}}}}}$       
-        ${{\hspace{{4mm}} d_2 = \\dfrac{{{m[1]-d[6]*f[0]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}{{( {-f[2]:.0f} ){{ \\text{{ lb}}}}}}}}$      
-        ${{\hspace{{4mm}} d_2 = {(m[1]-d[6]*f[0])/(-f[2]):.2f}{{ \\text{{ ft}}}} }}$ 
+        ${{\hspace{{4mm}} {-m[1]:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}} = - (d_2 \\cdot ( {-f[2]:.0f} ){{ \\text{{ kN}}}} - ({-d[6]:.0f}{{ \\text{{ m}}}}) \\cdot {f[0]:.0f}{{ \\text{{ kN}}}} )}}$       
+        ${{\hspace{{4mm}} {m[1]:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}} - {d[6]*f[0]:.0f}{{ \\text{{ kN}}}} = d_2 \\cdot ( {-f[2]:.0f} ){{ \\text{{ kN}}}}}}$       
+        ${{\hspace{{4mm}} d_2 = \\dfrac{{{m[1]-d[6]*f[0]:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}{{( {-f[2]:.0f} ){{ \\text{{ kN}}}}}}}}$      
+        ${{\hspace{{4mm}} d_2 = {(m[1]-d[6]*f[0])/(-f[2]):.2f}{{ \\text{{ m}}}} }}$ 
         """,
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
@@ -4015,10 +4015,10 @@ preguntas = [
         topic = MO,
         subtopic = M3D,
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de las componentes $\\hat{{i}}$ y $\\hat{{j}}$ de $F_1$ si el momento en el origen causado por esta fuerza es $ [ {-m[0]:.0f}\\hat{{i}} + ( {-m[1]:.0f}) \\hat{{j}} + ({ (d[0]*(-m[0])-m[1]*d[3])/(d[6]):.2f})\\hat{{k}} ]{{ \\text{{ lb}}}} \\cdot {{ \\text{{ ft}}}}$. Considere que la componente $\\hat{{k}}$ de $F_1$ tiene un valor de ${-f[2]:.0f}\\text{{ lb}}$; y que $d_1 = {d[3]:.0f} \\text{{ ft}}$,  $d_2 = {d[0]:.0f}  \\text{{ ft}}$, $d_3 = {d[6]:.0f} \\text{{ ft}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de las componentes $\\hat{{i}}$ y $\\hat{{j}}$ de $F_1$ si el momento en el origen causado por esta fuerza es $ [ {-m[0]:.0f}\\hat{{i}} + ( {-m[1]:.0f}) \\hat{{j}} + ({ (d[0]*(-m[0])-m[1]*d[3])/(d[6]):.2f})\\hat{{k}} ]{{ \\text{{ kN}}}} \\cdot {{ \\text{{ m}}}}$. Considere que la componente $\\hat{{k}}$ de $F_1$ tiene un valor de ${-f[2]:.0f}\\text{{ kN}}$; y que $d_1 = {d[3]:.0f} \\text{{ m}}$,  $d_2 = {d[0]:.0f}  \\text{{ m}}$, $d_3 = {d[6]:.0f} \\text{{ m}}$.",
         no_answers = 2,
-        a1_name = "Componente $\\hat{{i}}$ de $F_1$ [lb]",
-        a2_name = "Componente $\\hat{{j}}$ de $F_1$ [lb]",
+        a1_name = "Componente $\\hat{{i}}$ de $F_1$ $[kN]$",
+        a2_name = "Componente $\\hat{{j}}$ de $F_1$ $[kN]$",
         a3_name = "",
         answer1 = lambda f, a, calc, c, d, m: np.round((m[1]+d[0]*f[2])/(d[6]),2),
         answer2 = lambda f, a, calc, c, d, m: np.round((-m[0]+d[3]*f[2])/(d[6]),2),
@@ -4031,9 +4031,9 @@ preguntas = [
 
         $\\textbf{{\\small 1. Obtención del vector posición:}}$       
         
-        ${{\hspace{{4mm}} r_x = d_2 = {d[0]:.0f}{{ \\text{{ ft}}}}}}$     
-        ${{\hspace{{4mm}} r_y = d_1 = {d[3]:.0f}{{ \\text{{ ft}}}}}}$     
-        ${{\hspace{{4mm}} r_z = - d_3 = {-d[6]:.0f}{{ \\text{{ ft}}}}}}$         
+        ${{\hspace{{4mm}} r_x = d_2 = {d[0]:.0f}{{ \\text{{ m}}}}}}$     
+        ${{\hspace{{4mm}} r_y = d_1 = {d[3]:.0f}{{ \\text{{ m}}}}}}$     
+        ${{\hspace{{4mm}} r_z = - d_3 = {-d[6]:.0f}{{ \\text{{ m}}}}}}$         
 
         $\\textbf{{\\small 2. Expresión de ecuaciones de la componentes de momento: }}$ 
 
@@ -4049,17 +4049,17 @@ preguntas = [
         
         $\\underline{{Despejar \\text{{ }} F_x \\text{{ }} de \\text{{ }} la \\text{{ }} ecuación \\text{{ }} 2:}}$       
        
-        ${{\hspace{{4mm}} {-m[1]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}} = - ({d[0]:.0f}{{ \\text{{ ft}}}} \\cdot ( {-f[2]:.0f} ){{ \\text{{ lb}}}} - ({-d[6]:.0f}{{ \\text{{ ft}}}}) \\cdot F_x )}}$       
-        ${{\hspace{{4mm}} {m[1]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}} + {d[0]*f[2]:.0f}{{ \\text{{ ft}}}} \\cdot \\text{{ lb}} = {d[6]:.0f}{{ \\text{{ ft}}}} \\cdot F_x}}$       
-        ${{\hspace{{4mm}} F_x = \\dfrac{{{m[1]+d[0]*f[2]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}{{( {d[6]:.0f} ){{ \\text{{ ft}}}}}}}}$      
-        ${{\hspace{{4mm}} F_x = {(m[1]+d[0]*f[2])/(d[6]):.2f}{{\\text{{ lb}}}}}}$     
+        ${{\hspace{{4mm}} {-m[1]:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}} = - ({d[0]:.0f}{{ \\text{{ m}}}} \\cdot ( {-f[2]:.0f} ){{ \\text{{ kN}}}} - ({-d[6]:.0f}{{ \\text{{ m}}}}) \\cdot F_x )}}$       
+        ${{\hspace{{4mm}} {m[1]:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}} + {d[0]*f[2]:.0f}{{ \\text{{ m}}}} \\cdot \\text{{ kN}} = {d[6]:.0f}{{ \\text{{ m}}}} \\cdot F_x}}$       
+        ${{\hspace{{4mm}} F_x = \\dfrac{{{m[1]+d[0]*f[2]:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}{{( {d[6]:.0f} ){{ \\text{{ m}}}}}}}}$      
+        ${{\hspace{{4mm}} F_x = {(m[1]+d[0]*f[2])/(d[6]):.2f}{{\\text{{ kN}}}}}}$     
         
         $\\underline{{Despejar \\text{{ }} F_y \\text{{ }} de \\text{{ }} la \\text{{ }} ecuación \\text{{ }} 1:}}$        
         
-        ${{\hspace{{4mm}} {-m[0]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}} = {d[3]:.0f}{{ \\text{{ ft}}}} \\cdot ( {-f[2]:.0f} ){{ \\text{{ lb}}}} - ( {-d[6]:.0f}{{ \\text{{ ft}}}}) \\cdot F_y}}$       
-        ${{\hspace{{4mm}} {-m[0]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}} +  {d[3]*f[2]:.0f} {{\\text{{ lb}} \\cdot \\text{{ ft}}}} = {d[6]:.0f}{{ \\text{{ ft}}}} \\cdot F_y}}$       
-        ${{\hspace{{4mm}} F_y = \\dfrac{{{-m[0]+d[3]*f[2]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}{{( {d[6]:.0f} ){{ \\text{{ ft}}}}}}}}$      
-        ${{\hspace{{4mm}} F_y = {(-m[0]+d[3]*f[2])/(d[6]):.2f}{{\\text{{ lb}}}} }}$     
+        ${{\hspace{{4mm}} {-m[0]:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}} = {d[3]:.0f}{{ \\text{{ m}}}} \\cdot ( {-f[2]:.0f} ){{ \\text{{ kN}}}} - ( {-d[6]:.0f}{{ \\text{{ m}}}}) \\cdot F_y}}$       
+        ${{\hspace{{4mm}} {-m[0]:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}} +  {d[3]*f[2]:.0f} {{\\text{{ kN}} \\cdot \\text{{ m}}}} = {d[6]:.0f}{{ \\text{{ m}}}} \\cdot F_y}}$       
+        ${{\hspace{{4mm}} F_y = \\dfrac{{{-m[0]+d[3]*f[2]:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}{{( {d[6]:.0f} ){{ \\text{{ m}}}}}}}}$      
+        ${{\hspace{{4mm}} F_y = {(-m[0]+d[3]*f[2])/(d[6]):.2f}{{\\text{{ kN}}}} }}$     
         """,
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
@@ -4072,10 +4072,10 @@ preguntas = [
         topic = MO,
         subtopic = M3D,
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de los momentos en el punto $A$ generados por las fuerzas $F_1$ y $F_2$. Considere $F_1 = [ {f[0]:.0f}\\hat{{i}} + {f[1]:.0f} \\hat{{j}} + ( {-f[2]:.0f} ) \\hat{{k}} ] \\text{{ lb}}$, $F_2 = [ {-f[3]:.0f}\\hat{{i}} + {f[4]:.0f} \\hat{{j}} + ( {f[5]:.0f} ) \\hat{{k}} ] \\text{{ lb}}$, $d_1 = {d[3]:.0f} \\text{{ ft}}$,  $d_2 = {d[0]:.0f}  \\text{{ ft}}$ y $d_3 = {d[6]:.0f} \\text{{ ft}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de los momentos en el punto $A$ generados por las fuerzas $F_1$ y $F_2$. Considere $F_1 = [ {f[0]:.0f}\\hat{{i}} + {f[1]:.0f} \\hat{{j}} + ( {-f[2]:.0f} ) \\hat{{k}} ] \\text{{ kN}}$, $F_2 = [ {-f[3]:.0f}\\hat{{i}} + {f[4]:.0f} \\hat{{j}} + ( {f[5]:.0f} ) \\hat{{k}} ] \\text{{ kN}}$, $d_1 = {d[3]:.0f} \\text{{ m}}$,  $d_2 = {d[0]:.0f}  \\text{{ m}}$ y $d_3 = {d[6]:.0f} \\text{{ m}}$.",
         no_answers = 2,
-        a1_name = "Momento en A causado por $F_1$ [$lb \\cdot ft$]",
-        a2_name = "Momento en A causado por $F_2$ [$lb \\cdot ft$]",
+        a1_name = "Momento en A causado por $F_1$ [$kN \\cdot m$]",
+        a2_name = "Momento en A causado por $F_2$ [$kN \\cdot m$]",
         a3_name = "",
         answer1 = lambda f, a, calc, c, d, m: np.round(Calculations.magnitude3D(d[6]*f[1],-d[6]*f[0],0),2),
         answer2 = lambda f, a, calc, c, d, m: np.round(Calculations.magnitude3D(0,-d[0]*f[5],-d[0]*f[4]),2),
@@ -4090,15 +4090,15 @@ preguntas = [
         
         $\\underline{{Vector \\text{{ }} Posición \\text{{ }} r_1 \\text{{ }} asociado \\text{{ }} a \\text{{ }} la \\text{{ }} fuerza \\text{{ }} F_1: }}$         
         
-        ${{\hspace{{4mm}} r_{{1x}} = 0 {{ \\text{{ ft}}}}}}$     
-        ${{\hspace{{4mm}} r_{{1y}} = 0 {{ \\text{{ ft}}}}}}$     
-        ${{\hspace{{4mm}} r_{{1z}} = - d_3 = {-d[6]:.0f}{{ \\text{{ ft}}}}}}$        
+        ${{\hspace{{4mm}} r_{{1x}} = 0 {{ \\text{{ m}}}}}}$     
+        ${{\hspace{{4mm}} r_{{1y}} = 0 {{ \\text{{ m}}}}}}$     
+        ${{\hspace{{4mm}} r_{{1z}} = - d_3 = {-d[6]:.0f}{{ \\text{{ m}}}}}}$        
         
         $\\underline{{Vector \\text{{ }} Posición \\text{{ }} r2 \\text{{ }} asociado \\text{{ }} a \\text{{ }} la \\text{{ }} fuerza \\text{{ }} F_2: }}$
         
-        ${{\hspace{{4mm}} r_{{2x}} = - d_2 = {-d[0]:.0f}{{ \\text{{ ft}}}}}}$     
-        ${{\hspace{{4mm}} r_{{2y}} = 0 {{ \\text{{ ft}}}}}}$     
-        ${{\hspace{{4mm}} r_{{2z}} = 0 {{ \\text{{ ft}}}}}}$       
+        ${{\hspace{{4mm}} r_{{2x}} = - d_2 = {-d[0]:.0f}{{ \\text{{ m}}}}}}$     
+        ${{\hspace{{4mm}} r_{{2y}} = 0 {{ \\text{{ m}}}}}}$     
+        ${{\hspace{{4mm}} r_{{2z}} = 0 {{ \\text{{ m}}}}}}$       
 
         $\\textbf{{\\small 2. Calculo del momento en A de F1: }}$  
         
@@ -4106,27 +4106,27 @@ preguntas = [
         
         Aplicando el producto cruz, la componente $\\hat{{i}}$ del momento se puede calcular como:
         
-        ${{\hspace{{4mm}} M_{{1i}} = r_y \\cdot F_z - r_z \\cdot F_y = 0 {{ \\text{{ ft}}}} \\cdot ( {-f[2]:.0f} ){{ \\text{{ lb}}}} - ( {-d[6]:.0f}{{ \\text{{ ft}}}} ) \\cdot {f[1]:.0f}{{ \\text{{ lb}}}}}}$          
-        ${{\hspace{{4mm}} M_{{1i}} = {d[6]*f[1]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$       
+        ${{\hspace{{4mm}} M_{{1i}} = r_y \\cdot F_z - r_z \\cdot F_y = 0 {{ \\text{{ m}}}} \\cdot ( {-f[2]:.0f} ){{ \\text{{ kN}}}} - ( {-d[6]:.0f}{{ \\text{{ m}}}} ) \\cdot {f[1]:.0f}{{ \\text{{ kN}}}}}}$          
+        ${{\hspace{{4mm}} M_{{1i}} = {d[6]*f[1]:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}$       
         
         $\\underline{{Componente \\text{{ }} \\hat{{j}} :}}$
         
         Aplicando el producto cruz, la componente $\\hat{{j}}$ del momento se puede calcular como:
         
-        ${{\hspace{{4mm}} M_{{1j}} = - ( r_x \\cdot F_z - r_z \\cdot F_x ) = -( 0 {{ \\text{{ ft}}}} \\cdot ( {-f[2]:.0f} ){{ \\text{{ lb}}}} - ( {-d[6]:.0f}{{ \\text{{ ft}}}} ) \\cdot {f[0]:.0f}{{ \\text{{ lb}}}} )}}$           
-        ${{\hspace{{4mm}} M_{{1j}} = {-d[6]*f[0]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$      
+        ${{\hspace{{4mm}} M_{{1j}} = - ( r_x \\cdot F_z - r_z \\cdot F_x ) = -( 0 {{ \\text{{ m}}}} \\cdot ( {-f[2]:.0f} ){{ \\text{{ kN}}}} - ( {-d[6]:.0f}{{ \\text{{ m}}}} ) \\cdot {f[0]:.0f}{{ \\text{{ kN}}}} )}}$           
+        ${{\hspace{{4mm}} M_{{1j}} = {-d[6]*f[0]:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}$      
         
         $\\underline{{Componente \\text{{ }} \\hat{{k}} :}}$
         
         Aplicando el producto cruz, la componente $\\hat{{k}}$ del momento se puede calcular como:
         
-        ${{\hspace{{4mm}} M_{{1k}} =  r_x \\cdot F_y - r_y \\cdot F_x  = 0 {{ \\text{{ ft}}}} \\cdot {f[1]:.0f} {{ \\text{{ lb}}}} - 0 {{ \\text{{ ft}}}} \\cdot {f[0]:.0f}{{ \\text{{ lb}}}}}}$         
-        ${{\hspace{{4mm}} M_{{1k}} = 0 {{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$     
+        ${{\hspace{{4mm}} M_{{1k}} =  r_x \\cdot F_y - r_y \\cdot F_x  = 0 {{ \\text{{ m}}}} \\cdot {f[1]:.0f} {{ \\text{{ kN}}}} - 0 {{ \\text{{ m}}}} \\cdot {f[0]:.0f}{{ \\text{{ kN}}}}}}$         
+        ${{\hspace{{4mm}} M_{{1k}} = 0 {{\\text{{ kN}} \\cdot \\text{{ m}}}}}}$     
         
         $\\underline{{Magnitud \\text{{ }} del \\text{{ }} momento \\text{{ }} causado \\text{{ }} por \\text{{ }} F_1:}}$
         
-        ${{\hspace{{4mm}} |M_1| = \\sqrt{{ ({d[6]*f[1]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}})^{{2}} + ({-d[6]*f[0]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}})^{{2}} }} }}$     
-        ${{\hspace{{4mm}} |M_1| = {Calculations.magnitude3D(d[6]*f[1],-d[6]*f[0],0):.2f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$     
+        ${{\hspace{{4mm}} |M_1| = \\sqrt{{ ({d[6]*f[1]:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}})^{{2}} + ({-d[6]*f[0]:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}})^{{2}} }} }}$     
+        ${{\hspace{{4mm}} |M_1| = {Calculations.magnitude3D(d[6]*f[1],-d[6]*f[0],0):.2f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}$     
         
         $\\textbf{{\\small 3. Calculo del momento en A de F2: }}$  
         
@@ -4134,27 +4134,27 @@ preguntas = [
         
         Aplicando el producto cruz, la componente $\\hat{{i}}$ del momento se puede calcular como:
         
-        ${{\hspace{{4mm}} M_{{2i}} = r_y \\cdot F_z - r_z \\cdot F_y = 0 {{ \\text{{ ft}}}} \\cdot ( {f[5]:.0f} ){{ \\text{{ lb}}}} - 0 \\cdot {f[4]:.0f}{{ \\text{{ lb}}}}}}$          
-        ${{\hspace{{4mm}} M_{{2i}} = 0 {{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$       
+        ${{\hspace{{4mm}} M_{{2i}} = r_y \\cdot F_z - r_z \\cdot F_y = 0 {{ \\text{{ m}}}} \\cdot ( {f[5]:.0f} ){{ \\text{{ kN}}}} - 0 \\cdot {f[4]:.0f}{{ \\text{{ kN}}}}}}$          
+        ${{\hspace{{4mm}} M_{{2i}} = 0 {{\\text{{ kN}} \\cdot \\text{{ m}}}}}}$       
         
         $\\underline{{Componente \\text{{ }} \\hat{{j}} :}}$
         
         Aplicando el producto cruz, la componente $\\hat{{j}}$ del momento se puede calcular como:
         
-        ${{\hspace{{4mm}} M_{{2j}} = - ( r_x \\cdot F_z - r_z \\cdot F_x ) = -( {-d[0]:.0f} {{ \\text{{ ft}}}} \\cdot ( {f[5]:.0f} ){{ \\text{{ lb}}}} - 0 {{ \\text{{ ft}}}} \\cdot ( {-f[3]:.0f}{{ \\text{{ lb}}}} ) )}}$           
-        ${{\hspace{{4mm}} M_{{2j}} = {d[0]*f[5]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$      
+        ${{\hspace{{4mm}} M_{{2j}} = - ( r_x \\cdot F_z - r_z \\cdot F_x ) = -( {-d[0]:.0f} {{ \\text{{ m}}}} \\cdot ( {f[5]:.0f} ){{ \\text{{ kN}}}} - 0 {{ \\text{{ m}}}} \\cdot ( {-f[3]:.0f}{{ \\text{{ kN}}}} ) )}}$           
+        ${{\hspace{{4mm}} M_{{2j}} = {d[0]*f[5]:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}$      
         
         $\\underline{{Componente \\text{{ }} \\hat{{k}} :}}$
         
         Aplicando el producto cruz, la componente $\\hat{{k}}$ del momento se puede calcular como:
         
-        ${{\hspace{{4mm}} M_{{2k}} =  r_x \\cdot F_y - r_y \\cdot F_x  = {-d[0]:.0f} {{ \\text{{ ft}}}} \\cdot {f[4]:.0f} {{ \\text{{ lb}}}} - 0 {{ \\text{{ ft}}}} \\cdot ( {-f[3]:.0f}{{ \\text{{ lb}}}} )}}$    
-        ${{\hspace{{4mm}} M_{{2k}} = {-d[0]*f[4]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$     
+        ${{\hspace{{4mm}} M_{{2k}} =  r_x \\cdot F_y - r_y \\cdot F_x  = {-d[0]:.0f} {{ \\text{{ m}}}} \\cdot {f[4]:.0f} {{ \\text{{ kN}}}} - 0 {{ \\text{{ m}}}} \\cdot ( {-f[3]:.0f}{{ \\text{{ kN}}}} )}}$    
+        ${{\hspace{{4mm}} M_{{2k}} = {-d[0]*f[4]:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}$     
         
         $\\underline{{Magnitud \\text{{ }} del \\text{{ }} momento \\text{{ }} causado \\text{{ }} por \\text{{ }} F_2:}}$
         
-        ${{\hspace{{4mm}} |M_2| = \\sqrt{{ ({d[0]*f[5]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}})^{{2}} + ({-d[0]*f[4]:.0f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}})^{{2}} }} }}$               
-        ${{\hspace{{4mm}} |M_2| = {Calculations.magnitude3D(0,d[0]*f[5],d[0]*f[4]):.2f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}} }}$       
+        ${{\hspace{{4mm}} |M_2| = \\sqrt{{ ({d[0]*f[5]:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}})^{{2}} + ({-d[0]*f[4]:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}})^{{2}} }} }}$               
+        ${{\hspace{{4mm}} |M_2| = {Calculations.magnitude3D(0,d[0]*f[5],d[0]*f[4]):.2f}{{\\text{{ kN}} \\cdot \\text{{ m}}}} }}$       
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
@@ -4602,9 +4602,9 @@ preguntas = [
         topic = MO,
         subtopic = "Momento alrededor de un eje",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine el momento generado por $|\\vec{{F}}| = {f[0]:.0f} \\text{{ lb}}$ alrededor de la línea que une los puntos $B$ y $A$, teniendo en cuenta que $d_0 = {d[0]:.0f} \\text{{ ft}}, d_1 = {d[6]:.0f} \\text{{ ft}}, d_2 = {d[3]+4:.0f} \\text{{ ft}}, d_3 = {d[6]+3:.0f} \\text{{ ft}}, d_4 = {d[3]:.0f} \\text{{ ft}}$ y que el vector $\\vec{{F}}$ se dirige en la dirección negativa de $X$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine el momento generado por $|\\vec{{F}}| = {f[0]:.0f} \\text{{ kN}}$ alrededor de la línea que une los puntos $B$ y $A$, teniendo en cuenta que $d_0 = {d[0]:.0f} \\text{{ m}}, d_1 = {d[6]:.0f} \\text{{ m}}, d_2 = {d[3]+4:.0f} \\text{{ m}}, d_3 = {d[6]+3:.0f} \\text{{ m}}, d_4 = {d[3]:.0f} \\text{{ m}}$ y que el vector $\\vec{{F}}$ se dirige en la dirección negativa de $X$.",
         no_answers = 1,
-        a1_name = "Momento alrededor de $BA$, $M_{BA} [lb \\cdot ft]$:",
+        a1_name = "Momento alrededor de $BA$, $M_{BA} [kN \\cdot m]$:",
         a2_name = "",
         a3_name = "",
         answer1 = lambda f, a, calc, c, d, m: np.round(f[0]*((d[3]+4)-(d[3]))*(d[6]/Calculations.magnitude(d[0],d[6])),2),
@@ -4618,13 +4618,13 @@ preguntas = [
         
         $\\textbf{{\\small 1. Determinación del vector posición asociado a la fuerza y la fuerza: }}$ 
 
-        ${{\hspace{{4mm}} \\vec{{r}} = [0\\hat{{i}}+(x_2 - x_4)\\hat{{j}}+x_3\\hat{{ k}}] \\text{{ ft}} }}$       
-        ${{\hspace{{4mm}} \\vec{{r}} = [0\\hat{{i}}+{d[3]+4 - (d[3])}\\hat{{j}}+{d[6]+3:.0f}\\hat{{k}}] \\text{{ ft}} }}$      
-        ${{\hspace{{4mm}} \\vec{{F}} = [{-1*f[0]:.0f}\\hat{{i}}+0\\hat{{j}}+0\\hat{{k}}] \\text{{ lb}}}}$    
+        ${{\hspace{{4mm}} \\vec{{r}} = [0\\hat{{i}}+(x_2 - x_4)\\hat{{j}}+x_3\\hat{{ k}}] \\text{{ m}} }}$       
+        ${{\hspace{{4mm}} \\vec{{r}} = [0\\hat{{i}}+{d[3]+4 - (d[3])}\\hat{{j}}+{d[6]+3:.0f}\\hat{{k}}] \\text{{ m}} }}$      
+        ${{\hspace{{4mm}} \\vec{{F}} = [{-1*f[0]:.0f}\\hat{{i}}+0\\hat{{j}}+0\\hat{{k}}] \\text{{ kN}}}}$    
         
         $\\textbf{{\\small 2. Cálculo de Momento con respecto al punto B - Producto Cruz: }}$      
-        ${{\hspace{{4mm}} \\vec{{M_B}} = (0\\hat{{i}}-{f[0]}*{d[6]+3}\\hat{{j}}+{f[0]}*{(d[3]+4 - (d[3]))}\\hat{{k}})[lb \\cdot ft]}}$      
-        ${{\hspace{{4mm}} \\vec{{M_B}} = (0\\hat{{i}}-{f[0]*(d[6]+3)}\\hat{{j}}+{f[0]*(d[3]+4 - (d[3]))}\\hat{{k}})[lb \\cdot ft]}}$
+        ${{\hspace{{4mm}} \\vec{{M_B}} = (0\\hat{{i}}-{f[0]}*{d[6]+3}\\hat{{j}}+{f[0]}*{(d[3]+4 - (d[3]))}\\hat{{k}})[kN \\cdot m]}}$      
+        ${{\hspace{{4mm}} \\vec{{M_B}} = (0\\hat{{i}}-{f[0]*(d[6]+3)}\\hat{{j}}+{f[0]*(d[3]+4 - (d[3]))}\\hat{{k}})[kN \\cdot m]}}$
         
         $\\textbf{{\\small 3. Cálculo del vector unitario de la línea BA:}}$      
         ${{\hspace{{4mm}} \\vec{{BA}} = {d[0]:.0f}\\hat{{i}} + 0\\hat{{j}} + {d[6]:.0f}\\hat{{k}} }}$      
@@ -4632,8 +4632,8 @@ preguntas = [
         ${{\hspace{{4mm}} \\vec{{\\lambda_{{BA}} }} = {(d[0])/Calculations.magnitude(d[0],d[6]):.2f}\\hat{{i}} + 0\\hat{{j}} + {(d[6])/Calculations.magnitude(d[0],d[6]):.2f}\\hat{{k}}}}$    
         
          $\\textbf{{\\small 4. Momento alrededor de BA - Producto punto: }}$      
-        ${{\hspace{{4mm}} \\vec{{M_B}} \\cdot \\vec{{\\lambda_{{BA}}}} = [(0\\hat{{i}}-{f[0]*(d[6]+3)}\\hat{{j}}+{f[0]*(d[3]+4 - (d[3]))}\\hat{{k}}) \\cdot ({(d[0])/Calculations.magnitude(d[0],d[6]):.2f}\\hat{{i}} + 0\\hat{{j}} + {(d[6])/Calculations.magnitude(d[0],d[6]):.2f}\\hat{{k}})] lb \\cdot ft}}$      
-        ${{\hspace{{4mm}} \\vec{{M_B}} \\cdot \\vec{{\\lambda_{{BA}}}} = {f[0]*((d[3]+4)-(d[3]))*(d[6]/Calculations.magnitude(d[0],d[6])):.2f}lb \\cdot ft}}$
+        ${{\hspace{{4mm}} \\vec{{M_B}} \\cdot \\vec{{\\lambda_{{BA}}}} = [(0\\hat{{i}}-{f[0]*(d[6]+3)}\\hat{{j}}+{f[0]*(d[3]+4 - (d[3]))}\\hat{{k}}) \\cdot ({(d[0])/Calculations.magnitude(d[0],d[6]):.2f}\\hat{{i}} + 0\\hat{{j}} + {(d[6])/Calculations.magnitude(d[0],d[6]):.2f}\\hat{{k}})] kN \\cdot m}}$      
+        ${{\hspace{{4mm}} \\vec{{M_B}} \\cdot \\vec{{\\lambda_{{BA}}}} = {f[0]*((d[3]+4)-(d[3]))*(d[6]/Calculations.magnitude(d[0],d[6])):.2f}kN \\cdot m}}$
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
@@ -4688,10 +4688,10 @@ preguntas = [
         topic = MO,
         subtopic = "Momento alrededor de un eje",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Considere la fuerza $F = {f[0]:.0f} \\text{{ lb}}$ paralela al eje $z$. Calcule el momento alrededor del punto $O$ y determine la componente del momento que va en la misma dirección del elemento $OA$, utilizando: $x_1 = {d[0]:.0f} \\text{{ ft}}$, $z_1 = {d[3]:.0f} \\text{{ ft}}$, $x_2 = {d[0]+3:.0f} \\text{{ ft}}$, $y_2 = {d[3]-1:.0f} \\text{{ ft}}$, $z_2 = {d[6]:.0f} \\text{{ ft}}$",
+        pregunta = lambda f, a, calc, c, d, m: f"Considere la fuerza $F = {f[0]:.0f} \\text{{ kN}}$ paralela al eje $z$. Calcule el momento alrededor del punto $O$ y determine la componente del momento que va en la misma dirección del elemento $OA$, utilizando: $x_1 = {d[0]:.0f} \\text{{ m}}$, $z_1 = {d[3]:.0f} \\text{{ m}}$, $x_2 = {d[0]+3:.0f} \\text{{ m}}$, $y_2 = {d[3]-1:.0f} \\text{{ m}}$, $z_2 = {d[6]:.0f} \\text{{ m}}$",
         no_answers = 2,
-        a1_name = "Momento alrededor del punto $O$ [$lb \\cdot ft$]",
-        a2_name = "Momento en el elemento $OA$ [$lb \\cdot ft$]",
+        a1_name = "Momento alrededor del punto $O$ [$kN \\cdot m$]",
+        a2_name = "Momento en el elemento $OA$ [$kN \\cdot m$]",
         a3_name = "",
         answer1 = lambda f, a, calc, c, d, m: np.round(Calculations.magnitude((d[3]-1)*f[0],(d[0]+3)*f[0]),2),
         answer2 = lambda f, a, calc, c, d, m: np.round(((d[3]-1)*f[0])*d[0]/Calculations.magnitude(d[0],d[3]),2),
@@ -4704,23 +4704,23 @@ preguntas = [
 
         $\\textbf{{\\small 1. Identificación de vectores:}}$ 
         
-        ${{\hspace{{4mm}} \\vec{{F}} = [0\\hat{{i}} + 0\\hat{{j}} + {f[0]}\\hat{{k}}] lb}}$       
-        ${{\hspace{{4mm}} \\vec{{OA}} = [{d[0]}\\hat{{i}} + 0\\hat{{j}} + {d[3]}\\hat{{k}}] ft}}$        
-        ${{\hspace{{4mm}} \\vec{{OB}} = \\vec{{r}} = [{d[0]+3}\\hat{{i}} + {d[3]-1}\\hat{{j}} + {d[6]}\\hat{{k}}] ft}}$      
+        ${{\hspace{{4mm}} \\vec{{F}} = [0\\hat{{i}} + 0\\hat{{j}} + {f[0]}\\hat{{k}}] kN}}$       
+        ${{\hspace{{4mm}} \\vec{{OA}} = [{d[0]}\\hat{{i}} + 0\\hat{{j}} + {d[3]}\\hat{{k}}] m}}$        
+        ${{\hspace{{4mm}} \\vec{{OB}} = \\vec{{r}} = [{d[0]+3}\\hat{{i}} + {d[3]-1}\\hat{{j}} + {d[6]}\\hat{{k}}] m}}$      
 
         $\\textbf{{\\small 2. Momento con respecto al punto O:}}$    
 
         Haciendo el producto cruz entre $\\vec{{OB}}$ y $\\vec{{F}}$.
 
-        ${{\hspace{{4mm}} \\vec{{M_O}} = [{(d[3]-1)*f[0]}\\hat{{i}} - {(d[0]+3)*f[0]}\\hat{{j}} + 0\\hat{{k}}] lb \\cdot ft }}$    
-        ${{\hspace{{4mm}} |\\vec{{M_O}}| = {Calculations.magnitude((d[3]-1)*f[0],(d[0]+3)*f[0]):.2f} lb \\cdot ft}}$    
+        ${{\hspace{{4mm}} \\vec{{M_O}} = [{(d[3]-1)*f[0]}\\hat{{i}} - {(d[0]+3)*f[0]}\\hat{{j}} + 0\\hat{{k}}] kN \\cdot m }}$    
+        ${{\hspace{{4mm}} |\\vec{{M_O}}| = {Calculations.magnitude((d[3]-1)*f[0],(d[0]+3)*f[0]):.2f} kN \\cdot m}}$    
 
         $\\textbf{{\\small 3. Vector Unitario y Momento con respecto al elemento OA:}}$ 
 
         A partir del vector $OA$, se obtiene el vector unitario que indica la dirección del elemento. Este vector unitario es utilizado para proyectar el vector momento $\\vec{{M_O}}$ sobre el elemento $OA$.
        
-        ${{\hspace{{4mm}} \\vec{{\\lambda_{{OA}}}} = [{d[0]/Calculations.magnitude(d[0],d[3]):.2f}\\hat{{i}} + 0\\hat{{j}} + {d[3]/Calculations.magnitude(d[0],d[3]):.2f}\\hat{{k}}] lb \\cdot ft}}$     
-        ${{\hspace{{4mm}} |\\vec{{M_{{OA}}}}| = \\vec{{M_O}} \\cdot \\vec{{\\lambda_{{OA}}}}= {((d[3]-1)*f[0])*d[0]/Calculations.magnitude(d[0],d[3]):.2f} lb \\cdot ft}}$      
+        ${{\hspace{{4mm}} \\vec{{\\lambda_{{OA}}}} = [{d[0]/Calculations.magnitude(d[0],d[3]):.2f}\\hat{{i}} + 0\\hat{{j}} + {d[3]/Calculations.magnitude(d[0],d[3]):.2f}\\hat{{k}}] kN \\cdot m}}$     
+        ${{\hspace{{4mm}} |\\vec{{M_{{OA}}}}| = \\vec{{M_O}} \\cdot \\vec{{\\lambda_{{OA}}}}= {((d[3]-1)*f[0])*d[0]/Calculations.magnitude(d[0],d[3]):.2f} kN \\cdot m}}$      
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
@@ -4918,9 +4918,9 @@ preguntas = [
     #     topic = MO,
     #     subtopic = "Momento alrededor de un eje",
     #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Calcule el momento alrededor del eje $x$ generado por las fuerzas ejercidas por el bloque de concreto: $F_1 = {f[0]:.0f} \\text{{ lb}}$, $F_2 = {f[1]:.0f} \\text{{ lb}}$ y su peso propio $W = {f[2]:.0f} \\text{{ lb}}$. La fuerza $F_1$ es paralela al eje $z$ y está aplicada en el centro de la cara frontal del bloque, mientras que la fuerza $F_2$ es paralela al eje $x$ y actúa en la parte superior, en el centro, como se muestra en la figura. Considere que $d_0 ={d[0]:.0f} \\text{{ ft}}$, $d_1 ={d[3]:.0f} \\text{{ ft}}$, $d_2 ={d[6]:.0f} \\text{{ ft}}$, $\\theta = {a[0]:.0f}°$ y $\\phi = {a[4]:.0f}°$.",
+    #     pregunta = lambda f, a, calc, c, d, m: f"Calcule el momento alrededor del eje $x$ generado por las fuerzas ejercidas por el bloque de concreto: $F_1 = {f[0]:.0f} \\text{{ kN}}$, $F_2 = {f[1]:.0f} \\text{{ kN}}$ y su peso propio $W = {f[2]:.0f} \\text{{ kN}}$. La fuerza $F_1$ es paralela al eje $z$ y está aplicada en el centro de la cara frontal del bloque, mientras que la fuerza $F_2$ es paralela al eje $x$ y actúa en la parte superior, en el centro, como se muestra en la figura. Considere que $d_0 ={d[0]:.0f} \\text{{ m}}$, $d_1 ={d[3]:.0f} \\text{{ m}}$, $d_2 ={d[6]:.0f} \\text{{ m}}$, $\\theta = {a[0]:.0f}°$ y $\\phi = {a[4]:.0f}°$.",
     #     no_answers = 1,
-    #     a1_name = "Momento sobre el eje $x$ $[lb \\cdot ft]$",
+    #     a1_name = "Momento sobre el eje $x$ $[kN \\cdot m]$",
     #     a2_name = "",
     #     a3_name = "",
     #     answer1 = lambda f, a, calc, c, d, m: np.round(-1*f[0]*Calculations.cosine(a[0])*(d[3]/2)-f[0]*Calculations.sine(a[0])*(d[0]/2),2),
@@ -5233,11 +5233,11 @@ preguntas = [
         topic = "Armaduras",
         subtopic = "Cerchas",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine las reacciones en los apoyos A y D (Indique el signo de la dirección de las fuerzas). Considere $F_1 = {f[0]:.0f} \\text{{ lb}}$, $F_2 = {f[1]:.0f} \\text{{ lb}}$,  $d_1 = {d[0]:.0f} \\text{{ ft}}$,  $d_2 = {d[3]:.0f}  \\text{{ ft}}$ y $d_3 = {d[6]:.0f} \\text{{ ft}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine las reacciones en los apoyos A y D (Indique el signo de la dirección de las fuerzas). Considere $F_1 = {f[0]:.0f} \\text{{ kN}}$, $F_2 = {f[1]:.0f} \\text{{ kN}}$,  $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$ y $d_3 = {d[6]:.0f} \\text{{ m}}$.",
         no_answers = 3,
-        a1_name = "Reacción $A_x$ [lb]",
-        a2_name = "Reacción $A_y$ [lb]",
-        a3_name = "Reacción $D_y$ [lb]",
+        a1_name = "Reacción $A_x$ [kN]",
+        a2_name = "Reacción $A_y$ [kN]",
+        a3_name = "Reacción $D_y$ [kN]",
         answer1 = lambda f, a, calc, c, d, m: np.round(0,2),
         answer2 = lambda f, a, calc, c, d, m: np.round(f[0] + f[1] - ((f[0]*d[0]+f[1]*(d[0] + d[3]))/(2*d[0] + d[3])),2),
         answer3 = lambda f, a, calc, c, d, m: np.round((f[0]*d[0]+f[1]*(d[0] + d[3]))/(2*d[0] + d[3]) , 2),
@@ -5260,18 +5260,18 @@ preguntas = [
         
         ${{\hspace{{4mm}} \\sum{{M_A}} = 0 }}$     
         ${{\hspace{{4mm}} \\sum{{M_A}} = - F_1 \\cdot d_1 - F_2 \\cdot (d_1 + d_2) + D_y \\cdot (2 \\cdot d_1 + d_2) = 0}}$     
-         ${{\hspace{{4mm}} \\sum{{M_A}} = - {f[0]:.0f} \\text{{ lb}} \\cdot {d[0]:.0f} \\text{{ ft}} - {f[1]:.0f} \\text{{ lb}} \\cdot {d[0] + d[3]:.0f} \\text{{ ft}} + D_y \\cdot {2*d[0] + d[3]:.0f} \\text{{ ft}} = 0}}$     
-        ${{\hspace{{4mm}} D_y \\cdot {2*d[0] + d[3]:.0f} \\text{{ ft}} = {f[0]*d[0]:.0f} \\text{{ lb}} \\cdot \\text{{ ft}} + {f[1]*(d[0] + d[3]):.0f} \\text{{ lb}} \\cdot \\text{{ ft}}}}$     
-        ${{\hspace{{4mm}} D_y = \\dfrac{{ {f[0]*d[0]+f[1]*(d[0] + d[3]):.0f} \\text{{ lb}} \\cdot \\text{{ ft}} }}{{ {2*d[0] + d[3]:.0f} \\text{{ ft}} }} }}$      
-        ${{\hspace{{4mm}} D_y = {(f[0]*d[0]+f[1]*(d[0] + d[3]))/(2*d[0] + d[3]):.2f} \\text{{ lb}} }}$     
+         ${{\hspace{{4mm}} \\sum{{M_A}} = - {f[0]:.0f} \\text{{ kN}} \\cdot {d[0]:.0f} \\text{{ m}} - {f[1]:.0f} \\text{{ kN}} \\cdot {d[0] + d[3]:.0f} \\text{{ m}} + D_y \\cdot {2*d[0] + d[3]:.0f} \\text{{ m}} = 0}}$     
+        ${{\hspace{{4mm}} D_y \\cdot {2*d[0] + d[3]:.0f} \\text{{ m}} = {f[0]*d[0]:.0f} \\text{{ kN}} \\cdot \\text{{ m}} + {f[1]*(d[0] + d[3]):.0f} \\text{{ kN}} \\cdot \\text{{ m}}}}$     
+        ${{\hspace{{4mm}} D_y = \\dfrac{{ {f[0]*d[0]+f[1]*(d[0] + d[3]):.0f} \\text{{ kN}} \\cdot \\text{{ m}} }}{{ {2*d[0] + d[3]:.0f} \\text{{ m}} }} }}$      
+        ${{\hspace{{4mm}} D_y = {(f[0]*d[0]+f[1]*(d[0] + d[3]))/(2*d[0] + d[3]):.2f} \\text{{ kN}} }}$     
         
         $\\textbf{{\\small 3. Condición de equilibrio - Sumatoria de fuerzas en Y: }}$
         
         ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$          
         ${{\hspace{{4mm}} \\sum{{F_y}} = A_y + D_y - F_1 - F_2 = 0}}$     
-        ${{\hspace{{4mm}} \\sum{{F_y}} = A_y +  {(f[0]*d[0]+f[1]*(d[0] + d[3]))/(2*d[0] + d[3]):.0f} \\text{{ lb}} - {f[0]:.0f} \\text{{ lb}}  - {f[1]:.0f} \\text{{ lb}} = 0}}$      
-        ${{\hspace{{4mm}} A_y = {f[0]:.0f} \\text{{ lb}}  + {f[1]:.0f} \\text{{ lb}} - {(f[0]*d[0]+f[1]*(d[0] + d[3]))/(2*d[0] + d[3]):.0f} \\text{{ lb}} }}$     
-        ${{\hspace{{4mm}} A_y = {f[0] + f[1] - ((f[0]*d[0]+f[1]*(d[0] + d[3]))/(2*d[0] + d[3])) :.2f} \\text{{ lb}} }}$   
+        ${{\hspace{{4mm}} \\sum{{F_y}} = A_y +  {(f[0]*d[0]+f[1]*(d[0] + d[3]))/(2*d[0] + d[3]):.0f} \\text{{ kN}} - {f[0]:.0f} \\text{{ kN}}  - {f[1]:.0f} \\text{{ kN}} = 0}}$      
+        ${{\hspace{{4mm}} A_y = {f[0]:.0f} \\text{{ kN}}  + {f[1]:.0f} \\text{{ kN}} - {(f[0]*d[0]+f[1]*(d[0] + d[3]))/(2*d[0] + d[3]):.0f} \\text{{ kN}} }}$     
+        ${{\hspace{{4mm}} A_y = {f[0] + f[1] - ((f[0]*d[0]+f[1]*(d[0] + d[3]))/(2*d[0] + d[3])) :.2f} \\text{{ kN}} }}$   
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
