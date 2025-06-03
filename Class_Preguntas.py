@@ -3597,8 +3597,8 @@ preguntas = [
         answer1 = lambda f, a, calc, c, d, m: np.round((d[0]*m[3]-d[3]*m[0]) + (d[6]*m[1]-d[9]*m[4]),2),
         answer2 = lambda f, a, calc, c, d, m: 0,
         answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = "El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. El vector posición $\\overrightarrow{{r}} se calcula desde el punto en el que se evalúa el momento a la línea de acción de la fuerza.",
-        ayuda2 = "Recordar que los signos de los componentes de r y F son importantes para determinar la dirección correcta del momento.",      
+        ayuda1 = MP1,
+        ayuda2 = MP5,      
         ayuda3 = "",
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
         El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. A continuación, se presenta la solución sugerida:  
@@ -3842,50 +3842,50 @@ preguntas = [
     #     calculos='operations'
     #     ),
 
-    # Questionary(#4_1
-    #     code = 2130041,
-    #     no_pregunta = 4,
-    #     complexity = D,
-    #     topic = MO,
-    #     subtopic = M2D,
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Calcule la componente en X de una fuerza $\\overrightarrow{{F_1}}$ que tiene como componente en Y, $\\overrightarrow{{F1_y}} = {c[3]:.0f}{{ \\text{{ kN}}}}$, sí la suma de momentos alrededor del origen $\\textit{{O}}$ debe ser igual a cero. Considere que la fuerza $F_1$ actua en un punto A con vector posición \\overrightarrow{{r_a}} = [ {d[2]:.0f}\\hat{{i}} + {(d[3]):.0f}\\hat{{j}} ]{{ \\text{{ m}}}}$ y existe una segunda fuerza $\\overrightarrow{{F_2}} = [ {c[4]:.0f}\\hat{{i}} + ( {c[1]:.0f} ) \\hat{{j}} ] {{ \\text{{ kN}}}}$ que actua en un punto B, con vector posición  $\\overrightarrow{{r_b}} = [( {d[8]:.0f} )\\hat{{i}} + {d[11]:.0f}\\hat{{j}} ]{{ \\text{{ m}}}}$.",
-    #     no_answers = 2,
-    #     a1_name = "Componente en X de $F_1$ [kN \\cdot m]",
-    #     a2_name = "",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round((d[2]*c[3] + d[8]*c[1] - d[11]*c[4])/(d[3]),2),
-    #     answer2 = lambda f, a, calc, c, d, m: 0,
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. El vector posición $\\overrightarrow{{r}} se calcula desde el punto en el que se evalúa el momento a la línea de acción de la fuerza.",
-    #     ayuda2 = "Recordar que los signos de los componentes de r y F son importantes para determinar la dirección correcta del momento.",      
-    #     ayuda3 = "",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. A continuación, se presenta la solución sugerida:  
+    Questionary(#4_1
+        code = 2130041,
+        no_pregunta = 4,
+        complexity = D,
+        topic = MO,
+        subtopic = M2D,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"La suma de momentos respecto al origen $\\textit{{O}}$ de las fuerzas $\\overrightarrow{{F_1}}$ y $\\overrightarrow{{F_2}}$ debe ser igual a cero. La fuerza $F_1$ actúa en el punto $A$, cuyo vector posición es $\\overrightarrow{{r_a}} = [ ({d[2]:.0f})\\hat{{i}} + ({(d[3]):.0f})\\hat{{j}} ]{{ \\text{{ m}}}}$ con respecto al origen. La fuerza $\\overrightarrow{{F_2}} = [ ({c[4]:.0f})\\hat{{i}} + ( {c[1]:.0f} ) \\hat{{j}} ] {{ \\text{{ kN}}}}$ actúa en el punto $B$, con vector posición $\\overrightarrow{{r_b}} = [( {d[8]:.0f} )\\hat{{i}} + ({d[11]:.0f})\\hat{{j}} ]{{ \\text{{ m}}}}$ con respecto al origen. Calcule la componente en $x$ de la fuerza $\\overrightarrow{{F_1}}$, sabiendo que su componente en $y$ es $\\overrightarrow{{F1_y}} = {c[3]:.0f}{{ \\text{{ kN}}}}$.",
+        no_answers = 1,
+        a1_name = "Componente en $x$ de $F_1$ $[kN \\cdot m]$",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round((d[2]*c[3] + d[8]*c[1] - d[11]*c[4])/(d[3]),2),
+        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = MP1,
+        ayuda2 = MP5,      
+        ayuda3 = "",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. A continuación, se presenta la solución sugerida:  
 
-    #     Para este ejercicio es necesario plantear la sumatoria de fuerzas igualda a cero, para finalizar despejando $\\overrightarrow{{F1_x}}$:
+        Se plantea la sumatoria de momentos respecto al origen $\\textit{{O}}$, igualada a cero y de esta ecuación se despeja $\\overrightarrow{{F1_x}}$:
         
-    #     $\\textbf{{\\small 1. Momento causado por \\overrightarrow{{F_1}}:}}$
+        $\\textbf{{\\small 1. Momento causado por la fuerza 1:}}$
         
-    #     ${{\hspace{{4mm}} M_1 = \\overrightarrow{{r_x}} \\cdot \\overrightarrow{{F1_y}} - \\overrightarrow{{r_y}} \\cdot \\overrightarrow{{F1_x}} = ( {d[2]:.0f}{{ \\text{{ m }}}} \\cdot {c[3]:.0f}{{ \\text{{ kN }}}} ) - ( {d[3]:.0f}{{ \\text{{ m }}}} \\cdot \\overrightarrow{{F1_x}} )}}$     
-    #     ${{\hspace{{4mm}} M_1 = {d[2]*c[3]:.2f}{{\\text{{ kN}} \\cdot\\text{{ m}}}} - ( {d[3]:.0f}{{ \\text{{ m }}}} \\cdot \\overrightarrow{{F1_x}} ) }}$    
+        ${{\hspace{{4mm}} M_1 = \\overrightarrow{{r_x}} \\cdot \\overrightarrow{{F1_y}} - \\overrightarrow{{r_y}} \\cdot \\overrightarrow{{F1_x}} = ( {d[2]:.0f}{{ \\text{{ m }}}} \\cdot {c[3]:.0f}{{ \\text{{ kN }}}} ) - ( {d[3]:.0f}{{ \\text{{ m }}}} \\cdot \\overrightarrow{{F1_x}} )}}$     
+        ${{\hspace{{4mm}} M_1 = {d[2]*c[3]:.2f}{{\\text{{ kN}} \\cdot\\text{{ m}}}} - ( {d[3]:.0f}{{ \\text{{ m }}}} \\cdot \\overrightarrow{{F1_x}} ) }}$    
         
-    #     $\\textbf{{\\small 2. Momento causado por \\overrightarrow{{F_2}}:}}$
+        $\\textbf{{\\small 2. Momento causado por la fuerza 2:}}$
         
-    #     ${{\hspace{{4mm}} M_2 = \\overrightarrow{{r_x}} \\cdot \\overrightarrow{{F2_y}} - \\overrightarrow{{r_y}} \\cdot \\overrightarrow{{F2_x}} = ( {d[8]:.0f}{{ \\text{{ m }}}}  \\cdot {c[1]:.0f}{{ \\text{{ kN }}}} )  - ( {d[11]:.0f}{{ \\text{{ m }}}} \\cdot {c[4]:.0f}{{ \\text{{ kN}}}} )}}$     
-    #     ${{\hspace{{4mm}} M_2 = {d[8]*c[1]-d[11]*c[4]:.2f}{{\\text{{ kN}} \\cdot\\text{{ m}}}}}}$
+        ${{\hspace{{4mm}} M_2 = \\overrightarrow{{r_x}} \\cdot \\overrightarrow{{F2_y}} - \\overrightarrow{{r_y}} \\cdot \\overrightarrow{{F2_x}} = ( {d[8]:.0f}{{ \\text{{ m }}}}  \\cdot {c[1]:.0f}{{ \\text{{ kN }}}} )  - ( {d[11]:.0f}{{ \\text{{ m }}}} \\cdot {c[4]:.0f}{{ \\text{{ kN}}}} )}}$     
+        ${{\hspace{{4mm}} M_2 = {d[8]*c[1]-d[11]*c[4]:.2f}{{\\text{{ kN}} \\cdot\\text{{ m}}}}}}$
         
-    #     $\\textbf{{\\small 3. Sumatoria de momentos:}}$ 
+        $\\textbf{{\\small 3. Sumatoria de momentos:}}$ 
         
-    #     ${{\hspace{{4mm}} M_O = M_1 + M_2 = ( {d[2]*c[3]:.2f}{{\\text{{ kN}} \\cdot\\text{{ m}}}} - ( {d[3]:.0f}{{ \\text{{ m }}}} \\cdot \\overrightarrow{{F1_x}} )  ) + ( {d[8]*c[1]-d[11]*c[4]:.2f}{{\\text{{ kN}} \\cdot\\text{{ m}}}} ) = 0 }}$      
-    #     ${{\hspace{{4mm}} ( {d[3]:.0f}{{ \\text{{ m }}}} \\cdot \\overrightarrow{{F1_x}} ) = ( {d[2]*c[3]:.2f}{{\\text{{ kN}} \\cdot\\text{{ m}}}} ) + ( {d[8]*c[1]-d[11]*c[4]:.2f}{{\\text{{ kN}} \\cdot\\text{{ m}}}} )}}$      
-    #     ${{\hspace{{4mm}} \\overrightarrow{{F1_x}} = \\dfrac{{{(d[2]*c[3] + d[8]*c[1] - d[11]*c[4]):.2f}{{\\text{{ kN}} \\cdot\\text{{ m}}}}}}{{{d[3]:.0f}{{ \\text{{ m }}}}}}}}$          
-    #     ${{\hspace{{4mm}} \\overrightarrow{{F1_x}} = {(d[2]*c[3] + d[7]*c[1] - d[11]*c[4])/(d[3]):.2f}{{ \\text{{ kN}}}}}}$
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
+        ${{\hspace{{4mm}} M_O = M_1 + M_2 = ( {d[2]*c[3]:.2f}{{\\text{{ kN}} \\cdot\\text{{ m}}}} - ( {d[3]:.0f}{{ \\text{{ m }}}} \\cdot \\overrightarrow{{F1_x}} )  ) + ( {d[8]*c[1]-d[11]*c[4]:.2f}{{\\text{{ kN}} \\cdot\\text{{ m}}}} ) = 0 }}$      
+        ${{\hspace{{4mm}} ( {d[3]:.0f}{{ \\text{{ m }}}} \\cdot \\overrightarrow{{F1_x}} ) = ( {d[2]*c[3]:.2f}{{\\text{{ kN}} \\cdot\\text{{ m}}}} ) + ( {d[8]*c[1]-d[11]*c[4]:.2f}{{\\text{{ kN}} \\cdot\\text{{ m}}}} )}}$      
+        ${{\hspace{{4mm}} \\overrightarrow{{F1_x}} = \\dfrac{{{(d[2]*c[3] + d[8]*c[1] - d[11]*c[4]):.2f}{{\\text{{ kN}} \\cdot\\text{{ m}}}}}}{{{d[3]:.0f}{{ \\text{{ m }}}}}}}}$          
+        ${{\hspace{{4mm}} \\overrightarrow{{F1_x}} = {(d[2]*c[3] + d[8]*c[1] - d[11]*c[4])/(d[3]):.2f}{{ \\text{{ kN}}}}}}$
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
 
 
     #========================================================  MOMENTO  =========================================================
