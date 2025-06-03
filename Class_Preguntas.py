@@ -6012,7 +6012,7 @@ preguntas = [
     #     topic = "Sistemas equivalentes",
     #     subtopic = "Sistemas equivalentes",
     #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de $F_1$ (Sin signo) y la coordenada en X de la fuerza resultante que reemplaza el sistema mostrado, si se sabe que debe estar ubicada sobre el tramo AB. Considere $M = {32+m[0]*(1/10):.2f} \\text{{ kN}} \\cdot \\text{{ m}}$, $F_2 = {79+m[1]*(1/5):.2f} \\text{{ kN}}$, $F_3 = {24+m[0]*(3/40):.2f} \\text{{ kN}}$, $F_4 = {119+m[2]*(1/5):.2f} \\text{{ kN}}$, $d_1 = {(31+d[0])/4:.2f} \\text{{ m}}$,  $d_2 = {d[3]:.2f} \\text{{ m}}$, $d_3 = {6+d[6]*(1/5):.2f} \\text{{ m}}, $d_4 = {(23+d[0])/4:.2f} \\text{{ m}}$, $d_5 = {(19+d[0])/4:.2f} \\text{{ m}}$, $\\alpha_1 = {72+d[9]*(2/5):.2f}°$ y $\\alpha_2 = {60+d[9]*(2/5):.2f}°$.",
+    #     pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de $F_1$ y la coordenada en X de la fuerza resultante que reemplaza el sistema mostrado, si se sabe que debe estar ubicada sobre el tramo AB. Considere $M = {32+m[0]*(1/10):.2f} \\text{{ kN}} \\cdot \\text{{ m}}$, $F_2 = {79+m[1]*(1/5):.2f} \\text{{ kN}}$, $F_3 = {24+m[0]*(3/40):.2f} \\text{{ kN}}$, $F_4 = {119+m[2]*(1/5):.2f} \\text{{ kN}}$, $d_1 = {(31+d[0])/4:.2f} \\text{{ m}}$,  $d_2 = {d[3]:.2f} \\text{{ m}}$, $d_3 = {6+d[6]*(1/5):.2f} \\text{{ m}}$, $d_4 = {(23+d[0])/4:.2f} \\text{{ m}}$, $d_5 = {(19+d[0])/4:.2f} \\text{{ m}}$, $\\alpha_1 = {72+d[9]*(2/5):.2f}°$ y $\\alpha_2 = {60+d[9]*(2/5):.2f}°$.",
     #     no_answers = 2,
     #     a1_name = "$F_1$ [kN]",
     #     a2_name = "Coordenada en X [m]",
@@ -6078,6 +6078,8 @@ preguntas = [
     #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
     #     calculos='operations'
     #     ),
+
+
 
     #========================================================  ARMADURAS  =========================================================
     #-------------------------------------------------         Cerchas      --------------------------------------------

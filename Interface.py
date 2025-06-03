@@ -913,6 +913,8 @@ if authenticate_user():
                         st.image(SE_image_paths[4], width=450)  
                     if pregunta_no == 2:
                         st.image(SE_image_paths[5], width=350)
+                    if pregunta_no == 3:
+                        st.image(SE_image_paths[8], width=350)
                 if subtopic == "Incertidumbre":
                     if pregunta_no == 1:
                         st.image(I_image_paths[2], width=850) 
@@ -1018,6 +1020,8 @@ if authenticate_user():
                 if subtopic == "Sistemas equivalentes":
                     if pregunta_no == 1:
                         st.image(SE_image_paths[6], width=450) 
+                    if pregunta_no == 2:
+                        st.image(SE_image_paths[7], width=350) 
                 if subtopic == "Cerchas":
                     if pregunta_no == 1:
                         st.image(AR_image_paths[8], width=500)
