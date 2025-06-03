@@ -3273,10 +3273,10 @@ preguntas = [
         topic = MO,
         subtopic = M2D,
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza $F1$ y la distancia $X1$, si en el punto B el momento de $F_1$ es ${-m[0]:.2f}{{\\text{{ lb}} \\cdot\\text{{ ft}}}}$, y el momento de $F_2$ es ${-m[1]:.2f}{{\\text{{ ft}} \\cdot\\text{{ lb}}}}$. Considere que $\\alpha_1 = {a[0]:.0f}°$, $F_2 = {f[1]:.0f} \\text{{ lb}}$,  $X_2 = {d[3]:.0f}  \\text{{ ft}}$ y $X_3 = {d[6]:.0f} \\text{{ ft}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza $F1$ y la distancia $X1$, si en el punto B el momento de $F_1$ es ${-m[0]:.2f}{{\\text{{ kN}} \\cdot\\text{{ m}}}}$, y el momento de $F_2$ es ${-m[1]:.2f}{{\\text{{ kN}} \\cdot\\text{{ m}}}}$. Considere que $\\alpha_1 = {a[0]:.0f}°$, $F_2 = {f[1]:.0f} \\text{{ kN}}$,  $X_2 = {d[3]:.0f}  \\text{{ m}}$ y $X_3 = {d[6]:.0f} \\text{{ m}}$.",
         no_answers = 2,
-        a1_name = "Fuerza $F_1 [lb]$",
-        a2_name = "Distancia $X_1 [ft]$",
+        a1_name = "Fuerza $F_1 [kN]$",
+        a2_name = "Distancia $X_1 [m]$",
         a3_name = "",
         answer1 = lambda f, a, calc, c, d, m: np.round(((m[0])/d[3]),2),
         answer2 = lambda f, a, calc, c, d, m: np.round((m[1])/(f[1]*calc['cos1']),2),
@@ -3293,7 +3293,7 @@ preguntas = [
         
         En este caso, los vectores posición solo tiene componente en X y son equivalentes a la magnitud de las distancias de B al punto de acción de la fuerza. 
 
-        ${{\hspace{{4mm}} r_1 = X_2 = {d[3]:.0f}{{\\text{{ ft}}}}}}$    
+        ${{\hspace{{4mm}} r_1 = X_2 = {d[3]:.0f}{{\\text{{ m}}}}}}$    
         ${{\hspace{{4mm}} r_2 = X_1}}$
         
         $\\textbf{{\\small 2. Descomposición de las fuerzas F1 y F2: }}$
@@ -3302,8 +3302,8 @@ preguntas = [
 
         $\\underline{{Fuerza \\hspace{{2mm}} F2 :}}$ 
 
-        ${{\hspace{{4mm}} F_{{2x}} = |\\overrightarrow{{F_2}}| \\cdot sen(\\alpha_1) = {f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['sin1']:.2f} = {f[1]*calc['sin1']:.2f}{{ \\text{{ lb}}}}}}$      
-        ${{\hspace{{4mm}} F_{{2y}} = |\\overrightarrow{{F_2}}| \\cdot \\cos(\\alpha_1) = {f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['cos1']:.2f} = {f[1]*calc['cos1']:.2f}{{ \\text{{ lb}}}}}}$     
+        ${{\hspace{{4mm}} F_{{2x}} = |\\overrightarrow{{F_2}}| \\cdot sen(\\alpha_1) = {f[1]:.0f}{{\\text{{ kN }} \\cdot\\hspace{{1mm}}}}{calc['sin1']:.2f} = {f[1]*calc['sin1']:.2f}{{ \\text{{ kN}}}}}}$      
+        ${{\hspace{{4mm}} F_{{2y}} = |\\overrightarrow{{F_2}}| \\cdot \\cos(\\alpha_1) = {f[1]:.0f}{{\\text{{ kN }} \\cdot\\hspace{{1mm}}}}{calc['cos1']:.2f} = {f[1]*calc['cos1']:.2f}{{ \\text{{ kN}}}}}}$     
         
         $\\textbf{{\\small 3. Cálculo de la fuerza F1: }}$ 
         
@@ -3313,9 +3313,9 @@ preguntas = [
 
         ${{\hspace{{4mm}} F1 = -\\dfrac{{M_{{1d}}}}{{r_1}}}}$ 
 
-        ${{\hspace{{4mm}} F1 = -( \\dfrac{{{-m[0]:.0f}{{\\text{{ lb}} \\cdot\\text{{ ft}}}}}}{{{d[3]:.0f}{{\\text{{ ft}}}}}} ) }}$    
+        ${{\hspace{{4mm}} F1 = -( \\dfrac{{{-m[0]:.0f}{{\\text{{ kN}} \\cdot\\text{{ m}}}}}}{{{d[3]:.0f}{{\\text{{ m}}}}}} ) }}$    
 
-        ${{\hspace{{4mm}} F1  = {(m[0])/d[3]:.2f}{{\\text{{ lb}}}}}}$     
+        ${{\hspace{{4mm}} F1  = {(m[0])/d[3]:.2f}{{\\text{{ kN}}}}}}$     
         
         $\\textbf{{\\small 4. Cálculo de la distancia X1: }}$ 
         
@@ -3325,9 +3325,9 @@ preguntas = [
 
         ${{\hspace{{4mm}} X_1 = r2 = - \\dfrac{{M_{{2B}}}}{{F_2 \\cdot \\cos(\\alpha_1)}}}}$      
 
-        ${{\hspace{{4mm}} X_1 = -( \\dfrac{{{-m[1]:.0f}{{\\text{{ lb}} \\cdot\\text{{ ft}}}}}}{{{f[1]*calc['cos1']:.2f}{{ \\text{{ lb}}}}}} ) }}$  
+        ${{\hspace{{4mm}} X_1 = -( \\dfrac{{{-m[1]:.0f}{{\\text{{ kN}} \\cdot\\text{{ m}}}}}}{{{f[1]*calc['cos1']:.2f}{{ \\text{{ kN}}}}}} ) }}$  
 
-        ${{\hspace{{4mm}} X_1  = {(m[1])/(f[1]*calc['cos1']):.2f}{{\\text{{ ft}}}}}}$    
+        ${{\hspace{{4mm}} X_1  = {(m[1])/(f[1]*calc['cos1']):.2f}{{\\text{{ m}}}}}}$    
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
@@ -3635,9 +3635,9 @@ preguntas = [
         topic = MO,
         subtopic = M2D,
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Si el trabajador ubicado en B ejerce una fuerza  $F_2 = {f[1]:.0f} \\text{{ lb}}$ sobre su cuerda, determine la magnitud de la fuerza $F_1$ que debe aplicar el trabajador en C para evitar que el poste gire. Se sabe que $\\alpha_1 = {a[0]:.0f}°$, $\\alpha_2 = {a[4]:.0f}°$, $Y_1 = {d[0]:.0f} \\text{{ ft}}$ y $Y_2 = {d[3]:.0f}  \\text{{ ft}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Si el trabajador ubicado en B ejerce una fuerza  $F_2 = {f[1]:.0f} \\text{{ kN}}$ sobre su cuerda, determine la magnitud de la fuerza $F_1$ que debe aplicar el trabajador en C para evitar que el poste gire. Se sabe que $\\alpha_1 = {a[0]:.0f}°$, $\\alpha_2 = {a[4]:.0f}°$, $Y_1 = {d[0]:.0f} \\text{{ m}}$ y $Y_2 = {d[3]:.0f}  \\text{{ m}}$.",
         no_answers = 1,
-        a1_name = "Fuerza $F_1$ $[lb]$",
+        a1_name = "Fuerza $F_1$ $[kN]$",
         a2_name = "",
         a3_name = "",
         answer1 = lambda f, a, calc, c, d, m: np.round((f[1]*calc['cos5']*(d[0]+d[3]))/(d[0]*calc['sin1']),2),
@@ -3658,13 +3658,13 @@ preguntas = [
 
         $\\underline{{Fuerza  \\hspace{{2mm}} F2:}}$ 
 
-        ${{\hspace{{4mm}} |F_{{2x}}| = |\\overrightarrow{{F_2}}| \\cdot \\cos(\\alpha_2) = {f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['cos5']:.2f} = {f[1]*calc['cos5']:.2f}{{ \\text{{ lb}}}}}}$      
-        ${{\hspace{{4mm}} |F_{{2y}}| = |\\overrightarrow{{F_2}}| \\cdot \\sin(\\alpha_2) = {f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['sin5']:.2f} = {f[1]*calc['sin5']:.2f}{{ \\text{{ lb}}}}}}$      
+        ${{\hspace{{4mm}} |F_{{2x}}| = |\\overrightarrow{{F_2}}| \\cdot \\cos(\\alpha_2) = {f[1]:.0f}{{\\text{{ kN }} \\cdot\\hspace{{1mm}}}}{calc['cos5']:.2f} = {f[1]*calc['cos5']:.2f}{{ \\text{{ kN}}}}}}$      
+        ${{\hspace{{4mm}} |F_{{2y}}| = |\\overrightarrow{{F_2}}| \\cdot \\sin(\\alpha_2) = {f[1]:.0f}{{\\text{{ kN }} \\cdot\\hspace{{1mm}}}}{calc['sin5']:.2f} = {f[1]*calc['sin5']:.2f}{{ \\text{{ kN}}}}}}$      
 
         $\\textbf{{\\small 2. Obtención del vector posición:}}$ 
 
-        ${{\hspace{{4mm}} r_1 \\text{{ = }} Y_1 = {d[0]:.0f}{{ \\text{{ ft}}}}}}$     
-        ${{\hspace{{4mm}} r_2 \\text{{ = }} Y_1 + Y_2 = {(d[0]+d[3]):.0f}{{ \\text{{ ft}}}}}}$  
+        ${{\hspace{{4mm}} r_1 \\text{{ = }} Y_1 = {d[0]:.0f}{{ \\text{{ m}}}}}}$     
+        ${{\hspace{{4mm}} r_2 \\text{{ = }} Y_1 + Y_2 = {(d[0]+d[3]):.0f}{{ \\text{{ m}}}}}}$  
         
         $\\textbf{{\\small 3. Cálculo de los momentos generados por F1 y F2:}}$ 
 
@@ -3672,14 +3672,14 @@ preguntas = [
 
         La componente perpendicular al vector posición asociado $r_1$ es $F_{{1x}}$. Por la Regla de la mano de derecha el momento es negativo (sentido horario).
 
-        ${{\hspace{{4mm}} M_{{1A}} = - r_1 \\cdot |\\overrightarrow{{F_1}}| \\cdot \\sin(\\alpha_1) = - {d[0]:.0f}{{ \\text{{ ft}}}} \\cdot |\\overrightarrow{{F_1}}| \\cdot {calc['sin1']:.2f}}}$
+        ${{\hspace{{4mm}} M_{{1A}} = - r_1 \\cdot |\\overrightarrow{{F_1}}| \\cdot \\sin(\\alpha_1) = - {d[0]:.0f}{{ \\text{{ m}}}} \\cdot |\\overrightarrow{{F_1}}| \\cdot {calc['sin1']:.2f}}}$
         
         $\\underline{{Momento \\hspace{{2mm}} Fuerza \\hspace{{2mm}} F2:}}$ 
 
         La componente de la fuerza que es perpendicular al vector posición es $F_{{2x}}$. De acuerdo con la regla de la mano de derecha el momento es positivo (sentido antihorario). 
 
-        ${{\hspace{{4mm}} M_{{2A}} = \\overrightarrow{{r_2}} X \\overrightarrow{{F_2}} = r2 \\cdot\\hspace{{1mm}} F2_y = {(d[0]+d[3]):.0f}{{ \\text{{ ft}}}} \\cdot\\hspace{{1mm}}{f[1]*calc['cos5']:.2f}{{\\text{{ lb}}}}}}$     
-        ${{\hspace{{4mm}} M_{{2A}} = {(f[1]*calc['cos5']*(d[0]+d[3])):.2f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$    
+        ${{\hspace{{4mm}} M_{{2A}} = \\overrightarrow{{r_2}} X \\overrightarrow{{F_2}} = r2 \\cdot\\hspace{{1mm}} F2_y = {(d[0]+d[3]):.0f}{{ \\text{{ m}}}} \\cdot\\hspace{{1mm}}{f[1]*calc['cos5']:.2f}{{\\text{{ kN}}}}}}$     
+        ${{\hspace{{4mm}} M_{{2A}} = {(f[1]*calc['cos5']*(d[0]+d[3])):.2f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}$    
         
         $\\textbf{{\\small 4. Sumatoria de momentos en A: }}$ 
 
@@ -3687,13 +3687,13 @@ preguntas = [
         
         ${{\hspace{{4mm}} \\sum M_A = M_{{1A}} + M_{{2A}} = 0}}$      
 
-        ${{\hspace{{4mm}} - {d[0]:.0f}{{ \\text{{ ft}}}} \\cdot |\\overrightarrow{{F_1}}| \\cdot {calc['sin1']:.2f} + {(f[1]*calc['cos5']*(d[0]+d[3])):.2f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}} = 0}}$
+        ${{\hspace{{4mm}} - {d[0]:.0f}{{ \\text{{ m}}}} \\cdot |\\overrightarrow{{F_1}}| \\cdot {calc['sin1']:.2f} + {(f[1]*calc['cos5']*(d[0]+d[3])):.2f}{{\\text{{ kN}} \\cdot \\text{{ m}}}} = 0}}$
 
-        ${{\hspace{{4mm}} {d[0]*calc['sin1']:.2f}{{ \\text{{ ft}}}} \\cdot |\\overrightarrow{{F_1}}| = {(f[1]*calc['sin5']*(d[0]+d[3])):.2f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}$     
+        ${{\hspace{{4mm}} {d[0]*calc['sin1']:.2f}{{ \\text{{ m}}}} \\cdot |\\overrightarrow{{F_1}}| = {(f[1]*calc['sin5']*(d[0]+d[3])):.2f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}$     
 
-        ${{\hspace{{4mm}} |\\overrightarrow{{F_1}}| = \\dfrac{{{(f[1]*calc['cos5']*(d[0]+d[3])):.2f}{{\\text{{ lb}} \\cdot \\text{{ ft}}}}}}{{{d[0]*calc['sin1']:.2f}{{ \\text{{ ft}}}}}}}}$     
+        ${{\hspace{{4mm}} |\\overrightarrow{{F_1}}| = \\dfrac{{{(f[1]*calc['cos5']*(d[0]+d[3])):.2f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}{{{d[0]*calc['sin1']:.2f}{{ \\text{{ m}}}}}}}}$     
 
-        ${{\hspace{{4mm}} |\\overrightarrow{{F_1}}| = {(f[1]*calc['cos5']*(d[0]+d[3]))/(d[0]*calc['sin1']):.2f}{{ \\text{{ lb}}}}}}$     
+        ${{\hspace{{4mm}} |\\overrightarrow{{F_1}}| = {(f[1]*calc['cos5']*(d[0]+d[3]))/(d[0]*calc['sin1']):.2f}{{ \\text{{ kN}}}}}}$     
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
