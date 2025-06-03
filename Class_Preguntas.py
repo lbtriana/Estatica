@@ -3076,10 +3076,10 @@ preguntas = [
         topic = MO,
         subtopic = M2D,
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine el momento en el punto A de la fuerza $F_1$ y $F_2$. Considere que $F_1 = {f[0]:.0f} \\text{{ lb}}$, $F_2 = {f[1]:.0f} \\text{{ lb}}$, $\\alpha_1 = {a[0]:.0f}°$, $X_1 = {d[0]:.0f} \\text{{ ft}}$,  $X_2 = {d[3]:.0f}  \\text{{ ft}}$ y $X_3 = {d[6]:.0f} \\text{{ ft}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine el momento en el punto A de la fuerza $F_1$ y $F_2$. Considere que $F_1 = {f[0]:.0f} \\text{{ kN}}$, $F_2 = {f[1]:.0f} \\text{{ kN}}$, $\\alpha_1 = {a[0]:.0f}°$, $X_1 = {d[0]:.0f} \\text{{ m}}$,  $X_2 = {d[3]:.0f}  \\text{{ m}}$ y $X_3 = {d[6]:.0f} \\text{{ m}}$.",
         no_answers = 2,
-        a1_name = "Momento en A de la fuerza F1 [$lb \\cdot ft$]",
-        a2_name = "Momento en A de la fuerza F2 [$lb \\cdot ft$]",
+        a1_name = "Momento en A de la fuerza F1 [$kN \\cdot m$]",
+        a2_name = "Momento en A de la fuerza F2 [$kN \\cdot m$]",
         a3_name = "",
         answer1 = lambda f, a, calc, c, d, m: np.round(-f[0]*d[0],2),
         answer2 = lambda f, a, calc, c, d, m: np.round(-f[1]*calc['sin1']*(d[0]+d[3]),2),
@@ -3096,15 +3096,15 @@ preguntas = [
 
         $\\underline{{Fuerza  \\hspace{{2mm}} F_2 :}}$ 
 
-        ${{\hspace{{4mm}} F_2x = |\\overrightarrow{{F_2}}| \\cdot \\cos(\\alpha_1) = {f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['cos1']:.2f} = {f[1]*calc['cos1']:.2f}{{ \\text{{ lb}}}}}}$     
-        ${{\hspace{{4mm}} F_2y = |\\overrightarrow{{F_2}}| \\cdot \\sin(\\alpha_1) = {f[1]:.0f}{{\\text{{ lb }} \\cdot\\hspace{{1mm}}}}{calc['sin1']:.2f} = {f[1]*calc['sin1']:.2f}{{ \\text{{ lb}}}}}}$    
+        ${{\hspace{{4mm}} F_2x = |\\overrightarrow{{F_2}}| \\cdot \\cos(\\alpha_1) = {f[1]:.0f}{{\\text{{ kN }} \\cdot\\hspace{{1mm}}}}{calc['cos1']:.2f} = {f[1]*calc['cos1']:.2f}{{ \\text{{ kN}}}}}}$     
+        ${{\hspace{{4mm}} F_2y = |\\overrightarrow{{F_2}}| \\cdot \\sin(\\alpha_1) = {f[1]:.0f}{{\\text{{ kN }} \\cdot\\hspace{{1mm}}}}{calc['sin1']:.2f} = {f[1]*calc['sin1']:.2f}{{ \\text{{ kN}}}}}}$    
 
         $\\textbf{{\\small 2. Obtención del vector posición:}}$ 
 
         En este caso, los vectores posición solo tienen componente en la dirección X, y son equivalentes a la magnitud de las distancias de A al punto de acción de la fuerza:      
         
-        ${{\hspace{{4mm}} r_1 \\text{{ = }} X_1 = {d[0]:.0f}{{ \\text{{ ft}}}}}}$     
-        ${{\hspace{{4mm}} r_2 \\text{{ = }} X_1 + X_2 = {(d[0]+d[3]):.0f}{{ \\text{{ ft}}}}}}$     
+        ${{\hspace{{4mm}} r_1 \\text{{ = }} X_1 = {d[0]:.0f}{{ \\text{{ m}}}}}}$     
+        ${{\hspace{{4mm}} r_2 \\text{{ = }} X_1 + X_2 = {(d[0]+d[3]):.0f}{{ \\text{{ m}}}}}}$     
 
         Ahora solo es necesario operar utilizando la ecuación de momento según las componentes necesarias y denotando el signo acorde a la regla de la mano de derecha: 
 
@@ -3114,15 +3114,15 @@ preguntas = [
 
         Teniendo en cuenta que el vector posición y la fuerza $F_1$ ya son perpendiculares entre sí, y que, por la regla de la mano de derecha el momento es negativo (en sentido horario):
 
-        ${{\hspace{{4mm}} M_1 = - |\\overrightarrow{{r_1}}| \\cdot |\\overrightarrow{{F_1}}| = -{d[0]:.0f}{{ \\text{{ ft}}}} \\cdot\\hspace{{1mm}}{f[0]:.0f}{{\\text{{ lb }}}}}}$     
-        ${{\hspace{{4mm}} M_1 = {-f[0]*d[0]:.2f}{{\\text{{ lb}} \\cdot\\text{{ ft}}}}}}$     
+        ${{\hspace{{4mm}} M_1 = - |\\overrightarrow{{r_1}}| \\cdot |\\overrightarrow{{F_1}}| = -{d[0]:.0f}{{ \\text{{ m}}}} \\cdot\\hspace{{1mm}}{f[0]:.0f}{{\\text{{ kN }}}}}}$     
+        ${{\hspace{{4mm}} M_1 = {-f[0]*d[0]:.2f}{{\\text{{ kN}} \\cdot\\text{{ m}}}}}}$     
 
         $\\underline{{Momento \\hspace{{2mm}} de \\hspace{{2mm}} la \\hspace{{2mm}} fuerza \\hspace{{2mm}} F2:}}$
 
         En el momento de la fuerza F2, la componente de la fuerza que es perpendicular al vector posición es $F2_y$, y por la regla de la mano de derecha el momento es negativo: 
 
-        ${{\hspace{{4mm}} M_2 = \\overrightarrow{{r_2}} X \\overrightarrow{{F_2}} = -r_2 \\cdot\\hspace{{1mm}} F_2y = - {(d[3]+d[0]):.0f}{{ \\text{{ ft}}}} \\cdot\\hspace{{1mm}}{f[1]*calc['sin1']:.2f}{{\\text{{ lb}}}}}}$      
-        ${{\hspace{{4mm}} M_2 = {-(f[1]*calc['sin1']*(d[0]+d[3])):.2f}{{\\text{{ lb}} \\cdot \\text{{ft}}}}}}$  
+        ${{\hspace{{4mm}} M_2 = \\overrightarrow{{r_2}} X \\overrightarrow{{F_2}} = -r_2 \\cdot\\hspace{{1mm}} F_2y = - {(d[3]+d[0]):.0f}{{ \\text{{ m}}}} \\cdot\\hspace{{1mm}}{f[1]*calc['sin1']:.2f}{{\\text{{ kN}}}}}}$      
+        ${{\hspace{{4mm}} M_2 = {-(f[1]*calc['sin1']*(d[0]+d[3])):.2f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}$  
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
@@ -6757,6 +6757,7 @@ preguntas = [
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),
+    
     # Questionary(#2_1
     #     code = 4120021,
     #     no_pregunta = 2,
@@ -6807,6 +6808,54 @@ preguntas = [
     #     ${{\hspace{{4mm}} F_1 = {(2/3)*(f[4]-f[2]) + ((2*f[2]-f[4])*(d[0]+d[3]) - f[4]*(d[0]+d[6]))*(2/3)*(1/(d[3] - d[6])):.2f} \\text{{ N}} }}$     
 
     #     Finalmente, se pone el signo según corresponda.   
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ),
+
+    # Questionary(#3_1
+    #     code = 4120031,
+    #     no_pregunta = 3,
+    #     complexity = M,
+    #     topic = "Sistemas equivalentes",
+    #     subtopic = "Sistemas equivalentes",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"El techo de una estructura esta sometido a la carga del viento que se muestra en la figura. Determine el sistema fuerza-par equivalente en B. Tenga presente que todas las fuerzas mostradas actuan perpendicularmente a la cubierta. Considere $F_1 = {f[1]:.0f} \\text{{ N}}$, $F_2 = {f[2]:.0f} \\text{{ N}}$, $d_1 = {d[0]+(3/2):.2f} \\text{{ m}}$,  $d_2 = {d[0]:.1f} \\text{{ m}}$, $d_3 = {d[3]:.1f} \\text{{ m}} y $d_4 = {d[3]+1:.1f} \\text{{ m}}$.",
+    #     no_answers = 2,
+    #     a1_name = "Fuerza resultante $F_R$ [N]",
+    #     a2_name = "Momento resultante $M_R$ [$N \\cdot m$]",
+    #     a3_name = "",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round((d[0]/(Calculations.magnitude((d[3]*2+1),d[0])))*(2*f[1]+4*f[2]),2),
+    #     answer2 = lambda f, a, calc, c, d, m: np.round(((d[3]*2+1)/(Calculations.magnitude((d[3]*2+1),d[0])))*2*(f[2]*(d[3]*2+1) + f[1]*(d[3]+1)) - 2*(d[0]/(Calculations.magnitude((d[3]*2+1),d[0])))*(f[2]*(3*d[0]+3) + f[1]*(d[0]+(3/2)+((d[0]*d[3])/(2*d[3]+1)))) ,2),
+    #     answer3 = lambda f, a, calc, c, d, m: 0,
+    #     ayuda1 = "La fuerza resultante será igual a la suma de todas las fuerzas en el sistema",
+    #     ayuda2 = "El par equivalente de un sistema equivalente fuerza-par se calcula sumando los momentos de las fuerzas originales respecto al punto de referencia.",      
+    #     ayuda3 = "",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     En un sistema equivalente fuerza-par es la combinación de una fuerza aplicada y un momento que genera el mismo efecto rotacional y traslacional sobre un cuerpo rígido que un sistema original. A continuación, se presenta una solución sugerida para el ejercicio:
+        
+    #     $\\textbf{{\\small 1. Determinar fuerza resultante: }}$
+        
+    #     En un inicio se puede dar cuenta que todas las fuerzas mostradas van en dirección positiva $\\hat{{i}}$ y que sus componentes $\\hat{{j}}$ se cancelan entre sí, tal que, la resultante solo tendra una componente en $\\hat{{i}}$ que sera la sumatoria de ls respectivas componentes de cada una de las fuerzas.
+        
+    #     Ahora bien, cada fuerza es perpendicular a la cubierta del techo y cada una tiene el mismo ángulo asociado; tal que se puede encontrar el ángulo de una fuerza y este será aplicable en el resto. Se puede ilustrar la configuración de una de las fuerzas y darse cuenta que se forman  dos triángulos semejantes, del cual vamos a hallar $\\alpha$:
+        
+    #     ${{\hspace{{4mm}} \\alpha = \\arcsin(\\dfrac{{d_2}}{{\\sqrt{{(d_3 + d_4)^{{2}} + (d_2)^{{2}}}}}}) }}$
+        
+    #     Finalmente, la fuerza resultante se puede encontrar:
+        
+    #     ${{\hspace{{4mm}} F_R = \\sin(\\alpha) \\cdot (2F_1 + 4F_2) }}$     
+    #     ${{\hspace{{4mm}} F_R = \\dfrac{{d_2}}{{\\sqrt{{(d_3 + d_4)^{{2}} + (d_2)^{{2}}}}}} \\cdot (2F_1 + 4F_2) }}$     
+    #     ${{\hspace{{4mm}} F_R = {(d[0]/(Calculations.magnitude((d[3]*2+1),d[0])))*(2*f[1]+4*f[2]):.2f} \\text{{ N}}}}$     
+        
+    #     $\\textbf{{\\small 2. Determinar momento resultante respecto a B: }}$
+        
+    #     Sabiendo que las componentes $\\hat{{j}}$ de cada fuerza realizan momento par y que las componenetes $\\hat{{i}} de las fuerzas realizan momento según su altura, se puede obtener que la sumatoria de fuerzas respecto a B resulta de:
+        
+    #     ${{\hspace{{4mm}} \\sum{{M_B}} = F_2 \\cos(\\alpha) \\cdot 2(d_4 + d_3) + F_1 \\cdot \\cos(\\alpha) \\cdot 2d_4 - 2 \\cdot \\sin(\\alpha) ( F_2 \\cdot d_1 + F_2 \\cdot (d_1 + d_2) + F_1 \\cdot (d_1 + \\dfrac{{d_2 \\cdot d_3}}{{d_3 + d_4}}) ) }}$      
+    #     ${{\hspace{{4mm}} \\sum{{M_B}} = M_R = {((d[3]*2+1)/(Calculations.magnitude((d[3]*2+1),d[0])))*2*(f[2]*(d[3]*2+1) + f[1]*(d[3]+1)) - 2*(d[0]/(Calculations.magnitude((d[3]*2+1),d[0])))*(f[2]*(3*d[0]+3) + f[1]*(d[0]+(3/2)+((d[0]*d[3])/(2*d[3]+1)))):.2f} \\text{{ N}} \\cdot \\text{{ m}} }}$      
+        
     #     """,   
     #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
     #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
@@ -6883,6 +6932,80 @@ preguntas = [
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),
+
+    # Questionary(#2_1
+    #     code = 4130021,
+    #     no_pregunta = 2,
+    #     complexity = D,
+    #     topic = "Sistemas equivalentes",
+    #     subtopic = "Sistemas equivalentes",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de $F_1$ (Sin signo) y la coordenada en X de la fuerza resultante que reemplaza el sistema mostrado, si se sabe que debe estar ubicada sobre el tramo AB. Considere $M = {32+m[0]*(1/10):.2f} \\text{{ lb}} \\cdot \\text{{ ft}}$, $F_2 = {79+m[1]*(1/5):.2f} \\text{{ lb}}$, $F_3 = {24+m[0]*(3/40):.2f} \\text{{ lb}}$, $F_4 = {119+m[2]*(1/5):.2f} \\text{{ lb}}$, $d_1 = {(31+d[0])/4:.2f} \\text{{ ft}}$,  $d_2 = {d[3]:.2f} \\text{{ ft}}$, $d_3 = {6+d[6]*(1/5):.2f} \\text{{ ft}}, $d_4 = {(23+d[0])/4:.2f} \\text{{ ft}}$, $d_5 = {(19+d[0])/4:.2f} \\text{{ ft}}$, $\\alpha_1 = {72+d[9]*(2/5):.2f}°$ y $\\alpha_2 = {60+d[9]*(2/5):.2f}°$.",
+    #     no_answers = 2,
+    #     a1_name = "$F_1$ [lb]",
+    #     a2_name = "Coordenada en X [ft]",
+    #     a3_name = "",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round(((24+m[0]*(3/40))*((119+m[2]*(1/5))*Calculations.cosine(60+d[9]*(2/5))*((21+d[0])/2) + (79+m[1]*(1/5))*(6+d[6]*(1/5))))/(Calculations.cosine(72+d[9]*(2/5))*((119+m[2]*(1/5))*Calculations.cosine(60+d[9]*(2/5))*((21+d[0])/2) + (79+m[1]*(1/5))*(6+d[6]*(1/5))) + ((32+m[0]*(1/10))-(24+m[0]*(3/40))*((31+d[0])/4))*Calculations.sine(72+d[9]*(2/5))),2),
+    #     answer2 = lambda f, a, calc, c, d, m: np.round(((Calculations.cosine(72+d[9]*(2/5))*((119+m[2]*(1/5))*Calculations.cosine(60+d[9]*(2/5))*((21+d[0])/2) + (79+m[1]*(1/5))*(6+d[6]*(1/5))) + ((32+m[0]*(1/10))-(24+m[0]*(3/40))*((31+d[0])/4))*Calculations.sine(72+d[9]*(2/5)))/((24+m[0]*(3/40))*Calculations.sine(72+d[9]*(2/5)))) + (31+d[0])/4,2),
+    #     answer3 = lambda f, a, calc, c, d, m: 0,
+    #     ayuda1 = "La fuerza resultante será igual a la suma de todas las fuerzas en el sistema, y que el momento de la fuerza resultante es igual a la suma de los momentos originales desde cualquier punto.",
+    #     ayuda2 = "Para determinar la ubicación de la fuerza resultante con respecto a un punto de referencia, utilizamos la condición de que el momento producido por la fuerza resultante respecto a ese punto debe ser igual al momento de las fuerzas originales del sistema respecto al mismo punto.",      
+    #     ayuda3 = "",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     En un sistema equivalente se esta buscando reducir un sistema complejo a un sistema de fuerzas y momentos que producen mismo efecto rotacional y traslacional. A continuación, se presenta la solución sugerida para el ejercicio:
+        
+    #     $\\textbf{{\\small 1. Determinar fuerza resultante: }}$
+        
+    #     Se debe tener presente que las fuerzas $F_4$ solo van a generar un momento par y no van a tener ningún efecto traslacional:
+        
+    #     ${{\hspace{{4mm}} \\sum{{F_x}} = F_{{Rx}}}}$          
+    #     ${{\hspace{{4mm}} F_{{Rx}} = F_2 }}$          
+                
+    #     ${{\hspace{{4mm}} \\sum{{F_y}} = F_{{Ry}}}}$          
+    #     ${{\hspace{{4mm}} F_{{Ry}} = F_1 \\cdot \\cos(\\alpha_1) - F_3 }}$          
+                
+    #     ${{\hspace{{4mm}} \\sum{{F_z}} = F_{{Rz}}}}$          
+    #     ${{\hspace{{4mm}} F_{{Rz}} = - F_1 \\cdot \\sin(\\alpha_1)}}$          
+                     
+    #     $\\textbf{{\\small 2. Condición de momento: }}$
+        
+    #     Inicialmente, se va a calcular el momento que debe cumplir la fuerza resultante respecto al punto A, el cual, va a ser resultado de la suma de momentos producidos por las fuerzas correspondientes ($F_4, F_2 y F_1$) y el momento M. A continuación se calcula cada momento y se concluye con su suma: 
+        
+    #     ${{\hspace{{4mm}} M_{{par}} = F_4 \\cdot (d_4 \\cdot \\cos(\\alpha_2) + d_5 \\cdot \\cos(alpha_2)) \\hat{{j}} }}$     
+             
+    #     ${{\hspace{{4mm}} M_2 = d_3 \\cdot F_2 \\hat{{j}} }}$     
+              
+    #     ${{\hspace{{4mm}} M_1 = d_1 \\cdot F_1 \\sin(\\alpha_1) \\hat{{j}} + d_1 \\cdot F_1 \\cos(\\alpha_1) \\hat{{k}} }}$     
+        
+    #     ${{\hspace{{4mm}} \\sum{{M_A}} = ( d_1 \\cdot F_1 \\sin(\\alpha_1) + d_3 \\cdot F_2 + F_4 \\cdot (d_4 \\cdot \\cos(\\alpha_2) + d_5 \\cdot \\cos(alpha_2)) ) \\hat{{j}} + (d_1 \\cdot F_1 \\cos(\\alpha_1) - M) \\hat{{k}} }}$    
+        
+    #     Ahora bien, se calcula realizando producto cruz el momento que sería efectuado por la resultante ubicada a una distancia x del punto A:
+        
+    #     ${{\hspace{{4mm}} M_{{F_R}} = 0 \\hat{{i}} - x \\cdot F_{{Rz}} \\hat{{j}} + x \\cdot F_{{Ry}} \\hat{{k}} }}$     
+        
+    #     $\\underline{{Condición \\hspace{{2mm}} de \\hspace{{2mm}} momento - Componente \\hspace{{2mm}} \\hat{{j}}:}}$  
+        
+    #     ${{\hspace{{4mm}} x \\cdot F_1 \\cdot \\sin(\\alpha_1) = M_{{par}} + M_2 + d_1 \\cdot F_1 \\sin(\\alpha_1)}}$     
+    #     ${{\hspace{{4mm}} x = \\dfrac{{M_{{par}} + M_2}}{{F_1 \\cdot \\sin(\\alpha_1)}} + d_1 }}$     
+        
+    #     $\\underline{{Condición \\hspace{{2mm}} de \\hspace{{2mm}} momento - Componente \\hspace{{2mm}} \\hat{{k}}:}}$  
+        
+    #     ${{\hspace{{4mm}} x \\cdot (F_1 \\cdot \\cos(\\alpha_1) - F_3) = d_1 \\cdot F_1 \\cos(\\alpha_1) - M}}$     
+    #     ${{\hspace{{4mm}} (\\dfrac{{M_{{par}} + M_2}}{{F_1 \\cdot \\sin(\\alpha_1)}} + d_1) \\cdot F_1 \\cdot \\cos(\\alpha_1) - F_3 \\cdot (\\dfrac{{M_{{par}} + M_2}}{{F_1 \\cdot \\sin(\\alpha_1)}} + d_1 ) = d_1 \\cdot F_1 \\cos(\\alpha_1) - M}}$     
+    #     ${{\hspace{{4mm}} \\dfrac{{M_{{par}} + M_2}}{{F_1 \\cdot \\sin(\\alpha_1)}} \\cdot F_1 \\cdot \\cos(\\alpha_1) + d_1 \\cdot F_1 \\cdot \\cos(\\alpha_1) - F_3 \\cdot (\\dfrac{{M_{{par}} + M_2}}{{F_1 \\cdot \\sin(\\alpha_1)}} + d_1 ) = d_1 \\cdot F_1 \\cos(\\alpha_1) - M}}$     
+    #     ${{\hspace{{4mm}} \\dfrac{{\\cos(\\alpha_1) }}{{\\sin(\\alpha_1)}} \\cdot (M_{{par}} + M_2) - F_3 \\cdot d_1 + M = F_3 \\cdot \\dfrac{{M_{{par}} + M_2}}{{F_1 \\cdot \\sin(\\alpha_1)}}}}$     
+    #     ${{\hspace{{4mm}} F_1 = F_3 \\cdot \\dfrac{{M_{{par}} + M_2}}{{(\\cos(\\alpha_1) \\cdot (M_{{par}} + M_2) + (M - F_3 \\cdot d_1) \\cdot \\sin(\\alpha_1)}}}}$     
+    #     ${{\hspace{{4mm}} F_1 = {((24+m[0]*(3/40))*((119+m[2]*(1/5))*Calculations.cosine(60+d[9]*(2/5))*((21+d[0])/2) + (79+m[1]*(1/5))*(6+d[6]*(1/5))))/(Calculations.cosine(72+d[9]*(2/5))*((119+m[2]*(1/5))*Calculations.cosine(60+d[9]*(2/5))*((21+d[0])/2) + (79+m[1]*(1/5))*(6+d[6]*(1/5))) + ((32+m[0]*(1/10))-(24+m[0]*(3/40))*((31+d[0])/4))*Calculations.sine(72+d[9]*(2/5))):.2f} \\text{{ lb}}}}$     
+        
+    #     Finalmente se puede encontrar x, resolviendo:
+        
+    #     ${{\hspace{{4mm}} x = \\dfrac{{M_{{par}} + M_2}}{{F_1 \\cdot \\sin(\\alpha_1)}} + d_1 }}$     
+    #     ${{\hspace{{4mm}} x = {((Calculations.cosine(72+d[9]*(2/5))*((119+m[2]*(1/5))*Calculations.cosine(60+d[9]*(2/5))*((21+d[0])/2) + (79+m[1]*(1/5))*(6+d[6]*(1/5))) + ((32+m[0]*(1/10))-(24+m[0]*(3/40))*((31+d[0])/4))*Calculations.sine(72+d[9]*(2/5)))/((24+m[0]*(3/40))*Calculations.sine(72+d[9]*(2/5)))) + (31+d[0])/4:.2f} \\text{{ ft}}}}$
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ),
 
 #========================================================  CENTROIDES  =========================================================
     #-------------------------------------------------       Centroides    --------------------------------------------
@@ -7289,6 +7412,7 @@ preguntas = [
         calculos='operations'
         ),
 
+
     #=================================================  FUERZAS DISTRIBUIDAS =========================================================
     #-------------------------------------------------       Vigas    --------------------------------------------
     #-------------------------------------------------       Nivel Fácil   ---------------------------------------------------
@@ -7464,6 +7588,7 @@ preguntas = [
         calculos='operations'
         ),
     
+
     #=================================================  FUERZAS DISTRIBUIDAS =========================================================
     #-------------------------------------------------       Vigas    --------------------------------------------
     #-------------------------------------------------       Nivel Medio   ---------------------------------------------------
@@ -8409,6 +8534,7 @@ preguntas = [
         calculos = 'operations',
         ),
     
+
     #=================================================  FUERZAS DISTRIBUIDAS =========================================================
     #-------------------------------------------------        Empuje de suelo  --------------------------------------------
     #-------------------------------------------------       Nivel medio   ---------------------------------------------------
@@ -8466,6 +8592,7 @@ preguntas = [
         calculos='operations'
         ),
   
+
     #=================================================  FUERZAS DISTRIBUIDAS =========================================================
     #-------------------------------------------------       Empuje de suelo    --------------------------------------------
     #-------------------------------------------------       Nivel Díficil   ---------------------------------------------------
