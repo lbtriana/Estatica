@@ -999,7 +999,7 @@ if authenticate_user():
                     if pregunta_no == 1 or pregunta_no == 2 or pregunta_no == 3:
                         st.image(EQ_image_paths[49], width=400)
                 if subtopic == "Momento en un punto 2D":
-                    if pregunta_no == 1 or pregunta_no == 2: 
+                    if pregunta_no == 1 or pregunta_no == 2 or pregunta_no == 3: 
                         if version_no == 1:
                             st.image(M2D_image_paths[9], width=550) 
                         elif version_no == 2:

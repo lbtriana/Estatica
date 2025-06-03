@@ -3144,8 +3144,8 @@ preguntas = [
         answer1 = lambda f, a, calc, c, d, m: np.round((m[0])/(d[3]+d[6]),2),
         answer2 = lambda f, a, calc, c, d, m: np.round((m[1])/(d[6]*calc['sin1']),2),
         answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = "El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. El vector posición $\\overrightarrow{{r}}$ se calcula desde el punto en el que se evalúa el momento a la línea de acción de la fuerza.",
-        ayuda2 = "Para calcular un momento en un punto en especifico, primero se obtiene las componentes del vector fuerza $\\overrightarrow{{F}}$ y el vector posición $\\overrightarrow{{r}}$. Luego, se identifica la componente de la fuerza que es perpendicular al vector de posición. El momento se calcula como la multiplicación de esta componente perpendicular de la fuerza por la distancia desde el punto de evaluación.",      
+        ayuda1 = MP1,
+        ayuda2 = MP2,      
         ayuda3 = "",
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
         El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. En 2 dimensiones es más fácil calcular el momento como la multiplicación de las componentes de la fuerza perpendiculares a las componentes del vector posición $\\overrightarrow{{r}}$. A continuación, se presenta la solución sugerida para el ejercicio:
@@ -3213,9 +3213,9 @@ preguntas = [
         answer1 = lambda f, a, calc, c, d, m: np.round(-f[0]*d[3],2),
         answer2 = lambda f, a, calc, c, d, m: np.round(-f[1]*calc['cos1']*(d[0]),2),
         answer3 = lambda f, a, calc, c, d, m: np.round(-(f[1]*calc['cos1']*(d[0]+d[3])),2),
-        ayuda1 = "El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. El vector posición $\\overrightarrow{{r}}$ se calcula desde el punto en el que se evalúa el momento a la línea de acción de la fuerza.",
-        ayuda2 = "Para calcular el momento en el punto de evaluación, primero obtenga las componentes del vector fuerza $\\overrightarrow{{F}}$ y el vector posición $\\overrightarrow{{r}}$. Luego, identifique la componente de la fuerza que es perpendicular al vector de posición. El momento se calcula como la multiplicación de esta componente perpendicular de la fuerza por la distancia desde el punto de evaluación.",      
-        ayuda3 = "Recuerde utilizar la regla de la mano derecha para definir el signo del momento.",
+        ayuda1 = MP1,
+        ayuda2 = MP2,      
+        ayuda3 = MP3,
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
         El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. En 2 dimensiones es más fácil calcular el momento como la multiplicación de las componentes de la fuerza perpendiculares a las componentes del vector posición $\\overrightarrow{{r}}$. A continuación, se presenta la solución sugerida para el ejercicio:  
 
@@ -3281,8 +3281,8 @@ preguntas = [
         answer1 = lambda f, a, calc, c, d, m: np.round(((m[0])/d[3]),2),
         answer2 = lambda f, a, calc, c, d, m: np.round((m[1])/(f[1]*calc['cos1']),2),
         answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = "El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. El vector posición $\\overrightarrow{{r}}$ se calcula desde el punto en el que se evalúa el momento a la línea de acción de la fuerza.",
-        ayuda2 = "Para calcular un momento en un punto en especifico, primero se obtiene las componentes del vector fuerza $\\overrightarrow{{F}}$ y el vector posición $\\overrightarrow{{r}}$. Luego, se identifica la componente de la fuerza que es perpendicular al vector de posición. El momento se calcula como la multiplicación de esta componente perpendicular de la fuerza por la distancia desde el punto de evaluación.",      
+        ayuda1 = MP1,
+        ayuda2 = MP2,      
         ayuda3 = "",
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
         El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. En 2 dimensiones es más fácil calcular el momento como la multiplicación de las componentes de la fuerza perpendiculares a las componentes del vector posición $\\overrightarrow{{r}}$. A continuación, se presenta la solución sugerida para el ejercicio:
@@ -3481,9 +3481,9 @@ preguntas = [
         answer1 = lambda f, a, calc, c, d, m: np.round(f[2]*(d[3]/d[0])*Calculations.sine(a[4]+a[8]),2),
         answer2 = lambda f, a, calc, c, d, m: 0,
         answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = "El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. El vector posición $\\overrightarrow{{r}} se calcula desde el punto en el que se evalúa el momento a la línea de acción de la fuerza.",
-        ayuda2 = "Para calcular el momento en el punto de evaluación, primero obtenga las componentes del vector fuerza $\\overrightarrow{{F}}$ y el vector posición $\\overrightarrow{{r}}$. Luego, identifique la componente de la fuerza que es perpendicular al vector de posición. El momento se calcula como la multiplicación de esta componente perpendicular de la fuerza por la distancia desde el punto de evaluación.",      
-        ayuda3 = "Recuerde utilizar la regla de la mano derecha para definir el signo del momento.",
+        ayuda1 = MP1,
+        ayuda2 = MP2,      
+        ayuda3 = MP3,
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
         Para resolver este ejercicio, primero se calcula el momento en B generado por la fuerza $F_3$, y luego, se iguala a la ecuación de momento generado por $F_1$:
         
@@ -3523,9 +3523,9 @@ preguntas = [
         answer1 = lambda f, a, calc, c, d, m: np.round(f[2]*calc['sin5']-f[0]-f[1]*calc['sin1'],2),
         answer2 = lambda f, a, calc, c, d, m: 0,
         answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = "El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. El vector posición $\\overrightarrow{{r}} se calcula desde el punto en el que se evalúa el momento a la línea de acción de la fuerza.",
-        ayuda2 = "Para calcular el momento en el punto de evaluación, primero obtenga las componentes del vector fuerza $\\overrightarrow{{F}}$ y el vector posición $\\overrightarrow{{r}}$. Luego, identifique la componente de la fuerza que es perpendicular al vector de posición. El momento se calcula como la multiplicación de esta componente perpendicular de la fuerza por la distancia desde el punto de evaluación.",      
-        ayuda3 = "Recuerde utilizar la regla de la mano derecha para definir el signo del momento.",
+        ayuda1 = MP1,
+        ayuda2 = MP2,      
+        ayuda3 = MP3,
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
         Para resolver este problema, se igualan los momentos generados por las cuatro fuerzas en los puntos A y B. A continuación, se presenta la solución sugerida para el ejercicio:
 
@@ -3639,17 +3639,17 @@ preguntas = [
         topic = MO,
         subtopic = M2D,
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Si el trabajador ubicado en B ejerce una fuerza  $F_2 = {f[1]:.0f} \\text{{ kN}}$ sobre su cuerda, determine la magnitud de la fuerza $F_1$ que debe aplicar el trabajador en C para evitar que el poste gire. Se sabe que $\\alpha_1 = {a[0]:.0f}°$, $\\alpha_2 = {a[4]:.0f}°$, $Y_1 = {d[0]:.0f} \\text{{ m}}$ y $Y_2 = {d[3]:.0f}  \\text{{ m}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Si el trabajador ubicado en B ejerce una fuerza  $F_2 = {f[1]:.0f} \\text{{ kN}}$ sobre su cuerda, determine la magnitud de la fuerza $F_1$ que debe aplicar el trabajador en C para evitar que el poste gire. Se sabe que $\\alpha_1 = {a[0]:.0f}°$, $\\alpha_2 = {a[4]:.0f}°$, $Y_1 = {d[0]:.0f} \\text{{ m}}$ y $Y_2 = {d[3]/2:.1f}  \\text{{ m}}$.",
         no_answers = 1,
         a1_name = "Fuerza $F_1$ $[kN]$",
         a2_name = "",
         a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round((f[1]*calc['cos5']*(d[0]+d[3]))/(d[0]*calc['sin1']),2),
+        answer1 = lambda f, a, calc, c, d, m: np.round((f[1]*calc['cos5']*(d[0]+d[3]/2))/(d[0]*calc['sin1']),2),
         answer2 = lambda f, a, calc, c, d, m: 0,
         answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = "El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. El vector posición $\\overrightarrow{{r}} se calcula desde el punto en el que se evalúa el momento a la línea de acción de la fuerza.",
-        ayuda2 = "Para calcular el momento en el punto de evaluación, primero obtenga las componentes del vector fuerza $\\overrightarrow{{F}}$ y el vector posición $\\overrightarrow{{r}}$. Luego, identifique la componente de la fuerza que es perpendicular al vector de posición. El momento se calcula como la multiplicación de esta componente perpendicular de la fuerza por la distancia desde el punto de evaluación.",      
-        ayuda3 = "Recuerde utilizar la regla de la mano derecha para definir el signo del momento.",
+        ayuda1 = MP1,
+        ayuda2 = MP2,      
+        ayuda3 = MP3,
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
         Para que el poste no gire, es necesario que la suma de momentos en el punto A sea igual a cero, garantizando así que el sistema está en equilibrio. A continuación, se presenta la solución sugerida para el ejercicio:
         
@@ -3668,7 +3668,7 @@ preguntas = [
         $\\textbf{{\\small 2. Obtención del vector posición:}}$ 
 
         ${{\hspace{{4mm}} r_1 \\text{{ = }} Y_1 = {d[0]:.0f}{{ \\text{{ m}}}}}}$     
-        ${{\hspace{{4mm}} r_2 \\text{{ = }} Y_1 + Y_2 = {(d[0]+d[3]):.0f}{{ \\text{{ m}}}}}}$  
+        ${{\hspace{{4mm}} r_2 \\text{{ = }} Y_1 + Y_2 = {(d[0]+d[3])/2:.0f}{{ \\text{{ m}}}}}}$  
         
         $\\textbf{{\\small 3. Cálculo de los momentos generados por F1 y F2:}}$ 
 
@@ -3682,8 +3682,8 @@ preguntas = [
 
         La componente de la fuerza que es perpendicular al vector posición es $F_{{2x}}$. De acuerdo con la regla de la mano de derecha el momento es positivo (sentido antihorario). 
 
-        ${{\hspace{{4mm}} M_{{2A}} = \\overrightarrow{{r_2}} X \\overrightarrow{{F_2}} = r2 \\cdot\\hspace{{1mm}} F2_y = {(d[0]+d[3]):.0f}{{ \\text{{ m}}}} \\cdot\\hspace{{1mm}}{f[1]*calc['cos5']:.2f}{{\\text{{ kN}}}}}}$     
-        ${{\hspace{{4mm}} M_{{2A}} = {(f[1]*calc['cos5']*(d[0]+d[3])):.2f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}$    
+        ${{\hspace{{4mm}} M_{{2A}} = \\overrightarrow{{r_2}} X \\overrightarrow{{F_2}} = r2 \\cdot\\hspace{{1mm}} F2_y = {(d[0]+d[3]/2):.0f}{{ \\text{{ m}}}} \\cdot\\hspace{{1mm}}{f[1]*calc['cos5']:.2f}{{\\text{{ kN}}}}}}$     
+        ${{\hspace{{4mm}} M_{{2A}} = {(f[1]*calc['cos5']*(d[0]+d[3]/2)):.2f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}$    
         
         $\\textbf{{\\small 4. Sumatoria de momentos en A: }}$ 
 
@@ -3691,13 +3691,13 @@ preguntas = [
         
         ${{\hspace{{4mm}} \\sum M_A = M_{{1A}} + M_{{2A}} = 0}}$      
 
-        ${{\hspace{{4mm}} - {d[0]:.0f}{{ \\text{{ m}}}} \\cdot |\\overrightarrow{{F_1}}| \\cdot {calc['sin1']:.2f} + {(f[1]*calc['cos5']*(d[0]+d[3])):.2f}{{\\text{{ kN}} \\cdot \\text{{ m}}}} = 0}}$
+        ${{\hspace{{4mm}} - {d[0]:.0f}{{ \\text{{ m}}}} \\cdot |\\overrightarrow{{F_1}}| \\cdot {calc['sin1']:.2f} + {(f[1]*calc['cos5']*(d[0]+d[3]/2)):.2f}{{\\text{{ kN}} \\cdot \\text{{ m}}}} = 0}}$
 
-        ${{\hspace{{4mm}} {d[0]*calc['sin1']:.2f}{{ \\text{{ m}}}} \\cdot |\\overrightarrow{{F_1}}| = {(f[1]*calc['sin5']*(d[0]+d[3])):.2f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}$     
+        ${{\hspace{{4mm}} {d[0]*calc['sin1']:.2f}{{ \\text{{ m}}}} \\cdot |\\overrightarrow{{F_1}}| = {(f[1]*calc['sin5']*(d[0]+d[3]/2)):.2f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}$     
 
-        ${{\hspace{{4mm}} |\\overrightarrow{{F_1}}| = \\dfrac{{{(f[1]*calc['cos5']*(d[0]+d[3])):.2f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}{{{d[0]*calc['sin1']:.2f}{{ \\text{{ m}}}}}}}}$     
+        ${{\hspace{{4mm}} |\\overrightarrow{{F_1}}| = \\dfrac{{{(f[1]*calc['cos5']*(d[0]+d[3]/2)):.2f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}{{{d[0]*calc['sin1']:.2f}{{ \\text{{ m}}}}}}}}$     
 
-        ${{\hspace{{4mm}} |\\overrightarrow{{F_1}}| = {(f[1]*calc['cos5']*(d[0]+d[3]))/(d[0]*calc['sin1']):.2f}{{ \\text{{ kN}}}}}}$     
+        ${{\hspace{{4mm}} |\\overrightarrow{{F_1}}| = {(f[1]*calc['cos5']*(d[0]+d[3]/2))/(d[0]*calc['sin1']):.2f}{{ \\text{{ kN}}}}}}$     
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
@@ -3711,21 +3711,89 @@ preguntas = [
         topic = MO,
         subtopic = M2D,
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Si el trabajador ubicado en B ejerce una fuerza  $F_2 = {f[1]:.0f} \\text{{ kN}}$ sobre su cuerda, y el que está ubicado en C realiza otra fuerza $F_1 = {f[0]:.0f} \\text{{ kN}}$, determine la magnitud la distancia en la que la fuerza F1 se debe aplicar para evitar quer gire el poste.  $\\alpha_1 = {a[0]:.0f}°$, $\\alpha_2 = {a[4]:.0f}°$ y $X_2 = {d[3]:.0f}  \\text{{ m}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Si el trabajador ubicado en B ejerce una fuerza  $F_2 = {f[1]/2:.1f} \\text{{ kN}}$ sobre su cuerda, y el que está ubicado en C aplica otra fuerza $F_1 = {f[1]*2:.0f} \\text{{ kN}}$, determine la magnitud de la distancia a la que debe aplicarse la fuerza F1, de forma que el poste no gire. Se conoce que $\\alpha_1 = {a[4]:.0f}°$, $\\alpha_2 = {a[0]:.0f}°$ y $Y_2 = {d[3]/2:.1f}  \\text{{ m}}$.",
         no_answers = 1,
-        a1_name = "Distancia X1 [m]",
+        a1_name = "Distancia $Y_1$ $[m]$",
         a2_name = "",
         a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round(((f[1]*calc['cos5']*(d[3]))/(f[0]*calc['sin1']-f[1]*calc['cos5'])),2),
+        answer1 = lambda f, a, calc, c, d, m: np.round(((f[1]*0.5*calc['cos1']*(d[3])/2)/(f[1]*2*calc['sin5']-f[1]*0.5*calc['cos1'])),2),
         answer2 = lambda f, a, calc, c, d, m: 0,
         answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = "El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. El vector posición $\\overrightarrow{{r}} se calcula desde el punto en el que se evalúa el momento a la línea de acción de la fuerza.",
-        ayuda2 = "Para calcular el momento en el punto de evaluación, primero obtenga las componentes del vector fuerza $\\overrightarrow{{F}}$ y el vector posición $\\overrightarrow{{r}}$. Luego, identifique la componente de la fuerza que es perpendicular al vector de posición. El momento se calcula como la multiplicación de esta componente perpendicular de la fuerza por la distancia desde el punto de evaluación.",      
-        ayuda3 = "Recuerde utilizar la regla de la mano derecha para definir el signo del momento.",
+        ayuda1 = MP1,
+        ayuda2 = MP2,      
+        ayuda3 = MP3,
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-        El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. En 2 dimensiones es más fácil calcular el momento como la multiplicación de las componentes de la fuerza perpendiculares a las componentes del vector. A continuación, vamos a resolver el ejercicio usando esta definición:  
+        El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. En 2 dimensiones es más fácil calcular el momento como la multiplicación de las componentes de la fuerza perpendiculares a las componentes del vector posición $\\overrightarrow{{r}}$. A continuación, se presenta la solución sugerida para el ejercicio:
 
         Inicialmente, observamos que para que la condición del enunciado se cumpla es necesario que la suma de momentos en A sea igual a cero.
+        
+        $\\textbf{{\\small 1. Descomposición de las fuerzas:}}$
+
+        $\\underline{{Fuerza  \\hspace{{2mm}} F1 :}}$ 
+        
+        ${{\hspace{{4mm}} |F1_x| = |\\overrightarrow{{F1}}| \\cdot \\sin(\\alpha_1) = {f[1]*2:.0f}{{\\text{{ kN }} \\cdot\\hspace{{1mm}}}}{calc['sin5']:.2f} = {f[1]*2*calc['sin5']:.2f}{{ \\text{{ kN}}}}}}$             
+        ${{\hspace{{4mm}} |F1_y| = |\\overrightarrow{{F1}}| \\cdot \\cos(\\alpha_1) = {f[1]*2:.0f}{{\\text{{ kN }} \\cdot\\hspace{{1mm}}}}{calc['cos5']:.2f} = {f[1]*2*calc['cos5']:.2f}{{ \\text{{ kN}}}}}}$            
+
+        $\\underline{{Fuerza  \\hspace{{2mm}} F2 :}}$ 
+
+        ${{\hspace{{4mm}} |F2_x| = |\\overrightarrow{{F2}}| \\cdot \\cos(\\alpha_2) = {f[1]*0.5:.0f}{{\\text{{ kN }} \\cdot\\hspace{{1mm}}}}{calc['cos1']:.2f} = {f[1]*0.5*calc['cos1']:.2f}{{ \\text{{ kN}}}}}}$      
+        ${{\hspace{{4mm}} |F2_y| = |\\overrightarrow{{F2}}| \\cdot \\sin(\\alpha_2) = {f[1]*0.5:.0f}{{\\text{{ kN }} \\cdot\\hspace{{1mm}}}}{calc['sin1']:.2f} = {f[1]*0.5*calc['sin1']:.2f}{{ \\text{{ kN}}}}}}$      
+
+        $\\textbf{{\\small 2. Obtención del vector posición:}}$ 
+
+        ${{\hspace{{4mm}} r1 \\text{{ = }} Y_1 }}$     
+        ${{\hspace{{4mm}} r2 \\text{{ = }} Y_1 + Y_2 = Y_1 + {(d[3])/2:.0f}{{ \\text{{ m}}}}}}$  
+        
+        $\\textbf{{\\small 3.1 Momento de la fuerza F1: }}$ 
+
+        Para calcular el momento de F1 en A vemos que la componente perpendicular al vector posición asociado r1 es $F1_x$, y que por la $\\textit{{Regla de la mano de derecha}}$ el momento sera negativo. Tal que: 
+
+        ${{\hspace{{4mm}} M1_A = - r1 \\cdot |\\overrightarrow{{F1}}| \\cdot \\sin(\\alpha_1) = - Y_1 \\cdot {f[1]*2*calc['sin5']:.2f}{{ \\text{{ kN}}}}}}$
+        
+        $\\textbf{{\\small 3.2 Momento de la fuerza F2: }}$ 
+
+        En el momento de la fuerza F2, notamos que la componente de la fuerza que es perpendicular al vector posición es $F2_x$, y por la $\\textit{{Regla de la mano de derecha}}$ el momento es positivo. Tal que podemos considerar: 
+
+        ${{\hspace{{4mm}} M2_A = \\overrightarrow{{r_2}} X \\overrightarrow{{F2}} = r2 \\cdot\\hspace{{1mm}} F2_x = ( Y_1 + {(d[3])/2:.0f} ){{ \\text{{ m}}}} \\cdot\\hspace{{1mm}}{f[1]*0.5*calc['cos1']:.2f}{{\\text{{ kN}}}}}}$     
+        ${{\hspace{{4mm}} M2_A = ( Y_1 \\cdot\\hspace{{1mm}}{f[1]*0.5*calc['cos1']:.2f}{{\\text{{ kN}}}} + {(f[1]*0.5*calc['cos1']*(d[3]))/2:.2f} ) {{\\text{{ kN}} \\cdot \\text{{ m}}}}}}$    
+        
+        $\\textbf{{\\small 4. Sumatoria de momentos en A: }}$ 
+
+        Hacemos sumatoria de momentos en A y la igualamos a cero: 
+        
+        ${{\hspace{{4mm}} \\sum M_A = M1_A + M2_A = 0}}$      
+        ${{\hspace{{4mm}} - Y_1 \\cdot {f[1]*2*calc['sin5']:.2f}{{ \\text{{ kN}}}} + Y_1 \\cdot\\hspace{{1mm}}{f[1]*0.5*calc['cos1']:.2f}{{\\text{{ kN}}}} +{(f[1]*0.5*calc['cos1']*(d[3])/2):.2f}{{\\text{{ kN}} \\cdot \\text{{ m}}}} = 0}}$         
+        ${{\hspace{{4mm}} Y_1 \\cdot ({f[1]*2*calc['sin5']:.2f}{{ \\text{{ kN}}}} - {f[1]*0.5*calc['cos1']:.2f}{{\\text{{ kN}}}}) = {(f[1]*0.5*calc['cos1']*(d[3])/2):.2f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}$     
+        ${{\hspace{{4mm}} Y_1 = \\dfrac{{{(f[1]*0.5*calc['cos1']*(d[3])/2):.2f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}{{{f[1]*2*calc['sin5']-f[1]*0.5*calc['cos1']:.2f}{{\\text{{ kN}}}}}}}}$     
+        ${{\hspace{{4mm}} Y_1 = {(f[1]*0.5*calc['cos1']*(d[3])/2)/(f[1]*2*calc['sin5']-f[1]*0.5*calc['cos1']):.2f}{{ \\text{{ m}}}}}}$     
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
+
+    Questionary(#3_1
+        code = 2130031,
+        no_pregunta = 3,
+        complexity = D,
+        topic = MO,
+        subtopic = M2D,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Si el trabajador ubicado en B ejerce una fuerza  $F_2 = {f[1]:.0f} \\text{{ kN}}$ sobre su cuerda, y el que está ubicado en C aplica otra fuerza $F_1 = {f[0]:.0f} \\text{{ kN}}$. Calcule el ángulo $\\alpha_2$ asociado a la fuerza $F2$ para evitar que el poste gire. Considere que $\\alpha_1 = {a[0]:.0f}°$, $Y_1 = {d[0]:.0f} \\text{{ m}}$  y $Y_2 = {d[3]:.0f}  \\text{{ m}}$.",
+        no_answers = 1,
+        a1_name = "Ángulo $\\alpha_2 [°]$",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(math.degrees(math.acos((d[0]*f[0]*calc['sin1'])/(f[1]*(d[0]+d[3])))),2),
+        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = MP1,
+        ayuda2 = MP2,      
+        ayuda3 = MP3,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. En 2 dimensiones es más fácil calcular el momento como la multiplicación de las componentes de la fuerza perpendiculares a las componentes del vector posición $\\overrightarrow{{r}}$. A continuación, vamos a resolver el ejercicio usando esta definición:  
+
+        Para que el poste no gire la sumatoria de momentos en A debe ser igual a cero.
         
         $\\textbf{{\\small 1. Descomposición de las fuerzas:}}$
 
@@ -3736,111 +3804,39 @@ preguntas = [
 
         $\\underline{{Fuerza  \\hspace{{2mm}} F2 :}}$ 
 
-        ${{\hspace{{4mm}} |F2_x| = |\\overrightarrow{{F2}}| \\cdot \\cos(\\alpha_2) = {f[1]:.0f}{{\\text{{ kN }} \\cdot\\hspace{{1mm}}}}{calc['cos5']:.2f} = {f[1]*calc['cos5']:.2f}{{ \\text{{ kN}}}}}}$      
-        ${{\hspace{{4mm}} |F2_y| = |\\overrightarrow{{F2}}| \\cdot \\sin(\\alpha_2) = {f[1]:.0f}{{\\text{{ kN }} \\cdot\\hspace{{1mm}}}}{calc['sin5']:.2f} = {f[1]*calc['sin5']:.2f}{{ \\text{{ kN}}}}}}$      
+        ${{\hspace{{4mm}} |F2_x| = |\\overrightarrow{{F2}}| \\cdot \\cos(\\alpha_2) = {f[1]:.0f}{{\\text{{ kN }}}} \\cdot \\cos(\\alpha_2) }}$      
+        ${{\hspace{{4mm}} |F2_y| = |\\overrightarrow{{F2}}| \\cdot \\sin(\\alpha_2) = {f[1]:.0f}{{\\text{{ kN }}}} \\cdot \\sin(\\alpha_2) }}$      
 
         $\\textbf{{\\small 2. Obtención del vector posición:}}$ 
 
-        ${{\hspace{{4mm}} r1 \\text{{ = }} X_1 }}$     
-        ${{\hspace{{4mm}} r2 \\text{{ = }} X_1 + X_2 = X_1 + {(d[3]):.0f}{{ \\text{{ m}}}}}}$  
+        ${{\hspace{{4mm}} r1 \\text{{ = }} X_1 = {d[0]:.0f}{{ \\text{{ m}}}}}}$     
+        ${{\hspace{{4mm}} r2 \\text{{ = }} X_1 + X_2 = {(d[0]+d[3]):.0f}{{ \\text{{ m}}}}}}$      
         
         $\\textbf{{\\small 3.1 Momento de la fuerza F1: }}$ 
 
-        Para calcular el momento de F1 en A vemos que la componente perpendicular al vector posición asociado r1 es $F1_x$, y que por la $\\textit{{Regla de la mano de derecha}}$ el momento sera negativo. Tal que: 
-
-        ${{\hspace{{4mm}} M1_A = - r1 \\cdot |\\overrightarrow{{F1}}| \\cdot \\sin(\\alpha_1) = - X_1 \\cdot {f[0]*calc['sin1']:.2f}{{ \\text{{ kN}}}}}}$
+        ${{\hspace{{4mm}} M1_A = - r1 \\cdot |\\overrightarrow{{F1}}| \\cdot \\sin(\\alpha_1) = - {d[0]:.0f}{{ \\text{{ m}}}} \\cdot {f[0]*calc['sin1']:.2f}{{ \\text{{ kN}}}}}}$     
+        ${{\hspace{{4mm}} M1_A = - {d[0]*f[0]*calc['sin1']:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}$     
         
         $\\textbf{{\\small 3.2 Momento de la fuerza F2: }}$ 
 
-        En el momento de la fuerza F2, notamos que la componente de la fuerza que es perpendicular al vector posición es $F2_x$, y por la $\\textit{{Regla de la mano de derecha}}$ el momento es positivo. Tal que podemos considerar: 
-
-        ${{\hspace{{4mm}} M2_A = \\overrightarrow{{r_2}} X \\overrightarrow{{F2}} = r2 \\cdot\\hspace{{1mm}} F2_x = ( X_1 + {(d[3]):.0f} ){{ \\text{{ m}}}} \\cdot\\hspace{{1mm}}{f[1]*calc['cos5']:.2f}{{\\text{{ kN}}}}}}$     
-        ${{\hspace{{4mm}} M2_A = ( X_1 \\cdot\\hspace{{1mm}}{f[1]*calc['cos5']:.2f}{{\\text{{ kN}}}} + {(f[1]*calc['cos5']*(d[3])):.2f} ) {{\\text{{ kN}} \\cdot \\text{{ m}}}}}}$    
+        ${{\hspace{{4mm}} M2_A = \\overrightarrow{{r_2}} X \\overrightarrow{{F2}} = r2 \\cdot\\hspace{{1mm}} F2_x = {(d[0] + d[3]):.0f} {{ \\text{{ m}}}} \\cdot\\hspace{{1mm}}{f[1]:.0f}{{\\text{{ kN }}}} \\cdot \\cos(\\alpha_2)}}$     
+        ${{\hspace{{4mm}} M2_A = ( \\cos(\\alpha_2)\\cdot\\hspace{{1mm}}{(f[1]*(d[0]+d[3])):.2f} ) {{\\text{{ kN}} \\cdot \\text{{ m}}}}}}$    
         
         $\\textbf{{\\small 4. Sumatoria de momentos en A: }}$ 
-
-        Hacemos sumatoria de momentos en A y la igualamos a cero: 
         
         ${{\hspace{{4mm}} \\sum M_A = M1_A + M2_A = 0}}$      
-        ${{\hspace{{4mm}} - X_1 \\cdot {f[0]*calc['sin1']:.2f}{{ \\text{{ kN}}}} + X_1 \\cdot\\hspace{{1mm}}{f[1]*calc['cos5']:.2f}{{\\text{{ kN}}}} +{(f[1]*calc['cos5']*(d[3])):.2f}{{\\text{{ kN}} \\cdot \\text{{ m}}}} = 0}}$         
-        ${{\hspace{{4mm}} X_1 \\cdot ({f[0]*calc['sin1']:.2f}{{ \\text{{ kN}}}} - {f[1]*calc['cos5']:.2f}{{\\text{{ kN}}}}) = {(f[1]*calc['cos5']*(d[3])):.2f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}$     
-        ${{\hspace{{4mm}} X_1 = \\dfrac{{{(f[1]*calc['cos5']*(d[3])):.2f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}{{{f[0]*calc['sin1']-f[1]*calc['cos5']:.2f}{{\\text{{ kN}}}}}}}}$     
-        ${{\hspace{{4mm}} X_1 = {(f[1]*calc['cos5']*(d[3]))/(f[0]*calc['sin1']-f[1]*calc['cos5']):.2f}{{ \\text{{ m}}}}}}$     
+        ${{\hspace{{4mm}}  - {d[0]*f[0]*calc['sin1']:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}} + ( \\cos(\\alpha_2)\\cdot\\hspace{{1mm}}{(f[1]*(d[0]+d[3])):.2f} ) {{\\text{{ kN}} \\cdot \\text{{ m}}}} = 0}}$         
+        ${{\hspace{{4mm}} ( \\cos(\\alpha_2)\\cdot\\hspace{{1mm}}{(f[1]*(d[0]+d[3])):.2f} ) {{\\text{{ kN}} \\cdot \\text{{ m}}}} = {d[0]*f[0]*calc['sin1']:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}} }}$     
+        ${{\hspace{{4mm}} \\cos(\\alpha_2) = \\left( \\dfrac{{{d[0]*f[0]*calc['sin1']:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}{{{(f[1]*(d[0]+d[3])):.2f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}} \\right) }}$     
+        
+        ${{\hspace{{4mm}} \\alpha_2 = Cos^{{-1}} \\left( \\dfrac{{{d[0]*f[0]*calc['sin1']:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}{{{(f[1]*(d[0]+d[3])):.2f} {{\\text{{ kN}} \\cdot \\text{{ m}}}}}} \\right) }}$
+        
+        ${{\hspace{{4mm}} \\alpha_2 = {math.degrees(math.acos((d[0]*f[0]*calc['sin1'])/(f[1]*(d[0]+d[3])))):.2f}°}}$     
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),
-
-    # Questionary(#3_1
-    #     code = 2130031,
-    #     no_pregunta = 3,
-    #     complexity = D,
-    #     topic = MO,
-    #     subtopic = M2D,
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Si el trabajador ubicado en B ejerce una fuerza  $F_2 = {f[1]:.0f} \\text{{ kN}}$ sobre su cuerda, y el que está ubicado en C realiza otra fuerza $F_1 = {f[0]:.0f} \\text{{ kN}}$. Calcular el ángulo asociado a la fuerza F2 para evitar que gire el poste. Considerar $\\alpha_1 = {a[0]:.0f}°$, $X_1 = {d[0]:.0f} \\text{{ m}}$  y $X_2 = {d[3]:.0f}  \\text{{ m}}$.",
-    #     no_answers = 1,
-    #     a1_name = "Ángulo $\\alpha_2 [°]",
-    #     a2_name = "",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(Calculations.arccosine((d[0]*f[0]*calc['sin1'])/(f[1]*(d[0]+d[3]))),2),
-    #     answer2 = lambda f, a, calc, c, d, m: 0,
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. El vector posición $\\overrightarrow{{r}} se calcula desde el punto en el que se evalúa el momento a la línea de acción de la fuerza.",
-    #     ayuda2 = "Para calcular el momento en el punto de evaluación, primero obtenga las componentes del vector fuerza $\\overrightarrow{{F}}$ y el vector posición $\\overrightarrow{{r}}$. Luego, identifique la componente de la fuerza que es perpendicular al vector de posición. El momento se calcula como la multiplicación de esta componente perpendicular de la fuerza por la distancia desde el punto de evaluación.",      
-    #     ayuda3 = "Recuerde utilizar la regla de la mano derecha para definir el signo del momento.",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. En 2 dimensiones es más fácil calcular el momento como la multiplicación de las componentes de la fuerza perpendiculares a las componentes del vector. A continuación, vamos a resolver el ejercicio usando esta definición:  
-
-    #     Inicialmente, se observa que para que la condición del enunciado se cumpla es necesario que la suma de momentos en A sea igual a cero.
-        
-    #     $\\textbf{{\\small 1. Descomposición de las fuerzas:}}$
-
-    #     $\\underline{{Fuerza  \\hspace{{2mm}} F1 :}}$ 
-        
-    #     ${{\hspace{{4mm}} |F1_x| = |\\overrightarrow{{F1}}| \\cdot \\sin(\\alpha_1) = {f[0]:.0f}{{\\text{{ kN }} \\cdot\\hspace{{1mm}}}}{calc['sin1']:.2f} = {f[0]*calc['sin1']:.2f}{{ \\text{{ kN}}}}}}$             
-    #     ${{\hspace{{4mm}} |F1_y| = |\\overrightarrow{{F1}}| \\cdot \\cos(\\alpha_1) = {f[0]:.0f}{{\\text{{ kN }} \\cdot\\hspace{{1mm}}}}{calc['cos1']:.2f} = {f[0]*calc['cos1']:.2f}{{ \\text{{ kN}}}}}}$            
-
-    #     $\\underline{{Fuerza  \\hspace{{2mm}} F2 :}}$ 
-
-    #     ${{\hspace{{4mm}} |F2_x| = |\\overrightarrow{{F2}}| \\cdot \\cos(\\alpha_2) = {f[1]:.0f}{{\\text{{ kN }}}} \\cdot \\cos(\\alpha_2) }}$      
-    #     ${{\hspace{{4mm}} |F2_y| = |\\overrightarrow{{F2}}| \\cdot \\sin(\\alpha_2) = {f[1]:.0f}{{\\text{{ kN }}}} \\cdot \\sin(\\alpha_2) }}$      
-
-    #     $\\textbf{{\\small 2. Obtención del vector posición:}}$ 
-
-    #     ${{\hspace{{4mm}} r1 \\text{{ = }} X_1 = {d[0]:.0f}{{ \\text{{ m}}}}}}$     
-    #     ${{\hspace{{4mm}} r2 \\text{{ = }} X_1 + X_2 = {(d[0]+d[3]):.0f}{{ \\text{{ m}}}}}}$      
-        
-    #     $\\textbf{{\\small 3.1 Momento de la fuerza F1: }}$ 
-
-    #     Para calcular el momento de F1 en A vemos que la componente perpendicular al vector posición asociado r1 es $F1_x$, y que por la Regla de la mano de derecha el momento sera negativo (Sentido horario). Tal que: 
-
-    #     ${{\hspace{{4mm}} M1_A = - r1 \\cdot |\\overrightarrow{{F1}}| \\cdot \\sin(\\alpha_1) = - {d[0]:.0f}{{ \\text{{ m}}}} \\cdot {f[0]*calc['sin1']:.2f}{{ \\text{{ kN}}}}}}$     
-    #     ${{\hspace{{4mm}} M1_A = - {d[0]*f[0]*calc['sin1']:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}$     
-        
-    #     $\\textbf{{\\small 3.2 Momento de la fuerza F2: }}$ 
-
-    #     En el momento de la fuerza F2, notamos que la componente de la fuerza que es perpendicular al vector posición r2 es $F2_x$, y por la Regla de la mano de derecha el momento es positivo (Sentido antihorario). Tal que podemos considerar: 
-
-    #     ${{\hspace{{4mm}} M2_A = \\overrightarrow{{r_2}} X \\overrightarrow{{F2}} = r2 \\cdot\\hspace{{1mm}} F2_x = {(d[0] + d[3]):.0f} {{ \\text{{ m}}}} \\cdot\\hspace{{1mm}}{f[1]:.0f}{{\\text{{ kN }}}} \\cdot \\cos(\\alpha_2)}}$     
-    #     ${{\hspace{{4mm}} M2_A = ( \\cos(\\alpha_2)\\cdot\\hspace{{1mm}}{(f[1]*(d[0]+d[3])):.2f} ) {{\\text{{ kN}} \\cdot \\text{{ m}}}}}}$    
-        
-    #     $\\textbf{{\\small 4. Sumatoria de momentos en A: }}$ 
-
-    #     Hacemos sumatoria de momentos en A y la igualamos a cero: 
-        
-    #     ${{\hspace{{4mm}} \\sum M_A = M1_A + M2_A = 0}}$      
-    #     ${{\hspace{{4mm}}  - {d[0]*f[0]*calc['sin1']:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}} + ( \\cos(\\alpha_2)\\cdot\\hspace{{1mm}}{(f[1]*(d[0]+d[3])):.2f} ) {{\\text{{ kN}} \\cdot \\text{{ m}}}} = 0}}$         
-    #     ${{\hspace{{4mm}} ( \\cos(\\alpha_2)\\cdot\\hspace{{1mm}}{(f[1]*(d[0]+d[3])):.2f} ) {{\\text{{ kN}} \\cdot \\text{{ m}}}} = {d[0]*f[0]*calc['sin1']:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}} }}$     
-    #     ${{\hspace{{4mm}} \\cos(\\alpha_2) = ( \\dfrac{{{d[0]*f[0]*calc['sin1']:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}{{{(f[1]*(d[0]+d[3])):.2f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}} ) }}$     
-    #     ${{\hspace{{4mm}} \\alpha_2 = arcocoseno ( \\dfrac{{{d[0]*f[0]*calc['sin1']:.0f}{{\\text{{ kN}} \\cdot \\text{{ m}}}}}}{{{(f[1]*(d[0]+d[3])):.2f} {{\\text{{ kN}} \\cdot \\text{{ m}}}}}} ) }}$
-    #     ${{\hspace{{4mm}} \\alpha_2 = {Calculations.arccosine((d[0]*f[0]*calc['sin1'])/(f[1]*(d[0]+d[3]))):.2f}°}}     
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
 
     Questionary(#4_1
         code = 2130041,
