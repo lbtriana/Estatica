@@ -6423,61 +6423,63 @@ preguntas = [
         calculos='operations'
         ),
     
-    # Questionary(#2_1
-    #     code = 4120021,
-    #     no_pregunta = 2,
-    #     complexity = M,
-    #     topic = "Sistemas equivalentes",
-    #     subtopic = "Sistemas equivalentes",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Las ménsulas estan sometidas a cuatro cargas. Determine la magnitud de $F_1$ y $F_3$ (Use el signo para la dirección), de manera que la fuerza resultante pase por el origen. Considere $F_2 = {f[2]:.0f} \\text{{ N}}$, $F_4 = {f[4]:.2f} \\text{{ N}}$, $d_1 = {d[0]/10:.2f} \\text{{ m}}$,  $d_2 = {(3*d[0])/20:.2f} \\text{{ m}}$, $d_3 = {(d[0]+d[3])*(3/20):.2f} \\text{{ m}}, $d_4 = {(d[0]+d[3])/10:.2f} \\text{{ m}}$, $d_5 = {(d[0]+d[6])/10:.2f} \\text{{ m}}$ y $d_6 = {(d[0]+d[6])*(3/20):.2f} \\text{{ m}}$.",
-    #     no_answers = 2,
-    #     a1_name = "$F_1$ [N]",
-    #     a2_name = "$F_3$ [N]",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(-((2/3)*(f[4]-f[2]) + ((2*f[2]-f[4])*(d[0]+d[3]) - f[4]*(d[0]+d[6]))*(2/3)*(1/(d[3] - d[6]))),2),
-    #     answer2 = lambda f, a, calc, c, d, m: np.round(-(((2*f[2]-f[4])*(d[0]+d[3]) - f[4]*(d[0]+d[6]))*(2/3)*(1/(d[3] - d[6]))) ,2),
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "La fuerza resultante será igual a la suma de todas las fuerzas en el sistema, y que el momento de la fuerza resultante es igual a la suma de los momentos originales desde cualquier punto.",
-    #     ayuda2 = "Para determinar la ubicación de la fuerza resultante con respecto a un punto de referencia, utilizamos la condición de que el momento producido por la fuerza resultante respecto a ese punto debe ser igual al momento de las fuerzas originales del sistema respecto al mismo punto.",      
-    #     ayuda3 = "",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     En un sistema equivalente se esta buscando reducir un sistema complejo a un sistema de fuerzas y momentos que producen mismo efecto rotacional y traslacional. A continuación, se presenta la solución sugerida para el ejercicio:
+    Questionary(#2_1
+        code = 4120021,
+        no_pregunta = 2,
+        complexity = M,
+        topic = "Sistemas equivalentes",
+        subtopic = "Sistemas equivalentes",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Las ménsulas están sometidas a la acción de cuatro cargas. Determine la magnitud de $F_1$ y $F_3$ (utilizando el signo correspondiente para indicar su dirección), de modo que la fuerza resultante pase por el origen. Considere $F_2 = {f[2]:.0f} \\text{{ N}}$, $F_4 = {f[4]:.2f} \\text{{ N}}$, $d_1 = {d[0]/10:.2f} \\text{{ m}}$,  $d_2 = {(3*d[0])/20:.2f} \\text{{ m}}$, $d_3 = {(d[0]+d[3])*(3/20):.2f} \\text{{ m}}$, $d_4 = {(d[0]+d[3])/10:.2f} \\text{{ m}}$, $d_5 = {(d[0]+d[6])/10:.2f} \\text{{ m}}$ y $d_6 = {(d[0]+d[6])*(3/20):.2f} \\text{{ m}}$.",
+        no_answers = 2,
+        a1_name = "$F_1$ $[N]$",
+        a2_name = "$F_3$ $[N]$",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(-((2/3)*(f[4]-f[2]) + ((2*f[2]-f[4])*(d[0]+d[3]) - f[4]*(d[0]+d[6]))*(2/3)*(1/(d[3] - d[6]))),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(-(((2*f[2]-f[4])*(d[0]+d[3]) - f[4]*(d[0]+d[6]))*(2/3)*(1/(d[3] - d[6]))) ,2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = SE1,
+        ayuda2 = SE2,      
+        ayuda3 = SE3,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        En un sistema equivalente, se busca simplificar un sistema complejo de fuerzas y momentos a un sistema más simple que genere el mismo efecto rotacional y traslacional. A continuación, se presenta la solución sugerida para el ejercicio:
         
-    #     Se va a resolver considerando que  $F_1$ y $F_3$ tengan dirección negativa respecto al eje Z
+        Para la solución se considera que  $F_1$ y $F_3$ actúan en la dirección negativa del eje $Z$.
         
-    #     $\\textbf{{\\small 1. Ubicación de fuerza resultante: }}$
+        $\\textbf{{\\small 1. Ubicación de fuerza resultante: }}$
         
-    #     Para este ejercicio, se evidencia para cumplir la condición de que la fuerza resultante pase por el origen es necesario que la sumatoria de momentos respecto a los ejes X y Y deben ser igual a cero:        
+        Para cumplir la condición de que la fuerza resultante pase por el origen, la sumatoria de momentos respecto a los ejes $X$ y $Y$ debe ser igual a cero:        
         
-    #     $\\underline{{Sumatoria \\hspace{{2mm}} de \\hspace{{2mm}} momentos \\hspace{{2mm}} respecto \\hspace{{2mm}} al \\hspace{{2mm}} eje \\hspace{{2mm}} Y:}}$  
+        $\\underline{{Sumatoria \\hspace{{2mm}} de \\hspace{{2mm}} momentos \\hspace{{2mm}} respecto \\hspace{{2mm}} al \\hspace{{2mm}} eje \\hspace{{2mm}} Y:}}$  
         
-    #     ${{\hspace{{4mm}} \\sum{{M_y}} = x \\cdot F_R = 0}}$     
-    #     ${{\hspace{{4mm}} F_1 \\cdot {d[0]*(3/20):.2f} \\text{{ m}}  + {f[2]:.0f} \\text{{ N}} \\cdot {d[0]/10:.2f} \\text{{ m}} - F_3 \\cdot {d[0]*(3/20):.2f} \\text{{ m}} - {f[4]:.0f} \\text{{ N}} \\cdot {d[0]/10:.2f} \\text{{ m}} = 0}}$     
-    #     ${{\hspace{{4mm}} (F_1 - F_3) \\cdot {d[0]*(3/20):.2f} \\text{{ m}} = {(d[0]/10)*(f[4]-f[2]):.2f} \\text{{ N}} \\cdot \\text{{ m}}}}$     
-    #     ${{\hspace{{4mm}} F_1 = {(2/3)*(f[4]-f[2]):.2f} \\text{{ N}} + F_3 }}$        
+        ${{\hspace{{4mm}} \\sum{{M_y}} = - F_1 \\cdot d_2 - F_2 \\cdot d_1 + F_3 \\cdot d_2 + F_4 \\cdot d_1= 0}}$     
+        ${{\hspace{{4mm}} F_1 \\cdot {d[0]*(3/20):.2f} \\text{{ m}}  + {f[2]:.0f} \\text{{ N}} \\cdot {d[0]/10:.2f} \\text{{ m}} - F_3 \\cdot {d[0]*(3/20):.2f} \\text{{ m}} - {f[4]:.0f} \\text{{ N}} \\cdot {d[0]/10:.2f} \\text{{ m}} = 0}}$     
+        ${{\hspace{{4mm}} (F_1 - F_3) \\cdot {d[0]*(3/20):.2f} \\text{{ m}} = {(d[0]/10)*(f[4]-f[2]):.2f} \\text{{ N}} \\cdot \\text{{ m}}}}$     
+        ${{\hspace{{4mm}} F_1 = {(2/3)*(f[4]-f[2]):.2f} \\text{{ N}} + F_3 }}$        
         
-    #     $\\underline{{Sumatoria \\hspace{{2mm}} de \\hspace{{2mm}} momentos \\hspace{{2mm}} respecto \\hspace{{2mm}} al \\hspace{{2mm}} eje \\hspace{{2mm}} X:}}$  
+        $\\underline{{Sumatoria \\hspace{{2mm}} de \\hspace{{2mm}} momentos \\hspace{{2mm}} respecto \\hspace{{2mm}} al \\hspace{{2mm}} eje \\hspace{{2mm}} X:}}$  
         
-    #     ${{\hspace{{4mm}} \\sum{{M_x}} = y \\cdot F_R = 0}}$     
-    #     ${{\hspace{{4mm}} F_1 \\cdot {(d[0] + d[3])*(3/20):.2f} \\text{{ m}} + {f[4]:.0f} \\text{{ N}} \\cdot {(d[0]+d[6])/10:.2f} \\text{{ m}} - F_3 \\cdot {(d[0] + d[6])*(3/20):.2f} \\text{{ m}} - {f[2]:.0f} \\text{{ N}} \\cdot {(d[0]+d[3])/10:.2f} \\text{{ m}}= 0}}$     
-    #     ${{\hspace{{4mm}} ({(2/3)*(f[4]-f[2]):.2f} \\text{{ N}} + F_3) \\cdot {(d[0] + d[3])*(3/20):.2f} \\text{{ m}} - F_3 \\cdot {(d[0] + d[6])*(3/20):.2f} \\text{{ m}} = {(f[2]*(d[0]+d[3]))/10:.2f} \\text{{ N}} \\cdot \\text{{ m}} - {f[4]*(d[0]+d[6])/10:.2f} \\text{{ N}} \\cdot \\text{{ m}}}}$     
-    #     ${{\hspace{{4mm}} {(f[4]-f[2])*(d[0] + d[3])*(1/10):.2f} \\text{{ N}} \\cdot \\text{{ m}} + F_3 \\cdot {(d[0] + d[3])*(3/20):.2f} \\text{{ m}} - F_3 \\cdot {(d[0] + d[6])*(3/20):.2f} \\text{{ m}} = {(f[2]*(d[0]+d[3]) - f[4]*(d[0]+d[6]))*(1/10):.2f} \\text{{ N}} \\cdot \\text{{ m}}}}$     
-    #     ${{\hspace{{4mm}} F_3 \\cdot {(d[3] - d[6])*(3/20):.2f} \\text{{ m}} = {((2*f[2]-f[4])*(d[0]+d[3]) - f[4]*(d[0]+d[6]))*(1/10):.2f} \\text{{ N}} \\cdot \\text{{ m}}}}$     
-    #     ${{\hspace{{4mm}} F_3 = {((2*f[2]-f[4])*(d[0]+d[3]) - f[4]*(d[0]+d[6]))*(2/3)*(1/(d[3] - d[6])):.2f} \\text{{ N}}}}$     
+        ${{\hspace{{4mm}} \\sum{{M_x}} = - F_1 \\cdot d_3 + F_2 \\cdot d_4 + F_3 \\cdot d_6 - F_4 \\cdot d_5 = 0}}$     
+        ${{\hspace{{4mm}} F_1 \\cdot {(d[0] + d[3])*(3/20):.2f} \\text{{ m}} + {f[4]:.0f} \\text{{ N}} \\cdot {(d[0]+d[6])/10:.2f} \\text{{ m}} - F_3 \\cdot {(d[0] + d[6])*(3/20):.2f} \\text{{ m}} - {f[2]:.0f} \\text{{ N}} \\cdot {(d[0]+d[3])/10:.2f} \\text{{ m}}= 0}}$     
+        ${{\hspace{{4mm}} ({(2/3)*(f[4]-f[2]):.2f} \\text{{ N}} + F_3) \\cdot {(d[0] + d[3])*(3/20):.2f} \\text{{ m}} - F_3 \\cdot {(d[0] + d[6])*(3/20):.2f} \\text{{ m}} = {(f[2]*(d[0]+d[3]))/10:.2f} \\text{{ N}} \\cdot \\text{{ m}} - {f[4]*(d[0]+d[6])/10:.2f} \\text{{ N}} \\cdot \\text{{ m}}}}$     
+        ${{\hspace{{4mm}} {(f[4]-f[2])*(d[0] + d[3])*(1/10):.2f} \\text{{ N}} \\cdot \\text{{ m}} + F_3 \\cdot {(d[0] + d[3])*(3/20):.2f} \\text{{ m}} - F_3 \\cdot {(d[0] + d[6])*(3/20):.2f} \\text{{ m}} = {(f[2]*(d[0]+d[3]) - f[4]*(d[0]+d[6]))*(1/10):.2f} \\text{{ N}} \\cdot \\text{{ m}}}}$     
+        ${{\hspace{{4mm}} F_3 \\cdot {(d[3] - d[6])*(3/20):.2f} \\text{{ m}} = {((2*f[2]-f[4])*(d[0]+d[3]) - f[4]*(d[0]+d[6]))*(1/10):.2f} \\text{{ N}} \\cdot \\text{{ m}}}}$     
+        ${{\hspace{{4mm}} F_3 = {((2*f[2]-f[4])*(d[0]+d[3]) - f[4]*(d[0]+d[6]))*(2/3)*(1/(d[3] - d[6])):.2f} \\text{{ N}}}}$     
                 
-    #     Finalmente, se puede obtener $F_1$:
+        Finalmente, se obtiene $F_1$:
         
-    #     ${{\hspace{{4mm}} F_1 = {(2/3)*(f[4]-f[2]):.2f} \\text{{ N}} + F_3 }}$        
-    #     ${{\hspace{{4mm}} F_1 = {(2/3)*(f[4]-f[2]):.2f} \\text{{ N}} + {((2*f[2]-f[4])*(d[0]+d[3]) - f[4]*(d[0]+d[6]))*(2/3)*(1/(d[0] - d[6])):.2f} \\text{{ N}} }}$        
-    #     ${{\hspace{{4mm}} F_1 = {(2/3)*(f[4]-f[2]) + ((2*f[2]-f[4])*(d[0]+d[3]) - f[4]*(d[0]+d[6]))*(2/3)*(1/(d[3] - d[6])):.2f} \\text{{ N}} }}$     
+        ${{\hspace{{4mm}} F_1 = {(2/3)*(f[4]-f[2]):.2f} \\text{{ N}} + F_3 }}$        
+        ${{\hspace{{4mm}} F_1 = {(2/3)*(f[4]-f[2]):.2f} \\text{{ N}} + {((2*f[2]-f[4])*(d[0]+d[3]) - f[4]*(d[0]+d[6]))*(2/3)*(1/(d[0] - d[6])):.2f} \\text{{ N}} }}$        
+        ${{\hspace{{4mm}} F_1 = {(2/3)*(f[4]-f[2]) + ((2*f[2]-f[4])*(d[0]+d[3]) - f[4]*(d[0]+d[6]))*(2/3)*(1/(d[3] - d[6])):.2f} \\text{{ N}} }}$      
 
-    #     Finalmente, se pone el signo según corresponda.   
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
+        Para la respuesta, se ingresa con el signo correspondiente, teniendo en cuenta la suposición inicial:        
+        ${{\hspace{{4mm}} F_1 = {-((2/3)*(f[4]-f[2]) + ((2*f[2]-f[4])*(d[0]+d[3]) - f[4]*(d[0]+d[6]))*(2/3)*(1/(d[3] - d[6]))):.2f} \\text{{ N}} }}$           
+        ${{\hspace{{4mm}} F_3 = {-(((2*f[2]-f[4])*(d[0]+d[3]) - f[4]*(d[0]+d[6]))*(2/3)*(1/(d[3] - d[6]))):.2f} \\text{{ N}}}}$    
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
 
     Questionary(#3_1
         code = 4120031,
@@ -6488,15 +6490,15 @@ preguntas = [
         version = 1,
         pregunta = lambda f, a, calc, c, d, m: f"El techo de una estructura está sometido a cargas de viento que actúan perpendicularmente a la cubierta, tal como se muestra en la figura. Determine la fuerza y el momento resultante equivalente en el punto $B$. Tenga presente que todas las fuerzas mostradas actuan perpendicularmente a la cubierta. Considere los siguientes valores para las fuerzas y las distancias: $F_1 = {f[1]:.0f} \\text{{ N}}$, $F_2 = {f[2]:.0f} \\text{{ N}}$, $d_1 = {d[0]+(3/2):.2f} \\text{{ m}}$,  $d_2 = {d[0]:.1f} \\text{{ m}}$, $d_3 = {d[3]:.1f} \\text{{ m}}$ y $d_4 = {d[3]+1:.1f} \\text{{ m}}$.",    
         no_answers = 2,
-        a1_name = "Fuerza resultante $F_R$ [$N$]",
-        a2_name = "Momento resultante $M_R$ [$N \\cdot m$]",
+        a1_name = "Fuerza resultante $F_R$ $[N]$",
+        a2_name = "Momento resultante $M_R$ $[N \\cdot m]$",
         a3_name = "",
         answer1 = lambda f, a, calc, c, d, m: np.round((d[0]/(Calculations.magnitude((d[3]*2+1),d[0])))*(2*f[1]+4*f[2]),2),
         answer2 = lambda f, a, calc, c, d, m: np.round(((d[3]*2+1)/(Calculations.magnitude((d[3]*2+1),d[0])))*2*(f[2]*(d[3]*2+1) + f[1]*(d[3]+1)) - 2*(d[0]/(Calculations.magnitude((d[3]*2+1),d[0])))*(f[2]*(3*d[0]+3) + f[1]*(d[0]+(3/2)+((d[0]*d[3])/(2*d[3]+1)))) ,2),
         answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = SE4,
-        ayuda2 = SE6,      
-        ayuda3 = "",
+        ayuda1 = SE1,
+        ayuda2 = SE4,      
+        ayuda3 = SE6,
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
         En un sistema equivalente, se busca simplificar un sistema complejo de fuerzas y momentos a un sistema más simple que genere el mismo efecto rotacional y traslacional. A continuación, se presenta la solución sugerida para el ejercicio:
         

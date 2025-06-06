@@ -910,9 +910,9 @@ if authenticate_user():
                         st.image(MAE_image_paths[7], width=400)
                 if subtopic == "Sistemas equivalentes":
                     if pregunta_no == 1:
-                        st.image(SE_image_paths[4], width=450)  
+                        st.image(SE_image_paths[4], width=400)  
                     if pregunta_no == 2:
-                        st.image(SE_image_paths[5], width=350)
+                        st.image(SE_image_paths[5], width=500)
                     if pregunta_no == 3:
                         st.image(SE_image_paths[8], width=500)
                 if subtopic == "Incertidumbre":

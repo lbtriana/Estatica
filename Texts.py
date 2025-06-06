@@ -221,7 +221,7 @@ MA3 = "Cada elemento debe cumplir las condiciones de equilibrio, es decir, la su
 MA4 = "Para encontrar las reacciones de los apoyos, es útil verficar el equilibrio global de la estructura."
 
 #SISTEMAS EQUIVALENTES
-SE1 = """Dos sistemas (A y B) son equivalentes si se cumplen las siguientes condiciones:
+SE1 = """Dos sistemas ($A$ y $B$) son equivalentes si se cumplen las siguientes condiciones:
 1. $∑ F_{{yA}} = ∑ F_{{yB}}$
 2. $∑ F_{{xA}} = ∑ F_{{xB}}$
 3. $∑ M_A = ∑ M_B$
