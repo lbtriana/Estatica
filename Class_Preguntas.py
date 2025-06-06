@@ -5202,6 +5202,190 @@ preguntas = [
     #-------------------------------------------------       Nivel Fácil   ------------------------------------------------------
     #-------------------------------------------------      Code: 24100##    ----------------------------------------------------
 
+    # Questionary(#1_1
+    #     code = 2410011,
+    #     no_pregunta = 1,
+    #     complexity = F,
+    #     topic = MO,
+    #     subtopic = "Momentos pares",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"Calcule el momento generado por el par de fuerzas $F= {f[0]:.0f}[N]$ mostrado en la figura. Tenga en cuenta que $d_0 = {d[0]:.0f}[cm]$.",
+    #     no_answers = 1,
+    #     a1_name = "Magnitud del momento generado por $F$ en $[N \\cdot m]$",
+    #     a2_name = "",
+    #     a3_name = "",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round(f{0}*(4*d{0}/5)/100,2),
+    #     answer2 = lambda f, a, calc, c, d, m: 0,
+    #     answer3 = lambda f, a, calc, c, d, m: 0,
+    #     ayuda1 = "Encuentre la distancia perpendicular entre las fuerzas, ya sea con funciones trigonometricas o triangulos semejantes.",
+    #     ayuda2 = "Recuerde que la distancia dada esta en $[cm]$, realicé la conversion a $[m]$.",      
+    #     ayuda3 = "Tenga en cuenta que el momento generado por un par de fuerzas es $M = F \\cdot d$, donde $d$ es la distancia perpendicular entre estas fuerzas de igual magnitud.",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     El momento generado por un par de fuerzas se define como $M = F \\cdot d$, donde F es la magnitud de las fuerzas (deben ser de igual magnitud) y d es la distancia perpendicular entre estas. A continuacion se expondra la solucion sugerida del ejercicio:
+    #     $\\textbf{{\\small 1. Distancia perpendicular - Triangulos semejantes: }}$
+    #     Se da como referencia el triangulo 3-4-5, con el cual podemos hacer triangulos semejantes y hallar la distancia perpendicular entre las fuerzas. Llamaremos esta distanica $x$:
+        
+    #     ${{\hspace{{4mm}} \\dfrac{d[0]}{{x}} = \\dfrac{5}{4}[cm] }}$          
+    #     ${{\hspace{{4mm}} x =  \\dfrac{(4*d[0])}{5}[cm]}}$    
+        
+    #     $\\textbf{{\\small 2. Distancia perpendicular - Conversión a metros: }}$
+    #     ${{\hspace{{4mm}} x_m =  \\dfrac{(x_{"cm"})}{100"$[cm]$"}}}$
+    #     ${{\hspace{{4mm}} x_m =  {((4*d[0]/5)/100)}[m]}}$
+
+    #     $\\textbf{{\\small 3. Calculo de momento par: }}$
+    #     Multiplicando el valor encontrado anteriormente para la distancia perpendicular de las fuerzas, por la magnitud de estas obtenemos que:
+    #     ${{\hspace{{4mm}} M =  ({(f[0]*(4*d[0]/5)/100)}\\hat{k})[N \\cdot m]}}$
+    #     ${{\hspace{{4mm}} |M| =  ({(f[0]*(4*d[0]/5)/100)})[N \\cdot m]}}$
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ),
+
+    # Questionary(#2_1
+    #     code = 2410021,
+    #     no_pregunta = 2,
+    #     complexity = F,
+    #     topic = MO,
+    #     subtopic = "Momentos pares",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud del momento generado alrededor del punto $A$ y el punto $B$, por las fuerzas $F_1 = {f[0]:.0f}[KN]$, $F_2 = {f[1]:.0f}[KN]$ que actual sobre el cuerpo mostrado en la figura. Tenga en cuenta que $d_0 = {d[0]:.0f}[m]$ y $d_1 = {d[3]+2:.0f}[m]$",
+    #     no_answers = 2,
+    #     a1_name = "Momento alrededor de $A$ en [N \\cdot m]",
+    #     a2_name = "Momento alrededor de $B$ en [N \\cdot m]",
+    #     a3_name = "",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round((f[0]+f[1])*(d[3]+2-1),2),
+    #     answer2 = lambda f, a, calc, c, d, m: np.round((f[0]+f[1])*(d[3]+2-1),2),
+    #     answer3 = lambda f, a, calc, c, d, m: 0,
+    #     ayuda1 = "Fijese que en el punto $A$, una de las fuerzas $F_1$ no genera momento, por ende no puede usar momento par.",
+    #     ayuda2 = "Utilicé las distancias dadas entre el par de fuerzas para calcular el momento generado por estas. Recuerde que el momento generado por un par de fuerzas se define como $M = F \\cdot d$, donde d es la distancia perpendicular entre las fuerzas de igual magnitud.",      
+    #     ayuda3 = "Dese cuenta que el momento generado en $A$ es igual al momento generado en $B$ por las fuerzas dadas.",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     A continuación, se presenta la solución sugerida para el ejercicio:
+        
+    #     $\\textbf{{\\small 1. Momento alrededor de A: }}$ 
+    #     Par de fuerzas $F_2$
+    #     ${{\hspace{{4mm}} \\vec{M_A} = (0\\hat{i}+0\\hat{j}+{(f[1]*(d[3]+2-1))}\\hat{k})[N \\cdot m]}}$
+    #     Fuerza $F_1$ (Se asume que no se genera momento por par de fuerzas)       
+    #     ${{\hspace{{4mm}} \\vec{M_A} = (0\\hat{i}+0\\hat{j}+{(f[0]*(d[3]+2-1))}\\hat{k})[N \\cdot m]}}$
+    #     Sumatoria de momentos:
+    #     ${{\hspace{{4mm}} \\sum{{\\vec{M_A}}} = (0\\hat{i}+0\\hat{j}+({(f[1]*(d[3]+2-1))}+{(f[0]*(d[3]+2-1))})\\hat{k})[N \\cdot m]}}$
+    #     ${{\hspace{{4mm}} \\sum{{\\vec{M_A}}} = (0\\hat{i}+0\\hat{j}+({((f[1]+f[0])*(d[3]+2-1))})\\hat{k})[N \\cdot m]}}$
+    #     ${{\hspace{{4mm}} |\\sum{{\\vec{M_A}}}| = {((f[1]+f[0])*(d[3]-1))}[N \\cdot m]}}$
+        
+    #     $\\textbf{{\\small 2. Momento alrededor de B: }}$ 
+    #     Par fuerzas $F_1$
+    #     En este caso si se pueden considerar par de fuerzas
+    #     ${{\hspace{{4mm}} \\vec{M_B} = (0\\hat{i}+0\\hat{j}+{(f[0]*(d[3]+2-1))}\\hat{k})[N \\cdot m]}}$
+    #     Par fuerzas $F_2$
+    #     ${{\hspace{{4mm}} \\vec{M_B} = (0\\hat{i}+0\\hat{j}+{(f[1]*(d[3]+2-1))}\\hat{k})[N \\cdot m]}}$
+
+    #     Sumatoria de momentos:
+    #     ${{\hspace{{4mm}} \\sum{{\\vec{M_B}}} = (0\\hat{i}+0\\hat{j}+({(f[0]*(d[3]+2-1))}+{(f[1]*(d[3]+2-1))})\\hat{k})[N \\cdot m]}}$
+    #     ${{\hspace{{4mm}} \\sum{{\\vec{M_B}}} = (0\\hat{i}+0\\hat{j}+({((f[1]+f[0])*(d[3]+2-1))})\\hat{k})[N \\cdot m]}}$
+    #     ${{\hspace{{4mm}} |\\sum{{\\vec{M_B}}}| = {((f[1]+f[0])*(d[3]+2-1))}[N \\cdot m]}}$
+
+    #     Al fin y al cabo, se demuestra que un par de fuerzas con misma magnitud y dirección generan el mismo momento con respecto a cualquier punto.
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ),
+
+    # Questionary(#3_1
+    #     code = 2410031,
+    #     no_pregunta = 3,
+    #     complexity = F,
+    #     topic = MO,
+    #     subtopic = "Momentos pares",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"Una pieza de madera laminada se esta taladrando para asegurarse e un banco de trabajo por medio de clavos. Si el taladro ejerce un momento de $M = {m[0]:.0f}[N \\cdot m ]$ sobre la pieza de madera, determine la magnitud de las feruzas resultantes aplicadas a los clavos si estos se encuentran ubicados en: $A$ y $B$, $B$ y $C$, y en $A$ Y $C$. Tenga en cuent que $d_0 = {d[0]+40:.0f}[cm]$ y $d_1 = {d[3]+40:.0f}[cm]$.",
+    #     no_answers = 3,
+    #     a1_name = "Fuerza resultante en $A$ y $B$ [N]",
+    #     a2_name = "Fuerza resultante en $B$ y $C$ [N]",
+    #     a3_name = "Fuerza resultante en $A$ y $C$ [N]",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round(m[0]/((d[0]+40)/100),2),
+    #     answer2 = lambda f, a, calc, c, d, m: np.round(m[0]/((d[3]+40)/100),2),
+    #     answer3 = lambda f, a, calc, c, d, m: np.round(m[0]/(Calculations.magnitude(d[0]+40,d[3]+40)/100),2),
+    #     ayuda1 = "Utilice la distancia dada entre los puntos solicitados y resuelva la formula de momento par $M = F \\cdot d$.",
+    #     ayuda2 = "Fijese que los puntos $A$ y $C$ tienen su distancia en diagonal. Encuentre esta distancia con las dadas para utilizar la formula de momento par.",      
+    #     ayuda3 = "",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     A continuación, se presenta la solución sugerida para el ejercicio:
+        
+    #     $\\textbf{{\\small 1. Magnitud fuerza de $A$ y $B$: }}$ 
+    #     Distancia a metros
+    #     ${{\hspace{{4mm}} d = {((d[0]+40)/100)}[m]}}$
+    #     ${{\hspace{{4mm}} M = F \\cdot d}}$
+    #     ${{\hspace{{4mm}} F = \\dfrac{M}{d} }}$
+    #     ${{\hspace{{4mm}} F = \\dfrac{m[0]}{((d[0]+40)/100)}[N] }}$
+    #     ${{\hspace{{4mm}} F = {(m[0]/((d[0]+40)/100))}[N] }}$
+
+    #     $\\textbf{{\\small 2. Magnitud fuerza de $B$ y $C$: }}$ 
+    #     Distancia a metros
+    #     ${{\hspace{{4mm}} d = {((d[3]+40)/100)}[m]}}$
+    #     ${{\hspace{{4mm}} M = F \\cdot d}}$
+    #     ${{\hspace{{4mm}} F = \\dfrac{M}{d} }}$
+    #     ${{\hspace{{4mm}} F = \\dfrac{m[0]}{((d[3]+40)/100)}[N] }}$
+    #     ${{\hspace{{4mm}} F = {(m[0]/((d[3]+40)/100))}[N] }}$
+
+    #     $\\textbf{{\\small 3. Magnitud fuerza de $A$ y $C$: }}$ 
+    #     Distancia entre $A$ y $C$
+    #     ${{\hspace{{4mm}} d = \\sqrt{{{(d[0]+40)}}^2+{(d[3]+40)}^2}[cm]}}$
+    #     ${{\hspace{{4mm}} d = {(Calculations.magnitude((d[0]+40),(d[3]+40)))}[cm]}}$
+    #     Distancia a metros
+    #     ${{\hspace{{4mm}} d = {((Calculations.magnitude((d[0]+40),(d[3]+40)))/100)}[m]}}$
+    #     ${{\hspace{{4mm}} M = F \\cdot d}}$
+    #     ${{\hspace{{4mm}} F = \\dfrac{M}{d} }}$
+    #     ${{\hspace{{4mm}} F = \\dfrac{m[0]}{((Calculations.magnitude((d[0]+40),(d[3]+40)))/100)}[N] }}$
+    #     ${{\hspace{{4mm}} F = {(m[0]/((Calculations.magnitude((d[0]+40),(d[3]+40)))/100))}[N] }}$
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ),
+
+    # Questionary(#4_1
+    #     code = 2410041,
+    #     no_pregunta = 4,
+    #     complexity = F,
+    #     topic = MO,
+    #     subtopic = "Momentos pares",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"Determine las componentes del vector momento $\\vec{M}$ generado por los pares de fuerzas que actuan sobre la estructura. Tenga en cuenta que $P = {f[0]:.0f}[N]$ va en dirección del eje $z$, $F = {f[1]:.0f}[N]$ va en direccion del eje $y$, y que $L = {d[0]:.0f}[m]$.",
+    #     no_answers = 3,
+    #     a1_name = "Momento resultante componente $\\hat{{i}} [N \\cdot m]",
+    #     a2_name = "Momento resultante componente $\\hat{{j}} [N \\cdot m]",
+    #     a3_name = "Momento resultante componente $\\hat{{k}} [N \\cdot m]",
+    #     answer1 = lambda f, a, calc, c, d, m: 0,
+    #     answer2 = lambda f, a, calc, c, d, m: np.round(f[0]*(2**(1/2))*d[0],2),
+    #     answer3 = lambda f, a, calc, c, d, m: np.round(-1*f[1]*(3*d[0]/2),2),
+    #     ayuda1 = "Utilice las distancias dadas y tenga en cuenta que el momento par se calcula como $M = F \\cdot d$.",
+    #     ayuda2 = "Recuerde que la distancia requerida para hallar el momento generado por un par de fuerzas es la perpendicular. Utilice funciones trigonometricas para hallar la distancia perpendicular entre las fuerzas.",      
+    #     ayuda3 = "",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     A continuación, se presenta la solución sugerida para el ejercicio:
+        
+    #     $\\textbf{{\\small 1. Momento generado por la fuerza $P$: }}$
+    #     ${{\hspace{{4mm}} P = {f[0]}[N]}}$
+    #     ${{\hspace{{4mm}} d = {((2**(1/2))*d[0])}[m]}}$
+    #     ${{\hspace{{4mm}} M = P \\cdot d}}$ 
+    #     ${{\hspace{{4mm}} \\vec{M_P} = {(f[0]*(2**(1/2))*d[0])}\\hat{j}[N \\cdot m]}}$
+
+    #     $\\textbf{{\\small 2. Momento generado por la fuerza $F$: }}$
+    #     ${{\hspace{{4mm}} F = {f[1]}[N]}}$
+    #     ${{\hspace{{4mm}} d = \\sqrt{{({(2**(1/2))*d[0]})^2+({d[0]/2})^2}}[m]}}$
+    #     ${{\hspace{{4mm}} d = {((3*d[0]/2))}[m]}}$
+    #     ${{\hspace{{4mm}} M = F \\cdot d}}$ 
+    #     ${{\hspace{{4mm}} \\vec{M_F} = {(-1*f[1]*(3*d[0]/2))}\\hat{k}[N \\cdot m]}}$
+    #     Como se puede ver, el momento generado por la fuerza $P$ es en el eje $y$ y el momento generado por la fuerza $F$ es en el eje $z$.
+    #     Por lo que estas son las componentes del vector momento $\\vec{M}$.
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ),
+
 
 
     #========================================================  MOMENTO  =========================================================
@@ -5209,12 +5393,326 @@ preguntas = [
     #-------------------------------------------------       Nivel Medio   ------------------------------------------------------
     #-------------------------------------------------      Code: 24200##    ----------------------------------------------------
 
+    # Questionary(#1_1
+    #     code = 2420011,
+    #     no_pregunta = 1,
+    #     complexity = M,
+    #     topic = MO,
+    #     subtopic = "Momentos pares",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"Determine el momento generado por las fuerzas $F_1 = {f[0]:.0f}[KN]$, $F_2 = {f[1]:.0f}[KN]$ sobre el contenedor. Considere que $d_1 = {d[0]:.0f}[m]$, $d_2 = {d[3]:.0f}[m]$ y $\\theta = {a[0]:.0f}°$.",
+    #     no_answers = 1,
+    #     a1_name = "Momento en el eje $X$ [$N \\cdot m$]",
+    #     a2_name = "",
+    #     a3_name = "",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round(Calculations.magnitude(f[1]*d[0]*Calculations.sine(a[0]),f[1]*d[0]*Calculations.cosine(a[0])-f[0]*d[3]),2),
+    #     answer2 = lambda f, a, calc, c, d, m: 0,
+    #     answer3 = lambda f, a, calc, c, d, m: 0,
+    #     ayuda1 = "Descomponga la fuerza $F_2$ para encontrar el momento par generado por cada una de sus componentes.",
+    #     ayuda2 = "Use la regla de la mano derecha para saber hacia que eje se dirige cada momento y su signo.",      
+    #     ayuda3 = "Haga sumatoria de momentos y encuentre su magnitud.",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     A continuacion se presentará una posible solución del ejercicio:.
+        
+    #     Para resolver este ejercicio, debe asumir que la fuerza generada por el peso de la compuerta es igual a la tension del cable (Magnitud).
+        
+    #     $\\textbf{{\\small 1. Descomposición de fuerzas $F_1$ y $F_2$:}}$
+
+    #     ${{\hspace{{4mm}} \\vec{F_1} = (0\\hat{i}+0\\hat{j}+{f[0]}\\hat{k})[KN]}}$
+    #     ${{\hspace{{4mm}} \\vec{F_2} = (-{f[1]}cos(\\theta)\\hat{i}+{f[1]}sen(\\theta)\\hat{j}+0\\hat{k})[KN]}}$
+    #     ${{\hspace{{4mm}} \\vec{F_2} = ({-1*f[1]*Calculations.cosine(a[0])}\\hat{i}+{f[1]*Calculations.sine(a[0])}\\hat{j}+0\\hat{k})[KN]}}$
+
+    #     $\\textbf{{\\small 2. Calculo de momento generado por un par de fuerzas:}}$
+    #     Para $F_1$
+    #     ${{\hspace{{4mm}} \\vec{M} = (0\\hat{i}-({f[0]})({d[3]})\\hat{j}+0\\hat{k})[KN \\cdot m]}}$
+    #     ${{\hspace{{4mm}} \\vec{M} = (0\\hat{i}-({f[0]*d[3]})\\hat{j}+0\\hat{k})[KN \\cdot m]}}$
+
+    #     Para $F_2$, generado por su componente \\hat{i}:
+    #     ${{\hspace{{4mm}} \\vec{M} = (0\\hat{i}+({f[1]*Calculations.cosine(a[0])})({d[0]})\\hat{j}+0\\hat{k})[KN \\cdot m]}}$
+    #     ${{\hspace{{4mm}} \\vec{M} = (0\\hat{i}+{f[1]*Calculations.cosine(a[0])*d[0]}\\hat{j}+0\\hat{k})[KN \\cdot m]}}$
+    #     Para $F_2$, generado por su componente \\hat{j}:
+    #     ${{\hspace{{4mm}} \\vec{M} = (({f[1]*Calculations.sine(a[0])})({d[0]})\\hat{i}+0\\hat{j}+0\\hat{k})[KN \\cdot m]}}$
+    #     ${{\hspace{{4mm}} \\vec{M} = ({f[1]*Calculations.sine(a[0])*d[0]}\\hat{i}+0\\hat{j}+0\\hat{k})[KN \\cdot m]}}$
+
+    #     $\\textbf{{\\small 3. Sumatoria de momentos:}}$
+    #     ${{\hspace{{4mm}} \\sum{{\\vec{M}}} = ({f[1]*Calculations.sine(a[0])*d[0]}\\hat{i}+{f[1]*Calculations.cosine(a[0])*d[0]}-({f[0]*d[3]})\\hat{j}+0\\hat{k})[KN \\cdot m]}}$
+    #     ${{\hspace{{4mm}} \\sum{{\\vec{M}}} = ({f[1]*Calculations.sine(a[0])*d[0]}\\hat{i}+{f[1]*Calculations.cosine(a[0])*d[0]-(f[0]*d[3])}\\hat{j}+0\\hat{k})[KN \\cdot m]}}$
+
+    #     $\\textbf{{\\small 4. Magnitud del momento generado:}}$
+    #     ${{\hspace{{4mm}} |\\sum{{\\vec{M}}}| = {Calculations.magnitude(f[1]*d[0]*Calculations.sine(a[0]),f[1]*d[0]*Calculations.cosine(a[0])-f[0]*d[3])}[KN \\cdot m]}}$
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ), 
+    
+    # Questionary(#2_1
+    #     code = 2420021,
+    #     no_pregunta = 2,
+    #     complexity = M,
+    #     topic = MO,
+    #     subtopic = "Momentos pares",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"Usted lanzó un vaso al piso y este sintio las fuerzas $F_1 = {f[0]:.0f}[N]$ y $F_2 = {f[1]:.0f}[N]$ al ser lanzado. Determine las componentes vectoriales del momento generado por las fuerzas teniendo en cuenta que $d_0 = {d[0]:.0f}[m]$, $d_1 = {d[3]:.0f}[m]$ y $\\theta = {a[0]:.0f}°$",
+    #     no_answers = 3,
+    #     a1_name = "Momento componente $\\hat{{i}}$",
+    #     a2_name = "Momento componente $\\hat{{j}}$",
+    #     a3_name = "Momento componente $\\hat{{k}}$",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round(f[1]*Calculations.sine(a[0])*d[3]-f[1]*Calculations.cosine(a[0])*d[0],2),
+    #     answer2 = lambda f, a, calc, c, d, m: 0,
+    #     answer3 = lambda f, a, calc, c, d, m: np.round(f[0]*d[0],2),
+    #     ayuda1 = "Descomponga la fuerza $F_2$ para conocer sus componentes y determine su vector posición.",
+    #     ayuda2 = "Las fuerzas $F_1$ son un par de fuerzas asi que podra encontrar el momento generado usando la regla de la mano derecha y $M = F \\cdot d$ donde $d$ es la distancia perpendicular entre las fuerzas.",      
+    #     ayuda3 = "Haga sumatoria de momentos para encontrar el momento total generado sobre el vaso.",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     A continuacion se mostrara una posible solución al problema:
+
+    #     $\\textbf{{\\small 1. Descompocisión de fuerzas e identificación de par de fuerzas: }}$ 
+    #     La fuerza $F_1$ es un par de fuerzas sobre el eje $x$
+        
+    #     ${{\hspace{{4mm}} \\vec{F_2} = (0\\hat{i} - {f[1]}sen(\\theta)\\hat{j}-{f[1]}cos(\\theta)\\hat{k})[N]}}$      
+    #     ${{\hspace{{4mm}} \\vec{F_2} = (0\\hat{i} - {f[1]*Calculations.sine(a[0])}\\hat{j}-{f[1]*Calculations.cosine(a[0])}\\hat{k})[N]}}$
+
+    #     $\\textbf{{\\small 2. Momento generado por $F_1$ y $F_2$: }}$ 
+    #     Para $F_1$:
+    #     ${{\hspace{{4mm}} \\vec{M} = (0\\hat{i}+0\\hat{j}+{f[0]}\\cdot{d[0]}\\hat{k})[N \\cdot m]}}$
+    #     ${{\hspace{{4mm}} \\vec{M} = (0\\hat{i}+0\\hat{j}+{f[0]*d[0]}\\hat{k})[N \\cdot m]}}$
+
+    #     Para $F_2$:
+    #     ${{\hspace{{4mm}} \\vec{M} = (({f[1]*Calculations.sine(a[0])}*{d[3]}-({f[1]*Calculations.cosine(a[0])}*{d[0]}))\\hat{i}+0\\hat{j}+0\\hat{k})[N \\cdot m]}}$
+    #     ${{\hspace{{4mm}} \\vec{M} = (({f[1]*Calculations.sine(a[0])*d[3]-(f[1]*Calculations.cosine(a[0])*d[0])}))\\hat{i}+0\\hat{j}+0\\hat{k})[N \\cdot m]}}$
+
+    #     $\\textbf{{\\small 3. Sumatoria de momentos: }}$
+    #     ${{\hspace{{4mm}} \\sum{{\\vec{M}}} = (({f[1]*Calculations.sine(a[0])*d[3]-(f[1]*Calculations.cosine(a[0])*d[0])}))\\hat{i}+0\\hat{j}+{f[0]*d[0]}\\hat{k})[N \\cdot m]}}$
+
+    #     $\\textbf{{\\small 4. Identificacion de componentes del momento encontrado: }}$
+    #     ${{\hspace{{4mm}} \\hat{i} = {f[1]*Calculations.sine(a[0])*d[3]-(f[1]*Calculations.cosine(a[0])*d[0])}[N \\cdot m]}}$
+    #     ${{\hspace{{4mm}} \\hat{j} = 0[N \\cdot m]}}$
+    #     ${{\hspace{{4mm}} \\hat{k} = {f[0]*d[0]}[N \\cdot m]}}$
+        
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ),
+
+    # Questionary(#3_1
+    #     code = 2420031,
+    #     no_pregunta = 3,
+    #     complexity = M,
+    #     topic = MO,
+    #     subtopic = "Momentos pares",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"La rueda orientable esta sometida a dos pares de fuerzas $F = {f[0]:.0f}[N]$ y $P$. Si el momento generado por estas fuerzas es de $M = {m[0]:.0f}[N \\cdot m]$, determine la magnitud de la fuerza $P$ si la distancia entre las fuerzas es de $d_0 = {d[0]:.0f}[cm]$ y $d_1 = {d[3]:.0f}[cm]$",	
+    #     no_answers = 1,
+    #     a1_name = "Magnitud fuerza $P$ [N]",
+    #     a2_name = "",
+    #     a3_name = "",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round(f[0]*(d[0]/d[3])-m[0]*(100/d[3]),2),
+    #     answer2 = lambda f, a, calc, c, d, m: 0,
+    #     answer3 = lambda f, a, calc, c, d, m: 0,
+    #     ayuda1 = "Tenga en cuenta que las distancias dadas estan en $cm$. Encuentre su equivalente en $m$.",
+    #     ayuda2 = "Como F y P son pares de fuerzas, estos generan momentos pares. Utilice la formula de momento par $M = F \\cdot d$ para encontrar la magnitud generado por las fuerzas.",      
+    #     ayuda3 = "Haga sumatoria de momentos igualados al momento dado para asi despejar y encontrar la magnitud de $P$.",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     A continuacion se mostrara una posible solución al problema:
+
+    #     $\\textbf{{\\small 1. Cambio de unidades de las distancias dadas: }}$ 
+        
+    #     ${{\hspace{{4mm}} d_0 = {d[0]/100}[m]}}$      
+    #     ${{\hspace{{4mm}} d_1 = {d[3]/100}[m]}}$
+
+    #     $\\textbf{{\\small 2. Momento generado por $F$ y $P$: }}$ 
+    #     Para $F$:
+    #     ${{\hspace{{4mm}} \\vec{M} = {f[0]*d[0]/100}\\hat{k}[N \\cdot m]}}$
+        
+    #     Para $P$:
+    #     ${{\hspace{{4mm}} \\vec{M} = -P*{d[3]/100}\\hat{k}[N \\cdot m]}}$
+        
+
+    #     $\\textbf{{\\small 3. Sumatoria de momentos - Despejar fuerza $P$: }}$
+    #     ${{\hspace{{4mm}} \\sum{{\\vec{M}}} = {m[0]}[N \\cdot m]}}$
+    #     ${{\hspace{{4mm}} \\sum{{\\vec{M}}} = {f[0]*d[0]/100-P*{d[3]/100}}[N \\cdot m]}}$
+    #     ${{\hspace{{4mm}} {m[0]} = {f[0]*d[0]/100-P*{d[3]/100}}[N \\cdot m]}}$
+    #     ${{\hspace{{4mm}} P = \\dfrac{{{f[0]*d[0]/100}-{m[0]}}}{d[3]/100}[N]}}$
+    #     ${{\hspace{{4mm}} P = {f[0]*(d[0]/d[3])-m[0]*(100/d[3])}[N]}}$
+
+        
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ),   
 
     
     #========================================================  MOMENTO  =========================================================
     #-------------------------------------------------       Momento par      ---------------------------------------------------
     #-------------------------------------------------       Nivel Díficil   ------------------------------------------------------
     #-------------------------------------------------      Code: 24300##    ----------------------------------------------------
+
+    # Questionary(#1_1
+    #     code = 2430011,
+    #     no_pregunta = 1,
+    #     complexity = D,
+    #     topic = MO,
+    #     subtopic = "Momentos pares",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"Usted estaba caminando por un centro comercial cuando de repente se le cayó el celular. Cuando este golpeo el suelo se rompió y se doblo como se muestra en la figura. Determine el momento generado por las fuerzas $F_1 = {f[0]:.0f}$, $F_2 = {f[1]:.0f}$ y $F_3 = {f[2]:.0f}$ que sintio su celular (Las componentes vectoriales). Tenga en cuenta que $d_0 = {d[0]+100:.0f}[mm]$, $d_1 = {d[0]+200:.0f}[mm]$, $d_2 = {d[3]+100:.0f}[mm]$, $\\theta = {a[0]:.0f}°$ y $\\phi = {a[4]:.0f}°.",
+    #     no_answers = 3,
+    #     a1_name = "Momento \\hat{{i}}",
+    #     a2_name = "Momento \\hat{{j}}",
+    #     a3_name = "Momento \\hat{{k}}",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round(f[0]*(d[0]+200)/1000,2),
+    #     answer2 = lambda f, a, calc, c, d, m: np.round((f[1]*(d[0]+100+d[0]+200)*Calculations.cosine(45)/1000)+(f[2]*Calculations.cosine(a[0])*Calculations.cosine(a[1])*(d[3]+100)/1000),2),
+    #     answer3 = lambda f, a, calc, c, d, m: np.round(f[2]*Calculations.cosine(a[0])*Calculations.sine(a[1])*(d[3]+100)/1000,2),
+    #     ayuda1 = "En la parte inclinada, solo la componente $\\hat{{i}}$ de $F_3$ genera momento, utilice esto como un plano arbitrario y despues proyecte el resultado del momento par usando el angulo $\\phi$.",
+    #     ayuda2 = "El momento par generado por las fuerzas $F_2$ solo lo genera su componente de cos(45). Descompongala y haga momento par.",      
+    #     ayuda3 = "Realice sumatoria de fuerzas para hallar las componentes del momento resultante.",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     A continuacion se presenta una posible solución para el problema:
+        
+    #     $\\textbf{{\\small 1. Descomposición de fuerzas y su momento - Momento par:}}$
+
+    #     Para $\\vec{F_1}$:
+    #     ${{\hspace{{4mm}} \\vec{M} = ({(f[0]*(d[0]+200)/1000)}\\hat{i}+0\\hat{j}+0\\hat{k})[N \\cdot m]}}$     
+        
+    #     Para $\\vec{F_2}$:
+    #     La unica componente que genera momento par es la $\\hat{i}$, entonces
+    #     ${{\hspace{{4mm}} \\vec{F_2} = ({(f[1]*Calculations.cosine(45))}\\hat{i}+0\\hat{j}-{(f[1]*Calculations.sine(45))}\\hat{k})[N]}}
+    #     ${{\hspace{{4mm}} \\vec{M} = (0\\hat{i}+{(f[1]*Calculations.cosine(45)*(d[0]+100+d[0]+200)/1000)}\\hat{j}+0\\hat{k})[N \\cdot m]}}$ 
+
+        
+    #     Para $\\vec{F_3}$:
+    #     Se toma la seccion inclinada como plano de referencia, donde luego el momento será proyectado a sus componentes en los ejes definidos usando el angulo $\\phi$.
+    #     ${{\hspace{{4mm}} \\vec{F_{3"x"}} = ({(f[2]*Calculations.cosine(a[0]))}\\hat{i}+0\\hat{j}+{(f[2]*Calculations.sine(a[0]))}\\hat{k})}}$
+    #     ${{\hspace{{4mm}} M =  {(f[2]*Calculations.cosine(a[0])*(d[3]+100)/1000)}[N \\cdot m]}}$
+
+    #     Proyectado al eje de referencia establecido:
+    #     ${{\hspace{{4mm}} \\vec{M} =  (0\\hat{i}+{(f[2]*Calculations.cosine(a[0])*Calculations.cosine(a[1])*(d[3]+100)/1000)}\\hat{j}+{(f[2]*Calculations.cosine(a[0])*Calculations.sine(a[1])*(d[3]+100)/1000)}\\hat{k})[N \\cdot m]}}$
+       
+    #     $\\textbf{{\\small 2. Sumatoria de momentos:}}$
+    #     ${{\hspace{{4mm}} \\vec{M} =  ({(f[0]*(d[0]+200)/1000)}\\hat{i}+{((f[1]*(d[0]+100+d[0]+200)*Calculations.cosine(45)/1000)+(f[2]*Calculations.cosine(a[0])*Calculations.cosine(a[1])/1000))}\\hat{j}+{(f[2]*Calculations.cosine(a[0])*Calculations.sine(a[1])*(d[3]+100)/1000)}\\hat{k})[N \\cdot m]}}$
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ),
+
+    # Questionary(#2_1
+    #     code = 2430021,
+    #     no_pregunta = 2,
+    #     complexity = D,
+    #     topic = MO,
+    #     subtopic = "Momentos par",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"Encuentre la magnitud del momento generado por las fuerzas $F_1 = {f[0]:.0f}[N]$ y $F_2 = {f[1]:.0f}[N]$ aplicadas sobre el sistema mostrado en la figura. Tenga en cuenta que $d_0 = {d[0]:.0f}[m]$ y $d_1 = {d[3]:.0f}[m]$.",
+    #     no_answers = 1,
+    #     a1_name = "Magnitud del momento [N \\cdot m]",
+    #     a2_name = "",
+    #     a3_name = "",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round(Calculations.magnitude3D(f[0]*d[0],f[1]*d[3]*(3/5),f[1]*d[3]*(4/5)),2),
+    #     answer2 = lambda f, a, calc, c, d, m: 0,
+    #     answer3 = lambda f, a, calc, c, d, m: 0,
+    #     ayuda1 = "Utilice las distancias dadas, siendo ya las perpendiculares entre el par de fuerzas y tenga en cuenta que el momento par se calcula como $M = F \\cdot d$.",
+    #     ayuda2 = "Como puede ver, la fuerza $F_2$ se encuentra en diagonal. Utilice esto como un plano arbitrario y despues proyecte el resultado del momento par usando el triangulo 3-4-5.",      
+    #     ayuda3 = "Realice sumatoria de fuerzas para hallar las componentes del momento resultante y luego su magnitud.",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     A continuacion se presenta una posible solución para el problema:
+        
+    #     $\\textbf{{\\small 1. Momento generado por las fuerzas - Momento par:}}$
+
+    #     Para $\\vec{F_1}$:
+    #     ${{\hspace{{4mm}} F_1 = {f[0]}[N]}}
+    #     ${{\hspace{{4mm}} d = {d[0]}[m]}}
+    #     ${{\hspace{{4mm}} \\vec{M} = ({f[0]*d[0]}\\hat{i})[N \\cdot m]}}$ 
+
+    #     Para $\\vec{F_2}$:
+    #     ${{\hspace{{4mm}} F_1 = {f[1]}[N]}}
+    #     ${{\hspace{{4mm}} d = {d[3]}[m]}}
+    #     ${{\hspace{{4mm}} M = ({f[1]*d[3]})[N \\cdot m]}}$ 
+
+    #     $\\textbf{{\\small 2. Descompocisión del momento generado por $F_2$:}}$
+    #     Al tomar la seccion inclinada como plano de referencia, el momento debe ser proyectado a sus componentes en los ejes definidos haciendo uso del triangulo 3-4-5 dado en la figura.
+    #     ${{\hspace{{4mm}} \\vec{M_"\\hat{{j}}"} = ({f[1]*(3/5)*d[3]}\\hat{j})[N \\cdot m]}}$
+    #     ${{\hspace{{4mm}} \\vec{M_"\\hat{{k}}"} = ({f[1]*(4/5)*d[3]}\\hat{k})[N \\cdot m]}}$
+
+    #     $\\textbf{{\\small 3. Sumatoria de momentos:}}$
+    #     ${{\hspace{{4mm}} \\vec{M} = ({f[0]*d[0]}\\hat{i}+{f[1]*(3/5)*d[3]}\\hat{j}+{f[1]*(4/5)*d[3]}\\hat{k})[N \\cdot m]}}$
+    #     Teniendo esto podemos encontrar la magnitud del momento generado por las fuerzas.
+    #     ${{\hspace{{4mm}} |\\vec{M}| = {Calculations.magnitude3D(f[0]*d[0],f[1]*d[3]*(3/5),f[1]*d[3]*(4/5))}[N \\cdot m]}}$
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ),
+        
+    # Questionary(#3_1
+    #     code = 2430031,
+    #     no_pregunta = 3,
+    #     complexity = D,
+    #     topic = MO,
+    #     subtopic = "Momentos par",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"Encuentre la distancia $d$ tal que el momento generado por los pares de fuerzas $F_1 = {f[0]:.0f}[N]$, $F_2 = {f[1]:.0f}[N]$ y $F_3 = {f[2]:.0f}[N]$ sea de $M = {m[0]:.0f}[N \\cdot m]$. Tenga en cuenta que $d_0 = {d[0]+14:.0f}[m]$, $d_1 = {d[0]+3:.0f}[m]$, $d_2 = {d[0]:.0f}[m]$ y \\theta = {a[0]:.0f}.",
+    #     no_answers = 1,
+    #     a1_name = "Distancia d [m]",
+    #     a2_name = "",
+    #     a3_name = "",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round((m[0]-f[0]*Calculations.cosine(a[0])*(d[0]+10)+f[1]*((d[0]+14)-(d[0]+3)-d[0])-f[2]*((d[0]+14)-(d[0]+3)-d[0]))/(f[0]*Calculations.sine(a[0])+f[2]),2),
+    #     answer2 = lambda f, a, calc, c, d, m: 0,
+    #     answer3 = lambda f, a, calc, c, d, m: 0,
+    #     ayuda1 = "Utilice las distancias dadas para determinar la distancia perpendicular entre las fuerzas. Tenga en cuenta que se le esta dando un triangulo 3-4-5 para encontrar la distancia $L$ mostrada en la figura.",
+    #     ayuda2 = "Encuentre el momento par generado por las fuerzas usando las distancias encontradas la definición de momento par. Tenga en cuenta que debe descomponer la fuerza $F_1$.",      
+    #     ayuda3 = "Haga sumatoria de momentos igualada al momento dado para despejar y hallar $d$",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     A continuacion se presenta una posible solución para el problema:
+        
+    #     $\\textbf{{\\small 1. Distancias perpendiculares entre las fuerzas:}}$
+
+    #     Para $\\vec{F_1}$:
+    #     La distancia perpendicular entre la componente \\hat{i} de $F_1$ es $d_0$ y para la componente \\hat{j} es $d$
+    #     Para $\\vec{F_2}$:
+    #     ${{\hspace{{4mm}} d_{F2} = ({d[0]+14}-{d[0]+3}-{d[0]})[m]}}
+    #     ${{\hspace{{4mm}} d_{F2} = ({d[0]+14-d[0]+3-d[0]})[m]}}
+    #     Para $\\vec{F_3}$:
+    #     Sabemos que:
+    #     ${{\hspace{{4mm}} L = (d+x)[m]}}$ 
+    #     La distancia x se encuentra haciendo triangulos semejantes con la distancia perpendicular hallada para $F_2$:
+    #     ${{\hspace{{4mm}} \\dfrac{({d[0]+14-d[0]+3-d[0]})}{"x"} = \\dfrac{3}{4}}}$
+    #     ${{\hspace{{4mm}} x = \\dfrac{(4*({d[0]+14-d[0]+3-d[0]}))}{3}}}$
+    #     ${{\hspace{{4mm}} x = {(4*({d[0]+14-d[0]+3-d[0]})/3)}}}$
+    #     Entonces:
+    #     ${{\hspace{{4mm}} L = (d+{(4*({d[0]+14-d[0]+3-d[0]})/3)})[m]}}$ 
+
+    #     $\\textbf{{\\small 2. Momentos pares:}}$
+    #     Para $\\vec{F_1}$:
+    #     ${{\hspace{{4mm}} \\vec{F_1} = ({(f[0]*Calculations.cosine(a[0]))}\\hat{i}+{(f[0]*Calculations.sine(a[0]))}\\hat{j})[N]}}$
+    #     Entonces los momentos para cada componente son:
+    #     Para \\hat{i}
+    #     ${{\hspace{{4mm}} \\vec{M} = ({(f[0]*Calculations.cosine(a[0])*(d[0]+13))})\\hat{k}[N \\cdot m]}}$
+    #     Para \\hat{j}
+    #     ${{\hspace{{4mm}} \\vec{M} = ({(f[0]*Calculations.sine(a[0]))}*d)\\hat{k}[N \\cdot m]}}$
+
+    #     Para $\\vec{F_2}$:
+    #     ${{\hspace{{4mm}} \\vec{M} = ({(-1*f[1]*(d[0]+14-d[0]+3-d[0]))})\\hat{k}[N \\cdot m]}}$
+        
+    #     Para $\\vec{F_3}$:
+    #     ${{\hspace{{4mm}} \\vec{M} = ({f[2]})*(d+{(4*({d[0]+14-d[0]+3-d[0]})/3)})\\hat{k}}}$
+    #     ${{\hspace{{4mm}} \\vec{M} = ({f[2]}*d+{(f[2]*4*({d[0]+14-d[0]+3-d[0]})/3)})\\hat{k}}}$
+
+    #     $\\textbf{{\\small 3. Sumatoria de momentos:}}$
+    #     ${{\hspace{{4mm}} \\sum{M} = {m[0]}}}$
+    #     ${{\hspace{{4mm}} \\sum{M} = {(f[0]*Calculations.cosine(a[0])*(d[0]+13))}+{(f[0]*Calculations.sine(a[0]))}*d-{(f[1]*(d[0]+14-d[0]+3-d[0]))}+{f[2]}*d+{(f[2]*4*({d[0]+14-d[0]+3-d[0]})/3)}}}$
+    #     ${{\hspace{{4mm}} {m[0]} = {(f[0]*Calculations.cosine(a[0])*(d[0]+13))}+{(f[0]*Calculations.sine(a[0]))}*d-{(f[1]*(d[0]+14-d[0]+3-d[0]))}+{f[2]}*d+{(f[2]*4*({d[0]+14-d[0]+3-d[0]})/3)}}}$
+    #     Despejando $d$ encontramos que:
+    #     ${{\hspace{{4mm}} d = \\dfrac{m[0]-f[0]*Calculations.cosine(a[0])*(d[0]+13)+f[1]*(d[0]+14-d[0]+3-d[0])-(f[2]*4*({d[0]+14-d[0]+3-d[0]})/3)}{f[0]*Calculations.sine(a[0])+f[2]}[m]}}$
+    #     ${{\hspace{{4mm}} d = {(m[0]-f[0]*Calculations.cosine(a[0])*(d[0]+10)+f[1]*((d[0]+14)-(d[0]+3)-d[0])-f[2]*((d[0]+14)-(d[0]+3)-d[0]))/(f[0]*Calculations.sine(a[0])+f[2])}[m]}}$
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ),
+
 
 
     #========================================================  INCERTIDUMBRE  =========================================================
@@ -5776,6 +6274,101 @@ preguntas = [
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),
+
+    # Questionary(#1_1
+    #     code = 4110011,
+    #     no_pregunta = 1,
+    #     complexity = F,
+    #     topic = SE,
+    #     subtopic = "Sistemas Equivalentes",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"Sustituya la fuerza y el par dados por $F_1 = {f[0]:.0f}[N]$ y $F_2 = {f[1]:.0f}[N]$ por un sistema fuerza-momento equivalente en el punto $A$. Considere que $d_0 = {d[0]:.0f}[m]$ y $\\theta = {a[0]:.0f}°$.",
+    #     no_answers = 1,
+    #     a1_name = "Magnitud de la fuerza equivalente en $[N]$",
+    #     a2_name = "Magnitud del momento equivalente en $[N \\cdot m]$",
+    #     a3_name = "",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round(f[1],2),
+    #     answer2 = lambda f, a, calc, c, d, m: np.round(f[1]*Calculations.sine(a[0])*d[0]-f[0]*d[0],2),
+    #     answer3 = lambda f, a, calc, c, d, m: 0,
+    #     ayuda1 = "Haga sumatoria de fuerzas para encontrar la fuerza equivalente para el sistema fuerza-momento.",
+    #     ayuda2 = "Encuentre el momento generado por la fuerza y el par en el punto $A$.",      
+    #     ayuda3 = "Haga sumatoria de momentos para encontrar el momento equivalente para el sistema fuerza-momento.",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     Los sistemas equivalentes se refieren a que dos sistemas de fuerzas son equivalentes si su efecto sobre un cuerpo es el mismo. Es decir, las fuerzas que siente y el momento generado son los mismos para ambos sistemas. A continuacion se expondra la solucion sugerida del ejercicio:
+    #     $\\textbf{{\\small 1. Sumatoria de fuerzas: }}$
+        
+    #     ${{\hspace{{4mm}} \\sum{F} = ({f[0]}\\hat{i}-{f[0]}\\hat{i}+{f[1]}cos({a[0]})\\hat{i}+{f[1]}sen({a[0]})\\hat{j})[N] }}$          
+    #     ${{\hspace{{4mm}} \\sum{F} = ({(f[1]*Calculations.cosine(a[0]))}\\hat{i}+{(f[1]*Calculations.sine(a[0]))}\\hat{j})[N]}}$    
+        
+    #     $\\textbf{{\\small 2. Momentos generados por F_1 y F_2: }}$
+    #     Momento par
+    #     ${{\hspace{{4mm}} M = F \\cdot d}}$
+    #     ${{\hspace{{4mm}} M = -({f[0]} \\cdot {d[0]})\\hat{k}[N \\cdot m]}}$
+    #     ${{\hspace{{4mm}} M = ({(-1*f[0]*d[0])})\\hat{k}[N \\cdot m]}}$
+    #     Momento generado por $F_2$
+    #     Componente perpendicular a la distancia de la fuerza
+    #     ${{\hspace{{4mm}} M = F \\cdot d}}$
+    #     ${{\hspace{{4mm}} M = ({f[1]*Calculations.sine(a[0])} \\cdot {d[0]})\\hat{k}[N \\cdot m]}}$
+    #     ${{\hspace{{4mm}} M = ({(f[1]*Calculations.sine(a[0])*d[0])})\\hat{k}[N \\cdot m]}}$
+
+    #     $\\textbf{{\\small 3. Sumatoria de momento: }}$
+    #     ${{\hspace{{4mm}} \\sum{M} = ({(f[1]*Calculations.sine(a[0])*d[0])}-{(f[0]*d[0])})\\hat{k}[N \\cdot m]}}$
+    #     ${{\hspace{{4mm}} \\sum{M} = ({(f[1]*Calculations.sine(a[0])*d[0])-(f[0]*d[0])})\\hat{k}[N \\cdot m]}}$
+
+    #     $\\textbf{{\\small 4. Sistema equivalente fuerza-momento: }}$
+    #     ${{\hspace{{4mm}} ||F_{eq}|| = {f[1]}[N]}}$
+    #     ${{\hspace{{4mm}} ||M_{eq}|| = ({(f[1]*Calculations.sine(a[0])*d[0])-(f[0]*d[0])})[N \\cdot m]}}$
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    # ),
+    
+    # Questionary(#2_1
+    #     code = 4110021,
+    #     no_pregunta = 2,
+    #     complexity = F,
+    #     topic = SE,
+    #     subtopic = "Sistemas Equivalentes",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"Remplace el sistema de cargas aplicado, por una carga y un momento en el punto $O$. La fuerza $P = {f[0]:.0f}[N]$ esta en el plano $Y-Z$ y forma un angulo $\\phi = {a[0]:.0f}°$ con el eje $Z$. Considere que $d_0 = {d[0]:.0f}[m]$, $d_1 = {d[3]:.0f}[m]$. y \\theta = {a[4]:.0f}°.",
+    #     no_answers = 3,
+    #     a1_name = "Componente $\\hat{{j}}$ de $F_{{eq}}$ en [N]",
+    #     a2_name = "Componente $\\hat{{k}}$ de $F_{{eq}}$ en [N]",
+    #     a3_name = "Magnitud del momento equivalente en [N \\cdot m]",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round(-1*f[0]*Calculations.sine(a[0]),2),
+    #     answer2 = lambda f, a, calc, c, d, m: np.round(f[0]*Calculations.cosine(a[0]),2),
+    #     answer3 = lambda f, a, calc, c, d, m: np.round(Calculations.magnitude3D(f[0]*Calculations.cosine(a[0])*d[0]-f[0]*Calculations.sine(a[0])*d[3]*Calculations.sine(a[4]),f[0]*Calculations.cosine(a[0])*d[3]*Calculations.cosine(a[4]),f[0]*Calculations.sine(a[0])*d[3]*Calculations.cosine(a[4])),2),
+    #     ayuda1 = "Fijese que solo hay una fuerza $P$ en todo el sistema, por lo que la fuerza equivalente seria igual a $P$.",
+    #     ayuda2 = "Encuentre el vector distancia entre el punto $O$ y el punto donde se aplica la fuerza $P$ usando el angulo $\\theta$.",      
+    #     ayuda3 = "Usando esto, encuentre el momento, que seria el momento equivalente del sistema con componentes $\\hat{{i}}$, $\\hat{{j}}$ y $\\hat{{k}}$, usando el producto cruz.",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     A continuación, se presenta la solución sugerida para el ejercicio:
+        
+    #     $\\textbf{{\\small 1. Descomposición de la fuerza - Fuerza equivalente: }}$ 
+        
+    #     ${{\hspace{{4mm}} \\vec{F_{eq}} = (0\\hat{i}-{f[0]}sen({a[0]})\\hat{j}+{f[0]}cos({a[0]})\\hat{k})[N]}}$ 
+    #     ${{\hspace{{4mm}} \\vec{F_{eq}} = (0\\hat{i}-{f[0]*Calculations.sine(a[0])}\\hat{j}+{f[0]*Calculations.cosine(a[0])}\\hat{k})[N]}}$
+
+    #     $\\textbf{{\\small 2. Vector posición: }}$
+    #     ${{\hspace{{4mm}} \\vec{r} = ({d[3]}cos({a[4]})\\hat{i}+{d[0]}\\hat{j}-{d[3]}sen({a[4]})\\hat{k})[m]}}$
+    #     ${{\hspace{{4mm}} \\vec{r} = ({d[3]*Calculations.cosine(a[4])}\\hat{i}+{d[0]}\\hat{j}-{d[3]*Calculations.sine(a[4])}\\hat{k})[m]}}$
+
+    #     $\\textbf{{\\small 3. Momento generado por la fuerza: }}$
+    #     ${{\hspace{{4mm}} \\vec{M} = \\vec{r} \\times \\vec{F_{eq}}}}$
+    #     Haciendo el producto cruz
+    #     ${{\hspace{{4mm}} \\vec{M} = ({f[0]*Calculations.cosine(a[0])*d[0]}-{f[0]*Calculations.sine(a[0])*d[3]*Calculations.sine(a[4])})\\hat{i}-({f[0]*Calculations.cosine(a[0])*d[3]*Calculations.cosine(a[4])})\\hat{j}-({f[0]*Calculations.sine(a[0])*d[3]*Calculations.cosine(a[4])})\\hat{k}[N \\cdot m]}}$
+    #     ${{\hspace{{4mm}} \\vec{M} = ({f[0]*Calculations.cosine(a[0])*d[0]-f[0]*Calculations.sine(a[0])*d[3]*Calculations.sine(a[4])})\\hat{i}-({f[0]*Calculations.cosine(a[0])*d[3]*Calculations.cosine(a[4])})\\hat{j}-({f[0]*Calculations.sine(a[0])*d[3]*Calculations.cosine(a[4])})\\hat{k}[N \\cdot m]}}$
+    #     Encontrando la magnitud tenemos que:
+    #     ${{\hspace{{4mm}} |\\vec{M}| = {Calculations.magnitude3D(f[0]*Calculations.cosine(a[0])*d[0]-f[0]*Calculations.sine(a[0])*d[3]*Calculations.sine(a[4]),f[0]*Calculations.cosine(a[0])*d[3]*Calculations.cosine(a[4]),f[0]*Calculations.sine(a[0])*d[3]*Calculations.cosine(a[4]))}[N \\cdot m]}}$
+
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ),
+   
+
    
     #========================================================  SISTEMAS EQUIVALENTES  =========================================================
     #-------------------------------------------------       Sistemas equivalentes 2D-3D      --------------------------------------------
@@ -5934,6 +6527,63 @@ preguntas = [
     #     calculos='operations'
     #     ),
    
+    # Questionary(#1_1
+    #     code = 4120011,
+    #     no_pregunta = 1,
+    #     complexity = M,
+    #     topic = MO,
+    #     subtopic = "Momentos pares",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"Considere la placa de cimentación mostrada en la figura, la cual recibe cuatro cargas $F_1 = {f[0]:.0f}[KN]$, $F_2 = {f[1]:.0f}[KN]$, $F_3 = {f[2]:.0f}[KN]$ y $F_4 = {f[3]:.0f}[KN]$. Encuentre el sistema equivalente consistente de una sola fuerza aplicada sobre la placa y donde esta ubicada. Tenga en cuenta que $d_0 = {d[0]:.0f}[m]$ y $d_1 = {d[3]:.0f}[m]$.",
+    #     no_answers = 2,
+    #     a1_name = "Distancia en x en [m]",
+    #     a2_name = "Distancia en z en [m]",
+    #     a3_name = "",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round((f[2]*d[3]+f[3]*d[3])/(f[0]+f[1]+f[2]+f[3]),2),
+    #     answer2 = lambda f, a, calc, c, d, m: np.round((f[2]*d[0]+f[1]*d[0])/(f[0]+f[1]+f[2]+f[3]),2),
+    #     answer3 = lambda f, a, calc, c, d, m: 0,
+    #     ayuda1 = "Tenga en cuenta que todas las fuerzas se ejercen en el sentido del eje $y$ negativo. La sumatoria de fuerzas sera su $F_{{eq}}$.",
+    #     ayuda2 = "Encuentre el momento generado por cada fuerza y haga sumatoria de momentos.",      
+    #     ayuda3 = "Encuentre el $M_{{eq}}$ generado por la fuerza $F_{{eq}}$ teniendo en cuenta que la distancia hasta la aplicacion de la fuerza son valores $x$ y $z$. Iguale este momento al encontrado anteriormente.",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     A continuacion se presentará una posible solución del ejercicio:.
+        
+    #     $\\textbf{{\\small 1. Fuerza equivalente:}}$
+
+    #     ${{\hspace{{4mm}} \\vec{F_{eq}} = \\sum{F_y}}}$
+    #     ${{\hspace{{4mm}} \\vec{F_{eq}} = (-({f[0]}+{f[1]}+{f[2]}+{f[3]})\\hat{j})[KN]}}$
+
+    #     $\\textbf{{\\small 2. Momento generado con respecto a O:}}$
+    #     Para $F_1$:
+    #     ${{\hspace{{4mm}} \\vec{M} = 0}}$
+    #     Para $F_2$:
+    #     ${{\hspace{{4mm}} \\vec{M} = -{f[1]*d[0]}\\hat{k}[KN \\cdot m]}}$
+    #     Para $F_3$:
+    #     ${{\hspace{{4mm}} \\vec{M} = {f[2]*d[3]}\\hat{i}-{f[2]*d[0]}\\hat{k}[KN \\cdot m]}}$
+    #     Para $F_4$:
+    #     ${{\hspace{{4mm}} \\vec{M} = {f[3]*d[3]}\\hat{i}[KN \\cdot m]}}$
+    #     $\\textbf{{\\small 3. Sumatoria de momentos:}}$
+    #     ${{\hspace{{4mm}} \\vec{M_{eq}} = \\sum{M}}}$
+    #     ${{\hspace{{4mm}} \\vec{M_{eq}} = ({f[2]*d[3]+f[3]*d[3]})\\hat{i}-({f[1]*d[0]+f[2]*d[0]})\\hat{k}[KN \\cdot m]}}$
+
+    #     $\\textbf{{\\small 4. Ubicación de la fuerza equivalente:}}$
+    #     Como sabemos que la fuerza debe ubicarse en la cimentación, que se encuentra en el plano X-Z, definiremos distncias $x$ y $z$.
+    #     Encontraremos el momento generado por la fuerza equivalente en el punto O.
+    #     ${{\hspace{{4mm}} \\vec{r} = (x\\hat{i}+z\\hat{k})[m]}}$
+    #     ${{\hspace{{4mm}} \\vec{M_{eq}} = (({f[0]+f[1]+f[2]+f[3]}z)\\hat{i}-({f[0]+f[1]+f[2]+f[3]}x)\\hat{k})[KN \\cdot m]}}$
+    #     Igualando los momentos, se obtiene:
+    #     ${{\hspace{{4mm}} ({f[0]+f[1]+f[2]+f[3]}z) = ({f[2]*d[3]+f[3]*d[3]})}}$
+    #     ${{\hspace{{4mm}} z = {((f[2]*d[3]+f[3]*d[3])/(f[0]+f[1]+f[2]+f[3]))}[m]}}$
+
+    #     ${{\hspace{{4mm}} ({f[0]+f[1]+f[2]+f[3]}x) = ({f[1]*d[0]+f[2]*d[0]})}}$
+    #     ${{\hspace{{4mm}} x = {((f[2]*d[0]+f[1]*d[0])/(f[0]+f[1]+f[2]+f[3]))}[m]}}$
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ), 
+
+
     #========================================================  SISTEMAS EQUIVALENTES  =========================================================
     #-------------------------------------------------       Sistemas equivalentes 2D-3D      --------------------------------------------
     #-------------------------------------------------       Nivel Díficil   ---------------------------------------------------
@@ -6079,7 +6729,64 @@ preguntas = [
     #     calculos='operations'
     #     ),
 
+    #    Questionary(#1_1
+    #     code = 4130011,
+    #     no_pregunta = 1,
+    #     complexity = D,
+    #     topic = MO,
+    #     subtopic = "Sistemas Equivalentes",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"Reemplaze el sistema de fuerzas mostrado por una fuerza unica ubicada a lo largo de la linea $C-B$. Tenga en cuenta que $F_1 = {f[0]:.0f}[N]$, $F_2 = {f[1]:.0f}[N]$, $F_3 = {f[2]:.0f}[N]$ y $M = {m[0]:.0f}[N \\cdot m]$. Considere que $d_0 = {d[0]:.0f}[m]$ y $\\theta = {a[0]:.0f}[m]$. ",
+    #     no_answers = 2,
+    #     a1_name = "Coordenada x de la fuerza equivalente en [m]",
+    #     a2_name = "Coordenada y de la fuerza equivalente en [m]",
+    #     a3_name = "",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round((f[0]*d[0]-f[2]*d[0]-m[0])/(-1*(f[1]*Calculations.sine(a[0])+f[2]+f[0]+f[1]*Calculations.cosine(a[0]))),2),
+    #     answer2 = lambda f, a, calc, c, d, m: np.round((f[0]*d[0]-f[2]*d[0]-m[0])/(-1*(f[1]*Calculations.sine(a[0])+f[2]+f[0]+f[1]*Calculations.cosine(a[0]))),2),
+    #     answer3 = lambda f, a, calc, c, d, m: 0,
+    #     ayuda1 = "Descomponga las fuerzas y haga sumatoria de fuerzas para encontrar la fuerza equivalente.",
+    #     ayuda2 = "Encuentre el momento generado por cada fuerza y haga sumatoria de momentos. Iguale este momento al que encontrara generado por la fuerza equivalente",      
+    #     ayuda3 = "Dese cuenta que la figura es un cuadrado, por lo que la coordenada $x$ y la coordenada $y$ de la fuerza equivalente seran iguales.",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     A continuacion se presenta una posible solución para el problema:
+        
+    #     $\\textbf{{\\small 1. Descomposición de fuerzas:}}$
 
+    #     ${{\hspace{{4mm}} \\vec{F_1} = ({f[0]}\\hat{i}+0\\hat{j})[N]}}$
+    #     ${{\hspace{{4mm}} \\vec{F_2} = ({f[1]}cos({a[0]})\\hat{i}-{f[1]}sen({a[0]})\\hat{j})[N]}}$
+    #     ${{\hspace{{4mm}} \\vec{F_2} = ({f[1]*Calculations.cosine(a[0])})\\hat{i}-{f[1]*Calculations.sine(a[0])})\\hat{j})[N]}}$
+    #     ${{\hspace{{4mm}} \\vec{F_3} = (0\\hat{i}-{f[2]}\\hat{j})[N]}}$
+    #     ${{\hspace{{4mm}} \\sum{F} = ({f[0]+f[1]*Calculations.cosine(a[0])}\\hat{i}-{f[2]+f[1]*Calculations.sine(a[0])})}}$
+    #     $\\textbf{{\\small 2. Momentos generados por cada fuerza:}}$
+    #     Cabe aclarar que todos los momentos presentados a continuación son con respecto al punto $A$ y tienen dirección en \\hat{k}.
+    #     ${{\hspace{{4mm}} \\vec{M} = \\vec{r} \\times \\vec{F}}}$
+    #     Para $F_1$:
+    #     ${{\hspace{{4mm}} \\vec{M} = {f[0]} \\cdot {d[0]}[N \\cdot m]}}$
+    #     ${{\hspace{{4mm}} \\vec{M} = {f[0]*d[0]}[N \\cdot m]}}$
+    #     Para $F_2$:
+    #     ${{\hspace{{4mm}} \\vec{M} = 0[N \\cdot m]}}$
+    #     Para $F_3$:
+    #     ${{\hspace{{4mm}} \\vec{M} = -{f[2]} \\cdot {d[0]}[N \\cdot m]}}$
+    #     ${{\hspace{{4mm}} \\vec{M} = -{f[2]*d[0]}[N \\cdot m]}}$
+
+    #     $\\textbf{{\\small 3. Sumatoria de momentos:}}$
+    #     Acá se suma el momento $M$ dado en el problema, el cual es negativo.
+    #     ${{\hspace{{4mm}} \\vec{M_{eq}} = \\sum{M}}}$
+    #     ${{\hspace{{4mm}} \\vec{M_{eq}} = {f[0]*d[0]-f[2]*d[0]-m[0]}[N \\cdot m]}}$
+
+    #     $\\textbf{{\\small 4. Ubicación de la fuerza equivalente:}}$
+    #     Como sabemos que la fuerza debe ubicarse en la linea $C-B$, definiremos distncias $x$ y $y$.
+    #     Pero en este caso, $x=y$, ya que la figura es un cuadrado.
+    #     Entonces:
+    #     ${{\hspace{{4mm}} \\vec{M_{eq}} = -({f[2]+f[1]*Calculations.sine(a[0])})x-({f[0]+f[1]*Calculations.cosine(a[0])})x}}$
+    #     ${{\hspace{{4mm}} -({f[2]+f[1]*Calculations.sine(a[0])+f[0]+f[1]*Calculations.cosine(a[0])})x = {f[0]*d[0]-f[2]*d[0]-m[0]}}}$
+    #     ${{\hspace{{4mm}} x = {(f[0]*d[0]-f[2]*d[0]-m[0])/(-1*(f[1]*Calculations.sine(a[0])+f[2]+f[0]+f[1]*Calculations.cosine(a[0])))}}}$
+
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ),
 
     #========================================================  ARMADURAS  =========================================================
     #-------------------------------------------------         Cerchas      --------------------------------------------
@@ -6220,6 +6927,114 @@ preguntas = [
         calculos='operations'
         ),
     
+    # Questionary(#1_1
+    #     code = 5110011,
+    #     no_pregunta = 1,
+    #     complexity = F,
+    #     topic = C,
+    #     subtopic = "Cerchas",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"Teniendo en cuenta que $F_1 = {f[0]:.0f}[N]$, $F_2 = {f[1]:.0f}[N]$, $d_0 = {d[0]:.0f}[m]$ y $d_1 = {d[3]:.0f}[m]$, encuentre las fuerzas que fluyen por los elementos $AC$ y $AD$. Desprecie el peso de la cercha.",
+    #     no_answers = 2,
+    #     a1_name = "Magnitud de la fuerza en el elemento $AC$ en $[N]$",
+    #     a2_name = "Magnitud de la fuerza en el elemento $AD$ en $[N]$",
+    #     a3_name = "",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round((f[1]-((d[3]*f[0]+(5/2)*d[0]*f[1])/(3*d[0])))*(Calculations.magnitude(d[3],d[0]/2)/d[3]),2),
+    #     answer2 = lambda f, a, calc, c, d, m: np.round(f[0]+(f[1]*d[0]/(2*d[3]))-(((d[3]*f[0]+(5/2)*d[0]*f[1])/(6*d[3]))),2),
+    #     answer3 = lambda f, a, calc, c, d, m: 0,
+    #     ayuda1 = "Encuentre las reacciones en los apoyos usando sumatoria de fuerzas y momentos global.",
+    #     ayuda2 = "Centrese en el nodo A para realizar su respectivo diagrama de cuerpo libre y asi determinar la direccion de las fuerzas en los elementos $AC$ y $AD$.",      
+    #     ayuda3 = "Tenga en cuenta que la cercha es de traingulos, y de esta forma, descomponga las fuerzas necesarias y haga sumatria de fuerzas del nodo.",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     A continuacion se expondra la solucion sugerida del ejercicio:
+    #     $\\textbf{{\\small 1. Reacciones - Sumatoria de fuerzas y momento: }}$
+        
+    #     ${{\hspace{{4mm}} \\sum{F_x} = 0 }}$
+    #     ${{\hspace{{4mm}} {f[0]} - A_x = 0 }}$
+    #     ${{\hspace{{4mm}} A_x = {f[0]}[N] }}$
+    #     ${{\hspace{{4mm}} \\sum{F_y} = 0 }}$
+    #     ${{\hspace{{4mm}} A_y + B_y - {f[1]} = 0}}$ 
+    #     ${{\hspace{{4mm}} A_y + B_y = {f[1]}}}$   
+    #     ${{\hspace{{4mm}} \\sum{M_A} = 0 }}$
+    #     ${{\hspace{{4mm}} -{d[3]}*{f[0]}-\\dfrac{5}{2}*{d[0]}*{f[1]}+3*{d[0]}*B_y = 0 }}$
+    #     ${{\hspace{{4mm}} B_y = {(d[3]*f[0]+(5/2)*d[0]*f[1])/(3*d[0])}[N] }}$
+    #     Ahora podemos encontrar $A_y$:
+    #     ${{\hspace{{4mm}} A_y = {f[1]} - B_y}}$
+    #     ${{\hspace{{4mm}} A_y = {f[1]} - {(d[3]*f[0]+(5/2)*d[0]*f[1])/(3*d[0])}[N] }}$
+    #     ${{\hspace{{4mm}} A_y = {f[1]-(d[3]*f[0]+(5/2)*d[0]*f[1])/(3*d[0])}[N] }}$
+
+    #     $\\textbf{{\\small 2. Diagrama de cuerpo libre del nodo A: }}$
+    #     Se descomponen las fuerzas usando las medidas dadas.
+    #     ${{\hspace{{4mm}} \\sum{F_x} = 0 }}$
+    #     ${{\hspace{{4mm}} F_{AD}-({d[0]/(2*Calculations.magnitude(d[3],d[0]/2))})*F_{AC} - A_x = 0 }}$
+    #     ${{\hspace{{4mm}} \\sum{F_y} = 0 }}$
+    #     ${{\hspace{{4mm}} A_y - ({d[3]/(Calculations.magnitude(d[3],d[0]/2))})*F_{AC} = 0 }}$
+    #     ${{\hspace{{4mm}} F_{AC} = (A_y*{Calculations.magnitude(d[3],d[0]/2)})/{d[3]} }}$
+    #     ${{\hspace{{4mm}} F_{AC} = {(f[1]-((d[3]*f[0]+(5/2)*d[0]*f[1])/(3*d[0])))*(Calculations.magnitude(d[3],d[0]/2)/d[3])} }}$
+    #     Teniendo la fuerza en $AC$, podemos encontrar ahora la fuerza en $AD$ reemplzandola en la ecuacion de $F_{AD}$.
+    #     ${{\hspace{{4mm}} F_{AD}-({d[0]/(2*Calculations.magnitude(d[3],d[0]/2))})*(A_y*{Calculations.magnitude(d[3],d[0]/2)})/{d[3]} - A_x = 0 }}$
+    #     ${{\hspace{{4mm}} F_{AD} = A_x + A_y*{d[0]/(2*d[3])} }}$
+    #     Reemplazando $A_x$ y $A_y$ tenemos que:
+    #     ${{\hspace{{4mm}} F_{AD} = {f[0]+(f[1]*d[0]/(2*d[3]))-(((d[3]*f[0]+(5/2)*d[0]*f[1])/(6*d[3])))} }}$
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    # ),
+    # Questionary(#2_1
+    #     code = 5110021,
+    #     no_pregunta = 2,
+    #     complexity = F,
+    #     topic = C,
+    #     subtopic = "Cerchas",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"Si el peso del puente (aplicado en el centro de la cercha) es de $W = {f[0]:.0f}[kN]$, encuentre la magnitud de la fuerza que viaja por el elemento BI.",
+    #     no_answers = 1,
+    #     a1_name = "Fuerza en el elemento $BI$ en [kN]",
+    #     a2_name = "",
+    #     a3_name = "",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round(f[0]/2,2),
+    #     answer2 = lambda f, a, calc, c, d, m: 0,
+    #     answer3 = lambda f, a, calc, c, d, m: 0,
+    #     ayuda1 = "Fijese que el peso de la cercha se aplica en el centro, por lo que las reacciones se distribuyen este peso igualmente.",
+    #     ayuda2 = "Centrese en el nodo B, identifique las fuerzas que siente este nodo y sus direcciones (Compresión o tensión).",      
+    #     ayuda3 = "Descomponga las fuerzas identificando las dimensiones del triangulo, haga sumatoria de fuerzas en el nodo y resuelva para $BI$.",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     A continuación, se presenta la solución sugerida para el ejercicio:
+        
+    #     $\\textbf{{\\small 1. Reacciones - Sumatoria de fuerzas y momento: }}$
+        
+    #     ${{\hspace{{4mm}} \\sum{F_x} = 0 }}$
+    #     ${{\hspace{{4mm}} A_x = 0 }}$
+    #     ${{\hspace{{4mm}} \\sum{F_y} = 0 }}$
+    #     ${{\hspace{{4mm}} A_y + B_y - {f[0]} = 0}}$
+    #     ${{\hspace{{4mm}} A_y + B_y = {f[0]}}}$
+    #     Entonces, como esta aplicada en el centro, la fuerza se distribuye igualmente entre los dos apoyos.
+    #     ${{\hspace{{4mm}} A_y = B_y = \\dfrac{W}{2} }}$
+    #     ${{\hspace{{4mm}} A_y = B_y = {f[0]/2} }}$
+
+    #     $\\textbf{{\\small 2. Diagrama de cuerpo libre del nodo B: }}$
+    #     Se descomponen las fuerzas usando las medidas dadas.
+    #     ${{\hspace{{4mm}} \\sum{F_x} = 0 }}$
+    #     ${{\hspace{{4mm}} -F_{BI} + \\dfrac{1}{{\\sqrt{2}}}*F_{BJ} = 0 }}$
+    #     ${{\hspace{{4mm}} \\sum{F_y} = 0 }}$
+    #     ${{\hspace{{4mm}} B_y - \\dfrac{1}{{\\sqrt{2}}}*F_{BJ} = 0 }}$
+    #     ${{\hspace{{4mm}} F_{BJ} = \\sqrt{2}*B_y }}$
+    #     ${{\hspace{{4mm}} F_{BI} = \\dfrac{1}{{\\sqrt{2}}}*F_{BJ} }}$
+    #     Reemplazamos $F_{BJ}$ en la ecuacion de $F_{BI}$:
+    #     ${{\hspace{{4mm}} F_{BI} = \\dfrac{1}{{\\sqrt{2}}}*\\sqrt{2}*B_y }}$
+    #     ${{\hspace{{4mm}} F_{BI} = B_y }}$
+    #     ${{\hspace{{4mm}} F_{BI} = \\dfrac{W}{2} }}$
+    #     ${{\hspace{{4mm}} F_{BI} = {f[0]/2} }}$
+        
+
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ),
+   
+
 
     #========================================================  ARMADURAS  =========================================================
     #-------------------------------------------------         Cerchas      --------------------------------------------
@@ -6662,6 +7477,90 @@ preguntas = [
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),
+
+    # Questionary(#1_1
+    #     code = 5130011,
+    #     no_pregunta = 1,
+    #     complexity = M,
+    #     topic = C,
+    #     subtopic = "Cerchas",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"Determine cuantos elementos de fuerza 0 tiene la cercha mostrada a continuación.",
+    #     no_answers = 1,
+    #     a1_name = "Numero de elementos de fuerza ceros en la cercha.",
+    #     a2_name = "",
+    #     a3_name = "",
+    #     answer1 = lambda f, a, calc, c, d, m: 11,
+    #     answer2 = lambda f, a, calc, c, d, m: 0,
+    #     answer3 = lambda f, a, calc, c, d, m: 0,
+    #     ayuda1 = "Revise que elementos son perpendiculares a otros, y que no se este aplicando ninguna fuerza en este elemento por sumatoria de fuerzas.",
+    #     ayuda2 = "Una vez identificado un elemento, revise nuevamente la cercha para ver si al eliminar este elemento, aparecen mas elementos con esta caracteristica. Repita este proceso.",      
+    #     ayuda3 = "",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     Notese que $CB$ es perpendicular a $ABD$, por lo que este elemento es de fuerza cero. Asi mismo, el elemento $CD$ es perpendicular a $ACE$, y como $CB$ es un elemento de fuerza cero, entonces $CD$ es un elemento de fuerza cero. Pasa lo mismo con $FG$ y $FD$. Identificando esto, se concluye entonves que $ED$ tambien es un elemento de fuerza cero, siendo perpendicular a $ADH$. Siguiendo esta misma logica, el elemento $IH$ es perpendicular a $EIM$, y aunque en el nodo H tenga una fuerza, esta se distrin¿buye y fluye por los elementos $EH$ y $MH$. Lo anteriormente mencionado se replica a los elementos $KJ$, $KL$, $ML$, $LO$ y $NO$. Por lo que se concluye que hay 11 elementos de fuerzas cero en la cercha.
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ), 
+    
+    # Questionary(#2_1
+    #     code = 5130021,
+    #     no_pregunta = 1,
+    #     complexity = D,
+    #     topic = C,
+    #     subtopic = "Cerchas",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"Encuentre las fuerzas que sienten los elementos $HF$ y $HI$ de la cercha mostrada en la figura. Considere que $F_1 = {f[0]:.0f}[N]$, $F_2 = {f[1]:.0f}[N]$, $F_3 = {f[2]:.0f}[N]$, $F_4 = {f[3]:.0f}[N]$ y $d_0 = {d[0]:.0f}[m]$.",
+    #     no_answers = 2,
+    #     a1_name = "Fuerza en el elemento $HF$ en [N]",
+    #     a2_name = "Fuerza en el elemento $HI$ en [N]",
+    #     a3_name = "",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round(-1*(f[1]+2*f[2]+3*f[3])/4,2),
+    #     answer2 = lambda f, a, calc, c, d, m: np.round(((f[1]+2*f[2]+3*f[3])/4)-f[3],2),
+    #     answer3 = lambda f, a, calc, c, d, m: 0,
+    #     ayuda1 = "Encuentre las reacciones en los apoyos por medio de la sumatoria de fuerzas y momentos globales.",
+    #     ayuda2 = "Identifique que sección le sirve para asi realizar un corte para escoger esta parte de la cercha.",      
+    #     ayuda3 = "Haga sumatoria de fuerzas globales de la sección escogida para asi encontrar las fuerzas pedidas.",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     A continuacion se presenta una posible solución para el problema:
+        
+    #     $\\textbf{{\\small 1. Reacciones - Sumatoria de fuerzas y momento global: }}$
+    #     ${{\hspace{{4mm}} \\sum{F_x} = 0 }}$
+    #     ${{\hspace{{4mm}} A_x = 0 }}$
+    #     ${{\hspace{{4mm}} \\sum{F_y} = 0 }}$
+    #     ${{\hspace{{4mm}} A_y + B_y - {f[0]} - {f[1]} - {f[2]} - {f[3]} = 0}}$
+    #     ${{\hspace{{4mm}} A_y + B_y = {f[0]} + {f[1]} + {f[2]} + {f[3]}}}$
+    #     ${{\hspace{{4mm}} \\sum{M_A} = 0 }}$
+    #     ${{\hspace{{4mm}} -{d[0]}*{f[1]} - 2*{d[0]}*{f[2]} - 3*{d[0]}*{f[3]} + 4*{d[0]}*B_y = 0 }}$
+    #     ${{\hspace{{4mm}} B_y = \\dfrac{1}{4}*({f[1]} + 2*{f[2]} + 3*{f[3]}) }}$
+    #     ${{\hspace{{4mm}} B_y = {(f[1] + 2*f[2] + 3*f[3])/(4)}[N] }}$
+    #     Como ya tenemos $B_y$, no será necesario calcular $A_y$.
+
+    #     $\\textbf{{\\small 2. Diagrama de cuerpo libre de la sección seleccionada: }}$
+    #     Se realiza un corte en los elementos $HF$, $HI$ y $BI$. De esta forma podremos realizar sumatoria de fuerzas para encontrar lo solicitado:
+    #     ${{\hspace{{4mm}} \\sum{F_x} = 0 }}$
+    #     ${{\hspace{{4mm}} -F_{HF} - F_{BI} = 0 }}$
+    #     ${{\hspace{{4mm}} \\sum{F_y} = 0 }}$
+    #     ${{\hspace{{4mm}} B_y - {f[3]} - F_{HI} = 0 }}$
+    #     ${{\hspace{{4mm}} F_{HI} = B_y - {f[3]} }}$
+    #     ${{\hspace{{4mm}} F_{HI} = {(f[1] + 2*f[2] + 3*f[3])/(4)} - {f[3]} }}$
+    #     ${{\hspace{{4mm}} F_{HI} = {((f[1] + 2*f[2] + 3*f[3])/(4))-f[3]} }}$
+    #     ${{\hspace{{4mm}} \\sum{M_H} = 0 }}$
+    #     ${{\hspace{{4mm}} B_y*{d[0]} - F_{BI}*{d[0]} = 0 }}$
+    #     ${{\hspace{{4mm}} F_{BI} = B_y }}$
+    #     ${{\hspace{{4mm}} F_{BI} = {(f[1] + 2*f[2] + 3*f[3])/(4)} }}$
+    #     ${{\hspace{{4mm}} F_{HF} = -(F_{BI}) }}$
+    #     ${{\hspace{{4mm}} F_{HF} = -{(f[1]+2*f[2]+3*f[3])/4}[N] }}$
+
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ),
+
+
+
 
     #-------------------------------------------------         Marcos      --------------------------------------------
     #-------------------------------------------------       Nivel Fácil   ---------------------------------------------------
@@ -7707,7 +8606,6 @@ preguntas = [
         calculos='operations'
         ),
    
-
 
     #=================================================  FUERZAS DISTRIBUIDAS =========================================================
     #-------------------------------------------------       Vigas    --------------------------------------------
@@ -9065,6 +9963,119 @@ preguntas = [
     #     calculos='operations'
     #     ),
 
+    # Questionary(#1_1
+    #     code = 8120011,
+    #     no_pregunta = 1,
+    #     complexity = M,
+    #     topic = FI,
+    #     subtopic = "Fuerzas Internas",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"Determine el cortante y el momento flecto que siente la columna en el punto B debido a las fuerzas $F_1 = {f[0]:.0f}[kN]$ y $F_2 = {f[1]:.0f}[kN]$. Considere que $d_0 = {d[0]:.0f}[m]$, $d_1 = {d[3]:.0f}[m]$ y $d_2 = {d[6]:.0f}[m]$.",
+    #     no_answers = 2,
+    #     a1_name = "Cortante en el punto B en [kN]",
+    #     a2_name = "Momento en el punto B en [kN \\cdot m]",
+    #     a3_name = "",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round(f[0]+f[1],2),
+    #     answer2 = lambda f, a, calc, c, d, m: np.round(-1*f[0]*d[3]-f[1]*d[3]-f[1]*d[6],2),
+    #     answer3 = lambda f, a, calc, c, d, m: 0,
+    #     ayuda1 = "Tenga en cuenta que tipo de apoyo es para encontrar sus respectivas reacciones haciendo sumatoria de fuerzas y momentos.",
+    #     ayuda2 = "Identifique el tramo en el cual se encuentra el punto B y encuentre la ecuación de cortante y momento flector en dicho tramo.",      
+    #     ayuda3 = "Evalue la distancia a la que esta el punto B desde el inicio del tramo dentro de las funciones encontradas.",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     A continuacion se expondra la solucion sugerida del ejercicio:
+    #     $\\textbf{{\\small 1. Calculo de reacciones: }}$
+        
+    #     ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$
+    #     ${{\hspace{{4mm}} R_y = 0[kN]}}$
+    #     ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$
+    #     ${{\hspace{{4mm}} -R_x + F_1 + F_2 = 0}}$
+    #     ${{\hspace{{4mm}} R_x = (F_1 + F_2)[kN]}}$
+    #     ${{\hspace{{4mm}} \\sum{{M}} = 0 }}$
+    #     ${{\hspace{{4mm}} M - F_1(d_0 + d_1) - F_2(d_0 + d_1 + d_2) = 0 }}$
+    #     ${{\hspace{{4mm}} M = (F_1(d_0 + d_1) + F_2(d_0 + d_1 + d_2))[kN \\cdot m] }}$4
+    
+    #     $\\textbf{{\\small 2. Ecuación de los tramos: }}$
+    #     ${{\hspace{{4mm}} Tramo 1 [0 , d_0 + d_1] }}$
+    #     ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$
+    #     ${{\hspace{{4mm}} R_x - V(y) = 0 }}$
+    #     ${{\hspace{{4mm}} V(y) = R_x[kN] }}$
+    #     ${{\hspace{{4mm}} \\sum{{M}} = 0 }}$
+    #     ${{\hspace{{4mm}} M(y) - R_x \cdot y + M = 0 }}$
+    #     ${{\hspace{{4mm}} M(y) = (R_x \cdot y - M)[kN \\cdot m] }}$
+    #     Como el punto B se encuentra en el primer tramo, no se hallan los restantes
+
+    #     $\\textbf{{\\small 3. Cortante y Momento flector en B: }}$
+    #     ${{\hspace{{4mm}} V(d_0) = R_x[kN] }}$
+    #     ${{\hspace{{4mm}} M(d_0) = (R_x(d_0 + d_1) - M)[kN \\cdot m] }}$
+    #     Teniendo esto en cuenta, el resultado es
+    #     ${{\hspace{{4mm}} V_B = {(f[0]+f[1])}[kN] }}$
+    #     ${{\hspace{{4mm}} M_B = {(-1*f[0]*d[3]-f[1]*d[3]-f[1]*d[6])}[kN \\cdot m] }}$
+
+
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    # ),
+    # Questionary(#2_1
+    #     code = 8120011,
+    #     no_pregunta = 2,
+    #     complexity = M,
+    #     topic = FI,
+    #     subtopic = "Fuerzas Internas",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"Determine la fuerza cortante y el momento flecto inmediatamente despues del punto $C$ que siente la viga debido a la fuerza $F = {f[0]:.0f}[kN]$ y momento $M = {m[0]:.0f}[kN \\cdot m]$. Tenga en cuenta que $d_0 = {d[0]:.0f}[m]$ y $d_1 = {d[3]:.0f}[m]$.",
+    #     no_answers = 2,
+    #     a1_name = "Fuerza Cortante despues de C en [kN]",
+    #     a2_name = "Momento flector despues de C en [kN \\cdot m]",
+    #     a3_name = "",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round((f[0]*d[3]-m[0])/(d[0]+d[3])-f[0],2),
+    #     answer2 = lambda f, a, calc, c, d, m: np.round((f[0]*d[3]-m[0])/(d[0]+d[3])*d[0]+m[0],2),
+    #     answer3 = lambda f, a, calc, c, d, m: 0,
+    #     ayuda1 = "Encuentre las reacciones teniendo en cuenta los tipos de apoyo presentados usando sumatoria de fuerzas y momentos",
+    #     ayuda2 = "Fijese que la fuerza aplicada sobre la viga esta en el punto C y, como le piden el cortante y momento inmediatamente despues de C, puede sacar las ecuaciones del segundo tramo unicamente.",      
+    #     ayuda3 = "Use sumatoria de fuerzas y momento teniendo en cuenta el diagrama de cortante y momento flector propuesto para hallar sus respectivas ecuaciones.",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     A continuación, se presenta la solución sugerida para el ejercicio:
+        
+    #     $\\textbf{{\\small 1. Reacciones: }}$
+        
+    #     ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$
+    #     ${{\hspace{{4mm}} A_x = 0 }}$
+    #     ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$
+    #     ${{\hspace{{4mm}} A_y + B_y - F = 0}}$
+    #     ${{\hspace{{4mm}} A_y + B_y = F}}$
+    #     ${{\hspace{{4mm}} \\sum{{M_B}} = 0 }}$
+    #     ${{\hspace{{4mm}} F \\cdot d_1 - A_y \cdot (d_0 + d_1) - M = 0 }}$
+    #     ${{\hspace{{4mm}} A_y = \\dfrac{{F \\cdot d_1 - M}}{{(d_0 + d_1)}}}}$
+    #     ${{\hspace{{4mm}} B_y = F - A_y}}$
+
+    #     $\\textbf{{\\small 2. Ecuación del tramo: }}$
+    #     Como queremos encontrar el cortante y el momento inmediatamente despues del punto C, se puede sacar unicamente la ecuación del tramo 2.
+    #     ${{\hspace{{4mm}} Tramo [d_0, d_0 + d_1] }}$
+    #     ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$
+    #     ${{\hspace{{4mm}} A_x - F - V(x) = 0 }}$
+    #     ${{\hspace{{4mm}} V(x) = (A_x - F)[kN] }}$
+    #     ${{\hspace{{4mm}} \\sum{{M}} = 0 }}$
+    #     ${{\hspace{{4mm}} M(x) - A_y \cdot x - M + F(x - d_0) = 0 }}$
+    #     ${{\hspace{{4mm}} M(x) = (A_y \cdot x + M - F(x - d_0))[kN \\cdot m] }}$
+    #     Teniendo en cuenta esto, y que la distancia al punto $C$ es $d_0$, se puede evaluar la ecuación del cortante y momento en $x = d_0$.
+    #     ${{\hspace{{4mm}} V(d_0) = (A_x - F)[kN] }}$
+    #     ${{\hspace{{4mm}} M(d_0) = (A_y \cdot d_0 + M - F(d_0 - d_0))[kN \\cdot m] }}$
+    #     Teniendo esto en cuenta, el resultado es
+    #     ${{\hspace{{4mm}} V_C = {(f[0]*d[3]-m[0])/(d[0]+d[3])-f[0]}[kN] }}$
+    #     ${{\hspace{{4mm}} M_C = {(f[0]*d[3]-m[0])/(d[0]+d[3])*d[0]+m[0]}[kN \\cdot m] }}$ 
+
+
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ),
+   
+
+
+
     # #=================================================  FUERZAS INTERNAS =========================================================
     #-------------------------------------------------       Fuerzas internas    --------------------------------------------
     #-------------------------------------------------       Nivel Díficil    ---------------------------------------------------
@@ -9149,4 +10160,128 @@ preguntas = [
         calculos='operations'
         ),
     
+    # Questionary(#1_1
+    #     code = 8130011,
+    #     no_pregunta = 1,
+    #     complexity = D,
+    #     topic = FI,
+    #     subtopic = "Fuerzas Internas",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"Determine el cortante y momento flector a $c = {d[0]:.0f}[m]$ del apoyo $B$ generado por la carga distribuida dada por $W_1 = {f[0]+7:.0f}[\\dfrac{{kN}}{{m}}]$ y $W_2 = {f[0]:.0f}[\\dfrac{{kN}}{{m}}]$. Tenga en cuenta que $d_0 = {d[0]+3:.0f}[m]$.",
+    #     no_answers = 2,
+    #     a1_name = "Cortante en el punto C en [kN]",
+    #     a2_name = "Momento en el punto C en [kN \\cdot m]",
+    #     a3_name = "",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round((-1*7*d[0]**2)/(2*(d[0]+3))+(f[0]+7)*d[0]+(7*(d[0]+3))/6-((f[0]+7)*(d[0]+3))/2,2),
+    #     answer2 = lambda f, a, calc, c, d, m: np.round((-1*7*d[0]**3)/(6*(d[0]+3))+((f[0]+7)*d[0]**2)/2+((7*(d[0]+3))/6-((f[0]+7)*(d[0]+3))/2)*d[0],2),
+    #     answer3 = lambda f, a, calc, c, d, m: 0,
+    #     ayuda1 = "Primero encuentre la fuerza distribuida por cada una de las cargas distribuidas teniendo en cuenta su geometria y su distancia respectiva.",
+    #     ayuda2 = "Encuentre el centroide de cada una de las cargas distribuidas teniendo en cuenta su geometria y su distancia respectiva.",      
+    #     ayuda3 = "Haga sumatoria de fuerzas y momentos globales para encontrar las reacciones en los apoyos.",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     A continuacion se presenta una posible solución para el problema:
+    #     $\\textbf{{\\small 1. Fuerzas, centroides y reacciones: }}$
+    #     ${{\hspace{{4mm}} F_1 =  \\dfrac{{(W_1 - W_2) * d_0}}{{2}}}}$
+    #     ${{\hspace{{4mm}} \\bar{{x_1}} = \\dfrac{{d_0}}{{3}} }}$
+    #     ${{\hspace{{4mm}} F_2 = W_2 * d_0  }}$
+    #     ${{\hspace{{4mm}} \\bar{{x_2}} = \\dfrac{{d_0}}{{2}} }}$
+
+    #     ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$
+    #     ${{\hspace{{4mm}} A_x = 0 }}$
+    #     ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$
+    #     ${{\hspace{{4mm}} A_y + B_y - F_1 - F_2 = 0}}$
+    #     ${{\hspace{{4mm}} A_y + B_y = F_1 + F_2}}$
+    #     ${{\hspace{{4mm}} \\sum{{M_A}} = 0 }}$
+    #     ${{\hspace{{4mm}} -F_1 \\cdot \\bar{{x_1}} - F_2 \\cdot \\bar{{x_2}} + B_y \\cdot d_0 = 0 }}$
+    #     ${{\hspace{{4mm}} B_y \\cdot d_0 = F_1 \\cdot \\bar{{x_1}} + F_2 \\cdot \\bar{{x_2}}}}$
+    #     ${{\hspace{{4mm}} B_y = \\dfrac{{F_1 \\cdot \\bar{{x_1}} + F_2 \\cdot \\bar{{x_2}}}}{{d_0}}}}$
+    #     ${{\hspace{{4mm}} A_y = F_1 + F_2 - B_y}}$
+
+    #     $\\textbf{{\\small 2. Ecuación de cortante y momento flector: }}$
+    #     Como nos piden la distancia $c$ con respecto al punto B, entonces haremos el diagrama de cortante y momento partiendo de este punto. 
+    #     Primero se tiene que encontrar la ecuación w(x) generada por las cargas distribuidas.
+    #     La pendiente seria:
+    #     ${{\hspace{{4mm}} m = \\dfrac{{W_2 - W_1}}{{d_0}}}}$
+    #     La ecuación de la carga distribuida seria:
+    #     ${{\hspace{{4mm}} w(x) = m \\cdot x + W_2}}$
+    #     Ahora si se realiza sumatoria de fuerzas y momento para el diagrama seleccionado
+    #     ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$
+    #     ${{\hspace{{4mm}} V(x) - \\dfrac{{m}}{{2}} \\cdot x^2 - W_2 \\cdot x + B_y = 0 }}$
+    #     ${{\hspace{{4mm}} V(x) = \\dfrac{{m}}{{2}} \\cdot x^2 + W_2 \\cdot x - B_y}}$
+    #     ${{\hspace{{4mm}} \\sum{{M}} = 0 }}$
+    #     ${{\hspace{{4mm}} M(x) - \\dfrac{{m}}{{6}} \\cdot x^3 - W_2 \\cdot \\dfrac{{x^2}}{{2}} + B_y \\cdot x = 0 }}$
+    #     ${{\hspace{{4mm}} M(x) = \\dfrac{{m}}{{6}} \\cdot x^3 + W_2 \\cdot \\dfrac{{x^2}}{{2}} - B_y \\cdot x}}$
+    #     Teniendo ya las ecuaciones, podemos reemplazar en $V(c)$ y $M(c)$
+    #     ${{\hspace{{4mm}} V(c) = \\dfrac{{m}}{{2}} \\cdot c^2 + W_2 \\cdot c - B_y}}$
+    #     ${{\hspace{{4mm}} M(c) = \\dfrac{{m}}{{6}} \\cdot c^3 + W_2 \\cdot \\dfrac{{c^2}}{{2}} - B_y \\cdot c}}$
+    #     Teniendo esto en cuenta, el resultado es
+    #     ${{\hspace{{4mm}} V_C = {((-1*7*d[0]**2)/(2*(d[0]+3))+(f[0]+7)*d[0]+(7*(d[0]+3))/6-((f[0]+7)*(d[0]+3))/2)}[kN] }}$
+    #     ${{\hspace{{4mm}} M_C = {((-1*7*d[0]**3)/(6*(d[0]+3))+((f[0]+7)*d[0]**2)/2+((7*(d[0]+3))/6-((f[0]+7)*(d[0]+3))/2)*d[0])}[kN \\cdot m] }}$
+
+
+
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ), 
+
+    # Questionary(#2_1
+    #     code = 8130021,
+    #     no_pregunta = 1,
+    #     complexity = D,
+    #     topic = FI,
+    #     subtopic = "Fuerzas Internas",
+    #     version = 1,
+    #     pregunta = lambda f, a, calc, c, d, m: f"Determine el cortante y el momento flector en la distancia $d = ({d[0]+d[3]:.0f})[m]$ generado por las cargas distribuidas y fuerza dadas por $W_1 = {f[0]:.0f}[\\dfrac {{N}}{{m}}]$, $W_2 = {f[1]:.0f}[\\dfrac {{N}}{{m}}]$ y $F = {f[2]:.0f}[N]$. Considere que $d_0 = {d[0]:.0f}[m]$, $d_1 = {d[3]:.0f}[m]$, $d_2 = {d[6]:.0f}[m]$ y $d_3 = {d[9]:.0f}[m]$.",
+    #     no_answers = 2,
+    #     a1_name = "Cortante a distancia d en [N]",
+    #     a2_name = "Momento a distancia d en [N \\cdot m]",
+    #     a3_name = "",
+    #     answer1 = lambda f, a, calc, c, d, m: np.round(f[2]+f[1]*d[9]/2,2),
+    #     answer2 = lambda f, a, calc, c, d, m: np.round((f[2]+f[1]*d[9]/2)*(d[0]+d[3])-(f[2]*(d[0]+d[3])+f[1]*d[9]/2*(d[0]+d[3]+d[6]+d[9]/3)),2),
+    #     answer3 = lambda f, a, calc, c, d, m: 0,
+    #     ayuda1 = "Separe la carga distribuida en secciones como prefiera para facilitar encontrar la fuerza generada por cada una de estas.",
+    #     ayuda2 = "Encuentre la fuerza generada por cada una de las secciones de la carga distribuida teniendo en cuenta su geometria y su distancia respectiva. Asi mismo, su centroide.",      
+    #     ayuda3 = "Haga sumatoria de fuerzas y momentos globales para encontrar las reacciones en los apoyos.",
+    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+    #     A continuacion se presenta una posible solución para el problema:
+        
+    #     $\\textbf{{\\small 1. Fuerzas, centroides y reacciones: }}$
+    #     ${{\hspace{{4mm}} F_1 =  W_1 * d_0 [N]}}$
+    #     ${{\hspace{{4mm}} \\bar{{x_1}} = \\dfrac{{d_0}}{{2}} [m] }}$
+    #     ${{\hspace{{4mm}} F_2 =  \\dfrac{{W_2 * d_3}}{{2}} [N]}}$
+    #     ${{\hspace{{4mm}} \\bar{{x_2}} = \\dfrac{{d_3}}{{3}} [m] }}$
+    #     ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$
+    #     ${{\hspace{{4mm}} R_x = 0[N]}}$
+    #     ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$
+    #     ${{\hspace{{4mm}} R_y - F_1 - F_2 - F = 0}}$
+    #     ${{\hspace{{4mm}} R_y = F_1 + F_2 + F}}$
+    #     ${{\hspace{{4mm}} \\sum{{M}} = 0 }}$
+    #     ${{\hspace{{4mm}} M - F_1 \\cdot \\bar{{x_1}} - F \\cdot (d_0 + d_1) - F_2 \\cdot (d_0 + d_1 + d_2 + \\bar{{x_2}}) = 0 }}$
+    #     ${{\hspace{{4mm}} M = (F_1 \\cdot \\bar{{x_1}} + F \\cdot (d_0 + d_1) + F_2 \\cdot (d_0 + d_1 + d_2 + \\bar{{x_2}}))[N \\cdot m] }}$
+        
+    #     $\\textbf{{\\small 2. Ecuación de cortante y momento flector: }}$
+    #     Como la distancia $d$ se encuentra en el segundo tramo, se hara el diagrama de cortante y momento flector unicamente para este tramo.
+    #     ${{\hspace{{4mm}} Tramo [d_0, d_0 + d_1] }}$
+    #     ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$
+    #     ${{\hspace{{4mm}} R_y - F_1 - V(x) = 0 }}$
+    #     ${{\hspace{{4mm}} V(x) = R_y - F_1 }}$
+    #     ${{\hspace{{4mm}} \\sum{{M}} = 0 }}$
+    #     ${{\hspace{{4mm}} M(x) - R_y \\cdot x + F_1 \\cdot (x - \\bar{{x_1}}) + M  = 0 }}$
+    #     ${{\hspace{{4mm}} M(x) = (R_y \\cdot x - F_1 \\cdot (x - \\bar{{x_1}}) - M)[N \\cdot m] }}$
+    #     Teniendo ya las ecuaciones, podemos reemplazar en $V(d)$ y $M(d)$
+    #     ${{\hspace{{4mm}} V(d) = R_y - F_1 [N] }}$
+    #     ${{\hspace{{4mm}} M(d) = (R_y \\cdot d - F_1 \\cdot (d - \\bar{{x_1}}) - M)[N \\cdot m] }}$
+    #     Teniendo esto en cuenta, el resultado es
+    #     ${{\hspace{{4mm}} V_d = {(f[2]+f[1]*d[9]/2)}[N] }}$
+    #     ${{\hspace{{4mm}} M_d = {((f[2]+f[1]*d[9]/2)*(d[0]+d[3])-(f[2]*(d[0]+d[3])+f[1]*d[9]/2*(d[0]+d[3]+d[6]+d[9]/3)))}[N \\cdot m] }}$
+       
+
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     calculos='operations'
+    #     ),
+
     ]
