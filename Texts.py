@@ -226,10 +226,11 @@ SE1 = """Dos sistemas (A y B) son equivalentes si se cumplen las siguientes cond
 2. $∑ F_{{xA}} = ∑ F_{{xB}}$
 3. $∑ M_A = ∑ M_B$
 """
-SE2 = "La fuerza resultante será equivalente a la suma de todas las fuerzas aplicadas en el sistema, mientras que el momento de la fuerza resultante será igual a la suma de los momentos originales en cualquier punto."
+SE2 = "La fuerza resultante será equivalente a la suma de todas las fuerzas aplicadas en el sistema, mientras que el momento de la fuerza resultante será igual a la suma de los momentos originales en un punto."
 SE3 = "Para determinar la ubicación de la fuerza resultante con respecto a un punto de referencia, se utiliza la condición de que el momento producido por la fuerza resultante respecto a dicho punto debe ser igual a la sumatoria de los momentos generados por las fuerzas originales del sistema con respecto al mismo punto."
 SE4 = "La fuerza resultante será equivalente a la suma de todas las fuerzas aplicadas en el sistema."
 SE5 = "El par equivalente de un sistema equivalente fuerza-par se calcula sumando los momentos de las fuerzas originales respecto al punto de referencia."
+SE6 = "El momento de la fuerza resultante será igual a la suma de los momentos originales en un punto."
 
 #CENTROIDES
 CT1 = "Las figuras complejas pueden dividirse en formas más simples cuyos centroides son conocidos o fáciles de encontrar."

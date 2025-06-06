@@ -914,7 +914,7 @@ if authenticate_user():
                     if pregunta_no == 2:
                         st.image(SE_image_paths[5], width=350)
                     if pregunta_no == 3:
-                        st.image(SE_image_paths[8], width=350)
+                        st.image(SE_image_paths[8], width=500)
                 if subtopic == "Incertidumbre":
                     if pregunta_no == 1:
                         st.image(I_image_paths[2], width=850) 
@@ -1110,6 +1110,9 @@ if authenticate_user():
                 if subtopic == "Incertidumbre":
                     if pregunta_no == 3:
                         st.image(I_rtas_paths[0], width=500)
+                if subtopic == "Sistemas equivalentes":
+                    if pregunta_no == 3:
+                        st.image(SE_rtas_paths[0], width=300)
                 if subtopic == "Centroides":
                     if pregunta_no ==1:
                         st.image(CT_rtas_paths[1], width=200)

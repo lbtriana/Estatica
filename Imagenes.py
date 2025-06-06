@@ -365,6 +365,11 @@ MAE_rtas_paths= [#Imágenes Respuestas Cálculos Momento alrededor de un eje
 "./Imagenes/Respuestas/MO/MAE/R_MO_MAE_M_3a.png", #[0] 
 ]
 
+SE_rtas_paths= [#Imágenes Respuestas Cálculos Momento alrededor de un eje
+#Nivel medio
+"./Imagenes/Respuestas/SE/R_SE_SE_M_3a.png", #[0] 
+]
+
 I_rtas_paths= [#Imágenes Respuestas Cálculos Incertidumbre
 #Nivel medio
 "./Imagenes/Respuestas/I/R_I_I_M_3a.png", #[0] 

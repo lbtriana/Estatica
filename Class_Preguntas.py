@@ -6479,53 +6479,52 @@ preguntas = [
     #     calculos='operations'
     #     ),
 
-    # Questionary(#3_1
-    #     code = 4120031,
-    #     no_pregunta = 3,
-    #     complexity = M,
-    #     topic = "Sistemas equivalentes",
-    #     subtopic = "Sistemas equivalentes",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"El techo de una estructura esta sometido a la carga del viento que se muestra en la figura. Determine el sistema fuerza-par equivalente en B. Tenga presente que todas las fuerzas mostradas actuan perpendicularmente a la cubierta. Considere $F_1 = {f[1]:.0f} \\text{{ N}}$, $F_2 = {f[2]:.0f} \\text{{ N}}$, $d_1 = {d[0]+(3/2):.2f} \\text{{ m}}$,  $d_2 = {d[0]:.1f} \\text{{ m}}$, $d_3 = {d[3]:.1f} \\text{{ m}} y $d_4 = {d[3]+1:.1f} \\text{{ m}}$.",
-    #     no_answers = 2,
-    #     a1_name = "Fuerza resultante $F_R$ [N]",
-    #     a2_name = "Momento resultante $M_R$ [$N \\cdot m$]",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round((d[0]/(Calculations.magnitude((d[3]*2+1),d[0])))*(2*f[1]+4*f[2]),2),
-    #     answer2 = lambda f, a, calc, c, d, m: np.round(((d[3]*2+1)/(Calculations.magnitude((d[3]*2+1),d[0])))*2*(f[2]*(d[3]*2+1) + f[1]*(d[3]+1)) - 2*(d[0]/(Calculations.magnitude((d[3]*2+1),d[0])))*(f[2]*(3*d[0]+3) + f[1]*(d[0]+(3/2)+((d[0]*d[3])/(2*d[3]+1)))) ,2),
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "La fuerza resultante será igual a la suma de todas las fuerzas en el sistema",
-    #     ayuda2 = "El par equivalente de un sistema equivalente fuerza-par se calcula sumando los momentos de las fuerzas originales respecto al punto de referencia.",      
-    #     ayuda3 = "",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     En un sistema equivalente fuerza-par es la combinación de una fuerza aplicada y un momento que genera el mismo efecto rotacional y traslacional sobre un cuerpo rígido que un sistema original. A continuación, se presenta una solución sugerida para el ejercicio:
+    Questionary(#3_1
+        code = 4120031,
+        no_pregunta = 3,
+        complexity = M,
+        topic = "Sistemas equivalentes",
+        subtopic = "Sistemas equivalentes",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"El techo de una estructura está sometido a cargas de viento que actúan perpendicularmente a la cubierta, tal como se muestra en la figura. Determine la fuerza y el momento resultante equivalente en el punto $B$. Tenga presente que todas las fuerzas mostradas actuan perpendicularmente a la cubierta. Considere los siguientes valores para las fuerzas y las distancias: $F_1 = {f[1]:.0f} \\text{{ N}}$, $F_2 = {f[2]:.0f} \\text{{ N}}$, $d_1 = {d[0]+(3/2):.2f} \\text{{ m}}$,  $d_2 = {d[0]:.1f} \\text{{ m}}$, $d_3 = {d[3]:.1f} \\text{{ m}}$ y $d_4 = {d[3]+1:.1f} \\text{{ m}}$.",    
+        no_answers = 2,
+        a1_name = "Fuerza resultante $F_R$ [$N$]",
+        a2_name = "Momento resultante $M_R$ [$N \\cdot m$]",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round((d[0]/(Calculations.magnitude((d[3]*2+1),d[0])))*(2*f[1]+4*f[2]),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(((d[3]*2+1)/(Calculations.magnitude((d[3]*2+1),d[0])))*2*(f[2]*(d[3]*2+1) + f[1]*(d[3]+1)) - 2*(d[0]/(Calculations.magnitude((d[3]*2+1),d[0])))*(f[2]*(3*d[0]+3) + f[1]*(d[0]+(3/2)+((d[0]*d[3])/(2*d[3]+1)))) ,2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = SE4,
+        ayuda2 = SE6,      
+        ayuda3 = "",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        En un sistema equivalente, se busca simplificar un sistema complejo de fuerzas y momentos a un sistema más simple que genere el mismo efecto rotacional y traslacional. A continuación, se presenta la solución sugerida para el ejercicio:
         
-    #     $\\textbf{{\\small 1. Determinar fuerza resultante: }}$
+        $\\textbf{{\\small 1. Determinar fuerza resultante: }}$
         
-    #     En un inicio se puede dar cuenta que todas las fuerzas mostradas van en dirección positiva $\\hat{{i}}$ y que sus componentes $\\hat{{j}}$ se cancelan entre sí, tal que, la resultante solo tendra una componente en $\\hat{{i}}$ que sera la sumatoria de ls respectivas componentes de cada una de las fuerzas.
+        Todas las fuerzas mostradas actúan en la dirección positivade  $\\hat{{i}}$ y sus componentes en $\\hat{{j}}$ se cancelan entre sí. Por lo tanto, la fuerza resultante solo tiene únicamente una componente en $\\hat{{i}}$, la cual corresponde a la suma de las respectivas componentes de cada una de las fuerzas.
         
-    #     Ahora bien, cada fuerza es perpendicular a la cubierta del techo y cada una tiene el mismo ángulo asociado; tal que se puede encontrar el ángulo de una fuerza y este será aplicable en el resto. Se puede ilustrar la configuración de una de las fuerzas y darse cuenta que se forman  dos triángulos semejantes, del cual vamos a hallar $\\alpha$:
+        Dado que cada fuerza es perpendicular a la cubierta del techo y todas tienen el mismo ángulo asociado; se puede encontrar el ángulo de una fuerza y este será aplicable a las demás:   
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        ${{\hspace{{4mm}} \\alpha = \\arcsin(\\dfrac{{d_2}}{{\\sqrt{{(d_3 + d_4)^{{2}} + (d_2)^{{2}}}}}}) }}$
+
+        La fuerza resultante es:
         
-    #     ${{\hspace{{4mm}} \\alpha = \\arcsin(\\dfrac{{d_2}}{{\\sqrt{{(d_3 + d_4)^{{2}} + (d_2)^{{2}}}}}}) }}$
+        ${{\hspace{{4mm}} F_R = \\sin(\\alpha) \\cdot (2F_1 + 4F_2) }}$     
+        ${{\hspace{{4mm}} F_R = \\dfrac{{d_2}}{{\\sqrt{{(d_3 + d_4)^{{2}} + (d_2)^{{2}}}}}} \\cdot (2F_1 + 4F_2) }}$     
+        ${{\hspace{{4mm}} F_R = {(d[0]/(Calculations.magnitude((d[3]*2+1),d[0])))*(2*f[1]+4*f[2]):.2f} \\text{{ N}}}}$     
         
-    #     Finalmente, la fuerza resultante se puede encontrar:
+        $\\textbf{{\\small 2. Determinar el momento resultante con respecto a B: }}$
         
-    #     ${{\hspace{{4mm}} F_R = \\sin(\\alpha) \\cdot (2F_1 + 4F_2) }}$     
-    #     ${{\hspace{{4mm}} F_R = \\dfrac{{d_2}}{{\\sqrt{{(d_3 + d_4)^{{2}} + (d_2)^{{2}}}}}} \\cdot (2F_1 + 4F_2) }}$     
-    #     ${{\hspace{{4mm}} F_R = {(d[0]/(Calculations.magnitude((d[3]*2+1),d[0])))*(2*f[1]+4*f[2]):.2f} \\text{{ N}}}}$     
+        Sabiendo que las componentes $\\hat{{j}}$ de las fuerzas realizan momento par y que las componenetes $\\hat{{i}}$ de las fuerzas realizan momento según su altura, se puede obtener que la sumatoria de momentos con respecto al punto $B$ es:
         
-    #     $\\textbf{{\\small 2. Determinar momento resultante respecto a B: }}$
-        
-    #     Sabiendo que las componentes $\\hat{{j}}$ de cada fuerza realizan momento par y que las componenetes $\\hat{{i}} de las fuerzas realizan momento según su altura, se puede obtener que la sumatoria de fuerzas respecto a B resulta de:
-        
-    #     ${{\hspace{{4mm}} \\sum{{M_B}} = F_2 \\cos(\\alpha) \\cdot 2(d_4 + d_3) + F_1 \\cdot \\cos(\\alpha) \\cdot 2d_4 - 2 \\cdot \\sin(\\alpha) ( F_2 \\cdot d_1 + F_2 \\cdot (d_1 + d_2) + F_1 \\cdot (d_1 + \\dfrac{{d_2 \\cdot d_3}}{{d_3 + d_4}}) ) }}$      
-    #     ${{\hspace{{4mm}} \\sum{{M_B}} = M_R = {((d[3]*2+1)/(Calculations.magnitude((d[3]*2+1),d[0])))*2*(f[2]*(d[3]*2+1) + f[1]*(d[3]+1)) - 2*(d[0]/(Calculations.magnitude((d[3]*2+1),d[0])))*(f[2]*(3*d[0]+3) + f[1]*(d[0]+(3/2)+((d[0]*d[3])/(2*d[3]+1)))):.2f} \\text{{ N}} \\cdot \\text{{ m}} }}$      
-        
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
+        ${{\hspace{{4mm}} \\sum{{M_B}} = F_2 \\cos(\\alpha) \\cdot 2(d_4 + d_3) + F_1 \\cdot \\cos(\\alpha) \\cdot 2d_4 - 2 \\cdot \\sin(\\alpha) ( F_2 \\cdot d_1 + F_2 \\cdot (d_1 + d_2) + F_1 \\cdot \\left(d_1 + \\dfrac{{d_2 \\cdot d_3}}{{d_3 + d_4}}\\right) }}$      
+        ${{\hspace{{4mm}} \\sum{{M_B}} = M_R = {((d[3]*2+1)/(Calculations.magnitude((d[3]*2+1),d[0])))*2*(f[2]*(d[3]*2+1) + f[1]*(d[3]+1)) - 2*(d[0]/(Calculations.magnitude((d[3]*2+1),d[0])))*(f[2]*(3*d[0]+3) + f[1]*(d[0]+(3/2)+((d[0]*d[3])/(2*d[3]+1)))):.2f} \\text{{ N}} \\cdot \\text{{ m}} }}$      
+        """,
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
    
     # Questionary(#1_1
     #     code = 4120011,
