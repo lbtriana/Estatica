@@ -513,7 +513,7 @@ if authenticate_user():
             if topic == "Equilibrio de partículas":
                 subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Vectores 2D", "Vectores 3D", "Vector unitario", "Equilibrio 2D"])
             elif topic=="Momento":
-                subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Momento en un punto 2D", "Momento en un punto 3D", "Momento alrededor de un eje"])
+                subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Momento en un punto 2D", "Momento en un punto 3D", "Momento alrededor de un eje", "Momento par"])
             elif topic=="Sistemas equivalentes":
                 subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Sistemas equivalentes"])
             elif topic == "Incertidumbre":
@@ -773,6 +773,15 @@ if authenticate_user():
                         st.image(MAE_image_paths[2], width=450) 
                     if pregunta_no == 4:
                         st.image(MAE_image_paths[3], width=450) 
+                if subtopic == "Momento par":
+                    if pregunta_no == 1:
+                        st.image(MP_image_paths[0], width=450)
+                    if pregunta_no == 2:
+                        st.image(MP_image_paths[1], width=450)
+                    if pregunta_no == 3:
+                        st.image(MP_image_paths[2], width=450)
+                    if pregunta_no == 4:
+                        st.image(MP_image_paths[3], width=300)
                 if subtopic == "Sistemas equivalentes":
                     if pregunta_no == 1:
                         if version_no == 1:

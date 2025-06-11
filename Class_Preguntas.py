@@ -5202,189 +5202,179 @@ preguntas = [
     #-------------------------------------------------       Nivel Fácil   ------------------------------------------------------
     #-------------------------------------------------      Code: 24100##    ----------------------------------------------------
 
-    # Questionary(#1_1
-    #     code = 2410011,
-    #     no_pregunta = 1,
-    #     complexity = F,
-    #     topic = MO,
-    #     subtopic = "Momentos pares",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Calcule el momento generado por el par de fuerzas $F= {f[0]:.0f}[N]$ mostrado en la figura. Tenga en cuenta que $d_0 = {d[0]:.0f}[cm]$.",
-    #     no_answers = 1,
-    #     a1_name = "Magnitud del momento generado por $F$ en $[N \\cdot m]$",
-    #     a2_name = "",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(f{0}*(4*d{0}/5)/100,2),
-    #     answer2 = lambda f, a, calc, c, d, m: 0,
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "Encuentre la distancia perpendicular entre las fuerzas, ya sea con funciones trigonometricas o triangulos semejantes.",
-    #     ayuda2 = "Recuerde que la distancia dada esta en $[cm]$, realicé la conversion a $[m]$.",      
-    #     ayuda3 = "Tenga en cuenta que el momento generado por un par de fuerzas es $M = F \\cdot d$, donde $d$ es la distancia perpendicular entre estas fuerzas de igual magnitud.",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     El momento generado por un par de fuerzas se define como $M = F \\cdot d$, donde F es la magnitud de las fuerzas (deben ser de igual magnitud) y d es la distancia perpendicular entre estas. A continuacion se expondra la solucion sugerida del ejercicio:
-    #     $\\textbf{{\\small 1. Distancia perpendicular - Triangulos semejantes: }}$
-    #     Se da como referencia el triangulo 3-4-5, con el cual podemos hacer triangulos semejantes y hallar la distancia perpendicular entre las fuerzas. Llamaremos esta distanica $x$:
+    Questionary(#1_1
+        code = 2410011,
+        no_pregunta = 1,
+        complexity = F,
+        topic = MO,
+        subtopic = "Momento par",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Calcule el momento generado por el par de fuerzas $F= {f[0]:.0f}$ $\\text{{ N}}$ mostrado en la figura. Considere que la distancia $d_1 = {d[0]+3:.0f} \\text{{ cm}}$.", 
+        no_answers = 1,
+        a1_name = "Momento generado por $F$ $[N \\cdot m]$",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(f[0]*(4*(d[0]+3)/5)/100,2),
+        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = MPP1,
+        ayuda2 = MPP2,      
+        ayuda3 = MPP3,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        El momento generado por un par de fuerzas se define como $M = F \\cdot d$, donde $F$ es la magnitud de las fuerzas pares y $d$ es la distancia perpendicular entre estas. A continuacion se expondra la solucion sugerida del ejercicio:
+       
+        $\\textbf{{\\small 1. Distancia perpendicular: }}$
+
+        Se da como referencia el triángulo $6-8-10$, con este hallamos la distancia perpendicular $(d_y)$, la cual esta dada por la función trigonométrica del seno:
         
-    #     ${{\hspace{{4mm}} \\dfrac{d[0]}{{x}} = \\dfrac{5}{4}[cm] }}$          
-    #     ${{\hspace{{4mm}} x =  \\dfrac{(4*d[0])}{5}[cm]}}$    
+        ${{\hspace{{4mm}} d_y = d_1 * \\dfrac{{Cateto \\text{{ }} opuesto}}{{Hipotenusa}} }}$    
         
-    #     $\\textbf{{\\small 2. Distancia perpendicular - Conversión a metros: }}$
-    #     ${{\hspace{{4mm}} x_m =  \\dfrac{(x_{"cm"})}{100"$[cm]$"}}}$
-    #     ${{\hspace{{4mm}} x_m =  {((4*d[0]/5)/100)}[m]}}$
-
-    #     $\\textbf{{\\small 3. Calculo de momento par: }}$
-    #     Multiplicando el valor encontrado anteriormente para la distancia perpendicular de las fuerzas, por la magnitud de estas obtenemos que:
-    #     ${{\hspace{{4mm}} M =  ({(f[0]*(4*d[0]/5)/100)}\\hat{k})[N \\cdot m]}}$
-    #     ${{\hspace{{4mm}} |M| =  ({(f[0]*(4*d[0]/5)/100)})[N \\cdot m]}}$
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
-
-    # Questionary(#2_1
-    #     code = 2410021,
-    #     no_pregunta = 2,
-    #     complexity = F,
-    #     topic = MO,
-    #     subtopic = "Momentos pares",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud del momento generado alrededor del punto $A$ y el punto $B$, por las fuerzas $F_1 = {f[0]:.0f}[KN]$, $F_2 = {f[1]:.0f}[KN]$ que actual sobre el cuerpo mostrado en la figura. Tenga en cuenta que $d_0 = {d[0]:.0f}[m]$ y $d_1 = {d[3]+2:.0f}[m]$",
-    #     no_answers = 2,
-    #     a1_name = "Momento alrededor de $A$ en [N \\cdot m]",
-    #     a2_name = "Momento alrededor de $B$ en [N \\cdot m]",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round((f[0]+f[1])*(d[3]+2-1),2),
-    #     answer2 = lambda f, a, calc, c, d, m: np.round((f[0]+f[1])*(d[3]+2-1),2),
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "Fijese que en el punto $A$, una de las fuerzas $F_1$ no genera momento, por ende no puede usar momento par.",
-    #     ayuda2 = "Utilicé las distancias dadas entre el par de fuerzas para calcular el momento generado por estas. Recuerde que el momento generado por un par de fuerzas se define como $M = F \\cdot d$, donde d es la distancia perpendicular entre las fuerzas de igual magnitud.",      
-    #     ayuda3 = "Dese cuenta que el momento generado en $A$ es igual al momento generado en $B$ por las fuerzas dadas.",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     A continuación, se presenta la solución sugerida para el ejercicio:
+        ${{\hspace{{4mm}} d_y = {d[0]+3:.0f} \\cdot \\dfrac{{8}}{{10}} }}$       
         
-    #     $\\textbf{{\\small 1. Momento alrededor de A: }}$ 
-    #     Par de fuerzas $F_2$
-    #     ${{\hspace{{4mm}} \\vec{M_A} = (0\\hat{i}+0\\hat{j}+{(f[1]*(d[3]+2-1))}\\hat{k})[N \\cdot m]}}$
-    #     Fuerza $F_1$ (Se asume que no se genera momento por par de fuerzas)       
-    #     ${{\hspace{{4mm}} \\vec{M_A} = (0\\hat{i}+0\\hat{j}+{(f[0]*(d[3]+2-1))}\\hat{k})[N \\cdot m]}}$
-    #     Sumatoria de momentos:
-    #     ${{\hspace{{4mm}} \\sum{{\\vec{M_A}}} = (0\\hat{i}+0\\hat{j}+({(f[1]*(d[3]+2-1))}+{(f[0]*(d[3]+2-1))})\\hat{k})[N \\cdot m]}}$
-    #     ${{\hspace{{4mm}} \\sum{{\\vec{M_A}}} = (0\\hat{i}+0\\hat{j}+({((f[1]+f[0])*(d[3]+2-1))})\\hat{k})[N \\cdot m]}}$
-    #     ${{\hspace{{4mm}} |\\sum{{\\vec{M_A}}}| = {((f[1]+f[0])*(d[3]-1))}[N \\cdot m]}}$
+        ${{\hspace{{4mm}} d_y = {((4*(d[0]+3)/5))} \\text{{ cm}} = {((4*(d[0]+3)/5)/100)} \\text{{ m}} }} $
         
-    #     $\\textbf{{\\small 2. Momento alrededor de B: }}$ 
-    #     Par fuerzas $F_1$
-    #     En este caso si se pueden considerar par de fuerzas
-    #     ${{\hspace{{4mm}} \\vec{M_B} = (0\\hat{i}+0\\hat{j}+{(f[0]*(d[3]+2-1))}\\hat{k})[N \\cdot m]}}$
-    #     Par fuerzas $F_2$
-    #     ${{\hspace{{4mm}} \\vec{M_B} = (0\\hat{i}+0\\hat{j}+{(f[1]*(d[3]+2-1))}\\hat{k})[N \\cdot m]}}$
+        $\\textbf{{\\small 2. Calculo de momento par: }}$
 
-    #     Sumatoria de momentos:
-    #     ${{\hspace{{4mm}} \\sum{{\\vec{M_B}}} = (0\\hat{i}+0\\hat{j}+({(f[0]*(d[3]+2-1))}+{(f[1]*(d[3]+2-1))})\\hat{k})[N \\cdot m]}}$
-    #     ${{\hspace{{4mm}} \\sum{{\\vec{M_B}}} = (0\\hat{i}+0\\hat{j}+({((f[1]+f[0])*(d[3]+2-1))})\\hat{k})[N \\cdot m]}}$
-    #     ${{\hspace{{4mm}} |\\sum{{\\vec{M_B}}}| = {((f[1]+f[0])*(d[3]+2-1))}[N \\cdot m]}}$
+        ${{\hspace{{4mm}} M =  F \\cdot d_y}}$                           
+        ${{\hspace{{4mm}} M =  ({(f[0]*(4*(d[0]+3)/5)/100):.2f}\\text{{ }} \\hat{{k}}) N \\cdot m}}$
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
 
-    #     Al fin y al cabo, se demuestra que un par de fuerzas con misma magnitud y dirección generan el mismo momento con respecto a cualquier punto.
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
-
-    # Questionary(#3_1
-    #     code = 2410031,
-    #     no_pregunta = 3,
-    #     complexity = F,
-    #     topic = MO,
-    #     subtopic = "Momentos pares",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Una pieza de madera laminada se esta taladrando para asegurarse e un banco de trabajo por medio de clavos. Si el taladro ejerce un momento de $M = {m[0]:.0f}[N \\cdot m ]$ sobre la pieza de madera, determine la magnitud de las feruzas resultantes aplicadas a los clavos si estos se encuentran ubicados en: $A$ y $B$, $B$ y $C$, y en $A$ Y $C$. Tenga en cuent que $d_0 = {d[0]+40:.0f}[cm]$ y $d_1 = {d[3]+40:.0f}[cm]$.",
-    #     no_answers = 3,
-    #     a1_name = "Fuerza resultante en $A$ y $B$ [N]",
-    #     a2_name = "Fuerza resultante en $B$ y $C$ [N]",
-    #     a3_name = "Fuerza resultante en $A$ y $C$ [N]",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(m[0]/((d[0]+40)/100),2),
-    #     answer2 = lambda f, a, calc, c, d, m: np.round(m[0]/((d[3]+40)/100),2),
-    #     answer3 = lambda f, a, calc, c, d, m: np.round(m[0]/(Calculations.magnitude(d[0]+40,d[3]+40)/100),2),
-    #     ayuda1 = "Utilice la distancia dada entre los puntos solicitados y resuelva la formula de momento par $M = F \\cdot d$.",
-    #     ayuda2 = "Fijese que los puntos $A$ y $C$ tienen su distancia en diagonal. Encuentre esta distancia con las dadas para utilizar la formula de momento par.",      
-    #     ayuda3 = "",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     A continuación, se presenta la solución sugerida para el ejercicio:
+    Questionary(#2_1
+        code = 2410021,
+        no_pregunta = 2,
+        complexity = F,
+        topic = MO,
+        subtopic = "Momento par",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud del momento generado alrededor del punto $A$ y el punto $B$, por las fuerzas $F_1 = {f[0]:.0f} \\text{{ kN}}$, $F_2 = {f[1]:.0f} \\text{{ kN}}$ que actúan sobre el cuerpo mostrado en la figura. Tenga en cuenta que $d_0 = {d[0]:.0f} \\text{{ m}}$ y $d_1 = {d[0]+2:.0f}\\text{{ m}}$",
+        no_answers = 2,
+        a1_name = "Momento alrededor de $A$ en $[N \\cdot m]$",
+        a2_name = "Momento alrededor de $B$ en $[N \\cdot m]$",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round((f[0]+f[1])*(d[0]+2-1),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round((f[0]+f[1])*(d[0]+2-1),2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = MPP1,
+        ayuda2 = MPP4,      
+        ayuda3 = "",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        El momento generado por un par de fuerzas se define como $M = F \\cdot d$, donde $F$ es la magnitud de las fuerzas pares y $d$ es la distancia perpendicular entre estas. A continuación, se presenta la solución sugerida para el ejercicio:
         
-    #     $\\textbf{{\\small 1. Magnitud fuerza de $A$ y $B$: }}$ 
-    #     Distancia a metros
-    #     ${{\hspace{{4mm}} d = {((d[0]+40)/100)}[m]}}$
-    #     ${{\hspace{{4mm}} M = F \\cdot d}}$
-    #     ${{\hspace{{4mm}} F = \\dfrac{M}{d} }}$
-    #     ${{\hspace{{4mm}} F = \\dfrac{m[0]}{((d[0]+40)/100)}[N] }}$
-    #     ${{\hspace{{4mm}} F = {(m[0]/((d[0]+40)/100))}[N] }}$
+        $\\textbf{{\\small 1. Momento alrededor de A: }}$ 
 
-    #     $\\textbf{{\\small 2. Magnitud fuerza de $B$ y $C$: }}$ 
-    #     Distancia a metros
-    #     ${{\hspace{{4mm}} d = {((d[3]+40)/100)}[m]}}$
-    #     ${{\hspace{{4mm}} M = F \\cdot d}}$
-    #     ${{\hspace{{4mm}} F = \\dfrac{M}{d} }}$
-    #     ${{\hspace{{4mm}} F = \\dfrac{m[0]}{((d[3]+40)/100)}[N] }}$
-    #     ${{\hspace{{4mm}} F = {(m[0]/((d[3]+40)/100))}[N] }}$
-
-    #     $\\textbf{{\\small 3. Magnitud fuerza de $A$ y $C$: }}$ 
-    #     Distancia entre $A$ y $C$
-    #     ${{\hspace{{4mm}} d = \\sqrt{{{(d[0]+40)}}^2+{(d[3]+40)}^2}[cm]}}$
-    #     ${{\hspace{{4mm}} d = {(Calculations.magnitude((d[0]+40),(d[3]+40)))}[cm]}}$
-    #     Distancia a metros
-    #     ${{\hspace{{4mm}} d = {((Calculations.magnitude((d[0]+40),(d[3]+40)))/100)}[m]}}$
-    #     ${{\hspace{{4mm}} M = F \\cdot d}}$
-    #     ${{\hspace{{4mm}} F = \\dfrac{M}{d} }}$
-    #     ${{\hspace{{4mm}} F = \\dfrac{m[0]}{((Calculations.magnitude((d[0]+40),(d[3]+40)))/100)}[N] }}$
-    #     ${{\hspace{{4mm}} F = {(m[0]/((Calculations.magnitude((d[0]+40),(d[3]+40)))/100))}[N] }}$
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
-
-    # Questionary(#4_1
-    #     code = 2410041,
-    #     no_pregunta = 4,
-    #     complexity = F,
-    #     topic = MO,
-    #     subtopic = "Momentos pares",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Determine las componentes del vector momento $\\vec{M}$ generado por los pares de fuerzas que actuan sobre la estructura. Tenga en cuenta que $P = {f[0]:.0f}[N]$ va en dirección del eje $z$, $F = {f[1]:.0f}[N]$ va en direccion del eje $y$, y que $L = {d[0]:.0f}[m]$.",
-    #     no_answers = 3,
-    #     a1_name = "Momento resultante componente $\\hat{{i}} [N \\cdot m]",
-    #     a2_name = "Momento resultante componente $\\hat{{j}} [N \\cdot m]",
-    #     a3_name = "Momento resultante componente $\\hat{{k}} [N \\cdot m]",
-    #     answer1 = lambda f, a, calc, c, d, m: 0,
-    #     answer2 = lambda f, a, calc, c, d, m: np.round(f[0]*(2**(1/2))*d[0],2),
-    #     answer3 = lambda f, a, calc, c, d, m: np.round(-1*f[1]*(3*d[0]/2),2),
-    #     ayuda1 = "Utilice las distancias dadas y tenga en cuenta que el momento par se calcula como $M = F \\cdot d$.",
-    #     ayuda2 = "Recuerde que la distancia requerida para hallar el momento generado por un par de fuerzas es la perpendicular. Utilice funciones trigonometricas para hallar la distancia perpendicular entre las fuerzas.",      
-    #     ayuda3 = "",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     A continuación, se presenta la solución sugerida para el ejercicio:
+        ${{\hspace{{4mm}} \\sum{{\\vec{{M_A}}}} = F_1 \\cdot (d_1-1) + F_2 \\cdot (d_1-1)}}$             
+        ${{\hspace{{4mm}} \\sum{{\\vec{{M_A}}}} = {((f[1]+f[0])*((d[0]+2)-1)):.2f} \\text{{ }} N \\cdot m}}$      
         
-    #     $\\textbf{{\\small 1. Momento generado por la fuerza $P$: }}$
-    #     ${{\hspace{{4mm}} P = {f[0]}[N]}}$
-    #     ${{\hspace{{4mm}} d = {((2**(1/2))*d[0])}[m]}}$
-    #     ${{\hspace{{4mm}} M = P \\cdot d}}$ 
-    #     ${{\hspace{{4mm}} \\vec{M_P} = {(f[0]*(2**(1/2))*d[0])}\\hat{j}[N \\cdot m]}}$
+        $\\textbf{{\\small 2. Momento alrededor de B: }}$ 
 
-    #     $\\textbf{{\\small 2. Momento generado por la fuerza $F$: }}$
-    #     ${{\hspace{{4mm}} F = {f[1]}[N]}}$
-    #     ${{\hspace{{4mm}} d = \\sqrt{{({(2**(1/2))*d[0]})^2+({d[0]/2})^2}}[m]}}$
-    #     ${{\hspace{{4mm}} d = {((3*d[0]/2))}[m]}}$
-    #     ${{\hspace{{4mm}} M = F \\cdot d}}$ 
-    #     ${{\hspace{{4mm}} \\vec{M_F} = {(-1*f[1]*(3*d[0]/2))}\\hat{k}[N \\cdot m]}}$
-    #     Como se puede ver, el momento generado por la fuerza $P$ es en el eje $y$ y el momento generado por la fuerza $F$ es en el eje $z$.
-    #     Por lo que estas son las componentes del vector momento $\\vec{M}$.
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
+        Utilizando momentos pares:
+
+        ${{\hspace{{4mm}} \\sum{{\\vec{{M_B}}}} = F_1 \\cdot (d_1-1) + F_2 \\cdot (d_1-1)}}$             
+        ${{\hspace{{4mm}} \\sum{{\\vec{{M_B}}}} = {((f[1]+f[0])*((d[0]+2)-1)):.2f} \\text{{ }} N \\cdot m}}$  
+
+        Utilizando sumatoria de momentos en el punto $B$:
+
+        ${{\hspace{{4mm}} \\sum{{\\vec{{M_B}}}} = F_1 \\cdot (d_0-1) + F_2 \\cdot (d_0-1) + F_1 \\cdot (d_1-d_0) + F_2 \\cdot (d_1-d_0)}}$                  
+        ${{\hspace{{4mm}} \\sum{{\\vec{{M_B}}}} = {f[0]*(d[0]-1)+f[1]*(d[0]-1)+f[0]*(d[0]+2-d[0])+f[1]*(d[0]+2-d[0]):.2f} \\text{{ }} N \\cdot m }}$
+
+        En conclusión, se demuestra que un par de fuerzas de igual magnitud, dirección y sentidos opuestos genera un momento cuya magnitud y dirección son independientes del punto de referencia. Es decir, el momento producido por un par es igual respecto a cualquier punto del cuerpo.
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
+
+    Questionary(#3_1
+        code = 2410031,
+        no_pregunta = 3,
+        complexity = F,
+        topic = MO,
+        subtopic = "Momento par",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Una pieza de madera laminada está siendo taladrada para fijarla a un banco de trabajo mediante tornillos. Durante el taladrado, se aplica un momento de $M = {m[0]:.0f}\\text{{ }} N \\cdot m$ sobre la pieza de madera. La fijación se realiza mediante dos clavos ubicados en las siguientes combinaciones: $A$ y $B$, $B$ y $C$. Determine la magnitud de las fuerzas pares que deben ejercer los clavos para contrarrestar el momento. Considere que $d_0 = {d[0]+40:.0f} \\text{{ cm}}$ y $d_1 = {d[3]+40:.0f} \\text{{ cm}}$.",
+        no_answers = 2,
+        a1_name = "Magnitud par de fuerzas entre $A$ y $B$ $[N]$",
+        a2_name = "Magnitud par de fuerzas entre $B$ y $C$ $[N]$",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(m[0]/((d[0]+40)/100),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(m[0]/((d[3]+40)/100),2),
+        answer3 = lambda f, a, calc, c, d, m: np.round(m[0]/(Calculations.magnitude(d[0]+40,d[3]+40)/100),2),
+        ayuda1 = MPP1,
+        ayuda2 = MPP5,      
+        ayuda3 = MPP3,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        El momento generado por un par de fuerzas se define como $M = F \\cdot d$, donde $F$ es la magnitud de las fuerzas pares y $d$ es la distancia perpendicular entre estas. A continuación, se presenta la solución sugerida para el ejercicio:
+        
+        $\\textbf{{\\small 1. Magnitud del par de fuerzas en los puntos A y B: }}$ 
+        
+        ${{\hspace{{4mm}} d = {((d[0]+40)/100):.2f} \\text{{ m}}}}$       
+        ${{\hspace{{4mm}} M = F \\cdot d}}$          
+
+        ${{\hspace{{4mm}} F = \\dfrac{{M}}{{d}} }}$             
+
+        ${{\hspace{{4mm}} F = \\dfrac{{{m[0]}}}{{{((d[0]+40)/100)}}}\\text{{ N}} }}$             
+        
+        ${{\hspace{{4mm}} F = {(m[0]/((d[0]+40)/100)):.2f}\\text{{ N}} }}$
+
+        $\\textbf{{\\small 2. Magnitud del par de fuerzas en los puntos B y C: }}$ 
+        
+        ${{\hspace{{4mm}} d = {((d[3]+40)/100):.2f}\\text{{ m}}}}$          
+        ${{\hspace{{4mm}} M = F \\cdot d}}$           
+
+        ${{\hspace{{4mm}} F = \\dfrac{{M}}{{d}} }}$            
+
+        ${{\hspace{{4mm}} F = \\dfrac{{{m[0]}}}{{{((d[3]+40)/100)}}}\\text{{ N}}}}$          
+        
+        ${{\hspace{{4mm}} F = {(m[0]/((d[3]+40)/100)):.2f}\\text{{ N}} }}$
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
+
+    Questionary(#4_1
+        code = 2410041,
+        no_pregunta = 4,
+        complexity = F,
+        topic = MO,
+        subtopic = "Momento par",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine las componentes del vector momento $\\vec{{M}}$ generado por los pares de fuerzas que actúan sobre la estructura. Considere que la fuerza $F_1 = {f[1]:.0f} \\text{{ N}}$ actúa en la dirección del eje $y$, la fuerza $F_2 = {f[0]:.0f} \\text{{ N}}$ actúa en la dirección del eje $z$ y la distancia $L = {d[0]:.0f} \\text{{ m}}$.",
+        no_answers = 3,
+        a1_name = "Momento resultante componente $\\hat{{i}}$ $[N \\cdot m]$",
+        a2_name = "Momento resultante componente $\\hat{{j}}$ $[N \\cdot m]$",
+        a3_name = "Momento resultante componente $\\hat{{k}}$ $[N \\cdot m]$",
+        answer1 = lambda f, a, calc, c, d, m: 0,
+        answer2 = lambda f, a, calc, c, d, m: np.round(f[0]*(2**(1/2))*d[0],2),
+        answer3 = lambda f, a, calc, c, d, m: np.round((-1*f[1]*((2**(1/2))*d[0])),2),
+        ayuda1 = MPP1,
+        ayuda2 = MPP4,      
+        ayuda3 = "",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        El momento generado por un par de fuerzas se define como $M = F \\cdot d$, donde $F$ es la magnitud de las fuerzas pares y $d$ es la distancia perpendicular entre estas. A continuación, se presenta la solución sugerida para el ejercicio:
+    
+        $\\textbf{{\\small 1. Momento generado por la fuerza F1: }}$                
+        ${{\hspace{{4mm}} F_1 = {f[1]} \\text{{ N}}}}$                   
+        ${{\hspace{{4mm}} d = {((2**(1/2))*d[0]):.2f} \\text{{ m}}}}$         
+               
+        ${{\hspace{{4mm}} M = -F_1 \\cdot d}}$               
+        ${{\hspace{{4mm}} \\vec{{M_{{F1}}}} = {(-1*f[1]*((2**(1/2))*d[0])):.2f} \\text{{ }} \\hat{{k}} \\text{{ }}N \\cdot m}}$         
+
+        $\\textbf{{\\small 2. Momento generado por la fuerza F2: }}$      
+        ${{\hspace{{4mm}} F_2 = {f[0]} \\text{{ N}}}}$             
+        ${{\hspace{{4mm}} d = {((2**(1/2))*d[0]):.2f} \\text{{ m}}}}$  
+
+        ${{\hspace{{4mm}} M = F_2 \\cdot d}}$               
+        ${{\hspace{{4mm}} \\vec{{M_{{F2}}}} = {(f[0]*(2**(1/2))*d[0]):.2f}\\text{{ }} \\hat{{j}} \\text{{ }}N \\cdot m}}$      
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
 
 
 
@@ -5392,6 +5382,30 @@ preguntas = [
     #-------------------------------------------------       Momento par      ---------------------------------------------------
     #-------------------------------------------------       Nivel Medio   ------------------------------------------------------
     #-------------------------------------------------      Code: 24200##    ----------------------------------------------------
+
+    Questionary(#1_1
+        code = 0,
+        no_pregunta = 1,
+        complexity = M,
+        topic = MO,
+        subtopic = "Momento par",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Está sección pronto estará disponible.",
+        no_answers = 0,
+        a1_name = AX,
+        a2_name = AY,
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(0, 2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(0, 2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = A1,
+        ayuda2 = A2,
+        ayuda3 = A3,
+        respuesta_P1 = lambda fa, a, calc, c, d, m: f"",
+        respuesta_P2 = lambda fa, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda fa, a, calc, c, d, m: f"",
+        calculos = 'operations',
+        ),
 
     # Questionary(#1_1
     #     code = 2420011,
@@ -5549,6 +5563,30 @@ preguntas = [
     #-------------------------------------------------       Momento par      ---------------------------------------------------
     #-------------------------------------------------       Nivel Díficil   ------------------------------------------------------
     #-------------------------------------------------      Code: 24300##    ----------------------------------------------------
+
+    Questionary(#1_1
+        code = 0,
+        no_pregunta = 1,
+        complexity = D,
+        topic = MO,
+        subtopic = "Momento par",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Está sección pronto estará disponible.",
+        no_answers = 0,
+        a1_name = AX,
+        a2_name = AY,
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(0, 2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(0, 2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = A1,
+        ayuda2 = A2,
+        ayuda3 = A3,
+        respuesta_P1 = lambda fa, a, calc, c, d, m: f"",
+        respuesta_P2 = lambda fa, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda fa, a, calc, c, d, m: f"",
+        calculos = 'operations',
+        ),
 
     # Questionary(#1_1
     #     code = 2430011,

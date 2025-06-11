@@ -165,6 +165,14 @@ MAE_image_paths =[#Imágenes Preguntas Cálculo Momento alrededor de un eje
 "./Imagenes/Preguntas/MO/MAE/MO_MAE_M_4a.png", #[6]
 ]
 
+MP_image_paths =[#Imágenes Preguntas Cálculo Momento par
+#Nivel fácil
+"./Imagenes/Preguntas/MO/MP/MO_MP_F_1a.png", #[0]
+"./Imagenes/Preguntas/MO/MP/MO_MP_F_2a.png", #[1]
+"./Imagenes/Preguntas/MO/MP/MO_MP_F_3a.png", #[2]
+"./Imagenes/Preguntas/MO/MP/MO_MP_F_4a.png", #[3]
+]
+
 I_image_paths =[#Imágenes Preguntas Incertidumbre
 #Nivel fácil
 "./Imagenes/Preguntas/I/I_I_F_1a.png", #[0]

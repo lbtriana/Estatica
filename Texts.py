@@ -196,6 +196,13 @@ MAE3 = "El producto punto se utiliza para la proyección entre vectores. Si $\\v
 MAE4 = "Recuerde que $\\vec{r}$ es el vector de posición medido desde el punto de evaluación hasta cualquier punto de la línea de acción de la fuerza."
 MAE5 = "El momento con respecto a un punto se define como $\\vec{r} X \\vec{F}$. Si $\\vec{r} = x\\hat{i} + y\\hat{j} + z\\hat{k}$ y $\\vec{F} = a\\hat{i} + b\\hat{j} + c\\hat{k}$, entonces $\\vec{M} = (yc-bz)\\hat{i} - (xc-az)\\hat{j} + (xb-ay)\\hat{k}$."
 
+#MOMENTO PAR
+MPP1 = "El momento generado por un par de fuerzas se define como $M = F \\cdot d$, donde $F$ es la magnitud de las fuerzas pares y $d$ es la distancia perpendicular entre estas"
+MPP2 = "Encuentre la distancia perpendicular entre las fuerzas utilizando el triángulo dado."
+MPP3 = "Recuerde que la distancia dada está en $cm$; realice la conversión a $m$ antes de calcular el momento."
+MPP4 = "Recuerde que el momento generado por un par de fuerzas no está asociado a un punto específico del cuerpo, su efecto se siente de igual manera en todos los puntos del cuerpo."
+MPP5 = "De acuerdo con la ecuación del momento generado por un par de fuerzas, la magnitud de la fuerza se puede determinar como $F = \\dfrac{{M}}{{d}}$."
+
 #INCERTIDUMBRE
 I1 = "La distribución acumulada de una variable aleatoria $(X)$ proporciona información sobre la probabilidad de ocurrencia de dicha variable, es decir, la probabilidad de que $X$ tome un valor menor o igual al que se está evaluando ($P(X \\leq x)).$"
 I2 = "La probabilidad de excedencia es la probabilidad de que la variable aleatoria $X$ tome un valor mayor al que se está evaluando."
