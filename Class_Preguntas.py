@@ -5221,7 +5221,7 @@ preguntas = [
         ayuda2 = MPP2,      
         ayuda3 = MPP3,
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-        El momento generado por un par de fuerzas se define como $M = F \\cdot d$, donde $F$ es la magnitud de las fuerzas pares y $d$ es la distancia perpendicular entre estas. A continuacion se expondra la solucion sugerida del ejercicio:
+        El momento generado por un par de fuerzas se define como $M = F \\cdot d$, donde $F$ es la magnitud de las fuerzas pares y $d$ es la distancia perpendicular entre estas. A continuación se presenta la solución sugerida para el ejercicio:
        
         $\\textbf{{\\small 1. Distancia perpendicular: }}$
 
@@ -5388,7 +5388,7 @@ preguntas = [
     #     no_pregunta = 1,
     #     complexity = M,
     #     topic = MO,
-    #     subtopic = "Momentos pares",
+    #     subtopic = "Momento par",
     #     version = 1,
     #     pregunta = lambda f, a, calc, c, d, m: f"Determine el momento generado por las fuerzas $F_1 = {f[0]:.0f}[KN]$, $F_2 = {f[1]:.0f}[KN]$ sobre el contenedor. Considere que $d_1 = {d[0]:.0f}[m]$, $d_2 = {d[3]:.0f}[m]$ y $\\theta = {a[0]:.0f}°$.",
     #     no_answers = 1,
@@ -5406,30 +5406,33 @@ preguntas = [
         
     #     Para resolver este ejercicio, debe asumir que la fuerza generada por el peso de la compuerta es igual a la tension del cable (Magnitud).
         
-    #     $\\textbf{{\\small 1. Descomposición de fuerzas $F_1$ y $F_2$:}}$
+    #     $\\textbf{{\\small 1. Descomposición de las fuerzas:}}$
 
-    #     ${{\hspace{{4mm}} \\vec{F_1} = (0\\hat{i}+0\\hat{j}+{f[0]}\\hat{k})[KN]}}$
-    #     ${{\hspace{{4mm}} \\vec{F_2} = (-{f[1]}cos(\\theta)\\hat{i}+{f[1]}sen(\\theta)\\hat{j}+0\\hat{k})[KN]}}$
-    #     ${{\hspace{{4mm}} \\vec{F_2} = ({-1*f[1]*Calculations.cosine(a[0])}\\hat{i}+{f[1]*Calculations.sine(a[0])}\\hat{j}+0\\hat{k})[KN]}}$
+    #     ${{\hspace{{4mm}} \\vec{{F_1}} = (0\\hat{{i}}+0\\hat{{j}}+{f[0]}\\hat{{k}})[KN]}}$          
+    #     ${{\hspace{{4mm}} \\vec{{F_2}} = (-{f[1]}cos(\\theta)\\hat{{i}}+{f[1]}sen(\\theta)\\hat{{j}}+0\\hat{{k}})[KN]}}$           
+    #     ${{\hspace{{4mm}} \\vec{{F_2}} = ({-1*f[1]*Calculations.cosine(a[0]):.2f}\\hat{{i}}+{f[1]*Calculations.sine(a[0]):.2f}\\hat{{j}}+0\\hat{{k}})[KN]}}$
 
     #     $\\textbf{{\\small 2. Calculo de momento generado por un par de fuerzas:}}$
-    #     Para $F_1$
-    #     ${{\hspace{{4mm}} \\vec{M} = (0\\hat{i}-({f[0]})({d[3]})\\hat{j}+0\\hat{k})[KN \\cdot m]}}$
-    #     ${{\hspace{{4mm}} \\vec{M} = (0\\hat{i}-({f[0]*d[3]})\\hat{j}+0\\hat{k})[KN \\cdot m]}}$
+    #     Para $F_1$           
+    #     ${{\hspace{{4mm}} \\vec{{M}} = (0\\hat{{i}}-({f[0]})({d[3]})\\hat{{j}}+0\\hat{{k}})[KN \\cdot m]}}$            
+    #     ${{\hspace{{4mm}} \\vec{{M}} = (0\\hat{{i}}-({f[0]*d[3]})\\hat{{j}}+0\\hat{{k}})[KN \\cdot m]}}$
 
-    #     Para $F_2$, generado por su componente \\hat{i}:
-    #     ${{\hspace{{4mm}} \\vec{M} = (0\\hat{i}+({f[1]*Calculations.cosine(a[0])})({d[0]})\\hat{j}+0\\hat{k})[KN \\cdot m]}}$
-    #     ${{\hspace{{4mm}} \\vec{M} = (0\\hat{i}+{f[1]*Calculations.cosine(a[0])*d[0]}\\hat{j}+0\\hat{k})[KN \\cdot m]}}$
-    #     Para $F_2$, generado por su componente \\hat{j}:
-    #     ${{\hspace{{4mm}} \\vec{M} = (({f[1]*Calculations.sine(a[0])})({d[0]})\\hat{i}+0\\hat{j}+0\\hat{k})[KN \\cdot m]}}$
-    #     ${{\hspace{{4mm}} \\vec{M} = ({f[1]*Calculations.sine(a[0])*d[0]}\\hat{i}+0\\hat{j}+0\\hat{k})[KN \\cdot m]}}$
+    #     Para $F_2$, generado por su componente $\\hat{{i}}$:               
+    #     ${{\hspace{{4mm}} \\vec{{M}} = (0\\hat{{i}}+({f[1]*Calculations.cosine(a[0]):.2f})({d[0]})\\hat{{j}}+0\\hat{{k}})[KN \\cdot m]}}$           
+    #     ${{\hspace{{4mm}} \\vec{{M}} = (0\\hat{{i}}+{f[1]*Calculations.cosine(a[0])*d[0]:.2f}\\hat{{j}}+0\\hat{{k}})[KN \\cdot m]}}$
+
+    #     Para $F_2$, generado por su componente $\\hat{{j}}$:      
+    #     ${{\hspace{{4mm}} \\vec{{M}} = (({f[1]*Calculations.sine(a[0]):.2f})({d[0]})\\hat{{i}}+0\\hat{{j}}+0\\hat{{k}})[KN \\cdot m]}}$               
+    #     ${{\hspace{{4mm}} \\vec{{M}} = ({f[1]*Calculations.sine(a[0])*d[0]:.2f}\\hat{{i}}+0\\hat{{j}}+0\\hat{{k}})[KN \\cdot m]}}$
 
     #     $\\textbf{{\\small 3. Sumatoria de momentos:}}$
-    #     ${{\hspace{{4mm}} \\sum{{\\vec{M}}} = ({f[1]*Calculations.sine(a[0])*d[0]}\\hat{i}+{f[1]*Calculations.cosine(a[0])*d[0]}-({f[0]*d[3]})\\hat{j}+0\\hat{k})[KN \\cdot m]}}$
-    #     ${{\hspace{{4mm}} \\sum{{\\vec{M}}} = ({f[1]*Calculations.sine(a[0])*d[0]}\\hat{i}+{f[1]*Calculations.cosine(a[0])*d[0]-(f[0]*d[3])}\\hat{j}+0\\hat{k})[KN \\cdot m]}}$
 
-    #     $\\textbf{{\\small 4. Magnitud del momento generado:}}$
-    #     ${{\hspace{{4mm}} |\\sum{{\\vec{M}}}| = {Calculations.magnitude(f[1]*d[0]*Calculations.sine(a[0]),f[1]*d[0]*Calculations.cosine(a[0])-f[0]*d[3])}[KN \\cdot m]}}$
+    #     ${{\hspace{{4mm}} \\sum{{\\vec{{M}}}} = ({f[1]*Calculations.sine(a[0])*d[0]:.2f}\\hat{{i}}+{f[1]*Calculations.cosine(a[0])*d[0]:.2f}-({f[0]*d[3]})\\hat{{j}}+0\\hat{{k}})[KN \\cdot m]}}$     
+    #     ${{\hspace{{4mm}} \\sum{{\\vec{{M}}}} = ({f[1]*Calculations.sine(a[0])*d[0]:.2f}\\hat{{i}}+{f[1]*Calculations.cosine(a[0])*d[0]-(f[0]*d[3]):.2f}\\hat{{j}}+0\\hat{{k}})[KN \\cdot m]}}$
+
+    #     $\\textbf{{\\small 4. Magnitud del momento generado:}}$       
+
+    #     ${{\hspace{{4mm}} |\\sum{{\\vec{{M}}}}| = {Calculations.magnitude(f[1]*d[0]*Calculations.sine(a[0]),f[1]*d[0]*Calculations.cosine(a[0])-f[0]*d[3]):.2f}[KN \\cdot m]}}$
     #     """,   
     #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
     #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
@@ -5441,9 +5444,9 @@ preguntas = [
     #     no_pregunta = 2,
     #     complexity = M,
     #     topic = MO,
-    #     subtopic = "Momentos pares",
+    #     subtopic = "Momento par",
     #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Usted lanzó un vaso al piso y este sintio las fuerzas $F_1 = {f[0]:.0f}[N]$ y $F_2 = {f[1]:.0f}[N]$ al ser lanzado. Determine las componentes vectoriales del momento generado por las fuerzas teniendo en cuenta que $d_0 = {d[0]:.0f}[m]$, $d_1 = {d[3]:.0f}[m]$ y $\\theta = {a[0]:.0f}°$",
+    #     pregunta = lambda f, a, calc, c, d, m: f"El barril es movilizado mediante la aplicación de dos fuerzas: $F_1 = {f[0]:.0f} \\text{{ N}}$ y $F_2 = {f[1]:.0f} \\text{{ N}}$. Determine las componentes vectoriales del momento generado por estas fuerzas, teniendo en cuenta que la altura de barril es $d_0 = {d[0]:.0f} \\text{{ m}}$, su radio es $d_1 = {d[3]:.0f} \\text{{ m}}$ y $\\theta = {a[0]:.0f}°$",
     #     no_answers = 3,
     #     a1_name = "Momento componente $\\hat{{i}}$",
     #     a2_name = "Momento componente $\\hat{{j}}$",
@@ -5451,35 +5454,36 @@ preguntas = [
     #     answer1 = lambda f, a, calc, c, d, m: np.round(f[1]*Calculations.sine(a[0])*d[3]-f[1]*Calculations.cosine(a[0])*d[0],2),
     #     answer2 = lambda f, a, calc, c, d, m: 0,
     #     answer3 = lambda f, a, calc, c, d, m: np.round(f[0]*d[0],2),
-    #     ayuda1 = "Descomponga la fuerza $F_2$ para conocer sus componentes y determine su vector posición.",
-    #     ayuda2 = "Las fuerzas $F_1$ son un par de fuerzas asi que podra encontrar el momento generado usando la regla de la mano derecha y $M = F \\cdot d$ donde $d$ es la distancia perpendicular entre las fuerzas.",      
-    #     ayuda3 = "Haga sumatoria de momentos para encontrar el momento total generado sobre el vaso.",
+    #     ayuda1 = MPP1,
+    #     ayuda2 = MPP7,      
+    #     ayuda3 = "",
     #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     A continuacion se mostrara una posible solución al problema:
+    #     El momento generado por un par de fuerzas se define como $M = F \\cdot d$, donde $F$ es la magnitud de las fuerzas pares y $d$ es la distancia perpendicular entre estas. A continuación, se presenta la solución sugerida para el ejercicio:
 
     #     $\\textbf{{\\small 1. Descompocisión de fuerzas e identificación de par de fuerzas: }}$ 
+
     #     La fuerza $F_1$ es un par de fuerzas sobre el eje $x$
         
-    #     ${{\hspace{{4mm}} \\vec{F_2} = (0\\hat{i} - {f[1]}sen(\\theta)\\hat{j}-{f[1]}cos(\\theta)\\hat{k})[N]}}$      
-    #     ${{\hspace{{4mm}} \\vec{F_2} = (0\\hat{i} - {f[1]*Calculations.sine(a[0])}\\hat{j}-{f[1]*Calculations.cosine(a[0])}\\hat{k})[N]}}$
+    #     ${{\hspace{{4mm}} \\vec{{F_2}} = (0\\hat{{i}} - {f[1]}sen(\\theta)\\hat{{j}}-{f[1]}cos(\\theta)\\hat{{k}})[N]}}$      
+    #     ${{\hspace{{4mm}} \\vec{{F_2}} = (0\\hat{{i}} - {f[1]*Calculations.sine(a[0])}\\hat{{j}}-{f[1]*Calculations.cosine(a[0])}\\hat{{k}})[N]}}$
 
-    #     $\\textbf{{\\small 2. Momento generado por $F_1$ y $F_2$: }}$ 
+    #     $\\textbf{{\\small 2. Momento generado por las fuerzas: }}$ 
+
     #     Para $F_1$:
-    #     ${{\hspace{{4mm}} \\vec{M} = (0\\hat{i}+0\\hat{j}+{f[0]}\\cdot{d[0]}\\hat{k})[N \\cdot m]}}$
-    #     ${{\hspace{{4mm}} \\vec{M} = (0\\hat{i}+0\\hat{j}+{f[0]*d[0]}\\hat{k})[N \\cdot m]}}$
+    #     ${{\hspace{{4mm}} \\vec{{M}} = (0\\hat{{i}}+0\\hat{{j}}+{f[0]}\\cdot{d[0]}\\hat{{k}})[N \\cdot m]}}$
+    #     ${{\hspace{{4mm}} \\vec{{M}} = (0\\hat{{i}}+0\\hat{{j}}+{f[0]*d[0]}\\hat{{k}})[N \\cdot m]}}$
 
     #     Para $F_2$:
-    #     ${{\hspace{{4mm}} \\vec{M} = (({f[1]*Calculations.sine(a[0])}*{d[3]}-({f[1]*Calculations.cosine(a[0])}*{d[0]}))\\hat{i}+0\\hat{j}+0\\hat{k})[N \\cdot m]}}$
-    #     ${{\hspace{{4mm}} \\vec{M} = (({f[1]*Calculations.sine(a[0])*d[3]-(f[1]*Calculations.cosine(a[0])*d[0])}))\\hat{i}+0\\hat{j}+0\\hat{k})[N \\cdot m]}}$
+    #     ${{\hspace{{4mm}} \\vec{{M}} = (({f[1]*Calculations.sine(a[0])}*{d[3]}-({f[1]*Calculations.cosine(a[0])}*{d[0]}))\\hat{{i}}+0\\hat{{j}}+0\\hat{{k}})[N \\cdot m]}}$
+    #     ${{\hspace{{4mm}} \\vec{{M}} = (({f[1]*Calculations.sine(a[0])*d[3]-(f[1]*Calculations.cosine(a[0])*d[0])}))\\hat{{i}}+0\\hat{{j}}+0\\hat{{k}})[N \\cdot m]}}$
 
     #     $\\textbf{{\\small 3. Sumatoria de momentos: }}$
-    #     ${{\hspace{{4mm}} \\sum{{\\vec{M}}} = (({f[1]*Calculations.sine(a[0])*d[3]-(f[1]*Calculations.cosine(a[0])*d[0])}))\\hat{i}+0\\hat{j}+{f[0]*d[0]}\\hat{k})[N \\cdot m]}}$
+    #     ${{\hspace{{4mm}} \\sum{{\\vec{{M}}}} = (({f[1]*Calculations.sine(a[0])*d[3]-(f[1]*Calculations.cosine(a[0])*d[0])}))\\hat{{i}}+0\\hat{{j}}+{f[0]*d[0]}\\hat{{k}})[N \\cdot m]}}$
 
-    #     $\\textbf{{\\small 4. Identificacion de componentes del momento encontrado: }}$
-    #     ${{\hspace{{4mm}} \\hat{i} = {f[1]*Calculations.sine(a[0])*d[3]-(f[1]*Calculations.cosine(a[0])*d[0])}[N \\cdot m]}}$
-    #     ${{\hspace{{4mm}} \\hat{j} = 0[N \\cdot m]}}$
-    #     ${{\hspace{{4mm}} \\hat{k} = {f[0]*d[0]}[N \\cdot m]}}$
-        
+    #     $\\textbf{{\\small 4. Identificación de componentes del momento encontrado: }}$
+    #     ${{\hspace{{4mm}} \\hat{{i}} = {f[1]*Calculations.sine(a[0])*d[3]-(f[1]*Calculations.cosine(a[0])*d[0])}[N \\cdot m]}}$
+    #     ${{\hspace{{4mm}} \\hat{{j}} = 0[N \\cdot m]}}$
+    #     ${{\hspace{{4mm}} \\hat{{k}} = {f[0]*d[0]}[N \\cdot m]}}$
     #     """,   
     #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
     #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
@@ -5505,7 +5509,7 @@ preguntas = [
         ayuda2 = MPP3,      
         ayuda3 = MPP6,
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-        El momento generado por un par de fuerzas se define como $M = F \\cdot d$, donde $F$ es la magnitud de las fuerzas pares y $d$ es la distancia perpendicular entre estas. A continuacion se presenta una posible solución al problema:
+        El momento generado por un par de fuerzas se define como $M = F \\cdot d$, donde $F$ es la magnitud de las fuerzas pares y $d$ es la distancia perpendicular entre estas. A continuación se presenta la solución sugerida:
 
         $\\textbf{{\\small 1. Cambio de unidades de las distancias dadas: }}$ 
         

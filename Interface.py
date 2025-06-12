@@ -921,7 +921,7 @@ if authenticate_user():
                     if pregunta_no == 1:
                         st.image(MP_image_paths[4], width=450)
                     if pregunta_no == 2:
-                        st.image(MP_image_paths[5], width=450)
+                        st.image(MP_image_paths[5], width=300)
                     if pregunta_no == 3:
                         st.image(MP_image_paths[6], width=450)
                 if subtopic == "Sistemas equivalentes":
