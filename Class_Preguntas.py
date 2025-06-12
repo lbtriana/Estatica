@@ -5382,31 +5382,7 @@ preguntas = [
     #-------------------------------------------------       Momento par      ---------------------------------------------------
     #-------------------------------------------------       Nivel Medio   ------------------------------------------------------
     #-------------------------------------------------      Code: 24200##    ----------------------------------------------------
-
-    Questionary(#1_1
-        code = 0,
-        no_pregunta = 1,
-        complexity = M,
-        topic = MO,
-        subtopic = "Momento par",
-        version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Está sección pronto estará disponible.",
-        no_answers = 0,
-        a1_name = AX,
-        a2_name = AY,
-        a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round(0, 2),
-        answer2 = lambda f, a, calc, c, d, m: np.round(0, 2),
-        answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = A1,
-        ayuda2 = A2,
-        ayuda3 = A3,
-        respuesta_P1 = lambda fa, a, calc, c, d, m: f"",
-        respuesta_P2 = lambda fa, a, calc, c, d, m: f"",
-        respuesta_P3 = lambda fa, a, calc, c, d, m: f"",
-        calculos = 'operations',
-        ),
-
+   
     # Questionary(#1_1
     #     code = 2420011,
     #     no_pregunta = 1,
@@ -5510,53 +5486,53 @@ preguntas = [
     #     calculos='operations'
     #     ),
 
-    # Questionary(#3_1
-    #     code = 2420031,
-    #     no_pregunta = 3,
-    #     complexity = M,
-    #     topic = MO,
-    #     subtopic = "Momentos pares",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"La rueda orientable esta sometida a dos pares de fuerzas $F = {f[0]:.0f}[N]$ y $P$. Si el momento generado por estas fuerzas es de $M = {m[0]:.0f}[N \\cdot m]$, determine la magnitud de la fuerza $P$ si la distancia entre las fuerzas es de $d_0 = {d[0]:.0f}[cm]$ y $d_1 = {d[3]:.0f}[cm]$",	
-    #     no_answers = 1,
-    #     a1_name = "Magnitud fuerza $P$ [N]",
-    #     a2_name = "",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(f[0]*(d[0]/d[3])-m[0]*(100/d[3]),2),
-    #     answer2 = lambda f, a, calc, c, d, m: 0,
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "Tenga en cuenta que las distancias dadas estan en $cm$. Encuentre su equivalente en $m$.",
-    #     ayuda2 = "Como F y P son pares de fuerzas, estos generan momentos pares. Utilice la formula de momento par $M = F \\cdot d$ para encontrar la magnitud generado por las fuerzas.",      
-    #     ayuda3 = "Haga sumatoria de momentos igualados al momento dado para asi despejar y encontrar la magnitud de $P$.",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     A continuacion se mostrara una posible solución al problema:
+    Questionary(#3_1
+        code = 2420031,
+        no_pregunta = 3,
+        complexity = M,
+        topic = MO,
+        subtopic = "Momento par",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"La rueda orientable está sometida a dos pares de fuerzas $F_1 = {f[0]:.0f} \\text{{ N}}$ y $F_2$. Si el momento total generado por estas fuerzas es $M = {m[0]:.0f} \\text{{ }} N \\cdot m$, determine la magnitud de la fuerza $F_2$ si la distancia entre las fuerzas es de $d_0 = {d[0]:.0f} \\text{{ cm}}$ y $d_1 = {d[3]:.0f} \\text{{ cm}}$",
+        no_answers = 1,
+        a1_name = "Magnitud fuerza $F_2$ $[N]$",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round((m[0]-f[0]*(d[0]/100))/(d[3]/100),2),
+        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = MPP1,
+        ayuda2 = MPP3,      
+        ayuda3 = MPP6,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        El momento generado por un par de fuerzas se define como $M = F \\cdot d$, donde $F$ es la magnitud de las fuerzas pares y $d$ es la distancia perpendicular entre estas. A continuacion se presenta una posible solución al problema:
 
-    #     $\\textbf{{\\small 1. Cambio de unidades de las distancias dadas: }}$ 
+        $\\textbf{{\\small 1. Cambio de unidades de las distancias dadas: }}$ 
         
-    #     ${{\hspace{{4mm}} d_0 = {d[0]/100}[m]}}$      
-    #     ${{\hspace{{4mm}} d_1 = {d[3]/100}[m]}}$
+        ${{\hspace{{4mm}} d_0 = {d[0]/100} \\text{{ m}} }}$      
+        ${{\hspace{{4mm}} d_1 = {d[3]/100} \\text{{ m}} }}$
 
-    #     $\\textbf{{\\small 2. Momento generado por $F$ y $P$: }}$ 
-    #     Para $F$:
-    #     ${{\hspace{{4mm}} \\vec{M} = {f[0]*d[0]/100}\\hat{k}[N \\cdot m]}}$
+        $\\textbf{{\\small 2. Momento generado por las fuerzas: }}$ 
+
+        Para $F_1$:     
+        ${{\hspace{{4mm}} \\vec{{M}} = F_1 \\cdot d_0  \\text{{ }} \\hat{{k}} \\text{{ }} N \\cdot m}}$      
+        ${{\hspace{{4mm}} \\vec{{M}} = {f[0]*d[0]/100} \\text{{ }} \\hat{{k}} \\text{{ }} N \\cdot m}}$
         
-    #     Para $P$:
-    #     ${{\hspace{{4mm}} \\vec{M} = -P*{d[3]/100}\\hat{k}[N \\cdot m]}}$
+        Para $F_2$:   
+        ${{\hspace{{4mm}} \\vec{{M}} = -F_2 \\cdot d_1 \\text{{ }} \\hat{{k}} \\text{{ }} N \\cdot m}}$            
+        ${{\hspace{{4mm}} \\vec{{M}} = -F_2*{d[3]/100} \\text{{ }} \\hat{{k}} \\text{{ }} N \\cdot m}}$
         
 
-    #     $\\textbf{{\\small 3. Sumatoria de momentos - Despejar fuerza $P$: }}$
-    #     ${{\hspace{{4mm}} \\sum{{\\vec{M}}} = {m[0]}[N \\cdot m]}}$
-    #     ${{\hspace{{4mm}} \\sum{{\\vec{M}}} = {f[0]*d[0]/100-P*{d[3]/100}}[N \\cdot m]}}$
-    #     ${{\hspace{{4mm}} {m[0]} = {f[0]*d[0]/100-P*{d[3]/100}}[N \\cdot m]}}$
-    #     ${{\hspace{{4mm}} P = \\dfrac{{{f[0]*d[0]/100}-{m[0]}}}{d[3]/100}[N]}}$
-    #     ${{\hspace{{4mm}} P = {f[0]*(d[0]/d[3])-m[0]*(100/d[3])}[N]}}$
-
-        
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),   
+        $\\textbf{{\\small 3. Sumatoria de momentos - Despejar fuerza F2: }}$
+             
+        ${{\hspace{{4mm}} \\sum{{\\vec{{M}}}} = {f[0]*d[0]/100} -F_2*{d[3]/100} \\text{{ }} N \\cdot m = {m[0]} \\text{{ }} N \\cdot m}}$                       
+        ${{\hspace{{4mm}} F_2 = \\dfrac{{{m[0]}-{f[0]*d[0]/100}}}{{{d[3]/100}}} \\text{{ N}} }}$            
+        ${{\hspace{{4mm}} F_2 = {(m[0]-f[0]*(d[0]/100))/(d[3]/100)} \\text{{ N}}}}$
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),   
 
     
     #========================================================  MOMENTO  =========================================================

@@ -917,6 +917,13 @@ if authenticate_user():
                         st.image(MAE_image_paths[6], width=450)
                     if pregunta_no == 4:
                         st.image(MAE_image_paths[7], width=400)
+                if subtopic == "Momento par":
+                    if pregunta_no == 1:
+                        st.image(MP_image_paths[4], width=450)
+                    if pregunta_no == 2:
+                        st.image(MP_image_paths[5], width=450)
+                    if pregunta_no == 3:
+                        st.image(MP_image_paths[6], width=450)
                 if subtopic == "Sistemas equivalentes":
                     if pregunta_no == 1:
                         st.image(SE_image_paths[4], width=400)  

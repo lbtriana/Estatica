@@ -202,6 +202,7 @@ MPP2 = "Encuentre la distancia perpendicular entre las fuerzas utilizando el tri
 MPP3 = "Recuerde que la distancia dada está en $cm$; realice la conversión a $m$ antes de calcular el momento."
 MPP4 = "Recuerde que el momento generado por un par de fuerzas no está asociado a un punto específico del cuerpo, su efecto se siente de igual manera en todos los puntos del cuerpo."
 MPP5 = "De acuerdo con la ecuación del momento generado por un par de fuerzas, la magnitud de la fuerza se puede determinar como $F = \\dfrac{{M}}{{d}}$."
+MPP6 = "Realice la sumatoria de momentos generados por las fuerzas $F_1$ y $F_2$, e iguale el resultado al momento total proporcionado en el enunciado. A partir de esta ecuación, determine la magnitud de la fuerza $F_2$."
 
 #INCERTIDUMBRE
 I1 = "La distribución acumulada de una variable aleatoria $(X)$ proporciona información sobre la probabilidad de ocurrencia de dicha variable, es decir, la probabilidad de que $X$ tome un valor menor o igual al que se está evaluando ($P(X \\leq x)).$"
