@@ -5531,7 +5531,7 @@ preguntas = [
              
         ${{\hspace{{4mm}} \\sum{{\\vec{{M}}}} = {f[0]*d[0]/100} -F_2*{d[3]/100} \\text{{ }} N \\cdot m = {m[0]} \\text{{ }} N \\cdot m}}$                       
         ${{\hspace{{4mm}} F_2 = \\dfrac{{{m[0]}-{f[0]*d[0]/100}}}{{{d[3]/100}}} \\text{{ N}} }}$            
-        ${{\hspace{{4mm}} F_2 = {(m[0]-f[0]*(d[0]/100))/(d[3]/100)} \\text{{ N}}}}$
+        ${{\hspace{{4mm}} F_2 = {(m[0]-f[0]*(d[0]/100))/(d[3]/100):.2f} \\text{{ N}}}}$
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
@@ -9991,66 +9991,66 @@ preguntas = [
     #     calculos='operations'
     #     ),
 
-    # Questionary(#1_1
-    #     code = 8120011,
-    #     no_pregunta = 1,
+    Questionary(#5_1
+        code = 8120051,
+        no_pregunta = 5,
+        complexity = M,
+        topic = FI,
+        subtopic = "Fuerzas internas",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine las magnitudes de la fuerza cortante y el momento flector que actúan sobre la columna en el punto $B$, debido a las fuerzas $F_1 = {f[0]:.0f} \\text{{ kN}}$ y $F_2 = {f[1]:.0f} \\text{{ kN}}$. Considere que $d_0 = {d[0]/4:.2f} \\text{{ m}}$, $d_1 = {d[3]/4:.2f} \\text{{ m}}$ y $d_2 = {d[6]/4:.2f} \\text{{ m}}$.",
+        no_answers = 2,
+        a1_name = "Cortante en $B$ $[kN]$",
+        a2_name = "Momento en $B$ $[kN \\cdot m]$",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(f[0]+f[1],2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(-1*((f[0]+f[1])*(d[0]/4)-(f[0]*((d[0]+d[3])/4)+f[1]*((d[0]+d[3]+d[6])/4))),2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = FI1,
+        ayuda2 = FI2,      
+        ayuda3 = FI3,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+         Las fuerzas internas se definen como las fuerzas que actúan dentro de un elemento y se obtienen mediante un corte teórico en el cuerpo. A continuación, se presenta la solución sugerida para el ejercicio:
+
+        $\\textbf{{\\small 1. Cálculo de las reacciones: }}$
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$            
+        ${{\hspace{{4mm}} R_y = 0 \\text{{ kN}}}}$
+
+        ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$          
+        ${{\hspace{{4mm}} \\sum{{F_x}} = -R_x + F_1 + F_2 = 0}}$          
+        ${{\hspace{{4mm}} R_x = (F_1 + F_2) \\text{{ kN}} }}$         
+        ${{\hspace{{4mm}} R_x = {f[0]+f[1]:.2f} \\text{{ kN}} }}$
+
+        ${{\hspace{{4mm}} \\sum{{M_A}} = 0 }}$          
+        ${{\hspace{{4mm}} \\sum{{M_A}} = M_R - F_1(d_0 + d_1) - F_2(d_0 + d_1 + d_2) = 0 }}$           
+        ${{\hspace{{4mm}} M_R = (F_1(d_0 + d_1) + F_2(d_0 + d_1 + d_2)) \\text{{ }} kN \\cdot m }}$           
+        ${{\hspace{{4mm}} M_R = {f[0]*((d[0]+d[3])/4)+f[1]*((d[0]+d[3]+d[6])/4):.2f}\\text{{ }} kN \\cdot m }}$
+
+        $\\textbf{{\\small 2. Cortante y Momento flector en B: }}$
+        """,
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"""
+        ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$     
+        ${{\hspace{{4mm}} \\sum{{F_x}} = V_B - R_x}}$       
+        ${{\hspace{{4mm}} V_B = R_x}}$            
+        ${{\hspace{{4mm}} V_B = {(f[0]+f[1])} \\text{{ kN}} }}$  
+
+        ${{\hspace{{4mm}} \\sum{{M_B}} = 0 }}$     
+        ${{\hspace{{4mm}} \\sum{{M_B}} = M_B + M_R - R_X(d_0+d_1) }}$          
+        ${{\hspace{{4mm}} M_B = R_X \\cdot d_0 - M_R}}$          
+        ${{\hspace{{4mm}} M_B = {((f[0]+f[1])*(d[0]/4)-(f[0]*((d[0]+d[3])/4)+f[1]*((d[0]+d[3]+d[6])/4))):.2f}\\text{{ }} kN \\cdot m }}$   
+        ${{\hspace{{4mm}} |M_B| = {-1*((f[0]+f[1])*(d[0]/4)-(f[0]*((d[0]+d[3])/4)+f[1]*((d[0]+d[3]+d[6])/4))):.2f}\\text{{ }} kN \\cdot m }}$ 
+        """,
+        calculos='operations'
+    ),
+
+    # Questionary(#6_1
+    #     code = 8120061,
+    #     no_pregunta = 6,
     #     complexity = M,
     #     topic = FI,
-    #     subtopic = "Fuerzas Internas",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Determine el cortante y el momento flecto que siente la columna en el punto B debido a las fuerzas $F_1 = {f[0]:.0f}[kN]$ y $F_2 = {f[1]:.0f}[kN]$. Considere que $d_0 = {d[0]:.0f}[m]$, $d_1 = {d[3]:.0f}[m]$ y $d_2 = {d[6]:.0f}[m]$.",
-    #     no_answers = 2,
-    #     a1_name = "Cortante en el punto B en [kN]",
-    #     a2_name = "Momento en el punto B en [kN \\cdot m]",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(f[0]+f[1],2),
-    #     answer2 = lambda f, a, calc, c, d, m: np.round(-1*f[0]*d[3]-f[1]*d[3]-f[1]*d[6],2),
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "Tenga en cuenta que tipo de apoyo es para encontrar sus respectivas reacciones haciendo sumatoria de fuerzas y momentos.",
-    #     ayuda2 = "Identifique el tramo en el cual se encuentra el punto B y encuentre la ecuación de cortante y momento flector en dicho tramo.",      
-    #     ayuda3 = "Evalue la distancia a la que esta el punto B desde el inicio del tramo dentro de las funciones encontradas.",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     A continuacion se expondra la solucion sugerida del ejercicio:
-    #     $\\textbf{{\\small 1. Calculo de reacciones: }}$
-        
-    #     ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$
-    #     ${{\hspace{{4mm}} R_y = 0[kN]}}$
-    #     ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$
-    #     ${{\hspace{{4mm}} -R_x + F_1 + F_2 = 0}}$
-    #     ${{\hspace{{4mm}} R_x = (F_1 + F_2)[kN]}}$
-    #     ${{\hspace{{4mm}} \\sum{{M}} = 0 }}$
-    #     ${{\hspace{{4mm}} M - F_1(d_0 + d_1) - F_2(d_0 + d_1 + d_2) = 0 }}$
-    #     ${{\hspace{{4mm}} M = (F_1(d_0 + d_1) + F_2(d_0 + d_1 + d_2))[kN \\cdot m] }}$4
-    
-    #     $\\textbf{{\\small 2. Ecuación de los tramos: }}$
-    #     ${{\hspace{{4mm}} Tramo 1 [0 , d_0 + d_1] }}$
-    #     ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$
-    #     ${{\hspace{{4mm}} R_x - V(y) = 0 }}$
-    #     ${{\hspace{{4mm}} V(y) = R_x[kN] }}$
-    #     ${{\hspace{{4mm}} \\sum{{M}} = 0 }}$
-    #     ${{\hspace{{4mm}} M(y) - R_x \cdot y + M = 0 }}$
-    #     ${{\hspace{{4mm}} M(y) = (R_x \cdot y - M)[kN \\cdot m] }}$
-    #     Como el punto B se encuentra en el primer tramo, no se hallan los restantes
-
-    #     $\\textbf{{\\small 3. Cortante y Momento flector en B: }}$
-    #     ${{\hspace{{4mm}} V(d_0) = R_x[kN] }}$
-    #     ${{\hspace{{4mm}} M(d_0) = (R_x(d_0 + d_1) - M)[kN \\cdot m] }}$
-    #     Teniendo esto en cuenta, el resultado es
-    #     ${{\hspace{{4mm}} V_B = {(f[0]+f[1])}[kN] }}$
-    #     ${{\hspace{{4mm}} M_B = {(-1*f[0]*d[3]-f[1]*d[3]-f[1]*d[6])}[kN \\cdot m] }}$
-
-
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    # ),
-    # Questionary(#2_1
-    #     code = 8120011,
-    #     no_pregunta = 2,
-    #     complexity = M,
-    #     topic = FI,
-    #     subtopic = "Fuerzas Internas",
+    #     subtopic = "Fuerzas internas",
     #     version = 1,
     #     pregunta = lambda f, a, calc, c, d, m: f"Determine la fuerza cortante y el momento flecto inmediatamente despues del punto $C$ que siente la viga debido a la fuerza $F = {f[0]:.0f}[kN]$ y momento $M = {m[0]:.0f}[kN \\cdot m]$. Tenga en cuenta que $d_0 = {d[0]:.0f}[m]$ y $d_1 = {d[3]:.0f}[m]$.",
     #     no_answers = 2,
@@ -10093,8 +10093,6 @@ preguntas = [
     #     Teniendo esto en cuenta, el resultado es
     #     ${{\hspace{{4mm}} V_C = {(f[0]*d[3]-m[0])/(d[0]+d[3])-f[0]}[kN] }}$
     #     ${{\hspace{{4mm}} M_C = {(f[0]*d[3]-m[0])/(d[0]+d[3])*d[0]+m[0]}[kN \\cdot m] }}$ 
-
-
     #     """,   
     #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
     #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",

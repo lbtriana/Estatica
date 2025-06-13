@@ -981,6 +981,10 @@ if authenticate_user():
                         st.image(FI_image_paths[5], width=500)
                     if pregunta_no == 4:
                         st.image(FI_image_paths[6], width=400)
+                    if pregunta_no == 5:
+                        st.image(FI_image_paths[7], width=300)
+                    if pregunta_no == 6:
+                        st.image(FI_image_paths[8], width=300)
                 
             if difficulty == "Díficil":
                 if subtopic == "Vectores 2D":
@@ -1153,7 +1157,9 @@ if authenticate_user():
                     if pregunta_no == 3:
                         st.image(FI_rtas_paths[8], width=400)       
                     if pregunta_no == 4:
-                        st.image(FI_rtas_paths[10], width=250)       
+                        st.image(FI_rtas_paths[10], width=250)      
+                    if pregunta_no == 5:
+                        st.image(FI_rtas_paths[11], width=200)   
 
             if difficulty == "Díficil":
                 if subtopic == "Vectores 2D":
@@ -1223,6 +1229,8 @@ if authenticate_user():
                         st.image(FI_rtas_paths[7], width=200)
                     if pregunta_no == 3:
                         st.image(FI_rtas_paths[9], width=300)
+                    if pregunta_no == 5:
+                        st.image(FI_rtas_paths[12], width=200)
 
             if difficulty == "Díficil":
                 if subtopic == "Vigas":
