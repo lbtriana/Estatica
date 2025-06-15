@@ -10010,7 +10010,7 @@ preguntas = [
         ayuda2 = FI2,      
         ayuda3 = FI3,
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-         Las fuerzas internas se definen como las fuerzas que actúan dentro de un elemento y se obtienen mediante un corte teórico en el cuerpo. A continuación, se presenta la solución sugerida para el ejercicio:
+        Las fuerzas internas se definen como las fuerzas que actúan dentro de un elemento y se obtienen mediante un corte teórico en el cuerpo. A continuación, se presenta la solución sugerida para el ejercicio:
 
         $\\textbf{{\\small 1. Cálculo de las reacciones: }}$
         """,   
@@ -10045,59 +10045,60 @@ preguntas = [
         calculos='operations'
     ),
 
-    # Questionary(#6_1
-    #     code = 8120061,
-    #     no_pregunta = 6,
-    #     complexity = M,
-    #     topic = FI,
-    #     subtopic = "Fuerzas internas",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Determine la fuerza cortante y el momento flecto inmediatamente despues del punto $C$ que siente la viga debido a la fuerza $F = {f[0]:.0f}[kN]$ y momento $M = {m[0]:.0f}[kN \\cdot m]$. Tenga en cuenta que $d_0 = {d[0]:.0f}[m]$ y $d_1 = {d[3]:.0f}[m]$.",
-    #     no_answers = 2,
-    #     a1_name = "Fuerza Cortante despues de C en [kN]",
-    #     a2_name = "Momento flector despues de C en [kN \\cdot m]",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round((f[0]*d[3]-m[0])/(d[0]+d[3])-f[0],2),
-    #     answer2 = lambda f, a, calc, c, d, m: np.round((f[0]*d[3]-m[0])/(d[0]+d[3])*d[0]+m[0],2),
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "Encuentre las reacciones teniendo en cuenta los tipos de apoyo presentados usando sumatoria de fuerzas y momentos",
-    #     ayuda2 = "Fijese que la fuerza aplicada sobre la viga esta en el punto C y, como le piden el cortante y momento inmediatamente despues de C, puede sacar las ecuaciones del segundo tramo unicamente.",      
-    #     ayuda3 = "Use sumatoria de fuerzas y momento teniendo en cuenta el diagrama de cortante y momento flector propuesto para hallar sus respectivas ecuaciones.",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     A continuación, se presenta la solución sugerida para el ejercicio:
+    Questionary(#6_1
+        code = 8120061,
+        no_pregunta = 6,
+        complexity = M,
+        topic = FI,
+        subtopic = "Fuerzas internas",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine las magnitudes de la fuerza cortante y el momento flector en el punto $C$. Considere que la fuerza $F = {f[0]:.0f} \\text{{ kN}}$, el momento $M = {m[0]:.0f} \\text{{ }} kN \\cdot m$, $d_0 = {d[0]:.0f} \\text{{ m}}$ y $d_1 = {d[3]:.0f} \\text{{ m}}$.",
+        no_answers = 2,
+        a1_name = "Cortante en $C$ $[kN]$",
+        a2_name = "Momento en $C$ $[kN \\cdot m]$",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(-1*((f[0]*d[3]-m[0])/(d[0]+d[3])-f[0]),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round((f[0]*d[3]-m[0])/(d[0]+d[3])*d[0]+m[0],2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = FI1,
+        ayuda2 = FI2,      
+        ayuda3 = FI3,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        Las fuerzas internas se definen como las fuerzas que actúan dentro de un elemento y se obtienen mediante un corte teórico en el cuerpo. A continuación, se presenta la solución sugerida para el ejercicio:
         
-    #     $\\textbf{{\\small 1. Reacciones: }}$
-        
-    #     ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$
-    #     ${{\hspace{{4mm}} A_x = 0 }}$
-    #     ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$
-    #     ${{\hspace{{4mm}} A_y + B_y - F = 0}}$
-    #     ${{\hspace{{4mm}} A_y + B_y = F}}$
-    #     ${{\hspace{{4mm}} \\sum{{M_B}} = 0 }}$
-    #     ${{\hspace{{4mm}} F \\cdot d_1 - A_y \cdot (d_0 + d_1) - M = 0 }}$
-    #     ${{\hspace{{4mm}} A_y = \\dfrac{{F \\cdot d_1 - M}}{{(d_0 + d_1)}}}}$
-    #     ${{\hspace{{4mm}} B_y = F - A_y}}$
+        $\\textbf{{\\small 1. Reacciones: }}$
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$             
+        ${{\hspace{{4mm}} A_x = 0 \\text{{ kN}}}}$
 
-    #     $\\textbf{{\\small 2. Ecuación del tramo: }}$
-    #     Como queremos encontrar el cortante y el momento inmediatamente despues del punto C, se puede sacar unicamente la ecuación del tramo 2.
-    #     ${{\hspace{{4mm}} Tramo [d_0, d_0 + d_1] }}$
-    #     ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$
-    #     ${{\hspace{{4mm}} A_x - F - V(x) = 0 }}$
-    #     ${{\hspace{{4mm}} V(x) = (A_x - F)[kN] }}$
-    #     ${{\hspace{{4mm}} \\sum{{M}} = 0 }}$
-    #     ${{\hspace{{4mm}} M(x) - A_y \cdot x - M + F(x - d_0) = 0 }}$
-    #     ${{\hspace{{4mm}} M(x) = (A_y \cdot x + M - F(x - d_0))[kN \\cdot m] }}$
-    #     Teniendo en cuenta esto, y que la distancia al punto $C$ es $d_0$, se puede evaluar la ecuación del cortante y momento en $x = d_0$.
-    #     ${{\hspace{{4mm}} V(d_0) = (A_x - F)[kN] }}$
-    #     ${{\hspace{{4mm}} M(d_0) = (A_y \cdot d_0 + M - F(d_0 - d_0))[kN \\cdot m] }}$
-    #     Teniendo esto en cuenta, el resultado es
-    #     ${{\hspace{{4mm}} V_C = {(f[0]*d[3]-m[0])/(d[0]+d[3])-f[0]}[kN] }}$
-    #     ${{\hspace{{4mm}} M_C = {(f[0]*d[3]-m[0])/(d[0]+d[3])*d[0]+m[0]}[kN \\cdot m] }}$ 
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
+        ${{\hspace{{4mm}} \\sum{{M_B}} = 0 }}$              
+        ${{\hspace{{4mm}} \\sum{{M_B}} = F \\cdot d_1 - A_y \cdot (d_0 + d_1) - M = 0 }}$                
+        ${{\hspace{{4mm}} A_y = \\dfrac{{F \\cdot d_1 - M}}{{(d_0 + d_1)}}}}$                  
+        ${{\hspace{{4mm}} A_y = {(f[0]*d[3]-m[0])/(d[0]+d[3]):.2f} \\text{{ kN}} }}$
+
+        ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$                  
+        ${{\hspace{{4mm}} \\sum{{F_y}} = A_y + B_y - F = 0}}$            
+        ${{\hspace{{4mm}} B_y = F - A_y}}$            
+        ${{\hspace{{4mm}} B_y = {f[0]-((f[0]*d[3]-m[0])/(d[0]+d[3])):.2f} \\text{{ kN}} }}$
+
+        
+        $\\textbf{{\\small 2. Cortante y Momento flector en C: }}$
+        """,
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"""
+        ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$          
+        ${{\hspace{{4mm}} \\sum{{F_y}} = A_y - F - V_C(x) = 0 }}$           
+        ${{\hspace{{4mm}} V_C(x) = A_y - F \\text{{ kN}} }}$           
+        ${{\hspace{{4mm}} V_C(x) = {(f[0]*d[3]-m[0])/(d[0]+d[3])-f[0]:.2f} \\text{{ kN}} }}$          
+        ${{\hspace{{4mm}} |V_C(x)| = {-1*((f[0]*d[3]-m[0])/(d[0]+d[3])-f[0]):.2f} \\text{{ kN}} }}$
+
+        ${{\hspace{{4mm}} \\sum{{M}} = 0 }}$               
+        ${{\hspace{{4mm}} \\sum{{M}} = M_C(x) - A_y \cdot d_0 - M= 0 }}$             
+        ${{\hspace{{4mm}} M_C(x) = A_y \cdot d_0 + M \\text{{ }}}}$                   
+        ${{\hspace{{4mm}} M_C = |M_C(x)| = {(f[0]*d[3]-m[0])/(d[0]+d[3])*d[0]+m[0]:.2f} \\text{{ }} kN \\cdot m }}$ 
+        """,
+        calculos='operations'
+        ),
    
 
 

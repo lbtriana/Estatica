@@ -456,6 +456,8 @@ FI_rtas_paths= [#Imágenes Respuestas Cálculos Fuerzas Internas
 "./Imagenes/Respuestas/FI/R_FI_FI_M_4a.png", #[10]
 "./Imagenes/Respuestas/FI/R_FI_FI_M_5a.png", #[11]
 "./Imagenes/Respuestas/FI/R_FI_FI_M_5b.png", #[12]
+"./Imagenes/Respuestas/FI/R_FI_FI_M_6a.png", #[13]
+"./Imagenes/Respuestas/FI/R_FI_FI_M_6b.png", #[14]
 ]
 
 
