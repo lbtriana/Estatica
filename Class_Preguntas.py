@@ -10015,7 +10015,7 @@ preguntas = [
         version = 1,
         pregunta = lambda f, a, calc, c, d, m: f"Determine las magnitudes de la fuerza cortante y el momento flector que actúan sobre la columna en el punto $B$, debido a las fuerzas $F_1 = {f[0]:.0f} \\text{{ kN}}$ y $F_2 = {f[1]:.0f} \\text{{ kN}}$. Considere que $d_0 = {d[0]/4:.2f} \\text{{ m}}$, $d_1 = {d[3]/4:.2f} \\text{{ m}}$ y $d_2 = {d[6]/4:.2f} \\text{{ m}}$.",
         no_answers = 2,
-        a1_name = "Cortante en $B$ $[kN]$",
+        a1_name = "Fuerza cortante en $B$ $[kN]$",
         a2_name = "Momento en $B$ $[kN \\cdot m]$",
         a3_name = "",
         answer1 = lambda f, a, calc, c, d, m: np.round(f[0]+f[1],2),
@@ -10069,7 +10069,7 @@ preguntas = [
         version = 1,
         pregunta = lambda f, a, calc, c, d, m: f"Determine las magnitudes de la fuerza cortante y el momento flector en el punto $C$. Considere que la fuerza $F = {f[0]:.0f} \\text{{ kN}}$, el momento $M = {m[0]:.0f} \\text{{ }} kN \\cdot m$, $d_0 = {d[0]:.0f} \\text{{ m}}$ y $d_1 = {d[3]:.0f} \\text{{ m}}$.",
         no_answers = 2,
-        a1_name = "Cortante en $C$ $[kN]$",
+        a1_name = "Fuerza cortante en $C$ $[kN]$",
         a2_name = "Momento en $C$ $[kN \\cdot m]$",
         a3_name = "",
         answer1 = lambda f, a, calc, c, d, m: np.round(-1*((f[0]*d[3]-m[0])/(d[0]+d[3])-f[0]),2),
@@ -10202,70 +10202,73 @@ preguntas = [
         calculos='operations'
         ),
     
-    # Questionary(#2_1
-    #     code = 8130021,
-    #     no_pregunta = 2,
-    #     complexity = D,
-    #     topic = FI,
-    #     subtopic = "Fuerzas internas",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza cortante y el momento flector a $x = {d[0]:.0f} \\text{{ m}}$ medidos desde el apoyo $B$ hacia la izquierda. Considere que $W_1 = {f[0]+7:.0f} \\text{{ }} \\dfrac{{kN}}{{m}}$, $W_2 = {f[0]:.0f} \\text{{ }} \\dfrac{{kN}}{{m}}$ y $d_0 = {d[0]+3:.0f} \\text{{ m}}$.",
-    #     no_answers = 2,
-    #     a1_name = "Fuerza cortante $[kN]$",
-    #     a2_name = "Momento flector $[kN \\cdot m]$",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round((-1*7*d[0]**2)/(2*(d[0]+3))+(f[0]+7)*d[0]+(7*(d[0]+3))/6-((f[0]+7)*(d[0]+3))/2,2),
-    #     answer2 = lambda f, a, calc, c, d, m: np.round((-1*7*d[0]**3)/(6*(d[0]+3))+((f[0]+7)*d[0]**2)/2+((7*(d[0]+3))/6-((f[0]+7)*(d[0]+3))/2)*d[0],2),
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = FI1,
-    #     ayuda2 = FI2,      
-    #     ayuda3 = FI3,
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     Las fuerzas internas se definen como las fuerzas que actúan dentro de un elemento y se obtienen mediante un corte teórico en el cuerpo. A continuación, se presenta la solución sugerida para el ejercicio:
+    Questionary(#2_1
+        code = 8130021,
+        no_pregunta = 2,
+        complexity = D,
+        topic = FI,
+        subtopic = "Fuerzas internas",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza cortante y el momento flector a $x = {d[0]:.0f} \\text{{ m}}$ medidos desde el apoyo $B$ hacia la izquierda. Considere que $W_1 = {f[0]+7:.0f} \\text{{ }} \\dfrac{{kN}}{{m}}$, $W_2 = {f[0]:.0f} \\text{{ }} \\dfrac{{kN}}{{m}}$ y $d_0 = {d[0]+3:.0f} \\text{{ m}}$.",
+        no_answers = 2,
+        a1_name = "Fuerza cortante $[kN]$",
+        a2_name = "Momento flector $[kN \\cdot m]$",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(abs(((((f[0]+7)-(f[0]))/(d[0]+3))*d[0])*0.5*(d[0])+(f[0]*d[0])-((((7*(d[0]+3))/2)/3)+((f[0]*(d[0]+3))/2))),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(abs(((((7*(d[0]+3))/2)/3)+((f[0]*(d[0]+3))/2))*d[0]-f[0]*d[0]*d[0]/2-((((f[0]+7)-(f[0]))/(d[0]+3))*d[0])*(d[0]**2)/6),2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = FI1,
+        ayuda2 = FI2,      
+        ayuda3 = FI3,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        Las fuerzas internas se definen como las fuerzas que actúan dentro de un elemento y se obtienen mediante un corte teórico en el cuerpo. A continuación, se presenta la solución sugerida para el ejercicio:
 
-    #     $\\textbf{{\\small 1. Reacción en el apoyo B: }}$
+        $\\textbf{{\\small 1. Reacción en el apoyo B: }}$
 
-    #     Considerando que el punto en el cual se solicita la fuerza cortante y el momento flector es con respecto al apoyo $B$, el corte realizado tomará la parte derecha de la viga, por lo cual, solo será de interés la reacción en $B$.
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"""
-    #     ${{\hspace{{4mm}} F_1 =  \\dfrac{{(W_1 - W_2) * d_0}}{{2}}}}$         
-    #     ${{\hspace{{4mm}} F_1 =  {(7*(d[0]+3))/2:.2f} \\text {{ kN}} }}$      
+        Dado que el punto en el cual se solicita la fuerza cortante y el momento flector es con respecto al apoyo $B$, se considera la sección de la viga ubicada a la izquierda de dicho punto. Por lo tanto, únicamente es de interés conocer la reacción en el apoyo $B$.       
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        ${{\hspace{{4mm}} F_1 =  \\dfrac{{(W_1 - W_2) * d_0}}{{2}}}}$         
+        ${{\hspace{{4mm}} F_1 =  {(7*(d[0]+3))/2:.2f} \\text {{ kN}} }}$      
 
-    #     ${{\hspace{{4mm}} F_2 = W_2 * d_0  }}$            
-    #      ${{\hspace{{4mm}} F_2 =  {f[0]+(d[0]+3):.2f} \\text {{ kN}} }}$
+        ${{\hspace{{4mm}} F_2 = W_2 * d_0  }}$            
+         ${{\hspace{{4mm}} F_2 =  {f[0]*(d[0]+3):.2f} \\text {{ kN}} }}$
 
 
-    #     ${{\hspace{{4mm}} \\sum{{M_A}} = 0 }}$        
-    #     ${{\hspace{{4mm}} \\sum{{M_A}} = -F_1 \\cdot \\bar{{x_1}} - F_2 \\cdot \\bar{{x_2}} + B_y \\cdot d_0 = 0 }}$           
-    #     ${{\hspace{{4mm}} B_y \\cdot d_0 = F_1 \\cdot \\bar{{x_1}} + F_2 \\cdot \\bar{{x_2}}}}$              
-    #     ${{\hspace{{4mm}} B_y = \\dfrac{{F_1 \\cdot \\bar{{x_1}} + F_2 \\cdot \\bar{{x_2}}}}{{d_0}}}}$               
+        ${{\hspace{{4mm}} \\sum{{M_A}} = 0 }}$        
+        ${{\hspace{{4mm}} \\sum{{M_A}} = -F_1 \\cdot \\dfrac{{d_0}}{{3}} - F_2 \\cdot \\dfrac{{d_0}}{{2}} + B_y \\cdot d_0 = 0 }}$           
+        ${{\hspace{{4mm}} B_y \\cdot d_0 = F_1 \\cdot \\dfrac{{d_0}}{{3}} + F_2 \\cdot \\dfrac{{d_0}}{{2}}}}$              
+        ${{\hspace{{4mm}} B_y = \\dfrac{{F_1}}{{3}} + \\dfrac{{F_2}}{{2}} }}$     
+        ${{\hspace{{4mm}} B_y = {(((7*(d[0]+3))/2)/3)+((f[0]*(d[0]+3))/2):.2f} \\text {{ kN}} }}$              
 
-    #     $\\textbf{{\\small 2. Cálculo de la fuerza cortante y el momento flector: }}$
+        $\\textbf{{\\small 2. Cálculo de la fuerza cortante y el momento flector: }}$  
+        """,
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"""
+        Se contempla una nueva variable W', la cual, se puede determinar utilizando triángulos semejantes:
 
-    #     """,
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"""
-    #     Como nos piden la distancia $c$ con respecto al punto B, entonces haremos el diagrama de cortante y momento partiendo de este punto. 
-    #     Primero se tiene que encontrar la ecuación w(x) generada por las cargas distribuidas.
-    #     La pendiente seria:
-    #     ${{\hspace{{4mm}} m = \\dfrac{{W_2 - W_1}}{{d_0}}}}$
-    #     La ecuación de la carga distribuida seria:
-    #     ${{\hspace{{4mm}} w(x) = m \\cdot x + W_2}}$
-    #     Ahora si se realiza sumatoria de fuerzas y momento para el diagrama seleccionado
-    #     ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$
-    #     ${{\hspace{{4mm}} V(x) - \\dfrac{{m}}{{2}} \\cdot x^2 - W_2 \\cdot x + B_y = 0 }}$
-    #     ${{\hspace{{4mm}} V(x) = \\dfrac{{m}}{{2}} \\cdot x^2 + W_2 \\cdot x - B_y}}$
-    #     ${{\hspace{{4mm}} \\sum{{M}} = 0 }}$
-    #     ${{\hspace{{4mm}} M(x) - \\dfrac{{m}}{{6}} \\cdot x^3 - W_2 \\cdot \\dfrac{{x^2}}{{2}} + B_y \\cdot x = 0 }}$
-    #     ${{\hspace{{4mm}} M(x) = \\dfrac{{m}}{{6}} \\cdot x^3 + W_2 \\cdot \\dfrac{{x^2}}{{2}} - B_y \\cdot x}}$
-    #     Teniendo ya las ecuaciones, podemos reemplazar en $V(c)$ y $M(c)$
-    #     ${{\hspace{{4mm}} V(c) = \\dfrac{{m}}{{2}} \\cdot c^2 + W_2 \\cdot c - B_y}}$
-    #     ${{\hspace{{4mm}} M(c) = \\dfrac{{m}}{{6}} \\cdot c^3 + W_2 \\cdot \\dfrac{{c^2}}{{2}} - B_y \\cdot c}}$
-    #     Teniendo esto en cuenta, el resultado es
-    #     ${{\hspace{{4mm}} V_C = {((-1*7*d[0]**2)/(2*(d[0]+3))+(f[0]+7)*d[0]+(7*(d[0]+3))/6-((f[0]+7)*(d[0]+3))/2)}[kN] }}$
-    #     ${{\hspace{{4mm}} M_C = {((-1*7*d[0]**3)/(6*(d[0]+3))+((f[0]+7)*d[0]**2)/2+((7*(d[0]+3))/6-((f[0]+7)*(d[0]+3))/2)*d[0])}[kN \\cdot m] }}$
-    #     """,
-    #     calculos='operations'
-    #     ), 
+        ${{\hspace{{4mm}} \\dfrac{{W_1 - W_2}}{{d_0}} = \\dfrac{{W'}}{{x}}}}$     
+        ${{\hspace{{4mm}} W' = \\left(\\dfrac{{W_1 - W_2}}{{d_0}}\\right) x}}$      
+        ${{\hspace{{4mm}} W' = {(((f[0]+7)-(f[0]))/(d[0]+3))*d[0]:.2f} \\dfrac{{kN}}{{m}} }}$ 
+
+        
+        A partir de lo anterior, se calcula tanto la fuerza cortante como el momento flector:
+        
+        $\\underline{{Fuerza \\hspace{{2mm}} cortante:}}$
+        
+        ${{\hspace{{4mm}} \\sum{{F_y}} = V + B_y - W_2 \\cdot x - \\dfrac{{W' \\cdot x}}{{2}} = 0}}$     
+        ${{\hspace{{4mm}} V =  W_2 \\cdot x + \\dfrac{{W' \\cdot x}}{{2}} - B_y}}$     
+        ${{\hspace{{4mm}} V = {((((f[0]+7)-(f[0]))/(d[0]+3))*d[0])*0.5*(d[0])+(f[0]*d[0])-((((7*(d[0]+3))/2)/3)+((f[0]*(d[0]+3))/2)):.2f} \\text{{ kN}} }}$     
+        
+        $\\underline{{Momento \\hspace{{2mm}} flector:}}$
+        
+        ${{\hspace{{4mm}} \\sum{{M}} = -M + B_y \\cdot x - W_2 \\cdot \\dfrac{{x^2}}{{2}} - W' \\cdot \\dfrac{{x^2}}{{6}}= 0}}$     
+        ${{\hspace{{4mm}} M = B_y \\cdot x - W_2 \\cdot \\dfrac{{x^2}}{{2}} - W' \\cdot \\dfrac{{x^2}}{{6}} }}$  
+        ${{\hspace{{4mm}} M = {((((7*(d[0]+3))/2)/3)+((f[0]*(d[0]+3))/2))*d[0]-f[0]*d[0]*d[0]/2-((((f[0]+7)-(f[0]))/(d[0]+3))*d[0])*(d[0]**2)/6:.2f} \\text{{ kN}} \\cdot \\text{{ m}}}}$     
+
+
+        """,
+        calculos='operations'
+        ), 
 
     # Questionary(#3_1
     #     code = 8130031,

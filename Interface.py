@@ -1243,7 +1243,7 @@ if authenticate_user():
             if difficulty == "Díficil":
                 if subtopic == "Fuerzas internas":
                     if pregunta_no == 2:
-                        st.image(FI_rtas_paths[16], width=250)
+                        st.image(FI_rtas_paths[16], width=200)
                 if subtopic == "Vigas":
                     if pregunta_no ==2:
                         st.image(FD_rtas_paths[20], width=350)
