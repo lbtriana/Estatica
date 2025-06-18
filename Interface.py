@@ -1071,6 +1071,8 @@ if authenticate_user():
                 if subtopic == "Fuerzas internas":
                     if pregunta_no == 1:
                         st.image(FI_image_paths[2], width=400)
+                    if pregunta_no == 2:
+                        st.image(FI_image_paths[9], width=400)
                             
         return
 
@@ -1200,7 +1202,9 @@ if authenticate_user():
                         st.image(FD_rtas_paths[9], width=350)    
                 if subtopic == "Fuerzas internas":
                     if pregunta_no ==1:
-                        st.image(FI_rtas_paths[4], width=200)                            
+                        st.image(FI_rtas_paths[4], width=200)  
+                    if pregunta_no ==2:
+                        st.image(FI_rtas_paths[15], width=400)                           
         return
 
     def filtrar_imagenes_respuestas_P2(pregunta_no, version_no, subtopic, difficulty):
@@ -1235,7 +1239,11 @@ if authenticate_user():
                         st.image(FI_rtas_paths[12], width=200)
                     if pregunta_no == 6:
                         st.image(FI_rtas_paths[14], width=250) 
+
             if difficulty == "Díficil":
+                if subtopic == "Fuerzas internas":
+                    if pregunta_no == 2:
+                        st.image(FI_rtas_paths[16], width=250)
                 if subtopic == "Vigas":
                     if pregunta_no ==2:
                         st.image(FD_rtas_paths[20], width=350)

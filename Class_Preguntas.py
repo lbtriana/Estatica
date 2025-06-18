@@ -6740,7 +6740,7 @@ preguntas = [
         topic = "Sistemas equivalentes",
         subtopic = "Sistemas equivalentes",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de $F_1$ y la coordenada en $X$ de la fuerza resultante que reemplaza el sistema mostrado, si se sabe que debe estar ubicada sobre el tramo $AB$. Considere $M = {32+m[0]*(1/10):.2f} \\text{{ kN}} \\cdot \\text{{ m}}$, $F_2 = {79+m[1]*(1/5):.2f} \\text{{ kN}}$, $F_3 = {24+m[0]*(3/40):.2f} \\text{{ kN}}$, $F_4 = {119+m[2]*(1/5):.2f} \\text{{ kN}}$, $d_1 = {(31+d[0])/4:.2f} \\text{{ m}}$,  $d_2 = {d[3]:.2f} \\text{{ m}}$, $d_3 = {6+d[6]*(1/5):.2f} \\text{{ m}}$, $d_4 = {(23+d[0])/4:.2f} \\text{{ m}}$, $d_5 = {(19+d[0])/4:.2f} \\text{{ m}}$, $\\alpha_1 = {72+d[9]*(2/5):.2f}°$ y $\\alpha_2 = {60+d[9]*(2/5):.2f}°$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de $F_1$ y la coordenada en $X$ de la fuerza resultante que reemplaza el sistema mostrado, si se sabe que debe estar ubicada sobre el tramo $AB$. Considere $M = {32+m[0]*(1/10):.2f} \\text{{ kN}} \\cdot \\text{{ m}}$, $F_2 = {79+m[1]*(1/5):.2f} \\text{{ kN}}$, $F_3 = {24+m[0]*(3/40):.2f} \\text{{ kN}}$, $F_4 = {119+m[2]*(1/5):.2f} \\text{{ kN}}$, $d_1 = {(31+d[0])/4:.2f} \\text{{ m}}$,  $d_2 = {d[3]:.2f} \\text{{ m}}$, $d_3 = {6+d[6]*(1/5):.2f} \\text{{ m}}$, $d_4 = {(23+d[0])/4:.2f} \\text{{ m}}$, $d_5 = {(19+d[0])/4:.2f} \\text{{ m}}$, $\\alpha_1 = {72+d[9]*(2/5):.2f}°$ y $\\alpha_2 = {60+d[9]*(2/5):.2f}°$, el cual relaciona el eje $z$ con el plano $xy$.",
         no_answers = 2,
         a1_name = "$F_1$ $[kN]$",
         a2_name = "Coordenada en $X$ $[m]$",
@@ -6756,7 +6756,7 @@ preguntas = [
         
         $\\textbf{{\\small 1. Determinar fuerza resultante: }}$
         
-        Se debe tener presente que las fuerzas $F_4$ solo van a generar un momento par y no van a tener ningún efecto traslacional:
+        Se debe tener presente que las fuerzas $F_4$ generan un momento par y no tienen un efecto traslacional en el sistema:
         
         ${{\hspace{{4mm}} \\sum{{F_x}} = F_{{Rx}}}}$          
         ${{\hspace{{4mm}} F_{{Rx}} = F_2 }}$          
@@ -6765,21 +6765,36 @@ preguntas = [
         ${{\hspace{{4mm}} F_{{Ry}} = F_1 \\cdot \\cos(\\alpha_1) - F_3 }}$          
                 
         ${{\hspace{{4mm}} \\sum{{F_z}} = F_{{Rz}}}}$          
-        ${{\hspace{{4mm}} F_{{Rz}} = - F_1 \\cdot \\sin(\\alpha_1)}}$          
+        ${{\hspace{{4mm}} F_{{Rz}} = - F_1 \\cdot \\sin(\\alpha_1)}}$  
+
+        ${{\hspace{{4mm}} F_{{R}} = ({79+m[1]*(1/5):.2f}) \\text{{ }} \\hat{{ i}} + (F_1 \\cdot \\cos({72+d[9]*(2/5):.2f}°) - {24+m[0]*(3/40):.2f}) \\text{{ }} \\hat{{ j}} + (-F_1 \\cdot \\sin({72+d[9]*(2/5):.2f}°) \\text{{ }} \\hat{{ k}} }}$     
                      
+        
         $\\textbf{{\\small 2. Condición de momento: }}$
         
-        Inicialmente, se va a calcular el momento que debe cumplir la fuerza resultante respecto al punto A, el cual, va a ser resultado de la suma de momentos producidos por las fuerzas correspondientes ($F_4, F_2 y F_1$) y el momento M. A continuación se calcula cada momento y se concluye con su suma: 
+        Inicialmente, se calcula el momento en el punto $A$ que producen las fuerzas en el sistema original: 
         
-        ${{\hspace{{4mm}} M_{{par}} = F_4 \\cdot (d_4 \\cdot \\cos(\\alpha_2) + d_5 \\cdot \\cos(alpha_2)) \\hat{{j}} }}$     
-             
-        ${{\hspace{{4mm}} M_2 = d_3 \\cdot F_2 \\hat{{j}} }}$     
-              
-        ${{\hspace{{4mm}} M_1 = d_1 \\cdot F_1 \\sin(\\alpha_1) \\hat{{j}} + d_1 \\cdot F_1 \\cos(\\alpha_1) \\hat{{k}} }}$     
+        $\\underline{{Fuerza \\hspace{{2mm}} 1:}}$  
+
+        ${{\hspace{{4mm}} M_1 = d_1 \\cdot F_1 \\sin(\\alpha_1) \\hat{{j}} + d_1 \\cdot F_1 \\cos(\\alpha_1) \\hat{{k}} }}$ 
+
+        $\\underline{{Fuerza \\hspace{{2mm}} 2:}}$  
+
+        ${{\hspace{{4mm}} M_2 = d_3 \\cdot F_2 \\hat{{j}} }}$   
+
+        $\\underline{{Fuerza \\hspace{{2mm}} 3:}}$     
+
+        La fuerza $F_3$ no ejerce momento en el punto A
+
+        $\\underline{{Fuerza \\hspace{{2mm}} 4:}}$   
+
+        ${{\hspace{{4mm}} M_{{par}} = F_4 \\cdot (d_4 + d_5) \\cdot \\cos(\\alpha_2) \\hat{{j}} }}$    
+   
         
-        ${{\hspace{{4mm}} \\sum{{M_A}} = ( d_1 \\cdot F_1 \\sin(\\alpha_1) + d_3 \\cdot F_2 + F_4 \\cdot (d_4 \\cdot \\cos(\\alpha_2) + d_5 \\cdot \\cos(alpha_2)) ) \\hat{{j}} + (d_1 \\cdot F_1 \\cos(\\alpha_1) - M) \\hat{{k}} }}$    
-        
-        Ahora bien, se calcula realizando producto cruz el momento que sería efectuado por la resultante ubicada a una distancia x del punto A:
+        ${{\hspace{{4mm}} \\sum{{M_A}} = 0 \\hat{{i}} + ( d_1 \\cdot F_1 \\sin(\\alpha_1) + d_3 \\cdot F_2 + F_4 \\cdot (d_4 + d_5) \\cdot \\cos(\\alpha_2)) \\hat{{j}} + (d_1 \\cdot F_1 \\cos(\\alpha_1) - M) \\hat{{k}} }}$      
+
+
+        Luego, se iguala el momento hallado en el punto $A$ con el momento que sería efectuado por la resultante ubicada a una distancia $x$ del punto $A$, el cual es:
         
         ${{\hspace{{4mm}} M_{{F_R}} = 0 \\hat{{i}} - x \\cdot F_{{Rz}} \\hat{{j}} + x \\cdot F_{{Ry}} \\hat{{k}} }}$     
         
@@ -6803,7 +6818,7 @@ preguntas = [
         
         ${{\hspace{{4mm}} F_1 = {((24+m[0]*(3/40))*((119+m[2]*(1/5))*Calculations.cosine(60+d[9]*(2/5))*((21+d[0])/2) + (79+m[1]*(1/5))*(6+d[6]*(1/5))))/(Calculations.cosine(72+d[9]*(2/5))*((119+m[2]*(1/5))*Calculations.cosine(60+d[9]*(2/5))*((21+d[0])/2) + (79+m[1]*(1/5))*(6+d[6]*(1/5))) + ((32+m[0]*(1/10))-(24+m[0]*(3/40))*((31+d[0])/4))*Calculations.sine(72+d[9]*(2/5))):.2f} \\text{{ kN}}}}$     
         
-        Finalmente, $X$ mediante la siguiente expresión:
+        Finalmente, se halla $x$:
         
         ${{\hspace{{4mm}} x = \\dfrac{{M_{{par}} + M_2}}{{F_1 \\cdot \\sin(\\alpha_1)}} + d_1 }}$     
         
@@ -10187,44 +10202,48 @@ preguntas = [
         calculos='operations'
         ),
     
-    # Questionary(#1_1
-    #     code = 8130011,
-    #     no_pregunta = 1,
+    # Questionary(#2_1
+    #     code = 8130021,
+    #     no_pregunta = 2,
     #     complexity = D,
     #     topic = FI,
-    #     subtopic = "Fuerzas Internas",
+    #     subtopic = "Fuerzas internas",
     #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Determine el cortante y momento flector a $c = {d[0]:.0f}[m]$ del apoyo $B$ generado por la carga distribuida dada por $W_1 = {f[0]+7:.0f}[\\dfrac{{kN}}{{m}}]$ y $W_2 = {f[0]:.0f}[\\dfrac{{kN}}{{m}}]$. Tenga en cuenta que $d_0 = {d[0]+3:.0f}[m]$.",
+    #     pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza cortante y el momento flector a $x = {d[0]:.0f} \\text{{ m}}$ medidos desde el apoyo $B$ hacia la izquierda. Considere que $W_1 = {f[0]+7:.0f} \\text{{ }} \\dfrac{{kN}}{{m}}$, $W_2 = {f[0]:.0f} \\text{{ }} \\dfrac{{kN}}{{m}}$ y $d_0 = {d[0]+3:.0f} \\text{{ m}}$.",
     #     no_answers = 2,
-    #     a1_name = "Cortante en el punto C en [kN]",
-    #     a2_name = "Momento en el punto C en [kN \\cdot m]",
+    #     a1_name = "Fuerza cortante $[kN]$",
+    #     a2_name = "Momento flector $[kN \\cdot m]$",
     #     a3_name = "",
     #     answer1 = lambda f, a, calc, c, d, m: np.round((-1*7*d[0]**2)/(2*(d[0]+3))+(f[0]+7)*d[0]+(7*(d[0]+3))/6-((f[0]+7)*(d[0]+3))/2,2),
     #     answer2 = lambda f, a, calc, c, d, m: np.round((-1*7*d[0]**3)/(6*(d[0]+3))+((f[0]+7)*d[0]**2)/2+((7*(d[0]+3))/6-((f[0]+7)*(d[0]+3))/2)*d[0],2),
     #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "Primero encuentre la fuerza distribuida por cada una de las cargas distribuidas teniendo en cuenta su geometria y su distancia respectiva.",
-    #     ayuda2 = "Encuentre el centroide de cada una de las cargas distribuidas teniendo en cuenta su geometria y su distancia respectiva.",      
-    #     ayuda3 = "Haga sumatoria de fuerzas y momentos globales para encontrar las reacciones en los apoyos.",
+    #     ayuda1 = FI1,
+    #     ayuda2 = FI2,      
+    #     ayuda3 = FI3,
     #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     A continuacion se presenta una posible solución para el problema:
-    #     $\\textbf{{\\small 1. Fuerzas, centroides y reacciones: }}$
-    #     ${{\hspace{{4mm}} F_1 =  \\dfrac{{(W_1 - W_2) * d_0}}{{2}}}}$
-    #     ${{\hspace{{4mm}} \\bar{{x_1}} = \\dfrac{{d_0}}{{3}} }}$
-    #     ${{\hspace{{4mm}} F_2 = W_2 * d_0  }}$
-    #     ${{\hspace{{4mm}} \\bar{{x_2}} = \\dfrac{{d_0}}{{2}} }}$
+    #     Las fuerzas internas se definen como las fuerzas que actúan dentro de un elemento y se obtienen mediante un corte teórico en el cuerpo. A continuación, se presenta la solución sugerida para el ejercicio:
 
-    #     ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$
-    #     ${{\hspace{{4mm}} A_x = 0 }}$
-    #     ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$
-    #     ${{\hspace{{4mm}} A_y + B_y - F_1 - F_2 = 0}}$
-    #     ${{\hspace{{4mm}} A_y + B_y = F_1 + F_2}}$
-    #     ${{\hspace{{4mm}} \\sum{{M_A}} = 0 }}$
-    #     ${{\hspace{{4mm}} -F_1 \\cdot \\bar{{x_1}} - F_2 \\cdot \\bar{{x_2}} + B_y \\cdot d_0 = 0 }}$
-    #     ${{\hspace{{4mm}} B_y \\cdot d_0 = F_1 \\cdot \\bar{{x_1}} + F_2 \\cdot \\bar{{x_2}}}}$
-    #     ${{\hspace{{4mm}} B_y = \\dfrac{{F_1 \\cdot \\bar{{x_1}} + F_2 \\cdot \\bar{{x_2}}}}{{d_0}}}}$
-    #     ${{\hspace{{4mm}} A_y = F_1 + F_2 - B_y}}$
+    #     $\\textbf{{\\small 1. Reacción en el apoyo B: }}$
 
-    #     $\\textbf{{\\small 2. Ecuación de cortante y momento flector: }}$
+    #     Considerando que el punto en el cual se solicita la fuerza cortante y el momento flector es con respecto al apoyo $B$, el corte realizado tomará la parte derecha de la viga, por lo cual, solo será de interés la reacción en $B$.
+    #     """,   
+    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+    #     ${{\hspace{{4mm}} F_1 =  \\dfrac{{(W_1 - W_2) * d_0}}{{2}}}}$         
+    #     ${{\hspace{{4mm}} F_1 =  {(7*(d[0]+3))/2:.2f} \\text {{ kN}} }}$      
+
+    #     ${{\hspace{{4mm}} F_2 = W_2 * d_0  }}$            
+    #      ${{\hspace{{4mm}} F_2 =  {f[0]+(d[0]+3):.2f} \\text {{ kN}} }}$
+
+
+    #     ${{\hspace{{4mm}} \\sum{{M_A}} = 0 }}$        
+    #     ${{\hspace{{4mm}} \\sum{{M_A}} = -F_1 \\cdot \\bar{{x_1}} - F_2 \\cdot \\bar{{x_2}} + B_y \\cdot d_0 = 0 }}$           
+    #     ${{\hspace{{4mm}} B_y \\cdot d_0 = F_1 \\cdot \\bar{{x_1}} + F_2 \\cdot \\bar{{x_2}}}}$              
+    #     ${{\hspace{{4mm}} B_y = \\dfrac{{F_1 \\cdot \\bar{{x_1}} + F_2 \\cdot \\bar{{x_2}}}}{{d_0}}}}$               
+
+    #     $\\textbf{{\\small 2. Cálculo de la fuerza cortante y el momento flector: }}$
+
+    #     """,
+    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"""
     #     Como nos piden la distancia $c$ con respecto al punto B, entonces haremos el diagrama de cortante y momento partiendo de este punto. 
     #     Primero se tiene que encontrar la ecuación w(x) generada por las cargas distribuidas.
     #     La pendiente seria:
@@ -10244,17 +10263,12 @@ preguntas = [
     #     Teniendo esto en cuenta, el resultado es
     #     ${{\hspace{{4mm}} V_C = {((-1*7*d[0]**2)/(2*(d[0]+3))+(f[0]+7)*d[0]+(7*(d[0]+3))/6-((f[0]+7)*(d[0]+3))/2)}[kN] }}$
     #     ${{\hspace{{4mm}} M_C = {((-1*7*d[0]**3)/(6*(d[0]+3))+((f[0]+7)*d[0]**2)/2+((7*(d[0]+3))/6-((f[0]+7)*(d[0]+3))/2)*d[0])}[kN \\cdot m] }}$
-
-
-
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+    #     """,
     #     calculos='operations'
     #     ), 
 
-    # Questionary(#2_1
-    #     code = 8130021,
+    # Questionary(#3_1
+    #     code = 8130031,
     #     no_pregunta = 1,
     #     complexity = D,
     #     topic = FI,
@@ -10303,8 +10317,6 @@ preguntas = [
     #     Teniendo esto en cuenta, el resultado es
     #     ${{\hspace{{4mm}} V_d = {(f[2]+f[1]*d[9]/2)}[N] }}$
     #     ${{\hspace{{4mm}} M_d = {((f[2]+f[1]*d[9]/2)*(d[0]+d[3])-(f[2]*(d[0]+d[3])+f[1]*d[9]/2*(d[0]+d[3]+d[6]+d[9]/3)))}[N \\cdot m] }}$
-       
-
     #     """,   
     #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
     #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",

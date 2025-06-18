@@ -305,6 +305,9 @@ FI_image_paths =[#Imágenes Preguntas Cálculo Fuerzas internas
 "./Imagenes/Preguntas/FI/FI_FI_M_4a.png", #[6]
 "./Imagenes/Preguntas/FI/FI_FI_M_5a.png", #[7]
 "./Imagenes/Preguntas/FI/FI_FI_M_6a.png", #[8]
+
+#Fuerzas internas _ Nivel díficil
+"./Imagenes/Preguntas/FI/FI_FI_D_2a.png", #[9]
 ]
 
 
@@ -458,6 +461,10 @@ FI_rtas_paths= [#Imágenes Respuestas Cálculos Fuerzas Internas
 "./Imagenes/Respuestas/FI/R_FI_FI_M_5b.png", #[12]
 "./Imagenes/Respuestas/FI/R_FI_FI_M_6a.png", #[13]
 "./Imagenes/Respuestas/FI/R_FI_FI_M_6b.png", #[14]
+
+#Fuerzas internas _ Nivel díficil
+"./Imagenes/Respuestas/FI/R_FI_FI_D_2a.png", #[15]
+"./Imagenes/Respuestas/FI/R_FI_FI_D_2b.png", #[16]
 ]
 
 
