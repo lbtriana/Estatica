@@ -10067,10 +10067,10 @@ preguntas = [
         topic = FI,
         subtopic = "Fuerzas internas",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine las magnitudes de la fuerza cortante y el momento flector en el punto $C$. Considere que la fuerza $F = {f[0]:.0f} \\text{{ kN}}$, el momento $M = {m[0]:.0f} \\text{{ }} kN \\cdot m$, $d_0 = {d[0]:.0f} \\text{{ m}}$ y $d_1 = {d[3]:.0f} \\text{{ m}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine las magnitudes de la fuerza cortante y el momento flector inmediatamente después del punto $C$. Considere que la fuerza $F = {f[0]:.0f} \\text{{ kN}}$, el momento $M = {m[0]:.0f} \\text{{ }} kN \\cdot m$, $d_0 = {d[0]:.0f} \\text{{ m}}$ y $d_1 = {d[3]:.0f} \\text{{ m}}$.",
         no_answers = 2,
-        a1_name = "Fuerza cortante en $C$ $[kN]$",
-        a2_name = "Momento en $C$ $[kN \\cdot m]$",
+        a1_name = "Fuerza cortante $[kN]$",
+        a2_name = "Momento flector $[kN \\cdot m]$",
         a3_name = "",
         answer1 = lambda f, a, calc, c, d, m: np.round(-1*((f[0]*d[3]-m[0])/(d[0]+d[3])-f[0]),2),
         answer2 = lambda f, a, calc, c, d, m: np.round((f[0]*d[3]-m[0])/(d[0]+d[3])*d[0]+m[0],2),
@@ -10209,7 +10209,7 @@ preguntas = [
         topic = FI,
         subtopic = "Fuerzas internas",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza cortante y el momento flector a $x = {d[0]:.0f} \\text{{ m}}$ medidos desde el apoyo $B$ hacia la izquierda. Considere que $W_1 = {f[0]+7:.0f} \\text{{ }} \\dfrac{{kN}}{{m}}$, $W_2 = {f[0]:.0f} \\text{{ }} \\dfrac{{kN}}{{m}}$ y $d_0 = {d[0]+3:.0f} \\text{{ m}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza cortante y el momento flector a la distancia $x = {d[0]:.0f} \\text{{ m}}$ medida desde el apoyo $B$ hacia la izquierda. Considere que $W_1 = {f[0]+7:.0f} \\text{{ }} \\dfrac{{kN}}{{m}}$, $W_2 = {f[0]:.0f} \\text{{ }} \\dfrac{{kN}}{{m}}$ y $d_0 = {d[0]+3:.0f} \\text{{ m}}$.",
         no_answers = 2,
         a1_name = "Fuerza cortante $[kN]$",
         a2_name = "Momento flector $[kN \\cdot m]$",
@@ -10270,60 +10270,54 @@ preguntas = [
         calculos='operations'
         ), 
 
-    # Questionary(#3_1
-    #     code = 8130031,
-    #     no_pregunta = 1,
-    #     complexity = D,
-    #     topic = FI,
-    #     subtopic = "Fuerzas Internas",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Determine el cortante y el momento flector en la distancia $d = ({d[0]+d[3]:.0f})[m]$ generado por las cargas distribuidas y fuerza dadas por $W_1 = {f[0]:.0f}[\\dfrac {{N}}{{m}}]$, $W_2 = {f[1]:.0f}[\\dfrac {{N}}{{m}}]$ y $F = {f[2]:.0f}[N]$. Considere que $d_0 = {d[0]:.0f}[m]$, $d_1 = {d[3]:.0f}[m]$, $d_2 = {d[6]:.0f}[m]$ y $d_3 = {d[9]:.0f}[m]$.",
-    #     no_answers = 2,
-    #     a1_name = "Cortante a distancia d en [N]",
-    #     a2_name = "Momento a distancia d en [N \\cdot m]",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(f[2]+f[1]*d[9]/2,2),
-    #     answer2 = lambda f, a, calc, c, d, m: np.round((f[2]+f[1]*d[9]/2)*(d[0]+d[3])-(f[2]*(d[0]+d[3])+f[1]*d[9]/2*(d[0]+d[3]+d[6]+d[9]/3)),2),
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "Separe la carga distribuida en secciones como prefiera para facilitar encontrar la fuerza generada por cada una de estas.",
-    #     ayuda2 = "Encuentre la fuerza generada por cada una de las secciones de la carga distribuida teniendo en cuenta su geometria y su distancia respectiva. Asi mismo, su centroide.",      
-    #     ayuda3 = "Haga sumatoria de fuerzas y momentos globales para encontrar las reacciones en los apoyos.",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     A continuacion se presenta una posible solución para el problema:
+    Questionary(#3_1
+        code = 8130031,
+        no_pregunta = 3,
+        complexity = D,
+        topic = FI,
+        subtopic = "Fuerzas internas",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza cortante y el momento flector a la distancia $x = {d[0]+d[3]-0.5:.2f} \\text{{ m}}$ medida desde el apoyo $A$. Considere que $W_1 = {f[0]:.0f} \\text{{ }} \\dfrac {{N}}{{m}}$, $W_2 = {f[1]:.0f} \\text{{ }} \\dfrac {{N}}{{m}}$, $F = {f[2]:.0f} \\text{{ }} N$, $d_0 = {d[0]:.0f} \\text{{ m}}$, $d_1 = {d[3]:.0f} \\text{{ m}}$, $d_2 = {d[6]:.0f} \\text{{ m}}$ y $d_3 = {d[9]:.0f} \\text{{ m}}$.",
+        no_answers = 2,
+        a1_name = "Fuerza cortante a la distancia $x$ $[N]$",
+        a2_name = "Momento flector a la distancia $x$ $[N \\cdot m]$",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(f[2]+f[1]*d[9]/2,2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(abs(f[1]*d[9]*0.5*(d[6]+(d[9]/3)+0.5))+f[2]*0.5,2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = FI2,
+        ayuda2 = FI3,      
+        ayuda3 = FI5,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        Las fuerzas internas se definen como las fuerzas que actúan dentro de un elemento y se obtienen mediante un corte teórico en el cuerpo. A continuación, se presenta la solución sugerida para el ejercicio:
         
-    #     $\\textbf{{\\small 1. Fuerzas, centroides y reacciones: }}$
-    #     ${{\hspace{{4mm}} F_1 =  W_1 * d_0 [N]}}$
-    #     ${{\hspace{{4mm}} \\bar{{x_1}} = \\dfrac{{d_0}}{{2}} [m] }}$
-    #     ${{\hspace{{4mm}} F_2 =  \\dfrac{{W_2 * d_3}}{{2}} [N]}}$
-    #     ${{\hspace{{4mm}} \\bar{{x_2}} = \\dfrac{{d_3}}{{3}} [m] }}$
-    #     ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$
-    #     ${{\hspace{{4mm}} R_x = 0[N]}}$
-    #     ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$
-    #     ${{\hspace{{4mm}} R_y - F_1 - F_2 - F = 0}}$
-    #     ${{\hspace{{4mm}} R_y = F_1 + F_2 + F}}$
-    #     ${{\hspace{{4mm}} \\sum{{M}} = 0 }}$
-    #     ${{\hspace{{4mm}} M - F_1 \\cdot \\bar{{x_1}} - F \\cdot (d_0 + d_1) - F_2 \\cdot (d_0 + d_1 + d_2 + \\bar{{x_2}}) = 0 }}$
-    #     ${{\hspace{{4mm}} M = (F_1 \\cdot \\bar{{x_1}} + F \\cdot (d_0 + d_1) + F_2 \\cdot (d_0 + d_1 + d_2 + \\bar{{x_2}}))[N \\cdot m] }}$
+        La forma más sencilla de solucionar este ejercicio es seleccionar la sección derecha de la viga, dado que, esto evita tener que hallar las reacciones en el empotramiento.
+              
+        $\\textbf{{\\small 1. Cálculo de la fuerza cortante y el momento flector: }}$
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
         
-    #     $\\textbf{{\\small 2. Ecuación de cortante y momento flector: }}$
-    #     Como la distancia $d$ se encuentra en el segundo tramo, se hara el diagrama de cortante y momento flector unicamente para este tramo.
-    #     ${{\hspace{{4mm}} Tramo [d_0, d_0 + d_1] }}$
-    #     ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$
-    #     ${{\hspace{{4mm}} R_y - F_1 - V(x) = 0 }}$
-    #     ${{\hspace{{4mm}} V(x) = R_y - F_1 }}$
-    #     ${{\hspace{{4mm}} \\sum{{M}} = 0 }}$
-    #     ${{\hspace{{4mm}} M(x) - R_y \\cdot x + F_1 \\cdot (x - \\bar{{x_1}}) + M  = 0 }}$
-    #     ${{\hspace{{4mm}} M(x) = (R_y \\cdot x - F_1 \\cdot (x - \\bar{{x_1}}) - M)[N \\cdot m] }}$
-    #     Teniendo ya las ecuaciones, podemos reemplazar en $V(d)$ y $M(d)$
-    #     ${{\hspace{{4mm}} V(d) = R_y - F_1 [N] }}$
-    #     ${{\hspace{{4mm}} M(d) = (R_y \\cdot d - F_1 \\cdot (d - \\bar{{x_1}}) - M)[N \\cdot m] }}$
-    #     Teniendo esto en cuenta, el resultado es
-    #     ${{\hspace{{4mm}} V_d = {(f[2]+f[1]*d[9]/2)}[N] }}$
-    #     ${{\hspace{{4mm}} M_d = {((f[2]+f[1]*d[9]/2)*(d[0]+d[3])-(f[2]*(d[0]+d[3])+f[1]*d[9]/2*(d[0]+d[3]+d[6]+d[9]/3)))}[N \\cdot m] }}$
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
+        La distancia $d$ es equivalente a :
+
+        ${{\hspace{{4mm}} d = d_0+d_1+d_2+d_3-x }}$          
+        ${{\hspace{{4mm}} d = {d[0]+d[3]+d[6]+d[9]-(d[0]+d[3]-0.5):.2f} \\text{{ N}} }}$          
+
+        $\\underline{{Fuerza \\hspace{{2mm}} cortante:}}$
+
+        ${{\hspace{{4mm}} \\sum{{F_y}}=V-\\dfrac{{W_2 \\cdot d_3}}{{2}}-F=0 }}$            
+        ${{\hspace{{4mm}} V=\\dfrac{{W_2 \\cdot d_3}}{{2}}+F }}$    
+        ${{\hspace{{4mm}} V={f[1]*d[9]*0.5+f[2]:.2f} \\text{{ N}} }}$
+
+        $\\underline{{Momento \\hspace{{2mm}} flector:}}$
+
+        ${{\hspace{{4mm}} \\sum{{M}}=-M-\\dfrac{{W_2 \\cdot d_3}}{{2}} \\cdot \\left(0,5+d_2+\\dfrac{{d_3}}{{3}}\\right)-F \\cdot 0,5=0 }}$   
+        ${{\hspace{{4mm}} M=-\\dfrac{{W_2 \\cdot d_3}}{{2}} \\cdot \\left(0,5+d_2+\\dfrac{{d_3}}{{3}}\\right) -  F \\cdot 0,5}}$   
+        ${{\hspace{{4mm}} M={-f[1]*d[9]*0.5*(d[6]+(d[9]/3)+0.5)-f[2]*0.5:.2f} \\text{{ }} N \\cdot m }}$            
+        ${{\hspace{{4mm}} |M|={abs(-f[1]*d[9]*0.5*(d[6]+(d[9]/3)+0.5)-f[2]*0.5):.2f} \\text{{ }} N \\cdot m }}$
+        """,
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"""
+        """,
+        calculos='operations'
+        ),
 
     ]

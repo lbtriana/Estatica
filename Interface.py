@@ -1073,6 +1073,8 @@ if authenticate_user():
                         st.image(FI_image_paths[2], width=400)
                     if pregunta_no == 2:
                         st.image(FI_image_paths[9], width=400)
+                    if pregunta_no == 3:
+                        st.image(FI_image_paths[10], width=500)
                             
         return
 
@@ -1204,7 +1206,9 @@ if authenticate_user():
                     if pregunta_no ==1:
                         st.image(FI_rtas_paths[4], width=200)  
                     if pregunta_no ==2:
-                        st.image(FI_rtas_paths[15], width=400)                           
+                        st.image(FI_rtas_paths[15], width=400)    
+                    if pregunta_no ==3:
+                        st.image(FI_rtas_paths[17], width=300)                           
         return
 
     def filtrar_imagenes_respuestas_P2(pregunta_no, version_no, subtopic, difficulty):
