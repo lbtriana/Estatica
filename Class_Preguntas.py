@@ -6602,64 +6602,60 @@ preguntas = [
         calculos='operations'
         ), 
 
-    #    Questionary(#1_1
-    #     code = 4130011,
-    #     no_pregunta = 1,
-    #     complexity = D,
-    #     topic = MO,
-    #     subtopic = "Sistemas Equivalentes",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Reemplaze el sistema de fuerzas mostrado por una fuerza unica ubicada a lo largo de la linea $C-B$. Tenga en cuenta que $F_1 = {f[0]:.0f}[N]$, $F_2 = {f[1]:.0f}[N]$, $F_3 = {f[2]:.0f}[N]$ y $M = {m[0]:.0f}[N \\cdot m]$. Considere que $d_0 = {d[0]:.0f}[m]$ y $\\theta = {a[0]:.0f}[m]$. ",
-    #     no_answers = 2,
-    #     a1_name = "Coordenada x de la fuerza equivalente en [m]",
-    #     a2_name = "Coordenada y de la fuerza equivalente en [m]",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round((f[0]*d[0]-f[2]*d[0]-m[0])/(-1*(f[1]*Calculations.sine(a[0])+f[2]+f[0]+f[1]*Calculations.cosine(a[0]))),2),
-    #     answer2 = lambda f, a, calc, c, d, m: np.round((f[0]*d[0]-f[2]*d[0]-m[0])/(-1*(f[1]*Calculations.sine(a[0])+f[2]+f[0]+f[1]*Calculations.cosine(a[0]))),2),
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "Descomponga las fuerzas y haga sumatoria de fuerzas para encontrar la fuerza equivalente.",
-    #     ayuda2 = "Encuentre el momento generado por cada fuerza y haga sumatoria de momentos. Iguale este momento al que encontrara generado por la fuerza equivalente",      
-    #     ayuda3 = "Dese cuenta que la figura es un cuadrado, por lo que la coordenada $x$ y la coordenada $y$ de la fuerza equivalente seran iguales.",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     A continuacion se presenta una posible solución para el problema:
+    Questionary(#5_1
+        code = 4130051,
+        no_pregunta = 5,
+        complexity = M,
+        topic = "Sistemas equivalentes",
+        subtopic = "Sistemas equivalentes",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Reemplace el sistema de fuerzas mostrado por una única fuerza ubicada a lo largo de la linea $C-B$, reporte la localización con respecto al punto $C$. Considere que $F_1 = {f[0]:.0f} \\text{{ N}}$, $F_2 = {f[1]:.0f} \\text{{ N}}$, $F_3 = {f[2]:.0f} \\text{{ N}}$ y $M = {m[0]:.0f} \\text{{ }} N \\cdot m$, $d_0 = {d[0]:.0f} \\text{{ m}}$ y $\\theta = {a[0]:.0f}°$. ",
+        no_answers = 2,
+        a1_name = "Distancia $x$ $[m]$",
+        a2_name = "Distancia $y$ $[m]$",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round((m[0]+f[1]*Calculations.cosine(a[0])*d[0]+f[2]*d[0])/(f[0]+f[1]*Calculations.cosine(a[0])+f[2]+f[1]*Calculations.sine(a[0])),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round((m[0]+f[1]*Calculations.cosine(a[0])*d[0]+f[2]*d[0])/(f[0]+f[1]*Calculations.cosine(a[0])+f[2]+f[1]*Calculations.sine(a[0])),2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = SE1,
+        ayuda2 = SE2,      
+        ayuda3 = SE3,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        En un sistema equivalente, se busca simplificar un sistema complejo de fuerzas y momentos a un sistema más simple que genere el mismo efecto rotacional y traslacional. A continuación, se presenta la solución sugerida para el ejercicio:
+
+        $\\textbf{{\\small 1. Determinar fuerza resultante: }}$
+
+        Es importante tener en cuenta que las fuerzas $F_1$ únicamente generan un momento par y no tienen ningún efecto traslacional.
+
+        $\\underline{{Sumatoria \\hspace{{2mm}} de \\hspace{{2mm}} fuerzas \\hspace{{2mm}} en \\hspace{{2mm}} X:}}$  
         
-    #     $\\textbf{{\\small 1. Descomposición de fuerzas:}}$
+        ${{\hspace{{4mm}} \\sum{{F_x}} = F_{{Rx}}}}$           
+        ${{\hspace{{4mm}} F_{{Rx}} = F_2 \\cdot \\cos(\\theta) + F_1}}$           
+        ${{\hspace{{4mm}} F_{{Rx}} = {f[0]+f[1]*Calculations.cosine(a[0]):.2f} \\text{{ N}} }}$          
+        
+        $\\underline{{Sumatoria \\hspace{{2mm}} de \\hspace{{2mm}} fuerzas \\hspace{{2mm}} en \\hspace{{2mm}} Y:}}$  
+        
+        ${{\hspace{{4mm}} \\sum{{F_y}} = F_{{Ry}}}}$          
+        ${{\hspace{{4mm}} F_{{Ry}} = -F_2 \\cdot \\sin(\\theta) - F_3}}$          
+        ${{\hspace{{4mm}} F_{{Ry}} = {f[2]+f[1]*Calculations.sine(a[0]):.2f} \\text{{ N}} }}$          
+        
+        Por lo tanto la fuerza resultante $|F_R| = {Calculations.magnitude(f[0]+f[1]*Calculations.cosine(a[0]),f[2]+f[1]*Calculations.sine(a[0])):.2f} \\text{{ N}}$
+        
+        
+        $\\textbf{{\\small 2. Ubicación de la fuerza resultante: }}$
 
-    #     ${{\hspace{{4mm}} \\vec{F_1} = ({f[0]}\\hat{i}+0\\hat{j})[N]}}$
-    #     ${{\hspace{{4mm}} \\vec{F_2} = ({f[1]}cos({a[0]})\\hat{i}-{f[1]}sen({a[0]})\\hat{j})[N]}}$
-    #     ${{\hspace{{4mm}} \\vec{F_2} = ({f[1]*Calculations.cosine(a[0])})\\hat{i}-{f[1]*Calculations.sine(a[0])})\\hat{j})[N]}}$
-    #     ${{\hspace{{4mm}} \\vec{F_3} = (0\\hat{i}-{f[2]}\\hat{j})[N]}}$
-    #     ${{\hspace{{4mm}} \\sum{F} = ({f[0]+f[1]*Calculations.cosine(a[0])}\\hat{i}-{f[2]+f[1]*Calculations.sine(a[0])})}}$
-    #     $\\textbf{{\\small 2. Momentos generados por cada fuerza:}}$
-    #     Cabe aclarar que todos los momentos presentados a continuación son con respecto al punto $A$ y tienen dirección en \\hat{k}.
-    #     ${{\hspace{{4mm}} \\vec{M} = \\vec{r} \\times \\vec{F}}}$
-    #     Para $F_1$:
-    #     ${{\hspace{{4mm}} \\vec{M} = {f[0]} \\cdot {d[0]}[N \\cdot m]}}$
-    #     ${{\hspace{{4mm}} \\vec{M} = {f[0]*d[0]}[N \\cdot m]}}$
-    #     Para $F_2$:
-    #     ${{\hspace{{4mm}} \\vec{M} = 0[N \\cdot m]}}$
-    #     Para $F_3$:
-    #     ${{\hspace{{4mm}} \\vec{M} = -{f[2]} \\cdot {d[0]}[N \\cdot m]}}$
-    #     ${{\hspace{{4mm}} \\vec{M} = -{f[2]*d[0]}[N \\cdot m]}}$
+        Se realiza la sumatoria de momentos con respecto al punto $C$. Para el sistema equivalente, se considera que las distancias desde la fuerza hasta el punto $C$ en $X$ y en $Y$ son iguales, dado que, la figura es un cuadrado. En los cálculos, estas distancias se identifican como $d$:      
 
-    #     $\\textbf{{\\small 3. Sumatoria de momentos:}}$
-    #     Acá se suma el momento $M$ dado en el problema, el cual es negativo.
-    #     ${{\hspace{{4mm}} \\vec{M_{eq}} = \\sum{M}}}$
-    #     ${{\hspace{{4mm}} \\vec{M_{eq}} = {f[0]*d[0]-f[2]*d[0]-m[0]}[N \\cdot m]}}$
+        ${{\hspace{{4mm}} \\sum{{M_{{C_{{Original}}}}}} = \\sum{{M_{{C_{{Equivalente}}}}}}}}$             
+        ${{\hspace{{4mm}} - M - F_2 \\cdot Cos({a[0]}) - F_3 \\cdot d_0 = - F_{{Rx}} \\cdot d - F_{{Ry}} \\cdot d }}$           
 
-    #     $\\textbf{{\\small 4. Ubicación de la fuerza equivalente:}}$
-    #     Como sabemos que la fuerza debe ubicarse en la linea $C-B$, definiremos distncias $x$ y $y$.
-    #     Pero en este caso, $x=y$, ya que la figura es un cuadrado.
-    #     Entonces:
-    #     ${{\hspace{{4mm}} \\vec{M_{eq}} = -({f[2]+f[1]*Calculations.sine(a[0])})x-({f[0]+f[1]*Calculations.cosine(a[0])})x}}$
-    #     ${{\hspace{{4mm}} -({f[2]+f[1]*Calculations.sine(a[0])+f[0]+f[1]*Calculations.cosine(a[0])})x = {f[0]*d[0]-f[2]*d[0]-m[0]}}}$
-    #     ${{\hspace{{4mm}} x = {(f[0]*d[0]-f[2]*d[0]-m[0])/(-1*(f[1]*Calculations.sine(a[0])+f[2]+f[0]+f[1]*Calculations.cosine(a[0])))}}}$
-
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
+        ${{\hspace{{4mm}} d = \\dfrac{{M + F_2 \\cdot Cos({a[0]}) + F_3 \\cdot d_0}}{{F_{{Rx}}+F_{{Ry}}}} }}$              
+        ${{\hspace{{4mm}} d = {(m[0]+f[1]*Calculations.cosine(a[0])*d[0]+f[2]*d[0])/(f[0]+f[1]*Calculations.cosine(a[0])+f[2]+f[1]*Calculations.sine(a[0])):.2f} \\text{{ m}} }}$
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
 
 
     #========================================================  SISTEMAS EQUIVALENTES  =========================================================
