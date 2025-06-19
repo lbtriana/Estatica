@@ -6828,7 +6828,6 @@ preguntas = [
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),
-
    
 
     #========================================================  ARMADURAS  =========================================================
@@ -7030,60 +7029,65 @@ preguntas = [
         calculos='operations'
     ),
 
-    # Questionary(#4_1
-    #     code = 5110041,
-    #     no_pregunta = 4,
-    #     complexity = F,
-    #     topic = "Armaduras",
-    #     subtopic = "Cerchas",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"La fuerza $F = {f[0]:.0f} \\text{{ kN}}$ es aplicada en la zona inferior del puente, encuentre la magnitud de la fuerza que del elemento $IK$.",
-    #     no_answers = 1,
-    #     a1_name = "Fuerza en $IK$ $[kN]$",
-    #     a2_name = "",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(f[0]/2,2),
-    #     answer2 = lambda f, a, calc, c, d, m: 0,
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = C2,
-    #     ayuda2 = C7,      
-    #     ayuda3 = C8,
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     Una cercha es una estructura compuesta por elementos rectos que se conectan entre sí por puntos llamados nodos, formando triángulos. El método de los nodos es una técnica usada para determinar las fuerzas internas en una cercha, basándose en el principio de que cada nodo está en equilibrio. A continuación, se presenta la solución sugerida para el ejercicio: 
+    Questionary(#4_1
+        code = 5110041,
+        no_pregunta = 4,
+        complexity = F,
+        topic = "Armaduras",
+        subtopic = "Cerchas",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"La fuerza $F = {f[0]:.0f} \\text{{ kN}}$ es aplicada en la zona inferior del puente, encuentre la fuerza interna del elemento $HJ$ (Use el signo negativo si el elemento está en compresión y el signo positivo si el elemento esta en tensión). Considere que las distancias $d_0 = {d[0]:.0f} \\text{{ m}}$ y $d_1 = {d[3]:.0f} \\text{{ m}}$",
+        no_answers = 1,
+        a1_name = "Fuerza en $HJ$ $[kN]$",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(-(f[0]/2)/Calculations.sine(Calculations.arctangent(d[0]/d[3])),2),
+        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = C2,
+        ayuda2 = C7,      
+        ayuda3 = C8,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        Una cercha es una estructura compuesta por elementos rectos que se conectan entre sí por puntos llamados nodos, formando triángulos. El método de los nodos es una técnica usada para determinar las fuerzas internas en una cercha, basándose en el principio de que cada nodo está en equilibrio. A continuación, se presenta la solución sugerida para el ejercicio: 
         
-    #     $\\textbf{{\\small 1. Cálculo de las reacciones en los apoyos: }}$
+        $\\textbf{{\\small 1. Cálculo de las reacciones en los apoyos: }}$
         
-    #     ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$
-    #     ${{\hspace{{4mm}} A_x = 0 }}$
+        ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$            
+        ${{\hspace{{4mm}} A_x = 0 \\text{{ kN}}}}$        
 
-    #     ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$
-    #     ${{\hspace{{4mm}} A_y + B_y - {f[0]} = 0}}$
-    #     ${{\hspace{{4mm}} A_y + B_y = {f[0]}}}$
+        ${{\hspace{{4mm}} \\sum{{M_A}} = 0 }}$              
+        ${{\hspace{{4mm}} \\sum{{M_A}} = L_y \\cdot 6 \\dot d_1 - F \\cdot 3 \\dot d_1 = 0}}$          
+        ${{\hspace{{4mm}} L_y = \\dfrac{{F}}{{2}} }}$               
+        ${{\hspace{{4mm}} L_y = {f[0]/2:.2f} \\text{{ kN}} }}$
 
-    #     Entonces, como esta aplicada en el centro, la fuerza se distribuye igualmente entre los dos apoyos.
+       Teniendo en cuenta que la cercha es simétrica en geometría y carga, las reacciones verticales de los apoyos son iguales: $A_y = L_y = {f[0]/2:.2f} \\text{{ kN}}$
 
-    #     ${{\hspace{{4mm}} A_y = B_y = \\dfrac{{F}}{2} }}$
-    #     ${{\hspace{{4mm}} A_y = B_y = {f[0]/2} }}$
+       
+        $\\textbf{{\\small 2. Cálculo de la fuerza interna del elemento HJ: }}$
 
-    #     $\\textbf{{\\small 2. Nodo B: }}$
+        Al analizar el nodo $K$, se determina que el elemento $KJ$ es un elemento de fuerza cero. Luego, al analizar el nodo $J$, se concluye que el elemento $JI$ también es de fuerza cero, y que el elemento $HJ$ tiene una fuerza igual a la del elemento $LJ$. Por lo tanto, al encontrar la fuerza $LJ$ con el análisis del nodo $L$ se encuentra la fuerza $HJ$ también.
+        
+        $\\underline{{Nodo \\hspace{{2mm}} L:}}$
 
-    #     Se descomponen las fuerzas usando las medidas dadas.
-    #     ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$
-    #     ${{\hspace{{4mm}} -F_{{BI}} + \\dfrac{1}{{\\sqrt{2}}}*F_{{BJ}} = 0 }}$
-    #     ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$
-    #     ${{\hspace{{4mm}} B_y - \\dfrac{1}{{\\sqrt{2}}}*F_{{BJ}} = 0 }}$
-    #     ${{\hspace{{4mm}} F_{{BJ}} = \\sqrt{2}*B_y }}$
-    #     ${{\hspace{{4mm}} F_{{BI}} = \\dfrac{1}{{\\sqrt{2}}}*F_{{BJ}} }}$
-    #     Reemplazamos $F_{{BJ}}$ en la ecuacion de $F_{{BI}}$:
-    #     ${{\hspace{{4mm}} F_{{BI}} = \\dfrac{1}{{\\sqrt{2}}}*\\sqrt{2}*B_y }}$
-    #     ${{\hspace{{4mm}} F_{{BI}} = B_y }}$
-    #     ${{\hspace{{4mm}} F_{{BI}} = \\dfrac{{W}}{2} }}$
-    #     ${{\hspace{{4mm}} F_{{BI}} = {f[0]/2} }}$
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
+        Se suponen las fuerzas a tensión.
+ 
+        ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$        
+        ${{\hspace{{4mm}} \\sum{{F_y}} = L_y + F_{{LJ}} \\cdot Sen({Calculations.arctangent(d[0]/d[3]):.2f}°) = 0 }}$               
+        ${{\hspace{{4mm}} F_{{LJ}} = \\dfrac{{-L_y}}{{Sen({Calculations.arctangent(d[0]/d[3]):.2f}°)}} }}$                      
+        ${{\hspace{{4mm}} F_{{LJ}} = {-(f[0]/2)/Calculations.sine(Calculations.arctangent(d[0]/d[3])):.2f} \\text{{ kN}}}}$                
+
+        {'El elemento $LJ$ está a Tensión.' if (-(f[0]/2)/Calculations.sine(Calculations.arctangent(d[0]/d[3]))) > 0 else 'El elemento $LJ$ está a Compresión.'} 
+
+        De acuerdo, con el análisis en el nodo $J$ mencionado anteriormente, la fuerza del elemento $LJ$ es igual a la del elemento $HJ$. Por lo tanto:
+
+        ${{\hspace{{4mm}} F_{{LJ}} = F_{{HJ}} = {-(f[0]/2)/Calculations.sine(Calculations.arctangent(d[0]/d[3])):.2f} \\text{{ kN}}}}$      
+
+        {'El elemento $HJ$ está a Tensión.' if (-(f[0]/2)/Calculations.sine(Calculations.arctangent(d[0]/d[3]))) > 0 else 'El elemento $HJ$ está a Compresión.'} 
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
    
 
 
