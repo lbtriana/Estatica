@@ -6343,49 +6343,54 @@ preguntas = [
         calculos='operations'
     ),
     
-    # Questionary(#2_1
-    #     code = 4110021,
-    #     no_pregunta = 2,
-    #     complexity = F,
-    #     topic = SE,
-    #     subtopic = "Sistemas Equivalentes",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Remplace el sistema de cargas aplicado, por una carga y un momento en el punto $O$. La fuerza $P = {f[0]:.0f}[N]$ esta en el plano $Y-Z$ y forma un angulo $\\phi = {a[0]:.0f}°$ con el eje $Z$. Considere que $d_0 = {d[0]:.0f}[m]$, $d_1 = {d[3]:.0f}[m]$. y \\theta = {a[4]:.0f}°.",
-    #     no_answers = 3,
-    #     a1_name = "Componente $\\hat{{j}}$ de $F_{{eq}}$ en [N]",
-    #     a2_name = "Componente $\\hat{{k}}$ de $F_{{eq}}$ en [N]",
-    #     a3_name = "Magnitud del momento equivalente en [N \\cdot m]",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(-1*f[0]*Calculations.sine(a[0]),2),
-    #     answer2 = lambda f, a, calc, c, d, m: np.round(f[0]*Calculations.cosine(a[0]),2),
-    #     answer3 = lambda f, a, calc, c, d, m: np.round(Calculations.magnitude3D(f[0]*Calculations.cosine(a[0])*d[0]-f[0]*Calculations.sine(a[0])*d[3]*Calculations.sine(a[4]),f[0]*Calculations.cosine(a[0])*d[3]*Calculations.cosine(a[4]),f[0]*Calculations.sine(a[0])*d[3]*Calculations.cosine(a[4])),2),
-    #     ayuda1 = "Fijese que solo hay una fuerza $P$ en todo el sistema, por lo que la fuerza equivalente seria igual a $P$.",
-    #     ayuda2 = "Encuentre el vector distancia entre el punto $O$ y el punto donde se aplica la fuerza $P$ usando el angulo $\\theta$.",      
-    #     ayuda3 = "Usando esto, encuentre el momento, que seria el momento equivalente del sistema con componentes $\\hat{{i}}$, $\\hat{{j}}$ y $\\hat{{k}}$, usando el producto cruz.",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     A continuación, se presenta la solución sugerida para el ejercicio:
+    Questionary(#5_1
+        code = 4110051,
+        no_pregunta = 5,
+        complexity = F,
+        topic = "Sistemas equivalentes",
+        subtopic = "Sistemas equivalentes",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Reemplace el sistema de cargas aplicado, por una carga y un momento en el punto $O$. La fuerza $F = {f[0]:.0f} \\text{{ kN}}$ está en el plano $y-z$ y forma un ángulo $\\phi = {a[0]:.0f}°$ con el eje $Z$. Considere que $d_0 = {d[0]+10:.0f} \\text{{ m}}$, $d_1 = {d[0]+2:.0f} \\text{{ m}}$ y $\\theta = {a[4]:.0f}°$, el cual se encuentra en el plano en el plano $x-z$.",
+        no_answers = 2,
+        a1_name = "Magnitud Fuerza equivalente $[kN]$",
+        a2_name = "Magnitud Momento equivalente $[kN \\cdot m]$",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(f[0],2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(Calculations.magnitude3D((d[0]+10)*f[0]*Calculations.cosine(a[0])-(d[0]+2)*Calculations.sine(a[0])*f[0]*Calculations.sine(a[4]),(d[0]+2)*Calculations.cosine(a[4])*f[0]*Calculations.cosine(a[0]),(d[0]+2)*Calculations.cosine(a[4])*f[0]*Calculations.sine(a[0])),2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = SE1,
+        ayuda2 = SE2,      
+        ayuda3 = "",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        Un sistema equivalente fuerza-par es la combinación de una fuerza aplicada y un momento que producen el mismo efecto rotacional y traslacional sobre un cuerpo rígido que el sistema original. A continuación, se presenta la solución sugerida para el ejercicio:
         
-    #     $\\textbf{{\\small 1. Descomposición de la fuerza - Fuerza equivalente: }}$ 
+        $\\textbf{{\\small 1. Cálculo fuerza equivalente: }}$
+
+        La fuerza equivalente es igual a la fuerza $F$, dado que, es la única fuerza aplicada en el sistema.
+
+        ${{\hspace{{4mm}} |F_{{eq}}| = F = {f[0]:.2f} \\text{{ kN}}}}$     
         
-    #     ${{\hspace{{4mm}} \\vec{F_{eq}} = (0\\hat{i}-{f[0]}sen({a[0]})\\hat{j}+{f[0]}cos({a[0]})\\hat{k})[N]}}$ 
-    #     ${{\hspace{{4mm}} \\vec{F_{eq}} = (0\\hat{i}-{f[0]*Calculations.sine(a[0])}\\hat{j}+{f[0]*Calculations.cosine(a[0])}\\hat{k})[N]}}$
+        $\\textbf{{\\small 2. Cálculo del momento equivalente: }}$
 
-    #     $\\textbf{{\\small 2. Vector posición: }}$
-    #     ${{\hspace{{4mm}} \\vec{r} = ({d[3]}cos({a[4]})\\hat{i}+{d[0]}\\hat{j}-{d[3]}sen({a[4]})\\hat{k})[m]}}$
-    #     ${{\hspace{{4mm}} \\vec{r} = ({d[3]*Calculations.cosine(a[4])}\\hat{i}+{d[0]}\\hat{j}-{d[3]*Calculations.sine(a[4])}\\hat{k})[m]}}$
+        ${{\hspace{{4mm}} \\vec{{r}} = [d_1 \\cdot Cos(\\theta) \\hat{{ i}} + d_0 \\hat{{ j}} - d_1 \\cdot Sen(\\theta) \\hat{{ k}}] \\text{{ m}}}}$       
+        ${{\hspace{{4mm}} \\vec{{r}} = [{d[0]+2} \\cdot Cos({a[4]}) \\hat{{ i}}+ {d[0]+10} \\hat{{ j}} - {d[0]+2} \\cdot Sen({a[4]})\\hat{{k}}] \\text{{ m}}}}$
 
-    #     $\\textbf{{\\small 3. Momento generado por la fuerza: }}$
-    #     ${{\hspace{{4mm}} \\vec{M} = \\vec{r} \\times \\vec{F_{eq}}}}$
-    #     Haciendo el producto cruz
-    #     ${{\hspace{{4mm}} \\vec{M} = ({f[0]*Calculations.cosine(a[0])*d[0]}-{f[0]*Calculations.sine(a[0])*d[3]*Calculations.sine(a[4])})\\hat{i}-({f[0]*Calculations.cosine(a[0])*d[3]*Calculations.cosine(a[4])})\\hat{j}-({f[0]*Calculations.sine(a[0])*d[3]*Calculations.cosine(a[4])})\\hat{k}[N \\cdot m]}}$
-    #     ${{\hspace{{4mm}} \\vec{M} = ({f[0]*Calculations.cosine(a[0])*d[0]-f[0]*Calculations.sine(a[0])*d[3]*Calculations.sine(a[4])})\\hat{i}-({f[0]*Calculations.cosine(a[0])*d[3]*Calculations.cosine(a[4])})\\hat{j}-({f[0]*Calculations.sine(a[0])*d[3]*Calculations.cosine(a[4])})\\hat{k}[N \\cdot m]}}$
-    #     Encontrando la magnitud tenemos que:
-    #     ${{\hspace{{4mm}} |\\vec{M}| = {Calculations.magnitude3D(f[0]*Calculations.cosine(a[0])*d[0]-f[0]*Calculations.sine(a[0])*d[3]*Calculations.sine(a[4]),f[0]*Calculations.cosine(a[0])*d[3]*Calculations.cosine(a[4]),f[0]*Calculations.sine(a[0])*d[3]*Calculations.cosine(a[4]))}[N \\cdot m]}}$
+        ${{\hspace{{4mm}} \\vec{{F}} = [0 \\hat{{ i}} - F \\cdot Sen(\\phi) \\hat{{ j}} + F \\cdot Cos(\\phi) \\hat{{ k}}] \\text{{ kN}}}}$          
+        ${{\hspace{{4mm}} \\vec{{F}} = [0 \\hat{{ i}} - {f[0]:.0f} \\cdot Sen({a[0]:.0f}) \\hat{{ j}} + {f[0]:.0f} \\cdot Cos({a[0]:.0f}) \\hat{{ k}}] \\text{{ kN}}}}$
 
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
+        Al realizar el producto cruz se obtiene:
+
+        ${{\hspace{{4mm}} \\vec{{M}} = [({(d[0]+10)*f[0]*Calculations.cosine(a[0])-(d[0]+2)*Calculations.sine(a[0])*f[0]*Calculations.sine(a[4]):.2f})\\hat{{i}}-({(d[0]+2)*Calculations.cosine(a[4])*f[0]*Calculations.cosine(a[0]):.2f})\\hat{{j}}-({(d[0]+2)*Calculations.cosine(a[4])*f[0]*Calculations.sine(a[0]):.2f})\\hat{{k}}] \\text{{ }} kN \\cdot m}}$
+       
+        
+        Encontrando la magnitud tenemos que:
+
+        ${{\hspace{{4mm}} |\\vec{{M}}| = {Calculations.magnitude3D((d[0]+10)*f[0]*Calculations.cosine(a[0])-(d[0]+2)*Calculations.sine(a[0])*f[0]*Calculations.sine(a[4]),(d[0]+2)*Calculations.cosine(a[4])*f[0]*Calculations.cosine(a[0]),(d[0]+2)*Calculations.cosine(a[4])*f[0]*Calculations.sine(a[0])):.2f} \\text{{ }} kN \\cdot m}}$
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
    
 
    

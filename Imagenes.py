@@ -227,25 +227,26 @@ AR_image_paths =[#Imágenes Preguntas Cálculo Armaduras
 ]
 
 SE_image_paths =[#Imágenes Preguntas Cálculo Sistemas Equivalentes
-#Cerchas_Nivel Fácil
+#Nivel Fácil
 "./Imagenes/Preguntas/SE/SE_SE_F_1a.png", #[0]
 "./Imagenes/Preguntas/SE/SE_SE_F_1b.png", #[1]
 "./Imagenes/Preguntas/SE/SE_SE_F_2a.png", #[2]
 "./Imagenes/Preguntas/SE/SE_SE_F_3a.png", #[3]
 
-#Cerchas_Nivel Medio
+#Nivel Medio
 "./Imagenes/Preguntas/SE/SE_SE_M_1a.png", #[4]
 "./Imagenes/Preguntas/SE/SE_SE_M_2a.png", #[5]
 
-#Cerchas_Nivel Díficil
+#Nivel Díficil
 "./Imagenes/Preguntas/SE/SE_SE_D_1a.png", #[6]
 "./Imagenes/Preguntas/SE/SE_SE_D_2a.png", #[7]
 
-#Cerchas_Nivel Medio
+#Nivel Medio
 "./Imagenes/Preguntas/SE/SE_SE_M_3a.png", #[8]
 
-#Cerchas_Nivel Fácil
+#Nivel Fácil
 "./Imagenes/Preguntas/SE/SE_SE_F_4a.png", #[9]
+"./Imagenes/Preguntas/SE/SE_SE_F_5a.png", #[10]
 ]
 
 CT_image_paths = [#Imágenes Preguntas Cálculo Centroides
