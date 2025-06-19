@@ -194,7 +194,7 @@ AR_image_paths =[#Imágenes Preguntas Cálculo Armaduras
 "./Imagenes/Preguntas/AR/CE/AR_CE_F_1a.png", #[0]
 "./Imagenes/Preguntas/AR/CE/AR_CE_F_1b.png", #[1]
 "./Imagenes/Preguntas/AR/CE/AR_CE_F_2a.png", #[2]
-"./Imagenes/Preguntas/AR/CE/AR_CE_F_3a.png", #[3] No utilizada
+"./Imagenes/Preguntas/AR/CE/AR_CE_F_3a.png", #[3] 
 
 #Cerchas_Nivel Medio
 "./Imagenes/Preguntas/AR/CE/AR_CE_M_1a.png", #[4]

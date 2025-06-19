@@ -6970,63 +6970,69 @@ preguntas = [
         calculos='operations'
         ),
     
-    # Questionary(#1_1
-    #     code = 5110011,
-    #     no_pregunta = 1,
-    #     complexity = F,
-    #     topic = C,
-    #     subtopic = "Cerchas",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Teniendo en cuenta que $F_1 = {f[0]:.0f}[N]$, $F_2 = {f[1]:.0f}[N]$, $d_0 = {d[0]:.0f}[m]$ y $d_1 = {d[3]:.0f}[m]$, encuentre las fuerzas que fluyen por los elementos $AC$ y $AD$. Desprecie el peso de la cercha.",
-    #     no_answers = 2,
-    #     a1_name = "Magnitud de la fuerza en el elemento $AC$ en $[N]$",
-    #     a2_name = "Magnitud de la fuerza en el elemento $AD$ en $[N]$",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round((f[1]-((d[3]*f[0]+(5/2)*d[0]*f[1])/(3*d[0])))*(Calculations.magnitude(d[3],d[0]/2)/d[3]),2),
-    #     answer2 = lambda f, a, calc, c, d, m: np.round(f[0]+(f[1]*d[0]/(2*d[3]))-(((d[3]*f[0]+(5/2)*d[0]*f[1])/(6*d[3]))),2),
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "Encuentre las reacciones en los apoyos usando sumatoria de fuerzas y momentos global.",
-    #     ayuda2 = "Centrese en el nodo A para realizar su respectivo diagrama de cuerpo libre y asi determinar la direccion de las fuerzas en los elementos $AC$ y $AD$.",      
-    #     ayuda3 = "Tenga en cuenta que la cercha es de traingulos, y de esta forma, descomponga las fuerzas necesarias y haga sumatria de fuerzas del nodo.",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     A continuacion se expondra la solucion sugerida del ejercicio:
-    #     $\\textbf{{\\small 1. Reacciones - Sumatoria de fuerzas y momento: }}$
+    Questionary(#3_1
+        code = 5110031,
+        no_pregunta = 3,
+        complexity = F,
+        topic = "Armaduras",
+        subtopic = "Cerchas",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine las fuerzas internas de los miembros $AC$ y $AD$ (Use el signo negativo si el elemento está en compresión y el signo positivo si el elemento esta en tensión). Considere $F_1 = {f[0]:.0f} \\text{{ N}}$, $F_2 = {f[1]:.0f} \\text{{ N}}$, $d_0 = {d[0]:.0f} \\text{{ m}}$ y $d_1 = {d[3]:.0f} \\text{{ m}}$.",
+        no_answers = 2,
+        a1_name = "Fuerza en $AC$ $[N]$",
+        a2_name = "Fuerza en $AD$ $[N]$",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round((f[1]-((d[3]*f[0]+(5/2)*d[0]*f[1])/(3*d[0])))*(Calculations.magnitude(d[3],d[0]/2)/d[3]),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(f[0]-((f[1]-((d[3]*f[0]+(5/2)*d[0]*f[1])/(3*d[0])))*(Calculations.magnitude(d[3],d[0]/2)/d[3]))*(Calculations.cosine(Calculations.arctangent(d[3]/(0.5*d[0])))),2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = C2,
+        ayuda2 = C3,      
+        ayuda3 = C6,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        Una cercha es una estructura compuesta por elementos rectos que se conectan entre sí por puntos llamados nodos, formando triángulos. El método de los nodos es una técnica usada para determinar las fuerzas internas en una cercha, basándose en el principio de que cada nodo está en equilibrio. A continuación, se presenta la solución sugerida para el ejercicio: 
         
-    #     ${{\hspace{{4mm}} \\sum{F_x} = 0 }}$
-    #     ${{\hspace{{4mm}} {f[0]} - A_x = 0 }}$
-    #     ${{\hspace{{4mm}} A_x = {f[0]}[N] }}$
-    #     ${{\hspace{{4mm}} \\sum{F_y} = 0 }}$
-    #     ${{\hspace{{4mm}} A_y + B_y - {f[1]} = 0}}$ 
-    #     ${{\hspace{{4mm}} A_y + B_y = {f[1]}}}$   
-    #     ${{\hspace{{4mm}} \\sum{M_A} = 0 }}$
-    #     ${{\hspace{{4mm}} -{d[3]}*{f[0]}-\\dfrac{5}{2}*{d[0]}*{f[1]}+3*{d[0]}*B_y = 0 }}$
-    #     ${{\hspace{{4mm}} B_y = {(d[3]*f[0]+(5/2)*d[0]*f[1])/(3*d[0])}[N] }}$
-    #     Ahora podemos encontrar $A_y$:
-    #     ${{\hspace{{4mm}} A_y = {f[1]} - B_y}}$
-    #     ${{\hspace{{4mm}} A_y = {f[1]} - {(d[3]*f[0]+(5/2)*d[0]*f[1])/(3*d[0])}[N] }}$
-    #     ${{\hspace{{4mm}} A_y = {f[1]-(d[3]*f[0]+(5/2)*d[0]*f[1])/(3*d[0])}[N] }}$
+        $\\textbf{{\\small 1. Cálculo de las reacciones en los apoyos: }}$
+        
+        ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$        
+        ${{\hspace{{4mm}} \\sum{{F_x}} = {f[0]} - A_x = 0}}$      
+        ${{\hspace{{4mm}} A_x = {f[0]} \\text{{ N}} }}$ 
 
-    #     $\\textbf{{\\small 2. Diagrama de cuerpo libre del nodo A: }}$
-    #     Se descomponen las fuerzas usando las medidas dadas.
-    #     ${{\hspace{{4mm}} \\sum{F_x} = 0 }}$
-    #     ${{\hspace{{4mm}} F_{AD}-({d[0]/(2*Calculations.magnitude(d[3],d[0]/2))})*F_{AC} - A_x = 0 }}$
-    #     ${{\hspace{{4mm}} \\sum{F_y} = 0 }}$
-    #     ${{\hspace{{4mm}} A_y - ({d[3]/(Calculations.magnitude(d[3],d[0]/2))})*F_{AC} = 0 }}$
-    #     ${{\hspace{{4mm}} F_{AC} = (A_y*{Calculations.magnitude(d[3],d[0]/2)})/{d[3]} }}$
-    #     ${{\hspace{{4mm}} F_{AC} = {(f[1]-((d[3]*f[0]+(5/2)*d[0]*f[1])/(3*d[0])))*(Calculations.magnitude(d[3],d[0]/2)/d[3])} }}$
-    #     Teniendo la fuerza en $AC$, podemos encontrar ahora la fuerza en $AD$ reemplzandola en la ecuacion de $F_{AD}$.
-    #     ${{\hspace{{4mm}} F_{AD}-({d[0]/(2*Calculations.magnitude(d[3],d[0]/2))})*(A_y*{Calculations.magnitude(d[3],d[0]/2)})/{d[3]} - A_x = 0 }}$
-    #     ${{\hspace{{4mm}} F_{AD} = A_x + A_y*{d[0]/(2*d[3])} }}$
-    #     Reemplazando $A_x$ y $A_y$ tenemos que:
-    #     ${{\hspace{{4mm}} F_{AD} = {f[0]+(f[1]*d[0]/(2*d[3]))-(((d[3]*f[0]+(5/2)*d[0]*f[1])/(6*d[3])))} }}$
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    # ),
-    # Questionary(#2_1
-    #     code = 5110021,
-    #     no_pregunta = 2,
+        ${{\hspace{{4mm}} \\sum{{M_A}} = 0 }}$     
+        ${{\hspace{{4mm}} \\sum{{M_A}} = -{d[3]}*{f[0]}-\\dfrac{5}{2}*{d[0]}*{f[1]}+3*{d[0]}*B_y = 0 }}$         
+        ${{\hspace{{4mm}} B_y = {(d[3]*f[0]+(5/2)*d[0]*f[1])/(3*d[0]):.2f} \\text{{ N}} }}$       
+
+        ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$       
+        ${{\hspace{{4mm}} \\sum{{F_y}} = A_y + B_y - {f[1]} = 0}}$       
+        ${{\hspace{{4mm}} A_y + B_y = {f[1]}}}$        
+        ${{\hspace{{4mm}} A_y = {f[1]} - B_y}}$           
+        ${{\hspace{{4mm}} A_y = {f[1]-(d[3]*f[0]+(5/2)*d[0]*f[1])/(3*d[0]):.2f} \\text{{ N}} }}$  
+
+        $\\textbf{{\\small 2. Nodo A: }}$
+
+        En el nodo $A$ se pueden determinar las fuerzas internas $F_{{AD}}$ y $F_{{AC}}$, se suponen las dos fuerzas a tensión para realizar el equilibrio.
+
+        ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$       
+        ${{\hspace{{4mm}} \\sum{{F_y}} = A_y + F_{{AC}} \\cdot Sen({Calculations.arctangent(d[3]/(0.5*d[0])):.2f}°) = 0 }}$      
+        ${{\hspace{{4mm}} F_{{AC}} = \\dfrac{{-A_y}}{{Sen({Calculations.arctangent(d[3]/(0.5*d[0])):.2f}°)}} }}$              
+        ${{\hspace{{4mm}} F_{{AC}} = {(f[1]-((d[3]*f[0]+(5/2)*d[0]*f[1])/(3*d[0])))*(Calculations.magnitude(d[3],d[0]/2)/d[3]):.2f} \\text{{ N}}}}$        
+
+        {'El elemento $AC$ está a Tensión.' if ((f[1]-((d[3]*f[0]+(5/2)*d[0]*f[1])/(3*d[0])))*(Calculations.magnitude(d[3],d[0]/2)/d[3])) > 0 else 'El elemento $AC$ está a Compresión.'} 
+
+        ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$     
+        ${{\hspace{{4mm}} \\sum{{F_x}} = -A_x + F_{{AD}} + F_{{AC}} \\cdot Cos({Calculations.arctangent(d[3]/(0.5*d[0])):.2f}°)= 0 }}$   
+        ${{\hspace{{4mm}} F_{{AD}} = A_x - F_{{AC}} \\cdot Cos({Calculations.arctangent(d[3]/(0.5*d[0])):.2f}°)= 0 }}$     
+        ${{\hspace{{4mm}} F_{{AD}} = {f[0]-((f[1]-((d[3]*f[0]+(5/2)*d[0]*f[1])/(3*d[0])))*(Calculations.magnitude(d[3],d[0]/2)/d[3]))*(Calculations.cosine(Calculations.arctangent(d[3]/(0.5*d[0])))):.2f} \\text{{ N}} }}$        
+       
+        {'El elemento $AD$ está a Tensión.' if (f[0]-((f[1]-((d[3]*f[0]+(5/2)*d[0]*f[1])/(3*d[0])))*(Calculations.magnitude(d[3],d[0]/2)/d[3]))*(Calculations.cosine(Calculations.arctangent(d[3]/(0.5*d[0]))))) > 0 else 'El elemento $AD$ está a Compresión.'} 
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+    ),
+
+    # Questionary(#4_1
+    #     code = 5110041,
+    #     no_pregunta = 4,
     #     complexity = F,
     #     topic = C,
     #     subtopic = "Cerchas",
@@ -9974,7 +9980,7 @@ preguntas = [
     #     ${{\hspace{{4mm}} \\sum{{M_A}} = M_R - w \\cdot \\dfrac{{(d_1 + d_2)^2}}{{2}} - F_1 \\cdot (d_1 + d_2) - F_2 \\cdot (d_1 + d_2 + d_3) = 0 }}$          
     #     ${{\hspace{{4mm}} w \\cdot \\dfrac{{(d_1 + d_2)^2}}{{2}} + F_1 \\cdot (d_1 + d_2) + F_2 \\cdot (d_1 + d_2 + d_3) = - M_A }}$         
                  
-    #     $\\textbf{{\\small 2. Identificar las fuerzas aplicadas sobre la viga - Punto C: }}$
+    #     $\\textbf{{\\small 2. Identificar las fuerzas aplicadas sobre la viga - Punto B: }}$
         
     #     Se realiza el corte en la ubicación mostrada en la imagen para obtener la ecuación del momento flector en el punto $B$ (Teniendo en cuenta que el valor que nos dan de $M_B$ es negativo):
     #     """,   
