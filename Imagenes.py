@@ -243,6 +243,9 @@ SE_image_paths =[#Imágenes Preguntas Cálculo Sistemas Equivalentes
 
 #Cerchas_Nivel Medio
 "./Imagenes/Preguntas/SE/SE_SE_M_3a.png", #[8]
+
+#Cerchas_Nivel Fácil
+"./Imagenes/Preguntas/SE/SE_SE_F_4a.png", #[9]
 ]
 
 CT_image_paths = [#Imágenes Preguntas Cálculo Centroides

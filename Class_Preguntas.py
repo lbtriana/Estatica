@@ -6293,54 +6293,55 @@ preguntas = [
         calculos='operations'
         ),
 
-    # Questionary(#1_1
-    #     code = 4110011,
-    #     no_pregunta = 1,
-    #     complexity = F,
-    #     topic = SE,
-    #     subtopic = "Sistemas Equivalentes",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Sustituya la fuerza y el par dados por $F_1 = {f[0]:.0f}[N]$ y $F_2 = {f[1]:.0f}[N]$ por un sistema fuerza-momento equivalente en el punto $A$. Considere que $d_0 = {d[0]:.0f}[m]$ y $\\theta = {a[0]:.0f}°$.",
-    #     no_answers = 1,
-    #     a1_name = "Magnitud de la fuerza equivalente en $[N]$",
-    #     a2_name = "Magnitud del momento equivalente en $[N \\cdot m]$",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(f[1],2),
-    #     answer2 = lambda f, a, calc, c, d, m: np.round(f[1]*Calculations.sine(a[0])*d[0]-f[0]*d[0],2),
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "Haga sumatoria de fuerzas para encontrar la fuerza equivalente para el sistema fuerza-momento.",
-    #     ayuda2 = "Encuentre el momento generado por la fuerza y el par en el punto $A$.",      
-    #     ayuda3 = "Haga sumatoria de momentos para encontrar el momento equivalente para el sistema fuerza-momento.",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     Los sistemas equivalentes se refieren a que dos sistemas de fuerzas son equivalentes si su efecto sobre un cuerpo es el mismo. Es decir, las fuerzas que siente y el momento generado son los mismos para ambos sistemas. A continuacion se expondra la solucion sugerida del ejercicio:
-    #     $\\textbf{{\\small 1. Sumatoria de fuerzas: }}$
+    Questionary(#4_1
+        code = 4110041,
+        no_pregunta = 4,
+        complexity = F,
+        topic = "Sistemas equivalentes",
+        subtopic = "Sistemas equivalentes",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Sustituya la fuerza y el par dados por un sistema fuerza-momento equivalente en el punto $A$. Considere que $F_1 = {f[0]:.0f} \\text{{ N}}$, $F_2 = {f[1]:.0f} \\text{{ N}}$, $d_0 = {d[0]:.0f} \\text{{ m}}$ y $\\theta = {a[0]:.0f}°$.",
+        no_answers = 2,
+        a1_name = "Magnitud Fuerza equivalente $[N]$",
+        a2_name = "Magnitud Momento equivalente $[N \\cdot m]$",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(f[1],2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(abs(f[1]*Calculations.sine(a[0])*d[0]-f[0]*d[0]),2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = SE1,
+        ayuda2 = SE2,      
+        ayuda3 = "",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        Un sistema equivalente fuerza-par es la combinación de una fuerza aplicada y un momento que producen el mismo efecto rotacional y traslacional sobre un cuerpo rígido que el sistema original. A continuación, se presenta la solución sugerida para el ejercicio:
         
-    #     ${{\hspace{{4mm}} \\sum{F} = ({f[0]}\\hat{i}-{f[0]}\\hat{i}+{f[1]}cos({a[0]})\\hat{i}+{f[1]}sen({a[0]})\\hat{j})[N] }}$          
-    #     ${{\hspace{{4mm}} \\sum{F} = ({(f[1]*Calculations.cosine(a[0]))}\\hat{i}+{(f[1]*Calculations.sine(a[0]))}\\hat{j})[N]}}$    
+        $\\textbf{{\\small 1. Cálculo fuerza equivalente: }}$
+
+        La fuerza equivalente es igual a la fuerza $F_2$, dado que, las fuerzas pares $F_1$ se anulan entre sí.
+
+        ${{\hspace{{4mm}} |F_{{eq}}| = {f[1]:.2f} \\text{{ N}}}}$     
         
-    #     $\\textbf{{\\small 2. Momentos generados por F_1 y F_2: }}$
-    #     Momento par
-    #     ${{\hspace{{4mm}} M = F \\cdot d}}$
-    #     ${{\hspace{{4mm}} M = -({f[0]} \\cdot {d[0]})\\hat{k}[N \\cdot m]}}$
-    #     ${{\hspace{{4mm}} M = ({(-1*f[0]*d[0])})\\hat{k}[N \\cdot m]}}$
-    #     Momento generado por $F_2$
-    #     Componente perpendicular a la distancia de la fuerza
-    #     ${{\hspace{{4mm}} M = F \\cdot d}}$
-    #     ${{\hspace{{4mm}} M = ({f[1]*Calculations.sine(a[0])} \\cdot {d[0]})\\hat{k}[N \\cdot m]}}$
-    #     ${{\hspace{{4mm}} M = ({(f[1]*Calculations.sine(a[0])*d[0])})\\hat{k}[N \\cdot m]}}$
+        $\\textbf{{\\small 2. Cálculo del momento equivalente: }}$
 
-    #     $\\textbf{{\\small 3. Sumatoria de momento: }}$
-    #     ${{\hspace{{4mm}} \\sum{M} = ({(f[1]*Calculations.sine(a[0])*d[0])}-{(f[0]*d[0])})\\hat{k}[N \\cdot m]}}$
-    #     ${{\hspace{{4mm}} \\sum{M} = ({(f[1]*Calculations.sine(a[0])*d[0])-(f[0]*d[0])})\\hat{k}[N \\cdot m]}}$
+        $\\underline{{Momento \\text{{ }} par:}}$ 
 
-    #     $\\textbf{{\\small 4. Sistema equivalente fuerza-momento: }}$
-    #     ${{\hspace{{4mm}} ||F_{eq}|| = {f[1]}[N]}}$
-    #     ${{\hspace{{4mm}} ||M_{eq}|| = ({(f[1]*Calculations.sine(a[0])*d[0])-(f[0]*d[0])})[N \\cdot m]}}$
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    # ),
+        ${{\hspace{{4mm}} M_{{F1}} = -F_1 \\cdot d_0}}$           
+        ${{\hspace{{4mm}} M_{{F1}} = {(-1*f[0]*d[0]):.2f} \\text{{ }} \\hat{{k}} \\text{{ }} N \\cdot m}}$         
+
+        $\\underline{{Momento \\text{{ }} generado \\text{{ }} por \\text{{ }} F2:}}$ 
+
+        ${{\hspace{{4mm}} M_{{F2}} = F_2 \\cdot sen(\\theta)}}$           
+        ${{\hspace{{4mm}} M_{{F2}} = {(f[1]*Calculations.sine(a[0])*d[0]):.2f} \\text{{ }} \\hat{{k}} \\text{{ }} N \\cdot m}}$       
+
+        $\\underline{{Sumatoria \\text{{ }} de \\text{{ }} momentos \\text{{ }} en \\text{{ }} A:}}$ 
+
+        ${{\hspace{{4mm}} \\sum{{M_A}} = M_{{F1}} + M_{{F2}}}}$                  
+        ${{\hspace{{4mm}} M_A = {(f[1]*Calculations.sine(a[0])*d[0])-(f[0]*d[0]):.2f} \\text{{ }} \\hat{{k}} \\text{{ }} N \\cdot m}}$     
+        ${{\hspace{{4mm}} |M_A| = |M_{{eq}}| = {abs((f[1]*Calculations.sine(a[0])*d[0])-(f[0]*d[0])):.2f} \\text{{ }} \\hat{{k}} \\text{{ }} N \\cdot m}}$          
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+    ),
     
     # Questionary(#2_1
     #     code = 4110021,
