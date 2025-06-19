@@ -807,6 +807,8 @@ if authenticate_user():
                         st.image(AR_image_paths[2], width=500)  
                     if pregunta_no == 3:
                         st.image(AR_image_paths[3], width=550)  
+                    if pregunta_no == 4:
+                        st.image(AR_image_paths[16], width=650) 
                 if subtopic == "Marcos":
                     if pregunta_no == 1:
                         st.image(AR_image_paths[10], width=450) 
@@ -949,6 +951,8 @@ if authenticate_user():
                         st.image(AR_image_paths[6], width=500) 
                     if pregunta_no == 4:
                         st.image(AR_image_paths[7], width=600)   
+                    if pregunta_no == 5:
+                        st.image(AR_image_paths[17], width=600) 
                 if subtopic == "Marcos":
                     if pregunta_no == 1:
                         st.image(AR_image_paths[12], width=550) 

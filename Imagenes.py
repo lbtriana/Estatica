@@ -217,6 +217,12 @@ AR_image_paths =[#Imágenes Preguntas Cálculo Armaduras
 #Marcos_Nivel Díficil
 "./Imagenes/Preguntas/AR/MA/AR_MA_D_1a.png", #[14]
 "./Imagenes/Preguntas/AR/MA/AR_MA_D_2a.png", #[15]
+
+#Cerchas_Nivel Fácil
+"./Imagenes/Preguntas/AR/CE/AR_CE_F_4a.png", #[16]
+
+#Cerchas_Nivel Medio
+"./Imagenes/Preguntas/AR/CE/AR_CE_M_5a.png", #[17]
 ]
 
 SE_image_paths =[#Imágenes Preguntas Cálculo Sistemas Equivalentes

@@ -7034,49 +7034,51 @@ preguntas = [
     #     code = 5110041,
     #     no_pregunta = 4,
     #     complexity = F,
-    #     topic = C,
+    #     topic = "Armaduras",
     #     subtopic = "Cerchas",
     #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Si el peso del puente (aplicado en el centro de la cercha) es de $W = {f[0]:.0f}[kN]$, encuentre la magnitud de la fuerza que viaja por el elemento BI.",
+    #     pregunta = lambda f, a, calc, c, d, m: f"La fuerza $F = {f[0]:.0f} \\text{{ kN}}$ es aplicada en la zona inferior del puente, encuentre la magnitud de la fuerza que del elemento $IK$.",
     #     no_answers = 1,
-    #     a1_name = "Fuerza en el elemento $BI$ en [kN]",
+    #     a1_name = "Fuerza en $IK$ $[kN]$",
     #     a2_name = "",
     #     a3_name = "",
     #     answer1 = lambda f, a, calc, c, d, m: np.round(f[0]/2,2),
     #     answer2 = lambda f, a, calc, c, d, m: 0,
     #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "Fijese que el peso de la cercha se aplica en el centro, por lo que las reacciones se distribuyen este peso igualmente.",
-    #     ayuda2 = "Centrese en el nodo B, identifique las fuerzas que siente este nodo y sus direcciones (Compresión o tensión).",      
-    #     ayuda3 = "Descomponga las fuerzas identificando las dimensiones del triangulo, haga sumatoria de fuerzas en el nodo y resuelva para $BI$.",
+    #     ayuda1 = C2,
+    #     ayuda2 = C7,      
+    #     ayuda3 = C8,
     #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     A continuación, se presenta la solución sugerida para el ejercicio:
+    #     Una cercha es una estructura compuesta por elementos rectos que se conectan entre sí por puntos llamados nodos, formando triángulos. El método de los nodos es una técnica usada para determinar las fuerzas internas en una cercha, basándose en el principio de que cada nodo está en equilibrio. A continuación, se presenta la solución sugerida para el ejercicio: 
         
-    #     $\\textbf{{\\small 1. Reacciones - Sumatoria de fuerzas y momento: }}$
+    #     $\\textbf{{\\small 1. Cálculo de las reacciones en los apoyos: }}$
         
-    #     ${{\hspace{{4mm}} \\sum{F_x} = 0 }}$
+    #     ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$
     #     ${{\hspace{{4mm}} A_x = 0 }}$
-    #     ${{\hspace{{4mm}} \\sum{F_y} = 0 }}$
+
+    #     ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$
     #     ${{\hspace{{4mm}} A_y + B_y - {f[0]} = 0}}$
     #     ${{\hspace{{4mm}} A_y + B_y = {f[0]}}}$
+
     #     Entonces, como esta aplicada en el centro, la fuerza se distribuye igualmente entre los dos apoyos.
-    #     ${{\hspace{{4mm}} A_y = B_y = \\dfrac{W}{2} }}$
+
+    #     ${{\hspace{{4mm}} A_y = B_y = \\dfrac{{F}}{2} }}$
     #     ${{\hspace{{4mm}} A_y = B_y = {f[0]/2} }}$
 
-    #     $\\textbf{{\\small 2. Diagrama de cuerpo libre del nodo B: }}$
-    #     Se descomponen las fuerzas usando las medidas dadas.
-    #     ${{\hspace{{4mm}} \\sum{F_x} = 0 }}$
-    #     ${{\hspace{{4mm}} -F_{BI} + \\dfrac{1}{{\\sqrt{2}}}*F_{BJ} = 0 }}$
-    #     ${{\hspace{{4mm}} \\sum{F_y} = 0 }}$
-    #     ${{\hspace{{4mm}} B_y - \\dfrac{1}{{\\sqrt{2}}}*F_{BJ} = 0 }}$
-    #     ${{\hspace{{4mm}} F_{BJ} = \\sqrt{2}*B_y }}$
-    #     ${{\hspace{{4mm}} F_{BI} = \\dfrac{1}{{\\sqrt{2}}}*F_{BJ} }}$
-    #     Reemplazamos $F_{BJ}$ en la ecuacion de $F_{BI}$:
-    #     ${{\hspace{{4mm}} F_{BI} = \\dfrac{1}{{\\sqrt{2}}}*\\sqrt{2}*B_y }}$
-    #     ${{\hspace{{4mm}} F_{BI} = B_y }}$
-    #     ${{\hspace{{4mm}} F_{BI} = \\dfrac{W}{2} }}$
-    #     ${{\hspace{{4mm}} F_{BI} = {f[0]/2} }}$
-        
+    #     $\\textbf{{\\small 2. Nodo B: }}$
 
+    #     Se descomponen las fuerzas usando las medidas dadas.
+    #     ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$
+    #     ${{\hspace{{4mm}} -F_{{BI}} + \\dfrac{1}{{\\sqrt{2}}}*F_{{BJ}} = 0 }}$
+    #     ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$
+    #     ${{\hspace{{4mm}} B_y - \\dfrac{1}{{\\sqrt{2}}}*F_{{BJ}} = 0 }}$
+    #     ${{\hspace{{4mm}} F_{{BJ}} = \\sqrt{2}*B_y }}$
+    #     ${{\hspace{{4mm}} F_{{BI}} = \\dfrac{1}{{\\sqrt{2}}}*F_{{BJ}} }}$
+    #     Reemplazamos $F_{{BJ}}$ en la ecuacion de $F_{{BI}}$:
+    #     ${{\hspace{{4mm}} F_{{BI}} = \\dfrac{1}{{\\sqrt{2}}}*\\sqrt{2}*B_y }}$
+    #     ${{\hspace{{4mm}} F_{{BI}} = B_y }}$
+    #     ${{\hspace{{4mm}} F_{{BI}} = \\dfrac{{W}}{2} }}$
+    #     ${{\hspace{{4mm}} F_{{BI}} = {f[0]/2} }}$
     #     """,   
     #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
     #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
@@ -7319,7 +7321,7 @@ preguntas = [
         topic = "Armaduras",
         subtopic = "Cerchas",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"¿Cuántos elementos de fuerza cero tiene la armadura Fink mostrada?.",
+        pregunta = lambda f, a, calc, c, d, m: f"¿Cuántos elementos de fuerza cero tiene la armadura Fink mostrada?",
         no_answers = 1,
         a1_name = "Número de elementos de fuerza cero",
         a2_name = "",
@@ -7331,7 +7333,7 @@ preguntas = [
         ayuda2 = C4,      
         ayuda3 = C5,
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-        Una cercha es una estructura compuesta por elementos rectos que se conectan entre sí por puntos llamados nodos, formando triángulos. Un elemento de fuerza cero se define como un miembro de la armadura que no experimenta ninguna fuerza axial (Tension o compresión). A continuación, se presenta la solución sugerida para el ejercicio: 
+        Una cercha es una estructura compuesta por elementos rectos que se conectan entre sí por puntos llamados nodos, formando triángulos. Un elemento de fuerza cero se define como un miembro de la armadura que no experimenta ninguna fuerza axial (Tensión o compresión). A continuación, se presenta la solución sugerida para el ejercicio: 
         
         Primero, se debe tener en cuenta que si hay tres elementos conectados en un nodo, donde dos de ellos son colineales y no hay cargas externas aplicadas en el nodo, el tercer miembro va a ser de fuerza cero. Esto nos permite identificar en la evaluación de los nodos B, J y N los elementos $BC$, $JI$ y $NM$ son elementos de fuerza cero.
         
@@ -7345,6 +7347,40 @@ preguntas = [
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),
+
+    Questionary(#5_1
+        code = 5120051,
+        no_pregunta = 5,
+        complexity = M,
+        topic = "Armaduras",
+        subtopic = "Cerchas",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"¿Cuántos elementos de fuerza cero tiene la armadura mostrada?",
+        no_answers = 1,
+        a1_name = "Número de elementos de fuerza cero",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: 11,
+        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = C3,
+        ayuda2 = C4,      
+        ayuda3 = C5,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        Una cercha es una estructura compuesta por elementos rectos que se conectan entre sí por puntos llamados nodos, formando triángulos. Un elemento de fuerza cero se define como un miembro de la armadura que no experimenta ninguna fuerza axial (Tensión o compresión). A continuación, se presenta la solución sugerida para el ejercicio: 
+        
+        Primero, se debe tener en cuenta que si hay tres elementos conectados en un nodo, donde dos de ellos son colineales y no hay cargas externas aplicadas en el nodo, el tercer miembro va a ser de fuerza cero. Esto nos permite identificar bajo el sistema de coordenadas convencional, en los nodos $C$, $G$, $H$, $K$ y $O$ los elementos $BC$, $FG$, $HI$, $JK$ y $NO$ son elementos de fuerza cero.
+        
+        Una vez identificados los anteriores elementos de fuerza cero, se evalúa dicha colinealidad bajo un sistema de coordenadas arbitrario, en los nodos $B$, $F$, $J$, y $N$ los elementos $BE$, $FE$, $JM$, y $NM$ son elementos de fuerza cero.
+
+        Finalmente, al identificar que los anteriores elementos son de fuerza cero, los nodos $E$ y $M$ muestran una colinealidad entre tres elementos, de estos nodos se concluye que los miembros $DE$ y $LM$ son de fuerza cero.
+        
+        En resumen, se identifican un total de 11 elementos de fuerza cero: $BC$, $FG$, $HI$, $JK$, $NO$, $BE$, $FE$, $JM$, $NM$, $DE$ y $LM$.
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ), 
 
     #========================================================  ARMADURAS  =========================================================
     #-------------------------------------------------         Cerchas      --------------------------------------------
@@ -7527,32 +7563,6 @@ preguntas = [
         calculos='operations'
         ),
 
-    # Questionary(#1_1
-    #     code = 5130011,
-    #     no_pregunta = 1,
-    #     complexity = M,
-    #     topic = C,
-    #     subtopic = "Cerchas",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Determine cuantos elementos de fuerza 0 tiene la cercha mostrada a continuación.",
-    #     no_answers = 1,
-    #     a1_name = "Numero de elementos de fuerza ceros en la cercha.",
-    #     a2_name = "",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: 11,
-    #     answer2 = lambda f, a, calc, c, d, m: 0,
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "Revise que elementos son perpendiculares a otros, y que no se este aplicando ninguna fuerza en este elemento por sumatoria de fuerzas.",
-    #     ayuda2 = "Una vez identificado un elemento, revise nuevamente la cercha para ver si al eliminar este elemento, aparecen mas elementos con esta caracteristica. Repita este proceso.",      
-    #     ayuda3 = "",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     Notese que $CB$ es perpendicular a $ABD$, por lo que este elemento es de fuerza cero. Asi mismo, el elemento $CD$ es perpendicular a $ACE$, y como $CB$ es un elemento de fuerza cero, entonces $CD$ es un elemento de fuerza cero. Pasa lo mismo con $FG$ y $FD$. Identificando esto, se concluye entonves que $ED$ tambien es un elemento de fuerza cero, siendo perpendicular a $ADH$. Siguiendo esta misma logica, el elemento $IH$ es perpendicular a $EIM$, y aunque en el nodo H tenga una fuerza, esta se distrin¿buye y fluye por los elementos $EH$ y $MH$. Lo anteriormente mencionado se replica a los elementos $KJ$, $KL$, $ML$, $LO$ y $NO$. Por lo que se concluye que hay 11 elementos de fuerzas cero en la cercha.
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ), 
-    
     # Questionary(#2_1
     #     code = 5130021,
     #     no_pregunta = 1,
