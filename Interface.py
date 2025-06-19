@@ -939,6 +939,8 @@ if authenticate_user():
                         st.image(SE_image_paths[5], width=500)
                     if pregunta_no == 3:
                         st.image(SE_image_paths[8], width=500)
+                    if pregunta_no == 4:
+                        st.image(SE_image_paths[11], width=450)
                 if subtopic == "Incertidumbre":
                     if pregunta_no == 1:
                         st.image(I_image_paths[2], width=850) 

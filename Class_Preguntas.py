@@ -6552,63 +6552,57 @@ preguntas = [
         calculos='operations'
         ),
    
-    # Questionary(#1_1
-    #     code = 4120011,
-    #     no_pregunta = 1,
-    #     complexity = M,
-    #     topic = MO,
-    #     subtopic = "Momentos pares",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Considere la placa de cimentación mostrada en la figura, la cual recibe cuatro cargas $F_1 = {f[0]:.0f}[KN]$, $F_2 = {f[1]:.0f}[KN]$, $F_3 = {f[2]:.0f}[KN]$ y $F_4 = {f[3]:.0f}[KN]$. Encuentre el sistema equivalente consistente de una sola fuerza aplicada sobre la placa y donde esta ubicada. Tenga en cuenta que $d_0 = {d[0]:.0f}[m]$ y $d_1 = {d[3]:.0f}[m]$.",
-    #     no_answers = 2,
-    #     a1_name = "Distancia en x en [m]",
-    #     a2_name = "Distancia en z en [m]",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round((f[2]*d[3]+f[3]*d[3])/(f[0]+f[1]+f[2]+f[3]),2),
-    #     answer2 = lambda f, a, calc, c, d, m: np.round((f[2]*d[0]+f[1]*d[0])/(f[0]+f[1]+f[2]+f[3]),2),
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "Tenga en cuenta que todas las fuerzas se ejercen en el sentido del eje $y$ negativo. La sumatoria de fuerzas sera su $F_{{eq}}$.",
-    #     ayuda2 = "Encuentre el momento generado por cada fuerza y haga sumatoria de momentos.",      
-    #     ayuda3 = "Encuentre el $M_{{eq}}$ generado por la fuerza $F_{{eq}}$ teniendo en cuenta que la distancia hasta la aplicacion de la fuerza son valores $x$ y $z$. Iguale este momento al encontrado anteriormente.",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     A continuacion se presentará una posible solución del ejercicio:.
+    Questionary(#4_1
+        code = 4120041,
+        no_pregunta = 4,
+        complexity = M,
+        topic = "Sistemas equivalentes",
+        subtopic = "Sistemas equivalentes",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Considere la placa de cimentación mostrada en la figura, la cual recibe cuatro cargas $F_1 = {f[0]:.0f} \\text{{ kN}}$, $F_2 = {f[1]:.0f} \\text{{ kN}}$, $F_3 = {f[2]:.0f} \\text{{ kN}}$ y $F_4 = {f[3]:.0f} \\text{{ kN}}$. Encuentre el sistema equivalente de una sola fuerza aplicada sobre la placa y dónde está ubicada con respecto al origen. Considere que $d_0 = {d[0]:.0f} \\text{{ m}}$ y $d_1 = {d[3]:.0f} \\text{{ m}}$.",
+        no_answers = 2,
+        a1_name = "Distancia en $x$ $[m]$",
+        a2_name = "Distancia en $z$ $[m]$",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(((f[2]+f[1])*d[0])/(f[0]+f[1]+f[2]+f[3]),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(((f[2]+f[3])*d[3])/(f[0]+f[1]+f[2]+f[3]),2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = SE1,
+        ayuda2 = SE2,      
+        ayuda3 = SE3,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        En un sistema equivalente, se busca simplificar un sistema complejo de fuerzas y momentos a un sistema más simple que genere el mismo efecto rotacional y traslacional. A continuación, se presenta la solución sugerida para el ejercicio:
         
-    #     $\\textbf{{\\small 1. Fuerza equivalente:}}$
+        $\\textbf{{\\small 1. Determinar fuerza resultante: }}$
+        
+        ${{\hspace{{4mm}} \\sum{{F_y}} = F_R}}$          
+        ${{\hspace{{4mm}} F_R = - F_1 - F_2 - F_3 - F_4 }}$          
+        ${{\hspace{{4mm}} F_R = -{(f[0]+f[1]+f[2]+f[3])} \\text{{ kN}} }}$          
+        
+        $\\textbf{{\\small 2. Ubicación de fuerza resultante: }}$
 
-    #     ${{\hspace{{4mm}} \\vec{F_{eq}} = \\sum{F_y}}}$
-    #     ${{\hspace{{4mm}} \\vec{F_{eq}} = (-({f[0]}+{f[1]}+{f[2]}+{f[3]})\\hat{j})[KN]}}$
+        Se realiza la sumatoria de momentos con respecto al origen:
 
-    #     $\\textbf{{\\small 2. Momento generado con respecto a O:}}$
-    #     Para $F_1$:
-    #     ${{\hspace{{4mm}} \\vec{M} = 0}}$
-    #     Para $F_2$:
-    #     ${{\hspace{{4mm}} \\vec{M} = -{f[1]*d[0]}\\hat{k}[KN \\cdot m]}}$
-    #     Para $F_3$:
-    #     ${{\hspace{{4mm}} \\vec{M} = {f[2]*d[3]}\\hat{i}-{f[2]*d[0]}\\hat{k}[KN \\cdot m]}}$
-    #     Para $F_4$:
-    #     ${{\hspace{{4mm}} \\vec{M} = {f[3]*d[3]}\\hat{i}[KN \\cdot m]}}$
-    #     $\\textbf{{\\small 3. Sumatoria de momentos:}}$
-    #     ${{\hspace{{4mm}} \\vec{M_{eq}} = \\sum{M}}}$
-    #     ${{\hspace{{4mm}} \\vec{M_{eq}} = ({f[2]*d[3]+f[3]*d[3]})\\hat{i}-({f[1]*d[0]+f[2]*d[0]})\\hat{k}[KN \\cdot m]}}$
+        $\\underline{{Sumatoria \\hspace{{2mm}} de \\hspace{{2mm}} momentos \\hspace{{2mm}} respecto \\hspace{{2mm}} al \\hspace{{2mm}} eje \\hspace{{2mm}} X:}}$
 
-    #     $\\textbf{{\\small 4. Ubicación de la fuerza equivalente:}}$
-    #     Como sabemos que la fuerza debe ubicarse en la cimentación, que se encuentra en el plano X-Z, definiremos distncias $x$ y $z$.
-    #     Encontraremos el momento generado por la fuerza equivalente en el punto O.
-    #     ${{\hspace{{4mm}} \\vec{r} = (x\\hat{i}+z\\hat{k})[m]}}$
-    #     ${{\hspace{{4mm}} \\vec{M_{eq}} = (({f[0]+f[1]+f[2]+f[3]}z)\\hat{i}-({f[0]+f[1]+f[2]+f[3]}x)\\hat{k})[KN \\cdot m]}}$
-    #     Igualando los momentos, se obtiene:
-    #     ${{\hspace{{4mm}} ({f[0]+f[1]+f[2]+f[3]}z) = ({f[2]*d[3]+f[3]*d[3]})}}$
-    #     ${{\hspace{{4mm}} z = {((f[2]*d[3]+f[3]*d[3])/(f[0]+f[1]+f[2]+f[3]))}[m]}}$
+        ${{\hspace{{4mm}} \\sum{{M_x}} = z \\cdot F_R}}$          
+        ${{\hspace{{4mm}} (F_3 + F_4) \\cdot d_1 = z \\cdot F_R}}$          
+        ${{\hspace{{4mm}} z = \\dfrac{{(F_3 + F_4) \\cdot d_1}}{{F_R}} }}$            
+        ${{\hspace{{4mm}} z = {((f[2]+f[3])*d[3])/(f[0]+f[1]+f[2]+f[3]):.2f} \\text{{ m}} }}$            
 
-    #     ${{\hspace{{4mm}} ({f[0]+f[1]+f[2]+f[3]}x) = ({f[1]*d[0]+f[2]*d[0]})}}$
-    #     ${{\hspace{{4mm}} x = {((f[2]*d[0]+f[1]*d[0])/(f[0]+f[1]+f[2]+f[3]))}[m]}}$
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ), 
+        $\\underline{{Sumatoria \\hspace{{2mm}} de \\hspace{{2mm}} momentos \\hspace{{2mm}} respecto \\hspace{{2mm}} al \\hspace{{2mm}} eje \\hspace{{2mm}} Z:}}$
 
-     #    Questionary(#1_1
+        ${{\hspace{{4mm}} \\sum{{M_z}} = - x \\cdot F_R}}$          
+        ${{\hspace{{4mm}} -(F_2 + F_3) \\cdot d_0 = - x \\cdot F_R}}$             
+        ${{\hspace{{4mm}} x = \\dfrac{{(F_2 + F_3) \\cdot d_0}}{{F_R}} }}$          
+        ${{\hspace{{4mm}} x = {((f[2]+f[1])*d[0])/(f[0]+f[1]+f[2]+f[3]):.2f} \\text{{ m}} }}$
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ), 
+
+    #    Questionary(#1_1
     #     code = 4130011,
     #     no_pregunta = 1,
     #     complexity = D,
