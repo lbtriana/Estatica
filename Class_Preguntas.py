@@ -7382,6 +7382,72 @@ preguntas = [
         calculos='operations'
         ), 
 
+    Questionary(#6_1
+        code = 5120061,
+        no_pregunta = 6,
+        complexity = M,
+        topic = "Armaduras",
+        subtopic = "Cerchas",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine las fuerzas internas de los elementos $EG$ y $GH$ de la cercha presentada (Use negativo si el elemento esta en compresión y positivo si el elemento esta tensión). Considere que $F_1 = {f[0]:.0f} \\text{{ N}}$, $F_2 = {f[1]:.0f} \\text{{ N}}$, $F_3 = {f[2]:.0f} \\text{{ N}}$, $F_4 = {f[3]:.0f} \\text{{ N}}$ y $d_0 = {d[0]:.0f} \\text{{ m}}$.",  
+        no_answers = 2,
+        a1_name = "Fuerza en $EG$ $[N]$",
+        a2_name = "Fuerza en $GH$ $[N]$",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(-(f[1] + 2*f[2] + 3*f[3])/(4),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(((f[1]+2*f[2]+3*f[3])/4)-f[3],2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = C2,
+        ayuda2 = C7,      
+        ayuda3 = "",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        Una cercha es una estructura compuesta por elementos rectos que se conectan entre sí por puntos llamados nodos, formando triángulos. A continuación, se presenta la solución sugerida para el ejercicio: 
+        
+        $\\textbf{{\\small 1. Cálculo de las reacciones en los apoyos: }}$  
+        
+        ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$      
+        ${{\hspace{{4mm}} A_x = 0 \\text{{ N}} }}$
+
+        ${{\hspace{{4mm}} \\sum{{M_A}} = 0 }}$    
+        ${{\hspace{{4mm}} \\sum{{M_A}} = - F_2 \\cdot d_0 - F_3 \\cdot 2d_0 - F_4 \\cdot 3d_0 + J_y \\cdot 4d_0=0}}$      
+        ${{\hspace{{4mm}} J_y = \\dfrac{{F_2 + 2F_3 + 3F_4}}{{4}} }}$          
+        ${{\hspace{{4mm}} J_y = {(f[1] + 2*f[2] + 3*f[3])/(4):.2f} \\text{{ N}} }}$
+
+        ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$    
+        ${{\hspace{{4mm}} \\sum{{F_y}} = A_y + J_y - F_1 - F_2 - F_3 - F_4 =0 }}$     
+        ${{\hspace{{4mm}} A_y = F_1 + F_2 + F_3 + F_4 - J_y}}$         
+        ${{\hspace{{4mm}} A_y = {f[0]+f[1]+f[2]+f[3]-((f[1] + 2*f[2] + 3*f[3])/(4)):.2f} \\text{{ N}} }}$
+
+        
+        $\\textbf{{\\small 2. Condición de equilibrio del corte seleccionado: }}$     
+        
+        En la cercha mostrada, se realiza un corte a través de los elementos $EG$, $GH$ y $HJ$ y se selecciona la parte de la derecha del corte. En esta sección, las fuerzas que deben considerarse para hacer el equilibrio son:  las fuerzas internas $F_{{EG}}$, $F_{{GH}}$, $F_{{HJ}}$, la carga externa $F_4$ y la reacción $J_y$. Las fuerzas internas se suponen a tensión.
+        
+        $\\underline{{Despeje \\hspace{{2mm}} de \\hspace{{2mm}} F_{{EG}}:}}$    
+
+        ${{\hspace{{4mm}} \\sum{{M_H}} = 0 }}$    
+        ${{\hspace{{4mm}} \\sum{{M_H}} = F_{{EG}} \\cdot d_0 + J_y \\cdot d_0 = 0}}$      
+        ${{\hspace{{4mm}} F_{{EG}} = -J_y}}$                  
+        ${{\hspace{{4mm}} F_{{EG}} = {-(f[1] + 2*f[2] + 3*f[3])/(4):.2f} \\text{{ N}}}}$
+
+        {'El elemento $EG$ está a Tensión.' if (-(f[1] + 2*f[2] + 3*f[3])/(4)) > 0 else 'El elemento $EG$ está a Compresión.'}   
+
+        $\\underline{{Despeje \\hspace{{2mm}} de \\hspace{{2mm}} F_{{GH}}:}}$   
+
+        ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$  
+        ${{\hspace{{4mm}} \\sum{{F_y}} = -F_4 - F_{{GH}} + J_y = 0 }}$   
+        ${{\hspace{{4mm}} F_{{GH}} = J_y - F_4 }}$                
+        ${{\hspace{{4mm}} F_{{HI}} = {((f[1] + 2*f[2] + 3*f[3])/(4))-f[3]:.2f} \\text{{ N}}}}$  
+
+        {'El elemento $GH$ está a Tensión.' if (((f[1] + 2*f[2] + 3*f[3])/(4))-f[3]) > 0 else 'El elemento $GH$ está a Compresión.'}   
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
+
+
+
     #========================================================  ARMADURAS  =========================================================
     #-------------------------------------------------         Cerchas      --------------------------------------------
     #-------------------------------------------------       Nivel Dificil   ---------------------------------------------------
@@ -7562,62 +7628,6 @@ preguntas = [
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),
-
-    # Questionary(#2_1
-    #     code = 5130021,
-    #     no_pregunta = 1,
-    #     complexity = D,
-    #     topic = C,
-    #     subtopic = "Cerchas",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Encuentre las fuerzas que sienten los elementos $HF$ y $HI$ de la cercha mostrada en la figura. Considere que $F_1 = {f[0]:.0f}[N]$, $F_2 = {f[1]:.0f}[N]$, $F_3 = {f[2]:.0f}[N]$, $F_4 = {f[3]:.0f}[N]$ y $d_0 = {d[0]:.0f}[m]$.",
-    #     no_answers = 2,
-    #     a1_name = "Fuerza en el elemento $HF$ en [N]",
-    #     a2_name = "Fuerza en el elemento $HI$ en [N]",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(-1*(f[1]+2*f[2]+3*f[3])/4,2),
-    #     answer2 = lambda f, a, calc, c, d, m: np.round(((f[1]+2*f[2]+3*f[3])/4)-f[3],2),
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "Encuentre las reacciones en los apoyos por medio de la sumatoria de fuerzas y momentos globales.",
-    #     ayuda2 = "Identifique que sección le sirve para asi realizar un corte para escoger esta parte de la cercha.",      
-    #     ayuda3 = "Haga sumatoria de fuerzas globales de la sección escogida para asi encontrar las fuerzas pedidas.",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     A continuacion se presenta una posible solución para el problema:
-        
-    #     $\\textbf{{\\small 1. Reacciones - Sumatoria de fuerzas y momento global: }}$
-    #     ${{\hspace{{4mm}} \\sum{F_x} = 0 }}$
-    #     ${{\hspace{{4mm}} A_x = 0 }}$
-    #     ${{\hspace{{4mm}} \\sum{F_y} = 0 }}$
-    #     ${{\hspace{{4mm}} A_y + B_y - {f[0]} - {f[1]} - {f[2]} - {f[3]} = 0}}$
-    #     ${{\hspace{{4mm}} A_y + B_y = {f[0]} + {f[1]} + {f[2]} + {f[3]}}}$
-    #     ${{\hspace{{4mm}} \\sum{M_A} = 0 }}$
-    #     ${{\hspace{{4mm}} -{d[0]}*{f[1]} - 2*{d[0]}*{f[2]} - 3*{d[0]}*{f[3]} + 4*{d[0]}*B_y = 0 }}$
-    #     ${{\hspace{{4mm}} B_y = \\dfrac{1}{4}*({f[1]} + 2*{f[2]} + 3*{f[3]}) }}$
-    #     ${{\hspace{{4mm}} B_y = {(f[1] + 2*f[2] + 3*f[3])/(4)}[N] }}$
-    #     Como ya tenemos $B_y$, no será necesario calcular $A_y$.
-
-    #     $\\textbf{{\\small 2. Diagrama de cuerpo libre de la sección seleccionada: }}$
-    #     Se realiza un corte en los elementos $HF$, $HI$ y $BI$. De esta forma podremos realizar sumatoria de fuerzas para encontrar lo solicitado:
-    #     ${{\hspace{{4mm}} \\sum{F_x} = 0 }}$
-    #     ${{\hspace{{4mm}} -F_{HF} - F_{BI} = 0 }}$
-    #     ${{\hspace{{4mm}} \\sum{F_y} = 0 }}$
-    #     ${{\hspace{{4mm}} B_y - {f[3]} - F_{HI} = 0 }}$
-    #     ${{\hspace{{4mm}} F_{HI} = B_y - {f[3]} }}$
-    #     ${{\hspace{{4mm}} F_{HI} = {(f[1] + 2*f[2] + 3*f[3])/(4)} - {f[3]} }}$
-    #     ${{\hspace{{4mm}} F_{HI} = {((f[1] + 2*f[2] + 3*f[3])/(4))-f[3]} }}$
-    #     ${{\hspace{{4mm}} \\sum{M_H} = 0 }}$
-    #     ${{\hspace{{4mm}} B_y*{d[0]} - F_{BI}*{d[0]} = 0 }}$
-    #     ${{\hspace{{4mm}} F_{BI} = B_y }}$
-    #     ${{\hspace{{4mm}} F_{BI} = {(f[1] + 2*f[2] + 3*f[3])/(4)} }}$
-    #     ${{\hspace{{4mm}} F_{HF} = -(F_{BI}) }}$
-    #     ${{\hspace{{4mm}} F_{HF} = -{(f[1]+2*f[2]+3*f[3])/4}[N] }}$
-
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
-
 
 
 

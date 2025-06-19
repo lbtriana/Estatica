@@ -223,6 +223,7 @@ AR_image_paths =[#Imágenes Preguntas Cálculo Armaduras
 
 #Cerchas_Nivel Medio
 "./Imagenes/Preguntas/AR/CE/AR_CE_M_5a.png", #[17]
+"./Imagenes/Preguntas/AR/CE/AR_CE_M_6a.png", #[18]
 ]
 
 SE_image_paths =[#Imágenes Preguntas Cálculo Sistemas Equivalentes
