@@ -1053,6 +1053,9 @@ if authenticate_user():
                 if subtopic == "Momento en un punto 3D":
                     if pregunta_no == 1:
                         st.image(M3D_image_paths[3], width=400)
+                if subtopic == "Momento par":
+                    if pregunta_no == 2:
+                        st.image(MP_image_paths[7], width=450)
                 if subtopic == "Sistemas equivalentes":
                     if pregunta_no == 1:
                         st.image(SE_image_paths[6], width=450) 

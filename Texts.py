@@ -204,6 +204,9 @@ MPP4 = "Recuerde que el momento generado por un par de fuerzas no está asociado
 MPP5 = "De acuerdo con la ecuación del momento generado por un par de fuerzas, la magnitud de la fuerza se puede determinar como $F = \\dfrac{{M}}{{d}}$."
 MPP6 = "Realice la sumatoria de momentos generados por las fuerzas $F_1$ y $F_2$, e iguale el resultado al momento total proporcionado en el enunciado. A partir de esta ecuación, determine la magnitud de la fuerza $F_2$."
 MPP7 = "Realice la sumatoria de momentos generados por las fuerzas $F_1$ y $F_2$ por cada una de sus componentes."
+MPP8 = "Realice la sumatoria de momentos generados por las fuerzas, e iguale el resultado al momento total proporcionado en el enunciado. A partir de esta ecuación, determine la magnitud de la distancia $d$."
+MPP9 = "Utilice el triángulo 3-4-5 para determinar la distancia $d_3$ mostrada en la figura, aplicando el método de triángulos semejantes."
+
 
 #INCERTIDUMBRE
 I1 = "La distribución acumulada de una variable aleatoria $(X)$ proporciona información sobre la probabilidad de ocurrencia de dicha variable, es decir, la probabilidad de que $X$ tome un valor menor o igual al que se está evaluando ($P(X \\leq x)).$"

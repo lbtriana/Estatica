@@ -5533,81 +5533,9 @@ preguntas = [
     #-------------------------------------------------       Nivel Díficil   ------------------------------------------------------
     #-------------------------------------------------      Code: 24300##    ----------------------------------------------------
 
-    Questionary(#1_1
-        code = 0,
-        no_pregunta = 1,
-        complexity = D,
-        topic = MO,
-        subtopic = "Momento par",
-        version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Está sección pronto estará disponible.",
-        no_answers = 0,
-        a1_name = AX,
-        a2_name = AY,
-        a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round(0, 2),
-        answer2 = lambda f, a, calc, c, d, m: np.round(0, 2),
-        answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = A1,
-        ayuda2 = A2,
-        ayuda3 = A3,
-        respuesta_P1 = lambda fa, a, calc, c, d, m: f"",
-        respuesta_P2 = lambda fa, a, calc, c, d, m: f"",
-        respuesta_P3 = lambda fa, a, calc, c, d, m: f"",
-        calculos = 'operations',
-        ),
-
     # Questionary(#1_1
     #     code = 2430011,
     #     no_pregunta = 1,
-    #     complexity = D,
-    #     topic = MO,
-    #     subtopic = "Momentos pares",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Usted estaba caminando por un centro comercial cuando de repente se le cayó el celular. Cuando este golpeo el suelo se rompió y se doblo como se muestra en la figura. Determine el momento generado por las fuerzas $F_1 = {f[0]:.0f}$, $F_2 = {f[1]:.0f}$ y $F_3 = {f[2]:.0f}$ que sintio su celular (Las componentes vectoriales). Tenga en cuenta que $d_0 = {d[0]+100:.0f}[mm]$, $d_1 = {d[0]+200:.0f}[mm]$, $d_2 = {d[3]+100:.0f}[mm]$, $\\theta = {a[0]:.0f}°$ y $\\phi = {a[4]:.0f}°.",
-    #     no_answers = 3,
-    #     a1_name = "Momento \\hat{{i}}",
-    #     a2_name = "Momento \\hat{{j}}",
-    #     a3_name = "Momento \\hat{{k}}",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(f[0]*(d[0]+200)/1000,2),
-    #     answer2 = lambda f, a, calc, c, d, m: np.round((f[1]*(d[0]+100+d[0]+200)*Calculations.cosine(45)/1000)+(f[2]*Calculations.cosine(a[0])*Calculations.cosine(a[1])*(d[3]+100)/1000),2),
-    #     answer3 = lambda f, a, calc, c, d, m: np.round(f[2]*Calculations.cosine(a[0])*Calculations.sine(a[1])*(d[3]+100)/1000,2),
-    #     ayuda1 = "En la parte inclinada, solo la componente $\\hat{{i}}$ de $F_3$ genera momento, utilice esto como un plano arbitrario y despues proyecte el resultado del momento par usando el angulo $\\phi$.",
-    #     ayuda2 = "El momento par generado por las fuerzas $F_2$ solo lo genera su componente de cos(45). Descompongala y haga momento par.",      
-    #     ayuda3 = "Realice sumatoria de fuerzas para hallar las componentes del momento resultante.",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     A continuacion se presenta una posible solución para el problema:
-        
-    #     $\\textbf{{\\small 1. Descomposición de fuerzas y su momento - Momento par:}}$
-
-    #     Para $\\vec{F_1}$:
-    #     ${{\hspace{{4mm}} \\vec{M} = ({(f[0]*(d[0]+200)/1000)}\\hat{i}+0\\hat{j}+0\\hat{k})[N \\cdot m]}}$     
-        
-    #     Para $\\vec{F_2}$:
-    #     La unica componente que genera momento par es la $\\hat{i}$, entonces
-    #     ${{\hspace{{4mm}} \\vec{F_2} = ({(f[1]*Calculations.cosine(45))}\\hat{i}+0\\hat{j}-{(f[1]*Calculations.sine(45))}\\hat{k})[N]}}
-    #     ${{\hspace{{4mm}} \\vec{M} = (0\\hat{i}+{(f[1]*Calculations.cosine(45)*(d[0]+100+d[0]+200)/1000)}\\hat{j}+0\\hat{k})[N \\cdot m]}}$ 
-
-        
-    #     Para $\\vec{F_3}$:
-    #     Se toma la seccion inclinada como plano de referencia, donde luego el momento será proyectado a sus componentes en los ejes definidos usando el angulo $\\phi$.
-    #     ${{\hspace{{4mm}} \\vec{F_{3"x"}} = ({(f[2]*Calculations.cosine(a[0]))}\\hat{i}+0\\hat{j}+{(f[2]*Calculations.sine(a[0]))}\\hat{k})}}$
-    #     ${{\hspace{{4mm}} M =  {(f[2]*Calculations.cosine(a[0])*(d[3]+100)/1000)}[N \\cdot m]}}$
-
-    #     Proyectado al eje de referencia establecido:
-    #     ${{\hspace{{4mm}} \\vec{M} =  (0\\hat{i}+{(f[2]*Calculations.cosine(a[0])*Calculations.cosine(a[1])*(d[3]+100)/1000)}\\hat{j}+{(f[2]*Calculations.cosine(a[0])*Calculations.sine(a[1])*(d[3]+100)/1000)}\\hat{k})[N \\cdot m]}}$
-       
-    #     $\\textbf{{\\small 2. Sumatoria de momentos:}}$
-    #     ${{\hspace{{4mm}} \\vec{M} =  ({(f[0]*(d[0]+200)/1000)}\\hat{i}+{((f[1]*(d[0]+100+d[0]+200)*Calculations.cosine(45)/1000)+(f[2]*Calculations.cosine(a[0])*Calculations.cosine(a[1])/1000))}\\hat{j}+{(f[2]*Calculations.cosine(a[0])*Calculations.sine(a[1])*(d[3]+100)/1000)}\\hat{k})[N \\cdot m]}}$
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
-
-    # Questionary(#2_1
-    #     code = 2430021,
-    #     no_pregunta = 2,
     #     complexity = D,
     #     topic = MO,
     #     subtopic = "Momentos par",
@@ -5653,72 +5581,76 @@ preguntas = [
     #     calculos='operations'
     #     ),
         
-    # Questionary(#3_1
-    #     code = 2430031,
-    #     no_pregunta = 3,
-    #     complexity = D,
-    #     topic = MO,
-    #     subtopic = "Momentos par",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Encuentre la distancia $d$ tal que el momento generado por los pares de fuerzas $F_1 = {f[0]:.0f}[N]$, $F_2 = {f[1]:.0f}[N]$ y $F_3 = {f[2]:.0f}[N]$ sea de $M = {m[0]:.0f}[N \\cdot m]$. Tenga en cuenta que $d_0 = {d[0]+14:.0f}[m]$, $d_1 = {d[0]+3:.0f}[m]$, $d_2 = {d[0]:.0f}[m]$ y \\theta = {a[0]:.0f}.",
-    #     no_answers = 1,
-    #     a1_name = "Distancia d [m]",
-    #     a2_name = "",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round((m[0]-f[0]*Calculations.cosine(a[0])*(d[0]+10)+f[1]*((d[0]+14)-(d[0]+3)-d[0])-f[2]*((d[0]+14)-(d[0]+3)-d[0]))/(f[0]*Calculations.sine(a[0])+f[2]),2),
-    #     answer2 = lambda f, a, calc, c, d, m: 0,
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "Utilice las distancias dadas para determinar la distancia perpendicular entre las fuerzas. Tenga en cuenta que se le esta dando un triangulo 3-4-5 para encontrar la distancia $L$ mostrada en la figura.",
-    #     ayuda2 = "Encuentre el momento par generado por las fuerzas usando las distancias encontradas la definición de momento par. Tenga en cuenta que debe descomponer la fuerza $F_1$.",      
-    #     ayuda3 = "Haga sumatoria de momentos igualada al momento dado para despejar y hallar $d$",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     A continuacion se presenta una posible solución para el problema:
+    Questionary(#2_1
+        code = 2430021,
+        no_pregunta = 2,
+        complexity = D,
+        topic = MO,
+        subtopic = "Momento par",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Encuentre la distancia $d$ tal que el momento generado por los pares de fuerzas $F_1 = {f[0]+300:.0f} \\text{{ N}}$, $F_2 = {f[1]/2:.2f} \\text{{ N}}$ y $F_3 = {f[2]/8:.2f} \\text{{ N}}$ sea de $M = {m[0]:.0f} \\text{{ }} N \\cdot m$. Considere que $d_0 = {(d[0]+50)/100:.2f} \\text{{ m}}$, $d_1 = {(d[0]+3)/100:.2f} \\text{{ m}}$, $d_2 = {d[0]/100:.2f} \\text{{ m}}$ y $\\theta = {(a[0]+30)/2:.2f}°$.",
+        no_answers = 1,
+        a1_name = "Distancia $d$ $[m]$",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(((f[0]+300)*Calculations.cosine((a[0]+30)/2)*((d[0]+50)/100)-(f[1]/2)*(((d[0]+50)/100)-((d[0]+3)/100)-(d[0]/100))+(f[2]/8)*(4/3)*(((d[0]+50)/100)-((d[0]+3)/100)-(d[0]/100))-m[0])/((f[0]+300)*Calculations.sine((a[0]+30)/2)-(f[2]/8)),2),
+        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = MPP1,
+        ayuda2 = MPP9,      
+        ayuda3 = MPP8,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        El momento generado por un par de fuerzas se define como $M = F \\cdot d$, donde $F$ es la magnitud de las fuerzas pares y $d$ es la distancia perpendicular entre estas. A continuación se presenta la solución sugerida:
+
+        $\\textbf{{\\small 1. Cálculo del momento de la fuerza F1:}}$
+
+        ${{\hspace{{4mm}} \\vec{{M_{{F1}}}} = F_1 \\cdot Cos(\\theta) \\cdot d_0 - F_1 \\cdot Sen(\\theta) \\cdot d}}$           
+        ${{\hspace{{4mm}} \\vec{{M_{{F1}}}} = [{(f[0]+300)*Calculations.cosine((a[0]+30)/2)*((d[0]+50)/100):.2f}-{(f[0]+300)*Calculations.sine((a[0]+30)/2):.2f} \\cdot d] \\text{{ }} N \\cdot m}}$
+
         
-    #     $\\textbf{{\\small 1. Distancias perpendiculares entre las fuerzas:}}$
+        $\\textbf{{\\small 2. Cálculo del momento de la fuerza F2:}}$
 
-    #     Para $\\vec{F_1}$:
-    #     La distancia perpendicular entre la componente \\hat{i} de $F_1$ es $d_0$ y para la componente \\hat{j} es $d$
-    #     Para $\\vec{F_2}$:
-    #     ${{\hspace{{4mm}} d_{F2} = ({d[0]+14}-{d[0]+3}-{d[0]})[m]}}
-    #     ${{\hspace{{4mm}} d_{F2} = ({d[0]+14-d[0]+3-d[0]})[m]}}
-    #     Para $\\vec{F_3}$:
-    #     Sabemos que:
-    #     ${{\hspace{{4mm}} L = (d+x)[m]}}$ 
-    #     La distancia x se encuentra haciendo triangulos semejantes con la distancia perpendicular hallada para $F_2$:
-    #     ${{\hspace{{4mm}} \\dfrac{({d[0]+14-d[0]+3-d[0]})}{"x"} = \\dfrac{3}{4}}}$
-    #     ${{\hspace{{4mm}} x = \\dfrac{(4*({d[0]+14-d[0]+3-d[0]}))}{3}}}$
-    #     ${{\hspace{{4mm}} x = {(4*({d[0]+14-d[0]+3-d[0]})/3)}}}$
-    #     Entonces:
-    #     ${{\hspace{{4mm}} L = (d+{(4*({d[0]+14-d[0]+3-d[0]})/3)})[m]}}$ 
-
-    #     $\\textbf{{\\small 2. Momentos pares:}}$
-    #     Para $\\vec{F_1}$:
-    #     ${{\hspace{{4mm}} \\vec{F_1} = ({(f[0]*Calculations.cosine(a[0]))}\\hat{i}+{(f[0]*Calculations.sine(a[0]))}\\hat{j})[N]}}$
-    #     Entonces los momentos para cada componente son:
-    #     Para \\hat{i}
-    #     ${{\hspace{{4mm}} \\vec{M} = ({(f[0]*Calculations.cosine(a[0])*(d[0]+13))})\\hat{k}[N \\cdot m]}}$
-    #     Para \\hat{j}
-    #     ${{\hspace{{4mm}} \\vec{M} = ({(f[0]*Calculations.sine(a[0]))}*d)\\hat{k}[N \\cdot m]}}$
-
-    #     Para $\\vec{F_2}$:
-    #     ${{\hspace{{4mm}} \\vec{M} = ({(-1*f[1]*(d[0]+14-d[0]+3-d[0]))})\\hat{k}[N \\cdot m]}}$
+        ${{\hspace{{4mm}} \\vec{{M_{{F2}}}} = - F_2 \\cdot (d_0-d_1-d_2)}}$            
+        ${{\hspace{{4mm}} \\vec{{M_{{F2}}}} = {-(f[1]/2)*(((d[0]+50)/100)-((d[0]+3)/100)-(d[0]/100)):.2f} \\text{{ }} N \\cdot m}}$
         
-    #     Para $\\vec{F_3}$:
-    #     ${{\hspace{{4mm}} \\vec{M} = ({f[2]})*(d+{(4*({d[0]+14-d[0]+3-d[0]})/3)})\\hat{k}}}$
-    #     ${{\hspace{{4mm}} \\vec{M} = ({f[2]}*d+{(f[2]*4*({d[0]+14-d[0]+3-d[0]})/3)})\\hat{k}}}$
+        
+        $\\textbf{{\\small 3. Cálculo del momento de la fuerza F3:}}$
 
-    #     $\\textbf{{\\small 3. Sumatoria de momentos:}}$
-    #     ${{\hspace{{4mm}} \\sum{M} = {m[0]}}}$
-    #     ${{\hspace{{4mm}} \\sum{M} = {(f[0]*Calculations.cosine(a[0])*(d[0]+13))}+{(f[0]*Calculations.sine(a[0]))}*d-{(f[1]*(d[0]+14-d[0]+3-d[0]))}+{f[2]}*d+{(f[2]*4*({d[0]+14-d[0]+3-d[0]})/3)}}}$
-    #     ${{\hspace{{4mm}} {m[0]} = {(f[0]*Calculations.cosine(a[0])*(d[0]+13))}+{(f[0]*Calculations.sine(a[0]))}*d-{(f[1]*(d[0]+14-d[0]+3-d[0]))}+{f[2]}*d+{(f[2]*4*({d[0]+14-d[0]+3-d[0]})/3)}}}$
-    #     Despejando $d$ encontramos que:
-    #     ${{\hspace{{4mm}} d = \\dfrac{m[0]-f[0]*Calculations.cosine(a[0])*(d[0]+13)+f[1]*(d[0]+14-d[0]+3-d[0])-(f[2]*4*({d[0]+14-d[0]+3-d[0]})/3)}{f[0]*Calculations.sine(a[0])+f[2]}[m]}}$
-    #     ${{\hspace{{4mm}} d = {(m[0]-f[0]*Calculations.cosine(a[0])*(d[0]+10)+f[1]*((d[0]+14)-(d[0]+3)-d[0])-f[2]*((d[0]+14)-(d[0]+3)-d[0]))/(f[0]*Calculations.sine(a[0])+f[2])}[m]}}$
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
+        La distancia $d_3$ es equivalente a:
+
+        ${{\hspace{{4mm}} d_3 = (d+x) \\text{{ m}}}}$             
+
+        La distancia x se encuentra haciendo triangulos semejantes:
+
+        ${{\hspace{{4mm}} \\dfrac{{d_0-d_1-d_2}}{{x}} = \\dfrac{3}{4}}}$       
+
+        ${{\hspace{{4mm}} x = \\dfrac{{4}}{{3}} \\cdot (d_0-d_1-d_2)}}$
+
+        Por lo tanto la distancia $d_3$ es:
+
+        ${{\hspace{{4mm}} d_3 = d+\\dfrac{{4}}{{3}} \\cdot (d_0-d_1-d_2) \\text{{ m}}}}$            
+
+        Con esta distancia se calcula el momento generado por la fuerza $F_3$:
+
+        ${{\hspace{{4mm}} \\vec{{M_{{F3}}}} = F_3 \\cdot d + F_3 \\cdot \\dfrac{{4}}{{3}} \\cdot (d_0-d_1-d_2)}}$               
+        
+        ${{\hspace{{4mm}} \\vec{{M_{{F3}}}} = [{(f[2]/8):.2f} \\cdot d + {(f[2]/8)*(4/3)*(((d[0]+50)/100)-((d[0]+3)/100)-(d[0]/100)):.2f}] \\text{{ }} N \\cdot m }}$
+
+        
+        $\\textbf{{\\small 4. Despeje de la distancia d:}}$
+        
+        Se realiza la sumatoria de momentos y se iguala al momento $M$ dado en el enunciado para despejar la distancia $d$:             
+
+        ${{\hspace{{4mm}} M = F_1 \\cdot Cos(\\theta) \\cdot d_0 - F_1 \\cdot Sen(\\theta) \\cdot d - F_2 \\cdot (d_0-d_1-d_2) + F_3 \\cdot d + F_3 \\cdot \\dfrac{{4}}{{3}} \\cdot (d_0-d_1-d_2)}}$
+        
+        ${{\hspace{{4mm}} d = \\dfrac{{F_1 \\cdot Cos(\\theta) \\cdot d_0 - F_2 \\cdot (d_0-d_1-d_2) + F_3 \\cdot \\dfrac{{4}}{{3}} \\cdot (d_0-d_1-d_2) - M}}{{F_1 \\cdot Sen(\\theta) - F_3}} }}$
+
+        ${{\hspace{{4mm}} d = {((f[0]+300)*Calculations.cosine((a[0]+30)/2)*((d[0]+50)/100)-(f[1]/2)*(((d[0]+50)/100)-((d[0]+3)/100)-(d[0]/100))+(f[2]/8)*(4/3)*(((d[0]+50)/100)-((d[0]+3)/100)-(d[0]/100))-m[0])/((f[0]+300)*Calculations.sine((a[0]+30)/2)-(f[2]/8)):.2f} \\text{{ m}}}}$
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
 
 
 

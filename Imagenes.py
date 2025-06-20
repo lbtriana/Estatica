@@ -176,6 +176,9 @@ MP_image_paths =[#Imágenes Preguntas Cálculo Momento par
 "./Imagenes/Preguntas/MO/MP/MO_MP_M_1a.png", #[4]
 "./Imagenes/Preguntas/MO/MP/MO_MP_M_2a.png", #[5]
 "./Imagenes/Preguntas/MO/MP/MO_MP_M_3a.png", #[6]
+
+#Nivel Díficil
+"./Imagenes/Preguntas/MO/MP/MO_MP_D_2a.png", #[7]
 ]
 
 I_image_paths =[#Imágenes Preguntas Incertidumbre
