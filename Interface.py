@@ -1147,6 +1147,9 @@ if authenticate_user():
                 if subtopic == "Momento alrededor de un eje":
                     if pregunta_no == 3:
                         st.image(MAE_rtas_paths[0], width=350)
+                if subtopic == "Momento par":
+                    if pregunta_no == 1:
+                        st.image(MP_rtas_paths[0], width=350)
                 if subtopic == "Incertidumbre":
                     if pregunta_no == 3:
                         st.image(I_rtas_paths[0], width=500)

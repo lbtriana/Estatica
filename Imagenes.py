@@ -250,7 +250,7 @@ SE_image_paths =[#Imágenes Preguntas Cálculo Sistemas Equivalentes
 
 #Nivel Medio
 "./Imagenes/Preguntas/SE/SE_SE_M_4a.png", #[11]
-"./Imagenes/Preguntas/SE/SE_SE_M_5a.png", #[12]
+"./Imagenes/Preguntas/SE/SE_SE_M_5a.png", #[11]
 ]
 
 CT_image_paths = [#Imágenes Preguntas Cálculo Centroides
@@ -397,6 +397,11 @@ M3D_rtas_paths= [#Imágenes Respuestas Cálculos Momento en un punto
 MAE_rtas_paths= [#Imágenes Respuestas Cálculos Momento alrededor de un eje
 #Nivel medio
 "./Imagenes/Respuestas/MO/MAE/R_MO_MAE_M_3a.png", #[0] 
+]
+
+MP_rtas_paths= [#Imágenes Respuestas Cálculos Momento par
+#Nivel medio
+"./Imagenes/Respuestas/MO/MPP/R_MO_MPP_M_1a.png", #[0]
 ]
 
 SE_rtas_paths= [#Imágenes Respuestas Cálculos Momento alrededor de un eje
