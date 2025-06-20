@@ -5431,56 +5431,53 @@ preguntas = [
         calculos='operations'
         ), 
     
-    # Questionary(#2_1
-    #     code = 2420021,
-    #     no_pregunta = 2,
-    #     complexity = M,
-    #     topic = MO,
-    #     subtopic = "Momento par",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"El barril es movilizado mediante la aplicación de dos fuerzas: $F_1 = {f[0]:.0f} \\text{{ N}}$ y $F_2 = {f[1]:.0f} \\text{{ N}}$. Determine las componentes vectoriales del momento generado por estas fuerzas, teniendo en cuenta que la altura de barril es $d_0 = {d[0]:.0f} \\text{{ m}}$, su radio es $d_1 = {d[3]:.0f} \\text{{ m}}$ y $\\theta = {a[0]:.0f}°$",
-    #     no_answers = 3,
-    #     a1_name = "Momento componente $\\hat{{i}}$",
-    #     a2_name = "Momento componente $\\hat{{j}}$",
-    #     a3_name = "Momento componente $\\hat{{k}}$",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(f[1]*Calculations.sine(a[0])*d[3]-f[1]*Calculations.cosine(a[0])*d[0],2),
-    #     answer2 = lambda f, a, calc, c, d, m: 0,
-    #     answer3 = lambda f, a, calc, c, d, m: np.round(f[0]*d[0],2),
-    #     ayuda1 = MPP1,
-    #     ayuda2 = MPP7,      
-    #     ayuda3 = "",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     El momento generado por un par de fuerzas se define como $M = F \\cdot d$, donde $F$ es la magnitud de las fuerzas pares y $d$ es la distancia perpendicular entre estas. A continuación, se presenta la solución sugerida para el ejercicio:
-
-    #     $\\textbf{{\\small 1. Descompocisión de fuerzas e identificación de par de fuerzas: }}$ 
-
-    #     La fuerza $F_1$ es un par de fuerzas sobre el eje $x$
+    Questionary(#2_1
+        code = 2420021,
+        no_pregunta = 2,
+        complexity = M,
+        topic = MO,
+        subtopic = "Momento par",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"El barril es movilizado mediante la aplicación de dos fuerzas: $F_1 = {f[0]:.0f} \\text{{ N}}$ y $F_2 = {f[1]:.0f} \\text{{ N}}$. La fuerza $F_2$ actúa en el plano $X-Y$ formando un ángulo $\\theta = {a[0]:.0f}°$ con respecto al eje horizontal. Determine las componentes vectoriales del momento generado por estas fuerzas respecto al centro de la base del barril. Considere que la altura de barril es $d_0 = {(d[0]+90)/100:.2f} \\text{{ m}}$ y su radio es $d_1 = {(d[0]+20)/100:.2f} \\text{{ m}}$.",
+        no_answers = 3,
+        a1_name = "Componente $\\hat{{i}}$ del momento [$kN \\cdot m$]",
+        a2_name = "Componente $\\hat{{j}}$ del momento [$kN \\cdot m$]",
+        a3_name = "Componente $\\hat{{k}}$ del momento [$kN \\cdot m$]",
+        answer1 = lambda f, a, calc, c, d, m: 0,
+        answer2 = lambda f, a, calc, c, d, m: np.round(f[0]*2*((d[0]+20)/100),2),
+        answer3 = lambda f, a, calc, c, d, m: np.round(-((d[0]+20)/100)*f[1]*Calculations.sine(a[0])+((d[0]+90)/100)*f[1]*Calculations.cosine(a[0]),2),
+        ayuda1 = MPP1,
+        ayuda2 = MPP7,      
+        ayuda3 = "",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        El momento generado por un par de fuerzas se define como $M = F \\cdot d$, donde $F$ es la magnitud de las fuerzas pares y $d$ es la distancia perpendicular entre estas. El efecto del moemnto par se siente de igual manera en todos los puntos del cuerpo. A continuación, se presenta la solución sugerida para el ejercicio:
         
-    #     ${{\hspace{{4mm}} \\vec{{F_2}} = (0\\hat{{i}} - {f[1]}sen(\\theta)\\hat{{j}}-{f[1]}cos(\\theta)\\hat{{k}})[N]}}$      
-    #     ${{\hspace{{4mm}} \\vec{{F_2}} = (0\\hat{{i}} - {f[1]*Calculations.sine(a[0])}\\hat{{j}}-{f[1]*Calculations.cosine(a[0])}\\hat{{k}})[N]}}$
+        Para determinar el momento generado por las fuerzas, se calcula por separado el momento producido por cada fuerza:
 
-    #     $\\textbf{{\\small 2. Momento generado por las fuerzas: }}$ 
+        $\\textbf{{\\small 1. Cálculo del momento generado por la fuerza F1:}}$
 
-    #     Para $F_1$:
-    #     ${{\hspace{{4mm}} \\vec{{M}} = (0\\hat{{i}}+0\\hat{{j}}+{f[0]}\\cdot{d[0]}\\hat{{k}})[N \\cdot m]}}$
-    #     ${{\hspace{{4mm}} \\vec{{M}} = (0\\hat{{i}}+0\\hat{{j}}+{f[0]*d[0]}\\hat{{k}})[N \\cdot m]}}$
+        ${{\hspace{{4mm}} \\vec{{M_{{F1}} }} = [F_1 \\cdot 2 \\cdot d_1 \\text{{ }} \\hat{{j}}] \\text{{ }} kN \\cdot m}}$               
+        ${{\hspace{{4mm}} \\vec{{M_{{F1}} }} = [{f[0]*2*((d[0]+20)/100):.2f}\\text{{ }} \\hat{{j}}] \\text{{ }} kN \\cdot m}}$
 
-    #     Para $F_2$:
-    #     ${{\hspace{{4mm}} \\vec{{M}} = (({f[1]*Calculations.sine(a[0])}*{d[3]}-({f[1]*Calculations.cosine(a[0])}*{d[0]}))\\hat{{i}}+0\\hat{{j}}+0\\hat{{k}})[N \\cdot m]}}$
-    #     ${{\hspace{{4mm}} \\vec{{M}} = (({f[1]*Calculations.sine(a[0])*d[3]-(f[1]*Calculations.cosine(a[0])*d[0])}))\\hat{{i}}+0\\hat{{j}}+0\\hat{{k}})[N \\cdot m]}}$
+        $\\textbf{{\\small 2. Cálculo del momento generado por la fuerza F2:}}$
 
-    #     $\\textbf{{\\small 3. Sumatoria de momentos: }}$
-    #     ${{\hspace{{4mm}} \\sum{{\\vec{{M}}}} = (({f[1]*Calculations.sine(a[0])*d[3]-(f[1]*Calculations.cosine(a[0])*d[0])}))\\hat{{i}}+0\\hat{{j}}+{f[0]*d[0]}\\hat{{k}})[N \\cdot m]}}$
+        Para el cálculo deL momento generado por la fuerza $F_2$ se utiliza momento cruz: 
+        
+        ${{\hspace{{4mm}} \\vec{{r}} = [-d_1 \\text{{ }} \\hat{{i}} + d_0 \\text{{ }} \\hat{{j}}] \\text{{ }} m }}$       
+        ${{\hspace{{4mm}} \\vec{{F_2}} = [-F_2 \\cdot Cos(\\theta) \\text{{ }} \\hat{{i}} + F_2 \\cdot Sen(\\theta) \\text{{ }} \\hat{{j}}] \\text{{ }} kN \\cdot m }}$  
 
-    #     $\\textbf{{\\small 4. Identificación de componentes del momento encontrado: }}$
-    #     ${{\hspace{{4mm}} \\hat{{i}} = {f[1]*Calculations.sine(a[0])*d[3]-(f[1]*Calculations.cosine(a[0])*d[0])}[N \\cdot m]}}$
-    #     ${{\hspace{{4mm}} \\hat{{j}} = 0[N \\cdot m]}}$
-    #     ${{\hspace{{4mm}} \\hat{{k}} = {f[0]*d[0]}[N \\cdot m]}}$
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
+        ${{\hspace{{4mm}} \\vec{{M_{{F2}}}} = [-F_2 \\cdot Sen(\\theta) \\cdot d_1 + F_2 \\cdot Cos(\\theta) \\cdot d_0 \\text{{ }} \\hat{{k}}] \\text{{ }} kN \\cdot m }}$      
+        ${{\hspace{{4mm}} \\vec{{M_{{F2}}}} = [{-((d[0]+20)/100)*f[1]*Calculations.sine(a[0])+((d[0]+90)/100)*f[1]*Calculations.cosine(a[0]):.2f} \\text{{ }} \\hat{{k}}] \\text{{ }} kN \\cdot m }}$      
+
+        $\\textbf{{\\small 3. Sumatoria de momentos:}}$
+            
+        ${{\hspace{{4mm}} \\vec{{M}} = \\vec{{M_{{F1}} }} + \\vec{{M_{{F2}} }}}}$           
+        ${{\hspace{{4mm}} \\vec{{M}} = [{f[0]*2*((d[0]+20)/100):.2f} \\text{{ }} \\hat{{j}} +  ({-((d[0]+20)/100)*f[1]*Calculations.sine(a[0])+((d[0]+90)/100)*f[1]*Calculations.cosine(a[0]):.2f})\\text{{ }} \\hat{{k}}] \\text{{ }} kN \\cdot m}}$
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
 
     Questionary(#3_1
         code = 2420031,
