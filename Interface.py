@@ -996,7 +996,7 @@ if authenticate_user():
                     if pregunta_no == 3:
                         st.image(FI_image_paths[5], width=500)
                     if pregunta_no == 4:
-                        st.image(FI_image_paths[6], width=400)
+                        st.image(FI_image_paths[6], width=350)
                     if pregunta_no == 5:
                         st.image(FI_image_paths[7], width=300)
                     if pregunta_no == 6:
