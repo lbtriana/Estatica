@@ -4951,31 +4951,6 @@ preguntas = [
     #-------------------------------------------------       Nivel Díficil   ---------------------------------------------------
     #-------------------------------------------------      Code: 23300##    --------------------------------------------------
 
-    Questionary(#1_1
-        code = 0,
-        no_pregunta = 1,
-        complexity = D,
-        topic = MO,
-        subtopic = "Momento alrededor de un eje",
-        version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Está sección pronto estará disponible.",
-        no_answers = 0,
-        a1_name = AX,
-        a2_name = AY,
-        a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round(0, 2),
-        answer2 = lambda f, a, calc, c, d, m: np.round(0, 2),
-        answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = A1,
-        ayuda2 = A2,
-        ayuda3 = A3,
-        respuesta_P1 = lambda fa, a, calc, c, d, m: f"",
-        respuesta_P2 = lambda fa, a, calc, c, d, m: f"",
-        respuesta_P3 = lambda fa, a, calc, c, d, m: f"",
-        calculos = 'operations',
-        ),
-
-
     # Questionary(#1_1
     #     code = 2330011,
     #     no_pregunta = 1,
@@ -5058,21 +5033,22 @@ preguntas = [
     #     topic = MO,
     #     subtopic = "Momento alrededor de un eje",
     #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Considere las fuerzas $F_1 = {f[0]:.0f}$ y $F_2 = {f[1]:.0f}$ ejercidas sobre el elemento mostrado en la figura. Calcule el momento alrededor de la linea L dada por el vecto $\\vec{{v}}= {d[0]:.0f}\\hat{{i}}+{d[0]+2:.0f}\\hat{{j}}+{d[0]-1:.0f}\\hat{{k}}$, teniendo en cuenta que $x_0 ={d[3]:.0f}$, $x_1 ={d[6]:.0f}$ y $x_2 ={d[9]:.0f}$.",
+    #     pregunta = lambda f, a, calc, c, d, m: f"Considere las fuerzas $F_1 = {f[0]:.0f} \\text{{ N}}$ y $F_2 = {f[1]:.0f} \\text{{ N}}$, aplicadas sobre el elemento mostrado en la figura. Calcule la magnitud del momento alrededor de la línea $L$, la cual cruza el origen $O$ en dirección de las coordenadas $[x={d[0]:.0f}, y= {d[0]+2:.0f}, z={d[0]-1:.0f}]$, teniendo en cuenta que $d_0 ={d[3]:.0f}$, $d_1 ={d[6]:.0f}$ y $d_2 ={d[9]:.0f}$.",
     #     no_answers = 1,
-    #     a1_name = "Momento sobre la linea $L$ [$N \\cdot m$]",
+    #     a1_name = "Momento alrededor de la línea $L$ $[N \\cdot m]$",
     #     a2_name = "",
     #     a3_name = "",
     #     answer1 = lambda f, a, calc, c, d, m: np.round(((f[0]*d[6]*d[3]/Calculations.magnitude(d[6],d[9]))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((f[0]*d[9]*d[3]/Calculations.magnitude(d[6],d[9]))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((-1*f[1]*d[9])*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1))),2),
     #     answer2 = lambda f, a, calc, c, d, m: 0,
     #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "Se le dieron dimensiones por donde paa la linea de acción de la fuerza $F_1$. Uselos para hallar la dirección (vector unitario) y asi encontrar el vector de la fuerza.",
+    #     ayuda1 = MAE1,
     #     ayuda2 = "Encuentre el momento generado por cada fuerza con respecto al origen y luego haga sumatoria de momentos.",      
     #     ayuda3 = "Saque el vector unitario de la linea y haga el producto punto con el vector hallado de la sumatoria.",
     #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     A continuacion se presenta una posible solución para el problema:
+    #     La magnitud del momento alrededor de un eje se calcula mediante el producto punto entre el vector de momento en un punto sobre el eje y el vector director del eje. A continuación, se presenta la solución sugerida para el ejercicio:  
         
     #     $\\textbf{{\\small 1. Hallar los vectores fuerza - Vector Unitario:}}$
+
     #     Usando las dimensiones dadas en el ejercicio, se puede determinar la direccion del vector fuerza $F_1$.
     
     #     ${{\hspace{{4mm}} \\vec{{\\lambda_{{f_1}}}} = \\dfrac{d[9]}{{\\sqrt{{{d[9]}^2 + {d[6]}^2}}}}\\hat{{i}}-\\dfrac{d[6]}{{\\sqrt{{{d[9]}^2 + {d[6]}^2}}}}\\hat{{j}}+0\\hat{{k}}}}$
@@ -5532,54 +5508,6 @@ preguntas = [
     #-------------------------------------------------       Momento par      ---------------------------------------------------
     #-------------------------------------------------       Nivel Díficil   ------------------------------------------------------
     #-------------------------------------------------      Code: 24300##    ----------------------------------------------------
-
-    # Questionary(#1_1
-    #     code = 2430011,
-    #     no_pregunta = 1,
-    #     complexity = D,
-    #     topic = MO,
-    #     subtopic = "Momentos par",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Encuentre la magnitud del momento generado por las fuerzas $F_1 = {f[0]:.0f}[N]$ y $F_2 = {f[1]:.0f}[N]$ aplicadas sobre el sistema mostrado en la figura. Tenga en cuenta que $d_0 = {d[0]:.0f}[m]$ y $d_1 = {d[3]:.0f}[m]$.",
-    #     no_answers = 1,
-    #     a1_name = "Magnitud del momento [N \\cdot m]",
-    #     a2_name = "",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(Calculations.magnitude3D(f[0]*d[0],f[1]*d[3]*(3/5),f[1]*d[3]*(4/5)),2),
-    #     answer2 = lambda f, a, calc, c, d, m: 0,
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "Utilice las distancias dadas, siendo ya las perpendiculares entre el par de fuerzas y tenga en cuenta que el momento par se calcula como $M = F \\cdot d$.",
-    #     ayuda2 = "Como puede ver, la fuerza $F_2$ se encuentra en diagonal. Utilice esto como un plano arbitrario y despues proyecte el resultado del momento par usando el triangulo 3-4-5.",      
-    #     ayuda3 = "Realice sumatoria de fuerzas para hallar las componentes del momento resultante y luego su magnitud.",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     A continuacion se presenta una posible solución para el problema:
-        
-    #     $\\textbf{{\\small 1. Momento generado por las fuerzas - Momento par:}}$
-
-    #     Para $\\vec{F_1}$:
-    #     ${{\hspace{{4mm}} F_1 = {f[0]}[N]}}
-    #     ${{\hspace{{4mm}} d = {d[0]}[m]}}
-    #     ${{\hspace{{4mm}} \\vec{M} = ({f[0]*d[0]}\\hat{i})[N \\cdot m]}}$ 
-
-    #     Para $\\vec{F_2}$:
-    #     ${{\hspace{{4mm}} F_1 = {f[1]}[N]}}
-    #     ${{\hspace{{4mm}} d = {d[3]}[m]}}
-    #     ${{\hspace{{4mm}} M = ({f[1]*d[3]})[N \\cdot m]}}$ 
-
-    #     $\\textbf{{\\small 2. Descompocisión del momento generado por $F_2$:}}$
-    #     Al tomar la seccion inclinada como plano de referencia, el momento debe ser proyectado a sus componentes en los ejes definidos haciendo uso del triangulo 3-4-5 dado en la figura.
-    #     ${{\hspace{{4mm}} \\vec{M_"\\hat{{j}}"} = ({f[1]*(3/5)*d[3]}\\hat{j})[N \\cdot m]}}$
-    #     ${{\hspace{{4mm}} \\vec{M_"\\hat{{k}}"} = ({f[1]*(4/5)*d[3]}\\hat{k})[N \\cdot m]}}$
-
-    #     $\\textbf{{\\small 3. Sumatoria de momentos:}}$
-    #     ${{\hspace{{4mm}} \\vec{M} = ({f[0]*d[0]}\\hat{i}+{f[1]*(3/5)*d[3]}\\hat{j}+{f[1]*(4/5)*d[3]}\\hat{k})[N \\cdot m]}}$
-    #     Teniendo esto podemos encontrar la magnitud del momento generado por las fuerzas.
-    #     ${{\hspace{{4mm}} |\\vec{M}| = {Calculations.magnitude3D(f[0]*d[0],f[1]*d[3]*(3/5),f[1]*d[3]*(4/5))}[N \\cdot m]}}$
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
         
     Questionary(#2_1
         code = 2430021,
@@ -9751,88 +9679,68 @@ preguntas = [
         calculos='operations'
         ),
 
-    # Questionary(#2_1
-    #     code = 8120021,
-    #     no_pregunta = 2,
-    #     complexity = M,
-    #     topic = "Fuerzas internas",
-    #     subtopic = "Fuerzas internas",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"La viga fallará cuando el momento máximo sea $M_{{max}} = {m[0]:.0f} \\text{{ kN}} \\cdot \\text{{ m}}$ o la fuerza cortante máxima sea $V_{{max}} = {d[0] + 2 :.0f} \\text{{ kN}}$. Determine la máxima carga distribuida $w$ que la viga puede soportar. Considere $d_1 = {3 + d[3]*(1/5):.2f} \\text{{ m}}$ y  $d_2 = {5 + d[6]*(1/5):.2f}  \\text{{ m}}$.",
-    #     no_answers = 1,
-    #     a1_name = "Carga distribuida $w$ $\\left[\\dfrac{{kN}}{{m}}\\right]$",
-    #     a2_name = "",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round((d[0] + 2)/((3 + d[3]*(1/5))*(1/2) + ((5 + d[6]*(1/5))/(6 + d[3]*(2/5)))*(3 + d[3]*(1/5) + (1/3)*(5 + d[6]*(1/5))) - (1/2)*(5 + d[6]*(1/5))),2),
-    #     answer2 = lambda f, a, calc, c, d, m: 0,
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = FI1,
-    #     ayuda2 = FI2,
-    #     ayuda3 = FI3,
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     Las fuerzas internas se definen como las fuerzas que actúan dentro de un elemento y se obtienen mediante un corte teórico en el cuerpo. A continuación, se presenta la solución sugerida para el ejercicio:
+    Questionary(#2_1
+        code = 8120021,
+        no_pregunta = 2,
+        complexity = M,
+        topic = "Fuerzas internas",
+        subtopic = "Fuerzas internas",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"La viga fallará cuando la fuerza cortante máxima sea $V_{{max}} = {d[0] + 2 :.0f} \\text{{ kN}}$. Determine la máxima carga distribuida $w$ que la viga puede soportar. Considere  $d_1 = {3 + d[3]:.2f} \\text{{ m}}$ y  $d_2 = {d[3]*(1/4):.2f} \\text{{ m}}$.",
+        no_answers = 1,
+        a1_name = "Carga distribuida $w$ $\\left[\\dfrac{{kN}}{{m}}\\right]$",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round((d[0] + 2)/((3 + d[3])*(1/2) + ((d[3]*(1/4))/(6 + d[3]*2))*(3 + d[3] + (1/3)*(d[3]*(1/4))) - (1/2)*(d[3]*(1/4))),2),
+        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = FI1,
+        ayuda2 = FI2,
+        ayuda3 = FI3,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        Las fuerzas internas se definen como las fuerzas que actúan dentro de un elemento y se obtienen mediante un corte teórico en el cuerpo. A continuación, se presenta la solución sugerida para el ejercicio:
 
 
-    #     $\\textbf{{\\small 1. Reacciones en los apoyos: }}$
+        $\\textbf{{\\small 1. Reacciones en los apoyos: }}$
         
-    #     ${{\hspace{{4mm}} \\sum{{F_x}} = R_{{Ax}} = 0}}$     
+        ${{\hspace{{4mm}} \\sum{{F_x}} = R_{{Ax}} = 0}}$     
              
-    #     ${{\hspace{{4mm}} \\sum{{M_A}} = R_{{By}} \\cdot d_1 - w \\cdot \\dfrac{{(d_1)^2}}{{2}} - \\dfrac{{w \\cdot d_2}}{{2}} \\cdot (d_1 + \\dfrac{{d_2}}{{3}}) = 0}}$     
-    #     ${{\hspace{{4mm}} R_{{By}} =  w \\cdot \\dfrac{{d_1}}{{2}} + \\dfrac{{w \\cdot d_2}}{{2d_1}} \\cdot (d_1 + \\dfrac{{d_2}}{{3}}) }}$     
+        ${{\hspace{{4mm}} \\sum{{M_A}} = R_{{By}} \\cdot d_1 - w \\cdot \\dfrac{{(d_1)^2}}{{2}} - \\dfrac{{w \\cdot d_2}}{{2}} \\cdot (d_1 + \\dfrac{{d_2}}{{3}}) = 0}}$     
+        ${{\hspace{{4mm}} R_{{By}} =  w \\cdot \\dfrac{{d_1}}{{2}} + \\dfrac{{w \\cdot d_2}}{{2d_1}} \\cdot (d_1 + \\dfrac{{d_2}}{{3}}) }}$     
              
-    #     ${{\hspace{{4mm}} \\sum{{F_y}} = R_{{Ay}} + R_{{By}} - w \\cdot d_1 - \\dfrac{{w \\cdot d_2}}{{2}} = 0}}$     
-    #     ${{\hspace{{4mm}} R_{{Ay}} = w \\cdot d_1 + \\dfrac{{w \\cdot d_2}}{{2}} - R_{{By}}}}$     
-    #     ${{\hspace{{4mm}} R_{{Ay}} = w \\cdot d_1 + \\dfrac{{w \\cdot d_2}}{{2}} -  w \\cdot \\dfrac{{d_1}}{{2}} - \\dfrac{{w \\cdot d_2}}{{2d_1}} \\cdot (d_1 + \\dfrac{{d_2}}{{3}})}}$     
-    #     ${{\hspace{{4mm}} R_{{Ay}} = \\dfrac{{w \\cdot d_2}}{{2}} + w \\cdot \\dfrac{{d_1}}{{2}} - \\dfrac{{w \\cdot d_2}}{{2d_1}} \\cdot (d_1 + \\dfrac{{d_2}}{{3}})}}$     
+        ${{\hspace{{4mm}} \\sum{{F_y}} = R_{{Ay}} + R_{{By}} - w \\cdot d_1 - \\dfrac{{w \\cdot d_2}}{{2}} = 0}}$     
+        ${{\hspace{{4mm}} R_{{Ay}} = w \\cdot d_1 + \\dfrac{{w \\cdot d_2}}{{2}} - R_{{By}}}}$     
+        ${{\hspace{{4mm}} R_{{Ay}} = w \\cdot d_1 + \\dfrac{{w \\cdot d_2}}{{2}} -  w \\cdot \\dfrac{{d_1}}{{2}} - \\dfrac{{w \\cdot d_2}}{{2d_1}} \\cdot (d_1 + \\dfrac{{d_2}}{{3}})}}$     
+        ${{\hspace{{4mm}} R_{{Ay}} = \\dfrac{{w \\cdot d_2}}{{2}} + w \\cdot \\dfrac{{d_1}}{{2}} - \\dfrac{{w \\cdot d_2}}{{2d_1}} \\cdot (d_1 + \\dfrac{{d_2}}{{3}})}}$     
         
-    #     Con las reacciones se realizan los siguientes diagramas:
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"""
-    #     Tal que, solo es necesario tener prente las ecuaciones del tramo $A$-$B$ para calcular el momento máximo (puesto se ubica en $x = d_1$), dado que el valor del cortante máximo es $|R_{{Ay}} - w \\cdot d_1|$:
+        Con las reacciones se realiza el siguiente diagrama:
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""     
+        $\\textbf{{\\small 2. Fuerza cortante: }}$
         
-    #     $\\textbf{{\\small 2. Fuerzas internas en tramo A-B: }}$
+        Se hace el corte mostrado en la imagen para encontrar la ecuación de la fuerza cortante en el tramo $A$-$B$:
+        """,
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"""
+        ${{\hspace{{4mm}} \\sum{{F_y}} = R_{{Ay}} - w \\cdot x - V_1 = 0}}$     
+        ${{\hspace{{4mm}} V_1 = R_{{Ay}} - w \\cdot x}}$      
         
-    #     Se hace el corte mostrado en la imagen para encontrar las ecuaciones de las fuerzas internas en el tramo $A$-$B$:
-    #     """,
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"""
-    #     $\\underline{{Fuerza \\hspace{{2mm}} cortante:}}$
+        $\\textbf{{\\small 3. Evaluación de la condición de resistencia máxima: }}$         
         
-    #     ${{\hspace{{4mm}} \\sum{{F_y}} = R_{{Ay}} - w \\cdot x - V_1 = 0}}$     
-    #     ${{\hspace{{4mm}} V_1 = R_{{Ay}} - w \\cdot x}}$     
+        ${{\hspace{{4mm}} V_{{max}} = |R_{{Ay}} - w \\cdot d_1| = |\\dfrac{{w \\cdot d_2}}{{2}} + w \\cdot \\dfrac{{d_1}}{{2}} - \\dfrac{{w \\cdot d_2}}{{2d_1}} \\cdot (d_1 + \\dfrac{{d_2}}{{3}}) - w \\cdot d_1|}}$     
         
-    #     $\\underline{{Momento \\hspace{{2mm}} flector:}}$
+        ${{\hspace{{4mm}} V_{{max}} = |\\dfrac{{w \\cdot d_2}}{{2}} - w \\cdot \\dfrac{{d_1}}{{2}} - \\dfrac{{w \\cdot d_2}}{{2d_1}} \\cdot (d_1 + \\dfrac{{d_2}}{{3}})|}}$     
         
-    #     ${{\hspace{{4mm}} \\sum{{M_x}} = w \\cdot \\dfrac{{x^2}}{{2}} - R_{{Ay}} \\cdot x + M_1 = 0}}$     
-    #     ${{\hspace{{4mm}} M_1 = R_{{Ay}} \\cdot x - w \\cdot \\dfrac{{x^2}}{{2}}}}$     
+        Teniendo en cuenta que el cortante máximo es negativo:
+
+        ${{\hspace{{4mm}} V_{{max}} = w \\cdot \\left(\\dfrac{{d_1}}{{2}} + \\dfrac{{d_2}}{{2d_1}} \\cdot \\left(d_1 + \\dfrac{{d_2}}{{3}}\\right) - \\dfrac{{d_2}}{{2}}\\right)}}$     
         
-    #     El valor máximo de momento flector es:
+        ${{\hspace{{4mm}} w  = \\dfrac{{V_{{max}}}}{{\\dfrac{{d_1}}{{2}} + \\dfrac{{d_2}}{{2d_1}} \\cdot \\left(d_1 + \\dfrac{{d_2}}{{3}}\\right) - \\dfrac{{d_2}}{{2}}}}}}$     
         
-    #     ${{\hspace{{4mm}} M_{{max}} = R_{{Ay}} \\cdot d_1 - w \\cdot \\dfrac{{(d_1)^2}}{{2}} }}$     
-        
-    #     $\\textbf{{\\small 3. Evaluación de la condición de resistencia máxima: }}$     
-        
-    #     $\\underline{{Cortante \\hspace{{2mm}} máximo:}}$      
-        
-    #     ${{\hspace{{4mm}} V_{{max}} = |R_{{Ay}} - w \\cdot d_1| = |\\dfrac{{w \\cdot d_2}}{{2}} + w \\cdot \\dfrac{{d_1}}{{2}} - \\dfrac{{w \\cdot d_2}}{{2d_1}} \\cdot (d_1 + \\dfrac{{d_2}}{{3}}) - w \\cdot d_1|}}$     
-    #     ${{\hspace{{4mm}} V_{{max}} = |\\dfrac{{w \\cdot d_2}}{{2}} - w \\cdot \\dfrac{{d_1}}{{2}} - \\dfrac{{w \\cdot d_2}}{{2d_1}} \\cdot (d_1 + \\dfrac{{d_2}}{{3}})|}}$     
-    #     ${{\hspace{{4mm}} V_{{max}} = w \\cdot (\\dfrac{{d_1}}{{2}} + \\dfrac{{d_2}}{{2d_1}} \\cdot (d_1 + \\dfrac{{d_2}}{{3}}) - \\dfrac{{d_2}}{{2}})}}$     
-    #     ${{\hspace{{4mm}} w  = \\dfrac{{V_{{max}}}}{{\\dfrac{{d_1}}{{2}} + \\dfrac{{d_2}}{{2d_1}} \\cdot (d_1 + \\dfrac{{d_2}}{{3}}) - \\dfrac{{d_2}}{{2}}}}}}$     
-    #     ${{\hspace{{4mm}} w  = {(d[0] + 2)/((3 + d[3]*(1/5))*(1/2) + ((5 + d[6]*(1/5))/(6 + d[3]*(2/5)))*(3 + d[3]*(1/5) + (1/3)*(5 + d[6]*(1/5))) - (1/2)*(5 + d[6]*(1/5))):.2f} \\dfrac{{ kN}}{{m}}}}$     
-                
-    #     $\\underline{{Momento \\hspace{{2mm}} máximo:}}$  
-        
-    #     ${{\hspace{{4mm}} M_{{max}} = |R_{{Ay}} \\cdot d_1 - w \\cdot \\dfrac{{(d_1)^2}}{{2}} |}}$     
-    #     ${{\hspace{{4mm}} M_{{max}} = |(\\dfrac{{w \\cdot d_2}}{{2}} + w \\cdot \\dfrac{{d_1}}{{2}} - \\dfrac{{w \\cdot d_2}}{{2d_1}} \\cdot (d_1 + \\dfrac{{d_2}}{{3}})) \\cdot d_1 - w \\cdot \\dfrac{{(d_1)^2}}{{2}} |}}$     
-    #     ${{\hspace{{4mm}} M_{{max}} = \\dfrac{{w \\cdot d_2}}{{2}} \\cdot (d_1 + \\dfrac{{d_2}}{{3}}) - \\dfrac{{w \\cdot d_2 \\cdot d_1}}{{2}} }}$     
-    #     ${{\hspace{{4mm}} M_{{max}} = w \\cdot (\\dfrac{{d_2}}{{2}} \\cdot (d_1 + \\dfrac{{d_2}}{{3}}) - \\dfrac{{d_2 \\cdot d_1}}{{2}} ) }}$     
-    #     ${{\hspace{{4mm}} w = \\dfrac{{M_{{max}}}}{{\\dfrac{{d_2}}{{2}} \\cdot (d_1 + \\dfrac{{d_2}}{{3}}) - \\dfrac{{d_2 \\cdot d_1}}{{2}}}} }}$     
-    #     ${{\hspace{{4mm}} w =  {(m[0])/((5 + d[6]*(1/5))*(1/2)*(3 + d[3]*(1/5) + (1/3)*(5 + d[6]*(1/5))) - (5 + d[6]*(1/5))*(3 + d[3]*(1/5))*(1/2)):.2f} \\dfrac{{ kN}}{{m}}}}$     
-        
-        
-    #     Finalmente, se selecciona la carga de menor magnitud, dado que, si selecciona la mayor, la viga fallará bajo la otra condición.
-    #     """,
-    #     calculos='operations'
-    #     ),
+        ${{\hspace{{4mm}} w  = {(d[0] + 2)/((3 + d[3])*(1/2) + ((d[3]*(1/4))/(6 + d[3]*2))*(3 + d[3] + (1/3)*(d[3]*(1/4))) - (1/2)*(d[3]*(1/4))):.2f} \\dfrac{{ kN}}{{m}}}}$     
+        """,
+        calculos='operations'
+        ),
+
 
     Questionary(#3_1
         code = 8120031,
