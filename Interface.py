@@ -848,6 +848,8 @@ if authenticate_user():
                         st.image(FD_image_paths[6], width=350)
                     if pregunta_no == 2:
                         st.image(FD_image_paths[18], width=350)
+                    if pregunta_no == 3:
+                        st.image(FD_image_paths[19], width=350)
                 if subtopic == "Fuerzas internas":
                     if pregunta_no == 1:
                         st.image(FI_image_paths[0], width=450) 
@@ -988,6 +990,8 @@ if authenticate_user():
                 if subtopic == "Empuje de suelo":
                     if pregunta_no == 1:
                         st.image(FD_image_paths[17], width=400) 
+                    if pregunta_no == 2:
+                        st.image(FD_image_paths[20], width=400)
                 if subtopic == "Fuerzas internas":
                     if pregunta_no == 1:
                         st.image(FI_image_paths[1], width=500)
@@ -1140,6 +1144,8 @@ if authenticate_user():
                         st.image(FD_rtas_paths[8], width=350)
                     if pregunta_no ==2:
                         st.image(FD_rtas_paths[22], width=350)
+                    if pregunta_no ==3:
+                        st.image(FD_rtas_paths[23], width=250)
                 if subtopic == "Fuerzas internas":
                     if pregunta_no ==1:
                         st.image(FI_rtas_paths[0], width=200)
@@ -1177,7 +1183,9 @@ if authenticate_user():
                         st.image(FD_rtas_paths[7], width=350)
                 if subtopic == "Empuje de suelo":
                     if pregunta_no ==1:
-                        st.image(FD_rtas_paths[21], width=300)     
+                        st.image(FD_rtas_paths[21], width=300)  
+                    if pregunta_no ==2:
+                        st.image(FD_rtas_paths[24], width=350)   
                 if subtopic == "Fuerzas internas":
                     if pregunta_no == 1:
                         st.image(FI_rtas_paths[2], width=300)   
