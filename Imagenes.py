@@ -307,6 +307,7 @@ FD_image_paths =[#Imágenes Preguntas Cálculo Fuerzas distribuidas
 "./Imagenes/Preguntas/FD/ES/FD_ES_F_2a.png", #[18]
 "./Imagenes/Preguntas/FD/ES/FD_ES_F_3a.png", #[19]
 "./Imagenes/Preguntas/FD/ES/FD_ES_M_2a.png", #[20]
+"./Imagenes/Preguntas/FD/ES/FD_ES_M_3a.png", #[21]
 ]
 
 FI_image_paths =[#Imágenes Preguntas Cálculo Fuerzas internas
@@ -465,6 +466,7 @@ FD_rtas_paths= [#Imágenes Respuestas Cálculos Fuerzas Distribuidas
 "./Imagenes/Respuestas/FD/ES/R_FD_ES_F_2a.png", #[22]
 "./Imagenes/Respuestas/FD/ES/R_FD_ES_F_3a.png", #[23]
 "./Imagenes/Respuestas/FD/ES/R_FD_ES_M_2a.png", #[24]
+"./Imagenes/Respuestas/FD/ES/R_FD_ES_M_3a.png", #[25]
 ]
 
 FI_rtas_paths= [#Imágenes Respuestas Cálculos Fuerzas Internas

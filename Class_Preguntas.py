@@ -9522,7 +9522,71 @@ preguntas = [
         calculos = 'operations',
         ),
     
-  
+    Questionary(#3_1
+        code = 7310031,
+        no_pregunta = 3,
+        complexity = M,
+        topic = FD,
+        subtopic = "Empuje de suelo",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"El margen de seguridad $(M_S)$ se define como la diferencia entre el Momento Resistente $(M_R)$ y el Momento Actuante $(M_A)$: $M_S = |M_R| - |M_A|$; donde ambos momentos se calculan con respecto al punto $A$. Determine el margen de seguridad $M_S$ del sistema mostrado, en el que la estructura de contención está compuesta por gaviones cúbicos de longitud $d = {(((100+d[12])/100)+3)/4:.4f} \\text{{ m}}$ con un peso específico $\\gamma_g = {12+d[0]*(1/2):.2f} \\dfrac{{kN}}{{m^3}}$. Además, considere que el peso específico del suelo es $\\gamma_s = {14+d[0]*(1/2):.2f} \\dfrac{{kN}}{{m^3}}$, el coeficiente de presión lateral de tierra $k = {(12+d[6])*(1/50):.2f}$ y $d_1 = {((100+d[12])/100)+3:.3f} \\text{{ m}}$.",
+        no_answers = 1,
+        a1_name = "Margen de seguridad $M_S$ $[kN \\cdot m]$",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(((1*(12+d[0]*(1/2))*((((100+d[12])/100)+3)/4)**3)*0.5*((((100+d[12])/100)+3)/4)+(2*(12+d[0]*(1/2))*((((100+d[12])/100)+3)/4)**3)*(1.5*((((100+d[12])/100)+3)/4))+(3*(12+d[0]*(1/2))*((((100+d[12])/100)+3)/4)**3)*(2.5*((((100+d[12])/100)+3)/4))+(4*(12+d[0]*(1/2))*((((100+d[12])/100)+3)/4)**3)*(3.5*((((100+d[12])/100)+3)/4)))-((0.5*((12+d[6])*(1/50))*((((100+d[12])/100)+3)/4)*(14+d[0]*(1/2))*(((100+d[12])/100)+3)**2)*((((100+d[12])/100)+3)/3)), 2),
+        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = ES1,
+        ayuda2 = ES2,
+        ayuda3 = "",
+        respuesta_P1 = lambda fa, a, calc, c, d, m: f"""
+        El empuje de suelo es la fuerza que el terreno ejerce sobre una estructura en contacto con él. A continuación, se presenta la solución sugerida para el ejercicio:
+        
+        $\\textbf{{\\small 1. Representación de ejercicio: }}$
+
+        En la configuración del muro de contención mostrado, se identifican las siguientes fuerzas: la fuerza resultante del empuje del suelo y cuatro fuerza verticales del peso propio de los gaviones.  
+        """,  
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        $\\textbf{{\\small 2. Puntualización de las fuerzas: }}$
+        
+        El ancho "a" es igual a $d$:
+        
+        $\\underline{{Fuerzas \\hspace{{2mm}} verticales:}}$ 
+                
+        ${{\hspace{{4mm}} w_1 = 1 \\cdot  \\gamma_g \\cdot d \\cdot d^2}}$  
+        ${{\hspace{{4mm}} w_1 = {1*(12+d[0]*(1/2))*((((100+d[12])/100)+3)/4)**3:.2f} \\text{{ kN}}}}$  
+
+        ${{\hspace{{4mm}} w_2 = 2 \\cdot  \\gamma_g \\cdot d \\cdot d^2}}$   
+        ${{\hspace{{4mm}} w_2 = {2*(12+d[0]*(1/2))*((((100+d[12])/100)+3)/4)**3:.2f} \\text{{ kN}}}}$ 
+
+        ${{\hspace{{4mm}} w_3 = 3 \\cdot  \\gamma_g \\cdot d \\cdot d^2}}$  
+        ${{\hspace{{4mm}} w_3 = {3*(12+d[0]*(1/2))*((((100+d[12])/100)+3)/4)**3:.2f} \\text{{ kN}}}}$ 
+
+        ${{\hspace{{4mm}} w_4 = 4 \\cdot  \\gamma_g \\cdot d \\cdot d^2}}$  
+        ${{\hspace{{4mm}} w_4 = {4*(12+d[0]*(1/2))*((((100+d[12])/100)+3)/4)**3:.2f} \\text{{ kN}}}}$    
+
+        
+        $\\underline{{Fuerza \\hspace{{2mm}} de \\hspace{{2mm}} presión:}}$ 
+        
+        ${{\hspace{{4mm}} F_P = k \\cdot d \\cdot \\dfrac{{\\gamma_s \\cdot (d_1)^2}}{{2}}}}$          
+        ${{\hspace{{4mm}} F_P = {0.5*((12+d[6])*(1/50))*((((100+d[12])/100)+3)/4)*(14+d[0]*(1/2))*(((100+d[12])/100)+3)**2:.2f} \\text{{ kN}}}}$ 
+           
+        $\\textbf{{\\small 3. Margen de seguridad: }}$
+        
+        ${{\hspace{{4mm}} |M_R| = w_1 \\cdot  \\dfrac{{d}}{{2}} + w_2 \\cdot \\left(d + \\dfrac{{d}}{{2}} \\right) + w_3 \\cdot \\left(2 \\cdot d + \\dfrac{{d}}{{2}} \\right) + w_4 \\cdot \\left(3 \\cdot d + \\dfrac{{d}}{{2}} \\right) }}$      
+        ${{\hspace{{4mm}} |M_R| = {(1*(12+d[0]*(1/2))*((((100+d[12])/100)+3)/4)**3)*0.5*((((100+d[12])/100)+3)/4)+(2*(12+d[0]*(1/2))*((((100+d[12])/100)+3)/4)**3)*(1.5*((((100+d[12])/100)+3)/4))+(3*(12+d[0]*(1/2))*((((100+d[12])/100)+3)/4)**3)*(2.5*((((100+d[12])/100)+3)/4))+(4*(12+d[0]*(1/2))*((((100+d[12])/100)+3)/4)**3)*(3.5*((((100+d[12])/100)+3)/4)):.2f} \\text{{ }} kN \\cdot m }}$
+
+        
+        ${{\hspace{{4mm}} |M_A| = F_P \\cdot \\dfrac{{d_1}}{{3}}}}$      
+        ${{\hspace{{4mm}} |M_A| = {(0.5*((12+d[6])*(1/50))*((((100+d[12])/100)+3)/4)*(14+d[0]*(1/2))*(((100+d[12])/100)+3)**2)*((((100+d[12])/100)+3)/3):.2f} \\text{{ }} kN \\cdot m }}$
+       
+        ${{\hspace{{4mm}} M_S = |M_R| - |M_A| = {((1*(12+d[0]*(1/2))*((((100+d[12])/100)+3)/4)**3)*0.5*((((100+d[12])/100)+3)/4)+(2*(12+d[0]*(1/2))*((((100+d[12])/100)+3)/4)**3)*(1.5*((((100+d[12])/100)+3)/4))+(3*(12+d[0]*(1/2))*((((100+d[12])/100)+3)/4)**3)*(2.5*((((100+d[12])/100)+3)/4))+(4*(12+d[0]*(1/2))*((((100+d[12])/100)+3)/4)**3)*(3.5*((((100+d[12])/100)+3)/4)))-((0.5*((12+d[6])*(1/50))*((((100+d[12])/100)+3)/4)*(14+d[0]*(1/2))*(((100+d[12])/100)+3)**2)*((((100+d[12])/100)+3)/3)):.2f} \\text{{ }} kN \\cdot m }}$ 
+        """,
+        respuesta_P3 = lambda fa, a, calc, c, d, m: f"",
+        calculos = 'operations',
+        ),
+    
 
     #=================================================  FUERZAS DISTRIBUIDAS =========================================================
     #-------------------------------------------------       Empuje de suelo    --------------------------------------------
