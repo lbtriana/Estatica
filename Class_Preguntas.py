@@ -4936,7 +4936,7 @@ preguntas = [
 
         El momento alrededor del eje $x$ corresponde a la componente en la dirección $\\hat{{i}}$ del vector momento obtenido respecto al origen.  
 
-        ${{\hspace{{4mm}} \\vec{{M_x}} = \\vec{{M_O}} \\cdot \\vec{{\\lambda_{{\\hat{{k}}}}}} = 1*{-f[0]*(((d[6]+50)/100))/2:.2f} + 0*{(((d[6]+100)/100)-((d[6]+10)/100))*f[0]-(((d[6]+10)/100)/2)*f[1]:.2f} + 0*{f[1]*(((d[6]+50)/100)):.2f}}}$           
+        ${{\hspace{{4mm}} \\vec{{M_x}} = \\vec{{M_O}} \\cdot \\vec{{\\lambda_{{\\hat{{i}}}}}} = 1*{-f[0]*(((d[6]+50)/100))/2:.2f} + 0*{(((d[6]+100)/100)-((d[6]+10)/100))*f[0]-(((d[6]+10)/100)/2)*f[1]:.2f} + 0*{f[1]*(((d[6]+50)/100)):.2f}}}$           
         ${{\hspace{{4mm}} \\vec{{M_x}} = {-f[0]*(((d[6]+50)/100))/2:.2f} \\text{{ }} N \\cdot m}}$             
 
         $\\textbf{{\\small 4. Vector director de la recta L - Vector Unitario: }}$    
@@ -4946,7 +4946,7 @@ preguntas = [
 
         $\\textbf{{\\small 5. Momento sobre la recta L: }}$       
 
-        ${{\hspace{{4mm}} |\\vec{{M_L}}|=\\vec{{M_O}} \\cdot \\vec{{\\lambda_L}} = ({-f[0]*(((d[6]+50)/100))/2:.2f}\\hat{{i}} + ({(((d[6]+100)/100)-((d[6]+10)/100))*f[0]-(((d[6]+10)/100)/2)*f[1]:.2f})\\hat{{j}} + {f[1]*(((d[6]+50)/100)):.2f}\\hat{{k}}) \\cdot ({d[0]/Calculations.magnitude3D(d[0],d[3],d[0]+2):.2f}\\hat{{i}} - {d[3]/Calculations.magnitude3D(d[0],d[3],d[0]+2):.2f}\\hat{{j}} + {(d[0]+2)/Calculations.magnitude3D(d[0],d[3],d[0]+2):.2f}\\hat{{k}})}}$
+        ${{\hspace{{4mm}} |\\vec{{M_L}}|=\\vec{{M_O}} \\cdot \\vec{{\\lambda_L}} = ({-f[0]*(((d[6]+50)/100))/2:.2f}\\hat{{i}} + ({(((d[6]+100)/100)-((d[6]+10)/100))*f[0]-(((d[6]+10)/100)/2)*f[1]:.2f})\\hat{{j}} + {f[1]*(((d[6]+50)/100)):.2f}\\hat{{k}}) \\cdot ({d[0]/Calculations.magnitude3D(d[0],d[3],d[0]+2):.2f}\\hat{{i}} - {d[3]/Calculations.magnitude3D(d[0],d[3],d[0]+2):.2f}\\hat{{j}} + {(d[0]+2)/Calculations.magnitude3D(d[0],d[3],d[0]+2):.2f}\\hat{{k}})}}$       
         ${{\hspace{{4mm}} |\\vec{{M_L}}|=\\vec{{M_O}} \\cdot \\vec{{\\lambda_L}} = {(d[0]/Calculations.magnitude3D(d[0],d[3],d[0]+2))*(-f[0]*(((d[6]+50)/100))/2)+(-d[3]/Calculations.magnitude3D(d[0],d[3],d[0]+2))*((((d[6]+100)/100)-((d[6]+10)/100))*f[0]-(((d[6]+10)/100)/2)*f[1])+((d[0]+2)/Calculations.magnitude3D(d[0],d[3],d[0]+2))*(f[1]*(((d[6]+50)/100))):.2f} N \\cdot m}}$
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
@@ -5034,53 +5034,74 @@ preguntas = [
     #     calculos='operations'
     #     ),
 
-    # Questionary(#2_1
-    #     code = 2330021,
-    #     no_pregunta = 2,
-    #     complexity = D,
-    #     topic = MO,
-    #     subtopic = "Momento alrededor de un eje",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Considere las fuerzas $F_1 = {f[0]:.0f} \\text{{ N}}$ y $F_2 = {f[1]:.0f} \\text{{ N}}$, aplicadas sobre el elemento mostrado en la figura. Calcule la magnitud del momento alrededor de la línea $L$, la cual cruza el origen $O$ en dirección de las coordenadas $[x={d[0]:.0f}, y= {d[0]+2:.0f}, z={d[0]-1:.0f}]$, teniendo en cuenta que $d_0 ={d[3]:.0f}$, $d_1 ={d[6]:.0f}$ y $d_2 ={d[9]:.0f}$.",
-    #     no_answers = 1,
-    #     a1_name = "Momento alrededor de la línea $L$ $[N \\cdot m]$",
-    #     a2_name = "",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(((f[0]*d[6]*d[3]/Calculations.magnitude(d[6],d[9]))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((f[0]*d[9]*d[3]/Calculations.magnitude(d[6],d[9]))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((-1*f[1]*d[9])*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1))),2),
-    #     answer2 = lambda f, a, calc, c, d, m: 0,
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = MAE1,
-    #     ayuda2 = "Encuentre el momento generado por cada fuerza con respecto al origen y luego haga sumatoria de momentos.",      
-    #     ayuda3 = "Saque el vector unitario de la linea y haga el producto punto con el vector hallado de la sumatoria.",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     La magnitud del momento alrededor de un eje se calcula mediante el producto punto entre el vector de momento en un punto sobre el eje y el vector director del eje. A continuación, se presenta la solución sugerida para el ejercicio:  
+    Questionary(#2_1
+        code = 2330021,
+        no_pregunta = 2,
+        complexity = D,
+        topic = MO,
+        subtopic = "Momento alrededor de un eje",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Considere las fuerzas $F_1 = {f[0]:.0f} \\text{{ kN}}$ y $F_2 = {f[1]:.0f} \\text{{ kN}}$ aplicadas sobre el elemento mostrado en la figura. Determine el momento alrededor de la línea $L$, la cual cruza el origen $O$ en dirección de las coordenadas $[x={d[0]:.0f}, y= {d[0]+2:.0f}, z={d[0]-1:.0f}]$, teniendo en cuenta que $d_0 ={d[3]:.0f} \\text{{ m}}$, $d_1 ={d[6]:.0f} \\text{{ m}}$ y $d_2 ={d[9]:.0f} \\text{{ m}}$.",
+        no_answers = 3,
+        a1_name = "Componente $x$ [$kN \\cdot m$]",
+        a2_name = "Componente $y$ [$kN \\cdot m$]",
+        a3_name = "Componente $z$ [$kN \\cdot m$]",
+        answer1 = lambda f, a, calc, c, d, m: np.round((((f[0]*d[6]*d[3]/Calculations.magnitude(d[6],d[9]))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((f[0]*d[9]*d[3]/Calculations.magnitude(d[6],d[9]))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((-1*f[1]*d[9])*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1))))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round((((f[0]*d[6]*d[3]/Calculations.magnitude(d[6],d[9]))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((f[0]*d[9]*d[3]/Calculations.magnitude(d[6],d[9]))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((-1*f[1]*d[9])*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1))))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)),2),
+        answer3 = lambda f, a, calc, c, d, m: np.round((((f[0]*d[6]*d[3]/Calculations.magnitude(d[6],d[9]))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((f[0]*d[9]*d[3]/Calculations.magnitude(d[6],d[9]))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((-1*f[1]*d[9])*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1))))*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)),2),
+        ayuda1 = MAE1,
+        ayuda2 = "Encuentre el momento con respecto al origen para cada una de las fuerzas aplicadas. Luego, realice la sumatoria de lo momentos individuales para hallar el vector del momento total resultante.",     
+        ayuda3 = "Calcule el vector unitario de la recta y realice el producto punto con el vector resultante de la sumatoria de momento. Esta operación proporciona la magnitud del momento proyectado sobre la dirección de la recta. Para obtener el vector momento en dicha dirección, multiplique nuevamente esta magnitud por el vector unitario de la recta.",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        El momento alrededor de un eje se calcula mediante el producto punto entre el vector de momento en un punto sobre el eje y el vector director del eje. A continuación, se presenta la solución sugerida para el ejercicio:  
         
-    #     $\\textbf{{\\small 1. Hallar los vectores fuerza - Vector Unitario:}}$
+        $\\textbf{{\\small 1. Momento de cada una de las fuerzas con respecto a O: }}$ 
 
-    #     Usando las dimensiones dadas en el ejercicio, se puede determinar la direccion del vector fuerza $F_1$.
-    
-    #     ${{\hspace{{4mm}} \\vec{{\\lambda_{{f_1}}}} = \\dfrac{d[9]}{{\\sqrt{{{d[9]}^2 + {d[6]}^2}}}}\\hat{{i}}-\\dfrac{d[6]}{{\\sqrt{{{d[9]}^2 + {d[6]}^2}}}}\\hat{{j}}+0\\hat{{k}}}}$
-    #     Multiplicando el vector hallado por la magnitud de $F_1$, encontramos que:
-    #     ${{\hspace{{4mm}} \\vec{{F_1}} = ({d[9]*f[0]/Calculations.magnitude(d[9],d[6])}\\hat{{i}}-{d[6]*f[0]/Calculations.magnitude(d[9],d[6])}\\hat{{j}}+0\\hat{{k}})[N]}}$
-    #     ${{\hspace{{4mm}} \\vec{{F_2}} = (0\\hat{{i}}-{f[1]}\\hat{{j}}+0\\hat{{k}})[N]}}$
+        $\\underline{{Momento \\text{{ }} de \\text{{ }} la \\text{{ }} fuerza \\text{{ }} F1}}$
 
-    #     $\\textbf{{\\small 2. Momento con respecto al punto $O$:}}$
-    #     ${{\hspace{{4mm}} \\vec{{M_{{F_1}}}} = ({d[6]*f[0]*d[3]/Calculations.magnitude(d[9],d[6])}\\hat{{i}}+{d[9]*f[0]*d[3]/Calculations.magnitude(d[9],d[6])}\\hat{{j}}+0\\hat{{k}})[N \\cdot m]}}$        
-    #     ${{\hspace{{4mm}} \\vec{{M_{{F_2}}}} = (0\\hat{{i}}+0\\hat{{j}}-{f[1]*d[9]}\\hat{{k}})[N \\cdot m]}}$
+        Los vectores para calcular el producto cruz son:
 
-    #     $\\textbf{{\\small 3. Sumatoria de momento:}}$
-    #     ${{\hspace{{4mm}} \\sum{{\\vec{{M}}}} = ({d[6]*f[0]*d[3]/Calculations.magnitude(d[9],d[6])}\\hat{{i}}+{d[9]*f[0]*d[3]/Calculations.magnitude(d[9],d[6])}\\hat{{j}}-{f[1]*d[9]}\\hat{{k}})[N \\cdot m]}}$
+        ${{\hspace{{4mm}} \\vec{{r}} = [0 \\hat{{i}} +  0\\hat{{j}} + {d[3]}\\hat{{k}}] \\text{{m}}}}$   
 
-    #     $\\textbf{{\\small 4. Vector director de la linea $L$ - Vector Unitario:}}$
-    #     ${{\hspace{{4mm}} \\vec{{\\lambda_{{v}}}} = {d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)}\\hat{{i}}+{(d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)}\\hat{{j}}+{(d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)}\\hat{{k}}}}$
+        La fuerza $F_1$ se descompone con su vector unitario:   
+
+        ${{\hspace{{4mm}} \\vec{{\\lambda_{{f_1}}}} = \\dfrac{d[9]}{{\\sqrt{{{d[9]}^2 + {d[6]}^2}}}}\\hat{{i}}-\\dfrac{d[6]}{{\\sqrt{{{d[9]}^2 + {d[6]}^2}}}}\\hat{{j}}+0\\hat{{k}}}}$
+
+        ${{\hspace{{4mm}} \\vec{{F_1}} = ({d[9]*f[0]/Calculations.magnitude(d[9],d[6]):.2f}\\hat{{i}}-{d[6]*f[0]/Calculations.magnitude(d[9],d[6]):.2f}\\hat{{j}}+0\\hat{{k}}) \\text{{ kN}}}}$           
+
+        ${{\hspace{{4mm}} \\vec{{M_{{F_1}}}} = ({d[6]*f[0]*d[3]/Calculations.magnitude(d[9],d[6]):.2f}\\hat{{i}}+{d[9]*f[0]*d[3]/Calculations.magnitude(d[9],d[6]):.2f}\\hat{{j}}+0\\hat{{k}}) \\text{{ }} kN \\cdot m}}$          
+
+        $\\underline{{Momento \\text{{ }} de \\text{{ }} la \\text{{ }} fuerza \\text{{ }} F2}}$
+
+        ${{\hspace{{4mm}} \\vec{{r}} = [{d[9]:.0f} \\hat{{i}} - {d[6]:.0f}\\hat{{j}} + 0\\hat{{k}}] \\text{{m}}}}$ 
+
+        ${{\hspace{{4mm}} \\vec{{F_2}} = (0\\hat{{i}}-{f[1]}\\hat{{j}}+0\\hat{{k}}) \\text{{ kN}}}}$
+
+        ${{\hspace{{4mm}} \\vec{{M_{{F_2}}}} = (0\\hat{{i}}+0\\hat{{j}}-{f[1]*d[9]}\\hat{{k}}) \\text{{ }} kN \\cdot m}}$
+
+        $\\textbf{{\\small 2. Sumatoria de Momentos con respecto al punto O: }}$   
+
+        ${{\hspace{{4mm}} \\sum{{\\vec{{M}}}} = ({d[6]*f[0]*d[3]/Calculations.magnitude(d[9],d[6]):.2f}\\hat{{i}}+{d[9]*f[0]*d[3]/Calculations.magnitude(d[9],d[6]):.2f}\\hat{{j}}-{f[1]*d[9]}\\hat{{k}}) \\text{{ }} kN \\cdot m}}$
+
+        $\\textbf{{\\small 3. Vector director de la recta L - Vector Unitario: }}$    
+
+        ${{\hspace{{4mm}} \\vec{{L}} = {d[0]:.0f}\\hat{{i}} + {d[0]+2:.0f} \\hat{{j}} + {d[0]-1:.0f}\\hat{{k}}}}$  
+        ${{\hspace{{4mm}} \\vec{{\\lambda_{{L}}}} = {d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1):.2f}\\hat{{i}}+{(d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1):.2f}\\hat{{j}}+{(d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1):.2f}\\hat{{k}}}}$
         
-    #     $\\textbf{{\\small 5. Momento sobre la linea $L$ - Producto Punto:}}$
-    #     ${{\hspace{{4mm}} \\sum{{\\vec{{M}}}} \\cdot \\vec{{\\lambda_{{v}}}} = {((f[0]*d[6]*d[3]/Calculations.magnitude(d[6],d[9]))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((f[0]*d[9]*d[3]/Calculations.magnitude(d[6],d[9]))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((-1*f[1]*d[9])*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))}[N \\cdot m]}}$
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
+        $\\textbf{{\\small 4. Momento sobre la recta L: }}$ 
+        
+        ${{\hspace{{4mm}} |\\vec{{M_L}}| =\\vec{{M_O}} \\cdot \\vec{{\\lambda_L}} = ({d[6]*f[0]*d[3]/Calculations.magnitude(d[9],d[6]):.2f}\\hat{{i}}+{d[9]*f[0]*d[3]/Calculations.magnitude(d[9],d[6]):.2f}\\hat{{j}}-{f[1]*d[9]}\\hat{{k}}) \\cdot ({d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1):.2f}\\hat{{i}}+{(d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1):.2f}\\hat{{j}}+{(d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1):.2f}\\hat{{k}}) }}$        
+        ${{\hspace{{4mm}} |\\vec{{M_L}}| =\\vec{{M_O}} \\cdot \\vec{{\\lambda_L}} = {((f[0]*d[6]*d[3]/Calculations.magnitude(d[6],d[9]))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((f[0]*d[9]*d[3]/Calculations.magnitude(d[6],d[9]))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((-1*f[1]*d[9])*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1))):.2f} \\text{{ }} N \\cdot m}}$
+
+        Para encontrar la dirección del momento alrededor de la recta $L$, se multiplica nuevamente por su vector unitario.
+
+        ${{\hspace{{4mm}} |\\vec{{M_L}}| =\\vec{{M_L}} \\cdot \\vec{{\\lambda_L}} = [{(((f[0]*d[6]*d[3]/Calculations.magnitude(d[6],d[9]))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((f[0]*d[9]*d[3]/Calculations.magnitude(d[6],d[9]))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((-1*f[1]*d[9])*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1))))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)):.2f}\\hat{{i}}+({(((f[0]*d[6]*d[3]/Calculations.magnitude(d[6],d[9]))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((f[0]*d[9]*d[3]/Calculations.magnitude(d[6],d[9]))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((-1*f[1]*d[9])*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1))))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)):.2f})\\hat{{j}}+({(((f[0]*d[6]*d[3]/Calculations.magnitude(d[6],d[9]))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((f[0]*d[9]*d[3]/Calculations.magnitude(d[6],d[9]))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((-1*f[1]*d[9])*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1))))*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)):.2f})\\hat{{k}}] \\text{{ }} kN \\cdot m}}$
+        
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
 
     Questionary(#3_1
         code = 2330031,
@@ -5089,7 +5110,7 @@ preguntas = [
         topic = MO,
         subtopic = "Momento alrededor de un eje",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Encuentre el momento alrededor de la recta $L$ generado por $F_1 = {f[0]:.0f} \\text{{ kN}}$, $F_2 = {f[1]:.0f}  \\text{{ kN}}$ y $F_3 = {f[2]:.0f}  \\text{{ kN}}$, aplicadas sobre la viga y la columna. Considere que $F_1$ es paralela al eje $x$, $F_2$ es paralela al eje $y$ negativo y se aplica en el centro de la luz de la viga, $F_3$ es paralela al eje $z$ negativo, $d_1 = {d[3]:.0f} \\text{{ m}}$, $d_2 = {d[6]:.0f} \\text{{ m}}$, $d_3 = {d[9]:.0f} \\text{{ m}}$, $x_1 = {d[12]:.0f}  \\text{{ m}}$ y $z_1 = {d[15]:.0f}  \\text{{ m}}$. ",
+        pregunta = lambda f, a, calc, c, d, m: f"Encuentre el momento alrededor de la recta $L$ generado por $F_1 = {f[0]:.0f} \\text{{ kN}}$, $F_2 = {f[1]:.0f}  \\text{{ kN}}$ y $F_3 = {f[2]:.0f}  \\text{{ kN}}$, aplicadas sobre la viga y la columna. Considere que $F_1$ es paralela al eje $x$, $F_2$ es paralela al eje $y$ negativo y se aplica en el centro de la luz de la viga, $F_3$ es paralela al eje $z$ negativo, $d_1 = {d[3]:.0f} \\text{{ m}}$, $d_2 = {d[6]:.0f} \\text{{ m}}$, $d_3 = {d[9]:.0f} \\text{{ m}}$, $x = {d[12]:.0f}  \\text{{ m}}$ y $z = {d[15]:.0f}  \\text{{ m}}$. ",
         no_answers = 3,
         a1_name = "Componente $x$ [$kN \\cdot m$]",
         a2_name = "Componente $y$ [$kN \\cdot m$]",
@@ -5143,7 +5164,7 @@ preguntas = [
 
         $\\textbf{{\\small 4. Momento sobre la recta L: }}$       
 
-        ${{\hspace{{4mm}} |\\vec{{M_L}}| =\\vec{{M_O}} \\cdot \\vec{{\\lambda_L}} = ({d[3]*f[1]+(-d[6]*f[2]):.2f}\\hat{{i}} + {(d[3])*(f[0])+d[9]*f[2]:.2f}\\hat{{j}} + {-(d[6])*(f[0])-f[1]*d[9]/2:.2f}\\hat{{k}}) \\cdot ({d[12]/Calculations.magnitude3D(d[12],0,d[15]):.2f}\\hat{{i}} + 0\\hat{{j}} + {(d[15])/Calculations.magnitude3D(d[12],0,d[15]):.2f} \\hat{{k}}) }}$
+        ${{\hspace{{4mm}} |\\vec{{M_L}}| =\\vec{{M_O}} \\cdot \\vec{{\\lambda_L}} = ({d[3]*f[1]+(-d[6]*f[2]):.2f}\\hat{{i}} + {(d[3])*(f[0])+d[9]*f[2]:.2f}\\hat{{j}} + {-(d[6])*(f[0])-f[1]*d[9]/2:.2f}\\hat{{k}}) \\cdot ({d[12]/Calculations.magnitude3D(d[12],0,d[15]):.2f}\\hat{{i}} + 0\\hat{{j}} + {(d[15])/Calculations.magnitude3D(d[12],0,d[15]):.2f} \\hat{{k}}) }}$        
         ${{\hspace{{4mm}} |\\vec{{M_L}}| =\\vec{{M_O}} \\cdot \\vec{{\\lambda_L}} = {(d[3]*f[1]+(-d[6]*f[2]))*(d[12]/Calculations.magnitude3D(d[12],0,d[15]))+(-(d[6])*(f[0])-f[1]*d[9]/2)*((d[15])/Calculations.magnitude3D(d[12],0,d[15])):.2f} \\text{{ }} kN \\cdot m}}$
 
         Para encontrar la dirección del momento alrededor de la recta $L$, se multiplica nuevamente por su vector unitario.
@@ -5155,54 +5176,78 @@ preguntas = [
         calculos='operations'
         ),
 
-    # Questionary(#4_1
-        # code = 2330041,
-        # no_pregunta = 4,
-        # complexity = D,
-        # topic = MO,
-        # subtopic = "Momento alrededor de un eje",
-        # version = 1,
-        # pregunta = lambda f, a, calc, c, d, m: f"Considere las tensiones $T_1 = {f[0]:.0f}[N]$, $T_2 = {f[1]:.0f}[N]$, $T_3 = {f[2]:.0f}[N]$ producidas por el elemento colgado. Encuentre el momento generado sobre el eje $x$ teniendo en cuenta que $x_0 = {d[0]:.0f}[m], $\\theta = {a[0]:.0f}°$ y $\\phi = {a[4]:.0f}°.",
-        # no_answers = 1,
-        # a1_name = "Momento sobre el eje $x$ [$N \\cdot m$]",
-        # a2_name = "",
-        # a3_name = "",
-        # answer1 = lambda f, a, calc, c, d, m: np.round(f[1]*d[0]*(Calculations.sine(a[0]))**2-(f[2]*d[0]*Calculations.sine(a[1])),2),
-        # answer2 = lambda f, a, calc, c, d, m: 0,
-        # answer3 = lambda f, a, calc, c, d, m: 0,
-        # ayuda1 = "Use los angulos dados tanto para encontrar las componentes de las tensiones como para hallar el vector posición de $T_2$.",
-        # ayuda2 = "Encuentre el momento con respecto al origen para cada fuerza y haga sumatoria para hallar el vector momento total.",      
-        # ayuda3 = "Haga el producto punto con el vector encontrado en la sumatoria y el vector unitario del eje x, siendo $1\\hat{{i}}+0\\hat{{j}}+0\\hat{{k}}$.",
-        # respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-        # A continuacion se presenta una posible solución para el problema:
+    Questionary(#4_1
+        code = 2330041,
+        no_pregunta = 4,
+        complexity = D,
+        topic = MO,
+        subtopic = "Momento alrededor de un eje",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Considere las tensiones $T_1 = {f[0]:.0f} \\text{{ N}}$, $T_2 = {f[1]:.0f} \\text{{ N}}$, $T_3 = {f[2]:.0f} \\text{{ N}}$ generadas por el elemento. Encuentre el momento generado con respecto al eje $x$ y a la recta $L$, la cual cruza el origen $O$ en dirección de las coordenadas $[x={d[3]/10:.2f}, y= {(d[3]+2)/10:.2f}, z={(d[0]+1)/10:.2f}]$. Asuma que el radio del elemento es $d_0 = {d[0]/10:.2f} \\text{{ m}}$, el ángulo $\\theta = {a[0]:.0f}°$ y el ángulo $\\phi = {a[4]:.0f}°$.",
+        no_answers = 2,
+        a1_name = "Momento sobre el eje $x$ [$N \\cdot m$]",
+        a2_name = "Momento sobre el eje $L$ [$N \\cdot m$]",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(d[0]/10*f[1]*(Calculations.sine(a[0]))*Calculations.sine(a[4])-1*d[0]/10*f[2]*Calculations.sine(a[4]),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(((d[3]/10)/Calculations.magnitude3D(d[3]/10,(d[3]+2)/10,(d[0]+1)/10))*(d[0]/10*f[1]*(Calculations.sine(a[0]))*Calculations.sine(a[4])-1*d[0]/10*f[2]*Calculations.sine(a[4]))+(((d[0]+1)/10)/Calculations.magnitude3D(d[3]/10,(d[3]+2)/10,(d[0]+1)/10))*(d[0]/10*f[0]*Calculations.sine(a[4])-(d[0]/10*f[1]*Calculations.sine(a[4])*Calculations.cosine(a[0]))),2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = MAE1,
+        ayuda2 = "Encuentre el momento con respecto al origen para cada una de las fuerzas aplicadas. Luego, realice la sumatoria de lo momentos individuales para hallar el vector del momento total resultante.",     
+        ayuda3 = "Calcule el vector unitario de la recta y realice el producto punto con el vector resultante de la sumatoria de momento. Esta operación proporciona la magnitud del momento proyectado sobre la dirección de la recta. Para obtener el vector momento en dicha dirección, multiplique nuevamente esta magnitud por el vector unitario de la recta.",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        El momento alrededor de un eje se calcula mediante el producto punto entre el vector de momento en un punto sobre el eje y el vector director del eje. A continuación, se presenta la solución sugerida para el ejercicio:  
         
-        # $\\textbf{{\\small 1. Determinar los vectores tension y su vector posición correspondiente:}}$
-        
-        # ${{\hspace{{4mm}} \\vec{{T_1}} = ({-1*f[0]*Calculations.cosine(a[1])}\\hat{{i}}+{f[0]*Calculations.sine(a[1])}\\hat{{j}}+0\\hat{{k}})[N]}}$
-        # ${{\hspace{{4mm}} \\vec{{r_{{T_1}}}} = ({d[0]}\\hat{{i}}+0\\hat{{j}}+0\\hat{{k}})[m]}}$
-        # ${{\hspace{{4mm}} \\vec{{T_2}} = ({f[1]*Calculations.cosine(a[1])*Calculations.cosine(a[0])}\\hat{{i}}+{f[1]*Calculations.sine(a[1])}\\hat{{j}}+{f[1]*Calculations.cosine(a[1])*Calculations.sine(a[0])}\\hat{{k}})[N]}}$
-        # ${{\hspace{{4mm}} \\vec{{r_{{T_2}}}} = ({-1*d[0]*Calculations.cosine(a[0])}\\hat{{i}}+0\\hat{{j}}-{d[0]*Calculations.sine(a[0])}\\hat{{k}})[m]}}$
-        # ${{\hspace{{4mm}} \\vec{{T_3}} = (0\\hat{{i}}+{f[2]*Calculations.sine(a[1])}\\hat{{j}}-{f[2]*Calculations.cosine(a[1])}\\hat{{k}})[N]}}$
-        # ${{\hspace{{4mm}} \\vec{{r_{{T_3}}}} = (0\\hat{{i}}+0\\hat{{j}}+{d[0]}\\hat{{k}})[m]}}$
+        $\\textbf{{\\small 1. Momento de cada una de las fuerzas con respecto a O: }}$ 
 
-        # $\\textbf{{\\small 2. Momento alrededor del punto $O$:}}$
-        # Para $T_1$
-        # ${{\hspace{{4mm}} \\vec{{M}} = (0\\hat{{i}}+0\\hat{{j}}+{d[0]*f[0]*Calculations.sine(a[1])}\\hat{{k}})[N \\cdot m]}}$
-        # Para $T_2$
-        # ${{\hspace{{4mm}} \\vec{{M}} = ({d[0]*f[1]*(Calculations.sine(a[1]))**2}\\hat{{i}}+0\\hat{{j}}-{d[0]*f[1]*Calculations.sine(a[0])*Calculations.cosine(a[1])}\\hat{{k}})[N \\cdot m]}}$
-        # Para $T_3$
-        # ${{\hspace{{4mm}} \\vec{{M}} = ({-1*d[0]*f[2]*Calculations.sine(a[1])}\\hat{{i}}+0\\hat{{j}}+0\\hat{{k}})[N \\cdot m]}}$
+        $\\underline{{Momento \\text{{ }} de \\text{{ }} la \\text{{ }} fuerza \\text{{ }} F1}}$
 
-        # $\\textbf{{\\small 3. Sumatoria de momentos:}}$
-        # ${{\hspace{{4mm}} \\sum{{\\vec{{M}}}} = ({d[0]*f[1]*(Calculations.sine(a[1]))**2-d[0]*f[2]*Calculations.sine(a[1])}\\hat{{i}}+0\\hat{{j}}+{d[0]*f[0]*Calculations.sine(a[1])-d[0]*f[1]*Calculations.sine(a[0])*Calculations.cosine(a[1])}\\hat{{k}})[N \\cdot m]}}$
+        Los vectores para calcular el producto cruz son:
         
-        # $\\textbf{{\\small 4. Producto punto con el vector unitario del eje $x$:}}$
-        # ${{\hspace{{4mm}} \\sum{{\\vec{{M}}}} \\cdot \\hat{{i}}= {d[0]*f[1]*(Calculations.sine(a[1]))**2-d[0]*f[2]*Calculations.sine(a[1])}[N \\cdot m]}}$
-        # """,   
-        # respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-        # respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-        # calculos='operations'
-        # ),
+        ${{\hspace{{4mm}} \\vec{{r}} = [{d[0]/10}\\hat{{i}}+0\\hat{{j}}+0\\hat{{k}}] \\text{{ m}}}}$   
+        ${{\hspace{{4mm}} \\vec{{T_1}} = [{-1*f[0]*Calculations.cosine(a[4]):.2f}\\hat{{i}}+{f[0]*Calculations.sine(a[4]):.2f}\\hat{{j}}+0\\hat{{k}}] \\text{{ N}}}}$
+                
+
+        ${{\hspace{{4mm}} \\vec{{M_{{T1}}}} = [0\\hat{{i}}+0\\hat{{j}}+{d[0]/10*f[0]*Calculations.sine(a[4]):.2f}\\hat{{k}}] \\text{{ }} N \\cdot m}}$   
+
+        $\\underline{{Momento \\text{{ }} de \\text{{ }} la \\text{{ }} fuerza \\text{{ }} F2}}$
+       
+        ${{\hspace{{4mm}} \\vec{{r}} = [{-1*d[0]/10*Calculations.cosine(a[0]):.2f}\\hat{{i}}+0\\hat{{j}}-{d[0]/10*Calculations.sine(a[0]):.2f}\\hat{{k}}] \\text{{ m}}}}$      
+        ${{\hspace{{4mm}} \\vec{{T_2}} = [{f[1]*Calculations.cosine(a[4])*Calculations.cosine(a[0]):.2f}\\hat{{i}}+{f[1]*Calculations.sine(a[4]):.2f}\\hat{{j}}+{f[1]*Calculations.cosine(a[4])*Calculations.sine(a[0]):.2f}\\hat{{k}}] \\text{{ N}}}}$
+       
+        ${{\hspace{{4mm}} \\vec{{M_{{T2}}}} = [{d[0]/10*f[1]*(Calculations.sine(a[0]))*Calculations.sine(a[4]):.2f}\\hat{{i}}+0\\hat{{j}}-{d[0]/10*f[1]*Calculations.sine(a[4])*Calculations.cosine(a[0]):.2f}\\hat{{k}}] \\text{{ }} N \\cdot m}}$
+       
+        $\\underline{{Momento \\text{{ }} de \\text{{ }} la \\text{{ }} fuerza \\text{{ }} F3}}$
+       
+        ${{\hspace{{4mm}} \\vec{{r}} = [0\\hat{{i}}+0\\hat{{j}}+{d[0]/10}\\hat{{k}}]\\text{{ m}}}}$    
+        ${{\hspace{{4mm}} \\vec{{T_3}} = [0\\hat{{i}}+{f[2]*Calculations.sine(a[4]):.2f}\\hat{{j}}-{f[2]*Calculations.cosine(a[4]):.2f}\\hat{{k}}] \\text{{ N}}}}$
+        
+        ${{\hspace{{4mm}} \\vec{{M_{{T3}}}} = [{-1*d[0]/10*f[2]*Calculations.sine(a[4]):.2f}\\hat{{i}}+0\\hat{{j}}+0\\hat{{k}}] \\text{{ }} N \\cdot m}}$  
+
+        $\\textbf{{\\small 2. Sumatoria de Momentos con respecto al punto O: }}$ 
+
+        ${{\hspace{{4mm}} \\sum{{\\vec{{M_O}}}} = [{d[0]/10*f[1]*(Calculations.sine(a[0]))*Calculations.sine(a[4])-1*d[0]/10*f[2]*Calculations.sine(a[4]):.2f}\\hat{{i}}+0\\hat{{j}}+{d[0]/10*f[0]*Calculations.sine(a[4])-(d[0]/10*f[1]*Calculations.sine(a[4])*Calculations.cosine(a[0])):.2f}\\hat{{k}}] \\text{{ }} N \\cdot m}}$
+        
+        $\\textbf{{\\small 3. Momento generado alrededor del eje X: }}$
+
+        El momento alrededor del eje $x$ corresponde a la componente en la dirección $\\hat{{i}}$ del vector momento obtenido respecto al origen.  
+
+        ${{\hspace{{4mm}} \\vec{{M_x}} = \\vec{{M_O}} \\cdot \\vec{{\\lambda_{{\\hat{{i}}}}}} = 1*{d[0]/10*f[1]*(Calculations.sine(a[0]))*Calculations.sine(a[4])-1*d[0]/10*f[2]*Calculations.sine(a[4]):.2f} + 0*0 + 0*{d[0]/10*f[0]*Calculations.sine(a[4])-(d[0]/10*f[1]*Calculations.sine(a[4])*Calculations.cosine(a[0])):.2f}}}$           
+        ${{\hspace{{4mm}} \\vec{{M_x}} = {d[0]/10*f[1]*(Calculations.sine(a[0]))*Calculations.sine(a[4])-1*d[0]/10*f[2]*Calculations.sine(a[4]):.2f} \\text{{ }} N \\cdot m}}$  
+        
+        $\\textbf{{\\small 4. Vector director de la recta L - Vector Unitario: }}$    
+
+        ${{\hspace{{4mm}} \\vec{{L}} = {d[3]/10:.2f}\\hat{{i}} + {(d[3]+2)/10:.2f}\\hat{{j}} + {(d[0]+1)/10:.2f}\\hat{{k}}}}$                     
+        ${{\hspace{{4mm}} \\vec{{\\lambda_L}} = {(d[3]/10)/Calculations.magnitude3D(d[3]/10,(d[3]+2)/10,(d[0]+1)/10):.2f}\\hat{{i}} + {((d[3]+2)/10)/Calculations.magnitude3D(d[3]/10,(d[3]+2)/10,(d[0]+1)/10):.2f}\\hat{{j}} + {((d[0]+1)/10)/Calculations.magnitude3D(d[3]/10,(d[3]+2)/10,(d[0]+1)/10):.2f}\\hat{{k}}}}$
+
+        $\\textbf{{\\small 5. Momento sobre la recta L: }}$            
+
+        ${{\hspace{{4mm}} |\\vec{{M_L}}|=\\vec{{M_O}} \\cdot \\vec{{\\lambda_L}} = ({d[0]/10*f[1]*(Calculations.sine(a[0]))*Calculations.sine(a[4])-1*d[0]/10*f[2]*Calculations.sine(a[4]):.2f}\\hat{{i}}+0\\hat{{j}}+{d[0]/10*f[0]*Calculations.sine(a[4])-(d[0]/10*f[1]*Calculations.sine(a[4])*Calculations.cosine(a[0])):.2f}\\hat{{k}}) \\cdot ({(d[3]/10)/Calculations.magnitude3D(d[3]/10,(d[3]+2)/10,(d[0]+1)/10):.2f}\\hat{{i}} + {((d[3]+2)/10)/Calculations.magnitude3D(d[3]/10,(d[3]+2)/10,(d[0]+1)/10):.2f}\\hat{{j}} + {((d[0]+1)/10)/Calculations.magnitude3D(d[3]/10,(d[3]+2)/10,(d[0]+1)/10):.2f}\\hat{{k}})}}$   
+        ${{\hspace{{4mm}} |\\vec{{M_L}}|=\\vec{{M_O}} \\cdot \\vec{{\\lambda_L}} = {((d[3]/10)/Calculations.magnitude3D(d[3]/10,(d[3]+2)/10,(d[0]+1)/10))*(d[0]/10*f[1]*(Calculations.sine(a[0]))*Calculations.sine(a[4])-1*d[0]/10*f[2]*Calculations.sine(a[4]))+(((d[0]+1)/10)/Calculations.magnitude3D(d[3]/10,(d[3]+2)/10,(d[0]+1)/10))*(d[0]/10*f[0]*Calculations.sine(a[4])-(d[0]/10*f[1]*Calculations.sine(a[4])*Calculations.cosine(a[0]))):.2f} \\text{{ }} N \\cdot m}}$ 
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
 
 
     #========================================================  MOMENTO  =========================================================

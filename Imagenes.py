@@ -167,6 +167,7 @@ MAE_image_paths =[#Imágenes Preguntas Cálculo Momento alrededor de un eje
 #Nivel díficil
 "./Imagenes/Preguntas/MO/MAE/MO_MAE_D_2a.png", #[8]
 "./Imagenes/Preguntas/MO/MAE/MO_MAE_D_3a.png", #[9]
+"./Imagenes/Preguntas/MO/MAE/MO_MAE_D_4a.png", #[10]
 ]
 
 MP_image_paths =[#Imágenes Preguntas Cálculo Momento par
