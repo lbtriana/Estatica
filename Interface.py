@@ -1062,6 +1062,8 @@ if authenticate_user():
                 if subtopic == "Momento alrededor de un eje":
                     if pregunta_no == 2:
                         st.image(MAE_image_paths[8], width=450)
+                    if pregunta_no == 3:
+                        st.image(MAE_image_paths[9], width=450)
                 if subtopic == "Momento par":
                     if pregunta_no == 1:
                         st.image(MP_image_paths[8], width=450)
