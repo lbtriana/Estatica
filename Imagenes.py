@@ -182,6 +182,7 @@ MP_image_paths =[#Imágenes Preguntas Cálculo Momento par
 
 #Nivel Díficil
 "./Imagenes/Preguntas/MO/MP/MO_MP_D_2a.png", #[7]
+"./Imagenes/Preguntas/MO/MP/MO_MP_D_1a.png", #[8]
 ]
 
 I_image_paths =[#Imágenes Preguntas Incertidumbre
@@ -411,6 +412,9 @@ MAE_rtas_paths= [#Imágenes Respuestas Cálculos Momento alrededor de un eje
 MP_rtas_paths= [#Imágenes Respuestas Cálculos Momento par
 #Nivel medio
 "./Imagenes/Respuestas/MO/MPP/R_MO_MPP_M_1a.png", #[0]
+
+#Nivel díficil
+"./Imagenes/Respuestas/MO/MPP/R_MO_MPP_D_1a.png", #[1]
 ]
 
 SE_rtas_paths= [#Imágenes Respuestas Cálculos Momento alrededor de un eje

@@ -1063,6 +1063,8 @@ if authenticate_user():
                     if pregunta_no == 2:
                         st.image(MAE_image_paths[8], width=450)
                 if subtopic == "Momento par":
+                    if pregunta_no == 1:
+                        st.image(MP_image_paths[8], width=450)
                     if pregunta_no == 2:
                         st.image(MP_image_paths[7], width=450)
                 if subtopic == "Sistemas equivalentes":
@@ -1225,6 +1227,9 @@ if authenticate_user():
                             st.image(EQ_rtas_paths[6], width=250) 
                         elif version_no == 3 or version_no == 4:
                             st.image(EQ_rtas_paths[7], width=250)  
+                if subtopic == "Momento par":
+                    if pregunta_no ==1:
+                        st.image(MP_rtas_paths[1], width=400) 
                 if subtopic == "Centroides":
                     if pregunta_no ==1:
                         st.image(CT_rtas_paths[2], width=600)  
