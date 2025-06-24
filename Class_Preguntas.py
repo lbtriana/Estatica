@@ -3195,6 +3195,150 @@ preguntas = [
         ),
 
 
+    #=================================================EQUILIBRIO DE PARTÍCULAS===================================================
+    #-------------------------------------------------     Equilibrio 3D      ---------------------------------------------------
+    #-------------------------------------------------       Nivel medio    ---------------------------------------------------
+    #-------------------------------------------------       Code: 152##      ---------------------------------------------------
+
+    Questionary(#1_1
+        code = 1520011,
+        no_pregunta = 1,
+        complexity = M,
+        topic = EQ,
+        subtopic = E3D,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la tensión en los cables $AC$ y $AD$ para garantizar el equilibrio del poste en el plano $X-Y$ si la tensión en el cable $AB$ es ${f[0]*10:.0f} \\text{{ kN}}$. Considere que las distancias son: $A_Z={d[0]*3:.0f} \\text{{ m}}$, $B_X={d[3]:.0f} \\text{{ m}}$, $B_y={d[6]+20:.0f} \\text{{ m}}$, $C_X={d[9]:.0f} \\text{{ m}}$, $C_y={d[12]:.0f} \\text{{ m}}$, $D_X={d[15]:.0f} \\text{{ m}}$ y $D_y={d[18]:.0f} \\text{{ m}}$.",
+        no_answers = 2,
+        a1_name = "Magnitud de la tensión en el cable $AC$ $[kN]$",
+        a2_name = "Magnitud de la tensión en el cable $AD$ $[kN]$",
+        a3_name = "",
+        answer1=lambda f, a, calc, c, d, m: np.round((f[0]*10*(((d[6]+20)/Calculations.magnitude3D(d[3],d[6]+20,d[0]*3))-(d[18]/Calculations.magnitude3D(d[15],d[18],d[0]*3))*((d[3]/Calculations.magnitude3D(d[3],d[6]+20,d[0]*3))/(d[15]/Calculations.magnitude3D(d[15],d[18],d[0]*3)))))/((d[12]/Calculations.magnitude3D(d[9],d[12],d[0]*3))+(d[18]/Calculations.magnitude3D(d[15],d[18],d[0]*3))*((d[9]/Calculations.magnitude3D(d[9],d[12],d[0]*3))/(d[15]/Calculations.magnitude3D(d[15],d[18],d[0]*3)))),2),
+        answer2=lambda f, a, calc, c, d, m: np.round((f[0]*10*d[3]/Calculations.magnitude3D(d[3],d[6]+20,d[0]*3)+d[9]/Calculations.magnitude3D(d[9],d[12],d[0]*3)*((f[0]*10*(((d[6]+20)/Calculations.magnitude3D(d[3],d[6]+20,d[0]*3))-(d[18]/Calculations.magnitude3D(d[15],d[18],d[0]*3))*((d[3]/Calculations.magnitude3D(d[3],d[6]+20,d[0]*3))/(d[15]/Calculations.magnitude3D(d[15],d[18],d[0]*3)))))/((d[12]/Calculations.magnitude3D(d[9],d[12],d[0]*3))+(d[18]/Calculations.magnitude3D(d[15],d[18],d[0]*3))*((d[9]/Calculations.magnitude3D(d[9],d[12],d[0]*3))/(d[15]/Calculations.magnitude3D(d[15],d[18],d[0]*3))))))/(d[15]/Calculations.magnitude3D(d[15],d[18],d[0]*3)),2),
+        answer3=lambda f, a, calc, c, d, m: 0,
+        ayuda1 = A70,
+        ayuda2 = E3D1,
+        ayuda3 = "",
+        respuesta_P1 = lambda f, a, calc, c, d, m:f"""
+        A continuación se presenta la solución sugerida para el ejercicio:
+
+        $\\textbf{{\\small 1. Cálculo de los vectores unitarios de los cables:}}$
+
+        ${{\hspace{{4mm}} \\vec{{AB}} = -B_X \\hat{{i}} + B_Y \\hat{{j}} + A_Z \\hat{{k}}}}$             
+        ${{\hspace{{4mm}} \\vec{{AB}} = [{-d[3]:.0f} \\hat{{i}} + {d[6]+20:.0f} \\hat{{j}} + {d[0]*3:.0f} \\hat{{k}}] \\text{{ m}}}}$            
+        ${{\hspace{{4mm}} \\vec{{\\lambda_{{AB}}}} = \\lambda_{{XAB}} \\hat{{i}} + \\lambda_{{YAB}} \\hat{{j}} + \\lambda_{{ZAB}} \\hat{{k}} = [{-d[3]/Calculations.magnitude3D(d[3],d[6]+20,d[0]*3):.2f} \\hat{{i}} + {(d[6]+20)/Calculations.magnitude3D(d[3],d[6]+20,d[0]*3):.2f} \\hat{{j}} + {(d[0]*3)/Calculations.magnitude3D(d[3],d[6]+20,d[0]*3):.2f} \\hat{{k}}] \\text{{ m}}}}$  
+
+        ${{\hspace{{4mm}} \\vec{{AC}} = -C_X \\hat{{i}} - C_Y \\hat{{j}} + A_Z \\hat{{k}}}}$           
+        ${{\hspace{{4mm}} \\vec{{AC}} = [{-d[9]:.0f} \\hat{{i}} - {d[12]:.0f} \\hat{{j}} + {d[0]*3:.0f} \\hat{{k}}] \\text{{ m}}}}$            
+        ${{\hspace{{4mm}} \\vec{{\\lambda_{{AC}}}} = \\lambda_{{XAC}} \\hat{{i}} + \\lambda_{{YAC}} \\hat{{j}} + \\lambda_{{ZAC}} \\hat{{k}} = [{-d[9]/Calculations.magnitude3D(d[9],d[12],d[0]*3):.2f} \\hat{{i}} - {d[12]/Calculations.magnitude3D(d[9],d[12],d[0]*3):.2f} \\hat{{j}} + {(d[0]*3)/Calculations.magnitude3D(d[9],d[12],d[0]*3):.2f} \\hat{{k}}] \\text{{ m}}}}$ 
+
+        ${{\hspace{{4mm}} \\vec{{AD}} = D_X \\hat{{i}} - D_Y \\hat{{j}} + A_Z \\hat{{k}}}}$             
+        ${{\hspace{{4mm}} \\vec{{AD}} = [{d[15]:.0f} \\hat{{i}} - {d[18]:.0f} \\hat{{j}} + {d[0]*3:.0f} \\hat{{k}}] \\text{{ m}}}}$            
+        ${{\hspace{{4mm}} \\vec{{\\lambda_{{AD}}}} = \\lambda_{{XAD}} \\hat{{i}} + \\lambda_{{YAD}} \\hat{{j}} + \\lambda_{{ZAD}} \\hat{{k}} = [{d[15]/Calculations.magnitude3D(d[15],d[18],d[0]*3):.2f} \\hat{{i}} - {d[18]/Calculations.magnitude3D(d[15],d[18],d[0]*3):.2f} \\hat{{j}} + {(d[0]*3)/Calculations.magnitude3D(d[15],d[18],d[0]*3):.2f} \\hat{{k}}] \\text{{ m}}}}$ 
+
+        $\\textbf{{\\small 2. Equilibrio en el plano XY:}}$
+
+        $\\underline{{Ecuación  \\hspace{{2mm}} 1:}}$ 
+        
+        ${{\hspace{{4mm}} \\sum{{F_X}} = -T_{{AB}} \\cdot \\lambda_{{XAB}} - T_{{AC}} \\cdot \\lambda_{{XAC}}  + T_{{AD}} \\cdot \\lambda_{{XAD}}  = 0}}$
+        
+        $\\underline{{Ecuación  \\hspace{{2mm}} 2:}}$ 
+        
+        ${{\hspace{{4mm}} \\sum{{F_Y}} = T_{{AB}} \\cdot \\lambda_{{YAB}} - T_{{AC}} \\cdot \\lambda_{{YAC}} - T_{{AD}} \\cdot \\lambda_{{YAD}} = 0}}$
+
+        De la ecuación 1 se despeja $T_{{AD}}$:
+
+        ${{\hspace{{4mm}} T_{{AD}} = \\dfrac{{\\lambda_{{XAC}} \\cdot T_{{AC}} + \\lambda_{{XAB}} \\cdot T_{{AB}} }}{{\\lambda_{{XAD}}}} }}$
+
+        En la ecuación 2 se reemplaza la fuerza $T_{{AD}}$ y se despeja $T_{{AC}}$:
+
+        ${{\hspace{{4mm}} T_{{AC}} = \\dfrac{{T_{{AB}} \\cdot \\left(\\vec{{\\lambda_{{YAB}}}} - \\vec{{\\lambda_{{YAD}}}} \\cdot \\dfrac{{\\vec{{\\lambda_{{XAB}}}}}}{{\\vec{{\\lambda_{{XAD}}}}}} \\right)}}{{\\vec{{\\lambda_{{YAC}}}} + \\vec{{\\lambda_{{YAD}}}} \\cdot \\dfrac{{\\vec{{\\lambda_{{XAC}}}}}}{{\\vec{{\\lambda_{{XAD}}}}}}}} }}$
+
+        ${{\hspace{{4mm}} T_{{AC}} = {(f[0]*10*(((d[6]+20)/Calculations.magnitude3D(d[3],d[6]+20,d[0]*3))-(d[18]/Calculations.magnitude3D(d[15],d[18],d[0]*3))*((d[3]/Calculations.magnitude3D(d[3],d[6]+20,d[0]*3))/(d[15]/Calculations.magnitude3D(d[15],d[18],d[0]*3)))))/((d[12]/Calculations.magnitude3D(d[9],d[12],d[0]*3))+(d[18]/Calculations.magnitude3D(d[15],d[18],d[0]*3))*((d[9]/Calculations.magnitude3D(d[9],d[12],d[0]*3))/(d[15]/Calculations.magnitude3D(d[15],d[18],d[0]*3)))):.2f} \\text{{ kN}} }}$
+       
+        Para obtener la fuerza $T_{{AD}}$ se reemplaza en la ecuación obtenida anteriormente:
+
+        ${{\hspace{{4mm}} T_{{AD}} = {(f[0]*10*d[3]/Calculations.magnitude3D(d[3],d[6]+20,d[0]*3)+d[9]/Calculations.magnitude3D(d[9],d[12],d[0]*3)*((f[0]*10*(((d[6]+20)/Calculations.magnitude3D(d[3],d[6]+20,d[0]*3))-(d[18]/Calculations.magnitude3D(d[15],d[18],d[0]*3))*((d[3]/Calculations.magnitude3D(d[3],d[6]+20,d[0]*3))/(d[15]/Calculations.magnitude3D(d[15],d[18],d[0]*3)))))/((d[12]/Calculations.magnitude3D(d[9],d[12],d[0]*3))+(d[18]/Calculations.magnitude3D(d[15],d[18],d[0]*3))*((d[9]/Calculations.magnitude3D(d[9],d[12],d[0]*3))/(d[15]/Calculations.magnitude3D(d[15],d[18],d[0]*3))))))/(d[15]/Calculations.magnitude3D(d[15],d[18],d[0]*3)):.2f} \\text{{ kN}}}}$
+        """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        """,
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",    
+        calculos='operations'
+        ),
+
+
+    #=================================================EQUILIBRIO DE PARTÍCULAS===================================================
+    #-------------------------------------------------     Equilibrio 3D      ---------------------------------------------------
+    #-------------------------------------------------       Nivel díficil   ---------------------------------------------------
+    #-------------------------------------------------       Code: 153##      ---------------------------------------------------
+
+    Questionary(#1_1
+        code = 1530011,
+        no_pregunta = 1,
+        complexity = D,
+        topic = EQ,
+        subtopic = E3D,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Calcule la magnitud de las fuerzas $F_1$, $F_2$ y $F_3$ de forma que la partícula esté en equilibrio. Considere que $F_4 = {f[0]:.0f} \\text{{ kN}}$, $\\theta_1 = {a[0]:.0f}°$, $\\theta_2 = {a[4]:.0f}°$ y $\\theta_3 = {a[8]:.0f}°$.",
+        no_answers = 3,
+        a1_name = "Magnitud $F_1$ $[kN]$",
+        a2_name = "Magnitud $F_2$ $[kN]$",
+        a3_name = "Magnitud $F_3$ $[kN]$",
+        answer1=lambda f, a, calc, c, d, m: np.round(f[0]*4/(5*Calculations.sine(a[0])),2),
+        answer2=lambda f, a, calc, c, d, m: np.round((-(f[0]*4/(5*Calculations.sine(a[0])))*Calculations.cosine(a[0])*Calculations.tangent(a[8])+(3/5)*f[0])/(Calculations.sine(a[4])*Calculations.tangent(a[8])+Calculations.cosine(a[4])),2),
+        answer3=lambda f, a, calc, c, d, m: np.round(((f[0]*4/(5*Calculations.sine(a[0])))*Calculations.cosine(a[0])+((-(f[0]*4/(5*Calculations.sine(a[0])))*Calculations.cosine(a[0])*Calculations.tangent(a[8])+(3/5)*f[0])/(Calculations.sine(a[4])*Calculations.tangent(a[8])+Calculations.cosine(a[4])))*Calculations.sine(a[4]))/(Calculations.cosine(a[8])),2),
+        ayuda1 = A70,
+        ayuda2 = "",
+        ayuda3 = "",
+        respuesta_P1 = lambda f, a, calc, c, d, m:f"""
+        A continuación se presenta la solución sugerida para el ejercicio:
+
+        $\\textbf{{\\small 1. Sumatoria de fuerzas:}}$
+
+        $\\underline{{Ecuación  \\hspace{{2mm}} 1:}}$ 
+        
+        ${{\hspace{{4mm}} \\sum{{F_x}} = F_1 \\cdot Cos(\\theta_1) - F_3 \\cdot Cos(\\theta_3) + F_2 \\cdot Sen(\\theta_2) = 0}}$  
+
+        $\\underline{{Ecuación  \\hspace{{2mm}} 2:}}$ 
+        
+        ${{\hspace{{4mm}} \\sum{{F_y}} = - F_3 \\cdot Sen(\\theta_3) - F_2 \\cdot Cos(\\theta_2) + F_4 \\cdot \\dfrac{{3}}{{5}} = 0}}$  
+
+        $\\underline{{Ecuación  \\hspace{{2mm}} 3:}}$ 
+        
+        ${{\hspace{{4mm}} \\sum{{F_z}} = F_1 \\cdot Sen(\\theta_1) - F_4 \\cdot \\dfrac{{4}}{{5}} = 0}}$  
+
+        
+        $\\textbf{{\\small 2. Despeje de las fuerzas:}}$
+
+        De la ecuación 3 se obtiene $F_1$:
+
+        ${{\hspace{{4mm}} F_1 = \\dfrac{{F_4 \\cdot 4}}{{5 \\cdot Sen(\\theta_1)}} = 0}}$     
+
+        ${{\hspace{{4mm}} F_1 = {f[0]*4/(5*Calculations.sine(a[0])):.2f} \\text{{ kN}}}}$ 
+
+        De la ecuación 1 se obtiene $F_3$ en función de $F_2$ en $F_1$:
+
+        ${{\hspace{{4mm}} F_3 = \\dfrac{{F_1 \\cdot Cos(\\theta_1) + F_2 \\cdot Sen(\\theta_2)}}{{Cos(\\theta_3)}} }}$
+
+        De la ecuación 2 se obtiene $F_2$, reemplazando $F_1$ y $F_3$:
+
+        ${{\hspace{{4mm}} -\\left(\\dfrac{{F_1 \\cdot Cos(\\theta_1) + F_2 \\cdot Sen(\\theta_2)}}{{Cos(\\theta_3)}} \\right) \\cdot Sen(\\theta_3) - F_2 \\cdot Cos(\\theta_2) + F_4 \\cdot \\dfrac{{3}}{{5}} = 0}}$ 
+
+        ${{\hspace{{4mm}} F_2 = \\dfrac{{-F_1 \\cdot Cos(\\theta_1) \\cdot Tan(\\theta_3) + \\dfrac{{F_4 \\cdot 3}}{{5}} }}{{Sen(\\theta_2) \\cdot Tan(\\theta_3) + Cos(\\theta_2)}} = 0}}$ 
+
+        ${{\hspace{{4mm}} F_2 = {(-(f[0]*4/(5*Calculations.sine(a[0])))*Calculations.cosine(a[0])*Calculations.tangent(a[8])+(3/5)*f[0])/(Calculations.sine(a[4])*Calculations.tangent(a[8])+Calculations.cosine(a[4])):.2f} \\text{{ kN}}}}$ 
+
+        Para obtener la fuerza $F_3$ se reemplaza en la ecuación obtenida anteriormente:
+
+        ${{\hspace{{4mm}} F_3 = {((f[0]*4/(5*Calculations.sine(a[0])))*Calculations.cosine(a[0])+((-(f[0]*4/(5*Calculations.sine(a[0])))*Calculations.cosine(a[0])*Calculations.tangent(a[8])+(3/5)*f[0])/(Calculations.sine(a[4])*Calculations.tangent(a[8])+Calculations.cosine(a[4])))*Calculations.sine(a[4]))/(Calculations.cosine(a[8])):.2f} \\text{{ kN}}}}$
+        """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        """,
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",    
+        calculos='operations'
+        ),
+
+
+
     #========================================================MOMENTO============================================================
     #--------------------------------------------     Momento en un punto en 2D      --------------------------------------------
     #-------------------------------------------------       Nivel fácil      ---------------------------------------------------

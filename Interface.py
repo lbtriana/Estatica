@@ -914,6 +914,9 @@ if authenticate_user():
                     if pregunta_no == 1:
                         if version_no == 1:
                             st.image(EQ_image_paths[58], width=250) 
+                if subtopic == "Equilibrio 3D":
+                    if pregunta_no == 1:
+                        st.image(EQ_image_paths[66], width=400)
                 if subtopic == "Momento en un punto 2D":
                     if pregunta_no == 1 or pregunta_no == 2 or pregunta_no == 3:
                         if version_no == 1:
@@ -1055,6 +1058,9 @@ if authenticate_user():
                 if subtopic == "Vector unitario":
                     if pregunta_no == 1 or pregunta_no == 2 or pregunta_no == 3:
                         st.image(EQ_image_paths[49], width=400)
+                if subtopic == "Equilibrio 3D":
+                    if pregunta_no == 1:
+                        st.image(EQ_image_paths[67], width=400)
                 if subtopic == "Momento en un punto 2D":
                     if pregunta_no == 1 or pregunta_no == 2 or pregunta_no == 3: 
                         if version_no == 1:

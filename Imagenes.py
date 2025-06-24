@@ -117,8 +117,10 @@ EQ_image_paths= [#Imágenes Preguntas Cálculo Equilibrio de partículas
 #Equilibrio 2D _ Masa sobre mesa _ Nivel medio
 "./Imagenes/Preguntas/EQ/EQ2D/EQ_EQ2D_M_3a.png", #[64] 
 
-#Equilibrio 3D _ Fácil
+#Equilibrio 3D
 "./Imagenes/Preguntas/EQ/EQ3D/EQ_EQ3D_F_2a.png", #[65] 
+"./Imagenes/Preguntas/EQ/EQ3D/EQ_EQ3D_M_1a.png", #[66] 
+"./Imagenes/Preguntas/EQ/EQ3D/EQ_EQ3D_D_1a.png", #[67] 
 ]
 
 M2D_image_paths =[#Imágenes Preguntas Cálculo Momento en un punto 2D
