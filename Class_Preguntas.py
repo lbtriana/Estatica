@@ -3057,12 +3057,143 @@ preguntas = [
         ayuda1 = "",
         ayuda2 = "",
         ayuda3 = "",
-        respuesta_P1 = lambda f, a, calc, c, d, m:"", 
+        respuesta_P1 = lambda f, a, calc, c, d, m:"""
+
+        """, 
         respuesta_P2 = lambda f, a, calc, c, d, m: f"""
         """,
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",    
         calculos='operations'
         ),
+
+    #=================================================EQUILIBRIO DE PARTÍCULAS===================================================
+    #-------------------------------------------------     Equilibrio 3D      ---------------------------------------------------
+    #-------------------------------------------------       Nivel fácil    ---------------------------------------------------
+    #-------------------------------------------------       Code: 151##      ---------------------------------------------------
+
+    Questionary(#1_1
+        code = 1510011,
+        no_pregunta = 1,
+        complexity = F,
+        topic = EQ,
+        subtopic = E3D,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Calcule la magnitud de la tensión del cable que sostiene la placa de peso $W = {f[0]:.0f} \\text{{ kN}}$. Considere que $d_0 = {d[0]:.0f} \\text{{ m}}$, $d_1 = {d[3]+2:.0f} \\text{{ m}}$, $d_2 = {d[6]:.0f} \\text{{ m}}$ y $d_3 = {d[3]:.0f} \\text{{ m}}$.",
+        no_answers = 1,
+        a1_name = "Magnitud de la tensión $[kN]$",
+        a2_name = "",
+        a3_name = "",
+        answer1=lambda f, a, calc, c, d, m: np.round(f[0]/(d[6]/Calculations.magnitude3D(d[0],d[6],d[3]-(d[3]+2))),2),
+        answer2=lambda f, a, calc, c, d, m: 0,
+        answer3=lambda f, a, calc, c, d, m: 0,
+        ayuda1 = A70,
+        ayuda2 = E3D1,
+        ayuda3 = "",
+        respuesta_P1 = lambda f, a, calc, c, d, m:f"""
+        A continuación se presenta la solución sugerida para el ejercicio:
+
+        $\\textbf{{\\small 1. Cálculo del vector unitario de la tensión T:}}$
+
+        ${{\hspace{{4mm}} \\vec{{L}} = -d_0 \\hat{{i}} + d_2 \\hat{{j}} + (d_3-d_1) \\hat{{k}}}}$    
+        ${{\hspace{{4mm}} \\vec{{L}} = [-{d[0]:.0f} \\hat{{i}} + {d[6]:.0f} \\hat{{j}} + ({d[3]-(d[3]+2):.0f}) \\hat{{k}}] \\text{{ m}}}}$  
+ 
+        ${{\hspace{{4mm}} \\vec{{\\lambda_L}} = -{d[0]/Calculations.magnitude3D(d[0],d[6],d[3]-(d[3]+2)):.2f} \\hat{{i}} + {d[6]/Calculations.magnitude3D(d[0],d[6],d[3]-(d[3]+2)):.2f} \\hat{{j}} + ({(d[3]-(d[3]+2))/Calculations.magnitude3D(d[0],d[6],d[3]-(d[3]+2)):.2f}) \\hat{{k}}}}$ 
+
+        $\\textbf{{\\small 2. Equilibrio de fuerzas en y - Despeje de la tensión T:}}$
+ 
+        ${{\hspace{{4mm}} \\sum{{F_y}} = T \\cdot {d[6]/Calculations.magnitude3D(d[0],d[6],d[3]-(d[3]+2)):.2f} - W = 0}}$       
+        
+        ${{\hspace{{4mm}} T = \\dfrac{{W}}{{{d[6]/Calculations.magnitude3D(d[0],d[6],d[3]-(d[3]+2)):.2f}}}}}$      
+        
+        ${{\hspace{{4mm}} T = {f[0]/(d[6]/Calculations.magnitude3D(d[0],d[6],d[3]-(d[3]+2))):.2f} \\text{{ kN}} }}$        
+        """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        """,
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",    
+        calculos='operations'
+        ),
+
+    Questionary(#2_1
+        code = 1510021,
+        no_pregunta = 2,
+        complexity = F,
+        topic = EQ,
+        subtopic = E3D,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine el peso $W$ del elemento suspendido si las tensiones de las cuerdas son: $T_1 = {f[0]:.0f} \\text{{ N}}$, $T_2 = {f[1]:.0f} \\text{{ N}}$, $T_3 = {f[2]:.0f} \\text{{ N}}$. Además, considere que el radio del elemento es $d_0 = {d[0]/10:.2f} \\text{{ m}}$, el ángulo $\\theta = {a[0]:.0f}°$ y el ángulo $\\phi = {a[4]:.0f}°$.",
+        no_answers = 1,
+        a1_name = "Peso $W$ $[N]$",
+        a2_name = "",
+        a3_name = "",
+        answer1=lambda f, a, calc, c, d, m: np.round(f[0]*Calculations.sine(a[4])+f[1]*Calculations.sine(a[4])+f[2]*Calculations.sine(a[4]),2),
+        answer2=lambda f, a, calc, c, d, m: 0,
+        answer3=lambda f, a, calc, c, d, m: 0,
+        ayuda1 = A70,
+        ayuda2 = E3D2,
+        ayuda3 = "",
+        respuesta_P1 = lambda f, a, calc, c, d, m:f"""
+        A continuación se presenta la solución sugerida para el ejercicio:
+
+        $\\textbf{{\\small 1. Equilibrio de fuerzas en y:}}$
+
+        Únicamente es necesario realizar la sumatoria de fuerzas en el eje $y$, dado que, el peso $W$ actúa en la dirección negativa de este. 
+
+        ${{\hspace{{4mm}} \\sum{{F_y}} = T_1 \\cdot sen(\\phi) + T_2 \\cdot sen(\\phi) + T_3 \\cdot sen(\\phi) - W = 0}}$       
+        ${{\hspace{{4mm}} W = sen(\\phi) \\cdot (T_1  + T_2 + T_3)}}$           
+        ${{\hspace{{4mm}} W = {f[0]*Calculations.sine(a[4])+f[1]*Calculations.sine(a[4])+f[2]*Calculations.sine(a[4]):.2f} \\text{{ N}}}}$  
+        """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        """,
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",    
+        calculos='operations'
+        ),
+
+    Questionary(#3_1
+        code = 1510031,
+        no_pregunta = 3,
+        complexity = F,
+        topic = EQ,
+        subtopic = E3D,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine las componentes de la fuerza $F_2$ que garantizan el equilibrio de la partícula (Use el signo negativo si la suposición de la dirección de la fuerza es incorrecta). Considere que $F_1 = {f[0]:.0f} \\text{{ N}}$, $\\theta_1 = {a[0]:.0f}°$, $\\theta_2 = {a[4]:.0f}°$ y $\\theta_3 = {a[8]:.0f}°$.",
+        no_answers = 3,
+        a1_name = "Componente con el eje X ${{(F2_x)}}$ $[N]$",
+        a2_name = "Componente con el eje Y ${{(F2_y)}}$ $[N]$",
+        a3_name = "Componente con el eje Z ${{(F2_z)}}$ $[N]$",
+        answer1=lambda f, a, calc, c, d, m: np.round(-f[0]*Calculations.cosine(a[4])*Calculations.cosine(a[0]),2),
+        answer2=lambda f, a, calc, c, d, m: np.round(f[0]*Calculations.cosine(a[4])*Calculations.sine(a[0]),2),
+        answer3=lambda f, a, calc, c, d, m: np.round(-f[0]*Calculations.sine(a[4]),2),
+        ayuda1 = "Para garantizar la condición de equilibrio de una partícula, la sumatoria de las fuerzas en cada uno de los ejes debe ser igual a cero. Por lo cual, las componentes de la fuerza $F_2$ son iguales en magnitud a las de la fuerza $F_1$, pero actúan en sentido contrario.",
+        ayuda2 = A37,
+        ayuda3 = A38,
+        respuesta_P1 = lambda f, a, calc, c, d, m:f"""
+        A continuación se presenta la solución sugerida para el ejercicio:
+
+        $\\textbf{{\\small 1. Equilibrio de fuerzas:}}$
+
+        Para garantizar la condición de equilibrio de una partícula, la sumatoria de las fuerzas en cada uno de los ejes debe ser igual a cero. Por lo cual, las componentes de la fuerza $F_2$ son iguales en magnitud a las de la fuerza $F_1$, pero actúan en sentido contrario.
+
+        ${{\hspace{{4mm}} \\sum{{F_x}} = 0}}$       
+        ${{\hspace{{4mm}} \\sum{{F_x}} = F_1 \\cdot Cos(\\theta_2) \\cdot Cos(\\theta_1) + F_{{2x}} = 0}}$  
+        ${{\hspace{{4mm}} F_{{2x}} = -F_1 \\cdot Cos(\\theta_2) \\cdot Cos(\\theta_1)}}$  
+        ${{\hspace{{4mm}} F_{{2x}} = {-f[0]*Calculations.cosine(a[4])*Calculations.cosine(a[0]):.2f} \\text{{ N}}}}$  
+
+        ${{\hspace{{4mm}} \\sum{{F_y}} = 0}}$       
+        ${{\hspace{{4mm}} \\sum{{F_y}} = -F_1 \\cdot Cos(\\theta_2) \\cdot Sen(\\theta_1) + F_{{2y}} = 0}}$  
+        ${{\hspace{{4mm}} F_{{2y}} = F_1 \\cdot Cos(\\theta_2) \\cdot Sen(\\theta_1)}}$  
+        ${{\hspace{{4mm}} F_{{2y}} = {f[0]*Calculations.cosine(a[4])*Calculations.sine(a[0]):.2f} \\text{{ N}}}}$  
+
+        ${{\hspace{{4mm}} \\sum{{F_z}} = 0}}$       
+        ${{\hspace{{4mm}} \\sum{{F_z}} = F_1 \\cdot Sen(\\theta_2) + F_{{2z}} = 0}}$  
+        ${{\hspace{{4mm}} F_{{2z}} = -F_1 \\cdot Sen(\\theta_2)}}$  
+        ${{\hspace{{4mm}} F_{{2z}} = {-f[0]*Calculations.sine(a[4]):.2f} \\text{{ N}}}}$     
+        """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        """,
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",    
+        calculos='operations'
+        ),
+
 
     #========================================================MOMENTO============================================================
     #--------------------------------------------     Momento en un punto en 2D      --------------------------------------------

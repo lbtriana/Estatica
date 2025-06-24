@@ -19,6 +19,7 @@ V2D = "Vectores 2D"
 V3D = "Vectores 3D"
 VU = "Vector unitario"
 E2D = "Equilibrio 2D"
+E3D = "Equilibrio 3D"
 M2D = "Momento en un punto 2D"
 M3D = "Momento en un punto 3D"
 FD = "Fuerzas distribuidas"
@@ -177,6 +178,10 @@ A75 = "Plantee las ecuaciones de equilibrio y resuelva."
 A76 = "Realice el diagrama de cuerpo libre (DCL) de la polea."
 A77 = "Incluya dentro de la sumatoria las componentes de la fuerza que se debe aplicar y resuelva."
 A78 = "Dibuje el diagrama de cuerpo libre (DCL) de cada una de las poleas, identifique correctamente los cambios de cuerda entre las poleas."
+
+#EQUILIBRIO 3D
+E3D1 = "El peso de la placa actúa en la dirección negativa del eje $y$. Realice la sumatoria de fuerzas en este eje para despejar la magnitud de la tensión."
+E3D2 = "El peso del elemento actúa en la dirección negativa del eje $y$. Realice la sumatoria de fuerzas en este eje para despejar el peso."
 
 #MOMENTO EN UN PUNTO
 MP1 = "El momento se define como $\\overrightarrow{{r}}$ X $\\overrightarrow{{F}}$. El vector posición $\\overrightarrow{{r}}$ se calcula desde el punto en el que se evalúa el momento a la línea de acción de la fuerza."

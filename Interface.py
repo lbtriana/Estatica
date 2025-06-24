@@ -511,7 +511,7 @@ if authenticate_user():
             topic = st.sidebar.selectbox("Seleccione el tema", options=["Equilibrio de partículas", "Momento", "Sistemas equivalentes", "Incertidumbre", "Armaduras", "Centroides", "Fuerzas distribuidas", "Fuerzas internas"])
             
             if topic == "Equilibrio de partículas":
-                subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Vectores 2D", "Vectores 3D", "Vector unitario", "Equilibrio 2D"])
+                subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Vectores 2D", "Vectores 3D", "Vector unitario", "Equilibrio 2D", "Equilibrio 3D"])
             elif topic=="Momento":
                 subtopic = st.sidebar.selectbox("Seleccione el subtema", options=["Momento en un punto 2D", "Momento en un punto 3D", "Momento alrededor de un eje", "Momento par"])
             elif topic=="Sistemas equivalentes":
@@ -739,7 +739,14 @@ if authenticate_user():
                         if version_no == 1:
                             st.image(EQ_image_paths[56], width=375) 
                         elif version_no == 2:
-                            st.image(EQ_image_paths[57], width=350)     
+                            st.image(EQ_image_paths[57], width=350) 
+                if subtopic == "Equilibrio 3D":
+                    if pregunta_no == 1:
+                        st.image(MAE_image_paths[4], width=400)     
+                    if pregunta_no == 2:
+                        st.image(EQ_image_paths[65], width=400)  
+                    if pregunta_no == 3:
+                        st.image(EQ_image_paths[38], width=400)  
                 if subtopic == "Momento en un punto 2D":
                     if pregunta_no == 1 or pregunta_no == 2:
                         if version_no == 1:
