@@ -4959,80 +4959,88 @@ preguntas = [
     #-------------------------------------------------       Nivel Díficil   ---------------------------------------------------
     #-------------------------------------------------      Code: 23300##    --------------------------------------------------
 
-    # Questionary(#1_1
-    #     code = 2330011,
-    #     no_pregunta = 1,
-    #     complexity = D,
-    #     topic = MO,
-    #     subtopic = "Momento alrededor de un eje",
-    #     version = 1,
-    #     pregunta = lambda f, a, calc, c, d, m: f"Determine el momento total (magnitud) que resulta de las fuerzas: $F_1 = {f[0]:.0f}$, $F_2 = {f[1]:.0f}$, $F_3 = {f[2]:.0f}$ aplicadas sobre el cuerpo mostrado, proyectado sobre el eje $y$. Tenga en cuenta que $x_0 = {c[0]:.0f}[m]$, $x_1 = {c[4]:.0f}[m]$, $x_2 = {c[5]:.0f}[m]$, $x_3 = {c[3]:.0f}[m]$, $x_4 = {c[1]:.0f}[m]$ y $x_5 = {c[2]:.0f}[m]$",
-    #     no_answers = 1,
-    #     a1_name = "Momento en el eje $Y$ [$N \\cdot m$]",
-    #     a2_name = "",
-    #     a3_name = "",
-    #     answer1 = lambda f, a, calc, c, d, m: np.round(((c[0]*f[0]*(c[2]-c[5]))/Calculations.magnitude3D(c[3]-c[0],c[1]-c[4],c[2]-c[5]))-((f[0]*(c[3]-c[0])*c[5])/Calculations.magnitude3D(c[3]-c[0],c[1]-c[4],c[2]-c[5]))-(c[0]*f[1])+((c[5]*f[2]*(c[0]-c[3]))/Calculations.magnitude(c[0]-c[3],c[4]-c[1])),2),
-    #     answer2 = lambda f, a, calc, c, d, m: 0,
-    #     answer3 = lambda f, a, calc, c, d, m: 0,
-    #     ayuda1 = "Se le dieron puntos por donde paa la linea de acción de las fuerzas. Uselos para hallar la dirección (vector unitario) y asi encontrar los vectores de cada fuerza.",
-    #     ayuda2 = "Realice sumatoria de momentos con los encontrados, que son generados por cada fuerza con respecto al origen.$",      
-    #     ayuda3 = "El vector unitario del eje $y$ denominado como $\\hat{{j}} es (0\\hat{{i}} + 1\\hat{{j}} + 0\\hat{{k}}).",
-    #     respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-    #     A continuacion se presenta una posible solución para el problema:
+    Questionary(#1_1
+        code = 2330011,
+        no_pregunta = 1,
+        complexity = D,
+        topic = MO,
+        subtopic = "Momento alrededor de un eje",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine el momento alrededor de la línea $L$ que resulta de las fuerzas: $F_1 = {f[0]:.0f} \\text{{ N}}$, $F_2 = {f[1]:.0f} \\text{{ N}}$, $F_3 = {f[2]:.0f} \\text{{ N}}$ aplicadas sobre el cuerpo mostrado. Considere que $x_1 = {d[0]/100:.2f} \\text{{ m}}$, $x_2 = {(d[0]+50)/100:.2f}\\text{{ m}}$, $y_1 = {(d[3]+50)/100:.2f} \\text{{ m}}$, $y_2 = {d[3]/100:.2f}\\text{{ m}}$, $z_1 = {-d[6]/100:.2f}\\text{{ m}}$ y $z_2 = {d[9]/100:.2f} \\text{{ m}}$.",
+        no_answers = 3,
+        a1_name = "Componente $x$ [$kN \\cdot m$]",
+        a2_name = "Componente $y$ [$kN \\cdot m$]",
+        a3_name = "Componente $z$ [$kN \\cdot m$]",
+        answer1 = lambda f, a, calc, c, d, m: np.round((((((d[0]+50)/100)-(d[0]/100))/Calculations.magnitude3D(((d[0]+50)/100)-(d[0]/100),0,(d[3]/100)-((d[3]+50)/100)))*(((d[3]/100)-((d[3]+50)/100))*((((d[9]/100)-(-d[6]/100))/math.sqrt(((d[9]/100)-(-d[6]/100)))**2)*(f[1]))+(-((d[9]/100)-(-d[6]/100))*((((d[3]+50)/100)-(d[3]/100))/Calculations.magnitude3D(0,(-(((d[0]+50)/100)-(d[0]/100))),(((d[3]+50)/100)-(d[3]/100)))*(f[2]))))+(((d[3]/100)-((d[3]+50)/100))/Calculations.magnitude3D(((d[0]+50)/100)-(d[0]/100),0,(d[3]/100)-((d[3]+50)/100)))*(((((d[0]+50)/100)-(d[0]/100)))*(((d[9]/100)-(-d[6]/100))/math.sqrt(((d[9]/100)-(-d[6]/100)))**2)*(f[1])+((d[9]/100)-(-d[6]/100))*(-(((d[0]+50)/100)-(d[0]/100))/Calculations.magnitude3D(0,(-(((d[0]+50)/100)-(d[0]/100))),(((d[3]+50)/100)-(d[3]/100)))*(f[2]))))*((((d[0]+50)/100)-(d[0]/100))/Calculations.magnitude3D(((d[0]+50)/100)-(d[0]/100),0,(d[3]/100)-((d[3]+50)/100))),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round((((((d[0]+50)/100)-(d[0]/100))/Calculations.magnitude3D(((d[0]+50)/100)-(d[0]/100),0,(d[3]/100)-((d[3]+50)/100)))*(((d[3]/100)-((d[3]+50)/100))*((((d[9]/100)-(-d[6]/100))/math.sqrt(((d[9]/100)-(-d[6]/100)))**2)*(f[1]))+(-((d[9]/100)-(-d[6]/100))*((((d[3]+50)/100)-(d[3]/100))/Calculations.magnitude3D(0,(-(((d[0]+50)/100)-(d[0]/100))),(((d[3]+50)/100)-(d[3]/100)))*(f[2]))))+(((d[3]/100)-((d[3]+50)/100))/Calculations.magnitude3D(((d[0]+50)/100)-(d[0]/100),0,(d[3]/100)-((d[3]+50)/100)))*(((((d[0]+50)/100)-(d[0]/100)))*(((d[9]/100)-(-d[6]/100))/math.sqrt(((d[9]/100)-(-d[6]/100)))**2)*(f[1])+((d[9]/100)-(-d[6]/100))*(-(((d[0]+50)/100)-(d[0]/100))/Calculations.magnitude3D(0,(-(((d[0]+50)/100)-(d[0]/100))),(((d[3]+50)/100)-(d[3]/100)))*(f[2]))))*(((d[3]/100)-((d[3]+50)/100))/Calculations.magnitude3D(((d[0]+50)/100)-(d[0]/100),0,(d[3]/100)-((d[3]+50)/100))),2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = MAE1,
+        ayuda2 = "Use las coordenadas de los puntos para descomponer las fuerzas.",      
+        ayuda3 = "Calcule el vector unitario de la recta y realice el producto punto con el vector resultante de la sumatoria de momento. Esta operación proporciona la magnitud del momento proyectado sobre la dirección de la recta. Para obtener el vector momento en dicha dirección, multiplique nuevamente esta magnitud por el vector unitario de la recta.",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        El momento alrededor de un eje se calcula mediante el producto punto entre el vector de momento en un punto sobre el eje y el vector director del eje. A continuación, se presenta la solución sugerida para el ejercicio:  
         
-    #     $\\textbf{{\\small 1. Hallar los vectores fuerza - Vector Unitario:}}$
-    #     Usando las coordenadas dadas en el ejercicio, se puede determinar la direccion del vector fuerza por medio de la resta entre ellas.
+        $\\textbf{{\\small 1. Momento de cada una de las fuerzas con respecto a D: }}$ 
 
-    #     Para $\\vec{{F_1}}$:
-    #     ${{\hspace{{4mm}} \\vec{{f_1}} = ({c[3]-c[0]})\\hat{{i}}+({c[1]-c[4]})\\hat{{j}}+({c[2]-c[5]})\\hat{{k}}}}$     
-    #     ${{\hspace{{4mm}} \\vec{{\\lambda_{{f_1}}}} = \\dfrac{c[3]-c[0]}{{\\sqrt{{{(c[3]-c[0])}^2 + {(c[1]-c[4])}^2 + {(c[2]-c[5])}^2}}}}\\hat{{i}}+\\dfrac{c[1]-c[4]}{{\\sqrt{{{(c[3]-c[0])}^2 + {(c[1]-c[4])}^2 + {(c[2]-c[5])}^2}}}}\\hat{{j}}+\\dfrac{c[2]-c[5]}{{\\sqrt{{{(c[3]-c[0])}^2 + {(c[1]-c[4])}^2 + {(c[2]-c[5])}^2}}}}\\hat{{k}}}}$
-    #     ${{\hspace{{4mm}} \\vec{{\\lambda_{{f_1}}}} = ({(c[3]-c[0])/Calculations.magnitude3D(c[3]-c[0],c[1]-c[4],c[2]-c[5])})\\hat{{i}}+({(c[1]-c[4])/Calculations.magnitude3D(c[3]-c[0],c[1]-c[4],c[2]-c[5])})\\hat{{j}}+({(c[2]-c[5])/Calculations.magnitude3D(c[3]-c[0],c[1]-c[4],c[2]-c[5])})\\hat{{k}}}}$
+        Se selecciona el punto $D$ por que se encuentra sobre la línea $L$.
 
-    #     Multiplicando por $F_1$ nos queda:
-    #     ${{\hspace{{4mm}} \\vec{{F_1}} = (({f[0]*(c[3]-c[0])/Calculations.magnitude3D(c[3]-c[0],c[1]-c[4],c[2]-c[5])})\\hat{{i}}+({f[0]*(c[1]-c[4])/Calculations.magnitude3D(c[3]-c[0],c[1]-c[4],c[2]-c[5])})\\hat{{j}}+({f[0]*(c[2]-c[5])/Calculations.magnitude3D(c[3]-c[0],c[1]-c[4],c[2]-c[5])})\\hat{{k}})[N]}}$
-        
-    #     Para $\\vec{{F_2}}$:
-    #     ${{\hspace{{4mm}} \\vec{{f_2}} = ({c[0]-c[0]})\\hat{{i}}+({c[4]-c[4]})\\hat{{j}}+({c[5]-c[2]})\\hat{{k}}}}
-    #     ${{\hspace{{4mm}} \\vec{{\\lambda_{{f_2}}}} = 0\\hat{{i}} + 0\\hat{{j}} + 1\\hat{{k}}}}$
+        $\\underline{{Momento \\text{{ }} de \\text{{ }} la \\text{{ }} fuerza \\text{{ }} F1}}$
 
-    #     Multiplicando por $F_2$ nos queda:
-    #     ${{\hspace{{4mm}} \\vec{{F_2}} = (0\\hat{{i}} + 0\\hat{{j}} + {f[1]}\\hat{{k}})[N]}}$
-        
-    #     Para $\\vec{{F_3}}$:
-    #     ${{\hspace{{4mm}} \\vec{{f_3}} = ({c[0]-c[3]})\\hat{{i}}+({c[4]-c[1]})\\hat{{j}}+({c[5]-c[5]})\\hat{{k}}}}$     
-    #     ${{\hspace{{4mm}} \\vec{{\\lambda_{{f_3}}}} = \\dfrac{c[0]-c[3]}{{\\sqrt{{{(c[0]-c[3])}^2 + {(c[4]-c[1])}^2}}}}\\hat{{i}} + \\dfrac{c[4]-c[1]}{{\\sqrt{{{(c[0]-c[3])}^2 + {(c[4]-c[1])}^2}}}}\\hat{{j}} + 0\\hat{{k}}}}$
-    #     ${{\hspace{{4mm}} \\vec{{\\lambda_{{f_3}}}} = ({(c[0]-c[3])/Calculations.magnitude(c[0]-c[3],c[4]-c[1])})\\hat{{i}} + ({(c[4]-c[1])/Calculations.magnitude(c[0]-c[3],c[4]-c[1])})\\hat{{j}} + 0\\hat{{k}}}}$
+        La fuerza $F_1$ no realiza momento en el punto $D$, dado que, su línea de acción cruza dicho punto.
 
-    #     Multiplicando por $F_3$ nos queda:
-    #     ${{\hspace{{4mm}} \\vec{{F_3}} = (({f[2]*(c[0]-c[3])/Calculations.magnitude(c[0]-c[3],c[4]-c[1])})\\hat{{i}} + ({f[2]*(c[4]-c[1])/Calculations.magnitude(c[0]-c[3],c[4]-c[1])})\\hat{{j}} + 0\\hat{{k}})[N]}}$
-        
-    #     $\\textbf{{\\small 2. Encontrar momento para cada fuerza - Alrededor del origen:}}$
-    #     Para $\\vec{{F_1}}$
-    #     Haciendo el producto cruz queda el siguiente resultado:
-    #     ${{\hspace{{4mm}} \\vec{{M_{{F_1}}}} = (({c[4]*f[0]*(c[2]-c[5])/Calculations.magnitude3D(c[3]-c[0],c[1]-c[4],c[2]-c[5])}-{c[5]*f[0]*(c[1]-c[4])/Calculations.magnitude3D(c[3]-c[0],c[1]-c[4],c[2]-c[5])})\\hat{{i}}-({c[0]*f[0]*(c[2]-c[5])/Calculations.magnitude3D(c[3]-c[0],c[1]-c[4],c[2]-c[5])}-{c[5]*f[0]*(c[3]-c[0])/Calculations.magnitude3D(c[3]-c[0],c[1]-c[4],c[2]-c[5])})\\hat{{j}}+({c[0]*f[0]*(c[1]-c[4])/Calculations.magnitude3D(c[3]-c[0],c[1]-c[4],c[2]-c[5])}-{c[4]*f[0]*(c[3]-c[0])/Calculations.magnitude3D(c[3]-c[0],c[1]-c[4],c[2]-c[5])})\\hat{{k}})[N \\cdot m]}}$
-    #     ${{\hspace{{4mm}} \\vec{{M_{{F_1}}}} = (({c[4]*f[0]*(c[2]-c[5])/Calculations.magnitude3D(c[3]-c[0],c[1]-c[4],c[2]-c[5])-(c[5]*f[0]*(c[1]-c[4])/Calculations.magnitude3D(c[3]-c[0],c[1]-c[4],c[2]-c[5]))})\\hat{{i}}-({c[0]*f[0]*(c[2]-c[5])/Calculations.magnitude3D(c[3]-c[0],c[1]-c[4],c[2]-c[5])-(c[5]*f[0]*(c[3]-c[0])/Calculations.magnitude3D(c[3]-c[0],c[1]-c[4],c[2]-c[5]))})\\hat{{j}}+({c[0]*f[0]*(c[1]-c[4])/Calculations.magnitude3D(c[3]-c[0],c[1]-c[4],c[2]-c[5])-(c[4]*f[0]*(c[3]-c[0])/Calculations.magnitude3D(c[3]-c[0],c[1]-c[4],c[2]-c[5]))})\\hat{{k}})[N \\cdot m]}}$
-        
-    #     Para $\\vec{{F_2}}$
-    #     Haciendo el producto cruz queda el siguiente resultado:
-    #     ${{\hspace{{4mm}} \\vec{{M_{{F_2}}}} = (({c[4]*f[1]})\\hat{{i}} - ({c[0]*f[1]})\\hat{{j}} + 0\\hat{{k}})[N \\cdot m]}}$
-        
-    #     Para $\\vec{{F_3}}$
-    #     Haciendo el producto cruz queda el siguiente resultado:
-    #     ${{\hspace{{4mm}} \\vec{{M_{{F_3}}}} = (({-1*c[5]*f[2]*(c[4]-c[1])/Calculations.magnitude(c[0]-c[3],c[4]-c[1])})\\hat{{i}}+({-1*c[5]*f[2]*(c[0]-c[3])/Calculations.magnitude(c[0]-c[3],c[4]-c[1])})\\hat{{j}}+({c[3]*f[2]*(c[4]-c[1])/Calculations.magnitude(c[0]-c[3],c[4]-c[1])}-{c[1]*f[2]*(c[0]-c[3])/Calculations.magnitude(c[0]-c[3],c[4]-c[1])})\\hat{{k}})[N \\cdot m]}}$
-    #     ${{\hspace{{4mm}} \\vec{{M_{{F_3}}}} = (({-1*c[5]*f[2]*(c[4]-c[1])/Calculations.magnitude(c[0]-c[3],c[4]-c[1])})\\hat{{i}}+({-1*c[5]*f[2]*(c[0]-c[3])/Calculations.magnitude(c[0]-c[3],c[4]-c[1])})\\hat{{j}}+({c[3]*f[2]*(c[4]-c[1])/Calculations.magnitude(c[0]-c[3],c[4]-c[1])-(c[1]*f[2]*(c[0]-c[3])/Calculations.magnitude(c[0]-c[3],c[4]-c[1]))})\\hat{{k}})[N \\cdot m]}}$
-        
-    #     $\\textbf{{\\small 3. Sumatoria de momentos generados por las fuerzas:}}$
-    #     Sumando los resultados para cada componente encontrados anteriormente determinamos que:
-    #     ${{\hspace{{4mm}} \\sum{{M}} = (({(c[4]*f[0]*(c[2]-c[5])/Calculations.magnitude3D(c[3]-c[0],c[1]-c[4],c[2]-c[5])-(c[5]*f[0]*(c[1]-c[4])/Calculations.magnitude3D(c[3]-c[0],c[1]-c[4],c[2]-c[5])))+(c[4]*f[1])+(-1*c[5]*f[2]*(c[4]-c[1])/Calculations.magnitude(c[0]-c[3],c[4]-c[1]))})\\hat{{i}} + ({(c[0]*f[0]*(c[2]-c[5])/Calculations.magnitude3D(c[3]-c[0],c[1]-c[4],c[2]-c[5])-(c[5]*f[0]*(c[3]-c[0])/Calculations.magnitude3D(c[3]-c[0],c[1]-c[4],c[2]-c[5])))+(c[0]*f[1])+(-1*c[5]*f[2]*(c[0]-c[3])/Calculations.magnitude(c[0]-c[3],c[4]-c[1]))})\\hat{{j}} + ({(c[0]*f[0]*(c[1]-c[4])/Calculations.magnitude3D(c[3]-c[0],c[1]-c[4],c[2]-c[5])-(c[4]*f[0]*(c[3]-c[0])/Calculations.magnitude3D(c[3]-c[0],c[1]-c[4],c[2]-c[5])))+(c[3]*f[2]*(c[4]-c[1])/Calculations.magnitude(c[0]-c[3],c[4]-c[1])-(c[1]*f[2]*(c[0]-c[3])/Calculations.magnitude(c[0]-c[3],c[4]-c[1])))})\\hat{{k}})[N \\cdot m]}}$
-        
-    #     $\\textbf{{\\small 3. Sumatoria de momentos generados por las fuerzas:}}$
-    #     ${{\hspace{{4mm}} \\sum{{M}} \\cdot \\hat{{j}} = {(c[0]*f[0]*(c[2]-c[5])/Calculations.magnitude3D(c[3]-c[0],c[1]-c[4],c[2]-c[5])-(c[5]*f[0]*(c[3]-c[0])/Calculations.magnitude3D(c[3]-c[0],c[1]-c[4],c[2]-c[5])))+(c[0]*f[1])+(-1*c[5]*f[2]*(c[0]-c[3])/Calculations.magnitude(c[0]-c[3],c[4]-c[1]))}[N \\cdot m]}}$
-        
-    #     """,   
-    #     respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-    #     respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-    #     calculos='operations'
-    #     ),
+
+        $\\underline{{Momento \\text{{ }} de \\text{{ }} la \\text{{ }} fuerza \\text{{ }} F2}}$
+
+        Los vectores para calcular el producto cruz son:
+
+        ${{\hspace{{4mm}} \\vec{{r}} = [{-(((d[0]+50)/100)-(d[0]/100)):.2f} \\hat{{i}} + ({(d[3]/100)-((d[3]+50)/100):.2f}) \\hat{{j}} + 0\\hat{{k}}] \\text{{m}}}}$  
+
+        Para descomponer la fuerza $F_2$, se determina su vector unitario utilizando las coordenadas de los puntos $A$ y $B$.
+
+        ${{\hspace{{4mm}} \\vec{{\\lambda_{{F2}}}} = [0 \\hat{{i}} + 0\\hat{{j}} + {((d[9]/100)-(-d[6]/100))/math.sqrt(((d[9]/100)-(-d[6]/100)))**2:.2f}\\hat{{k}}] \\text{{ N}} }}$   
+
+        ${{\hspace{{4mm}} \\vec{{F_2}} = F_2 \\cdot \\vec{{\\lambda_{{F2}}}} = [0 \\hat{{i}} + 0\\hat{{j}} + {(((d[9]/100)-(-d[6]/100))/math.sqrt(((d[9]/100)-(-d[6]/100)))**2)*(f[1]):.2f}\\hat{{k}}] \\text{{ N}} }}$            
+
+        ${{\hspace{{4mm}} \\vec{{M_{{F2}}}} = [{((d[3]/100)-((d[3]+50)/100))*((((d[9]/100)-(-d[6]/100))/math.sqrt(((d[9]/100)-(-d[6]/100)))**2)*(f[1])):.2f} \\hat{{i}} + {((((d[0]+50)/100)-(d[0]/100)))*(((d[9]/100)-(-d[6]/100))/math.sqrt(((d[9]/100)-(-d[6]/100)))**2)*(f[1]):.2f} \\hat{{j}} - 0\\hat{{k}}] N \\cdot m}}$     
+
+
+        $\\underline{{Momento \\text{{ }} de \\text{{ }} la \\text{{ }} fuerza \\text{{ }} F3}}$
+
+        Los vectores para calcular el producto cruz son:
+
+        ${{\hspace{{4mm}} \\vec{{r}} = [0 \\hat{{i}} + 0 \\hat{{j}} + {(d[9]/100)-(-d[6]/100):.2f}\\hat{{k}}] \\text{{m}}}}$  
+
+        Para descomponer la fuerza $F_3$, se determina su vector unitario utilizando las coordenadas de los puntos $A$ y $C$.
+
+        ${{\hspace{{4mm}} \\vec{{\\lambda_{{F3}}}} = [{-(((d[0]+50)/100)-(d[0]/100))/Calculations.magnitude3D(0,(-(((d[0]+50)/100)-(d[0]/100))),(((d[3]+50)/100)-(d[3]/100))):.2f} \\hat{{i}} + {(((d[3]+50)/100)-(d[3]/100))/Calculations.magnitude3D(0,(-(((d[0]+50)/100)-(d[0]/100))),(((d[3]+50)/100)-(d[3]/100))):.2f}\\hat{{j}} + 0\\hat{{k}}] \\text{{ N}} }}$   
+
+        ${{\hspace{{4mm}} \\vec{{F_3}} = F_3 \\cdot \\vec{{\\lambda_{{F3}}}} = [{-(((d[0]+50)/100)-(d[0]/100))/Calculations.magnitude3D(0,(-(((d[0]+50)/100)-(d[0]/100))),(((d[3]+50)/100)-(d[3]/100)))*(f[2]):.2f} \\hat{{i}} + {(((d[3]+50)/100)-(d[3]/100))/Calculations.magnitude3D(0,(-(((d[0]+50)/100)-(d[0]/100))),(((d[3]+50)/100)-(d[3]/100)))*(f[2]):.2f}\\hat{{j}} + 0\\hat{{k}}] \\text{{ N}} }}$            
+
+        ${{\hspace{{4mm}} \\vec{{M_{{F3}}}} = [{-((d[9]/100)-(-d[6]/100))*((((d[3]+50)/100)-(d[3]/100))/Calculations.magnitude3D(0,(-(((d[0]+50)/100)-(d[0]/100))),(((d[3]+50)/100)-(d[3]/100)))*(f[2])):.2f} \\hat{{i}}  {((d[9]/100)-(-d[6]/100))*(-(((d[0]+50)/100)-(d[0]/100))/Calculations.magnitude3D(0,(-(((d[0]+50)/100)-(d[0]/100))),(((d[3]+50)/100)-(d[3]/100)))*(f[2])):.2f} \\hat{{j}} + 0\\hat{{k}}] N \\cdot m}}$     
+
+
+        $\\textbf{{\\small 2. Sumatoria de Momentos con respecto al punto D: }}$         
+
+        ${{\hspace{{4mm}} \\vec{{M_D}} = \\vec{{M_{{F2}}}} + \\vec{{M_{{F3}}}} = [{((d[3]/100)-((d[3]+50)/100))*((((d[9]/100)-(-d[6]/100))/math.sqrt(((d[9]/100)-(-d[6]/100)))**2)*(f[1]))+(-((d[9]/100)-(-d[6]/100))*((((d[3]+50)/100)-(d[3]/100))/Calculations.magnitude3D(0,(-(((d[0]+50)/100)-(d[0]/100))),(((d[3]+50)/100)-(d[3]/100)))*(f[2]))):.2f}\\hat{{i}} + ({((((d[0]+50)/100)-(d[0]/100)))*(((d[9]/100)-(-d[6]/100))/math.sqrt(((d[9]/100)-(-d[6]/100)))**2)*(f[1])+((d[9]/100)-(-d[6]/100))*(-(((d[0]+50)/100)-(d[0]/100))/Calculations.magnitude3D(0,(-(((d[0]+50)/100)-(d[0]/100))),(((d[3]+50)/100)-(d[3]/100)))*(f[2])):.2f})\\hat{{j}} + 0\\hat{{k}}] \\text{{ }} kN \\cdot m}}$ 
+
+        $\\textbf{{\\small 3. Vector director de la recta L - Vector Unitario: }}$    
+
+        ${{\hspace{{4mm}} \\vec{{L}} = {((d[0]+50)/100)-(d[0]/100):.2f}\\hat{{i}} + ({(d[3]/100)-((d[3]+50)/100):.2f}) \\hat{{j}} + 0\\hat{{k}}}}$                      
+        ${{\hspace{{4mm}} \\vec{{\\lambda_L}} = {(((d[0]+50)/100)-(d[0]/100))/Calculations.magnitude3D(((d[0]+50)/100)-(d[0]/100),0,(d[3]/100)-((d[3]+50)/100)):.2f}\\hat{{i}} + ({((d[3]/100)-((d[3]+50)/100))/Calculations.magnitude3D(((d[0]+50)/100)-(d[0]/100),0,(d[3]/100)-((d[3]+50)/100)):.2f})\\hat{{j}} + 0\\hat{{k}}}}$
+
+        $\\textbf{{\\small 4. Momento sobre la recta L: }}$       
+
+        ${{\hspace{{4mm}} |\\vec{{M_L}}| =\\vec{{M_D}} \\cdot \\vec{{\\lambda_L}} = ({((d[3]/100)-((d[3]+50)/100))*((((d[9]/100)-(-d[6]/100))/math.sqrt(((d[9]/100)-(-d[6]/100)))**2)*(f[1]))+(-((d[9]/100)-(-d[6]/100))*((((d[3]+50)/100)-(d[3]/100))/Calculations.magnitude3D(0,(-(((d[0]+50)/100)-(d[0]/100))),(((d[3]+50)/100)-(d[3]/100)))*(f[2]))):.2f}\\hat{{i}} + ({((((d[0]+50)/100)-(d[0]/100)))*(((d[9]/100)-(-d[6]/100))/math.sqrt(((d[9]/100)-(-d[6]/100)))**2)*(f[1])+((d[9]/100)-(-d[6]/100))*(-(((d[0]+50)/100)-(d[0]/100))/Calculations.magnitude3D(0,(-(((d[0]+50)/100)-(d[0]/100))),(((d[3]+50)/100)-(d[3]/100)))*(f[2])):.2f})\\hat{{j}} + 0\\hat{{k}}) \\cdot ({(((d[0]+50)/100)-(d[0]/100))/Calculations.magnitude3D(((d[0]+50)/100)-(d[0]/100),0,(d[3]/100)-((d[3]+50)/100)):.2f}\\hat{{i}} + ({((d[3]/100)-((d[3]+50)/100))/Calculations.magnitude3D(((d[0]+50)/100)-(d[0]/100),0,(d[3]/100)-((d[3]+50)/100)):.2f})\\hat{{j}} + 0\\hat{{k}}) }}$        
+        ${{\hspace{{4mm}} |\\vec{{M_L}}| =\\vec{{M_D}} \\cdot \\vec{{\\lambda_L}} = {((((d[0]+50)/100)-(d[0]/100))/Calculations.magnitude3D(((d[0]+50)/100)-(d[0]/100),0,(d[3]/100)-((d[3]+50)/100)))*(((d[3]/100)-((d[3]+50)/100))*((((d[9]/100)-(-d[6]/100))/math.sqrt(((d[9]/100)-(-d[6]/100)))**2)*(f[1]))+(-((d[9]/100)-(-d[6]/100))*((((d[3]+50)/100)-(d[3]/100))/Calculations.magnitude3D(0,(-(((d[0]+50)/100)-(d[0]/100))),(((d[3]+50)/100)-(d[3]/100)))*(f[2]))))+(((d[3]/100)-((d[3]+50)/100))/Calculations.magnitude3D(((d[0]+50)/100)-(d[0]/100),0,(d[3]/100)-((d[3]+50)/100)))*(((((d[0]+50)/100)-(d[0]/100)))*(((d[9]/100)-(-d[6]/100))/math.sqrt(((d[9]/100)-(-d[6]/100)))**2)*(f[1])+((d[9]/100)-(-d[6]/100))*(-(((d[0]+50)/100)-(d[0]/100))/Calculations.magnitude3D(0,(-(((d[0]+50)/100)-(d[0]/100))),(((d[3]+50)/100)-(d[3]/100)))*(f[2]))):.2f} \\text{{ }} kN \\cdot m}}$
+
+        Para encontrar la dirección del momento alrededor de la recta $L$, se multiplica nuevamente por su vector unitario.
+
+        ${{\hspace{{4mm}} \\vec{{M_L}} =|\\vec{{M_L}}| \\cdot \\vec{{\\lambda_L}} = [{(((((d[0]+50)/100)-(d[0]/100))/Calculations.magnitude3D(((d[0]+50)/100)-(d[0]/100),0,(d[3]/100)-((d[3]+50)/100)))*(((d[3]/100)-((d[3]+50)/100))*((((d[9]/100)-(-d[6]/100))/math.sqrt(((d[9]/100)-(-d[6]/100)))**2)*(f[1]))+(-((d[9]/100)-(-d[6]/100))*((((d[3]+50)/100)-(d[3]/100))/Calculations.magnitude3D(0,(-(((d[0]+50)/100)-(d[0]/100))),(((d[3]+50)/100)-(d[3]/100)))*(f[2]))))+(((d[3]/100)-((d[3]+50)/100))/Calculations.magnitude3D(((d[0]+50)/100)-(d[0]/100),0,(d[3]/100)-((d[3]+50)/100)))*(((((d[0]+50)/100)-(d[0]/100)))*(((d[9]/100)-(-d[6]/100))/math.sqrt(((d[9]/100)-(-d[6]/100)))**2)*(f[1])+((d[9]/100)-(-d[6]/100))*(-(((d[0]+50)/100)-(d[0]/100))/Calculations.magnitude3D(0,(-(((d[0]+50)/100)-(d[0]/100))),(((d[3]+50)/100)-(d[3]/100)))*(f[2]))))*((((d[0]+50)/100)-(d[0]/100))/Calculations.magnitude3D(((d[0]+50)/100)-(d[0]/100),0,(d[3]/100)-((d[3]+50)/100))):.2f}\\hat{{i}}+{(((((d[0]+50)/100)-(d[0]/100))/Calculations.magnitude3D(((d[0]+50)/100)-(d[0]/100),0,(d[3]/100)-((d[3]+50)/100)))*(((d[3]/100)-((d[3]+50)/100))*((((d[9]/100)-(-d[6]/100))/math.sqrt(((d[9]/100)-(-d[6]/100)))**2)*(f[1]))+(-((d[9]/100)-(-d[6]/100))*((((d[3]+50)/100)-(d[3]/100))/Calculations.magnitude3D(0,(-(((d[0]+50)/100)-(d[0]/100))),(((d[3]+50)/100)-(d[3]/100)))*(f[2]))))+(((d[3]/100)-((d[3]+50)/100))/Calculations.magnitude3D(((d[0]+50)/100)-(d[0]/100),0,(d[3]/100)-((d[3]+50)/100)))*(((((d[0]+50)/100)-(d[0]/100)))*(((d[9]/100)-(-d[6]/100))/math.sqrt(((d[9]/100)-(-d[6]/100)))**2)*(f[1])+((d[9]/100)-(-d[6]/100))*(-(((d[0]+50)/100)-(d[0]/100))/Calculations.magnitude3D(0,(-(((d[0]+50)/100)-(d[0]/100))),(((d[3]+50)/100)-(d[3]/100)))*(f[2]))))*(((d[3]/100)-((d[3]+50)/100))/Calculations.magnitude3D(((d[0]+50)/100)-(d[0]/100),0,(d[3]/100)-((d[3]+50)/100))):.2f}\\hat{{j}}] \\text{{ }} N \\cdot m}}$
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
 
     Questionary(#2_1
         code = 2330021,
@@ -5095,7 +5103,7 @@ preguntas = [
 
         Para encontrar la dirección del momento alrededor de la recta $L$, se multiplica nuevamente por su vector unitario.
 
-        ${{\hspace{{4mm}} |\\vec{{M_L}}| =\\vec{{M_L}} \\cdot \\vec{{\\lambda_L}} = [{(((f[0]*d[6]*d[3]/Calculations.magnitude(d[6],d[9]))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((f[0]*d[9]*d[3]/Calculations.magnitude(d[6],d[9]))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((-1*f[1]*d[9])*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1))))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)):.2f}\\hat{{i}}+({(((f[0]*d[6]*d[3]/Calculations.magnitude(d[6],d[9]))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((f[0]*d[9]*d[3]/Calculations.magnitude(d[6],d[9]))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((-1*f[1]*d[9])*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1))))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)):.2f})\\hat{{j}}+({(((f[0]*d[6]*d[3]/Calculations.magnitude(d[6],d[9]))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((f[0]*d[9]*d[3]/Calculations.magnitude(d[6],d[9]))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((-1*f[1]*d[9])*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1))))*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)):.2f})\\hat{{k}}] \\text{{ }} kN \\cdot m}}$
+        ${{\hspace{{4mm}} \\vec{{M_L}} =|\\vec{{M_L}}| \\cdot \\vec{{\\lambda_L}} = [{(((f[0]*d[6]*d[3]/Calculations.magnitude(d[6],d[9]))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((f[0]*d[9]*d[3]/Calculations.magnitude(d[6],d[9]))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((-1*f[1]*d[9])*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1))))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)):.2f}\\hat{{i}}+({(((f[0]*d[6]*d[3]/Calculations.magnitude(d[6],d[9]))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((f[0]*d[9]*d[3]/Calculations.magnitude(d[6],d[9]))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((-1*f[1]*d[9])*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1))))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)):.2f})\\hat{{j}}+({(((f[0]*d[6]*d[3]/Calculations.magnitude(d[6],d[9]))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((f[0]*d[9]*d[3]/Calculations.magnitude(d[6],d[9]))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((-1*f[1]*d[9])*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1))))*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)):.2f})\\hat{{k}}] \\text{{ }} kN \\cdot m}}$
         
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
@@ -5169,7 +5177,7 @@ preguntas = [
 
         Para encontrar la dirección del momento alrededor de la recta $L$, se multiplica nuevamente por su vector unitario.
 
-        ${{\hspace{{4mm}} |\\vec{{M_L}}| =\\vec{{M_L}} \\cdot \\vec{{\\lambda_L}} = [{((d[3]*f[1]+(-d[6]*f[2]))*(d[12]/Calculations.magnitude3D(d[12],0,d[15]))+(-(d[6])*(f[0])-f[1]*d[9]/2)*((d[15])/Calculations.magnitude3D(d[12],0,d[15])))*(d[12]/Calculations.magnitude3D(d[12],0,d[15])):.2f} \\hat{{i}}  {((d[3]*f[1]+(-d[6]*f[2]))*(d[12]/Calculations.magnitude3D(d[12],0,d[15]))+(-(d[6])*(f[0])-f[1]*d[9]/2)*((d[15])/Calculations.magnitude3D(d[12],0,d[15])))*(d[15]/Calculations.magnitude3D(d[12],0,d[15])):.2f} \\hat{{k}}] \\text{{ }} kN \\cdot m}}$
+        ${{\hspace{{4mm}} \\vec{{M_L}} =|\\vec{{M_L}}| \\cdot \\vec{{\\lambda_L}} = [{((d[3]*f[1]+(-d[6]*f[2]))*(d[12]/Calculations.magnitude3D(d[12],0,d[15]))+(-(d[6])*(f[0])-f[1]*d[9]/2)*((d[15])/Calculations.magnitude3D(d[12],0,d[15])))*(d[12]/Calculations.magnitude3D(d[12],0,d[15])):.2f} \\hat{{i}}  {((d[3]*f[1]+(-d[6]*f[2]))*(d[12]/Calculations.magnitude3D(d[12],0,d[15]))+(-(d[6])*(f[0])-f[1]*d[9]/2)*((d[15])/Calculations.magnitude3D(d[12],0,d[15])))*(d[15]/Calculations.magnitude3D(d[12],0,d[15])):.2f} \\hat{{k}}] \\text{{ }} kN \\cdot m}}$
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",

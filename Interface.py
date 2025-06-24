@@ -1060,6 +1060,8 @@ if authenticate_user():
                     if pregunta_no == 1:
                         st.image(M3D_image_paths[3], width=400)
                 if subtopic == "Momento alrededor de un eje":
+                    if pregunta_no == 1:
+                        st.image(MAE_image_paths[11], width=500)
                     if pregunta_no == 2:
                         st.image(MAE_image_paths[8], width=450)
                     if pregunta_no == 3:
