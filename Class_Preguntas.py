@@ -6397,19 +6397,38 @@ preguntas = [
         topic = "Incertidumbre",
         subtopic = "Incertidumbre",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Esta sección de la aplicación está en implementación. ¡Pronto estará disponible!",
-        no_answers = 3,
-        a1_name = "",
+        pregunta = lambda f, a, calc, c, d, m: f"Para el elemnto $DC$, se conoce la distribución de probabilidad de su resistencia máxima a compresión. ¿Cuál es la probabilidad de que el elemento falle si $F={d[0]+10:.0f} \\text{{ kN}}$, $d_1={d[3]/2:.2f} \\text{{ m}}$, $d_2={d[6]/2:.2f} \\text{{ m}}$ y $\\alpha={a[0]+40/2:.1f}°$?",
+        no_answers = 1,
+        a1_name = "Probabilidad de falla [%]",
         a2_name = "",
         a3_name = "",
-        answer1=lambda f, a, calc, c, d, m: 0,
+        answer1=lambda f, a, calc, c, d, m: np.round(100*((1/75)*((d[0]+10)/Calculations.sine(a[0]+40/2))-(1/15)),2),
         answer2=lambda f, a, calc, c, d, m: 0,
         answer3=lambda f, a, calc, c, d, m: 0,
-        ayuda1 = "",
-        ayuda2 = "",
-        ayuda3 = "",
-        respuesta_P1 = lambda f, a, calc, c, d, m:"", 
+        ayuda1 = I8,
+        ayuda2 = I9,
+        ayuda3 = I10,
+        respuesta_P1 = lambda f, a, calc, c, d, m:f"""
+        Para hallar la probabilidad de falla del elemento $DC$, primero se calcula la fuerza de compresión a la que está sometido. Luego, se determina la probabilidad de ocurrencia de esta fuerza, considerando que el elemento fallará si su resistencia máxima es menor que dicha fuerza aplicada. A continuación, se presenta la solución sugerida para el ejercicio:
+
+        $\\textbf{{\\small 1. Fuerza del elemento DC: }}$        
+        """, 
         respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        ${{\hspace{{4mm}} \\sum{{F_y}} = -F + F_{{DC}} \\cdot Sen(\\alpha) = 0}}$   
+       
+        ${{\hspace{{4mm}} F_{{DC}} = \\dfrac{{F}}{{Sen(\\alpha)}} }}$  
+        
+        ${{\hspace{{4mm}} F_{{DC}} = {(d[0]+10)/Calculations.sine(a[0]+40/2):.2f} \\text{{ kN}} }}$ 
+
+        $\\textbf{{\\small 2. Probabilidad de falla: }}$ 
+
+        La probabilidad de falla es la probabilidad de ocurrencia de la distribución, para ello primero se halla la ecuación de la recta:
+
+        ${{\hspace{{4mm}} P(R \\leq r) = \\dfrac{{1}}{{75}} \\cdot r - \\dfrac{{1}}{{15}} }}$     
+
+        En esta se reemplaza la fuerza a la que está sometido el elemento:
+
+        ${{\hspace{{4mm}} P(R \\leq r) = {(1/75)*((d[0]+10)/Calculations.sine(a[0]+40/2))-(1/15):.4f} = {100*((1/75)*((d[0]+10)/Calculations.sine(a[0]+40/2))-(1/15)):.2f}\\%}}$
         """,
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",    
         calculos='operations'

@@ -204,6 +204,9 @@ I_image_paths =[#Imágenes Preguntas Incertidumbre
 "./Imagenes/Preguntas/I/I_I_M_1a.png", #[2]
 "./Imagenes/Preguntas/I/I_I_M_2a.png", #[3]
 "./Imagenes/Preguntas/I/I_I_M_3a.png", #[4]
+
+#Nivel díficil
+"./Imagenes/Preguntas/I/I_I_D_1a.png", #[5]
 ]
 
 AR_image_paths =[#Imágenes Preguntas Cálculo Armaduras
@@ -435,6 +438,9 @@ SE_rtas_paths= [#Imágenes Respuestas Cálculos Momento alrededor de un eje
 I_rtas_paths= [#Imágenes Respuestas Cálculos Incertidumbre
 #Nivel medio
 "./Imagenes/Respuestas/I/R_I_I_M_3a.png", #[0] 
+
+#Nivel díficil
+"./Imagenes/Respuestas/I/R_I_I_D_1a.png", #[1] 
 ]
 
 CT_rtas_paths= [#Imágenes Respuestas Cálculos Centroides

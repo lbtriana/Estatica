@@ -1094,6 +1094,9 @@ if authenticate_user():
                         st.image(SE_image_paths[6], width=450) 
                     if pregunta_no == 2:
                         st.image(SE_image_paths[7], width=350) 
+                if subtopic == "Incertidumbre":
+                    if pregunta_no == 1:
+                        st.image(I_image_paths[5], width=800) 
                 if subtopic == "Cerchas":
                     if pregunta_no == 1:
                         st.image(AR_image_paths[8], width=500)
@@ -1252,6 +1255,9 @@ if authenticate_user():
                 if subtopic == "Momento par":
                     if pregunta_no ==1:
                         st.image(MP_rtas_paths[1], width=400) 
+                if subtopic == "Incertidumbre":
+                    if pregunta_no ==1:
+                        st.image(I_rtas_paths[1], width=150) 
                 if subtopic == "Centroides":
                     if pregunta_no ==1:
                         st.image(CT_rtas_paths[2], width=600)  
