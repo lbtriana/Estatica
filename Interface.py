@@ -1058,6 +1058,9 @@ if authenticate_user():
                 if subtopic == "Vector unitario":
                     if pregunta_no == 1 or pregunta_no == 2 or pregunta_no == 3:
                         st.image(EQ_image_paths[49], width=400)
+                if subtopic == "Equilibrio 2D":
+                    if pregunta_no == 1:
+                        st.image(EQ_image_paths[68], width=400)
                 if subtopic == "Equilibrio 3D":
                     if pregunta_no == 1:
                         st.image(EQ_image_paths[67], width=400)

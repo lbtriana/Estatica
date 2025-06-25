@@ -121,6 +121,9 @@ EQ_image_paths= [#Imágenes Preguntas Cálculo Equilibrio de partículas
 "./Imagenes/Preguntas/EQ/EQ3D/EQ_EQ3D_F_2a.png", #[65] 
 "./Imagenes/Preguntas/EQ/EQ3D/EQ_EQ3D_M_1a.png", #[66] 
 "./Imagenes/Preguntas/EQ/EQ3D/EQ_EQ3D_D_1a.png", #[67] 
+
+#Equilibrio 2D
+"./Imagenes/Preguntas/EQ/EQ2D/EQ_EQ2D_D_1a.png", #[68]
 ]
 
 M2D_image_paths =[#Imágenes Preguntas Cálculo Momento en un punto 2D

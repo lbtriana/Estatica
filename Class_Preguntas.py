@@ -3046,19 +3046,37 @@ preguntas = [
         topic = EQ,
         subtopic = E2D,
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Esta sección de la aplicación está en implementación. ¡Pronto estará disponible!",
-        no_answers = 3,
-        a1_name = "",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine el peso $W$ de la caja si la tensión en el cable $BD$ es ${f[0]:.0f} \\text{{ N}}$. Considere que los ángulos son: $\\theta_1={a[0]:.0f}°$ y $\\theta_2={a[4]:.0f}°$.",
+        no_answers = 1,
+        a1_name = "Peso $W$ $[N]$",
         a2_name = "",
         a3_name = "",
-        answer1=lambda f, a, calc, c, d, m: 0,
+        answer1=lambda f, a, calc, c, d, m: np.round((f[0]*Calculations.sine(a[0])/Calculations.sine(a[4]))*Calculations.sine(a[4]),2),
         answer2=lambda f, a, calc, c, d, m: 0,
         answer3=lambda f, a, calc, c, d, m: 0,
-        ayuda1 = "",
-        ayuda2 = "",
+        ayuda1 = "Identifique los puntos de concurrencia de las fuerzas, y realice los diagramas de cuerpo libre por cada uno de estos puntos.",
+        ayuda2 = "Para garantizar la condición de equilibrio, la sumatoria de las fuerzas en cada uno de los ejes debe ser igual a cero.",
         ayuda3 = "",
-        respuesta_P1 = lambda f, a, calc, c, d, m:"""
+        respuesta_P1 = lambda f, a, calc, c, d, m:f"""
+        En este caso es necesario realizar el equilibrio de fuerzas en los puntos $A$ y $B$. A continuación se presenta la solución sugerida para el ejercicio:
 
+        $\\textbf{{\\small 1. Equilibrio de fuerzas en el punto B:}}$
+
+        ${{\hspace{{4mm}} \\sum{{F_y}} = T_{{BD}} \\cdot Sen(\\theta_1) - T_{{AB}} \\cdot Sen(\\theta_2) = 0}}$    
+        
+        ${{\hspace{{4mm}} T_{{BA}} = \\dfrac{{T_{{BD}} \\cdot Sen(\\theta_1)}}{{Sen(\\theta_2)}} }}$          
+        
+        ${{\hspace{{4mm}} T_{{BA}} = {f[0]*Calculations.sine(a[0])/Calculations.sine(a[4]):.2f} \\text{{ N}}}}$
+        
+        ${{\hspace{{4mm}} \\sum{{F_x}} = T_{{BD}} \\cdot Cos(\\theta_1) - T_{{BC}} + T_{{AB}} \\cdot Cos(\\theta_2) = 0 }}$        
+        ${{\hspace{{4mm}} T_{{BC}} = T_{{BD}} \\cdot Cos(\\theta_1) + T_{{AB}} \\cdot Cos(\\theta_2) }}$       
+        ${{\hspace{{4mm}} T_{{BC}} = {f[0]*Calculations.cosine(a[0])+(f[0]*Calculations.sine(a[0])/Calculations.sine(a[4]))*Calculations.cosine(a[4]):.2f} \\text{{ N}}}}$
+
+        $\\textbf{{\\small 2. Equilibrio de fuerzas en el punto A:}}$
+
+        ${{\hspace{{4mm}} \\sum{{F_y}} = T_{{AB}} \\cdot Sen(\\theta_2) - W = 0}}$    
+        ${{\hspace{{4mm}} W = T_{{AB}} \\cdot Sen(\\theta_2)}}$            
+        ${{\hspace{{4mm}} W = {(f[0]*Calculations.sine(a[0])/Calculations.sine(a[4]))*Calculations.sine(a[4]):.2f} \\text{{ N}}}}$    
         """, 
         respuesta_P2 = lambda f, a, calc, c, d, m: f"""
         """,
@@ -6049,7 +6067,7 @@ preguntas = [
         topic = "Incertidumbre",
         subtopic = "Incertidumbre",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"¿Cuál es la probabilidad de ocurrencia de la fuerza de ${round(((m[1]-5)/5))*5:.0f}$ $\\text{{ N}}$?",
+        pregunta = lambda f, a, calc, c, d, m: f"¿Cuál es la probabilidad de ocurrencia de la fuerza de ${round(((m[1]-5)/5))*5:.0f}$ $\\text{{ N}}$?.",
         no_answers = 1,
         a1_name = "Probabilidad de ocurrencia [%]",
         a2_name = "",
@@ -6081,7 +6099,7 @@ preguntas = [
         topic = "Incertidumbre",
         subtopic = "Incertidumbre",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"De acuerdo con la función de probabilidad acumulada $F(x)$ mostrada, ¿Cuál es la fuerza $F$ con una probabilidad de ocurrencia del ${m[1]-5:.0f}$%?",
+        pregunta = lambda f, a, calc, c, d, m: f"De acuerdo con la función de probabilidad acumulada $F(x)$ mostrada, ¿Cuál es la fuerza $F$ con una probabilidad de ocurrencia del ${m[1]-5:.0f}$% (En la fórmula, use el valor del porcentaje como un número entero)?. ",
         no_answers = 1,
         a1_name = "$F$ $[N]$",
         a2_name = "",
@@ -6257,7 +6275,7 @@ preguntas = [
         a1_name = "Distancia $(D)$ $[m]$",
         a2_name = "",
         a3_name = "",
-        answer1=lambda f, a, calc, c, d, m: np.round(90-math.sqrt(((d[0]+5)*60)/0.025),2),
+        answer1=lambda f, a, calc, c, d, m: np.round(90 - math.sqrt((((d[0]+5)/100)*60)/0.025),2),
         answer2=lambda f, a, calc, c, d, m: 0,
         answer3=lambda f, a, calc, c, d, m: 0,
         ayuda1 = I2,
@@ -6340,9 +6358,9 @@ preguntas = [
 
         Dado que la función de distribución acumulada representa la probabilidad de ocurrencia, primero se calcula esta como la diferencia entre 1 y la probabilidad de excedencia.
 
-        ${{\hspace{{4mm}} P(F \\leq f) = 1 - P(F > f)}}$          
-        ${{\hspace{{4mm}} P(F \\leq f) = 1 - {(d[0]+5)/100:.2f}}}$    
-        ${{\hspace{{4mm}} P(F \\leq f) = {1-((d[0]+5)/100):.2f}  }}$
+        ${{\hspace{{4mm}} P(W \\leq w) = 1 - P(W > w)}}$          
+        ${{\hspace{{4mm}} P(W \\leq w) = 1 - {(d[0]+5)/100:.2f}}}$    
+        ${{\hspace{{4mm}} P(W \\leq w) = {1-((d[0]+5)/100):.2f}  }}$
 
 
         $\\textbf{{\\small 2. Despeje del peso (W): }}$
