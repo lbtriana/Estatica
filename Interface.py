@@ -780,6 +780,8 @@ if authenticate_user():
                         st.image(MAE_image_paths[2], width=450) 
                     if pregunta_no == 4:
                         st.image(MAE_image_paths[3], width=450) 
+                    if pregunta_no == 5:
+                        st.image(MAE_image_paths[4], width=450)
                 if subtopic == "Momento par":
                     if pregunta_no == 1:
                         st.image(MP_image_paths[0], width=450)
@@ -859,9 +861,11 @@ if authenticate_user():
                         st.image(FD_image_paths[19], width=350)
                 if subtopic == "Fuerzas internas":
                     if pregunta_no == 1:
-                        st.image(FI_image_paths[0], width=450) 
+                        st.image(FI_image_paths[7], width=300)
                     if pregunta_no == 2:
                         st.image(FI_image_paths[3], width=400) 
+                    if pregunta_no == 3:
+                        st.image(FI_image_paths[8], width=500)
 
                 
             if difficulty == "Medio":
@@ -930,7 +934,7 @@ if authenticate_user():
                         st.image(M3D_image_paths[2], width=400) 
                 if subtopic == "Momento alrededor de un eje":
                     if pregunta_no == 1:
-                        st.image(MAE_image_paths[4], width=450)
+                        st.image(MAE_image_paths[8], width=450)
                     if pregunta_no == 2:
                         st.image(MAE_image_paths[5], width=350)
                     if pregunta_no == 3:
@@ -970,11 +974,7 @@ if authenticate_user():
                     if pregunta_no == 3:
                         st.image(AR_image_paths[6], width=500) 
                     if pregunta_no == 4:
-                        st.image(AR_image_paths[7], width=600)   
-                    if pregunta_no == 5:
-                        st.image(AR_image_paths[17], width=600) 
-                    if pregunta_no == 6:
-                        st.image(AR_image_paths[18], width=600)
+                        st.image(AR_image_paths[16], width=600)
                 if subtopic == "Marcos":
                     if pregunta_no == 1:
                         st.image(AR_image_paths[12], width=550) 
@@ -1010,13 +1010,14 @@ if authenticate_user():
                     if pregunta_no == 2:
                         st.image(FI_image_paths[4], width=500)
                     if pregunta_no == 3:
-                        st.image(FI_image_paths[5], width=500)
+                        st.image(FI_image_paths[9], width=400)
                     if pregunta_no == 4:
                         st.image(FI_image_paths[6], width=350)
                     if pregunta_no == 5:
-                        st.image(FI_image_paths[7], width=300)
+                        st.image(FI_image_paths[0], width=450) 
                     if pregunta_no == 6:
-                        st.image(FI_image_paths[8], width=500)
+                        st.image(FI_image_paths[10], width=500)
+                    
                 
             if difficulty == "Díficil":
                 if subtopic == "Vectores 2D":
@@ -1079,11 +1080,9 @@ if authenticate_user():
                     if pregunta_no == 1:
                         st.image(MAE_image_paths[11], width=500)
                     if pregunta_no == 2:
-                        st.image(MAE_image_paths[8], width=450)
+                        st.image(MAE_image_paths[10], width=400)
                     if pregunta_no == 3:
                         st.image(MAE_image_paths[9], width=450)
-                    if pregunta_no == 4:
-                        st.image(MAE_image_paths[10], width=400)
                 if subtopic == "Momento par":
                     if pregunta_no == 1:
                         st.image(MP_image_paths[8], width=450)
@@ -1127,9 +1126,8 @@ if authenticate_user():
                     if pregunta_no == 1:
                         st.image(FI_image_paths[2], width=400)
                     if pregunta_no == 2:
-                        st.image(FI_image_paths[9], width=400)
-                    if pregunta_no == 3:
-                        st.image(FI_image_paths[10], width=500)
+                        st.image(FI_image_paths[5], width=500)
+                    
                             
         return
 
@@ -1176,10 +1174,12 @@ if authenticate_user():
                     if pregunta_no ==3:
                         st.image(FD_rtas_paths[23], width=250)
                 if subtopic == "Fuerzas internas":
-                    if pregunta_no ==1:
-                        st.image(FI_rtas_paths[0], width=200)
+                    if pregunta_no == 1:
+                        st.image(FI_rtas_paths[11], width=200)
                     if pregunta_no ==2:
                         st.image(FI_rtas_paths[5], width=400)
+                    if pregunta_no == 3:
+                        st.image(FI_rtas_paths[13], width=400)  
                     
             if difficulty == "Medio":
                 if subtopic == "Equilibrio 2D":
@@ -1222,15 +1222,16 @@ if authenticate_user():
                         st.image(FI_rtas_paths[2], width=300)   
                     if pregunta_no == 2:
                         st.image(FI_rtas_paths[6], width=400)   
-                    if pregunta_no == 3:
-                        st.image(FI_rtas_paths[8], width=400)       
+                    if pregunta_no ==3:
+                        st.image(FI_rtas_paths[15], width=400)       
                     if pregunta_no == 4:
-                        st.image(FI_rtas_paths[10], width=250)      
+                        st.image(FI_rtas_paths[10], width=250)   
                     if pregunta_no == 5:
-                        st.image(FI_rtas_paths[11], width=200)   
-                    if pregunta_no == 6:
-                        st.image(FI_rtas_paths[13], width=400)   
-
+                        st.image(FI_rtas_paths[0], width=200)   
+                    if pregunta_no ==6:
+                        st.image(FI_rtas_paths[17], width=300) 
+                       
+                    
             if difficulty == "Díficil":
                 if subtopic == "Vectores 2D":
                     if pregunta_no == 1 or pregunta_no == 2: 
@@ -1274,11 +1275,10 @@ if authenticate_user():
                         st.image(FD_rtas_paths[9], width=350)    
                 if subtopic == "Fuerzas internas":
                     if pregunta_no ==1:
-                        st.image(FI_rtas_paths[4], width=200)  
-                    if pregunta_no ==2:
-                        st.image(FI_rtas_paths[15], width=400)    
-                    if pregunta_no ==3:
-                        st.image(FI_rtas_paths[17], width=300)                           
+                        st.image(FI_rtas_paths[4], width=200)   
+                    if pregunta_no == 2:
+                        st.image(FI_rtas_paths[8], width=400)   
+                                              
         return
 
     def filtrar_imagenes_respuestas_P2(pregunta_no, version_no, subtopic, difficulty):
@@ -1292,8 +1292,10 @@ if authenticate_user():
                     if pregunta_no ==3:
                         st.image(FD_rtas_paths[4], width=350)
                 if subtopic == "Fuerzas internas":
-                    if pregunta_no ==1:
-                        st.image(FI_rtas_paths[1], width=200)
+                    if pregunta_no == 1:
+                        st.image(FI_rtas_paths[12], width=200)
+                    if pregunta_no == 3:
+                        st.image(FI_rtas_paths[14], width=250) 
 
             if difficulty == "Medio":
                 if subtopic == "Presión hidrostática":
@@ -1308,16 +1310,16 @@ if authenticate_user():
                     if pregunta_no == 2:
                         st.image(FI_rtas_paths[7], width=200)
                     if pregunta_no == 3:
-                        st.image(FI_rtas_paths[9], width=300)
-                    if pregunta_no == 5:
-                        st.image(FI_rtas_paths[12], width=200)
-                    if pregunta_no == 6:
-                        st.image(FI_rtas_paths[14], width=250) 
+                        st.image(FI_rtas_paths[16], width=200)
+                    if pregunta_no ==5:
+                        st.image(FI_rtas_paths[1], width=200)
+                    
+                    
 
             if difficulty == "Díficil":
                 if subtopic == "Fuerzas internas":
                     if pregunta_no == 2:
-                        st.image(FI_rtas_paths[16], width=200)
+                        st.image(FI_rtas_paths[9], width=300)
                 if subtopic == "Vigas":
                     if pregunta_no ==2:
                         st.image(FD_rtas_paths[20], width=350)
@@ -1582,6 +1584,10 @@ if authenticate_user():
                     st.image(AR_teoria_preguntas[6], width=750) 
                 if pregunta_no == 6:
                     st.image(AR_teoria_preguntas[7], width=550) 
+                if pregunta_no == 7:
+                    st.image(AR_teoria_preguntas[9], width=750) 
+                if pregunta_no == 8:
+                    st.image(AR_teoria_preguntas[10], width=650) 
             if subtopic == "Marcos":
                 if pregunta_no == 1:
                     st.image(AR_teoria_preguntas[1], width=250) 

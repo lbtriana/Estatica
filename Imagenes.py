@@ -159,19 +159,14 @@ M3D_image_paths =[#Imágenes Preguntas Cálculo Momento en un punto 3D
 ]
 
 MAE_image_paths =[#Imágenes Preguntas Cálculo Momento alrededor de un eje
-#Nivel fácil
 "./Imagenes/Preguntas/MO/MAE/MO_MAE_F_1a.png", #[0]
 "./Imagenes/Preguntas/MO/MAE/MO_MAE_F_2a.png", #[1]
 "./Imagenes/Preguntas/MO/MAE/MO_MAE_F_3a.png", #[2]
 "./Imagenes/Preguntas/MO/MAE/MO_MAE_F_4a.png", #[3]
-
-#Nivel medio
-"./Imagenes/Preguntas/MO/MAE/MO_MAE_M_1a.png", #[4]
+"./Imagenes/Preguntas/MO/MAE/MO_MAE_F_5a.png", #[4]
 "./Imagenes/Preguntas/MO/MAE/MO_MAE_M_2a.png", #[5]
 "./Imagenes/Preguntas/MO/MAE/MO_MAE_M_3a.png", #[6]
 "./Imagenes/Preguntas/MO/MAE/MO_MAE_M_4a.png", #[7]
-
-#Nivel díficil
 "./Imagenes/Preguntas/MO/MAE/MO_MAE_D_2a.png", #[8]
 "./Imagenes/Preguntas/MO/MAE/MO_MAE_D_3a.png", #[9]
 "./Imagenes/Preguntas/MO/MAE/MO_MAE_D_4a.png", #[10]
@@ -238,12 +233,8 @@ AR_image_paths =[#Imágenes Preguntas Cálculo Armaduras
 "./Imagenes/Preguntas/AR/MA/AR_MA_D_1a.png", #[14]
 "./Imagenes/Preguntas/AR/MA/AR_MA_D_2a.png", #[15]
 
-#Cerchas_Nivel Fácil
-"./Imagenes/Preguntas/AR/CE/AR_CE_F_4a.png", #[16]
-
-#Cerchas_Nivel Medio
-"./Imagenes/Preguntas/AR/CE/AR_CE_M_5a.png", #[17]
-"./Imagenes/Preguntas/AR/CE/AR_CE_M_6a.png", #[18]
+#Cerchas_Meido
+"./Imagenes/Preguntas/AR/CE/AR_CE_M_4a.png", #[16]
 ]
 
 SE_image_paths =[#Imágenes Preguntas Cálculo Sistemas Equivalentes
@@ -325,28 +316,17 @@ FD_image_paths =[#Imágenes Preguntas Cálculo Fuerzas distribuidas
 ]
 
 FI_image_paths =[#Imágenes Preguntas Cálculo Fuerzas internas
-#Fuerzas internas _ Nivel fácil
-"./Imagenes/Preguntas/FI/FI_FI_F_1a.png", #[0]
-
-#Fuerzas internas_Nivel medio 
+"./Imagenes/Preguntas/FI/FI_FI_M_5a.png", #[0]
 "./Imagenes/Preguntas/FI/FI_FI_M_1a.png", #[1]
-
-#Fuerzas internas_Nivel díficil 
 "./Imagenes/Preguntas/FI/FI_FI_D_1a.png", #[2]
-
-#Fuerzas internas _ Nivel fácil
 "./Imagenes/Preguntas/FI/FI_FI_F_2a.png", #[3]
-
-#Fuerzas internas_Nivel medio 
 "./Imagenes/Preguntas/FI/FI_FI_M_2a.png", #[4]
-"./Imagenes/Preguntas/FI/FI_FI_M_3a.png", #[5]
+"./Imagenes/Preguntas/FI/FI_FI_D_2a.png", #[5]
 "./Imagenes/Preguntas/FI/FI_FI_M_4a.png", #[6]
-"./Imagenes/Preguntas/FI/FI_FI_M_5a.png", #[7]
-"./Imagenes/Preguntas/FI/FI_FI_M_6a.png", #[8]
-
-#Fuerzas internas _ Nivel díficil
-"./Imagenes/Preguntas/FI/FI_FI_D_2a.png", #[9]
-"./Imagenes/Preguntas/FI/FI_FI_D_3a.png", #[10]
+"./Imagenes/Preguntas/FI/FI_FI_F_1a.png", #[7]
+"./Imagenes/Preguntas/FI/FI_FI_F_3a.png", #[8]
+"./Imagenes/Preguntas/FI/FI_FI_M_3a.png", #[9]
+"./Imagenes/Preguntas/FI/FI_FI_M_6a.png", #[10]
 ]
 
 
@@ -490,35 +470,24 @@ FD_rtas_paths= [#Imágenes Respuestas Cálculos Fuerzas Distribuidas
 ]
 
 FI_rtas_paths= [#Imágenes Respuestas Cálculos Fuerzas Internas
-#Fuerzas internas _ Nivel fácil
-"./Imagenes/Respuestas/FI/R_FI_FI_F_1a.png", #[0] 
-"./Imagenes/Respuestas/FI/R_FI_FI_F_1b.png", #[1] 
-
-#Fuerzas internas _ Nivel medio
+"./Imagenes/Respuestas/FI/R_FI_FI_M_5a.png", #[0] 
+"./Imagenes/Respuestas/FI/R_FI_FI_M_5b.png", #[1] 
 "./Imagenes/Respuestas/FI/R_FI_FI_M_1a.png", #[2] 
 "./Imagenes/Respuestas/FI/R_FI_FI_M_1b.png", #[3] 
-
-#Fuerzas internas _ Nivel Díficil
 "./Imagenes/Respuestas/FI/R_FI_FI_D_1a.png", #[4]
-
-#Fuerzas internas _ Nivel fácil
 "./Imagenes/Respuestas/FI/R_FI_FI_F_2a.png", #[5] 
-
-#Fuerzas internas _ Nivel medio
 "./Imagenes/Respuestas/FI/R_FI_FI_M_2a.png", #[6] 
 "./Imagenes/Respuestas/FI/R_FI_FI_M_2b.png", #[7]
-"./Imagenes/Respuestas/FI/R_FI_FI_M_3a.png", #[8] 
-"./Imagenes/Respuestas/FI/R_FI_FI_M_3b.png", #[9]
+"./Imagenes/Respuestas/FI/R_FI_FI_D_2a.png", #[8] 
+"./Imagenes/Respuestas/FI/R_FI_FI_D_2b.png", #[9]
 "./Imagenes/Respuestas/FI/R_FI_FI_M_4a.png", #[10]
-"./Imagenes/Respuestas/FI/R_FI_FI_M_5a.png", #[11]
-"./Imagenes/Respuestas/FI/R_FI_FI_M_5b.png", #[12]
-"./Imagenes/Respuestas/FI/R_FI_FI_M_6a.png", #[13]
-"./Imagenes/Respuestas/FI/R_FI_FI_M_6b.png", #[14]
-
-#Fuerzas internas _ Nivel díficil
-"./Imagenes/Respuestas/FI/R_FI_FI_D_2a.png", #[15]
-"./Imagenes/Respuestas/FI/R_FI_FI_D_2b.png", #[16]
-"./Imagenes/Respuestas/FI/R_FI_FI_D_3a.png", #[17]
+"./Imagenes/Respuestas/FI/R_FI_FI_F_1a.png", #[11]
+"./Imagenes/Respuestas/FI/R_FI_FI_F_1b.png", #[12]
+"./Imagenes/Respuestas/FI/R_FI_FI_F_3a.png", #[13]
+"./Imagenes/Respuestas/FI/R_FI_FI_F_3b.png", #[14]
+"./Imagenes/Respuestas/FI/R_FI_FI_M_3a.png", #[15]
+"./Imagenes/Respuestas/FI/R_FI_FI_M_3b.png", #[16]
+"./Imagenes/Respuestas/FI/R_FI_FI_M_6a.png", #[17]
 ]
 
 
@@ -578,6 +547,8 @@ AR_teoria_preguntas =[#Armaduras
 "./Imagenes/Teoria_Preguntas/AR/CE/T_AR_CE_5.png", #[6] 
 "./Imagenes/Teoria_Preguntas/AR/CE/T_AR_CE_6.png", #[7] 
 "./Imagenes/Teoria_Preguntas/AR/MA/T_AR_MA_3.png", #[8]
+"./Imagenes/Teoria_Preguntas/AR/CE/T_AR_CE_7.png", #[9] 
+"./Imagenes/Teoria_Preguntas/AR/CE/T_AR_CE_8.png", #[10] 
 ]
 
 CT_teoria_preguntas=[#Centroides

@@ -1075,6 +1075,57 @@ conceptuales = [
         respuesta_P2 = "",
         ),
 
+    Theory(#7
+        code = 6100070, 
+        no_pregunta = 7,
+        topic = "Armaduras",
+        subtopic = "Cerchas",
+        enunciado = "¿Cuántos elementos de fuerza cero tiene la armadura Fink mostrada?",
+        opcion_1 = "5",
+        opcion_2 = "6",
+        opcion_3 = "7",
+        opcion_4 = "9",
+        opcion_correcta = "7",
+        respuesta_P1 = """
+        Una cercha es una estructura compuesta por elementos rectos que se conectan entre sí por puntos llamados nodos, formando triángulos. Un elemento de fuerza cero se define como un miembro de la armadura que no experimenta ninguna fuerza axial (Tensión o compresión). A continuación, se presenta la solución sugerida para el ejercicio: 
+        
+        Primero, se debe tener en cuenta que si hay tres elementos conectados en un nodo, donde dos de ellos son colineales y no hay cargas externas aplicadas en el nodo, el tercer miembro va a ser de fuerza cero. Esto nos permite identificar en la evaluación de los nodos B, J y N los elementos $BC$, $JI$ y $NM$ son elementos de fuerza cero.
+        
+        Una vez identificados los anteriores elementos de fuerza cero, si se realiza la sumatoria de fuerzas en los nodos C, I y M, se encontrará que los elementos $CD$, $IL$ y $ML$ también son de fuerza cero.    
+        
+        Por otro lado, al ser $IL$ y $ML$ elementos de fuerza cero, al evaluar el equilibrio en el nodo L, se determina que el elemento $LK$ es de fuerza cero.  
+        
+        En resumen, se identifican un total de 7 elementos de fuerza cero: $BC$, $JI$, $NM$, $CD$, $IL$, $ML$ y $LK$. 
+        """,   
+        respuesta_P2 = "",
+        ),
+
+    Theory(#8
+        code = 6100010, 
+        no_pregunta = 8,
+        topic = "Armaduras",
+        subtopic = "Cerchas",
+        enunciado = "¿Cuántos elementos de fuerza cero tiene la armadura mostrada?",
+        opcion_1 = "8",
+        opcion_2 = "9",
+        opcion_3 = "10",
+        opcion_4 = "11",
+        opcion_correcta = "11",
+        respuesta_P1 =  """
+        Una cercha es una estructura compuesta por elementos rectos que se conectan entre sí por puntos llamados nodos, formando triángulos. Un elemento de fuerza cero se define como un miembro de la armadura que no experimenta ninguna fuerza axial (Tensión o compresión). A continuación, se presenta la solución sugerida para el ejercicio: 
+        
+        Primero, se debe tener en cuenta que si hay tres elementos conectados en un nodo, donde dos de ellos son colineales y no hay cargas externas aplicadas en el nodo, el tercer miembro va a ser de fuerza cero. Esto nos permite identificar bajo el sistema de coordenadas convencional, en los nodos $C$, $G$, $H$, $K$ y $O$ los elementos $BC$, $FG$, $HI$, $JK$ y $NO$ son elementos de fuerza cero.
+        
+        Una vez identificados los anteriores elementos de fuerza cero, se evalúa dicha colinealidad bajo un sistema de coordenadas arbitrario, en los nodos $B$, $F$, $J$, y $N$ los elementos $BE$, $FE$, $JM$, y $NM$ son elementos de fuerza cero.
+
+        Finalmente, al identificar que los anteriores elementos son de fuerza cero, los nodos $E$ y $M$ muestran una colinealidad entre tres elementos, de estos nodos se concluye que los miembros $DE$ y $LM$ son de fuerza cero.
+        
+        En resumen, se identifican un total de 11 elementos de fuerza cero: $BC$, $FG$, $HI$, $JK$, $NO$, $BE$, $FE$, $JM$, $NM$, $DE$ y $LM$.
+        """,   
+        respuesta_P2 = "",
+        ), 
+
+
 
 #-----------------------------------------------------  Armaduras ----------------------------------------------------------
 #------------------------------------------------------  Marcos -----------------------------------------------------------

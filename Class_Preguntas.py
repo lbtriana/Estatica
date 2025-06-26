@@ -4995,17 +4995,10 @@ preguntas = [
         calculos='operations'
         ),
 
-
-
-    #=========================================================== MOMENTO ========================================================
-    #--------------------------------------------     Momento alrededor de un eje      --------------------------------------------
-    #-------------------------------------------------       Nivel medio      ---------------------------------------------------
-    #-------------------------------------------------       Code: 23200##    ---------------------------------------------------
-
-    Questionary(#1_1
-        code = 2320011,
-        no_pregunta = 1,
-        complexity = M,
+    Questionary(#5_1
+        code = 2310051,
+        no_pregunta = 5,
+        complexity = F,
         topic = MO,
         subtopic = "Momento alrededor de un eje",
         version = 1,
@@ -5050,6 +5043,80 @@ preguntas = [
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ), 
+
+    #=========================================================== MOMENTO ========================================================
+    #--------------------------------------------     Momento alrededor de un eje      --------------------------------------------
+    #-------------------------------------------------       Nivel medio      ---------------------------------------------------
+    #-------------------------------------------------       Code: 23200##    ---------------------------------------------------
+
+    Questionary(#1_1
+        code = 2320011,
+        no_pregunta = 1,
+        complexity = M,
+        topic = MO,
+        subtopic = "Momento alrededor de un eje",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Considere las fuerzas $F_1 = {f[0]:.0f} \\text{{ kN}}$ y $F_2 = {f[1]:.0f} \\text{{ kN}}$ aplicadas sobre el elemento mostrado en la figura. Determine el momento alrededor de la línea $L$, la cual cruza el origen $O$ en dirección de las coordenadas $[x={d[0]:.0f}, y= {d[0]+2:.0f}, z={d[0]-1:.0f}]$, teniendo en cuenta que $d_0 ={d[3]:.0f} \\text{{ m}}$, $d_1 ={d[6]:.0f} \\text{{ m}}$ y $d_2 ={d[9]:.0f} \\text{{ m}}$.",
+        no_answers = 3,
+        a1_name = "Componente $x$ [$kN \\cdot m$]",
+        a2_name = "Componente $y$ [$kN \\cdot m$]",
+        a3_name = "Componente $z$ [$kN \\cdot m$]",
+        answer1 = lambda f, a, calc, c, d, m: np.round((((f[0]*d[6]*d[3]/Calculations.magnitude(d[6],d[9]))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((f[0]*d[9]*d[3]/Calculations.magnitude(d[6],d[9]))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((-1*f[1]*d[9])*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1))))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round((((f[0]*d[6]*d[3]/Calculations.magnitude(d[6],d[9]))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((f[0]*d[9]*d[3]/Calculations.magnitude(d[6],d[9]))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((-1*f[1]*d[9])*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1))))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)),2),
+        answer3 = lambda f, a, calc, c, d, m: np.round((((f[0]*d[6]*d[3]/Calculations.magnitude(d[6],d[9]))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((f[0]*d[9]*d[3]/Calculations.magnitude(d[6],d[9]))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((-1*f[1]*d[9])*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1))))*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)),2),
+        ayuda1 = MAE1,
+        ayuda2 = "Encuentre el momento con respecto al origen para cada una de las fuerzas aplicadas. Luego, realice la sumatoria de lo momentos individuales para hallar el vector del momento total resultante.",     
+        ayuda3 = "Calcule el vector unitario de la recta y realice el producto punto con el vector resultante de la sumatoria de momento. Esta operación proporciona la magnitud del momento proyectado sobre la dirección de la recta. Para obtener el vector momento en dicha dirección, multiplique nuevamente esta magnitud por el vector unitario de la recta.",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        El momento alrededor de un eje se calcula mediante el producto punto entre el vector de momento en un punto sobre el eje y el vector director del eje. A continuación, se presenta la solución sugerida para el ejercicio:  
+        
+        $\\textbf{{\\small 1. Momento de cada una de las fuerzas con respecto a O: }}$ 
+
+        $\\underline{{Momento \\text{{ }} de \\text{{ }} la \\text{{ }} fuerza \\text{{ }} F1}}$
+
+        Los vectores para calcular el producto cruz son:
+
+        ${{\hspace{{4mm}} \\vec{{r}} = [0 \\hat{{i}} +  0\\hat{{j}} + {d[3]}\\hat{{k}}] \\text{{m}}}}$   
+
+        La fuerza $F_1$ se descompone con su vector unitario:   
+
+        ${{\hspace{{4mm}} \\vec{{\\lambda_{{f_1}}}} = \\dfrac{d[9]}{{\\sqrt{{{d[9]}^2 + {d[6]}^2}}}}\\hat{{i}}-\\dfrac{d[6]}{{\\sqrt{{{d[9]}^2 + {d[6]}^2}}}}\\hat{{j}}+0\\hat{{k}}}}$
+
+        ${{\hspace{{4mm}} \\vec{{F_1}} = ({d[9]*f[0]/Calculations.magnitude(d[9],d[6]):.2f}\\hat{{i}}-{d[6]*f[0]/Calculations.magnitude(d[9],d[6]):.2f}\\hat{{j}}+0\\hat{{k}}) \\text{{ kN}}}}$           
+
+        ${{\hspace{{4mm}} \\vec{{M_{{F_1}}}} = ({d[6]*f[0]*d[3]/Calculations.magnitude(d[9],d[6]):.2f}\\hat{{i}}+{d[9]*f[0]*d[3]/Calculations.magnitude(d[9],d[6]):.2f}\\hat{{j}}+0\\hat{{k}}) \\text{{ }} kN \\cdot m}}$          
+
+        $\\underline{{Momento \\text{{ }} de \\text{{ }} la \\text{{ }} fuerza \\text{{ }} F2}}$
+
+        ${{\hspace{{4mm}} \\vec{{r}} = [{d[9]:.0f} \\hat{{i}} - {d[6]:.0f}\\hat{{j}} + 0\\hat{{k}}] \\text{{m}}}}$ 
+
+        ${{\hspace{{4mm}} \\vec{{F_2}} = (0\\hat{{i}}-{f[1]}\\hat{{j}}+0\\hat{{k}}) \\text{{ kN}}}}$
+
+        ${{\hspace{{4mm}} \\vec{{M_{{F_2}}}} = (0\\hat{{i}}+0\\hat{{j}}-{f[1]*d[9]}\\hat{{k}}) \\text{{ }} kN \\cdot m}}$
+
+        $\\textbf{{\\small 2. Sumatoria de Momentos con respecto al punto O: }}$   
+
+        ${{\hspace{{4mm}} \\sum{{\\vec{{M}}}} = ({d[6]*f[0]*d[3]/Calculations.magnitude(d[9],d[6]):.2f}\\hat{{i}}+{d[9]*f[0]*d[3]/Calculations.magnitude(d[9],d[6]):.2f}\\hat{{j}}-{f[1]*d[9]}\\hat{{k}}) \\text{{ }} kN \\cdot m}}$
+
+        $\\textbf{{\\small 3. Vector director de la recta L - Vector Unitario: }}$    
+
+        ${{\hspace{{4mm}} \\vec{{L}} = {d[0]:.0f}\\hat{{i}} + {d[0]+2:.0f} \\hat{{j}} + {d[0]-1:.0f}\\hat{{k}}}}$  
+        ${{\hspace{{4mm}} \\vec{{\\lambda_{{L}}}} = {d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1):.2f}\\hat{{i}}+{(d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1):.2f}\\hat{{j}}+{(d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1):.2f}\\hat{{k}}}}$
+        
+        $\\textbf{{\\small 4. Momento sobre la recta L: }}$ 
+        
+        ${{\hspace{{4mm}} |\\vec{{M_L}}| =\\vec{{M_O}} \\cdot \\vec{{\\lambda_L}} = ({d[6]*f[0]*d[3]/Calculations.magnitude(d[9],d[6]):.2f}\\hat{{i}}+{d[9]*f[0]*d[3]/Calculations.magnitude(d[9],d[6]):.2f}\\hat{{j}}-{f[1]*d[9]}\\hat{{k}}) \\cdot ({d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1):.2f}\\hat{{i}}+{(d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1):.2f}\\hat{{j}}+{(d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1):.2f}\\hat{{k}}) }}$        
+        ${{\hspace{{4mm}} |\\vec{{M_L}}| =\\vec{{M_O}} \\cdot \\vec{{\\lambda_L}} = {((f[0]*d[6]*d[3]/Calculations.magnitude(d[6],d[9]))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((f[0]*d[9]*d[3]/Calculations.magnitude(d[6],d[9]))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((-1*f[1]*d[9])*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1))):.2f} \\text{{ }} N \\cdot m}}$
+
+        Para encontrar la dirección del momento alrededor de la recta $L$, se multiplica nuevamente por su vector unitario.
+
+        ${{\hspace{{4mm}} \\vec{{M_L}} =|\\vec{{M_L}}| \\cdot \\vec{{\\lambda_L}} = [{(((f[0]*d[6]*d[3]/Calculations.magnitude(d[6],d[9]))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((f[0]*d[9]*d[3]/Calculations.magnitude(d[6],d[9]))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((-1*f[1]*d[9])*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1))))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)):.2f}\\hat{{i}}+({(((f[0]*d[6]*d[3]/Calculations.magnitude(d[6],d[9]))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((f[0]*d[9]*d[3]/Calculations.magnitude(d[6],d[9]))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((-1*f[1]*d[9])*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1))))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)):.2f})\\hat{{j}}+({(((f[0]*d[6]*d[3]/Calculations.magnitude(d[6],d[9]))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((f[0]*d[9]*d[3]/Calculations.magnitude(d[6],d[9]))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((-1*f[1]*d[9])*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1))))*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)):.2f})\\hat{{k}}] \\text{{ }} kN \\cdot m}}$
+        
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
     
     Questionary(#2_1
         code = 2320021,
@@ -5342,14 +5409,14 @@ preguntas = [
         topic = MO,
         subtopic = "Momento alrededor de un eje",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Considere las fuerzas $F_1 = {f[0]:.0f} \\text{{ kN}}$ y $F_2 = {f[1]:.0f} \\text{{ kN}}$ aplicadas sobre el elemento mostrado en la figura. Determine el momento alrededor de la línea $L$, la cual cruza el origen $O$ en dirección de las coordenadas $[x={d[0]:.0f}, y= {d[0]+2:.0f}, z={d[0]-1:.0f}]$, teniendo en cuenta que $d_0 ={d[3]:.0f} \\text{{ m}}$, $d_1 ={d[6]:.0f} \\text{{ m}}$ y $d_2 ={d[9]:.0f} \\text{{ m}}$.",
-        no_answers = 3,
-        a1_name = "Componente $x$ [$kN \\cdot m$]",
-        a2_name = "Componente $y$ [$kN \\cdot m$]",
-        a3_name = "Componente $z$ [$kN \\cdot m$]",
-        answer1 = lambda f, a, calc, c, d, m: np.round((((f[0]*d[6]*d[3]/Calculations.magnitude(d[6],d[9]))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((f[0]*d[9]*d[3]/Calculations.magnitude(d[6],d[9]))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((-1*f[1]*d[9])*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1))))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)),2),
-        answer2 = lambda f, a, calc, c, d, m: np.round((((f[0]*d[6]*d[3]/Calculations.magnitude(d[6],d[9]))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((f[0]*d[9]*d[3]/Calculations.magnitude(d[6],d[9]))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((-1*f[1]*d[9])*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1))))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)),2),
-        answer3 = lambda f, a, calc, c, d, m: np.round((((f[0]*d[6]*d[3]/Calculations.magnitude(d[6],d[9]))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((f[0]*d[9]*d[3]/Calculations.magnitude(d[6],d[9]))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((-1*f[1]*d[9])*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1))))*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)),2),
+        pregunta = lambda f, a, calc, c, d, m: f"Considere las tensiones $T_1 = {f[0]:.0f} \\text{{ N}}$, $T_2 = {f[1]:.0f} \\text{{ N}}$, $T_3 = {f[2]:.0f} \\text{{ N}}$ generadas por el elemento. Encuentre el momento generado con respecto al eje $x$ y a la recta $L$, la cual cruza el origen $O$ en dirección de las coordenadas $[x={d[3]/10:.2f}, y= {(d[3]+2)/10:.2f}, z={(d[0]+1)/10:.2f}]$. Asuma que el radio del elemento es $d_0 = {d[0]/10:.2f} \\text{{ m}}$, el ángulo $\\theta = {a[0]:.0f}°$ y el ángulo $\\phi = {a[4]:.0f}°$.",
+        no_answers = 2,
+        a1_name = "Momento sobre el eje $x$ [$N \\cdot m$]",
+        a2_name = "Momento sobre el eje $L$ [$N \\cdot m$]",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(d[0]/10*f[1]*(Calculations.sine(a[0]))*Calculations.sine(a[4])-1*d[0]/10*f[2]*Calculations.sine(a[4]),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(((d[3]/10)/Calculations.magnitude3D(d[3]/10,(d[3]+2)/10,(d[0]+1)/10))*(d[0]/10*f[1]*(Calculations.sine(a[0]))*Calculations.sine(a[4])-1*d[0]/10*f[2]*Calculations.sine(a[4]))+(((d[0]+1)/10)/Calculations.magnitude3D(d[3]/10,(d[3]+2)/10,(d[0]+1)/10))*(d[0]/10*f[0]*Calculations.sine(a[4])-(d[0]/10*f[1]*Calculations.sine(a[4])*Calculations.cosine(a[0]))),2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
         ayuda1 = MAE1,
         ayuda2 = "Encuentre el momento con respecto al origen para cada una de las fuerzas aplicadas. Luego, realice la sumatoria de lo momentos individuales para hallar el vector del momento total resultante.",     
         ayuda3 = "Calcule el vector unitario de la recta y realice el producto punto con el vector resultante de la sumatoria de momento. Esta operación proporciona la magnitud del momento proyectado sobre la dirección de la recta. Para obtener el vector momento en dicha dirección, multiplique nuevamente esta magnitud por el vector unitario de la recta.",
@@ -5361,43 +5428,47 @@ preguntas = [
         $\\underline{{Momento \\text{{ }} de \\text{{ }} la \\text{{ }} fuerza \\text{{ }} F1}}$
 
         Los vectores para calcular el producto cruz son:
+        
+        ${{\hspace{{4mm}} \\vec{{r}} = [{d[0]/10}\\hat{{i}}+0\\hat{{j}}+0\\hat{{k}}] \\text{{ m}}}}$   
+        ${{\hspace{{4mm}} \\vec{{T_1}} = [{-1*f[0]*Calculations.cosine(a[4]):.2f}\\hat{{i}}+{f[0]*Calculations.sine(a[4]):.2f}\\hat{{j}}+0\\hat{{k}}] \\text{{ N}}}}$
+                
 
-        ${{\hspace{{4mm}} \\vec{{r}} = [0 \\hat{{i}} +  0\\hat{{j}} + {d[3]}\\hat{{k}}] \\text{{m}}}}$   
-
-        La fuerza $F_1$ se descompone con su vector unitario:   
-
-        ${{\hspace{{4mm}} \\vec{{\\lambda_{{f_1}}}} = \\dfrac{d[9]}{{\\sqrt{{{d[9]}^2 + {d[6]}^2}}}}\\hat{{i}}-\\dfrac{d[6]}{{\\sqrt{{{d[9]}^2 + {d[6]}^2}}}}\\hat{{j}}+0\\hat{{k}}}}$
-
-        ${{\hspace{{4mm}} \\vec{{F_1}} = ({d[9]*f[0]/Calculations.magnitude(d[9],d[6]):.2f}\\hat{{i}}-{d[6]*f[0]/Calculations.magnitude(d[9],d[6]):.2f}\\hat{{j}}+0\\hat{{k}}) \\text{{ kN}}}}$           
-
-        ${{\hspace{{4mm}} \\vec{{M_{{F_1}}}} = ({d[6]*f[0]*d[3]/Calculations.magnitude(d[9],d[6]):.2f}\\hat{{i}}+{d[9]*f[0]*d[3]/Calculations.magnitude(d[9],d[6]):.2f}\\hat{{j}}+0\\hat{{k}}) \\text{{ }} kN \\cdot m}}$          
+        ${{\hspace{{4mm}} \\vec{{M_{{T1}}}} = [0\\hat{{i}}+0\\hat{{j}}+{d[0]/10*f[0]*Calculations.sine(a[4]):.2f}\\hat{{k}}] \\text{{ }} N \\cdot m}}$   
 
         $\\underline{{Momento \\text{{ }} de \\text{{ }} la \\text{{ }} fuerza \\text{{ }} F2}}$
-
-        ${{\hspace{{4mm}} \\vec{{r}} = [{d[9]:.0f} \\hat{{i}} - {d[6]:.0f}\\hat{{j}} + 0\\hat{{k}}] \\text{{m}}}}$ 
-
-        ${{\hspace{{4mm}} \\vec{{F_2}} = (0\\hat{{i}}-{f[1]}\\hat{{j}}+0\\hat{{k}}) \\text{{ kN}}}}$
-
-        ${{\hspace{{4mm}} \\vec{{M_{{F_2}}}} = (0\\hat{{i}}+0\\hat{{j}}-{f[1]*d[9]}\\hat{{k}}) \\text{{ }} kN \\cdot m}}$
-
-        $\\textbf{{\\small 2. Sumatoria de Momentos con respecto al punto O: }}$   
-
-        ${{\hspace{{4mm}} \\sum{{\\vec{{M}}}} = ({d[6]*f[0]*d[3]/Calculations.magnitude(d[9],d[6]):.2f}\\hat{{i}}+{d[9]*f[0]*d[3]/Calculations.magnitude(d[9],d[6]):.2f}\\hat{{j}}-{f[1]*d[9]}\\hat{{k}}) \\text{{ }} kN \\cdot m}}$
-
-        $\\textbf{{\\small 3. Vector director de la recta L - Vector Unitario: }}$    
-
-        ${{\hspace{{4mm}} \\vec{{L}} = {d[0]:.0f}\\hat{{i}} + {d[0]+2:.0f} \\hat{{j}} + {d[0]-1:.0f}\\hat{{k}}}}$  
-        ${{\hspace{{4mm}} \\vec{{\\lambda_{{L}}}} = {d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1):.2f}\\hat{{i}}+{(d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1):.2f}\\hat{{j}}+{(d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1):.2f}\\hat{{k}}}}$
+       
+        ${{\hspace{{4mm}} \\vec{{r}} = [{-1*d[0]/10*Calculations.cosine(a[0]):.2f}\\hat{{i}}+0\\hat{{j}}-{d[0]/10*Calculations.sine(a[0]):.2f}\\hat{{k}}] \\text{{ m}}}}$      
+        ${{\hspace{{4mm}} \\vec{{T_2}} = [{f[1]*Calculations.cosine(a[4])*Calculations.cosine(a[0]):.2f}\\hat{{i}}+{f[1]*Calculations.sine(a[4]):.2f}\\hat{{j}}+{f[1]*Calculations.cosine(a[4])*Calculations.sine(a[0]):.2f}\\hat{{k}}] \\text{{ N}}}}$
+       
+        ${{\hspace{{4mm}} \\vec{{M_{{T2}}}} = [{d[0]/10*f[1]*(Calculations.sine(a[0]))*Calculations.sine(a[4]):.2f}\\hat{{i}}+0\\hat{{j}}-{d[0]/10*f[1]*Calculations.sine(a[4])*Calculations.cosine(a[0]):.2f}\\hat{{k}}] \\text{{ }} N \\cdot m}}$
+       
+        $\\underline{{Momento \\text{{ }} de \\text{{ }} la \\text{{ }} fuerza \\text{{ }} F3}}$
+       
+        ${{\hspace{{4mm}} \\vec{{r}} = [0\\hat{{i}}+0\\hat{{j}}+{d[0]/10}\\hat{{k}}]\\text{{ m}}}}$    
+        ${{\hspace{{4mm}} \\vec{{T_3}} = [0\\hat{{i}}+{f[2]*Calculations.sine(a[4]):.2f}\\hat{{j}}-{f[2]*Calculations.cosine(a[4]):.2f}\\hat{{k}}] \\text{{ N}}}}$
         
-        $\\textbf{{\\small 4. Momento sobre la recta L: }}$ 
-        
-        ${{\hspace{{4mm}} |\\vec{{M_L}}| =\\vec{{M_O}} \\cdot \\vec{{\\lambda_L}} = ({d[6]*f[0]*d[3]/Calculations.magnitude(d[9],d[6]):.2f}\\hat{{i}}+{d[9]*f[0]*d[3]/Calculations.magnitude(d[9],d[6]):.2f}\\hat{{j}}-{f[1]*d[9]}\\hat{{k}}) \\cdot ({d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1):.2f}\\hat{{i}}+{(d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1):.2f}\\hat{{j}}+{(d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1):.2f}\\hat{{k}}) }}$        
-        ${{\hspace{{4mm}} |\\vec{{M_L}}| =\\vec{{M_O}} \\cdot \\vec{{\\lambda_L}} = {((f[0]*d[6]*d[3]/Calculations.magnitude(d[6],d[9]))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((f[0]*d[9]*d[3]/Calculations.magnitude(d[6],d[9]))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((-1*f[1]*d[9])*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1))):.2f} \\text{{ }} N \\cdot m}}$
+        ${{\hspace{{4mm}} \\vec{{M_{{T3}}}} = [{-1*d[0]/10*f[2]*Calculations.sine(a[4]):.2f}\\hat{{i}}+0\\hat{{j}}+0\\hat{{k}}] \\text{{ }} N \\cdot m}}$  
 
-        Para encontrar la dirección del momento alrededor de la recta $L$, se multiplica nuevamente por su vector unitario.
+        $\\textbf{{\\small 2. Sumatoria de Momentos con respecto al punto O: }}$ 
 
-        ${{\hspace{{4mm}} \\vec{{M_L}} =|\\vec{{M_L}}| \\cdot \\vec{{\\lambda_L}} = [{(((f[0]*d[6]*d[3]/Calculations.magnitude(d[6],d[9]))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((f[0]*d[9]*d[3]/Calculations.magnitude(d[6],d[9]))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((-1*f[1]*d[9])*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1))))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)):.2f}\\hat{{i}}+({(((f[0]*d[6]*d[3]/Calculations.magnitude(d[6],d[9]))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((f[0]*d[9]*d[3]/Calculations.magnitude(d[6],d[9]))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((-1*f[1]*d[9])*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1))))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)):.2f})\\hat{{j}}+({(((f[0]*d[6]*d[3]/Calculations.magnitude(d[6],d[9]))*(d[0]/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((f[0]*d[9]*d[3]/Calculations.magnitude(d[6],d[9]))*((d[0]+2)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)))+((-1*f[1]*d[9])*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1))))*((d[0]-1)/Calculations.magnitude3D(d[0],d[0]+2,d[0]-1)):.2f})\\hat{{k}}] \\text{{ }} kN \\cdot m}}$
+        ${{\hspace{{4mm}} \\sum{{\\vec{{M_O}}}} = [{d[0]/10*f[1]*(Calculations.sine(a[0]))*Calculations.sine(a[4])-1*d[0]/10*f[2]*Calculations.sine(a[4]):.2f}\\hat{{i}}+0\\hat{{j}}+{d[0]/10*f[0]*Calculations.sine(a[4])-(d[0]/10*f[1]*Calculations.sine(a[4])*Calculations.cosine(a[0])):.2f}\\hat{{k}}] \\text{{ }} N \\cdot m}}$
         
+        $\\textbf{{\\small 3. Momento generado alrededor del eje X: }}$
+
+        El momento alrededor del eje $x$ corresponde a la componente en la dirección $\\hat{{i}}$ del vector momento obtenido respecto al origen.  
+
+        ${{\hspace{{4mm}} \\vec{{M_x}} = \\vec{{M_O}} \\cdot \\vec{{\\lambda_{{\\hat{{i}}}}}} = 1*{d[0]/10*f[1]*(Calculations.sine(a[0]))*Calculations.sine(a[4])-1*d[0]/10*f[2]*Calculations.sine(a[4]):.2f} + 0*0 + 0*{d[0]/10*f[0]*Calculations.sine(a[4])-(d[0]/10*f[1]*Calculations.sine(a[4])*Calculations.cosine(a[0])):.2f}}}$           
+        ${{\hspace{{4mm}} \\vec{{M_x}} = {d[0]/10*f[1]*(Calculations.sine(a[0]))*Calculations.sine(a[4])-1*d[0]/10*f[2]*Calculations.sine(a[4]):.2f} \\text{{ }} N \\cdot m}}$  
+        
+        $\\textbf{{\\small 4. Vector director de la recta L - Vector Unitario: }}$    
+
+        ${{\hspace{{4mm}} \\vec{{L}} = {d[3]/10:.2f}\\hat{{i}} + {(d[3]+2)/10:.2f}\\hat{{j}} + {(d[0]+1)/10:.2f}\\hat{{k}}}}$                     
+        ${{\hspace{{4mm}} \\vec{{\\lambda_L}} = {(d[3]/10)/Calculations.magnitude3D(d[3]/10,(d[3]+2)/10,(d[0]+1)/10):.2f}\\hat{{i}} + {((d[3]+2)/10)/Calculations.magnitude3D(d[3]/10,(d[3]+2)/10,(d[0]+1)/10):.2f}\\hat{{j}} + {((d[0]+1)/10)/Calculations.magnitude3D(d[3]/10,(d[3]+2)/10,(d[0]+1)/10):.2f}\\hat{{k}}}}$
+
+        $\\textbf{{\\small 5. Momento sobre la recta L: }}$            
+
+        ${{\hspace{{4mm}} |\\vec{{M_L}}|=\\vec{{M_O}} \\cdot \\vec{{\\lambda_L}} = ({d[0]/10*f[1]*(Calculations.sine(a[0]))*Calculations.sine(a[4])-1*d[0]/10*f[2]*Calculations.sine(a[4]):.2f}\\hat{{i}}+0\\hat{{j}}+{d[0]/10*f[0]*Calculations.sine(a[4])-(d[0]/10*f[1]*Calculations.sine(a[4])*Calculations.cosine(a[0])):.2f}\\hat{{k}}) \\cdot ({(d[3]/10)/Calculations.magnitude3D(d[3]/10,(d[3]+2)/10,(d[0]+1)/10):.2f}\\hat{{i}} + {((d[3]+2)/10)/Calculations.magnitude3D(d[3]/10,(d[3]+2)/10,(d[0]+1)/10):.2f}\\hat{{j}} + {((d[0]+1)/10)/Calculations.magnitude3D(d[3]/10,(d[3]+2)/10,(d[0]+1)/10):.2f}\\hat{{k}})}}$   
+        ${{\hspace{{4mm}} |\\vec{{M_L}}|=\\vec{{M_O}} \\cdot \\vec{{\\lambda_L}} = {((d[3]/10)/Calculations.magnitude3D(d[3]/10,(d[3]+2)/10,(d[0]+1)/10))*(d[0]/10*f[1]*(Calculations.sine(a[0]))*Calculations.sine(a[4])-1*d[0]/10*f[2]*Calculations.sine(a[4]))+(((d[0]+1)/10)/Calculations.magnitude3D(d[3]/10,(d[3]+2)/10,(d[0]+1)/10))*(d[0]/10*f[0]*Calculations.sine(a[4])-(d[0]/10*f[1]*Calculations.sine(a[4])*Calculations.cosine(a[0]))):.2f} \\text{{ }} N \\cdot m}}$ 
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
@@ -5471,79 +5542,6 @@ preguntas = [
         Para encontrar la dirección del momento alrededor de la recta $L$, se multiplica nuevamente por su vector unitario.
 
         ${{\hspace{{4mm}} \\vec{{M_L}} =|\\vec{{M_L}}| \\cdot \\vec{{\\lambda_L}} = [{((d[3]*f[1]+(-d[6]*f[2]))*(d[12]/Calculations.magnitude3D(d[12],0,d[15]))+(-(d[6])*(f[0])-f[1]*d[9]/2)*((d[15])/Calculations.magnitude3D(d[12],0,d[15])))*(d[12]/Calculations.magnitude3D(d[12],0,d[15])):.2f} \\hat{{i}}  {((d[3]*f[1]+(-d[6]*f[2]))*(d[12]/Calculations.magnitude3D(d[12],0,d[15]))+(-(d[6])*(f[0])-f[1]*d[9]/2)*((d[15])/Calculations.magnitude3D(d[12],0,d[15])))*(d[15]/Calculations.magnitude3D(d[12],0,d[15])):.2f} \\hat{{k}}] \\text{{ }} kN \\cdot m}}$
-        """,   
-        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-        calculos='operations'
-        ),
-
-    Questionary(#4_1
-        code = 2330041,
-        no_pregunta = 4,
-        complexity = D,
-        topic = MO,
-        subtopic = "Momento alrededor de un eje",
-        version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Considere las tensiones $T_1 = {f[0]:.0f} \\text{{ N}}$, $T_2 = {f[1]:.0f} \\text{{ N}}$, $T_3 = {f[2]:.0f} \\text{{ N}}$ generadas por el elemento. Encuentre el momento generado con respecto al eje $x$ y a la recta $L$, la cual cruza el origen $O$ en dirección de las coordenadas $[x={d[3]/10:.2f}, y= {(d[3]+2)/10:.2f}, z={(d[0]+1)/10:.2f}]$. Asuma que el radio del elemento es $d_0 = {d[0]/10:.2f} \\text{{ m}}$, el ángulo $\\theta = {a[0]:.0f}°$ y el ángulo $\\phi = {a[4]:.0f}°$.",
-        no_answers = 2,
-        a1_name = "Momento sobre el eje $x$ [$N \\cdot m$]",
-        a2_name = "Momento sobre el eje $L$ [$N \\cdot m$]",
-        a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round(d[0]/10*f[1]*(Calculations.sine(a[0]))*Calculations.sine(a[4])-1*d[0]/10*f[2]*Calculations.sine(a[4]),2),
-        answer2 = lambda f, a, calc, c, d, m: np.round(((d[3]/10)/Calculations.magnitude3D(d[3]/10,(d[3]+2)/10,(d[0]+1)/10))*(d[0]/10*f[1]*(Calculations.sine(a[0]))*Calculations.sine(a[4])-1*d[0]/10*f[2]*Calculations.sine(a[4]))+(((d[0]+1)/10)/Calculations.magnitude3D(d[3]/10,(d[3]+2)/10,(d[0]+1)/10))*(d[0]/10*f[0]*Calculations.sine(a[4])-(d[0]/10*f[1]*Calculations.sine(a[4])*Calculations.cosine(a[0]))),2),
-        answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = MAE1,
-        ayuda2 = "Encuentre el momento con respecto al origen para cada una de las fuerzas aplicadas. Luego, realice la sumatoria de lo momentos individuales para hallar el vector del momento total resultante.",     
-        ayuda3 = "Calcule el vector unitario de la recta y realice el producto punto con el vector resultante de la sumatoria de momento. Esta operación proporciona la magnitud del momento proyectado sobre la dirección de la recta. Para obtener el vector momento en dicha dirección, multiplique nuevamente esta magnitud por el vector unitario de la recta.",
-        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-        El momento alrededor de un eje se calcula mediante el producto punto entre el vector de momento en un punto sobre el eje y el vector director del eje. A continuación, se presenta la solución sugerida para el ejercicio:  
-        
-        $\\textbf{{\\small 1. Momento de cada una de las fuerzas con respecto a O: }}$ 
-
-        $\\underline{{Momento \\text{{ }} de \\text{{ }} la \\text{{ }} fuerza \\text{{ }} F1}}$
-
-        Los vectores para calcular el producto cruz son:
-        
-        ${{\hspace{{4mm}} \\vec{{r}} = [{d[0]/10}\\hat{{i}}+0\\hat{{j}}+0\\hat{{k}}] \\text{{ m}}}}$   
-        ${{\hspace{{4mm}} \\vec{{T_1}} = [{-1*f[0]*Calculations.cosine(a[4]):.2f}\\hat{{i}}+{f[0]*Calculations.sine(a[4]):.2f}\\hat{{j}}+0\\hat{{k}}] \\text{{ N}}}}$
-                
-
-        ${{\hspace{{4mm}} \\vec{{M_{{T1}}}} = [0\\hat{{i}}+0\\hat{{j}}+{d[0]/10*f[0]*Calculations.sine(a[4]):.2f}\\hat{{k}}] \\text{{ }} N \\cdot m}}$   
-
-        $\\underline{{Momento \\text{{ }} de \\text{{ }} la \\text{{ }} fuerza \\text{{ }} F2}}$
-       
-        ${{\hspace{{4mm}} \\vec{{r}} = [{-1*d[0]/10*Calculations.cosine(a[0]):.2f}\\hat{{i}}+0\\hat{{j}}-{d[0]/10*Calculations.sine(a[0]):.2f}\\hat{{k}}] \\text{{ m}}}}$      
-        ${{\hspace{{4mm}} \\vec{{T_2}} = [{f[1]*Calculations.cosine(a[4])*Calculations.cosine(a[0]):.2f}\\hat{{i}}+{f[1]*Calculations.sine(a[4]):.2f}\\hat{{j}}+{f[1]*Calculations.cosine(a[4])*Calculations.sine(a[0]):.2f}\\hat{{k}}] \\text{{ N}}}}$
-       
-        ${{\hspace{{4mm}} \\vec{{M_{{T2}}}} = [{d[0]/10*f[1]*(Calculations.sine(a[0]))*Calculations.sine(a[4]):.2f}\\hat{{i}}+0\\hat{{j}}-{d[0]/10*f[1]*Calculations.sine(a[4])*Calculations.cosine(a[0]):.2f}\\hat{{k}}] \\text{{ }} N \\cdot m}}$
-       
-        $\\underline{{Momento \\text{{ }} de \\text{{ }} la \\text{{ }} fuerza \\text{{ }} F3}}$
-       
-        ${{\hspace{{4mm}} \\vec{{r}} = [0\\hat{{i}}+0\\hat{{j}}+{d[0]/10}\\hat{{k}}]\\text{{ m}}}}$    
-        ${{\hspace{{4mm}} \\vec{{T_3}} = [0\\hat{{i}}+{f[2]*Calculations.sine(a[4]):.2f}\\hat{{j}}-{f[2]*Calculations.cosine(a[4]):.2f}\\hat{{k}}] \\text{{ N}}}}$
-        
-        ${{\hspace{{4mm}} \\vec{{M_{{T3}}}} = [{-1*d[0]/10*f[2]*Calculations.sine(a[4]):.2f}\\hat{{i}}+0\\hat{{j}}+0\\hat{{k}}] \\text{{ }} N \\cdot m}}$  
-
-        $\\textbf{{\\small 2. Sumatoria de Momentos con respecto al punto O: }}$ 
-
-        ${{\hspace{{4mm}} \\sum{{\\vec{{M_O}}}} = [{d[0]/10*f[1]*(Calculations.sine(a[0]))*Calculations.sine(a[4])-1*d[0]/10*f[2]*Calculations.sine(a[4]):.2f}\\hat{{i}}+0\\hat{{j}}+{d[0]/10*f[0]*Calculations.sine(a[4])-(d[0]/10*f[1]*Calculations.sine(a[4])*Calculations.cosine(a[0])):.2f}\\hat{{k}}] \\text{{ }} N \\cdot m}}$
-        
-        $\\textbf{{\\small 3. Momento generado alrededor del eje X: }}$
-
-        El momento alrededor del eje $x$ corresponde a la componente en la dirección $\\hat{{i}}$ del vector momento obtenido respecto al origen.  
-
-        ${{\hspace{{4mm}} \\vec{{M_x}} = \\vec{{M_O}} \\cdot \\vec{{\\lambda_{{\\hat{{i}}}}}} = 1*{d[0]/10*f[1]*(Calculations.sine(a[0]))*Calculations.sine(a[4])-1*d[0]/10*f[2]*Calculations.sine(a[4]):.2f} + 0*0 + 0*{d[0]/10*f[0]*Calculations.sine(a[4])-(d[0]/10*f[1]*Calculations.sine(a[4])*Calculations.cosine(a[0])):.2f}}}$           
-        ${{\hspace{{4mm}} \\vec{{M_x}} = {d[0]/10*f[1]*(Calculations.sine(a[0]))*Calculations.sine(a[4])-1*d[0]/10*f[2]*Calculations.sine(a[4]):.2f} \\text{{ }} N \\cdot m}}$  
-        
-        $\\textbf{{\\small 4. Vector director de la recta L - Vector Unitario: }}$    
-
-        ${{\hspace{{4mm}} \\vec{{L}} = {d[3]/10:.2f}\\hat{{i}} + {(d[3]+2)/10:.2f}\\hat{{j}} + {(d[0]+1)/10:.2f}\\hat{{k}}}}$                     
-        ${{\hspace{{4mm}} \\vec{{\\lambda_L}} = {(d[3]/10)/Calculations.magnitude3D(d[3]/10,(d[3]+2)/10,(d[0]+1)/10):.2f}\\hat{{i}} + {((d[3]+2)/10)/Calculations.magnitude3D(d[3]/10,(d[3]+2)/10,(d[0]+1)/10):.2f}\\hat{{j}} + {((d[0]+1)/10)/Calculations.magnitude3D(d[3]/10,(d[3]+2)/10,(d[0]+1)/10):.2f}\\hat{{k}}}}$
-
-        $\\textbf{{\\small 5. Momento sobre la recta L: }}$            
-
-        ${{\hspace{{4mm}} |\\vec{{M_L}}|=\\vec{{M_O}} \\cdot \\vec{{\\lambda_L}} = ({d[0]/10*f[1]*(Calculations.sine(a[0]))*Calculations.sine(a[4])-1*d[0]/10*f[2]*Calculations.sine(a[4]):.2f}\\hat{{i}}+0\\hat{{j}}+{d[0]/10*f[0]*Calculations.sine(a[4])-(d[0]/10*f[1]*Calculations.sine(a[4])*Calculations.cosine(a[0])):.2f}\\hat{{k}}) \\cdot ({(d[3]/10)/Calculations.magnitude3D(d[3]/10,(d[3]+2)/10,(d[0]+1)/10):.2f}\\hat{{i}} + {((d[3]+2)/10)/Calculations.magnitude3D(d[3]/10,(d[3]+2)/10,(d[0]+1)/10):.2f}\\hat{{j}} + {((d[0]+1)/10)/Calculations.magnitude3D(d[3]/10,(d[3]+2)/10,(d[0]+1)/10):.2f}\\hat{{k}})}}$   
-        ${{\hspace{{4mm}} |\\vec{{M_L}}|=\\vec{{M_O}} \\cdot \\vec{{\\lambda_L}} = {((d[3]/10)/Calculations.magnitude3D(d[3]/10,(d[3]+2)/10,(d[0]+1)/10))*(d[0]/10*f[1]*(Calculations.sine(a[0]))*Calculations.sine(a[4])-1*d[0]/10*f[2]*Calculations.sine(a[4]))+(((d[0]+1)/10)/Calculations.magnitude3D(d[3]/10,(d[3]+2)/10,(d[0]+1)/10))*(d[0]/10*f[0]*Calculations.sine(a[4])-(d[0]/10*f[1]*Calculations.sine(a[4])*Calculations.cosine(a[0]))):.2f} \\text{{ }} N \\cdot m}}$ 
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"",
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
@@ -7625,74 +7623,6 @@ preguntas = [
         topic = "Armaduras",
         subtopic = "Cerchas",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"¿Cuántos elementos de fuerza cero tiene la armadura Fink mostrada?",
-        no_answers = 1,
-        a1_name = "Número de elementos de fuerza cero",
-        a2_name = "",
-        a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round(7,2),
-        answer2 = lambda f, a, calc, c, d, m: 0,
-        answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = C3,
-        ayuda2 = C4,      
-        ayuda3 = C5,
-        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-        Una cercha es una estructura compuesta por elementos rectos que se conectan entre sí por puntos llamados nodos, formando triángulos. Un elemento de fuerza cero se define como un miembro de la armadura que no experimenta ninguna fuerza axial (Tensión o compresión). A continuación, se presenta la solución sugerida para el ejercicio: 
-        
-        Primero, se debe tener en cuenta que si hay tres elementos conectados en un nodo, donde dos de ellos son colineales y no hay cargas externas aplicadas en el nodo, el tercer miembro va a ser de fuerza cero. Esto nos permite identificar en la evaluación de los nodos B, J y N los elementos $BC$, $JI$ y $NM$ son elementos de fuerza cero.
-        
-        Una vez identificados los anteriores elementos de fuerza cero, si se realiza la sumatoria de fuerzas en los nodos C, I y M, se encontrará que los elementos $CD$, $IL$ y $ML$ también son de fuerza cero.    
-        
-        Por otro lado, al ser $IL$ y $ML$ elementos de fuerza cero, al evaluar el equilibrio en el nodo L, se determina que el elemento $LK$ es de fuerza cero.  
-        
-        En resumen, se identifican un total de 7 elementos de fuerza cero: $BC$, $JI$, $NM$, $CD$, $IL$, $ML$ y $LK$. 
-        """,   
-        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-        calculos='operations'
-        ),
-
-    Questionary(#5_1
-        code = 5120051,
-        no_pregunta = 5,
-        complexity = M,
-        topic = "Armaduras",
-        subtopic = "Cerchas",
-        version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"¿Cuántos elementos de fuerza cero tiene la armadura mostrada?",
-        no_answers = 1,
-        a1_name = "Número de elementos de fuerza cero",
-        a2_name = "",
-        a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: 11,
-        answer2 = lambda f, a, calc, c, d, m: 0,
-        answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = C3,
-        ayuda2 = C4,      
-        ayuda3 = C5,
-        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-        Una cercha es una estructura compuesta por elementos rectos que se conectan entre sí por puntos llamados nodos, formando triángulos. Un elemento de fuerza cero se define como un miembro de la armadura que no experimenta ninguna fuerza axial (Tensión o compresión). A continuación, se presenta la solución sugerida para el ejercicio: 
-        
-        Primero, se debe tener en cuenta que si hay tres elementos conectados en un nodo, donde dos de ellos son colineales y no hay cargas externas aplicadas en el nodo, el tercer miembro va a ser de fuerza cero. Esto nos permite identificar bajo el sistema de coordenadas convencional, en los nodos $C$, $G$, $H$, $K$ y $O$ los elementos $BC$, $FG$, $HI$, $JK$ y $NO$ son elementos de fuerza cero.
-        
-        Una vez identificados los anteriores elementos de fuerza cero, se evalúa dicha colinealidad bajo un sistema de coordenadas arbitrario, en los nodos $B$, $F$, $J$, y $N$ los elementos $BE$, $FE$, $JM$, y $NM$ son elementos de fuerza cero.
-
-        Finalmente, al identificar que los anteriores elementos son de fuerza cero, los nodos $E$ y $M$ muestran una colinealidad entre tres elementos, de estos nodos se concluye que los miembros $DE$ y $LM$ son de fuerza cero.
-        
-        En resumen, se identifican un total de 11 elementos de fuerza cero: $BC$, $FG$, $HI$, $JK$, $NO$, $BE$, $FE$, $JM$, $NM$, $DE$ y $LM$.
-        """,   
-        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
-        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
-        calculos='operations'
-        ), 
-
-    Questionary(#6_1
-        code = 5120061,
-        no_pregunta = 6,
-        complexity = M,
-        topic = "Armaduras",
-        subtopic = "Cerchas",
-        version = 1,
         pregunta = lambda f, a, calc, c, d, m: f"Determine las fuerzas internas de los elementos $EG$ y $GH$ de la cercha presentada (Use negativo si el elemento esta en compresión y positivo si el elemento esta tensión). Considere que $F_1 = {f[0]:.0f} \\text{{ N}}$, $F_2 = {f[1]:.0f} \\text{{ N}}$, $F_3 = {f[2]:.0f} \\text{{ N}}$, $F_4 = {f[3]:.0f} \\text{{ N}}$ y $d_0 = {d[0]:.0f} \\text{{ m}}$.",  
         no_answers = 2,
         a1_name = "Fuerza en $EG$ $[N]$",
@@ -8205,7 +8135,7 @@ preguntas = [
         calculos='operations'
         ),
 
-    Questionary(#1_2
+    Questionary(#2_1
         code = 5230021,
         no_pregunta = 2,
         complexity = D,
@@ -10113,68 +10043,53 @@ preguntas = [
         no_pregunta = 1,
         complexity = F,
         topic = FI,
-        subtopic = FI,
+        subtopic = "Fuerzas internas",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine la fuerza cortante en los puntos $B$ y $D$, así como el momento flector en $B$. Considere $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[0]+d[3]:.0f}  \\text{{ m}}$, $d_3 = {d[6]+2:.0f} \\text{{ m}}$,  $d_4 = {d[6]:.0f}  \\text{{ m}}$, $F_1 = {f[0]:.0f}  \\text{{ kN}}$, $w_1 = {50+m[0]:.0f} \\dfrac{{kN}}{{m}}$ y $w_2 = {m[1]*(1/2):.2f} \\dfrac{{kN}}{{m}}$.",
-        no_answers = 3,
-        a1_name = "Fuerza cortante en $B$ ($V_B$) $[kN]$",
-        a2_name = "Fuerza cortante en $D$ ($V_D$) $[kN]$",
-        a3_name = "Momento flector en $B$ ($M_B$) [$kN \\cdot m$]",
-        answer1 = lambda f, a, calc, c, d, m: np.round(((-(f[0]*(4/5)*(d[6]+2))+((d[0]+d[3])*(m[1]*0.5)*(d[0]+d[3])/2)+((((50+m[0])-(m[1]*0.5))*(d[0]+d[3])/2)*((2/3)*(d[0]+d[3]))))/(d[0]+d[3]))-(d[0]*((((d[0]+d[3])-d[0])*((50+m[0])-(m[1]*0.5))/(d[0]+d[3]))+(m[1]*0.5)))-0.5*d[0]*((50+m[0])-((((d[0]+d[3])-d[0])*((50+m[0])-(m[1]*0.5))/(d[0]+d[3]))+(m[1]*0.5))),2),
-        answer2 = lambda f, a, calc, c, d, m: np.round((4/5)*f[0],2),
-        answer3 = lambda f, a, calc, c, d, m: np.round((((-(f[0]*(4/5)*(d[6]+2))+((d[0]+d[3])*(m[1]*0.5)*(d[0]+d[3])/2)+((((50+m[0])-(m[1]*0.5))*(d[0]+d[3])/2)*((2/3)*(d[0]+d[3]))))/(d[0]+d[3]))*d[0]-(d[0]*((((d[0]+d[3])-d[0])*((50+m[0])-(m[1]*0.5))/(d[0]+d[3]))+(m[1]*0.5)))*(d[0]/2)-d[0]*((50+m[0])-((((d[0]+d[3])-d[0])*((50+m[0])-(m[1]*0.5))/(d[0]+d[3]))+(m[1]*0.5)))*(d[0]/3)),2),
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la fuerza cortante y el momento flector que actúan sobre la columna en el punto $B$, debido a las fuerzas $F_1 = {f[0]:.0f} \\text{{ kN}}$ y $F_2 = {f[1]:.0f} \\text{{ kN}}$. Considere que $d_0 = {d[0]/4:.2f} \\text{{ m}}$, $d_1 = {d[3]/4:.2f} \\text{{ m}}$ y $d_2 = {d[6]/4:.2f} \\text{{ m}}$.",
+        no_answers = 2,
+        a1_name = "Fuerza cortante en $B$ $[kN]$",
+        a2_name = "Momento en $B$ $[kN \\cdot m]$",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(f[0]+f[1],2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(((f[0]+f[1])*(d[0]/4)-(f[0]*((d[0]+d[3])/4)+f[1]*((d[0]+d[3]+d[6])/4))),2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
         ayuda1 = FI1,
-        ayuda2 = FI2,
+        ayuda2 = FI2,      
         ayuda3 = FI3,
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
         Las fuerzas internas se definen como las fuerzas que actúan dentro de un elemento y se obtienen mediante un corte teórico en el cuerpo. A continuación, se presenta la solución sugerida para el ejercicio:
-        
-        $\\textbf{{\\small 1. Fuerzas internas en B: }}$
-        
-        Se realiza el corte mostrado en la imagen para encontrar las fuerzas internas en $B$:
+
+        $\\textbf{{\\small 1. Cálculo de las reacciones: }}$
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"""
-        Se observa que la única reacción de interés para determinar el cortante y el momento flector es $A_y$, dado que, $A_x$ se relaciona con la fuerzas normales internas. El valor de $A_y$ se puede calcular haciendo equilibrio global, formulando la sumatoria de momentos en C:
+        ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$            
+        ${{\hspace{{4mm}} R_y = 0 \\text{{ kN}}}}$
 
-        ${{\hspace{{4mm}} \\sum{{M_C}} = \\dfrac{{d_2 \\cdot (w_1 - w_2)}}{{2}} \\cdot \\dfrac{{2d_2}}{{3}} + w_2 \\cdot \\dfrac{{(d_2)^2}}{{2}} - \\dfrac{{4F_1}}{{5}} \\cdot d_3 - A_y \\cdot d_2 = 0 }}$     
-        ${{\hspace{{4mm}} A_y = \\dfrac{{d_2 \\cdot (w_1 - w_2)}}{{3}} + w_2 \\cdot \\dfrac{{d_2}}{{2}} - \\dfrac{{4F_1 \\cdot d_3}}{{5d_2}}}}$     
-        ${{\hspace{{4mm}} A_y = {(-(f[0]*(4/5)*(d[6]+2))+((d[0]+d[3])*(m[1]*0.5)*(d[0]+d[3])/2)+((((50+m[0])-(m[1]*0.5))*(d[0]+d[3])/2)*((2/3)*(d[0]+d[3]))))/(d[0]+d[3]):.2f} \\text{{ kN}}}}$     
-        
-        De igual manera, se contempla una nueva variable w', la cual, se puede determinar utilizando triángulos semejantes:
-        ${{\hspace{{4mm}} \\dfrac{{w' - w_2}}{{d_2 - d_1}} = \\dfrac{{w_1 - w_2}}{{d_2}}}}$     
-        ${{\hspace{{4mm}} w' = \\dfrac{{(d_2 - d_1) \\cdot (w_1 - w_2)}}{{d_2}} + w_2}}$      
-        ${{\hspace{{4mm}} w' = {(((d[0]+d[3])-d[0])*((50+m[0])-(m[1]*0.5))/(d[0]+d[3]))+(m[1]*0.5):.2f} \\dfrac{{kN}}{{m}} }}$ 
+        ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$          
+        ${{\hspace{{4mm}} \\sum{{F_x}} = -R_x + F_1 + F_2 = 0}}$          
+        ${{\hspace{{4mm}} R_x = (F_1 + F_2) \\text{{ kN}} }}$         
+        ${{\hspace{{4mm}} R_x = {f[0]+f[1]:.2f} \\text{{ kN}} }}$
 
-        
-        A partir de lo anterior, se calcula tanto la fuerza cortante como el momento flector en $B$:
-        
-        $\\underline{{Fuerza \\hspace{{2mm}} cortante:}}$
-        
-        ${{\hspace{{4mm}} \\sum{{F_y}} = A_y - \\dfrac{{d_1 \\cdot (w_1 - w')}}{{2}} - w' \\cdot d_1 - V_B = 0}}$     
-        ${{\hspace{{4mm}} V_B = A_y - \\dfrac{{d_1 \\cdot (w_1 - w')}}{{2}} - w' \\cdot d_1}}$     
-        ${{\hspace{{4mm}} V_B = {((-(f[0]*(4/5)*(d[6]+2))+((d[0]+d[3])*(m[1]*0.5)*(d[0]+d[3])/2)+((((50+m[0])-(m[1]*0.5))*(d[0]+d[3])/2)*((2/3)*(d[0]+d[3]))))/(d[0]+d[3]))-(d[0]*((((d[0]+d[3])-d[0])*((50+m[0])-(m[1]*0.5))/(d[0]+d[3]))+(m[1]*0.5)))-0.5*d[0]*((50+m[0])-((((d[0]+d[3])-d[0])*((50+m[0])-(m[1]*0.5))/(d[0]+d[3]))+(m[1]*0.5))):.2f} \\text{{ kN}} }}$     
-        
-        $\\underline{{Momento \\hspace{{2mm}} flector:}}$
-        
-        ${{\hspace{{4mm}} \\sum{{M_B}} = \\dfrac{{(d_1)^2 \\cdot (w_1 - w')}}{{3}} + w' \\cdot \\dfrac{{(d_1)^2}}{{2}} - A_y \\cdot d_1 + M_B = 0}}$     
-        ${{\hspace{{4mm}} M_B = -\\dfrac{{(d_1)^2 \\cdot (w_1 - w')}}{{3}} - w' \\cdot \\dfrac{{(d_1)^2}}{{2}} + A_y \\cdot d_1}}$  
-        ${{\hspace{{4mm}} M_B = {((-(f[0]*(4/5)*(d[6]+2))+((d[0]+d[3])*(m[1]*0.5)*(d[0]+d[3])/2)+((((50+m[0])-(m[1]*0.5))*(d[0]+d[3])/2)*((2/3)*(d[0]+d[3]))))/(d[0]+d[3]))*d[0]-(d[0]*((((d[0]+d[3])-d[0])*((50+m[0])-(m[1]*0.5))/(d[0]+d[3]))+(m[1]*0.5)))*(d[0]/2)-d[0]*((50+m[0])-((((d[0]+d[3])-d[0])*((50+m[0])-(m[1]*0.5))/(d[0]+d[3]))+(m[1]*0.5)))*(d[0]/3):.2f} \\text{{ kN}} \\cdot \\text{{ m}}}}$     
-        
-        $\\textbf{{\\small 2. Fuerzas internas en D: }}$
-        
-        Se realiza el corte mostrado en la imagen para encontrar las fuerzas internas en D:
+        ${{\hspace{{4mm}} \\sum{{M_A}} = 0 }}$          
+        ${{\hspace{{4mm}} \\sum{{M_A}} = M_R - F_1(d_0 + d_1) - F_2(d_0 + d_1 + d_2) = 0 }}$           
+        ${{\hspace{{4mm}} M_R = (F_1(d_0 + d_1) + F_2(d_0 + d_1 + d_2)) \\text{{ }} kN \\cdot m }}$           
+        ${{\hspace{{4mm}} M_R = {f[0]*((d[0]+d[3])/4)+f[1]*((d[0]+d[3]+d[6])/4):.2f}\\text{{ }} kN \\cdot m }}$
+
+        $\\textbf{{\\small 2. Cortante y Momento flector en B: }}$
         """,
         respuesta_P3 = lambda f, a, calc, c, d, m: f"""
-        A partir de la configuración mostrada en la imagen, se calcula fuerza cortante en D:
-        
-        $\\underline{{Fuerza \\hspace{{2mm}} cortante:}}$
-        
-        ${{\hspace{{4mm}} \\sum{{F_y}} = V_D - \\dfrac{{4F_1}}{{5}} = 0}}$     
-        ${{\hspace{{4mm}} V_D = \\dfrac{{4F_1}}{{5}}}}$     
-        ${{\hspace{{4mm}} V_D = {(4/5)*f[0]:.2f} \\text{{ kN}}}}$ 
+        ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$     
+        ${{\hspace{{4mm}} \\sum{{F_x}} = V_B - R_x}}$       
+        ${{\hspace{{4mm}} V_B = R_x}}$            
+        ${{\hspace{{4mm}} V_B = {(f[0]+f[1])} \\text{{ kN}} }}$  
+
+        ${{\hspace{{4mm}} \\sum{{M_B}} = 0 }}$     
+        ${{\hspace{{4mm}} \\sum{{M_B}} = M_B + M_R - R_X(d_0+d_1) }}$          
+        ${{\hspace{{4mm}} M_B = R_X \\cdot d_0 - M_R}}$          
+        ${{\hspace{{4mm}} M_B = {((f[0]+f[1])*(d[0]/4)-(f[0]*((d[0]+d[3])/4)+f[1]*((d[0]+d[3]+d[6])/4))):.2f}\\text{{ }} kN \\cdot m }}$   
         """,
         calculos='operations'
-        ),
+    ),
 
     Questionary(#2_1
         code = 8110021,
@@ -10229,6 +10144,60 @@ preguntas = [
         Finalmente, se selecciona la carga de menor magnitud, dado que, si selecciona la mayor, la viga fallará bajo la otra condición.
         """,
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
+
+    Questionary(#3_1
+        code = 8110031,
+        no_pregunta = 3,
+        complexity = F,
+        topic = FI,
+        subtopic = "Fuerzas internas",
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine las magnitudes de la fuerza cortante y el momento flector inmediatamente después del punto $C$. Considere que la fuerza $F = {f[0]:.0f} \\text{{ kN}}$, el momento $M = {m[0]:.0f} \\text{{ }} kN \\cdot m$, $d_0 = {d[0]:.0f} \\text{{ m}}$ y $d_1 = {d[3]:.0f} \\text{{ m}}$.",
+        no_answers = 2,
+        a1_name = "Fuerza cortante $[kN]$",
+        a2_name = "Momento flector $[kN \\cdot m]$",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(((f[0]*d[3]-m[0])/(d[0]+d[3])-f[0]),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round((f[0]*d[3]-m[0])/(d[0]+d[3])*d[0]+m[0],2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = FI1,
+        ayuda2 = FI2,      
+        ayuda3 = FI3,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        Las fuerzas internas se definen como las fuerzas que actúan dentro de un elemento y se obtienen mediante un corte teórico en el cuerpo. A continuación, se presenta la solución sugerida para el ejercicio:
+        
+        $\\textbf{{\\small 1. Reacciones: }}$
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$             
+        ${{\hspace{{4mm}} A_x = 0 \\text{{ kN}}}}$
+
+        ${{\hspace{{4mm}} \\sum{{M_B}} = 0 }}$              
+        ${{\hspace{{4mm}} \\sum{{M_B}} = F \\cdot d_1 - A_y \cdot (d_0 + d_1) - M = 0 }}$                
+        ${{\hspace{{4mm}} A_y = \\dfrac{{F \\cdot d_1 - M}}{{(d_0 + d_1)}}}}$                  
+        ${{\hspace{{4mm}} A_y = {(f[0]*d[3]-m[0])/(d[0]+d[3]):.2f} \\text{{ kN}} }}$
+
+        ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$                  
+        ${{\hspace{{4mm}} \\sum{{F_y}} = A_y + B_y - F = 0}}$            
+        ${{\hspace{{4mm}} B_y = F - A_y}}$            
+        ${{\hspace{{4mm}} B_y = {f[0]-((f[0]*d[3]-m[0])/(d[0]+d[3])):.2f} \\text{{ kN}} }}$
+
+        
+        $\\textbf{{\\small 2. Cortante y Momento flector en C: }}$
+        """,
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"""
+        ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$          
+        ${{\hspace{{4mm}} \\sum{{F_y}} = A_y - F - V_C(x) = 0 }}$           
+        ${{\hspace{{4mm}} V_C(x) = A_y - F \\text{{ kN}} }}$           
+        ${{\hspace{{4mm}} V_C(x) = {(f[0]*d[3]-m[0])/(d[0]+d[3])-f[0]:.2f} \\text{{ kN}} }}$          
+
+        ${{\hspace{{4mm}} \\sum{{M}} = 0 }}$               
+        ${{\hspace{{4mm}} \\sum{{M}} = M_C(x) - A_y \cdot d_0 - M= 0 }}$             
+        ${{\hspace{{4mm}} M_C(x) = A_y \cdot d_0 + M \\text{{ }}}}$                   
+        ${{\hspace{{4mm}} M_C = {(f[0]*d[3]-m[0])/(d[0]+d[3])*d[0]+m[0]:.2f} \\text{{ }} kN \\cdot m }}$ 
+        """,
         calculos='operations'
         ),
 
@@ -10374,62 +10343,71 @@ preguntas = [
 
     Questionary(#3_1
         code = 8120031,
-        no_pregunta = 3,
+        no_pregunta = 2,
         complexity = M,
-        topic = "Fuerzas internas",
+        topic = FI,
         subtopic = "Fuerzas internas",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine la distancia $d_2$ de la viga colocada simétricamente en los apoyos, de manera que el momento flector interno en el centro de la viga sea cero. Considere $d_1 = {d[0]:.0f} \\text{{ m}}$ y  $w = {m[0]:.2f}  \\dfrac{{N}}{{m}}$.",
-        no_answers = 1,
-        a1_name = "Distancia $d_2$ [m]",
-        a2_name = "",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza cortante y el momento flector a la distancia $x = {d[0]:.0f} \\text{{ m}}$ medida desde el apoyo $B$ hacia la izquierda. Considere que $W_1 = {f[0]+7:.0f} \\text{{ }} \\dfrac{{kN}}{{m}}$, $W_2 = {f[0]:.0f} \\text{{ }} \\dfrac{{kN}}{{m}}$ y $d_0 = {d[0]+3:.0f} \\text{{ m}}$.",
+        no_answers = 2,
+        a1_name = "Fuerza cortante $[kN]$",
+        a2_name = "Momento flector $[kN \\cdot m]$",
         a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round(d[0] + d[0]*math.sqrt(3),2),
-        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer1 = lambda f, a, calc, c, d, m: np.round(abs(((((f[0]+7)-(f[0]))/(d[0]+3))*d[0])*0.5*(d[0])+(f[0]*d[0])-((((7*(d[0]+3))/2)/3)+((f[0]*(d[0]+3))/2))),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(abs(((((7*(d[0]+3))/2)/3)+((f[0]*(d[0]+3))/2))*d[0]-f[0]*d[0]*d[0]/2-((((f[0]+7)-(f[0]))/(d[0]+3))*d[0])*(d[0]**2)/6),2),
         answer3 = lambda f, a, calc, c, d, m: 0,
         ayuda1 = FI1,
-        ayuda2 = FI2,
+        ayuda2 = FI2,      
         ayuda3 = FI3,
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
         Las fuerzas internas se definen como las fuerzas que actúan dentro de un elemento y se obtienen mediante un corte teórico en el cuerpo. A continuación, se presenta la solución sugerida para el ejercicio:
-        
-        $\\textbf{{\\small 1. Identificar fuerzas aplicadas sobre viga: }}$          
-        Antes de analizar la condición suministrada, se deben identificar todas las fuerzas externas y reacciones que actúan sobre la viga. Dado que no existen fuerzas en la dirección horizontal y que la viga está dispuesta simétricamente, se representa la carga distribuida y las reacciones verticales en los apoyos de la siguiente forma:
+
+        $\\textbf{{\\small 1. Reacción en el apoyo B: }}$
+
+        Dado que el punto en el cual se solicita la fuerza cortante y el momento flector es con respecto al apoyo $B$, se considera la sección de la viga ubicada a la izquierda de dicho punto. Por lo tanto, únicamente es de interés conocer la reacción en el apoyo $B$.       
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"""
-        ${{\hspace{{4mm}} F_1 = \\dfrac{{w \\cdot (d_2 - d_1)}}{{4}}}}$     
-             
-        ${{\hspace{{4mm}} F_2 = w \\cdot d_1}}$     
-                   
-        ${{\hspace{{4mm}} \\sum{{F_y}} = 2R - 2F_1 - F_2 = 0}}$     
-        ${{\hspace{{4mm}} R = F_1 + \\dfrac{{F_2}}{{2}} }}$     
-        
-        $\\textbf{{\\small 2. Fuerzas internas en el centro de la viga: }}$
-        
-        Se realiza el corte mostrado en la imagen y luego se determina cuál es el valor de $d_2$, tal que el momento flector interno en el centro de la viga sea cero:
+        ${{\hspace{{4mm}} F_1 =  \\dfrac{{(W_1 - W_2) * d_0}}{{2}}}}$         
+        ${{\hspace{{4mm}} F_1 =  {(7*(d[0]+3))/2:.2f} \\text {{ kN}} }}$      
+
+        ${{\hspace{{4mm}} F_2 = W_2 * d_0  }}$            
+         ${{\hspace{{4mm}} F_2 =  {f[0]*(d[0]+3):.2f} \\text {{ kN}} }}$
+
+
+        ${{\hspace{{4mm}} \\sum{{M_A}} = 0 }}$        
+        ${{\hspace{{4mm}} \\sum{{M_A}} = -F_1 \\cdot \\dfrac{{d_0}}{{3}} - F_2 \\cdot \\dfrac{{d_0}}{{2}} + B_y \\cdot d_0 = 0 }}$           
+        ${{\hspace{{4mm}} B_y \\cdot d_0 = F_1 \\cdot \\dfrac{{d_0}}{{3}} + F_2 \\cdot \\dfrac{{d_0}}{{2}}}}$              
+        ${{\hspace{{4mm}} B_y = \\dfrac{{F_1}}{{3}} + \\dfrac{{F_2}}{{2}} }}$     
+        ${{\hspace{{4mm}} B_y = {(((7*(d[0]+3))/2)/3)+((f[0]*(d[0]+3))/2):.2f} \\text {{ kN}} }}$              
+
+        $\\textbf{{\\small 2. Cálculo de la fuerza cortante y el momento flector: }}$  
         """,
         respuesta_P3 = lambda f, a, calc, c, d, m: f"""
-        ${{\hspace{{4mm}} \\sum{{M_c}} = \\dfrac{{F_2 \\cdot d_1}}{{8}} + F_1 \\cdot (\\dfrac{{d_2 - d_1}}{{6}} + \\dfrac{{d_1}}{{2}}) - \\dfrac{{R \\cdot d_1}}{{2}} + M_c = 0}}$     
+        Se contempla una nueva variable W', la cual, se puede determinar utilizando triángulos semejantes:
+
+        ${{\hspace{{4mm}} \\dfrac{{W_1 - W_2}}{{d_0}} = \\dfrac{{W'}}{{x}}}}$     
+        ${{\hspace{{4mm}} W' = \\left(\\dfrac{{W_1 - W_2}}{{d_0}}\\right) x}}$      
+        ${{\hspace{{4mm}} W' = {(((f[0]+7)-(f[0]))/(d[0]+3))*d[0]:.2f} \\dfrac{{kN}}{{m}} }}$ 
+
         
-        ${{\hspace{{4mm}} \\dfrac{{F_2 \\cdot d_1}}{{8}} + F_1 \\cdot \\dfrac{{d_2}}{{6}} + F_1 \\cdot \\dfrac{{d_1}}{{3}} - (F_1 + \\dfrac{{F_2}}{{2}}) \\cdot \\dfrac{{d_1}}{{2}} = 0}}$     
+        A partir de lo anterior, se calcula tanto la fuerza cortante como el momento flector:
         
-        ${{\hspace{{4mm}} F_1 \\cdot \\dfrac{{d_2}}{{6}} - F_1 \\cdot \\dfrac{{d_1}}{{6}} - \\dfrac{{F_2 \\cdot d_1}}{{8}} = 0}}$     
+        $\\underline{{Fuerza \\hspace{{2mm}} cortante:}}$
         
-        ${{\hspace{{4mm}} \\dfrac{{w \\cdot (d_2 - d_1) \\cdot d_2}}{{24}}  - \\dfrac{{w \\cdot (d_2 - d_1) \\cdot d_1}}{{24}} - \\dfrac{{w \\cdot (d_1)^2}}{{8}} = 0}}$     
+        ${{\hspace{{4mm}} \\sum{{F_y}} = V + B_y - W_2 \\cdot x - \\dfrac{{W' \\cdot x}}{{2}} = 0}}$     
+        ${{\hspace{{4mm}} V =  W_2 \\cdot x + \\dfrac{{W' \\cdot x}}{{2}} - B_y}}$     
+        ${{\hspace{{4mm}} V = {((((f[0]+7)-(f[0]))/(d[0]+3))*d[0])*0.5*(d[0])+(f[0]*d[0])-((((7*(d[0]+3))/2)/3)+((f[0]*(d[0]+3))/2)):.2f} \\text{{ kN}} }}$     
         
-        ${{\hspace{{4mm}} \\dfrac{{(d_2)^2}}{{24}}  - \\dfrac{{d_2 \\cdot d_1}}{{12}} - \\dfrac{{(d_1)^2}}{{12}} = 0}}$     
+        $\\underline{{Momento \\hspace{{2mm}} flector:}}$
         
-        ${{\hspace{{4mm}} (d_2)^2  - 2 \\cdot d_2 \\cdot d_1 - 2 \\cdot (d_1)^2 = 0}}$     
-        
-        La solución es:
-        ${{\hspace{{4mm}} d_2 = d_1 \\pm d_1 \\cdot \\sqrt{{3}}}}$     
-        
-        Tomando el resultado positivo:
-        
-        ${{\hspace{{4mm}} d_2 = {d[0] + d[0]*math.sqrt(3):.2f} \\text{{ m}}}}$   
+        ${{\hspace{{4mm}} \\sum{{M}} = -M + B_y \\cdot x - W_2 \\cdot \\dfrac{{x^2}}{{2}} - W' \\cdot \\dfrac{{x^2}}{{6}}= 0}}$     
+        ${{\hspace{{4mm}} M = B_y \\cdot x - W_2 \\cdot \\dfrac{{x^2}}{{2}} - W' \\cdot \\dfrac{{x^2}}{{6}} }}$  
+        ${{\hspace{{4mm}} M = {((((7*(d[0]+3))/2)/3)+((f[0]*(d[0]+3))/2))*d[0]-f[0]*d[0]*d[0]/2-((((f[0]+7)-(f[0]))/(d[0]+3))*d[0])*(d[0]**2)/6:.2f} \\text{{ kN}} \\cdot \\text{{ m}}}}$     
+
+
         """,
         calculos='operations'
-        ),
+        ), 
 
     Questionary(#4_1
         code = 8120041,
@@ -10495,111 +10473,118 @@ preguntas = [
         no_pregunta = 5,
         complexity = M,
         topic = FI,
-        subtopic = "Fuerzas internas",
+        subtopic = FI,
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine las magnitudes de la fuerza cortante y el momento flector que actúan sobre la columna en el punto $B$, debido a las fuerzas $F_1 = {f[0]:.0f} \\text{{ kN}}$ y $F_2 = {f[1]:.0f} \\text{{ kN}}$. Considere que $d_0 = {d[0]/4:.2f} \\text{{ m}}$, $d_1 = {d[3]/4:.2f} \\text{{ m}}$ y $d_2 = {d[6]/4:.2f} \\text{{ m}}$.",
-        no_answers = 2,
-        a1_name = "Fuerza cortante en $B$ $[kN]$",
-        a2_name = "Momento en $B$ $[kN \\cdot m]$",
-        a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round(f[0]+f[1],2),
-        answer2 = lambda f, a, calc, c, d, m: np.round(-1*((f[0]+f[1])*(d[0]/4)-(f[0]*((d[0]+d[3])/4)+f[1]*((d[0]+d[3]+d[6])/4))),2),
-        answer3 = lambda f, a, calc, c, d, m: 0,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la fuerza cortante en los puntos $B$ y $D$, así como el momento flector en $B$. Considere $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[0]+d[3]:.0f}  \\text{{ m}}$, $d_3 = {d[6]+2:.0f} \\text{{ m}}$,  $d_4 = {d[6]:.0f}  \\text{{ m}}$, $F_1 = {f[0]:.0f}  \\text{{ kN}}$, $w_1 = {50+m[0]:.0f} \\dfrac{{kN}}{{m}}$ y $w_2 = {m[1]*(1/2):.2f} \\dfrac{{kN}}{{m}}$.",
+        no_answers = 3,
+        a1_name = "Fuerza cortante en $B$ ($V_B$) $[kN]$",
+        a2_name = "Fuerza cortante en $D$ ($V_D$) $[kN]$",
+        a3_name = "Momento flector en $B$ ($M_B$) [$kN \\cdot m$]",
+        answer1 = lambda f, a, calc, c, d, m: np.round(((-(f[0]*(4/5)*(d[6]+2))+((d[0]+d[3])*(m[1]*0.5)*(d[0]+d[3])/2)+((((50+m[0])-(m[1]*0.5))*(d[0]+d[3])/2)*((2/3)*(d[0]+d[3]))))/(d[0]+d[3]))-(d[0]*((((d[0]+d[3])-d[0])*((50+m[0])-(m[1]*0.5))/(d[0]+d[3]))+(m[1]*0.5)))-0.5*d[0]*((50+m[0])-((((d[0]+d[3])-d[0])*((50+m[0])-(m[1]*0.5))/(d[0]+d[3]))+(m[1]*0.5))),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round((4/5)*f[0],2),
+        answer3 = lambda f, a, calc, c, d, m: np.round((((-(f[0]*(4/5)*(d[6]+2))+((d[0]+d[3])*(m[1]*0.5)*(d[0]+d[3])/2)+((((50+m[0])-(m[1]*0.5))*(d[0]+d[3])/2)*((2/3)*(d[0]+d[3]))))/(d[0]+d[3]))*d[0]-(d[0]*((((d[0]+d[3])-d[0])*((50+m[0])-(m[1]*0.5))/(d[0]+d[3]))+(m[1]*0.5)))*(d[0]/2)-d[0]*((50+m[0])-((((d[0]+d[3])-d[0])*((50+m[0])-(m[1]*0.5))/(d[0]+d[3]))+(m[1]*0.5)))*(d[0]/3)),2),
         ayuda1 = FI1,
-        ayuda2 = FI2,      
+        ayuda2 = FI2,
         ayuda3 = FI3,
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
         Las fuerzas internas se definen como las fuerzas que actúan dentro de un elemento y se obtienen mediante un corte teórico en el cuerpo. A continuación, se presenta la solución sugerida para el ejercicio:
-
-        $\\textbf{{\\small 1. Cálculo de las reacciones: }}$
+        
+        $\\textbf{{\\small 1. Fuerzas internas en B: }}$
+        
+        Se realiza el corte mostrado en la imagen para encontrar las fuerzas internas en $B$:
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"""
-        ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$            
-        ${{\hspace{{4mm}} R_y = 0 \\text{{ kN}}}}$
+        Se observa que la única reacción de interés para determinar el cortante y el momento flector es $A_y$, dado que, $A_x$ se relaciona con la fuerzas normales internas. El valor de $A_y$ se puede calcular haciendo equilibrio global, formulando la sumatoria de momentos en C:
 
-        ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$          
-        ${{\hspace{{4mm}} \\sum{{F_x}} = -R_x + F_1 + F_2 = 0}}$          
-        ${{\hspace{{4mm}} R_x = (F_1 + F_2) \\text{{ kN}} }}$         
-        ${{\hspace{{4mm}} R_x = {f[0]+f[1]:.2f} \\text{{ kN}} }}$
+        ${{\hspace{{4mm}} \\sum{{M_C}} = \\dfrac{{d_2 \\cdot (w_1 - w_2)}}{{2}} \\cdot \\dfrac{{2d_2}}{{3}} + w_2 \\cdot \\dfrac{{(d_2)^2}}{{2}} - \\dfrac{{4F_1}}{{5}} \\cdot d_3 - A_y \\cdot d_2 = 0 }}$     
+        ${{\hspace{{4mm}} A_y = \\dfrac{{d_2 \\cdot (w_1 - w_2)}}{{3}} + w_2 \\cdot \\dfrac{{d_2}}{{2}} - \\dfrac{{4F_1 \\cdot d_3}}{{5d_2}}}}$     
+        ${{\hspace{{4mm}} A_y = {(-(f[0]*(4/5)*(d[6]+2))+((d[0]+d[3])*(m[1]*0.5)*(d[0]+d[3])/2)+((((50+m[0])-(m[1]*0.5))*(d[0]+d[3])/2)*((2/3)*(d[0]+d[3]))))/(d[0]+d[3]):.2f} \\text{{ kN}}}}$     
+        
+        De igual manera, se contempla una nueva variable w', la cual, se puede determinar utilizando triángulos semejantes:
+        ${{\hspace{{4mm}} \\dfrac{{w' - w_2}}{{d_2 - d_1}} = \\dfrac{{w_1 - w_2}}{{d_2}}}}$     
+        ${{\hspace{{4mm}} w' = \\dfrac{{(d_2 - d_1) \\cdot (w_1 - w_2)}}{{d_2}} + w_2}}$      
+        ${{\hspace{{4mm}} w' = {(((d[0]+d[3])-d[0])*((50+m[0])-(m[1]*0.5))/(d[0]+d[3]))+(m[1]*0.5):.2f} \\dfrac{{kN}}{{m}} }}$ 
 
-        ${{\hspace{{4mm}} \\sum{{M_A}} = 0 }}$          
-        ${{\hspace{{4mm}} \\sum{{M_A}} = M_R - F_1(d_0 + d_1) - F_2(d_0 + d_1 + d_2) = 0 }}$           
-        ${{\hspace{{4mm}} M_R = (F_1(d_0 + d_1) + F_2(d_0 + d_1 + d_2)) \\text{{ }} kN \\cdot m }}$           
-        ${{\hspace{{4mm}} M_R = {f[0]*((d[0]+d[3])/4)+f[1]*((d[0]+d[3]+d[6])/4):.2f}\\text{{ }} kN \\cdot m }}$
-
-        $\\textbf{{\\small 2. Cortante y Momento flector en B: }}$
+        
+        A partir de lo anterior, se calcula tanto la fuerza cortante como el momento flector en $B$:
+        
+        $\\underline{{Fuerza \\hspace{{2mm}} cortante:}}$
+        
+        ${{\hspace{{4mm}} \\sum{{F_y}} = A_y - \\dfrac{{d_1 \\cdot (w_1 - w')}}{{2}} - w' \\cdot d_1 - V_B = 0}}$     
+        ${{\hspace{{4mm}} V_B = A_y - \\dfrac{{d_1 \\cdot (w_1 - w')}}{{2}} - w' \\cdot d_1}}$     
+        ${{\hspace{{4mm}} V_B = {((-(f[0]*(4/5)*(d[6]+2))+((d[0]+d[3])*(m[1]*0.5)*(d[0]+d[3])/2)+((((50+m[0])-(m[1]*0.5))*(d[0]+d[3])/2)*((2/3)*(d[0]+d[3]))))/(d[0]+d[3]))-(d[0]*((((d[0]+d[3])-d[0])*((50+m[0])-(m[1]*0.5))/(d[0]+d[3]))+(m[1]*0.5)))-0.5*d[0]*((50+m[0])-((((d[0]+d[3])-d[0])*((50+m[0])-(m[1]*0.5))/(d[0]+d[3]))+(m[1]*0.5))):.2f} \\text{{ kN}} }}$     
+        
+        $\\underline{{Momento \\hspace{{2mm}} flector:}}$
+        
+        ${{\hspace{{4mm}} \\sum{{M_B}} = \\dfrac{{(d_1)^2 \\cdot (w_1 - w')}}{{3}} + w' \\cdot \\dfrac{{(d_1)^2}}{{2}} - A_y \\cdot d_1 + M_B = 0}}$     
+        ${{\hspace{{4mm}} M_B = -\\dfrac{{(d_1)^2 \\cdot (w_1 - w')}}{{3}} - w' \\cdot \\dfrac{{(d_1)^2}}{{2}} + A_y \\cdot d_1}}$  
+        ${{\hspace{{4mm}} M_B = {((-(f[0]*(4/5)*(d[6]+2))+((d[0]+d[3])*(m[1]*0.5)*(d[0]+d[3])/2)+((((50+m[0])-(m[1]*0.5))*(d[0]+d[3])/2)*((2/3)*(d[0]+d[3]))))/(d[0]+d[3]))*d[0]-(d[0]*((((d[0]+d[3])-d[0])*((50+m[0])-(m[1]*0.5))/(d[0]+d[3]))+(m[1]*0.5)))*(d[0]/2)-d[0]*((50+m[0])-((((d[0]+d[3])-d[0])*((50+m[0])-(m[1]*0.5))/(d[0]+d[3]))+(m[1]*0.5)))*(d[0]/3):.2f} \\text{{ kN}} \\cdot \\text{{ m}}}}$     
+        
+        $\\textbf{{\\small 2. Fuerzas internas en D: }}$
+        
+        Se realiza el corte mostrado en la imagen para encontrar las fuerzas internas en D:
         """,
         respuesta_P3 = lambda f, a, calc, c, d, m: f"""
-        ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$     
-        ${{\hspace{{4mm}} \\sum{{F_x}} = V_B - R_x}}$       
-        ${{\hspace{{4mm}} V_B = R_x}}$            
-        ${{\hspace{{4mm}} V_B = {(f[0]+f[1])} \\text{{ kN}} }}$  
-
-        ${{\hspace{{4mm}} \\sum{{M_B}} = 0 }}$     
-        ${{\hspace{{4mm}} \\sum{{M_B}} = M_B + M_R - R_X(d_0+d_1) }}$          
-        ${{\hspace{{4mm}} M_B = R_X \\cdot d_0 - M_R}}$          
-        ${{\hspace{{4mm}} M_B = {((f[0]+f[1])*(d[0]/4)-(f[0]*((d[0]+d[3])/4)+f[1]*((d[0]+d[3]+d[6])/4))):.2f}\\text{{ }} kN \\cdot m }}$   
-        ${{\hspace{{4mm}} |M_B| = {-1*((f[0]+f[1])*(d[0]/4)-(f[0]*((d[0]+d[3])/4)+f[1]*((d[0]+d[3]+d[6])/4))):.2f}\\text{{ }} kN \\cdot m }}$ 
+        A partir de la configuración mostrada en la imagen, se calcula fuerza cortante en D:
+        
+        $\\underline{{Fuerza \\hspace{{2mm}} cortante:}}$
+        
+        ${{\hspace{{4mm}} \\sum{{F_y}} = V_D - \\dfrac{{4F_1}}{{5}} = 0}}$     
+        ${{\hspace{{4mm}} V_D = \\dfrac{{4F_1}}{{5}}}}$     
+        ${{\hspace{{4mm}} V_D = {(4/5)*f[0]:.2f} \\text{{ kN}}}}$ 
         """,
         calculos='operations'
-    ),
-
+        ),
+   
     Questionary(#6_1
-        code = 8120061,
+        code = 8130061,
         no_pregunta = 6,
         complexity = M,
         topic = FI,
         subtopic = "Fuerzas internas",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine las magnitudes de la fuerza cortante y el momento flector inmediatamente después del punto $C$. Considere que la fuerza $F = {f[0]:.0f} \\text{{ kN}}$, el momento $M = {m[0]:.0f} \\text{{ }} kN \\cdot m$, $d_0 = {d[0]:.0f} \\text{{ m}}$ y $d_1 = {d[3]:.0f} \\text{{ m}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza cortante y el momento flector a la distancia $x = {d[0]+d[3]-0.5:.2f} \\text{{ m}}$ medida desde el apoyo $A$. Considere que $W_1 = {f[0]:.0f} \\text{{ }} \\dfrac {{N}}{{m}}$, $W_2 = {f[1]:.0f} \\text{{ }} \\dfrac {{N}}{{m}}$, $F = {f[2]:.0f} \\text{{ }} N$, $d_0 = {d[0]:.0f} \\text{{ m}}$, $d_1 = {d[3]:.0f} \\text{{ m}}$, $d_2 = {d[6]:.0f} \\text{{ m}}$ y $d_3 = {d[9]:.0f} \\text{{ m}}$.",
         no_answers = 2,
-        a1_name = "Fuerza cortante $[kN]$",
-        a2_name = "Momento flector $[kN \\cdot m]$",
+        a1_name = "Fuerza cortante a la distancia $x$ $[N]$",
+        a2_name = "Momento flector a la distancia $x$ $[N \\cdot m]$",
         a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round(-1*((f[0]*d[3]-m[0])/(d[0]+d[3])-f[0]),2),
-        answer2 = lambda f, a, calc, c, d, m: np.round((f[0]*d[3]-m[0])/(d[0]+d[3])*d[0]+m[0],2),
+        answer1 = lambda f, a, calc, c, d, m: np.round(f[2]+f[1]*d[9]/2,2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(abs(f[1]*d[9]*0.5*(d[6]+(d[9]/3)+0.5))+f[2]*0.5,2),
         answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = FI1,
-        ayuda2 = FI2,      
-        ayuda3 = FI3,
+        ayuda1 = FI2,
+        ayuda2 = FI3,      
+        ayuda3 = FI5,
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
         Las fuerzas internas se definen como las fuerzas que actúan dentro de un elemento y se obtienen mediante un corte teórico en el cuerpo. A continuación, se presenta la solución sugerida para el ejercicio:
         
-        $\\textbf{{\\small 1. Reacciones: }}$
+        La forma más sencilla de solucionar este ejercicio es seleccionar la sección derecha de la viga, dado que, esto evita tener que hallar las reacciones en el empotramiento.
+              
+        $\\textbf{{\\small 1. Cálculo de la fuerza cortante y el momento flector: }}$
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"""
-        ${{\hspace{{4mm}} \\sum{{F_x}} = 0 }}$             
-        ${{\hspace{{4mm}} A_x = 0 \\text{{ kN}}}}$
-
-        ${{\hspace{{4mm}} \\sum{{M_B}} = 0 }}$              
-        ${{\hspace{{4mm}} \\sum{{M_B}} = F \\cdot d_1 - A_y \cdot (d_0 + d_1) - M = 0 }}$                
-        ${{\hspace{{4mm}} A_y = \\dfrac{{F \\cdot d_1 - M}}{{(d_0 + d_1)}}}}$                  
-        ${{\hspace{{4mm}} A_y = {(f[0]*d[3]-m[0])/(d[0]+d[3]):.2f} \\text{{ kN}} }}$
-
-        ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$                  
-        ${{\hspace{{4mm}} \\sum{{F_y}} = A_y + B_y - F = 0}}$            
-        ${{\hspace{{4mm}} B_y = F - A_y}}$            
-        ${{\hspace{{4mm}} B_y = {f[0]-((f[0]*d[3]-m[0])/(d[0]+d[3])):.2f} \\text{{ kN}} }}$
-
         
-        $\\textbf{{\\small 2. Cortante y Momento flector en C: }}$
+        La distancia $d$ es equivalente a :
+
+        ${{\hspace{{4mm}} d = d_0+d_1+d_2+d_3-x }}$          
+        ${{\hspace{{4mm}} d = {d[0]+d[3]+d[6]+d[9]-(d[0]+d[3]-0.5):.2f} \\text{{ N}} }}$          
+
+        $\\underline{{Fuerza \\hspace{{2mm}} cortante:}}$
+
+        ${{\hspace{{4mm}} \\sum{{F_y}}=V-\\dfrac{{W_2 \\cdot d_3}}{{2}}-F=0 }}$            
+        ${{\hspace{{4mm}} V=\\dfrac{{W_2 \\cdot d_3}}{{2}}+F }}$    
+        ${{\hspace{{4mm}} V={f[1]*d[9]*0.5+f[2]:.2f} \\text{{ N}} }}$
+
+        $\\underline{{Momento \\hspace{{2mm}} flector:}}$
+
+        ${{\hspace{{4mm}} \\sum{{M}}=-M-\\dfrac{{W_2 \\cdot d_3}}{{2}} \\cdot \\left(0,5+d_2+\\dfrac{{d_3}}{{3}}\\right)-F \\cdot 0,5=0 }}$   
+        ${{\hspace{{4mm}} M=-\\dfrac{{W_2 \\cdot d_3}}{{2}} \\cdot \\left(0,5+d_2+\\dfrac{{d_3}}{{3}}\\right) -  F \\cdot 0,5}}$   
+        ${{\hspace{{4mm}} M={-f[1]*d[9]*0.5*(d[6]+(d[9]/3)+0.5)-f[2]*0.5:.2f} \\text{{ }} N \\cdot m }}$            
+        ${{\hspace{{4mm}} |M|={abs(-f[1]*d[9]*0.5*(d[6]+(d[9]/3)+0.5)-f[2]*0.5):.2f} \\text{{ }} N \\cdot m }}$
         """,
         respuesta_P3 = lambda f, a, calc, c, d, m: f"""
-        ${{\hspace{{4mm}} \\sum{{F_y}} = 0 }}$          
-        ${{\hspace{{4mm}} \\sum{{F_y}} = A_y - F - V_C(x) = 0 }}$           
-        ${{\hspace{{4mm}} V_C(x) = A_y - F \\text{{ kN}} }}$           
-        ${{\hspace{{4mm}} V_C(x) = {(f[0]*d[3]-m[0])/(d[0]+d[3])-f[0]:.2f} \\text{{ kN}} }}$          
-        ${{\hspace{{4mm}} |V_C(x)| = {-1*((f[0]*d[3]-m[0])/(d[0]+d[3])-f[0]):.2f} \\text{{ kN}} }}$
-
-        ${{\hspace{{4mm}} \\sum{{M}} = 0 }}$               
-        ${{\hspace{{4mm}} \\sum{{M}} = M_C(x) - A_y \cdot d_0 - M= 0 }}$             
-        ${{\hspace{{4mm}} M_C(x) = A_y \cdot d_0 + M \\text{{ }}}}$                   
-        ${{\hspace{{4mm}} M_C = |M_C(x)| = {(f[0]*d[3]-m[0])/(d[0]+d[3])*d[0]+m[0]:.2f} \\text{{ }} kN \\cdot m }}$ 
         """,
         calculos='operations'
         ),
-   
-
 
 
     # #=================================================  FUERZAS INTERNAS =========================================================
@@ -10690,118 +10675,60 @@ preguntas = [
         code = 8130021,
         no_pregunta = 2,
         complexity = D,
-        topic = FI,
+        topic = "Fuerzas internas",
         subtopic = "Fuerzas internas",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza cortante y el momento flector a la distancia $x = {d[0]:.0f} \\text{{ m}}$ medida desde el apoyo $B$ hacia la izquierda. Considere que $W_1 = {f[0]+7:.0f} \\text{{ }} \\dfrac{{kN}}{{m}}$, $W_2 = {f[0]:.0f} \\text{{ }} \\dfrac{{kN}}{{m}}$ y $d_0 = {d[0]+3:.0f} \\text{{ m}}$.",
-        no_answers = 2,
-        a1_name = "Fuerza cortante $[kN]$",
-        a2_name = "Momento flector $[kN \\cdot m]$",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la distancia $d_2$ de la viga colocada simétricamente en los apoyos, de manera que el momento flector interno en el centro de la viga sea cero. Considere $d_1 = {d[0]:.0f} \\text{{ m}}$ y  $w = {m[0]:.2f}  \\dfrac{{N}}{{m}}$.",
+        no_answers = 1,
+        a1_name = "Distancia $d_2$ [m]",
+        a2_name = "",
         a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round(abs(((((f[0]+7)-(f[0]))/(d[0]+3))*d[0])*0.5*(d[0])+(f[0]*d[0])-((((7*(d[0]+3))/2)/3)+((f[0]*(d[0]+3))/2))),2),
-        answer2 = lambda f, a, calc, c, d, m: np.round(abs(((((7*(d[0]+3))/2)/3)+((f[0]*(d[0]+3))/2))*d[0]-f[0]*d[0]*d[0]/2-((((f[0]+7)-(f[0]))/(d[0]+3))*d[0])*(d[0]**2)/6),2),
+        answer1 = lambda f, a, calc, c, d, m: np.round(d[0] + d[0]*math.sqrt(3),2),
+        answer2 = lambda f, a, calc, c, d, m: 0,
         answer3 = lambda f, a, calc, c, d, m: 0,
         ayuda1 = FI1,
-        ayuda2 = FI2,      
+        ayuda2 = FI2,
         ayuda3 = FI3,
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
         Las fuerzas internas se definen como las fuerzas que actúan dentro de un elemento y se obtienen mediante un corte teórico en el cuerpo. A continuación, se presenta la solución sugerida para el ejercicio:
-
-        $\\textbf{{\\small 1. Reacción en el apoyo B: }}$
-
-        Dado que el punto en el cual se solicita la fuerza cortante y el momento flector es con respecto al apoyo $B$, se considera la sección de la viga ubicada a la izquierda de dicho punto. Por lo tanto, únicamente es de interés conocer la reacción en el apoyo $B$.       
+        
+        $\\textbf{{\\small 1. Identificar fuerzas aplicadas sobre viga: }}$          
+        Antes de analizar la condición suministrada, se deben identificar todas las fuerzas externas y reacciones que actúan sobre la viga. Dado que no existen fuerzas en la dirección horizontal y que la viga está dispuesta simétricamente, se representa la carga distribuida y las reacciones verticales en los apoyos de la siguiente forma:
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"""
-        ${{\hspace{{4mm}} F_1 =  \\dfrac{{(W_1 - W_2) * d_0}}{{2}}}}$         
-        ${{\hspace{{4mm}} F_1 =  {(7*(d[0]+3))/2:.2f} \\text {{ kN}} }}$      
-
-        ${{\hspace{{4mm}} F_2 = W_2 * d_0  }}$            
-         ${{\hspace{{4mm}} F_2 =  {f[0]*(d[0]+3):.2f} \\text {{ kN}} }}$
-
-
-        ${{\hspace{{4mm}} \\sum{{M_A}} = 0 }}$        
-        ${{\hspace{{4mm}} \\sum{{M_A}} = -F_1 \\cdot \\dfrac{{d_0}}{{3}} - F_2 \\cdot \\dfrac{{d_0}}{{2}} + B_y \\cdot d_0 = 0 }}$           
-        ${{\hspace{{4mm}} B_y \\cdot d_0 = F_1 \\cdot \\dfrac{{d_0}}{{3}} + F_2 \\cdot \\dfrac{{d_0}}{{2}}}}$              
-        ${{\hspace{{4mm}} B_y = \\dfrac{{F_1}}{{3}} + \\dfrac{{F_2}}{{2}} }}$     
-        ${{\hspace{{4mm}} B_y = {(((7*(d[0]+3))/2)/3)+((f[0]*(d[0]+3))/2):.2f} \\text {{ kN}} }}$              
-
-        $\\textbf{{\\small 2. Cálculo de la fuerza cortante y el momento flector: }}$  
+        ${{\hspace{{4mm}} F_1 = \\dfrac{{w \\cdot (d_2 - d_1)}}{{4}}}}$     
+             
+        ${{\hspace{{4mm}} F_2 = w \\cdot d_1}}$     
+                   
+        ${{\hspace{{4mm}} \\sum{{F_y}} = 2R - 2F_1 - F_2 = 0}}$     
+        ${{\hspace{{4mm}} R = F_1 + \\dfrac{{F_2}}{{2}} }}$     
+        
+        $\\textbf{{\\small 2. Fuerzas internas en el centro de la viga: }}$
+        
+        Se realiza el corte mostrado en la imagen y luego se determina cuál es el valor de $d_2$, tal que el momento flector interno en el centro de la viga sea cero:
         """,
         respuesta_P3 = lambda f, a, calc, c, d, m: f"""
-        Se contempla una nueva variable W', la cual, se puede determinar utilizando triángulos semejantes:
-
-        ${{\hspace{{4mm}} \\dfrac{{W_1 - W_2}}{{d_0}} = \\dfrac{{W'}}{{x}}}}$     
-        ${{\hspace{{4mm}} W' = \\left(\\dfrac{{W_1 - W_2}}{{d_0}}\\right) x}}$      
-        ${{\hspace{{4mm}} W' = {(((f[0]+7)-(f[0]))/(d[0]+3))*d[0]:.2f} \\dfrac{{kN}}{{m}} }}$ 
-
+        ${{\hspace{{4mm}} \\sum{{M_c}} = \\dfrac{{F_2 \\cdot d_1}}{{8}} + F_1 \\cdot (\\dfrac{{d_2 - d_1}}{{6}} + \\dfrac{{d_1}}{{2}}) - \\dfrac{{R \\cdot d_1}}{{2}} + M_c = 0}}$     
         
-        A partir de lo anterior, se calcula tanto la fuerza cortante como el momento flector:
+        ${{\hspace{{4mm}} \\dfrac{{F_2 \\cdot d_1}}{{8}} + F_1 \\cdot \\dfrac{{d_2}}{{6}} + F_1 \\cdot \\dfrac{{d_1}}{{3}} - (F_1 + \\dfrac{{F_2}}{{2}}) \\cdot \\dfrac{{d_1}}{{2}} = 0}}$     
         
-        $\\underline{{Fuerza \\hspace{{2mm}} cortante:}}$
+        ${{\hspace{{4mm}} F_1 \\cdot \\dfrac{{d_2}}{{6}} - F_1 \\cdot \\dfrac{{d_1}}{{6}} - \\dfrac{{F_2 \\cdot d_1}}{{8}} = 0}}$     
         
-        ${{\hspace{{4mm}} \\sum{{F_y}} = V + B_y - W_2 \\cdot x - \\dfrac{{W' \\cdot x}}{{2}} = 0}}$     
-        ${{\hspace{{4mm}} V =  W_2 \\cdot x + \\dfrac{{W' \\cdot x}}{{2}} - B_y}}$     
-        ${{\hspace{{4mm}} V = {((((f[0]+7)-(f[0]))/(d[0]+3))*d[0])*0.5*(d[0])+(f[0]*d[0])-((((7*(d[0]+3))/2)/3)+((f[0]*(d[0]+3))/2)):.2f} \\text{{ kN}} }}$     
+        ${{\hspace{{4mm}} \\dfrac{{w \\cdot (d_2 - d_1) \\cdot d_2}}{{24}}  - \\dfrac{{w \\cdot (d_2 - d_1) \\cdot d_1}}{{24}} - \\dfrac{{w \\cdot (d_1)^2}}{{8}} = 0}}$     
         
-        $\\underline{{Momento \\hspace{{2mm}} flector:}}$
+        ${{\hspace{{4mm}} \\dfrac{{(d_2)^2}}{{24}}  - \\dfrac{{d_2 \\cdot d_1}}{{12}} - \\dfrac{{(d_1)^2}}{{12}} = 0}}$     
         
-        ${{\hspace{{4mm}} \\sum{{M}} = -M + B_y \\cdot x - W_2 \\cdot \\dfrac{{x^2}}{{2}} - W' \\cdot \\dfrac{{x^2}}{{6}}= 0}}$     
-        ${{\hspace{{4mm}} M = B_y \\cdot x - W_2 \\cdot \\dfrac{{x^2}}{{2}} - W' \\cdot \\dfrac{{x^2}}{{6}} }}$  
-        ${{\hspace{{4mm}} M = {((((7*(d[0]+3))/2)/3)+((f[0]*(d[0]+3))/2))*d[0]-f[0]*d[0]*d[0]/2-((((f[0]+7)-(f[0]))/(d[0]+3))*d[0])*(d[0]**2)/6:.2f} \\text{{ kN}} \\cdot \\text{{ m}}}}$     
-
-
+        ${{\hspace{{4mm}} (d_2)^2  - 2 \\cdot d_2 \\cdot d_1 - 2 \\cdot (d_1)^2 = 0}}$     
+        
+        La solución es:
+        ${{\hspace{{4mm}} d_2 = d_1 \\pm d_1 \\cdot \\sqrt{{3}}}}$     
+        
+        Tomando el resultado positivo:
+        
+        ${{\hspace{{4mm}} d_2 = {d[0] + d[0]*math.sqrt(3):.2f} \\text{{ m}}}}$   
         """,
         calculos='operations'
         ), 
 
-    Questionary(#3_1
-        code = 8130031,
-        no_pregunta = 3,
-        complexity = D,
-        topic = FI,
-        subtopic = "Fuerzas internas",
-        version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza cortante y el momento flector a la distancia $x = {d[0]+d[3]-0.5:.2f} \\text{{ m}}$ medida desde el apoyo $A$. Considere que $W_1 = {f[0]:.0f} \\text{{ }} \\dfrac {{N}}{{m}}$, $W_2 = {f[1]:.0f} \\text{{ }} \\dfrac {{N}}{{m}}$, $F = {f[2]:.0f} \\text{{ }} N$, $d_0 = {d[0]:.0f} \\text{{ m}}$, $d_1 = {d[3]:.0f} \\text{{ m}}$, $d_2 = {d[6]:.0f} \\text{{ m}}$ y $d_3 = {d[9]:.0f} \\text{{ m}}$.",
-        no_answers = 2,
-        a1_name = "Fuerza cortante a la distancia $x$ $[N]$",
-        a2_name = "Momento flector a la distancia $x$ $[N \\cdot m]$",
-        a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round(f[2]+f[1]*d[9]/2,2),
-        answer2 = lambda f, a, calc, c, d, m: np.round(abs(f[1]*d[9]*0.5*(d[6]+(d[9]/3)+0.5))+f[2]*0.5,2),
-        answer3 = lambda f, a, calc, c, d, m: 0,
-        ayuda1 = FI2,
-        ayuda2 = FI3,      
-        ayuda3 = FI5,
-        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-        Las fuerzas internas se definen como las fuerzas que actúan dentro de un elemento y se obtienen mediante un corte teórico en el cuerpo. A continuación, se presenta la solución sugerida para el ejercicio:
-        
-        La forma más sencilla de solucionar este ejercicio es seleccionar la sección derecha de la viga, dado que, esto evita tener que hallar las reacciones en el empotramiento.
-              
-        $\\textbf{{\\small 1. Cálculo de la fuerza cortante y el momento flector: }}$
-        """,   
-        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
-        
-        La distancia $d$ es equivalente a :
-
-        ${{\hspace{{4mm}} d = d_0+d_1+d_2+d_3-x }}$          
-        ${{\hspace{{4mm}} d = {d[0]+d[3]+d[6]+d[9]-(d[0]+d[3]-0.5):.2f} \\text{{ N}} }}$          
-
-        $\\underline{{Fuerza \\hspace{{2mm}} cortante:}}$
-
-        ${{\hspace{{4mm}} \\sum{{F_y}}=V-\\dfrac{{W_2 \\cdot d_3}}{{2}}-F=0 }}$            
-        ${{\hspace{{4mm}} V=\\dfrac{{W_2 \\cdot d_3}}{{2}}+F }}$    
-        ${{\hspace{{4mm}} V={f[1]*d[9]*0.5+f[2]:.2f} \\text{{ N}} }}$
-
-        $\\underline{{Momento \\hspace{{2mm}} flector:}}$
-
-        ${{\hspace{{4mm}} \\sum{{M}}=-M-\\dfrac{{W_2 \\cdot d_3}}{{2}} \\cdot \\left(0,5+d_2+\\dfrac{{d_3}}{{3}}\\right)-F \\cdot 0,5=0 }}$   
-        ${{\hspace{{4mm}} M=-\\dfrac{{W_2 \\cdot d_3}}{{2}} \\cdot \\left(0,5+d_2+\\dfrac{{d_3}}{{3}}\\right) -  F \\cdot 0,5}}$   
-        ${{\hspace{{4mm}} M={-f[1]*d[9]*0.5*(d[6]+(d[9]/3)+0.5)-f[2]*0.5:.2f} \\text{{ }} N \\cdot m }}$            
-        ${{\hspace{{4mm}} |M|={abs(-f[1]*d[9]*0.5*(d[6]+(d[9]/3)+0.5)-f[2]*0.5):.2f} \\text{{ }} N \\cdot m }}$
-        """,
-        respuesta_P3 = lambda f, a, calc, c, d, m: f"""
-        """,
-        calculos='operations'
-        ),
 
     ]
