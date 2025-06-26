@@ -167,9 +167,9 @@ MAE_image_paths =[#Imágenes Preguntas Cálculo Momento alrededor de un eje
 "./Imagenes/Preguntas/MO/MAE/MO_MAE_M_2a.png", #[5]
 "./Imagenes/Preguntas/MO/MAE/MO_MAE_M_3a.png", #[6]
 "./Imagenes/Preguntas/MO/MAE/MO_MAE_M_4a.png", #[7]
-"./Imagenes/Preguntas/MO/MAE/MO_MAE_D_2a.png", #[8]
+"./Imagenes/Preguntas/MO/MAE/MO_MAE_M_1a.png", #[8]
 "./Imagenes/Preguntas/MO/MAE/MO_MAE_D_3a.png", #[9]
-"./Imagenes/Preguntas/MO/MAE/MO_MAE_D_4a.png", #[10]
+"./Imagenes/Preguntas/MO/MAE/MO_MAE_D_2a.png", #[10]
 "./Imagenes/Preguntas/MO/MAE/MO_MAE_D_1a.png", #[11]
 ]
 

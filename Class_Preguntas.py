@@ -4956,7 +4956,7 @@ preguntas = [
         topic = MO,
         subtopic = "Momento alrededor de un eje",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Considere la fuerza $F = {f[0]:.0f} \\text{{ kN}}$ paralela al eje $z$. Calcule el momento alrededor del punto $O$ y determine la componente del momento que va en la misma dirección del elemento $OA$, utilizando: $x_1 = {d[0]:.0f} \\text{{ m}}$, $z_1 = {d[3]:.0f} \\text{{ m}}$, $x_2 = {d[0]+3:.0f} \\text{{ m}}$, $y_2 = {d[3]-1:.0f} \\text{{ m}}$, $z_2 = {d[6]:.0f} \\text{{ m}}$",
+        pregunta = lambda f, a, calc, c, d, m: f"Considere la fuerza $F = {f[0]:.0f} \\text{{ kN}}$ paralela al eje $z$. Calcule el momento alrededor del punto $O$ y determine la componente del momento que va en la misma dirección del elemento $OA$, utilizando: $x_1 = {d[0]:.0f} \\text{{ m}}$, $z_1 = {d[3]:.0f} \\text{{ m}}$, $x_2 = {d[0]+3:.0f} \\text{{ m}}$, $y_2 = {d[3]-1:.0f} \\text{{ m}}$, $z_2 = {d[6]:.0f} \\text{{ m}}$.",
         no_answers = 2,
         a1_name = "Momento alrededor del punto $O$ [$kN \\cdot m$]",
         a2_name = "Momento en el elemento $OA$ [$kN \\cdot m$]",
@@ -5328,9 +5328,9 @@ preguntas = [
         version = 1,
         pregunta = lambda f, a, calc, c, d, m: f"Determine el momento alrededor de la línea $L$ que resulta de las fuerzas: $F_1 = {f[0]:.0f} \\text{{ N}}$, $F_2 = {f[1]:.0f} \\text{{ N}}$, $F_3 = {f[2]:.0f} \\text{{ N}}$ aplicadas sobre el cuerpo mostrado. Considere que $x_1 = {d[0]/100:.2f} \\text{{ m}}$, $x_2 = {(d[0]+50)/100:.2f}\\text{{ m}}$, $y_1 = {(d[3]+50)/100:.2f} \\text{{ m}}$, $y_2 = {d[3]/100:.2f}\\text{{ m}}$, $z_1 = {-d[6]/100:.2f}\\text{{ m}}$ y $z_2 = {d[9]/100:.2f} \\text{{ m}}$.",
         no_answers = 3,
-        a1_name = "Componente $x$ [$kN \\cdot m$]",
-        a2_name = "Componente $y$ [$kN \\cdot m$]",
-        a3_name = "Componente $z$ [$kN \\cdot m$]",
+        a1_name = "Componente $x$ [$N \\cdot m$]",
+        a2_name = "Componente $y$ [$N \\cdot m$]",
+        a3_name = "Componente $z$ [$N \\cdot m$]",
         answer1 = lambda f, a, calc, c, d, m: np.round((((((d[0]+50)/100)-(d[0]/100))/Calculations.magnitude3D(((d[0]+50)/100)-(d[0]/100),0,(d[3]/100)-((d[3]+50)/100)))*(((d[3]/100)-((d[3]+50)/100))*((((d[9]/100)-(-d[6]/100))/math.sqrt(((d[9]/100)-(-d[6]/100)))**2)*(f[1]))+(-((d[9]/100)-(-d[6]/100))*((((d[3]+50)/100)-(d[3]/100))/Calculations.magnitude3D(0,(-(((d[0]+50)/100)-(d[0]/100))),(((d[3]+50)/100)-(d[3]/100)))*(f[2]))))+(((d[3]/100)-((d[3]+50)/100))/Calculations.magnitude3D(((d[0]+50)/100)-(d[0]/100),0,(d[3]/100)-((d[3]+50)/100)))*(((((d[0]+50)/100)-(d[0]/100)))*(((d[9]/100)-(-d[6]/100))/math.sqrt(((d[9]/100)-(-d[6]/100)))**2)*(f[1])+((d[9]/100)-(-d[6]/100))*(-(((d[0]+50)/100)-(d[0]/100))/Calculations.magnitude3D(0,(-(((d[0]+50)/100)-(d[0]/100))),(((d[3]+50)/100)-(d[3]/100)))*(f[2]))))*((((d[0]+50)/100)-(d[0]/100))/Calculations.magnitude3D(((d[0]+50)/100)-(d[0]/100),0,(d[3]/100)-((d[3]+50)/100))),2),
         answer2 = lambda f, a, calc, c, d, m: np.round((((((d[0]+50)/100)-(d[0]/100))/Calculations.magnitude3D(((d[0]+50)/100)-(d[0]/100),0,(d[3]/100)-((d[3]+50)/100)))*(((d[3]/100)-((d[3]+50)/100))*((((d[9]/100)-(-d[6]/100))/math.sqrt(((d[9]/100)-(-d[6]/100)))**2)*(f[1]))+(-((d[9]/100)-(-d[6]/100))*((((d[3]+50)/100)-(d[3]/100))/Calculations.magnitude3D(0,(-(((d[0]+50)/100)-(d[0]/100))),(((d[3]+50)/100)-(d[3]/100)))*(f[2]))))+(((d[3]/100)-((d[3]+50)/100))/Calculations.magnitude3D(((d[0]+50)/100)-(d[0]/100),0,(d[3]/100)-((d[3]+50)/100)))*(((((d[0]+50)/100)-(d[0]/100)))*(((d[9]/100)-(-d[6]/100))/math.sqrt(((d[9]/100)-(-d[6]/100)))**2)*(f[1])+((d[9]/100)-(-d[6]/100))*(-(((d[0]+50)/100)-(d[0]/100))/Calculations.magnitude3D(0,(-(((d[0]+50)/100)-(d[0]/100))),(((d[3]+50)/100)-(d[3]/100)))*(f[2]))))*(((d[3]/100)-((d[3]+50)/100))/Calculations.magnitude3D(((d[0]+50)/100)-(d[0]/100),0,(d[3]/100)-((d[3]+50)/100))),2),
         answer3 = lambda f, a, calc, c, d, m: 0,
@@ -6685,7 +6685,7 @@ preguntas = [
         ${{\hspace{{4mm}} \\vec{{M}} = [({(d[0]+10)*f[0]*Calculations.cosine(a[0])-(d[0]+2)*Calculations.sine(a[0])*f[0]*Calculations.sine(a[4]):.2f})\\hat{{i}}-({(d[0]+2)*Calculations.cosine(a[4])*f[0]*Calculations.cosine(a[0]):.2f})\\hat{{j}}-({(d[0]+2)*Calculations.cosine(a[4])*f[0]*Calculations.sine(a[0]):.2f})\\hat{{k}}] \\text{{ }} kN \\cdot m}}$
        
         
-        Encontrando la magnitud tenemos que:
+        Por lo tanto, la magnitud es:
 
         ${{\hspace{{4mm}} |\\vec{{M}}| = {Calculations.magnitude3D((d[0]+10)*f[0]*Calculations.cosine(a[0])-(d[0]+2)*Calculations.sine(a[0])*f[0]*Calculations.sine(a[4]),(d[0]+2)*Calculations.cosine(a[4])*f[0]*Calculations.cosine(a[0]),(d[0]+2)*Calculations.cosine(a[4])*f[0]*Calculations.sine(a[0])):.2f} \\text{{ }} kN \\cdot m}}$
         """,   
@@ -6762,7 +6762,7 @@ preguntas = [
         a2_name = "$F_3$ $[N]$",
         a3_name = "",
         answer1 = lambda f, a, calc, c, d, m: np.round(-((2/3)*(f[4]-f[2]) + ((2*f[2]-f[4])*(d[0]+d[3]) - f[4]*(d[0]+d[6]))*(2/3)*(1/(d[3] - d[6]))),2),
-        answer2 = lambda f, a, calc, c, d, m: np.round(-(((2*f[2]-f[4])*(d[0]+d[3]) - f[4]*(d[0]+d[6]))*(2/3)*(1/(d[3] - d[6]))) ,2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(-(((2*f[2]-f[4])*(d[0]+d[3]) - f[4]*(d[0]+d[6]))*(2/3)*(1/(d[3] - d[6]))),2),
         answer3 = lambda f, a, calc, c, d, m: 0,
         ayuda1 = SE1,
         ayuda2 = SE2,      
@@ -10343,18 +10343,18 @@ preguntas = [
 
     Questionary(#3_1
         code = 8120031,
-        no_pregunta = 2,
+        no_pregunta = 3,
         complexity = M,
         topic = FI,
         subtopic = "Fuerzas internas",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza cortante y el momento flector a la distancia $x = {d[0]:.0f} \\text{{ m}}$ medida desde el apoyo $B$ hacia la izquierda. Considere que $W_1 = {f[0]+7:.0f} \\text{{ }} \\dfrac{{kN}}{{m}}$, $W_2 = {f[0]:.0f} \\text{{ }} \\dfrac{{kN}}{{m}}$ y $d_0 = {d[0]+3:.0f} \\text{{ m}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la fuerza cortante y el momento flector a la distancia $x = {d[0]:.0f} \\text{{ m}}$ medida desde el apoyo $B$ hacia la izquierda. Considere que $W_1 = {f[0]+7:.0f} \\text{{ }} \\dfrac{{kN}}{{m}}$, $W_2 = {f[0]:.0f} \\text{{ }} \\dfrac{{kN}}{{m}}$ y $d_0 = {d[0]+3:.0f} \\text{{ m}}$.",
         no_answers = 2,
         a1_name = "Fuerza cortante $[kN]$",
         a2_name = "Momento flector $[kN \\cdot m]$",
         a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round(abs(((((f[0]+7)-(f[0]))/(d[0]+3))*d[0])*0.5*(d[0])+(f[0]*d[0])-((((7*(d[0]+3))/2)/3)+((f[0]*(d[0]+3))/2))),2),
-        answer2 = lambda f, a, calc, c, d, m: np.round(abs(((((7*(d[0]+3))/2)/3)+((f[0]*(d[0]+3))/2))*d[0]-f[0]*d[0]*d[0]/2-((((f[0]+7)-(f[0]))/(d[0]+3))*d[0])*(d[0]**2)/6),2),
+        answer1 = lambda f, a, calc, c, d, m: np.round((((((f[0]+7)-(f[0]))/(d[0]+3))*d[0])*0.5*(d[0])+(f[0]*d[0])-((((7*(d[0]+3))/2)/3)+((f[0]*(d[0]+3))/2))),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round((((((7*(d[0]+3))/2)/3)+((f[0]*(d[0]+3))/2))*d[0]-f[0]*d[0]*d[0]/2-((((f[0]+7)-(f[0]))/(d[0]+3))*d[0])*(d[0]**2)/6),2),
         answer3 = lambda f, a, calc, c, d, m: 0,
         ayuda1 = FI1,
         ayuda2 = FI2,      
@@ -10472,8 +10472,8 @@ preguntas = [
         code = 8120051,
         no_pregunta = 5,
         complexity = M,
-        topic = FI,
-        subtopic = FI,
+        topic = "Fuerzas internas",
+        subtopic = "Fuerzas internas",
         version = 1,
         pregunta = lambda f, a, calc, c, d, m: f"Determine la fuerza cortante en los puntos $B$ y $D$, así como el momento flector en $B$. Considere $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[0]+d[3]:.0f}  \\text{{ m}}$, $d_3 = {d[6]+2:.0f} \\text{{ m}}$,  $d_4 = {d[6]:.0f}  \\text{{ m}}$, $F_1 = {f[0]:.0f}  \\text{{ kN}}$, $w_1 = {50+m[0]:.0f} \\dfrac{{kN}}{{m}}$ y $w_2 = {m[1]*(1/2):.2f} \\dfrac{{kN}}{{m}}$.",
         no_answers = 3,
@@ -10537,19 +10537,19 @@ preguntas = [
         ),
    
     Questionary(#6_1
-        code = 8130061,
+        code = 8120061,
         no_pregunta = 6,
         complexity = M,
-        topic = FI,
+        topic = "Fuerzas internas",
         subtopic = "Fuerzas internas",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza cortante y el momento flector a la distancia $x = {d[0]+d[3]-0.5:.2f} \\text{{ m}}$ medida desde el apoyo $A$. Considere que $W_1 = {f[0]:.0f} \\text{{ }} \\dfrac {{N}}{{m}}$, $W_2 = {f[1]:.0f} \\text{{ }} \\dfrac {{N}}{{m}}$, $F = {f[2]:.0f} \\text{{ }} N$, $d_0 = {d[0]:.0f} \\text{{ m}}$, $d_1 = {d[3]:.0f} \\text{{ m}}$, $d_2 = {d[6]:.0f} \\text{{ m}}$ y $d_3 = {d[9]:.0f} \\text{{ m}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la fuerza cortante y el momento flector a la distancia $x = {d[0]+d[3]-0.5:.2f} \\text{{ m}}$ medida desde el apoyo $A$. Considere que $W_1 = {f[0]:.0f} \\text{{ }} \\dfrac {{N}}{{m}}$, $W_2 = {f[1]:.0f} \\text{{ }} \\dfrac {{N}}{{m}}$, $F = {f[2]:.0f} \\text{{ }} N$, $d_0 = {d[0]:.0f} \\text{{ m}}$, $d_1 = {d[3]:.0f} \\text{{ m}}$, $d_2 = {d[6]:.0f} \\text{{ m}}$ y $d_3 = {d[9]:.0f} \\text{{ m}}$.",
         no_answers = 2,
         a1_name = "Fuerza cortante a la distancia $x$ $[N]$",
         a2_name = "Momento flector a la distancia $x$ $[N \\cdot m]$",
         a3_name = "",
         answer1 = lambda f, a, calc, c, d, m: np.round(f[2]+f[1]*d[9]/2,2),
-        answer2 = lambda f, a, calc, c, d, m: np.round(abs(f[1]*d[9]*0.5*(d[6]+(d[9]/3)+0.5))+f[2]*0.5,2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(-f[1]*d[9]*0.5*(d[6]+(d[9]/3)+0.5)-f[2]*0.5,2),
         answer3 = lambda f, a, calc, c, d, m: 0,
         ayuda1 = FI2,
         ayuda2 = FI3,      
@@ -10579,7 +10579,6 @@ preguntas = [
         ${{\hspace{{4mm}} \\sum{{M}}=-M-\\dfrac{{W_2 \\cdot d_3}}{{2}} \\cdot \\left(0,5+d_2+\\dfrac{{d_3}}{{3}}\\right)-F \\cdot 0,5=0 }}$   
         ${{\hspace{{4mm}} M=-\\dfrac{{W_2 \\cdot d_3}}{{2}} \\cdot \\left(0,5+d_2+\\dfrac{{d_3}}{{3}}\\right) -  F \\cdot 0,5}}$   
         ${{\hspace{{4mm}} M={-f[1]*d[9]*0.5*(d[6]+(d[9]/3)+0.5)-f[2]*0.5:.2f} \\text{{ }} N \\cdot m }}$            
-        ${{\hspace{{4mm}} |M|={abs(-f[1]*d[9]*0.5*(d[6]+(d[9]/3)+0.5)-f[2]*0.5):.2f} \\text{{ }} N \\cdot m }}$
         """,
         respuesta_P3 = lambda f, a, calc, c, d, m: f"""
         """,
@@ -10603,7 +10602,7 @@ preguntas = [
         a1_name = "Distancia $d_1$ $[m]$",
         a2_name = "",
         a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round(d[0] + d[0]*math.sqrt(3),2),
+        answer1 = lambda f, a, calc, c, d, m: np.round(d[0]/(math.sqrt(2)),2),
         answer2 = lambda f, a, calc, c, d, m: 0,
         answer3 = lambda f, a, calc, c, d, m: 0,
         ayuda1 = FI4,
