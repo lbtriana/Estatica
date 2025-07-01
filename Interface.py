@@ -1547,7 +1547,7 @@ if authenticate_user():
                 if pregunta_no == 8:
                     st.image(MO_teoria_preguntas[3], width=350) 
             if subtopic == "Incertidumbre":
-                if pregunta_no == 1 or pregunta_no == 2:
+                if pregunta_no == 1:
                     st.image(IN_teoria_preguntas[0], width=800) 
                 if pregunta_no == 3:
                     st.image(IN_teoria_preguntas[2], width=400) 
@@ -1678,7 +1678,7 @@ if authenticate_user():
                         st.image(AR_teoria_respuestas[1],width=400)
                 if subtopic == "Centroides":
                     if pregunta_no == 6:
-                        st.image(CT_teoria_respuestas[0],width=200)
+                        st.image(CT_teoria_respuestas[0],width=300)
                 if subtopic == "Presión hidrostática":
                     if pregunta_no == 6:
                         st.image(FD_teoria_respuestas[0],width=300)

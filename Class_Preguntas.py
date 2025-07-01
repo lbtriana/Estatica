@@ -6395,7 +6395,7 @@ preguntas = [
         topic = "Incertidumbre",
         subtopic = "Incertidumbre",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Para el elemnto $DC$, se conoce la distribución de probabilidad de su resistencia máxima a compresión. ¿Cuál es la probabilidad de que el elemento falle si $F={d[0]+10:.0f} \\text{{ kN}}$, $d_1={d[3]/2:.2f} \\text{{ m}}$, $d_2={d[6]/2:.2f} \\text{{ m}}$ y $\\alpha={a[0]+40/2:.1f}°$?",
+        pregunta = lambda f, a, calc, c, d, m: f"Para el elemento $DC$, se conoce la distribución de probabilidad de su resistencia máxima a compresión. ¿Cuál es la probabilidad de que el elemento falle si $F={d[0]+10:.0f} \\text{{ kN}}$, $d_1={d[3]/2:.2f} \\text{{ m}}$, $d_2={d[6]/2:.2f} \\text{{ m}}$ y $\\alpha={a[0]+40/2:.1f}°$?",
         no_answers = 1,
         a1_name = "Probabilidad de falla [%]",
         a2_name = "",
@@ -8324,7 +8324,7 @@ preguntas = [
         $BD$ $\\hspace{{15mm}}$ $\\sqrt{{d_2^2+d_3^2}}$ $\\hspace{{9mm}}$ $m^* \\cdot \\sqrt{{d_2^2+d_3^2}}$ $\\hspace{{13mm}}$ $\\dfrac{{d_3}}{{2}}$ $\\hspace{{14mm}}$ $d_1+\\dfrac{{d_2}}{{2}}$ $\\hspace{{13mm}}$ $\\dfrac{{d_3}}{{2}} \\cdot m^* \\cdot \\sqrt{{d_2^2+d_3^2}}$ $\\hspace{{8mm}}$ $\\left(d_1+\\dfrac{{d_2}}{{2}}\\right) \\cdot m^* \\cdot \\sqrt{{d_2^2+d_3^2}}$          
         $CE$ $\\hspace{{15mm}}$ $d_3+d_4$ $\\hspace{{13mm}}$ $m^* \\cdot (d_3+d_4)$ $\\hspace{{10mm}}$ $\\dfrac{{d_3+d_4}}{{2}}$ $\\hspace{{10mm}}$ $d_1+d_2$ $\\hspace{{11mm}}$ $\\dfrac{{d_3+d_4}}{{2}} \\cdot m^* \\cdot (d_1+d_2)$ $\\hspace{{8mm}}$ $(d_1+d_2) \\cdot m^* \\cdot (d_1+d_2)$     
 
-        Siendo m^* la masa por unidad de longitud.
+        Siendo $m^*$ la masa por unidad de longitud.
 
         Reemplazando:
 
@@ -8870,7 +8870,7 @@ preguntas = [
         topic = FD,
         subtopic = "Vigas",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"La carga distribuida sobre la viga se describe mediante la función $y = c \\cdot \\sqrt{{x}}$, determine la fuerza generada por esta carga, y la posición sobre la viga donde se aplica dicha fuerza. Considere que $d_0 = {d[0]:.0f} \\text{{ m}}$ y $c = {d[3]:.0f}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"La carga distribuida sobre la viga en Newtons se describe mediante la función $y = c \\cdot \\sqrt{{x}}$, determine la fuerza generada por esta carga, y la posición sobre la viga donde se aplica dicha fuerza. Considere que $d_0 = {d[0]:.0f} \\text{{ m}}$ y $c = {d[3]:.0f}$.",
         no_answers = 2,
         a1_name = "Fuerza total $[N]$",
         a2_name = "Centroide de la carga distribuida $[m]$",
@@ -9002,7 +9002,7 @@ preguntas = [
         
         $\\textbf{{\\small 1. División de fuerza distribuida: }}$
 
-        En el ejercicio se muestra una fuerza distribuida que puede dividirse en 3 distribuciones más simples, cuyos centroides son conocidos y comunes, como triángulos y rectángulos.      
+        En el ejercicio se muestra una fuerza distribuida que puede dividirse en distribuciones más simples, cuyos centroides son conocidos y comunes, como triángulos y rectángulos.      
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"""
         $\\textbf{{\\small 2. Puntualización de las fuerzas y centroides: }}$
@@ -9520,7 +9520,7 @@ preguntas = [
         ayuda2 = PH2,
         ayuda3 = PH5,
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-        La presión hidrostática es la presión ejercida por un fluido en reposo. La fuerza hidrostática vertical hace referencia al peso del agua que está sobre la estructura. A continuación, se presenta la solución sugerida para el ejercicio:
+        La presión hidrostática es la presión ejercida por un fluido en reposo. A continuación, se presenta la solución sugerida para el ejercicio:
         
         $\\textbf{{\\small 1. Representación de ejercicio: }}$
 
@@ -9552,7 +9552,7 @@ preguntas = [
                    
         $\\textbf{{\\small 3. Condición de equilibrio: }}$
         
-       Para que la compuerta pueda abrirse, se requiere que el nivel del océano sea, al menos, tal que la sumatoria de momentos respecto al punto $A$ sea igual a cero. A partir de esta condición, se procede a resolver."
+       Para que la compuerta pueda abrirse, se requiere que el nivel del océano sea, al menos, tal que la sumatoria de momentos respecto al punto $A$ sea igual a cero. A partir de esta condición, se procede a resolver.
         
         ${{\hspace{{4mm}} \\sum{{M_A}} = F_{{P1}} \\cdot \\dfrac{{d_3}}{{2}} + F_{{P2}} \\cdot \\dfrac{{2d_3}}{{3}} - F_{{O1}} \\cdot \\dfrac{{d_3}}{{2}} - F_{{O2}} \\cdot \\dfrac{{2d_3}}{{3}} = 0}}$     
        
@@ -9645,12 +9645,12 @@ preguntas = [
         topic = FD,
         subtopic = "Empuje de suelo",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine la fuerza para la cual debe diseñarse el anclaje, de manera que no se produzca volcamiento alrededor del punto $A$. Considere que el peso específico del concreto es $\\gamma_c = {19+d[0]*(1/2):.2f} \\dfrac{{kN}}{{m^3}}$, el peso específico del suelo es $\\gamma_s = {15+d[3]*(1/2):.2f} \\dfrac{{kN}}{{m^3}}$, el coeficiente de presión lateral de tierra $k = {(12+d[6])*(1/50):.2f}$, $d_1 = {1+d[9]*(1/4):.2f} \\text{{ m}}$,  $d_2 = {(100+d[12])/100:.2f}  \\text{{ m}}$, $d_3 = {1+d[15]*(1/10):.2f}  \\text{{ m}}$ y $d_4 = {4+d[9]*(1/2):.2f} \\text{{ m}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la fuerza para la cual debe diseñarse el anclaje, de manera que no se produzca volcamiento alrededor del punto $A$. Considere que el peso específico del concreto es $\\gamma_c = {19+d[0]*(1/2):.2f} \\dfrac{{kN}}{{m^3}}$, el peso específico del suelo es $\\gamma_s = {18+d[3]*(1/2):.2f} \\dfrac{{kN}}{{m^3}}$, el coeficiente de presión lateral de tierra $k = {(12+d[6])*(1/50):.2f}$, $d_1 = {1+d[9]*(1/4):.2f} \\text{{ m}}$,  $d_2 = {(100+d[12])/100:.2f}  \\text{{ m}}$, $d_3 = {1+d[15]*(1/10):.2f}  \\text{{ m}}$ y $d_4 = {4+d[9]*(1/2):.2f} \\text{{ m}}$.",
         no_answers = 1,
         a1_name = "Fuerza del anclaje $F_a$ [kN]",
         a2_name = "",
         a3_name = "",
-        answer1 = lambda f, a, calc, c, d, m: np.round(((12+d[6])*(1/300)*(15+d[3]*(1/2))*(pow(4+d[9]*(1/2) + (100+ d[12])*(1/100),3)) - (19+d[0]*(1/2))*(100+d[12])*(1/100)*((100+d[12])*(1/100) + 4 + d[9]*(1/2))*(1+d[15]*(1/10) + (1/200)*(100+d[12])) - (19+d[0]*(1/2))*(100+d[12])*(1/100)*(1/2)*(pow((1+d[15]*(1/10)),2)))/(1+d[9]*(1/4)),2),
+        answer1 = lambda f, a, calc, c, d, m: np.round(((12+d[6])*(1/300)*(18+d[3]*(1/2))*(pow(4+d[9]*(1/2) + (100+ d[12])*(1/100),3)) - (19+d[0]*(1/2))*(100+d[12])*(1/100)*((100+d[12])*(1/100) + 4 + d[9]*(1/2))*(1+d[15]*(1/10) + (1/200)*(100+d[12])) - (19+d[0]*(1/2))*(100+d[12])*(1/100)*(1/2)*(pow((1+d[15]*(1/10)),2)))/(1+d[9]*(1/4)),2),
         answer2 = lambda f, a, calc, c, d, m: 0,
         answer3 = lambda f, a, calc, c, d, m: 0,
         ayuda1 = ES1,
@@ -9687,9 +9687,9 @@ preguntas = [
         
         ${{\hspace{{4mm}} F_a \\cdot d_1 =  k \\cdot a \\cdot \\dfrac{{\\gamma_s \\cdot (d_4 + d_2)^3}}{{6}} -  \\gamma_c \\cdot a \\cdot d_2 \\cdot (d_2 + d_4) \\cdot \\left(d_3 + \\dfrac{{d_2}}{{2}}\\right) - \\gamma_c \\cdot a \\cdot d_2 \\cdot \\dfrac{{(d_3)^2}}{{2}}}}$     
         
-        ${{\hspace{{4mm}} F_a \\cdot {1+d[9]*(1/4):.2f} \\text{{ m}} =  {(12+d[6])*(1/300)*(15+d[3]*(1/2))*(pow(4+d[9]*(1/2) + (100+ d[12])*(1/100),3)):.2f} \\text{{ kN}} \\cdot \\text{{ m}} - {(19+d[0]*(1/2))*(100+d[12])*(1/100)*((100+d[12])*(1/100)+ 4 + d[9]*(1/2))*(1+d[15]*(1/10) + (1/200)*(100+d[12])):.2f} \\text{{ kN}} \\cdot \\text{{ m}} - {(19+d[0]*(1/2))*(100+d[12])*(1/100)*(1/2)*(pow((1+d[15]*(1/10)),2)):.2f} \\text{{ kN}} \\cdot \\text{{ m}}}}$     
+        ${{\hspace{{4mm}} F_a \\cdot {1+d[9]*(1/4):.2f} \\text{{ m}} =  {(12+d[6])*(1/300)*(18+d[3]*(1/2))*(pow(4+d[9]*(1/2) + (100+ d[12])*(1/100),3)):.2f} \\text{{ kN}} \\cdot \\text{{ m}} - {(19+d[0]*(1/2))*(100+d[12])*(1/100)*((100+d[12])*(1/100)+ 4 + d[9]*(1/2))*(1+d[15]*(1/10) + (1/200)*(100+d[12])):.2f} \\text{{ kN}} \\cdot \\text{{ m}} - {(19+d[0]*(1/2))*(100+d[12])*(1/100)*(1/2)*(pow((1+d[15]*(1/10)),2)):.2f} \\text{{ kN}} \\cdot \\text{{ m}}}}$     
         
-        ${{\hspace{{4mm}} F_a =  {((12+d[6])*(1/300)*(15+d[3]*(1/2))*(pow(4+d[9]*(1/2) + (100+ d[12])*(1/100),3)) - (19+d[0]*(1/2))*(100+d[12])*(1/100)*((100+d[12])*(1/100) + 4 + d[9]*(1/2))*(1+d[15]*(1/10) + (1/200)*(100+d[12])) - (19+d[0]*(1/2))*(100+d[12])*(1/100)*(1/2)*(pow((1+d[15]*(1/10)),2)))/(1+d[9]*(1/4)):.2f} \\text{{ kN}} }}$     
+        ${{\hspace{{4mm}} F_a =  {((12+d[6])*(1/300)*(18+d[3]*(1/2))*(pow(4+d[9]*(1/2) + (100+ d[12])*(1/100),3)) - (19+d[0]*(1/2))*(100+d[12])*(1/100)*((100+d[12])*(1/100) + 4 + d[9]*(1/2))*(1+d[15]*(1/10) + (1/200)*(100+d[12])) - (19+d[0]*(1/2))*(100+d[12])*(1/100)*(1/2)*(pow((1+d[15]*(1/10)),2)))/(1+d[9]*(1/4)):.2f} \\text{{ kN}} }}$     
         """,
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
@@ -9820,7 +9820,7 @@ preguntas = [
         
         $\\textbf{{\\small 1. Representación de ejercicio: }}$
 
-        En la configuración del muro de contención mostrado, se identifican las siguientes fuerzas: la fuerza resultante del empuje del suelo y cuatro fuerzas verticales del peso propio del muro de contención.  
+        En la configuración del muro de contención mostrado, se identifican las siguientes fuerzas: la fuerza resultante del empuje del suelo y dos fuerzas verticales del peso propio del muro de contención.  
         """,   
         respuesta_P2 = lambda f, a, calc, c, d, m: f"""
         $\\textbf{{\\small 2. Puntualización de las fuerzas: }}$

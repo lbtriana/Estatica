@@ -326,19 +326,17 @@ conceptuales = [
         I.	Encontrar la ubicación de una fuerza para que la partícula se encuentre en equilibrio.  
         II. Conocer la magnitud de una fuerza desconocida para que la partícula se encuentre en equilibrio.   
         III. Encontrar las reacciones de una viga.    
-        IV. Determinar la dirección de una fuerza desconocida para que el sistema se encuentre en equilibrio.     
-        V. Encontrar la dirección de movimiento de una partícula.    
-        VI. Todas las anteriores.    
+        IV. Determinar la dirección de una fuerza desconocida para que el sistema se encuentre en equilibrio.      
+        V. Todas las anteriores.    
         """,
-        opcion_1 = "I, II, V",
-        opcion_2 = "VI",
+        opcion_1 = "I, II",
+        opcion_2 = "V",
         opcion_3 = "II, III, IV",
         opcion_4 = "II, III",
         opcion_correcta = "II, III, IV",
         respuesta_P1 = """
         Con sumatorias de fuerzas no es posible encontrar la ubicación de una fuerza ya que no involucra distancias. Contrario a la sumatoria de momentos que si permite lo dicho en la opción I.
-        Además, con la sumatoria de fuerzas puede definirse el sentido de una fuerza particular pero no la dirección de movimiento del sistema. Esto debido a que, al igualar la sumatoria a 0 se asume que el sistema se encuentra en reposo descartandose la opció V.
-        Por el contrario la sumatoria de fuerzas igual a 0 permite encontar la magnitud y dirección de una fuerza desconocida que permite mantener el equilibrio por medio del despeje de las fuerzas, sus componentes o sus ángulos
+        Además, la sumatoria de fuerzas igual a 0 permite encontar la magnitud y dirección de una fuerza desconocida que permite mantener el equilibrio por medio del despeje de las fuerzas, sus componentes o sus ángulos
         """,
         respuesta_P2 = "",
         ),    
@@ -422,18 +420,18 @@ conceptuales = [
         topic = "Equilibrio de partículas",
         subtopic = "Equilibrio",
         enunciado ="""
-        Considerando el siguiente sistema conformado por dos alambres con resorte que soportan un bloque de acero, ¿Cuál(es) de las siguientes afirmaciones es(son) falsa(s)?.
+        Considerando el siguiente sistema conformado por dos alambres con resorte que soportan un bloque, ¿Cuál(es) de las siguientes afirmaciones es(son) falsa(s)?.
              
         I. El diagrama de cuerpo libre para el sistema con resorte será el mismo que el del sistema sin resorte.      
         II.	Es posible hallar el alargamiento del resorte del resorte dividiendo la fuerza del alambre entre la constante de rigidez (k) del resorte respectivo.      
         III. El sistema pierde el estado de equilibrio por efecto de los resortes.       
         IV.	En la sumatoria de fuerzas es necesario multiplicar las tensiones de los alambres por las constantes de rigidez respectivas (k).        
         """,
-        opcion_1 = "I, II.",
+        opcion_1 = "I, IV.",
         opcion_2 = "Solamente II.",
         opcion_3 = "III, IV.",
         opcion_4 = "I, II.",
-        opcion_correcta = "III, IV.",
+        opcion_correcta = "I, II.",
         respuesta_P1 = "Las opciones I y II son correctas. Si el problema implica un resorte elástico lineal, entonces el alargamiento o la compresión $s$ del resorte puede ser relacionado con la fuerza aplicada usando $F=ks$.",
         respuesta_P2 = "",
         ),
@@ -638,7 +636,7 @@ conceptuales = [
         respuesta_P1 = """
         El procedimiento descrito es correcto para calcular la magnitud del momento de una fuerza respecto a un eje. Primero se determina el vector momento respecto a un punto del eje (en este caso, el punto $L$). Luego, se obtiene el vector unitario del eje para definir su dirección. Finalmente, se proyecta el momento sobre ese eje utilizando el producto punto: 
 
-        $\\overrightarrow{{M_OL}} = \\overrightarrow{M_L} \\cdot \\overrightarrow{\\lambda_{OL}}$
+        $\\overrightarrow{{M_{{OL}}}} = \\overrightarrow{M_L} \\cdot \\overrightarrow{\\lambda_{OL}}$
 
         Esto proporciona la magnitud del momento de la fuerza en la dirección del eje $OL$.""",
         respuesta_P2 = "",
@@ -1258,7 +1256,7 @@ conceptuales = [
         opcion_4 = "El centroide depende de la forma y material, mientras que el centro de masa es el punto de gravedad del cuerpo.",
         opcion_correcta = "El centroide es el centro geométrico y el centro de masa es el centro de distribución de la masa.",
         respuesta_P1 = """El centroide es el punto de simetría geométrico de un objeto, por lo tanto, depende de su forma y dimensiones. Por el contrario, el centro de masa, depende de la distribución de la masa en el objeto.
-        Esto quiere decir, que en una figura compuesta por varios distintos materiales, el centroide no coincidirá necesariamente con el centro de masa.""",
+        Esto quiere decir, que en una figura compuesta por distintos materiales, el centroide no coincidirá necesariamente con el centro de masa.""",
         respuesta_P2 = "",
         ),
 
@@ -1291,9 +1289,9 @@ conceptuales = [
         """, 
         opcion_1 = " I, III",
         opcion_2 = "Solamente II",
-        opcion_3 = "Solamente I.",
-        opcion_4 = "Todas son correctas.",
-        opcion_correcta = "Todas son correctas.",
+        opcion_3 = "Solamente I",
+        opcion_4 = "Todas son correctas",
+        opcion_correcta = "Todas son correctas",
         respuesta_P1 = """
         Todas las afirmaciones son correctas:   
 
@@ -1586,7 +1584,7 @@ conceptuales = [
         opcion_1 = "La representación incorrecta es I. Porque la presión en un fluido actúa únicamente de forma horizontal. ",
         opcion_2 = "La representación incorrecta es II. Porque la presión en un punto sumergido debe actuar perpendicularmente a la superficie, no con ángulos menores a 90°.",
         opcion_3 = "La representación incorrecta es III. Porque la presión en un fluido no solo se ejerce en una dirección horizontal, sino en todas las direcciones perpendiculares a la superficie.",
-        opcion_4 = "La representación incorrecta es IV. Porque las flechas representan el peso del fluido y no la presión ejercida sobre el punto.",
+        opcion_4 = "La representación incorrecta es IV. Porque la flecha representa el peso del fluido y no la presión ejercida sobre el punto.",
         opcion_correcta = "La representación incorrecta es II. Porque la presión en un punto sumergido debe actuar perpendicularmente a la superficie, no con ángulos menores a 90°.",
         respuesta_P1 = """La presión en un fluido se ejerce de manera perpendicular a cualquier superficie en contacto con el fluido. Por lo tanto, la representación incorrecta es II, ya que las flechas están orientadas en un ángulo menor a 90° con respecto a la superficie.""",
         respuesta_P2 = "",
