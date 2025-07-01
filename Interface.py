@@ -1686,7 +1686,7 @@ if authenticate_user():
                     if pregunta_no == 2:
                         st.image(FI_teoria_respuestas[0],width=500)
                     if pregunta_no == 8:
-                        st.image(FI_teoria_respuestas[1],width=250)
+                        st.image(FI_teoria_respuestas[1],width=500)
                     if pregunta_no == 9:
                         st.image(FI_teoria_respuestas[2],width=400)
         return
