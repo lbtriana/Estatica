@@ -3296,7 +3296,7 @@ preguntas = [
         topic = EQ,
         subtopic = E3D,
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Calcule la magnitud de las fuerzas $F_1$, $F_2$ y $F_3$ de forma que la partícula esté en equilibrio. Considere que $F_4 = {f[0]:.0f} \\text{{ kN}}$, $\\theta_1 = {a[0]:.0f}°$, $\\theta_2 = {a[4]:.0f}°$ y $\\theta_3 = {a[8]:.0f}°$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Calcule la magnitud de las fuerzas $F_1$, $F_2$ y $F_3$ de forma que la partícula esté en equilibrio (Use el signo negativo si la suposición de la dirección de la fuerza es incorrecta). Considere que $F_4 = {f[0]:.0f} \\text{{ kN}}$, $\\theta_1 = {a[0]:.0f}°$, $\\theta_2 = {a[4]:.0f}°$ y $\\theta_3 = {a[8]:.0f}°$.",
         no_answers = 3,
         a1_name = "Magnitud $F_1$ $[kN]$",
         a2_name = "Magnitud $F_2$ $[kN]$",
@@ -5583,7 +5583,7 @@ preguntas = [
         
         ${{\hspace{{4mm}} d_y = {d[0]+3:.0f} \\cdot \\dfrac{{8}}{{10}} }}$       
         
-        ${{\hspace{{4mm}} d_y = {((4*(d[0]+3)/5))} \\text{{ cm}} = {((4*(d[0]+3)/5)/100)} \\text{{ m}} }} $
+        ${{\hspace{{4mm}} d_y = {((4*(d[0]+3)/5))} \\text{{ cm}} = {((4*(d[0]+3)/5)/100):.3f} \\text{{ m}} }} $
         
         $\\textbf{{\\small 2. Calculo de momento par: }}$
 
@@ -5922,7 +5922,7 @@ preguntas = [
         ${{\hspace{{4mm}} \\vec{{r}} = -d_3 \\hat{{i}} + \\dfrac{{d_1}}{{2}} \\hat{{j}} }}$   
         ${{\hspace{{4mm}} \\vec{{r}} = {(-d[6])/100:.2f} \\hat{{i}} + {(d[0]/2)/100:.2f} \\hat{{j}} }}$   
 
-        La fuerza $F_2$ que se descompone es la fuerza a la cual llega el vector $vec{{r}}$, para su descomposición se halla su vector unitario:
+        La fuerza $F_2$ que se descompone es la fuerza a la cual llega el vector $\\vec{{r}}$, para su descomposición se halla su vector unitario:
 
         ${{\hspace{{4mm}} \\vec{{\\lambda_{{F2}}}} = \\dfrac{{-d_3 \\hat{{i}} + \\dfrac{{d_1}}{{2}} \\hat{{j}} + d_2 \\hat{{k}}}}{{\\sqrt{{(-d_3)^2+\\left(\\dfrac{{d_1}}{{2}}\\right)^2+(d_2)^2}}}}}}$           
         ${{\hspace{{4mm}} \\vec{{\\lambda_{{F2}}}} = -{d[6]/Calculations.magnitude3D(d[3],d[0]/2,d[6]):.2f} \\hat{{i}} + {(d[0]/2)/Calculations.magnitude3D(d[3],d[0]/2,d[6]):.2f} \\hat{{j}} + {d[3]/Calculations.magnitude3D(d[3],d[0]/2,d[6]):.2f} \\hat{{k}} }}$           
@@ -6445,7 +6445,7 @@ preguntas = [
         topic = "Sistemas equivalentes",
         subtopic = "Sistemas equivalentes",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Reemplace las fuerzas que actúan sobre la viga por una sola fuerza resultante. Determine las componentes de dicha fuerza (Indique el signo de la dirección de las fuerzas) y la ubicación de esta fuerza medida desde el extremo A. Considere $F_1 = {f[0]:.0f} \\text{{ N}}$, $F_2 = {f[1]:.0f} \\text{{ N}}$, $F_3 = {f[2]:.0f} \\text{{ N}}$, $\\alpha_1 = {a[0]:.0f}°$, $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ fm}}$ y $d_3 = {d[6]:.0f} \\text{{ m}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Reemplace las fuerzas que actúan sobre la viga por una sola fuerza resultante. Determine las componentes de dicha fuerza (Indique el signo de la dirección de las fuerzas) y la ubicación de esta fuerza medida desde el extremo A. Considere $F_1 = {f[0]:.0f} \\text{{ N}}$, $F_2 = {f[1]:.0f} \\text{{ N}}$, $F_3 = {f[2]:.0f} \\text{{ N}}$, $\\alpha_1 = {a[0]:.0f}°$, $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$ y $d_3 = {d[6]:.0f} \\text{{ m}}$.",
         no_answers = 3,
         a1_name = "Componente $F_{{Rx}}$ $[N]$",
         a2_name = "Componente $F_{{Ry}}$ $[N]$",
@@ -7255,7 +7255,7 @@ preguntas = [
         ${{\hspace{{4mm}} 1. \\sum{{F_x}} = F_{{CB}} \\cdot \\sin(\\alpha_2) + ({-(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))))):.2f} \\text{{ kN}} ) \\cdot \\sin(\\alpha_2) + F_1 = F_{{CB}} \\cdot {Calculations.sine((a[1]/4)):.2f} + ( {-(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))))):.2f} \\text{{ kN}} ) \\cdot {Calculations.sine((a[1]/4)):.2f} + {f[0]:.0f} \\text{{ kN}} = 0 }}$      
         ${{\hspace{{4mm}} 2. \\sum{{F_y}} = F_{{CB}} \\cdot \\cos(\\alpha_2) + ({-(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))))):.2f} \\text{{ kN}} ) \\cdot \\cos(\\alpha_2) + F_{{CD}} = F_{{CB}} \\cdot {Calculations.cosine((a[1]/4)):.2f} + ( {-(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))))):.2f} \\text{{ kN}} ) \\cdot {Calculations.cosine((a[1]/4)):.2f} + F_{{CD}} = 0 }}$      
         
-        Dada la pregunta del ejercicio, solo se necesita despejar F_{{CB}} de la primera ecuación:
+        Dada la pregunta del ejercicio, solo se necesita despejar $F_{{CB}}$ de la primera ecuación:
         
         ${{\hspace{{4mm}} F_{{CB}} \\cdot {Calculations.sine((a[1]/4)):.2f} + ( {-(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))))):.2f} \\text{{ kN}} ) \\cdot {Calculations.sine((a[1]/4)):.2f} + {f[0]:.0f} \\text{{ kN}} = 0 }}$      
         ${{\hspace{{4mm}} F_{{CB}} \\cdot {Calculations.sine((a[1]/4)):.2f} = {-f[0] + (Calculations.sine((a[1]/4)))*(f[0] - ((f[0]*((d[0])/(Calculations.tangent((a[1]/4)))))/(2*d[0]*Calculations.tangent((a[2]/7)))))/(Calculations.sine((a[1]/4)) - ((Calculations.cosine((a[1]/4)))/(Calculations.tangent((a[2]/7))))):.2f} \\text{{ kN}}}}$      
@@ -10045,7 +10045,7 @@ preguntas = [
         topic = FI,
         subtopic = "Fuerzas internas",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine la fuerza cortante y el momento flector que actúan sobre la columna en el punto $B$, debido a las fuerzas $F_1 = {f[0]:.0f} \\text{{ kN}}$ y $F_2 = {f[1]:.0f} \\text{{ kN}}$. Considere que $d_0 = {d[0]/4:.2f} \\text{{ m}}$, $d_1 = {d[3]/4:.2f} \\text{{ m}}$ y $d_2 = {d[6]/4:.2f} \\text{{ m}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la fuerza cortante y el momento flector que actúan sobre la columna en el punto $B$, debido a las fuerzas $F_1 = {f[0]:.0f} \\text{{ kN}}$ y $F_2 = {f[1]:.0f} \\text{{ kN}}$ (Use el signo negativo si la dirección asumida según la convención es incorrecta). Considere que $d_0 = {d[0]/4:.2f} \\text{{ m}}$, $d_1 = {d[3]/4:.2f} \\text{{ m}}$ y $d_2 = {d[6]/4:.2f} \\text{{ m}}$.",
         no_answers = 2,
         a1_name = "Fuerza cortante en $B$ $[kN]$",
         a2_name = "Momento en $B$ $[kN \\cdot m]$",
@@ -10154,7 +10154,7 @@ preguntas = [
         topic = FI,
         subtopic = "Fuerzas internas",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine las magnitudes de la fuerza cortante y el momento flector inmediatamente después del punto $C$. Considere que la fuerza $F = {f[0]:.0f} \\text{{ kN}}$, el momento $M = {m[0]:.0f} \\text{{ }} kN \\cdot m$, $d_0 = {d[0]:.0f} \\text{{ m}}$ y $d_1 = {d[3]:.0f} \\text{{ m}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine las magnitudes de la fuerza cortante y el momento flector inmediatamente después del punto $C$ (Use el signo negativo si la dirección asumida según la convención es incorrecta). Considere que la fuerza $F = {f[0]:.0f} \\text{{ kN}}$, el momento $M = {m[0]:.0f} \\text{{ }} kN \\cdot m$, $d_0 = {d[0]:.0f} \\text{{ m}}$ y $d_1 = {d[3]:.0f} \\text{{ m}}$.",
         no_answers = 2,
         a1_name = "Fuerza cortante $[kN]$",
         a2_name = "Momento flector $[kN \\cdot m]$",
@@ -10212,7 +10212,7 @@ preguntas = [
         topic = "Fuerzas internas",
         subtopic = "Fuerzas internas",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine tanto la fuerza cortante como el momento flector en $C$. Considere $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$, $d_3 = {d[6]:.0f} \\text{{ m}}$, $F_1 = {f[0]:.0f}  \\text{{ kN}}$, $w_1 = {m[0]:.0f} \\dfrac{{kN}}{{m}}$ y $w_2 = {m[1]:.2f} \\dfrac{{kN}}{{m}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine tanto la fuerza cortante como el momento flector en $C$ (Use el signo negativo si la dirección asumida según la convención es incorrecta). Considere $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[3]:.0f}  \\text{{ m}}$, $d_3 = {d[6]:.0f} \\text{{ m}}$, $F_1 = {f[0]:.0f}  \\text{{ kN}}$, $w_1 = {m[0]:.0f} \\dfrac{{kN}}{{m}}$ y $w_2 = {m[1]:.2f} \\dfrac{{kN}}{{m}}$.",
         no_answers = 2,
         a1_name = "Fuerza cortante en $C$ $(V_C)$ $[kN]$",
         a2_name = "Momento flector en $C$ $(M_C)$ $[kN \\cdot m]$",
@@ -10348,7 +10348,7 @@ preguntas = [
         topic = FI,
         subtopic = "Fuerzas internas",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine la fuerza cortante y el momento flector a la distancia $x = {d[0]:.0f} \\text{{ m}}$ medida desde el apoyo $B$ hacia la izquierda. Considere que $W_1 = {f[0]+7:.0f} \\text{{ }} \\dfrac{{kN}}{{m}}$, $W_2 = {f[0]:.0f} \\text{{ }} \\dfrac{{kN}}{{m}}$ y $d_0 = {d[0]+3:.0f} \\text{{ m}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la fuerza cortante y el momento flector a la distancia $x = {d[0]:.0f} \\text{{ m}}$ medida desde el apoyo $B$ hacia la izquierda (Use el signo negativo si la dirección asumida según la convención es incorrecta). Considere que $W_1 = {f[0]+7:.0f} \\text{{ }} \\dfrac{{kN}}{{m}}$, $W_2 = {f[0]:.0f} \\text{{ }} \\dfrac{{kN}}{{m}}$ y $d_0 = {d[0]+3:.0f} \\text{{ m}}$.",
         no_answers = 2,
         a1_name = "Fuerza cortante $[kN]$",
         a2_name = "Momento flector $[kN \\cdot m]$",
@@ -10475,7 +10475,7 @@ preguntas = [
         topic = "Fuerzas internas",
         subtopic = "Fuerzas internas",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine la fuerza cortante en los puntos $B$ y $D$, así como el momento flector en $B$. Considere $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[0]+d[3]:.0f}  \\text{{ m}}$, $d_3 = {d[6]+2:.0f} \\text{{ m}}$,  $d_4 = {d[6]:.0f}  \\text{{ m}}$, $F_1 = {f[0]:.0f}  \\text{{ kN}}$, $w_1 = {50+m[0]:.0f} \\dfrac{{kN}}{{m}}$ y $w_2 = {m[1]*(1/2):.2f} \\dfrac{{kN}}{{m}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la fuerza cortante en los puntos $B$ y $D$, así como el momento flector en $B$ (Use el signo negativo si la dirección asumida según la convención es incorrecta). Considere $d_1 = {d[0]:.0f} \\text{{ m}}$,  $d_2 = {d[0]+d[3]:.0f}  \\text{{ m}}$, $d_3 = {d[6]+2:.0f} \\text{{ m}}$,  $d_4 = {d[6]:.0f}  \\text{{ m}}$, $F_1 = {f[0]:.0f}  \\text{{ kN}}$, $w_1 = {50+m[0]:.0f} \\dfrac{{kN}}{{m}}$ y $w_2 = {m[1]*(1/2):.2f} \\dfrac{{kN}}{{m}}$.",
         no_answers = 3,
         a1_name = "Fuerza cortante en $B$ ($V_B$) $[kN]$",
         a2_name = "Fuerza cortante en $D$ ($V_D$) $[kN]$",
@@ -10543,7 +10543,7 @@ preguntas = [
         topic = "Fuerzas internas",
         subtopic = "Fuerzas internas",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Determine la fuerza cortante y el momento flector a la distancia $x = {d[0]+d[3]-0.5:.2f} \\text{{ m}}$ medida desde el apoyo $A$. Considere que $W_1 = {f[0]:.0f} \\text{{ }} \\dfrac {{N}}{{m}}$, $W_2 = {f[1]:.0f} \\text{{ }} \\dfrac {{N}}{{m}}$, $F = {f[2]:.0f} \\text{{ }} N$, $d_0 = {d[0]:.0f} \\text{{ m}}$, $d_1 = {d[3]:.0f} \\text{{ m}}$, $d_2 = {d[6]:.0f} \\text{{ m}}$ y $d_3 = {d[9]:.0f} \\text{{ m}}$.",
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la fuerza cortante y el momento flector a la distancia $x = {d[0]+d[3]-0.5:.2f} \\text{{ m}}$ medida desde el apoyo $A$ (Use el signo negativo si la dirección asumida según la convención es incorrecta). Considere que $W_1 = {f[0]:.0f} \\text{{ }} \\dfrac {{N}}{{m}}$, $W_2 = {f[1]:.0f} \\text{{ }} \\dfrac {{N}}{{m}}$, $F = {f[2]:.0f} \\text{{ }} N$, $d_0 = {d[0]:.0f} \\text{{ m}}$, $d_1 = {d[3]:.0f} \\text{{ m}}$, $d_2 = {d[6]:.0f} \\text{{ m}}$ y $d_3 = {d[9]:.0f} \\text{{ m}}$.",
         no_answers = 2,
         a1_name = "Fuerza cortante a la distancia $x$ $[N]$",
         a2_name = "Momento flector a la distancia $x$ $[N \\cdot m]$",
