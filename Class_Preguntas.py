@@ -5802,7 +5802,7 @@ preguntas = [
         ayuda2 = MPP7,      
         ayuda3 = "",
         respuesta_P1 = lambda f, a, calc, c, d, m: f"""
-        El momento generado por un par de fuerzas se define como $M = F \\cdot d$, donde $F$ es la magnitud de las fuerzas pares y $d$ es la distancia perpendicular entre estas. El efecto del moemnto par se siente de igual manera en todos los puntos del cuerpo. A continuación, se presenta la solución sugerida para el ejercicio:
+        El momento generado por un par de fuerzas se define como $M = F \\cdot d$, donde $F$ es la magnitud de las fuerzas pares y $d$ es la distancia perpendicular entre estas. El efecto del momento par se siente de igual manera en todos los puntos del cuerpo. A continuación, se presenta la solución sugerida para el ejercicio:
         
         Para determinar el momento generado por las fuerzas, se calcula por separado el momento producido por cada fuerza:
 
@@ -6830,7 +6830,7 @@ preguntas = [
         
         $\\textbf{{\\small 1. Determinar fuerza resultante: }}$
         
-        Todas las fuerzas mostradas actúan en la dirección positivade  $\\hat{{i}}$ y sus componentes en $\\hat{{j}}$ se cancelan entre sí. Por lo tanto, la fuerza resultante solo tiene únicamente una componente en $\\hat{{i}}$, la cual corresponde a la suma de las respectivas componentes de cada una de las fuerzas.
+        Todas las fuerzas mostradas actúan en la dirección positiva de  $\\hat{{i}}$ y sus componentes en $\\hat{{j}}$ se cancelan entre sí. Por lo tanto, la fuerza resultante solo tiene únicamente una componente en $\\hat{{i}}$, la cual corresponde a la suma de las respectivas componentes de cada una de las fuerzas.
         
         Dado que cada fuerza es perpendicular a la cubierta del techo y todas tienen el mismo ángulo asociado; se puede encontrar el ángulo de una fuerza y este será aplicable a las demás:   
         """,   
