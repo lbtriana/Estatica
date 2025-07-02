@@ -295,7 +295,7 @@ Donde:
 $\\bar{{X}}$ = Coordenada X del centroide de la figura compuesta.        
 $\\bar{{Y}}$ = Coordenada Y del centroide de la figura compuesta.      
 $i$ = Elementos de la figura conocida, una vez se divide la figura compuesta.       
-$L$ = Longitud del segemento.   
+$L$ = Longitud del segmento.   
 """
 CT8 = "El centroide es el punto en el que se puede apoyar un objeto de material uniforme y mantenerse en equilibrio."
 
