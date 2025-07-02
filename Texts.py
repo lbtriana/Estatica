@@ -311,7 +311,7 @@ FD7 = "Determine la fuerza generada por cada una de las secciones en que se divi
 
 
 #PRESIONES HIDROSTÁTICAS
-PH1 = "La presión hidrostática es la presión ejercida por un fluido en reposo. Esta presión se genera en todos los puntos del fluido y actúa perpendicularmente a las superificies sumergidas."
+PH1 = "La presión hidrostática es la presión ejercida por un fluido en reposo. Esta presión se genera en todos los puntos del fluido y actúa perpendicularmente a las superficies sumergidas."
 PH2 = """
 La presión hidrostática aumenta con la profundidad y medida como una fuerza por área unitaria se calcula como:   
 
