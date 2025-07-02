@@ -594,7 +594,7 @@ conceptuales = [
         Las afirmaciones falsas son I y III:
 
         I. El cuerpo no está en equilibrio, dado que, aunque la sumatoria de fuerzas es cero, la sumatoria de momentos no lo es.        
-        II. El momento es un vector perperdincular al plano que contiene la fuerza y el brazo del momento. En este caso, el plano es bidimensional (x, y), por lo que el momento se encuentra en la dirección de z.
+        II. El momento es un vector perpendicular al plano que contiene la fuerza y el brazo del momento. En este caso, el plano es bidimensional (x, y), por lo que el momento se encuentra en la dirección de z.
         """,
         respuesta_P2 = "",
         ),
