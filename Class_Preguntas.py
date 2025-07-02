@@ -9357,8 +9357,6 @@ preguntas = [
         respuesta_P2 = lambda fa, a, calc, c, d, m: f"""
         $\\textbf{{\\small 2. Cálculo de la fuerza hidrostática vertical:}}$
 
-        Para este caso, se usará la distribución triangular de presiones:
-
         ${{\hspace{{4mm}} F_V = W_1 + W_2}}$        
         
         ${{\hspace{{4mm}} W_1 = \\rho \\cdot g \\cdot d_2 \\cdot \\left(d_1-\\dfrac{{d_2}}{{2}}\\right)}}$  
