@@ -8806,7 +8806,7 @@ preguntas = [
         topic = FD,
         subtopic = "Vigas",
         version = 1,
-        pregunta = lambda f, a, calc, c, d, m: f"Encuentre las reacciones en los apoyos teniendo en cuenta que $W_1 = {m[0]:.0f} \\dfrac{{kN}}{{m}}$, $W_2 = {m[0]+5:.0f}\\dfrac{{kN}}{{m}}$, $W_3 = {m[2]:.0f}\\dfrac{{kN}}{{m}}$, $F={f[0]:.0f} \\text{{ kN}}$ y $d_0 = {d[0]:.0f} \\text{{ m}}$, $d_1 = {d[3]:.0f}\\text{{ m}}$ y $d_2 = {d[6]:.0f}\\text{{ m}}$. Adicionalmente, considere que la fuerza $F$ esta siendo aplicada en centro de su sección.",
+        pregunta = lambda f, a, calc, c, d, m: f"Encuentre las reacciones en los apoyos teniendo en cuenta que $W_1 = {m[0]:.0f} \\dfrac{{kN}}{{m}}$, $W_2 = {m[0]+5:.0f}\\dfrac{{kN}}{{m}}$, $W_3 = {m[2]:.0f}\\dfrac{{kN}}{{m}}$, $F={f[0]:.0f} \\text{{ kN}}$ y $d_0 = {d[0]:.0f} \\text{{ m}}$, $d_1 = {d[3]:.0f}\\text{{ m}}$ y $d_2 = {d[6]:.0f}\\text{{ m}}$. Adicionalmente, considere que la fuerza $F$ está siendo aplicada en el centro de su sección.",
         no_answers = 3,
         a1_name = "Reacción $A_x$ $[kN]$",
         a2_name = "Reacción $A_y$ $[kN]$",
