@@ -124,6 +124,7 @@ EQ_image_paths= [#Imágenes Preguntas Cálculo Equilibrio de partículas
 
 #Equilibrio 2D
 "./Imagenes/Preguntas/EQ/EQ2D/EQ_EQ2D_D_1a.png", #[68]
+"./Imagenes/Preguntas/EQ/V2D/EQ_V2_F_6a.png", #[69] 
 ]
 
 M2D_image_paths =[#Imágenes Preguntas Cálculo Momento en un punto 2D
@@ -625,4 +626,6 @@ FI_teoria_respuestas =[#Fuerzas internas
 "./Imagenes/Teoria_Respuestas/FI/RT_FI_FI_2.png", #[0] 
 "./Imagenes/Teoria_Respuestas/FI/RT_FI_FI_8.png", #[1] 
 "./Imagenes/Teoria_Respuestas/FI/RT_FI_FI_9.png", #[2] 
+
+
 ]

@@ -531,6 +531,56 @@ preguntas = [
         calculos='operations'
         ),
 
+Questionary(#6_1
+        code = 1110061,
+        no_pregunta = 6,
+        complexity = F,
+        topic = EQ,
+        subtopic = V2D,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine las componente del vector ${{F1}}$ ${{(F1_x, F1_y)}}$ y su dirección $\\alpha_x$ con respecto al eje X positivo. Considere $\\text{{F1}}={f[0]:.0f}\\text{{ kN}}$.",
+        no_answers = 3,
+        a1_name = Dir,
+        a2_name = FX,
+        a3_name = FY,
+        answer1=lambda f, a, calc, c, d, m: np.round(Calculations.arctangent(4/3),2),
+        answer2=lambda f, a, calc, c, d, m: np.round(f[0]*(3/5),2),
+        answer3=lambda f, a, calc, c, d, m: np.round(f[0]*(4/5),2),
+        ayuda1 = A4,
+        ayuda2 = A5,
+        ayuda3 = A6,
+        respuesta_P1 = lambda f, a, calc, c, d, m:f"""
+        A continuación se presenta la solución sugerida para el ejercicio:
+
+        $\\textbf{{\\small 1. Cálculo del ángulo:}}$
+        
+        ${{\hspace{{4mm}} \\alpha_x = \\arctan\left(\\frac{3}{4}\\right) = {Calculations.arctangent(3/4):.2f}}}^\circ$
+
+        $\\textbf{{\\small 2. Cálculo de componente en X y Y:}}$
+
+        Para descomponer un vector en dos dimensiones, usamos las funciones trigonométricas aplicadas al ángulo $\\alpha_x$
+
+        ${{\\hspace{{4mm}} F1_x = F1 \\cos(\\alpha_x)}}$
+
+        ${{\hspace{{4mm}} F1_y = F1 \\sin(\\alpha_x)}}$
+
+        En este caso, a partir del triángulo de la situación, sabemos que:
+
+        ${{\\hspace{{4mm}} \\cos(\\alpha_x) = \\left(\\frac{{4}}{{5}}\\right) }}$
+
+        ${{\\hspace{{4mm}} \\sin(\\alpha_x) = \\left(\\frac{{3}}{{5}}\\right) }}$
+
+        Sustituyendo:
+
+        ${{\\hspace{{4mm}} F1_x = F1 \\left(\\frac{{4}}{{5}}\\right)={f[0]*(4/5):.2f}}}\\text{{ kN}}$
+     
+        ${{\\hspace{{4mm}} F1_y = F1 \\left(\\frac{{3}}{{5}}\\right)={f[0]*(3/5):.2f}}}\\text{{ kN}}$
+
+        """,     
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
 
     #=================================================EQUILIBRIO DE PARTÍCULAS===================================================
     #-------------------------------------------------     Vectores 2D        ---------------------------------------------------
