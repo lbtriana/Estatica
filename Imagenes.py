@@ -124,7 +124,12 @@ EQ_image_paths= [#Imágenes Preguntas Cálculo Equilibrio de partículas
 
 #Equilibrio 2D
 "./Imagenes/Preguntas/EQ/EQ2D/EQ_EQ2D_D_1a.png", #[68]
+#Vectores 2D
 "./Imagenes/Preguntas/EQ/V2D/EQ_V2_F_6a.png", #[69] 
+"./Imagenes/Preguntas/EQ/V2D/EQ_V2_F_7a.png", #[70]
+"./Imagenes/Preguntas/EQ/V2D/EQ_V2_F_7b.png", #[71]
+"./Imagenes/Preguntas/EQ/V2D/EQ_V2_F_7c.png", #[72]
+"./Imagenes/Preguntas/EQ/V2D/EQ_V2_F_7d.png", #[73]
 ]
 
 M2D_image_paths =[#Imágenes Preguntas Cálculo Momento en un punto 2D

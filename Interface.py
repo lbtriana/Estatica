@@ -700,6 +700,15 @@ if authenticate_user():
                     elif pregunta_no == 6:  
                          if version_no == 1:
                             st.image(EQ_image_paths[69], width=350) 
+                    elif pregunta_no == 7:  
+                         if version_no == 1:
+                            st.image(EQ_image_paths[70], width=350)
+                         elif version_no == 2:
+                            st.image(EQ_image_paths[71], width=320)
+                         elif version_no == 3:
+                            st.image(EQ_image_paths[72], width=320)
+                         elif version_no == 4:
+                            st.image(EQ_image_paths[73], width=350)     
                 if subtopic == "Vectores 3D":
                     if pregunta_no == 1 or pregunta_no == 2:
                         if version_no == 1:

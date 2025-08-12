@@ -531,7 +531,7 @@ preguntas = [
         calculos='operations'
         ),
 
-Questionary(#6_1
+    Questionary(#6_1
         code = 1110061,
         no_pregunta = 6,
         complexity = F,
@@ -582,6 +582,177 @@ Questionary(#6_1
         calculos='operations'
         ),
 
+    Questionary(#7_1
+        code = 1110071,
+        no_pregunta = 7,
+        complexity = F,
+        topic = EQ,
+        subtopic = V2D,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza ${{F1}}$ sabiendo que su componente en el eje $\\ F1_x ={f[0]:.0f}\\text{{ N}}$ y que su dirección $\\alpha_x = {a[3]:.0f}\\degree$ está medido desde el eje ${{x}}$ positivo en sentido horario.",
+        no_answers = 1,
+        a1_name = MagN,
+        a2_name = "",
+        a3_name = "",
+        answer1=lambda f, a, calc, c, d, m: np.round(f[0]/Calculations.cosine(360-a[3]),2),
+        answer2=lambda f, a, calc, c, d, m: 0,
+        answer3=lambda f, a, calc, c, d, m: 0,
+        ayuda1 = A4,
+        ayuda2 = A5,
+        ayuda3 = A6,
+        respuesta_P1 = lambda f, a, calc, c, d, m:f"""
+        A continuación se presenta la solución sugerida para el ejercicio:
+
+        La componente en 𝑥 de la fuerza se obtiene aplicando la proyección trigonométrica:
+
+        ${{\\hspace{{4mm}} F_{{1x}} = F_1 \\cos(\\alpha_x)}}$
+
+        Si conocemos ${{F1_x}}$ y el ángulo $\\alpha_x$, podemos despejar ${{F1}}$
+      
+        ${{\\hspace{{4mm}} F_1 = \\frac{{F_{{1x}}}}{{\\cos(\\alpha_x)}}}}$
+
+        Para facilitar el cálculo del coseno, lo expresamos en términos de su ángulo agudo equivalente:
+
+        ${{\\hspace{{4mm}} \\cos(360^\\circ - {a[3]}) = \\cos({360 - a[3]}^\\circ) = {Calculations.cosine(360 - a[3]):.2f}}}$
+
+        $\\textbf{{\\small Sustitución de valores y cálculo de F1:}}$
+
+        ${{\\hspace{{4mm}} F1 = {f[0]/Calculations.cosine(360-a[3]):.2f}}}\\text{{ N}}$
+
+        """,     
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
+
+    Questionary(#7_2
+        code = 1110072,
+        no_pregunta = 7,
+        complexity = F,
+        topic = EQ,
+        subtopic = V2D,
+        version = 2,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza ${{F1}}$ sabiendo que su componente en el eje $\\ F1_x ={f[0]:.0f}\\text{{ N}}$ y que su dirección $\\alpha_x = {a[2]:.0f}\\degree$ está medido desde el eje ${{x}}$ positivo en sentido horario.",
+        no_answers = 1,
+        a1_name = MagN,
+        a2_name = "",
+        a3_name = "",
+        answer1=lambda f, a, calc, c, d, m: np.round(f[0]/Calculations.cosine(a[2]-180),2),
+        answer2=lambda f, a, calc, c, d, m: 0,
+        answer3=lambda f, a, calc, c, d, m: 0,
+        ayuda1 = A4,
+        ayuda2 = A5,
+        ayuda3 = A6,
+        respuesta_P1 = lambda f, a, calc, c, d, m:f"""
+        A continuación se presenta la solución sugerida para el ejercicio:
+
+        La componente en 𝑥 de la fuerza se obtiene aplicando la proyección trigonométrica:
+
+        ${{\\hspace{{4mm}} F_{{1x}} = F_1 \\cos(\\alpha_x)}}$
+
+        Si conocemos ${{F1_x}}$ y el ángulo $\\alpha_x$, podemos despejar ${{F1}}$
+      
+        ${{\\hspace{{4mm}} F_1 = \\frac{{F_{{1x}}}}{{\\cos(\\alpha_x)}}}}$
+
+        Para facilitar el cálculo del coseno, lo expresamos en términos de su ángulo agudo equivalente:
+
+        ${{\\hspace{{4mm}} \\cos({a[2]}- 180^\\circ) = \\cos({a[2]-180}^\\circ) = {Calculations.cosine(a[2]-180):.2f}}}$
+
+        $\\textbf{{\\small Sustitución de valores y cálculo de F1:}}$
+
+        ${{\\hspace{{4mm}} F1 = {f[0]/Calculations.cosine(a[2]-180):.2f}}}\\text{{ N}}$
+
+        """,     
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
+
+    Questionary(#7_3
+        code = 1110073,
+        no_pregunta = 7,
+        complexity = F,
+        topic = EQ,
+        subtopic = V2D,
+        version = 3,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza ${{F1}}$ sabiendo que su componente en el eje $\\ F1_x ={f[0]:.0f}\\text{{ N}}$ y que su dirección $\\alpha_x = {a[1]:.0f}\\degree$ está medido desde el eje ${{x}}$ positivo en sentido horario.",
+        no_answers = 1,
+        a1_name = MagN,
+        a2_name = "",
+        a3_name = "",
+        answer1=lambda f, a, calc, c, d, m: np.round(f[0]/Calculations.cosine(180-a[1]),2),
+        answer2=lambda f, a, calc, c, d, m: 0,
+        answer3=lambda f, a, calc, c, d, m: 0,
+        ayuda1 = A4,
+        ayuda2 = A5,
+        ayuda3 = A6,
+        respuesta_P1 = lambda f, a, calc, c, d, m:f"""
+        A continuación se presenta la solución sugerida para el ejercicio:
+
+        La componente en 𝑥 de la fuerza se obtiene aplicando la proyección trigonométrica:
+
+        ${{\\hspace{{4mm}} F_{{1x}} = F_1 \\cos(\\alpha_x)}}$
+
+        Si conocemos ${{F1_x}}$ y el ángulo $\\alpha_x$, podemos despejar ${{F1}}$
+      
+        ${{\\hspace{{4mm}} F_1 = \\frac{{F_{{1x}}}}{{\\cos(\\alpha_x)}}}}$
+
+        Para facilitar el cálculo del coseno, lo expresamos en términos de su ángulo agudo equivalente:
+
+        ${{\\hspace{{4mm}} \\cos( 180^\\circ -{a[1]}) = \\cos({180-a[1]}^\\circ) = {Calculations.cosine(180-a[1]):.2f}}}$
+
+        $\\textbf{{\\small Sustitución de valores y cálculo de F1:}}$
+
+        ${{\\hspace{{4mm}} F1 = {f[0]/Calculations.cosine(180-a[1]):.2f}}}\\text{{ N}}$
+
+        """,     
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
+
+    Questionary(#7_4
+        code = 1110074,
+        no_pregunta = 7,
+        complexity = F,
+        topic = EQ,
+        subtopic = V2D,
+        version = 4,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza ${{F1}}$ sabiendo que su componente en el eje $\\ F1_x ={f[0]:.0f}\\text{{ N}}$ y que su dirección $\\alpha_x = {a[0]:.0f}\\degree$ está medido desde el eje ${{x}}$ positivo en sentido horario.",
+        no_answers = 1,
+        a1_name = MagN,
+        a2_name = "",
+        a3_name = "",
+        answer1=lambda f, a, calc, c, d, m: np.round(f[0]/Calculations.cosine(a[0]),2),
+        answer2=lambda f, a, calc, c, d, m: 0,
+        answer3=lambda f, a, calc, c, d, m: 0,
+        ayuda1 = A4,
+        ayuda2 = A5,
+        ayuda3 = A6,
+        respuesta_P1 = lambda f, a, calc, c, d, m:f"""
+        A continuación se presenta la solución sugerida para el ejercicio:
+
+        La componente en 𝑥 de la fuerza se obtiene aplicando la proyección trigonométrica:
+
+        ${{\\hspace{{4mm}} F_{{1x}} = F_1 \\cos(\\alpha_x)}}$
+
+        Si conocemos ${{F1_x}}$ y el ángulo $\\alpha_x$, podemos despejar ${{F1}}$
+      
+        ${{\\hspace{{4mm}} F_1 = \\frac{{F_{{1x}}}}{{\\cos(\\alpha_x)}}}}$
+
+        Para facilitar el cálculo del coseno, lo expresamos en términos de su ángulo agudo equivalente:
+
+        ${{\\hspace{{4mm}}  \\cos({a[0]}^\\circ) = {Calculations.cosine(a[0]):.2f}}}$
+
+        $\\textbf{{\\small Sustitución de valores y cálculo de F1:}}$
+
+        ${{\\hspace{{4mm}} F1 = {f[0]/Calculations.cosine(a[0]):.2f}}}\\text{{ N}}$
+
+        """,     
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
     #=================================================EQUILIBRIO DE PARTÍCULAS===================================================
     #-------------------------------------------------     Vectores 2D        ---------------------------------------------------
     #-------------------------------------------------     Nivel medio        ---------------------------------------------------
