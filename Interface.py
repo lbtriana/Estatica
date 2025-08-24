@@ -708,7 +708,14 @@ if authenticate_user():
                          elif version_no == 3:
                             st.image(EQ_image_paths[72], width=320)
                          elif version_no == 4:
-                            st.image(EQ_image_paths[73], width=350)     
+                            st.image(EQ_image_paths[73], width=350) 
+                         elif version_no == 5:
+                            st.image(EQ_image_paths[94], width=350)
+                    elif pregunta_no == 8:  
+                         if version_no == 1:
+                            st.image(EQ_image_paths[74], width=350)
+                         elif version_no == 2:
+                            st.image(EQ_image_paths[95], width=350)    
                 if subtopic == "Vectores 3D":
                     if pregunta_no == 1 or pregunta_no == 2:
                         if version_no == 1:
@@ -728,6 +735,13 @@ if authenticate_user():
                             st.image(EQ_image_paths[35], width=350)
                         elif version_no == 4:   
                             st.image(EQ_image_paths[36], width=350) 
+                    elif pregunta_no == 6:  
+                        st.image(EQ_image_paths[85], width=350)
+                    elif pregunta_no == 7:  
+                        st.image(EQ_image_paths[86], width=350)       
+                    elif pregunta_no == 8:  
+                        st.image(EQ_image_paths[87], width=350)
+                            
                 if subtopic == "Equilibrio 2D":
                     if pregunta_no == 1 or pregunta_no == 2:
                         if version_no == 1:
@@ -904,6 +918,23 @@ if authenticate_user():
                         st.image(EQ_image_paths[16], width=330)
                     if pregunta_no == 4:
                         st.image(EQ_image_paths[17], width=180)
+                    if pregunta_no == 6:
+                        st.image(EQ_image_paths[75], width=300)
+                    if pregunta_no == 7:
+                        if version_no == 1:
+                            st.image(EQ_image_paths[76], width=300)
+                        elif version_no == 2:
+                            st.image(EQ_image_paths[77])
+                        elif version_no == 3:
+                            st.image(EQ_image_paths[78])
+                    if pregunta_no == 8:
+                        if version_no == 1:
+                            st.image(EQ_image_paths[79], width=300)
+                        elif version_no == 2:
+                            st.image(EQ_image_paths[80])
+                        elif version_no == 3:
+                            st.image(EQ_image_paths[81])
+
                 if subtopic == "Vectores 3D":
                     if pregunta_no == 1 or pregunta_no==2 or pregunta_no == 3:
                         if version_no == 1:
@@ -913,7 +944,16 @@ if authenticate_user():
                         elif version_no == 3:
                             st.image(EQ_image_paths[39], width=350)
                         elif version_no == 4:
-                            st.image(EQ_image_paths[40], width=350) 
+                            st.image(EQ_image_paths[40], width=350)
+                    elif pregunta_no == 6:  
+                         if version_no == 1:
+                            st.image(EQ_image_paths[88], width=350)
+                    elif pregunta_no == 7:  
+                         if version_no == 1:
+                            st.image(EQ_image_paths[89], width=350)
+                    elif pregunta_no == 8:  
+                         if version_no == 1:
+                            st.image(EQ_image_paths[90], width=350) 
                 if subtopic == "Vector unitario":
                     if pregunta_no == 1 or pregunta_no == 2:
                         if version_no == 1:
@@ -926,6 +966,12 @@ if authenticate_user():
                             st.image(EQ_image_paths[48], width=350) 
                     if pregunta_no == 3 or pregunta_no == 4:
                         st.image(EQ_image_paths[49], width=400)
+                    if pregunta_no == 6:
+                        st.image(EQ_image_paths[96], width=350)
+                    if pregunta_no == 7:
+                        st.image(EQ_image_paths[97], width=350)
+                    if pregunta_no == 8:
+                        st.image(EQ_image_paths[98], width=450)
                 if subtopic == "Equilibrio 2D":
                     if pregunta_no == 1:
                         if version_no == 1:
@@ -1058,6 +1104,12 @@ if authenticate_user():
                             st.image(EQ_image_paths[27], width=250)
                         elif version_no == 4:
                             st.image(EQ_image_paths[28], width=250)
+                    if pregunta_no == 6:
+                        st.image(EQ_image_paths[82], width=350)
+                    if pregunta_no == 7:
+                        st.image(EQ_image_paths[83], width=350)
+                    if pregunta_no == 8:
+                        st.image(EQ_image_paths[84], width=350)
                 if subtopic == "Vectores 3D":
                     if pregunta_no == 1 or pregunta_no == 2 or pregunta_no == 3:
                         if version_no == 1:
@@ -1068,9 +1120,24 @@ if authenticate_user():
                             st.image(EQ_image_paths[43], width=400)
                         elif version_no == 4:
                             st.image(EQ_image_paths[44], width=400)
+                    elif pregunta_no == 6:  
+                         if version_no == 1:
+                            st.image(EQ_image_paths[91], width=350)
+                    elif pregunta_no == 7:  
+                         if version_no == 1:
+                            st.image(EQ_image_paths[92], width=350)
+                    elif pregunta_no == 8:  
+                         if version_no == 1:
+                            st.image(EQ_image_paths[93], width=350)
                 if subtopic == "Vector unitario":
                     if pregunta_no == 1 or pregunta_no == 2 or pregunta_no == 3:
                         st.image(EQ_image_paths[49], width=400)
+                    if pregunta_no == 5:
+                        st.image(EQ_image_paths[99], width=400)
+                    if pregunta_no == 6:
+                        st.image(EQ_image_paths[100], width=400)
+                    if pregunta_no == 7:
+                        st.image(EQ_image_paths[101], width=400)
                 if subtopic == "Equilibrio 2D":
                     if pregunta_no == 1:
                         st.image(EQ_image_paths[68], width=400)
@@ -1149,6 +1216,9 @@ if authenticate_user():
 
         with left_col:
             if difficulty == "Fácil":
+                if subtopic == "Vectores 2D":
+                    if pregunta_no == 8:
+                        st.image(EQ_rtas_paths[13], width=850)
                 if subtopic == "Equilibrio 2D":
                     if pregunta_no == 3:
                         st.image(EQ_rtas_paths[9], width=250)

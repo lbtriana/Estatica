@@ -30,6 +30,8 @@ AX = "Ángulo con el eje X [°]"
 AY = "Ángulo con el eje Y [°]"
 FX = "Componente con el eje X ${{(F1_x)}}$[kN]"
 FY = "Componente con el eje Y ${{(F1_y)}}$[kN]"
+Fu = "Componente con el eje u ${{(F1_u)}}$[kN]"
+Fv = "Componente con el eje y ${{(F1_v)}}$[kN]"
 FXN = "Componente con el eje X ${{(F1_x)}}$[N]"
 FYN = "Componente con el eje Y ${{(F1_y)}}$[N]"
 Mag = "Magnitud $[kN]$"
@@ -43,7 +45,8 @@ A3Y = "Ángulo respecto a Y $(\\beta)$ [°]"
 A3Z = "Ángulo respecto a Z $(\\gamma)$ [°]"
 CosX = "Coseno con X"
 CosY = "Coseno con Y"
-
+MagF1 = "Magnitud de F1 $[kN]$"
+MagF2 = "Magnitud de F2 $[kN]$"
 
 #----------------------------------- Ayudas --------------------------------------
 
@@ -82,6 +85,8 @@ El cálculo del ángulo respecto al eje x positivo depende del cuadrante en el q
 
 -Cuarto cuadrante:  $360 - tan^{-1}\\left(\\dfrac{componente\\hspace{1mm} \\hat{{j}}}{componente\\hspace{1mm} \\hat{{i}}}\\right)$  
 """
+A79 = "La componente de un vector a lo largo del eje u es la proyección del vector sobre el eje."
+
 
 #EQ_V2D_M
 A14 = "Determine las componentes de la fuerza resultante mediante la descomposición de las fuerzas en los ejes x, y o use la ley del paralelogramo. Tenga en cuenta el sentido de cada una de las fuerzas dentro de la sumatoria de las componentes. "
@@ -92,7 +97,7 @@ A18 = "Realice la sumatoria de fuerzas en Y para despejar F2, ¿a cuánto debe i
 A19 = "Para calcular la magnitud de la fuerza resultante realice la sumatoria de fuerzas en X de F1 y F2."
 A20 = "La fuerza vertical requerida, equivale a la sumatoria de las componentes en Y de las fuerzas F1 y F2."
 A21 = "Para despejar el ángulo, plantee el sistema de ecuaciones y busque formar una ecuación en términos de la fuerza y el ángulo conocido, en donde quede como expresión la tangente del ángulo desconocido. Es decir, reemplace la ecuación de la sumatoria de fuerzas en Y en la ecuación de la sumatoria de fuerzas en X"
-
+A80 = "Para calcular 2 incognitas en un sistema de 2 ecuaciones despeje una ecuación y remplace en la otra"
 #EQ_V2D_D
 A22 = "Use la ley del paralelogramo o la regla del triángulo para descomponer una fuerza en dos ejes que no son ortogonales"
 A23 = "Para construir el paralelogramo, comience en la cola del vector resultante, en este caso $F$ y trace líneas paralelas que formen el paralelogramo. Los lados del paralelogramo que están sobre los ejes, representan las componentes, $F_u$ y $F_v$. La mitad del paralelogramo ilustra la regla del triángulo. Recuerde que los ángulos internos deben sumar 180°"
@@ -105,7 +110,7 @@ A29 = "Con la ley de senos halle las magnitudes de F1 y F2"
 A30 = "Calcule la magnitud y la dirección de la fuerza resultante entre F1 y F3."
 A31 = "La fuerza resultante de las tres fuerzas corresponde a la suma de la resultante entre F1 y F3, y F2. Plantee la regla del triángulo, calcule los ángulos internos de forma que FR sea mínima. ¿Qué ángulo forma la fuerza resultante con uno de los lados del triángulo para ser mínima?."
 A32 = "Use la ley de senos o el Teorema de Pitágoras para hallar las magnitudes de las fuerzas."
-
+A81 = "Para minimizar use la derivada igualada a 0 de la ecuación."
 #EQ_V3D_F/M
 A33 = "Para hallar las componentes X y Y, proyecte el vector F en el plano XY"
 A34 = "Una vez el vector se encuentre en el plano XY, proyecte el vector hacia los ejes X y Y"
@@ -376,7 +381,13 @@ T3 = f"""
 
         $\\textbf{{\\small 1. Diagrama de cuerpo libre de la polea:}}$
     """
+#EQ_V2D_F
 
+T4 = f"""
+        A continuación se presenta la solución sugerida para el ejercicio:
+
+        $\\textbf{{\\small 1. Descomposición y geometría:}}$
+    """
 
 
 

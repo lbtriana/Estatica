@@ -130,6 +130,39 @@ EQ_image_paths= [#Imágenes Preguntas Cálculo Equilibrio de partículas
 "./Imagenes/Preguntas/EQ/V2D/EQ_V2_F_7b.png", #[71]
 "./Imagenes/Preguntas/EQ/V2D/EQ_V2_F_7c.png", #[72]
 "./Imagenes/Preguntas/EQ/V2D/EQ_V2_F_7d.png", #[73]
+"./Imagenes/Preguntas/EQ/V2D/EQ_V2_F_8a.png", #[74] 
+"./Imagenes/Preguntas/EQ/V2D/EQ_V2_M_6a.png", #[75]
+"./Imagenes/Preguntas/EQ/V2D/EQ_V2_M_7a.png", #[76]
+"./Imagenes/Preguntas/EQ/V2D/EQ_V2_M_7b.png", #[77]
+"./Imagenes/Preguntas/EQ/V2D/EQ_V2_M_7c.png", #[78]
+"./Imagenes/Preguntas/EQ/V2D/EQ_V2_M_8a.png", #[79]
+"./Imagenes/Preguntas/EQ/V2D/EQ_V2_M_8b.png", #[80]
+"./Imagenes/Preguntas/EQ/V2D/EQ_V2_M_8c.png", #[81]
+"./Imagenes/Preguntas/EQ/V2D/EQ_V2_D_6a.png", #[82]
+"./Imagenes/Preguntas/EQ/V2D/EQ_V2_D_7a.png", #[83]
+"./Imagenes/Preguntas/EQ/V2D/EQ_V2_D_8a.png", #[84]
+
+#Vectores 3D
+"./Imagenes/Preguntas/EQ/V3D/EQ_V3_F_6a.png", #[85] 
+"./Imagenes/Preguntas/EQ/V3D/EQ_V3_F_7a.png", #[86]
+"./Imagenes/Preguntas/EQ/V3D/EQ_V3_F_8a.png", #[87]
+"./Imagenes/Preguntas/EQ/V3D/EQ_V3_M_6a.png", #[88] 
+"./Imagenes/Preguntas/EQ/V3D/EQ_V3_M_7a.png", #[89]
+"./Imagenes/Preguntas/EQ/V3D/EQ_V3_M_8a.png", #[90]
+"./Imagenes/Preguntas/EQ/V3D/EQ_V3_D_6a.png", #[91] 
+"./Imagenes/Preguntas/EQ/V3D/EQ_V3_D_7a.png", #[92]
+"./Imagenes/Preguntas/EQ/V3D/EQ_V3_D_8a.png", #[93] 
+
+#Vectores unitarios
+
+"./Imagenes/Preguntas/EQ/EQ_VU_F_7a.png", #[94]
+"./Imagenes/Preguntas/EQ/EQ_VU_F_8a.png", #[95]
+"./Imagenes/Preguntas/EQ/EQ_VU_M_6a.png", #[96] 
+"./Imagenes/Preguntas/EQ/EQ_VU_M_7a.png", #[97]
+"./Imagenes/Preguntas/EQ/EQ_VU_M_8a.png", #[98]
+"./Imagenes/Preguntas/EQ/EQ_VU_D_6a.png", #[99] 
+"./Imagenes/Preguntas/EQ/EQ_VU_D_7a.png", #[100]
+"./Imagenes/Preguntas/EQ/EQ_VU_D_8a.png", #[101]
 ]
 
 M2D_image_paths =[#Imágenes Preguntas Cálculo Momento en un punto 2D
@@ -367,6 +400,8 @@ EQ_rtas_paths= [#Imágenes Respuestas Cálculos Equilibrio
 #Equilibrio 2D_Poleas_Nivel fácil
 "./Imagenes/Respuestas/EQ/EQ2D/R_EQ_EQ2D_F_1b.png", #[12]
 
+#Vectores 2D _ Ejes oblicuos _ Nivel facil
+"./Imagenes/Respuestas/EQ/V2D/R_EQ_V2D_F_8a.png", #[13]
 ]
 
 EQ_rtas_paths= [#Imágenes Respuestas Cálculos Equilibrio
@@ -396,6 +431,8 @@ EQ_rtas_paths= [#Imágenes Respuestas Cálculos Equilibrio
 
 #Equilibrio 2D_Poleas_Nivel fácil
 "./Imagenes/Respuestas/EQ/EQ2D/R_EQ_EQ2D_F_1b.png", #[12]
+#Vectores 2D _ Ejes oblicuos _ Nivel facil
+"./Imagenes/Respuestas/EQ/V2D/R_EQ_V2D_F_8a.png", #[13]
 
 ]
 

@@ -753,6 +753,61 @@ preguntas = [
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),
+
+    Questionary(#8_1
+        code = 1110081,
+        no_pregunta = 8,
+        complexity = F,
+        topic = EQ,
+        subtopic = V2D,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Resuelva la fuerza $\\text{{F1}}={f[0]:.0f}\\text{{ kN}}$ en componentes que actúen a lo largo de los ejes 𝑢,  𝑣 sabiendo que $\\alpha_u = {a[0]:.0f}\\degree$ y $\\alpha_v = {a[1]:.0f}\\degree$.",
+        no_answers = 2,
+        a1_name = Fu,
+        a2_name = Fv,
+        a3_name = "",
+        answer1=lambda f, a, calc, c, d, m: np.round((f[0]*Calculations.sine(a[1]-a[0]))/Calculations.sine(a[0]),2),
+        answer2=lambda f, a, calc, c, d, m: np.round((f[0]*Calculations.sine(180-a[0]-(a[1]-a[0]))/Calculations.sine(a[0])),2),
+        answer3=lambda f, a, calc, c, d, m: 0,
+        ayuda1 = A79,
+        ayuda2 = A5,
+        ayuda3 = A6,
+        respuesta_P1 = lambda f, a, calc, c, d, m: T4,     
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"""
+        $\\textbf{{\\small 2. Cálculo de angulos :}}$
+
+        Geométricamente se puede observar que:
+        
+        ${{\\hspace{{4mm}} \\theta_{{u}} = (\\alpha_v - \\alpha_u)}}$
+
+        ${{\\hspace{{4mm}} \\theta_{{u}} = {a[1]-a[0]:.2f}}}$
+
+        Debido a que la suma de los 3 lados del triángulo tiene que sumar 180:
+
+        ${{\\hspace{{4mm}} \\theta_{{v}} = 180 - \\alpha_u - \\theta_u)}}$
+
+        ${{\\hspace{{4mm}} \\theta_{{v}} = {180-a[0]-(a[1]-a[0]):.2f}}}$
+
+        $\\textbf{{\\small 2. Cálculo de componentes :}}$
+
+        Ley de senos para cálculo de componentes
+
+        ${{\\hspace{{4mm}} \\frac{{F_{{u}}}}{{sen(\\theta_u)}} = \\frac{{F_{{1}}}}{{sen(\\alpha_u)}}= \\frac{{F_{{v}}}}{{sen(\\theta_v)}}}}$
+
+        Despejando obtenemos que:
+    
+        ${{\\hspace{{4mm}} F_u = \\frac{{F1sen(\\theta_u)}}{{sen(\\alpha_u)}}}}$
+
+        ${{\\hspace{{4mm}} F_u = {f[0]*Calculations.sine(a[1]-a[0])/Calculations.sine(a[0]):.2f}}}\\text{{ kN}}$
+
+        ${{\\hspace{{4mm}} F_v = \\frac{{F1sen(\\theta_v)}}{{sen(\\alpha_u)}}}}$
+
+        ${{\\hspace{{4mm}} F_v = {f[0]*Calculations.sine(180-a[0]-(a[1]-a[0]))/Calculations.sine(a[0]):.2f}}}\\text{{ kN}}$
+
+        """,        
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
     #=================================================EQUILIBRIO DE PARTÍCULAS===================================================
     #-------------------------------------------------     Vectores 2D        ---------------------------------------------------
     #-------------------------------------------------     Nivel medio        ---------------------------------------------------
@@ -1217,7 +1272,364 @@ preguntas = [
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",    
         calculos='operations'
         ),
+    
+    Questionary(#6_1
+        code = 1120061,
+        no_pregunta = 6,
+        complexity = M,
+        topic = EQ,
+        subtopic = V2D,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Para extraer el ancla se necesitan tres cuerdas con $F1={f[0]:.0f} \\text{{ kN}}$, $F2={f[2]:.0f} \\text{{ kN}}$, $F3={f[3]:.0f} \\text{{ kN}}$ y con ángulos de $\\alpha_1 ={a[0]:.0f}°$, $\\alpha_2 ={a[4]:.0f}°$, $\\alpha_3 ={a[8]:.0f}°$. El día de hoy dejo de funcionar la cuerda 1 y 2, que fuerza debe hacer la cuerda 3 y con que dirección en sentido antihorario del eje x positivo para sacar el ancla. ",
+        no_answers = 2,
+        a1_name = Mag,
+        a2_name = Dir,
+        a3_name = "",
+        answer1=lambda f, a, calc, c, d, m: np.round(Calculations.magnitude((-f[0]*Calculations.sine(a[0])+f[2]*Calculations.cosine(a[4])-f[3]*Calculations.sine(a[8])) , (f[0]*Calculations.cosine(a[0])+f[2]*Calculations.sine(a[4])-f[3]*Calculations.cosine(a[8]))),2),
+        answer2=lambda f, a, calc, c, d, m: np.round(Calculations.define_angle((-f[0]*Calculations.sine(a[0])+f[2]*Calculations.cosine(a[4])-f[3]*Calculations.sine(a[8])) , (f[0]*Calculations.cosine(a[0])+f[2]*Calculations.sine(a[4])-f[3]*Calculations.cosine(a[8]))),2),
+        answer3=lambda f, a, calc, c, d, m: 0,
+        ayuda1 = A17,
+        ayuda2 = A15,
+        ayuda3 = A13,
+        respuesta_P1 = lambda f, a, calc, c, d, m:f"""
+        A continuación se presenta la solución sugerida para el ejercicio:
 
+        $\\textbf{{\\small 1. Cálculo de las componentes X y Y de las fuerzas:}}$
+
+        ${{\hspace{{4mm}} \\sum{{F_x}} = F_{{X}} = F1_x + F2_x + F3_x }}$
+        ${{\hspace{{4mm}} \\sum{{F_x}} = F_{{X}} = -F1 sen(\\alpha_1) + F2 cos(\\alpha_2) - F3 sen (\\alpha_3) = ({-f[0]*Calculations.sine(a[0]):.2f}) \\hat{{i}}  + ({f[2]*Calculations.cosine(a[4]):.2f}) \\hat{{i}} + ({-f[3]*Calculations.sine(a[8]):.2f}) \\hat{{i}} = {(-f[0]*Calculations.sine(a[0])+f[2]*Calculations.cosine(a[4])-f[3]*Calculations.sine(a[8])):.2f} \\text{{ kN}} }}$
+
+        ${{\hspace{{4mm}} \\sum{{F_y}} = F_{{Y}} = F1_y + F2_y + F3_y }}$ 
+        ${{\hspace{{4mm}} \\sum{{F_x}} = F_{{X}} = F1 cos(\\alpha_1) + F2 sen(\\alpha_2) - F3 cos(\\alpha_3) = ({f[0]*Calculations.cosine(a[0]):.2f}) \\hat{{j}}  + ({f[2]*Calculations.sine(a[4]):.2f}) \\hat{{j}} + ({-f[3]*Calculations.cosine(a[8]):.2f}) \\hat{{j}} = {(f[0]*Calculations.cosine(a[0])+f[2]*Calculations.sine(a[4])-f[3]*Calculations.cosine(a[8])):.2f} \\text{{ kN}} }}$ 
+
+        $\\textbf{{\\small 2. Cálculo de la magnitud:}}$
+
+        ${{\hspace{{4mm}} |F_R|=\\sqrt{{F_{{RX}}^2+F_{{RY}}^2}} = {Calculations.magnitude((-f[0]*Calculations.sine(a[0])+f[2]*Calculations.cosine(a[4])-f[3]*Calculations.sine(a[8])) , (f[0]*Calculations.cosine(a[0])+f[2]*Calculations.sine(a[4])-f[3]*Calculations.cosine(a[8]))):.2f}}} \\text{{ kN}}$
+
+        $\\textbf{{\\small 3. Cálculo de la dirección:}}$
+
+        ${{\hspace{{4mm}} \\alpha ={Calculations.define_angle((-f[0]*Calculations.sine(a[0])+f[2]*Calculations.cosine(a[4])-f[3]*Calculations.sine(a[8])) , (f[0]*Calculations.cosine(a[0])+f[2]*Calculations.sine(a[4])-f[3]*Calculations.cosine(a[8]))):.2f}}}°$
+
+        El cálculo del ángulo respecto al eje x positivo depende del cuadrante en el que se encuentra el vector:
+
+        -Primer cuadrante:  $tan^{-1}\\left(\\dfrac{{componente \\hspace{{1mm}} \\hat{{j}} }} {{componente \\hspace{{1mm}} \\hat{{i}} }}\\right)$  
+
+        -Segundo cuadrante: $180 - tan^{-1}\\left(\\dfrac{{componente \\hspace{{1mm}} \\hat{{j}} }}{{componente \\hspace{{1mm}} \\hat{{i}} }}\\right)$  
+
+        -Tercer cuadrante:  $180 + tan^{-1}\\left(\\dfrac{{componente \\hspace{{1mm}} \\hat{{j}} }}{{componente \\hspace{{1mm}} \\hat{{i}} }}\\right)$  
+
+        -Cuarto cuadrante:  $360 - tan^{-1}\\left(\\dfrac{{componente \\hspace{{1mm}} \\hat{{j}} }}{{componente \\hspace{{1mm}} \\hat{{i}} }}\\right)$ 
+        
+        """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",    
+        calculos='operations'
+        ),
+    Questionary(#7_1
+        code = 1120071,
+        no_pregunta = 7,
+        complexity = M,
+        topic = EQ,
+        subtopic = V2D,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"La piedra es jalada usando dos cuerdas. Determine la magnitud de las fuerzas $F1$ y $F2$ que deben actuar en las cuerdas para desarrollar una fuerza resultante de $FR = {f[0]:.0f}$ dirigida a lo largo del eje x positivo.  ",
+        no_answers = 2,
+        a1_name = MagF1,
+        a2_name = MagF2,
+        a3_name = "",
+        answer1=lambda f, a, calc, c, d, m: np.round((f[0]/((((math.sin(math.atan(5/8)))*math.cos(math.atan(3/6)))/math.sin(math.atan(3/6)))+ math.cos(math.atan(5/8))))*math.sin(math.atan(5/8))/math.sin(math.atan(3/6)),2),
+        answer2=lambda f, a, calc, c, d, m: np.round(f[0]/((((math.sin(math.atan(5/8)))*math.cos(math.atan(3/6)))/math.sin(math.atan(3/6)))+ math.cos(math.atan(5/8))),2),
+        answer3=lambda f, a, calc, c, d, m: 0,
+        ayuda1 = A17,
+        ayuda2 = A21,
+        ayuda3 = A19,
+        respuesta_P1 = lambda f, a, calc, c, d, m:f"""
+        A continuación se presenta la solución sugerida para el ejercicio:
+
+        $\\textbf{{\\small 1. Cálculo de los angulos:}}$
+
+        ${{\hspace{{4mm}} \\alpha_1 = tan^{-1}\\left(\\dfrac{{3}}{{6}}\\right) = {math.atan(3/6)*(180/math.pi):.2f}}}°$
+
+        ${{\hspace{{4mm}} \\alpha_2 = tan^{-1}\\left(\\dfrac{{5}}{{8}}\\right) = {math.atan(5/8)*(180/math.pi):.2f}}}°$
+        
+        $\\textbf{{\\small 2. Descomposición de fuerzas:}}$
+
+        ${{\hspace{{4mm}} {{FR_x}} = F1 cos(\\alpha_1) + F2 cos(\\alpha_2) = FR}}$
+
+        ${{\hspace{{4mm}} {{FR_y}} = F1 sen(\\alpha_1) - F2 sen(\\alpha_2) = 0}}$
+
+        Despejando F1 en la 2 ecuación obtenemos:
+
+        ${{\hspace{{4mm}} {{F1}} = \\left(\\dfrac{{F2 sen(\\alpha_2)}}{{sen(\\alpha_1)}}\\right)}}$
+
+        Reemplazando en la 1 ecuación:
+
+        ${{\hspace{{4mm}} {{F2}} = \\left(\\dfrac{{FR}}{{\\left(\\dfrac{{sen(\\alpha_2) cos(\\alpha_1)}}{{sen(\\alpha_1)}}\\right) + cos(\\alpha_2)}}\\right)}}$
+
+
+        $\\textbf{{\\small 3. Cálculo de las magnitudes:}}$
+
+        ${{\hspace{{4mm}} F2 ={f[0]/((((math.sin(math.atan(5/8)))*math.cos(math.atan(3/6)))/math.sin(math.atan(3/6)))+ math.cos(math.atan(5/8))):.2f}}}°$
+
+        ${{\hspace{{4mm}} F1 ={(f[0]/((((math.sin(math.atan(5/8)))*math.cos(math.atan(3/6)))/math.sin(math.atan(3/6)))+ math.cos(math.atan(5/8))))*math.sin(math.atan(5/8))/math.sin(math.atan(3/6)):.2f}}}$
+        
+        """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",    
+        calculos='operations'
+        ),
+    
+    Questionary(#7_2
+        code = 1120072,
+        no_pregunta = 7,
+        complexity = M,
+        topic = EQ,
+        subtopic = V2D,
+        version = 2,
+        pregunta = lambda f, a, calc, c, d, m: f"La piedra es jalada usando dos cuerdas. Determine la magnitud y dirección con respecto al eje x positivo de la fuerza $F1$ que deben actuar sobre la cuerda 1 , si se desarrolla una fuerza resultante de $FR = {f[0]:.0f}$ dirigida a lo largo del eje x positivo y $F2 = {f[1]:.0f}$.",
+        no_answers = 2,
+        a1_name = MagF1,
+        a2_name = Dir,
+        a3_name = "",
+        answer1=lambda f, a, calc, c, d, m: np.round((f[1]*math.sin(math.atan(5/8)))/math.sin(math.atan(f[1]*math.sin(math.atan(5/8))/(f[0]-f[1]*math.cos(math.atan(5/8))))),2),
+        answer2=lambda f, a, calc, c, d, m: np.round(math.degrees(math.atan(f[1]*math.sin(math.atan(5/8))/(f[0]-f[1]*math.cos(math.atan(5/8))))),2),
+        answer3=lambda f, a, calc, c, d, m: 0,
+        ayuda1 = A17,
+        ayuda2 = A21,
+        ayuda3 = A19,
+        respuesta_P1 = lambda f, a, calc, c, d, m:f"""
+        A continuación se presenta la solución sugerida para el ejercicio:
+
+        $\\textbf{{\\small 1. Cálculo de los angulos:}}$
+
+        ${{\hspace{{4mm}} \\alpha_2 = tan^{-1}\\left(\\dfrac{{5}}{{8}}\\right) = {math.atan(5/8)*(180/math.pi):.2f}}}°$
+        
+        $\\textbf{{\\small 2. Descomposición de fuerzas:}}$
+
+        ${{\hspace{{4mm}} {{FR_x}} = F1 cos(\\alpha_1) + F2 cos(\\alpha_2) = FR}}$
+        
+        ${{\hspace{{4mm}} {{FR_y}} = F1 sen(\\alpha_1) - F2 sen(\\alpha_2) = 0}}$
+
+        Despejando F1 en la 2 ecuación obtenemos:
+
+        ${{\hspace{{4mm}} {{F1}} = \\left(\\dfrac{{F2 sen(\\alpha_2)}}{{sen(\\alpha_1)}}\\right)}}$
+
+        Reemplazando en la 1 ecuación:
+
+        ${{\hspace{{4mm}} {{\\alpha_1}} = tan^{-1} \\left(\\dfrac{{F2 sen(\\alpha_2)}}{{FR - F2 cos(\\alpha_2)}}\\right)}}$
+
+        $\\textbf{{\\small 3. Cálculo de las magnitud y la dirección:}}$
+
+        ${{\hspace{{4mm}} \\alpha_1 ={math.degrees(math.atan(f[1]*math.sin(math.atan(5/8))/(f[0]-f[1]*math.cos(math.atan(5/8))))):.2f}}}°$
+
+        ${{\hspace{{4mm}} F1 ={(f[1]*math.sin(math.atan(5/8)))/math.sin(math.atan(f[1]*math.sin(math.atan(5/8))/(f[0]-f[1]*math.cos(math.atan(5/8))))):.2f}}}$
+        
+        """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",    
+        calculos='operations'
+        ),
+    
+    Questionary(#7_3
+        code = 1120073,
+        no_pregunta = 7,
+        complexity = M,
+        topic = EQ,
+        subtopic = V2D,
+        version = 3,
+        pregunta = lambda f, a, calc, c, d, m: f"La piedra es jalada usando dos cuerdas. Determine la magnitud y dirección con respecto al eje x positivo de la fuerza $F2$ que deben actuar sobre la cuerda 1 , si se desarrolla una fuerza resultante de $FR = {f[0]:.0f}$ dirigida a lo largo del eje x positivo y $F1 = {f[1]:.0f}$.",
+        no_answers = 2,
+        a1_name = MagF2,
+        a2_name = Dir,
+        a3_name = "",
+        answer1=lambda f, a, calc, c, d, m: np.round((f[1]*math.sin(math.atan(3/6)))/math.sin(math.atan(f[1]*math.sin(math.atan(3/6))/(f[0]-f[1]*math.cos(math.atan(3/6))))),2),
+        answer2=lambda f, a, calc, c, d, m: np.round(math.degrees(math.atan(f[1]*math.sin(math.atan(3/6))/(f[0]-f[1]*math.cos(math.atan(3/6))))),2),
+        answer3=lambda f, a, calc, c, d, m: 0,
+        ayuda1 = A17,
+        ayuda2 = A21,
+        ayuda3 = A19,
+        respuesta_P1 = lambda f, a, calc, c, d, m:f"""
+        A continuación se presenta la solución sugerida para el ejercicio:
+
+        $\\textbf{{\\small 1. Cálculo de los angulos:}}$
+
+        ${{\hspace{{4mm}} \\alpha_1 = tan^{-1}\\left(\\dfrac{{3}}{{6}}\\right) = {math.atan(3/6)*(180/math.pi):.2f}}}°$
+        
+        $\\textbf{{\\small 2. Descomposición de fuerzas:}}$
+
+        ${{\hspace{{4mm}} {{FR_x}} = F1 cos(\\alpha_1) + F2 cos(\\alpha_2) = FR}}$
+        
+        ${{\hspace{{4mm}} {{FR_y}} = F1 sen(\\alpha_1) - F2 sen(\\alpha_2) = 0}}$
+
+        Despejando F1 en la 2 ecuación obtenemos:
+
+        ${{\hspace{{4mm}} {{F2}} = \\left(\\dfrac{{F1 sen(\\alpha_1)}}{{sen(\\alpha_2)}}\\right)}}$
+
+        Reemplazando en la 1 ecuación:
+
+        ${{\hspace{{4mm}} {{\\alpha_1}} = tan^{-1} \\left(\\dfrac{{F1 sen(\\alpha_1)}}{{FR - F1 cos(\\alpha_1)}}\\right)}}$
+
+        $\\textbf{{\\small 3. Cálculo de las magnitud y la dirección:}}$
+
+        ${{\hspace{{4mm}} \\alpha_2 ={math.degrees(math.atan(f[1]*math.sin(math.atan(3/6))/(f[0]-f[1]*math.cos(math.atan(3/6))))):.2f}}}°$
+
+        ${{\hspace{{4mm}} F2 ={(f[1]*math.sin(math.atan(3/6)))/math.sin(math.atan(f[1]*math.sin(math.atan(3/6))/(f[0]-f[1]*math.cos(math.atan(3/6))))):.2f}}}$
+        
+        """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",    
+        calculos='operations'
+        ),
+
+    Questionary(#8_1
+        code = 1120081,
+        no_pregunta = 8,
+        complexity = M,
+        topic = EQ,
+        subtopic = V2D,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"El sofá es jalado usando dos cuerdas. Determine la magnitud de las fuerzas $F1$ y $F2$ que deben actuar en las cuerdas para desarrollar una fuerza resultante de $FR = {f[0]:.0f}$ dirigida a lo largo del eje y positivo. Considere $\\alpha_1 ={a[0]:.0f}°$.",
+        no_answers = 2,
+        a1_name = MagF1,
+        a2_name = MagF2,
+        a3_name = "",
+        answer1=lambda f, a, calc, c, d, m: np.round((f[0]/((((math.sin(Calculations.sine(a[0])))*math.cos(math.atan(7/5)))/math.sin(math.atan(7/5)))+ (Calculations.cosine(a[0])))),2),
+        answer2=lambda f, a, calc, c, d, m: np.round((f[0]/((((math.sin(Calculations.sine(a[0])))*math.cos(math.atan(7/5)))/math.sin(math.atan(7/5)))+ (Calculations.cosine(a[0]))))*Calculations.sine(a[0])/math.sin(math.atan(7/5)),2),
+        answer3=lambda f, a, calc, c, d, m: 0,
+        ayuda1 = A17,
+        ayuda2 = A80,
+        ayuda3 = A19,
+        respuesta_P1 = lambda f, a, calc, c, d, m:f"""
+        A continuación se presenta la solución sugerida para el ejercicio:
+
+        $\\textbf{{\\small 1. Cálculo de los angulos:}}$
+
+        ${{\hspace{{4mm}} \\alpha_2 = tan^{-1}\\left(\\dfrac{{7}}{{5}}\\right) = {math.atan(7/5)*(180/math.pi):.2f}}}°$
+        
+        $\\textbf{{\\small 2. Descomposición de fuerzas:}}$
+
+        ${{\hspace{{4mm}} {{FR_x}} = - F1 sen(\\alpha_1) + F2 sen(\\alpha_2) = 0}}$
+
+        ${{\hspace{{4mm}} {{FR_y}} = F1 cos(\\alpha_1) + F2 cos(\\alpha_2) = FR}}$
+
+        Despejando $F2$ en la 1 ecuación obtenemos:
+
+        ${{\hspace{{4mm}} {{F2}} = \\left(\\dfrac{{F1 sen(\\alpha_1)}}{{sen(\\alpha_2)}}\\right)}}$
+
+        Reemplazando en la 2 ecuación:
+
+        ${{\hspace{{4mm}} {{F1}} = \\left(\\dfrac{{FR}}{{\\left(\\dfrac{{sen(\\alpha_1) cos(\\alpha_2)}}{{sen(\\alpha_2)}}\\right) + cos(\\alpha_1)}}\\right)}}$
+
+
+        $\\textbf{{\\small 3. Cálculo de las magnitudes:}}$
+
+        ${{\hspace{{4mm}} F2 ={(f[0]/((((math.sin(Calculations.sine(a[0])))*math.cos(math.atan(7/5)))/math.sin(math.atan(7/5)))+ (Calculations.cosine(a[0])))):.2f}}}$
+
+        ${{\hspace{{4mm}} F1 ={(f[0]/((((math.sin(Calculations.sine(a[0])))*math.cos(math.atan(7/5)))/math.sin(math.atan(7/5)))+ (Calculations.cosine(a[0]))))*Calculations.sine(a[0])/math.sin(math.atan(7/5)):.2f}}}$
+        
+        """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",    
+        calculos='operations'
+        ),
+    
+    Questionary(#8_2
+        code = 1120082,
+        no_pregunta = 8,
+        complexity = M,
+        topic = EQ,
+        subtopic = V2D,
+        version = 2,
+        pregunta = lambda f, a, calc, c, d, m: f"El sofá es jalado usando dos cuerdas. Determine la magnitud y dirección con respecto al eje $x$ positivo de la fuerza $F1$ que deben actuar sobre la cuerda 1 , si se desarrolla una fuerza resultante de $FR = {f[0]:.0f}$ dirigida a lo largo del eje y positivo y $F2 = {f[1]:.0f}$.",
+        no_answers = 2,
+        a1_name = MagF1,
+        a2_name = Dir,
+        a3_name = "",
+        answer1=lambda f, a, calc, c, d, m: np.round((f[1]*math.sin(math.atan(7/5)))/math.sin(math.atan(f[1]*math.sin(math.atan(7/5))/(f[0]-f[1]*math.cos(math.atan(7/5))))),2),
+        answer2=lambda f, a, calc, c, d, m: np.round(90 + math.degrees(math.atan(f[1]*math.sin(math.atan(7/5))/(f[0]-f[1]*math.cos(math.atan(7/5))))),2),
+        answer3=lambda f, a, calc, c, d, m: 0,
+        ayuda1 = A17,
+        ayuda2 = A80,
+        ayuda3 = A19,
+        respuesta_P1 = lambda f, a, calc, c, d, m:f"""
+        A continuación se presenta la solución sugerida para el ejercicio:
+
+        $\\textbf{{\\small 1. Cálculo de los angulos:}}$
+
+        ${{\hspace{{4mm}} \\alpha_2 = tan^{-1}\\left(\\dfrac{{7}}{{5}}\\right) = {math.atan(7/5)*(180/math.pi):.2f}}}°$
+        
+        $\\textbf{{\\small 2. Descomposición de fuerzas:}}$
+
+        ${{\hspace{{4mm}} {{FR_x}} = -F1 cos(\\alpha_1) + F2 cos(\\alpha_2) = 0}}$
+        
+        ${{\hspace{{4mm}} {{FR_y}} = F1 sen(\\alpha_1) + F2 sen(\\alpha_2) = FR}}$
+
+        Despejando F1 en la 1 ecuación obtenemos:
+
+        ${{\hspace{{4mm}} {{F1}} = \\left(\\dfrac{{F2 sen(\\alpha_2)}}{{sen(\\alpha_1)}}\\right)}}$
+
+        Reemplazando en la 2 ecuación:
+
+        ${{\hspace{{4mm}} {{\\alpha_1}} = tan^{-1} \\left(\\dfrac{{F2 sen(\\alpha_2)}}{{FR - F2 cos(\\alpha_2)}}\\right)}}$
+
+        $\\textbf{{\\small 3. Cálculo de las magnitud y la dirección:}}$
+
+        ${{\hspace{{4mm}} \\alpha_1 ={90 + math.degrees(math.atan(f[1]*math.sin(math.atan(7/5))/(f[0]-f[1]*math.cos(math.atan(7/5))))):.2f}}}°$
+
+        ${{\hspace{{4mm}} F1 ={(f[1]*math.sin(math.atan(7/5)))/math.sin(math.atan(f[1]*math.sin(math.atan(7/5))/(f[0]-f[1]*math.cos(math.atan(7/5))))):.2f}}}$
+        
+        """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",    
+        calculos='operations'
+        ),
+    
+    Questionary(#8_3
+        code = 1120083,
+        no_pregunta = 8,
+        complexity = M,
+        topic = EQ,
+        subtopic = V2D,
+        version = 3,
+        pregunta = lambda f, a, calc, c, d, m: f"El sofá es jalado usando dos cuerdas. Determine la magnitud y dirección con respecto al eje $x$ positivo de la fuerza $F2$ que deben actuar sobre la cuerda 2 , si se desarrolla una fuerza resultante de $FR = {f[0]:.0f}$ dirigida a lo largo del eje y positivo, $F1 = {f[1]:.0f}$ y $\\alpha_1 ={a[0]:.0f}°$.",
+        no_answers = 2,
+        a1_name = MagF2,
+        a2_name = Dir,
+        a3_name = "",
+        answer1=lambda f, a, calc, c, d, m: np.round((f[1]*Calculations.sine(a[0]))/math.sin(math.atan(f[1]*Calculations.sine(a[0])/(f[0]-f[1]*Calculations.cosine(a[0])))),2),
+        answer2=lambda f, a, calc, c, d, m: np.round(90 + math.degrees(math.atan(f[1]*Calculations.sine(a[0])/(f[0]-f[1]*Calculations.cosine(a[0])))),2),
+        answer3=lambda f, a, calc, c, d, m: 0,
+        ayuda1 = A17,
+        ayuda2 = A80,
+        ayuda3 = A19,
+        respuesta_P1 = lambda f, a, calc, c, d, m:f"""
+        A continuación se presenta la solución sugerida para el ejercicio:
+      
+        $\\textbf{{\\small 1. Descomposición de fuerzas:}}$
+
+        ${{\hspace{{4mm}} {{FR_x}} = -F1 cos(\\alpha_1) + F2 cos(\\alpha_2) = 0}}$
+        
+        ${{\hspace{{4mm}} {{FR_y}} = F1 sen(\\alpha_1) + F2 sen(\\alpha_2) = FR}}$
+
+        Despejando F1 en la 1 ecuación obtenemos:
+
+        ${{\hspace{{4mm}} {{F2}} = \\left(\\dfrac{{F1 sen(\\alpha_1)}}{{sen(\\alpha_2)}}\\right)}}$
+
+        Reemplazando en la 2 ecuación:
+
+        ${{\hspace{{4mm}} {{\\alpha_1}} = tan^{-1} \\left(\\dfrac{{F1 sen(\\alpha_1)}}{{FR - F1 cos(\\alpha_1)}}\\right)}}$
+
+        $\\textbf{{\\small 2. Cálculo de las magnitud y la dirección:}}$
+
+        ${{\hspace{{4mm}} \\alpha_2 ={90 + math.degrees(math.atan(f[1]*Calculations.sine(a[0])/(f[0]-f[1]*Calculations.cosine(a[0])))):.2f}}}°$
+
+        ${{\hspace{{4mm}} F2 ={(f[1]*Calculations.sine(a[0]))/math.sin(math.atan(f[1]*Calculations.sine(a[0])/(f[0]-f[1]*Calculations.cosine(a[0])))):.2f}}}$
+        
+        """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",    
+        calculos='operations'
+        ),
     #=================================================EQUILIBRIO DE PARTÍCULAS===================================================
     #-------------------------------------------------     Vectores 2D        ---------------------------------------------------
     #-------------------------------------------------    Nivel díficil       ---------------------------------------------------
@@ -1343,6 +1755,196 @@ preguntas = [
         calculos='operations'
         ),
 
+    Questionary(#6_1
+        code = 1130061,
+        no_pregunta = 6,
+        complexity = D,
+        topic = EQ,
+        subtopic = V2D,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza $F3$ de manera que la resultante $FR$ de las tres fuerzas sea tan pequeña como sea posible. Considere $F1$ = ${f[0]:.0f}\\text{{ kN}}$ , $F2$ = ${f[1]:.0f}\\text{{ kN}}$ y $\\alpha_1$ es ${a[0]:.2f}$°",
+        no_answers = 1,
+        a1_name = Mag,
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(abs((f[0]*(4/5)+0)*Calculations.cosine(a[0]) + (f[0]*(3/5)-f[1])*(-Calculations.sine(a[0]))),2),
+        answer2 = lambda f, a, calc, c, d, m: 0,
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = A17,
+        ayuda2 = A81,
+        ayuda3 = A32,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        A continuación se presenta la solución sugerida para el ejercicio:
+      
+        $\\textbf{{\\small 1. Descomposición de fuerzas:}}$
+
+        ${{\hspace{{4mm}} {{F1}} = F1 (\\left(\\dfrac{{4}}{{5}}\\right) \\hat{{ i}}, \\left(\\dfrac{{3}}{{5}}\\right) \\hat{{ j}}) = ({f[0]*(4/5)} \\hat{{ i}}, {f[0]*(3/5)} \\hat{{ j}})}}$
+        
+        ${{\hspace{{4mm}} {{F2}} =  (0 \\hat{{ i}}, -F2 \\hat{{ j}})) = {0} \\hat{{ i}}, {-f[1]} \\hat{{ j}} }}$
+
+        ${{\hspace{{4mm}} {{u3}} =  cos(\\alpha_1), -sen(\\alpha_1) = ({Calculations.cosine(a[0]):.2f}, {-Calculations.sine(a[0]):.2f})}}$
+
+        Sumamos F1 y F2:
+
+        ${{\hspace{{4mm}} {{A}} = F1 + F2 = {(f[0]*(4/5)+0):.2f} , {(f[0]*(3/5)-f[1]):.2f}}}$
+
+        Minimizar
+
+        ${{\hspace{{4mm}} {{FR}} =  -A \\bullet u3 }}$
+
+        ${{\hspace{{4mm}} {{A \\bullet u3}} = ({(f[0]*(4/5)+0):.2f} , {(f[0]*(3/5)-f[1]):.2f})({Calculations.cosine(a[0]):.2f},{-Calculations.sine(a[0]):.2f})}}$
+
+        ${{\hspace{{4mm}} {{A \\bullet u3}} = {((f[0]*(4/5)+0)*Calculations.cosine(a[0])):.2f} + {(f[0]*(3/5)-f[1])*(-Calculations.sine(a[0])):.2f}}}$
+
+        Magnitud de FR:
+
+        ${{\hspace{{4mm}} {{-Au3}} = {-((f[0]*(4/5)+0)*Calculations.cosine(a[0]) + (f[0]*(3/5)-f[1])*(-Calculations.sine(a[0]))):.2f}}}$
+        
+        ${{\hspace{{4mm}} {{FR}} = {abs((f[0]*(4/5)+0)*Calculations.cosine(a[0]) + (f[0]*(3/5)-f[1])*(-Calculations.sine(a[0]))):.2f}}}$
+        """,
+        respuesta_P2 = lambda f, a, calc, c, d, m: "",
+        respuesta_P3 = lambda f, a, calc, c, d, m: "",    
+        calculos='operations'
+        ),
+    
+
+    Questionary(#7_1
+        code = 1130071,
+        no_pregunta = 7,
+        complexity = D,
+        topic = EQ,
+        subtopic = V2D,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f" Tres fuerzas actúan sobre la ménsula $F3$ = ${f[0]:.0f}\\text{{ kN}}$ y $F2$ = ${f[1]:.0f}\\text{{ kN}}$ con ángulos $\\alpha_2$ es ${a[0]}°$ y $\\alpha_3$ es ${a[4]}°$. Determine la magnitud y la dirección $\\alpha_1$ y la magnitud de $F1$ de manera que la fuerza resultante esté dirigida a lo largo del eje x’ positivo y tenga una magnitud de $FR$ = ${f[2]:.0f}\\text{{ kN}}$.",
+        no_answers = 2,
+        a1_name = Mag,
+        a2_name = "Dirección $\\alpha_1$ [°]",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(Calculations.magnitude((f[2]*Calculations.cosine(a[4])-f[1]*Calculations.cosine(a[0])-f[0]), (f[2]*Calculations.sine(a[4])+f[1]*Calculations.sine(a[0]))),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(Calculations.define_angle((f[2]*Calculations.cosine(a[4])-f[1]*Calculations.cosine(a[0])-f[0]), (f[2]*Calculations.sine(a[4])+f[1]*Calculations.sine(a[0])))-a[4],2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = A16,
+        ayuda2 = A14,
+        ayuda3 = A17,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        A continuación se presenta la solución sugerida para el ejercicio:
+      
+        $\\textbf{{\\small 1. Descomposición de fuerzas:}}$
+
+        ${{\hspace{{4mm}} {{F1_x}} = F1 cos (\\alpha_3 + \\alpha_1)}}$
+
+        ${{\hspace{{4mm}} {{F1_y}} = F1 sen (\\alpha_3 + \\alpha_1)}}$
+        
+        ${{\hspace{{4mm}} {{F2_x}} = F2 cos (\\alpha_2) = {f[1]*Calculations.cosine(a[0]):.2f} }}$
+
+        ${{\hspace{{4mm}} {{F2_y}} = -F2 sen (\\alpha_2) = {-f[1]*Calculations.sine(a[0]):.2f} }}$
+
+        ${{\hspace{{4mm}} {{F3_x}} = F3 = {f[0]}}}$
+
+        ${{\hspace{{4mm}} {{F3_y}} = 0}}$
+
+        $\\textbf{{\\small 2. Sumatoria de fuerzas x y y:}}$
+
+        ${{\hspace{{4mm}} {{F_x}} = F1 cos (\\alpha_3 + \\alpha_1) + F2 cos (\\alpha_2) + F3 = FR cos(\\alpha3)}}$
+
+        ${{\hspace{{4mm}} {{F_x}} = F1 cos ({a[4]:.2f} + \\alpha_1) + {a[1]*Calculations.cosine(a[0]):.2f} + {f[0]} = {f[2]*Calculations.cosine(a[4]):.2f}}}$
+
+        ${{\hspace{{4mm}} {{F_y}} = F1 sen (\\alpha_3 + \\alpha_1) - F2 sen (\\alpha_2) = FR sen(\\alpha3)}}$
+
+        ${{\hspace{{4mm}} {{F_y}} = F1 sen ({a[4]:.2f} + \\alpha_1) - {a[1]*Calculations.sine(a[0]):.2f} = {f[2]*Calculations.sine(a[4]):.2f}}}$
+
+        Despejamos $F1_x$ y $F1_y$:
+
+        ${{\hspace{{4mm}} {{F1 cos(\\alpha_3 + \\alpha_1)}} = FR cos(\\alpha3) - F2 cos (\\alpha_2) - F3 = {f[2]*Calculations.cosine(a[4])-f[1]*Calculations.cosine(a[0])-f[0]:.2f}}}$
+
+        ${{\hspace{{4mm}} {{F1 sen(\\alpha_3 + \\alpha_1)}} = FR sen(\\alpha3) + F2 sen (\\alpha_2) = {f[2]*Calculations.sine(a[4])+f[1]*Calculations.sine(a[0]):.2f}}}$
+
+        Solución $F1$ y $\\alpha_1$
+
+        ${{\hspace{{4mm}} {{F1}} =  \\sqrt(F1_x^2, F1_y^2) }}$
+
+        ${{\hspace{{4mm}} {{F1}} =  {Calculations.magnitude((f[2]*Calculations.cosine(a[4])-f[1]*Calculations.cosine(a[0])-f[0]), (f[2]*Calculations.sine(a[4])+f[1]*Calculations.sine(a[0]))):.2f} }}$
+
+        ${{\hspace{{4mm}} {{tan(\\alpha_1 + \\alpha_3)}} =  \\left(\\dfrac{{Co}}{{Ca}}\\right) }}$
+
+        ${{\hspace{{4mm}} {{(\\alpha_1 + \\alpha_3)}} =  {Calculations.define_angle((f[2]*Calculations.cosine(a[4])-f[1]*Calculations.cosine(a[0])-f[0]), (f[2]*Calculations.sine(a[4])+f[1]*Calculations.sine(a[0]))):.2f} }}$
+
+        ${{\hspace{{4mm}} {{\\alpha_1 }} =  {Calculations.define_angle((f[2]*Calculations.cosine(a[4])-f[1]*Calculations.cosine(a[0])-f[0]), (f[2]*Calculations.sine(a[4])+f[1]*Calculations.sine(a[0])))-a[4]:.2f} }}$
+        """,
+        respuesta_P2 = lambda f, a, calc, c, d, m: "",
+        respuesta_P3 = lambda f, a, calc, c, d, m: "",    
+        calculos='operations'
+        ),
+    
+    Questionary(#8_1
+        code = 1130081,
+        no_pregunta = 8,
+        complexity = D,
+        topic = EQ,
+        subtopic = V2D,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f" Determine las componentes $x$ y $y$ de cada fuerza que actúa sobre la placa de nudo de la armadura de puente ($F2$ = ${f[1]:.0f}\\text{{ kN}}$ , $F3$ = ${f[0]:.0f}\\text{{ kN}}$ y $F4$ = ${f[4]:.0f}\\text{{ kN}}$). Halle la magnitud $F1$ y la dirección $\\alpha$ para que la fuerza resultante sea cero.",
+        no_answers = 2,
+        a1_name = "Magnitud $F1$ $[kN]$",
+        a2_name = "Dirección ($\\alpha$)",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round((-f[0]*(4/5)-f[1]*(4/5))/(math.sin(math.atan((f[0]*(4/5)+f[1]*(4/5))/(-f[4]-f[0]*(3/5)+f[1]*(3/5))))),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(math.degrees(math.atan((f[0]*(4/5)+f[1]*(4/5))/(-f[4]-f[0]*(3/5)+f[1]*(3/5)))),2),
+        answer3 = lambda f, a, calc, c, d, m: 0,
+        ayuda1 = A14,
+        ayuda2 = A17,
+        ayuda3 = A81,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        A continuación se presenta la solución sugerida para el ejercicio:
+      
+        $\\textbf{{\\small 1. Descomposición de fuerzas:}}$
+
+        ${{\hspace{{4mm}} {{F1_x}} = -F1 cos (\\alpha)}}$
+
+        ${{\hspace{{4mm}} {{F1_y}} = F1 sen (\\alpha)}}$
+
+        ${{\hspace{{4mm}} {{F2_x}} = -F2 \\left(\\dfrac{{3}}{{5}}\\right) = {-f[1]*(3/5):.2f}}}$
+
+        ${{\hspace{{4mm}} {{F2_y}} = F2 \\left(\\dfrac{{4}}{{5}}\\right) = {f[1]*(4/5):.2f}}}$
+        
+        ${{\hspace{{4mm}} {{F3_x}} = F3 \\left(\\dfrac{{3}}{{5}}\\right) = {f[0]*(3/5):.2f} }}$
+
+        ${{\hspace{{4mm}} {{F3_y}} = F3 \\left(\\dfrac{{4}}{{5}}\\right) = {f[0]*(4/5):.2f} }}$
+
+        ${{\hspace{{4mm}} {{F4_x}} = F4 = {f[4]}}}$
+
+        ${{\hspace{{4mm}} {{F4_y}} = 0}}$
+
+        $\\textbf{{\\small 2. Sumatoria de fuerzas x y y:}}$
+
+        ${{\hspace{{4mm}} {{F_x}} = F4 + F3 \\left(\\dfrac{{3}}{{5}}\\right) - F2 \\left(\\dfrac{{3}}{{5}}\\right) - F1 cos (\\alpha) = 0}}$
+
+        ${{\hspace{{4mm}} {{F_x}} = {f[4]} + {f[0]*(3/5):.2f} - {f[1]*(3/5):.2f} - F1 cos (\\alpha) = 0}}$
+
+        ${{\hspace{{4mm}} {{F_y}} = F3 \\left(\\dfrac{{4}}{{5}}\\right) + F2 \\left(\\dfrac{{4}}{{5}}\\right) + F1 sen (\\alpha) = 0}}$
+
+        ${{\hspace{{4mm}} {{F_y}} = {f[0]*(4/5):.2f} + {f[1]*(4/5):.2f} + F1 sen (\\alpha) = 0}}$
+
+        Despejamos $F1$ de la 2 ecuación:
+
+        ${{\hspace{{4mm}} {{F1}} = \\left(\\dfrac{{-F3 \\left(\\dfrac{{4}}{{5}}\\right)- F2 \\left(\\dfrac{{4}}{{5}}\\right)}}{{sen (\\alpha)}}\\right)}}$
+
+        Remplazamos en la 1 ecuación:
+
+        ${{\hspace{{4mm}}  F4 + F3 \\left(\\dfrac{{3}}{{5}}\\right) - F2 \\left(\\dfrac{{3}}{{5}}\\right) - (\\left(\\dfrac{{-F3 \\left(\\dfrac{{4}}{{5}}\\right)- F2 \\left(\\dfrac{{4}}{{5}}\\right)}}{{sen (\\alpha)}}\\right)) cos (\\alpha) = 0}}$
+
+        ${{\hspace{{4mm}} {{tan(\\alpha)}} = \\left(\\dfrac{{F3 \\left(\\dfrac{{4}}{{5}}\\right) + F2 \\left(\\dfrac{{4}}{{5}}\\right) }}{{-F4 - F3 \\left(\\dfrac{{3}}{{5}}\\right) + F2 \\left(\\dfrac{{3}}{{5}}\\right)}}\\right)}}$
+
+        ${{\hspace{{4mm}} {{\\alpha}} =  {math.degrees(math.atan((f[0]*(4/5)+f[1]*(4/5))/(-f[4]-f[0]*(3/5)+f[1]*(3/5)))):.2f} }}$
+
+        ${{\hspace{{4mm}} {{F1}} =  {(-f[0]*(4/5)-f[1]*(4/5))/(math.sin(math.atan((f[0]*(4/5)+f[1]*(4/5))/(-f[4]-f[0]*(3/5)+f[1]*(3/5))))):.2f} }}$
+
+        """,
+        respuesta_P2 = lambda f, a, calc, c, d, m: "",
+        respuesta_P3 = lambda f, a, calc, c, d, m: "",    
+        calculos='operations'
+        ),
+    
     
     #=================================================EQUILIBRIO DE PARTÍCULAS===================================================
     #-------------------------------------------------       Vectores 3D       ---------------------------------------------------
@@ -1531,7 +2133,262 @@ preguntas = [
         respuesta_P3 = lambda f, a, calc, c, d, m: f"", 
         calculos='operations'
         ),
+    
+    Questionary(#6_1
+        code = 1210061,
+        no_pregunta = 6,
+        complexity = F,
+        topic = EQ,
+        subtopic = V3D,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud y los ángulos coordenados en $x$ y $z$ de la fuerza $F1$ = $[({ abs(c[0]):.0f}) \\hat{{i}} , ({c[1]:.0f}) \\hat{{j}} , ({abs(c[3]):.0f}) \\hat{{k}}]$. ",
+        no_answers = 3,
+        a1_name = Mag,
+        a2_name = A3X,
+        a3_name = A3Z,
+        answer1 = lambda f, a, calc, c, d, m: np.round(Calculations.magnitude3D(abs(c[0]), c[1], abs(c[3])),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(math.degrees(math.acos(abs(c[0])/(Calculations.magnitude3D(abs(c[0]), c[1], abs(c[3]))))),2),
+        answer3 = lambda f, a, calc, c, d, m: np.round(math.degrees(math.acos(abs(c[3])/(Calculations.magnitude3D(abs(c[0]), c[1], abs(c[3]))))),2),
+        ayuda1 = "Los ángulos directores relacionan directamente al vector F con cada uno de los ejes.",
+        ayuda2 = A42,
+        ayuda3 = "Calcule las componentes de cada eje como la multiplicación de la fuerza por el coseno del ángulo que forma con dicho eje.",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+                
+        $\\textbf{{\\small 1. Cálculo de la magnitud como:}}$
 
+        ${{\hspace{{4mm}} {{F1}} = \\sqrt(F1_x^2 + F1y^2 + F1_z^2) = {Calculations.magnitude3D(abs(c[0]), c[1], abs(c[3])):.2f}}}$
+
+        $\\textbf{{\\small 1. Cálculo de angulos coordenados:}}$
+
+        ${{\hspace{{4mm}} {{\\alpha}} = {{cos^-1}}\\left(\\dfrac{{F1_x}}{{F1}}\\right)={math.degrees(math.acos(abs(c[0])/(Calculations.magnitude3D(abs(c[0]), c[1], abs(c[3]))))):.2f}}}$
+        
+        ${{\hspace{{4mm}} {{\\gamma}} = {{cos^-1}}\\left(\\dfrac{{F1_z}}{{F1}}\\right)={math.degrees(math.acos(abs(c[3])/(Calculations.magnitude3D(abs(c[0]), c[1], abs(c[3]))))):.2f}}}$
+        
+        
+        """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"", 
+        calculos='operations'
+        ),
+    Questionary(#6_2
+        code = 1210062,
+        no_pregunta = 6,
+        complexity = F,
+        topic = EQ,
+        subtopic = V3D,
+        version = 2,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud y los ángulos coordenados en $x$ y $y$ de la fuerza $F1$ = $[({ abs(c[0]):.0f}) \\hat{{i}} , ({c[1]:.0f}) \\hat{{j}} , ({abs(c[3]):.0f}) \\hat{{k}}]$. ",
+        no_answers = 3,
+        a1_name = Mag,
+        a2_name = A3X,
+        a3_name = A3Y,
+        answer1 = lambda f, a, calc, c, d, m: np.round(Calculations.magnitude3D(abs(c[0]), c[1], abs(c[3])),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(math.degrees(math.acos(abs(c[0])/(Calculations.magnitude3D(abs(c[0]), c[1], abs(c[3]))))),2),
+        answer3 = lambda f, a, calc, c, d, m: np.round(math.degrees(math.acos((c[1])/(Calculations.magnitude3D(abs(c[0]), c[1], abs(c[3]))))),2),
+        ayuda1 = "Los ángulos directores relacionan directamente al vector F con cada uno de los ejes.",
+        ayuda2 = A42,
+        ayuda3 = "Calcule las componentes de cada eje como la multiplicación de la fuerza por el coseno del ángulo que forma con dicho eje.",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+                
+        $\\textbf{{\\small 1. Cálculo de la magnitud como:}}$
+
+        ${{\hspace{{4mm}} {{F1}} = \\sqrt(F1_x^2 + F1y^2 + F1_z^2) = {Calculations.magnitude3D(abs(c[0]), c[1], abs(c[3])):.2f}}}$
+
+        $\\textbf{{\\small 1. Cálculo de angulos coordenados:}}$
+
+        ${{\hspace{{4mm}} {{\\alpha}} = {{cos^-1}}\\left(\\dfrac{{F1_x}}{{F1}}\\right)={math.degrees(math.acos(abs(c[0])/(Calculations.magnitude3D(abs(c[0]), c[1], abs(c[3]))))):.2f}}}$
+        
+        ${{\hspace{{4mm}} {{\\beta}} = {{cos^-1}}\\left(\\dfrac{{F1_x}}{{F1}}\\right)={math.degrees(math.acos((c[1])/(Calculations.magnitude3D(abs(c[0]), c[1], abs(c[3]))))):.2f}}}$
+        
+        
+        """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"", 
+        calculos='operations'
+        ),
+    Questionary(#6_3
+        code = 1210063,
+        no_pregunta = 6,
+        complexity = F,
+        topic = EQ,
+        subtopic = V3D,
+        version = 3,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud y los ángulos coordenados en $y$ y $z$ de la fuerza $F1$ = $[({ abs(c[0]):.0f}) \\hat{{i}} , ({c[1]:.0f}) \\hat{{j}} , ({abs(c[3]):.0f}) \\hat{{k}}]$. ",
+        no_answers = 3,
+        a1_name = Mag,
+        a2_name = A3Y,
+        a3_name = A3Z,
+        answer1 = lambda f, a, calc, c, d, m: np.round(Calculations.magnitude3D(abs(c[0]), c[1], abs(c[3])),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(math.degrees(math.acos((c[1])/(Calculations.magnitude3D(abs(c[0]), c[1], abs(c[3]))))),2),
+        answer3 = lambda f, a, calc, c, d, m: np.round(math.degrees(math.acos(abs(c[3])/(Calculations.magnitude3D(abs(c[0]), c[1], abs(c[3]))))),2),
+        ayuda1 = "Los ángulos directores relacionan directamente al vector F con cada uno de los ejes.",
+        ayuda2 = A42,
+        ayuda3 = "Calcule las componentes de cada eje como la multiplicación de la fuerza por el coseno del ángulo que forma con dicho eje.",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        $\\textbf{{\\small 1. Cálculo de la magnitud como:}}$
+
+        ${{\hspace{{4mm}} {{F1}} = \\sqrt(F1_x^2 + F1y^2 + F1_z^2) = {Calculations.magnitude3D(abs(c[0]), c[1], abs(c[3])):.2f}}}$
+
+        $\\textbf{{\\small 1. Cálculo de angulos coordenados:}}$
+
+        ${{\hspace{{4mm}} {{\\beta}} = {{cos^-1}}\\left(\\dfrac{{F1_x}}{{F1}}\\right)={math.degrees(math.acos((c[1])/(Calculations.magnitude3D(abs(c[0]), c[1], abs(c[3]))))):.2f}}}$
+        
+        ${{\hspace{{4mm}} {{\\gamma}} = {{cos^-1}}\\left(\\dfrac{{F1_x}}{{F1}}\\right)={math.degrees(math.acos(abs(c[3])/(Calculations.magnitude3D(abs(c[0]), c[1], abs(c[3]))))):.2f}}}$
+        
+        
+        """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"", 
+        calculos='operations'
+        ),
+    
+    Questionary(#7_1
+        code = 1210071,
+        no_pregunta = 7,
+        complexity = F,
+        topic = EQ,
+        subtopic = V3D,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"La pieza montada sobre el torno está sometida a una fuerza de $F$ = ${f[0]:.0f} \\text{{ N}}$. Determine la fuerza  en $x$ y $y$ como un vector cartesiano. Considere $\\alpha = {a[0]:.0f}°$ y $\\beta = {a[4]:.0f}°$. ",
+        no_answers = 2,
+        a1_name = "Componente vectorial en X (i)",
+        a2_name = "Componente vectorial en Y (j)",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(f[0]*Calculations.cosine(a[0]),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(f[0]*Calculations.cosine(a[4]),2),
+        answer3 = lambda f, a, calc, c, d, m: "",
+        ayuda1 = "Los ángulos directores relacionan directamente al vector F con cada uno de los ejes.",
+        ayuda2 = A41,
+        ayuda3 = "Calcule las componentes de cada eje como la multiplicación de la fuerza por el coseno del ángulo que forma con dicho eje.",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+      
+        $\\textbf{{\\small 1. Cálculo con cosenos direccionales:}}$
+
+        ${{\hspace{{4mm}} {{cos(\\alpha)}} = \\left(\\dfrac{{F_x}}{{F}}\\right)}}$
+
+        ${{\hspace{{4mm}} {{cos(\\beta)}} = \\left(\\dfrac{{F_y}}{{F}}\\right)}}$
+
+        ${{\hspace{{4mm}} {{F_x}} = F cos(\\alpha) = {f[0]*Calculations.cosine(a[0]):.2f}}}$
+
+        ${{\hspace{{4mm}} {{F_y}} = F cos(\\beta) = {f[0]*Calculations.cosine(a[4]):.2f}}}$      
+
+        """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"", 
+        calculos='operations'
+        ),
+    
+    Questionary(#7_2
+        code = 1210072,
+        no_pregunta = 7,
+        complexity = F,
+        topic = EQ,
+        subtopic = V3D,
+        version = 2,
+        pregunta = lambda f, a, calc, c, d, m: f"La pieza montada sobre el torno está sometida a una fuerza de $F$ = ${f[0]:.0f} \\text{{ N}}$. Determine  la fuerza  en $x$ y $z$ como un vector cartesiano. Considere $\\alpha = {a[0]:.0f}°$ y $\\gamma = {a[4]:.0f}°$. ",
+        no_answers = 2,
+        a1_name = "Componente vectorial en X (i)",
+        a2_name = "Componente vectorial en Z (k)",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(f[0]*Calculations.cosine(a[0]),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(f[0]*Calculations.cosine(a[4]),2),
+        answer3 = lambda f, a, calc, c, d, m: "",
+        ayuda1 = "Los ángulos directores relacionan directamente al vector F con cada uno de los ejes.",
+        ayuda2 = A41,
+        ayuda3 = "Calcule las componentes de cada eje como la multiplicación de la fuerza por el coseno del ángulo que forma con dicho eje.",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+      
+        $\\textbf{{\\small 1. Cálculo con cosenos direccionales:}}$
+
+        ${{\hspace{{4mm}} {{cos(\\alpha)}} = \\left(\\dfrac{{F_x}}{{F}}\\right)}}$
+
+        ${{\hspace{{4mm}} {{cos(\\gamma)}} = \\left(\\dfrac{{F_z}}{{F}}\\right)}}$
+
+        ${{\hspace{{4mm}} {{F_x}} = F cos(\\alpha) = {f[0]*Calculations.cosine(a[0]):.2f}}}$
+
+        ${{\hspace{{4mm}} {{F_z}} = F cos(\\gamma) = {f[0]*Calculations.cosine(a[4]):.2f}}}$      
+
+        """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"", 
+        calculos='operations'
+        ),
+    
+    Questionary(#7_3
+        code = 1210073,
+        no_pregunta = 7,
+        complexity = F,
+        topic = EQ,
+        subtopic = V3D,
+        version = 3,
+        pregunta = lambda f, a, calc, c, d, m: f"La pieza montada sobre el torno está sometida a una fuerza de $F$ = ${f[0]:.0f} \\text{{ N}}$. Determine la fuerza  en $y$ y $z$ como un vector cartesiano. Considere $\\beta = {a[0]:.0f}°$ y $\\gamma = {a[4]:.0f}°$. ",
+        no_answers = 2,
+        a1_name = "Componente vectorial en Y (j)",
+        a2_name = "Componente vectorial en Z (k)",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(f[0]*Calculations.cosine(a[0]),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(f[0]*Calculations.cosine(a[4]),2),
+        answer3 = lambda f, a, calc, c, d, m: "",
+        ayuda1 = "Los ángulos directores relacionan directamente al vector F con cada uno de los ejes.",
+        ayuda2 = A41,
+        ayuda3 = "Calcule las componentes de cada eje como la multiplicación de la fuerza por el coseno del ángulo que forma con dicho eje.",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+      
+        $\\textbf{{\\small 1. Cálculo con cosenos direccionales:}}$
+
+        ${{\hspace{{4mm}} {{cos(\\beta)}} = \\left(\\dfrac{{F_y}}{{F}}\\right)}}$
+
+        ${{\hspace{{4mm}} {{cos(\\gamma)}} = \\left(\\dfrac{{F_z}}{{F}}\\right)}}$
+
+        ${{\hspace{{4mm}} {{F_x}} = F cos(\\beta) = {f[0]*Calculations.cosine(a[0]):.2f}}}$
+
+        ${{\hspace{{4mm}} {{F_y}} = F cos(\\gamma) = {f[0]*Calculations.cosine(a[4]):.2f}}}$      
+
+        """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"", 
+        calculos='operations'
+        ),
+    
+    Questionary(#8_1
+        code = 1210081,
+        no_pregunta = 8,
+        complexity = F,
+        topic = EQ,
+        subtopic = V3D,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"El cable en el extremo de la grúa ejerce una fuerza $F$ = ${f[0]:.0f} \\text{{ N}}$ sobre el pescante. Determine $F$ en sus componentes como un vector cartesiano. Considere $\\alpha = {a[0]:.0f}°$ y $\\beta = {math.degrees(math.acos((1-(Calculations.cosine(a[0]))**2)/2)):.0f}°$. ",
+        no_answers = 3,
+        a1_name = "Componente vectorial en X (i)",
+        a2_name = "Componente vectorial en Y (j)",
+        a3_name = "Componente vectorial en Z (k)",
+        answer1 = lambda f, a, calc, c, d, m: np.round(f[0]*Calculations.cosine(a[0]),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(f[0]*Calculations.cosine(math.degrees(math.acos((1-(Calculations.cosine(a[0]))**2)/2))),2),
+        answer3 = lambda f, a, calc, c, d, m: np.round(math.sqrt((f[0]**2) -((f[0]*Calculations.cosine(a[0]))**2)-((f[0]*Calculations.cosine(math.degrees(math.acos((1-(Calculations.cosine(a[0]))**2)/2))))**2) ),2),
+        ayuda1 = "Los ángulos directores relacionan directamente al vector F con cada uno de los ejes.",
+        ayuda2 = A41,
+        ayuda3 = "Calcule las componentes de cada eje como la multiplicación de la fuerza por el coseno del ángulo que forma con dicho eje.",
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        $\\textbf{{\\small 1. Cálculo con cosenos direccionales:}}$
+
+        ${{\hspace{{4mm}} {{cos(\\alpha)}} = \\left(\\dfrac{{F_y}}{{F}}\\right)}}$
+
+        ${{\hspace{{4mm}} {{cos(\\beta)}} = \\left(\\dfrac{{F_z}}{{F}}\\right)}}$
+
+        ${{\hspace{{4mm}} {{F_x}} = F cos(\\alpha) = {f[0]*Calculations.cosine(a[0]):.2f}}}$
+
+        ${{\hspace{{4mm}} {{F_y}} = F cos(\\beta) = {f[0]*Calculations.cosine(math.degrees(math.acos((1-(Calculations.cosine(a[0]))**2)/2))):.2f}}}$
+
+        $\\textbf{{\\small 2. Cálculo Fz :}}$
+
+        ${{\hspace{{4mm}} {{F}} = \\sqrt(F^2 - F_x^2 - F_z^2) = {math.sqrt((f[0]**2) -((f[0]*Calculations.cosine(a[0]))**2)-((f[0]*Calculations.cosine(math.degrees(math.acos((1-(Calculations.cosine(a[0]))**2)/2))))**2) ):.2f} }}$
+
+        ${{\hspace{{4mm}} {{\\gamma}} = {{cos^-1}}\\left(\\dfrac{{F_y}}{{F}}\\right)}}$
+        """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"", 
+        calculos='operations'
+        ),
     #=================================================EQUILIBRIO DE PARTÍCULAS===================================================
     #-------------------------------------------------       Vectores 3D       --------------------------------------------------
     #-------------------------------------------------       Nivel medio       --------------------------------------------------
@@ -1758,6 +2615,156 @@ preguntas = [
         respuesta_P3 = lambda f, a, calc, c, d, m: f"", 
         calculos='operations'
         ),
+    
+    Questionary(#6_1
+        code = 1220061,
+        no_pregunta = 6,
+        complexity = M,
+        topic = EQ,
+        subtopic = V3D,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud de la fuerza $F$ y la componente en $x$ que actúa sobre la estaca, sabiendo que $F_(xy)$ = ${f[0]:.2f} \\text{{ N}}$ y $\\theta_x = {a[0]:.0f}°$.",
+        no_answers = 2,
+        a1_name = MagN,
+        a2_name = "Componente con el eje X ${{(F_x)}}$[N]",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(f[0]*(5/4),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(f[0]*Calculations.cosine(a[0]),2),
+        answer3 = lambda f, a, calc, c, d, m: "",
+        ayuda1 = "La componente X se puede proyectar directamente con la información dada",
+        ayuda2 = A34,
+        ayuda3 = A41,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+                
+        $\\textbf{{\\small 1. Cálculo de la magnitud de F:}}$
+
+        ${{\hspace{{4mm}} {{cos(\\alpha)}} =\\left(\\dfrac{{4}}{{5}}\\right)}}$
+
+        ${{\hspace{{4mm}} {{\\alpha}} = ángulo (F - F_xy)}}$
+
+        ${{\hspace{{4mm}} {{F_xy}} =F \\left(\\dfrac{{4}}{{5}}\\right)}}$
+
+        ${{\hspace{{4mm}} {{F}} =F_xy \\left(\\dfrac{{5}}{{4}}\\right)= {f[0]*(5/4)}}}$
+
+        $\\textbf{{\\small 2. Cálculo de las componentes X :}}$
+
+        ${{\hspace{{4mm}} {{Fx}} =F_xy cos (\\theta_x)= {f[0]*Calculations.cosine(a[0]):.2f}}}$
+
+        """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"", 
+        calculos='operations'
+        ),
+    
+    Questionary(#7_1
+        code = 1220071,
+        no_pregunta = 7,
+        complexity = M,
+        topic = EQ,
+        subtopic = V3D,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"La carga en $A$ genera una fuerza de $F$ = ${f[0]:.2f} \\text{{ N}}$ en el alambre $AB$. Exprese esta fuerza como un vector cartesiano actuando en $A$ y dirigido hacia $B$ como se muestra. Conociendo que u = ${d[0]} \\text{{ m}}$, v = ${d[3]} \\text{{ m}}$ y $\\alpha = {a[0]:.0f}°$.",
+        no_answers = 3,
+        a1_name = "Componente vectorial en X (i)",
+        a2_name = "Componente vectorial en Y (j)",
+        a3_name = "Componente vectorial en Z (k)",
+        answer1 = lambda f, a, calc, c, d, m: np.round(f[0]*(d[0]*Calculations.sine(a[0])-0)/(math.sqrt(((d[0]*Calculations.sine(a[0])-0)**2)+((d[0]*Calculations.cosine(a[0])-0)**2)+((0-d[3])**2))),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(f[0]*(d[0]*Calculations.cosine(a[0])-0) / (math.sqrt(((d[0]*Calculations.sine(a[0])-0)**2)+((d[0]*Calculations.cosine(a[0])-0)**2)+((0-d[3])**2))),2),
+        answer3 = lambda f, a, calc, c, d, m: np.round(abs(f[0]*(0-d[3])/(math.sqrt(((d[0]*Calculations.sine(a[0])-0)**2)+((d[0]*Calculations.cosine(a[0])-0)**2)+((0-d[3])**2)))),2),
+        ayuda1 = A42,
+        ayuda2 = A43,
+        ayuda3 = A41,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        $\\textbf{{\\small 1. Cálculo de vectores unitarios:}}$
+
+        ${{\hspace{{4mm}} {{u_x}} = u sen(\\alpha) = {d[0]*Calculations.sine(a[0]):.2f}}}$
+
+        ${{\hspace{{4mm}} {{u_y}} = u cos(\\alpha) = {d[0]*Calculations.cosine(a[0]):.2f}}}$
+
+        ${{\hspace{{4mm}} {{AB_x}} = (u_x -0) = {d[0]*Calculations.sine(a[0])-0:.2f}}}$
+
+        ${{\hspace{{4mm}} {{AB_y}} = (u_y -0) = {d[0]*Calculations.cosine(a[0])-0:.2f}}}$
+
+        ${{\hspace{{4mm}} {{AB_z}} = (0- v) = {0-(-d[3]):.2f}}}$
+
+        ${{\hspace{{4mm}} {{|\\lambda|}} = \\sqrt(AB_x^2 - AB_y^2 - AB_z^2)}}$
+
+        ${{\hspace{{4mm}} {{|\\lambda|}} = {math.sqrt(((d[0]*Calculations.sine(a[0])-0)**2)+((d[0]*Calculations.cosine(a[0])-0)**2)+((0-d[3])**2)):.2f}}}$
+
+        ${{\hspace{{4mm}} {{\\lambda_x}} = \\left(\\dfrac{{u_x -0}}{{|\\lambda|}}\\right) = {(d[0]*Calculations.sine(a[0])-0)/(math.sqrt(((d[0]*Calculations.sine(a[0])-0)**2)+((d[0]*Calculations.cosine(a[0])-0)**2)+((0-d[3])**2))):.2f}}}$
+
+        ${{\hspace{{4mm}} {{\\lambda_y}} = \\left(\\dfrac{{u_y -0}}{{|\\lambda|}}\\right) = {(d[0]*Calculations.cosine(a[0])-0) / (math.sqrt(((d[0]*Calculations.sine(a[0])-0)**2)+((d[0]*Calculations.cosine(a[0])-0)**2)+((0-d[3])**2))):.2f}}}$
+
+        ${{\hspace{{4mm}} {{\\lambda_z}} = \\left(\\dfrac{{0- v}}{{|\\lambda|}}\\right) = {(0-(-d[3]))/(math.sqrt(((d[0]*Calculations.sine(a[0])-0)**2)+((d[0]*Calculations.cosine(a[0])-0)**2)+((0-d[3])**2))):.2f}}}$
+
+        $\\textbf{{\\small 2. Cálculo de las componentes X, Y y Z :}}$
+
+        ${{\hspace{{4mm}} {{F_x}} = F(\\lambda_x) = {f[0]*(d[0]*Calculations.sine(a[0])-0)/(math.sqrt(((d[0]*Calculations.sine(a[0])-0)**2)+((d[0]*Calculations.cosine(a[0])-0)**2)+((0-d[3])**2))):.2f}}}$
+
+        ${{\hspace{{4mm}} {{F_y}} = F(\\lambda_y) = {f[0]*(d[0]*Calculations.cosine(a[0])-0) / (math.sqrt(((d[0]*Calculations.sine(a[0])-0)**2)+((d[0]*Calculations.cosine(a[0])-0)**2)+((0-d[3])**2))):.2f}}}$
+
+        ${{\hspace{{4mm}} {{F_z}} = F(\\lambda_z) = {abs(f[0]*(0-(-d[3]))/(math.sqrt(((d[0]*Calculations.sine(a[0])-0)**2)+((d[0]*Calculations.cosine(a[0])-0)**2)+((0-d[3])**2)))):.2f}}}$
+        
+        """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"", 
+        calculos='operations'
+        ),
+    
+    Questionary(#8_1
+        code = 1220081,
+        no_pregunta = 8,
+        complexity = M,
+        topic = EQ,
+        subtopic = V3D,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"La cuerda ejerce una fuerza $F$ = ${f[0]:.2f} \\text{{ lb}}$ sobre el gancho. Si la cuerda tiene una distancia de $AB$ = ${d[0]} \\text{{ pies}}$, $z$ = ${d[3]} \\text{{ pies}}$, y la componente $x$ de la fuerza es $F_x$ = ${f[1]:.2f} \\text{{ lb}}$, determine la longitud $x$, $y$ del punto de unión $B$ de la cuerda al suelo. Considere $u$ = ${d[9]} \\text{{ pies}}$.",
+        no_answers = 2,
+        a1_name = "Longitud de x (pies)",
+        a2_name = "Longitud de y (pies)",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(((f[1]/f[0])*d[0])+ d[9],2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(math.sqrt(abs(1-((((((f[1]/f[0])*d[0])+ d[9])-d[9])/d[0])**2)-((-d[3]/d[0])**2)))*10,2),
+        answer3 = lambda f, a, calc, c, d, m: "",
+        ayuda1 = A61,
+        ayuda2 = A56,
+        ayuda3 = A57,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        $\\textbf{{\\small 1. Cálculo de vectores unitarios:}}$
+
+        ${{\hspace{{4mm}} {{AB_x}} = (x -u) = x - {d[9]}}}$
+
+        ${{\hspace{{4mm}} {{AB_y}} = (y -0) = y}}$
+
+        ${{\hspace{{4mm}} {{AB_z}} = (0- z) = {-d[3]}}}$
+
+        ${{\hspace{{4mm}} {{|AB|}} = {d[0]}}}$
+
+        ${{\hspace{{4mm}} {{\\lambda_x}} = \\left(\\dfrac{{ x -u }}{{|AB|}}\\right) = \\left(\\dfrac{{ x -{d[9]} }}{{{d[0]}}}\\right)}}$
+
+        ${{\hspace{{4mm}} {{\\lambda_y}} = \\left(\\dfrac{{y -0}}{{|AB|}}\\right) = \\left(\\dfrac{{ y }}{{{d[0]}}}\\right)}}$
+
+        ${{\hspace{{4mm}} {{\\lambda_z}} = \\left(\\dfrac{{0- z}}{{|AB|}}\\right) = \\left(\\dfrac{{ -{d[3]} }}{{{d[0]}}}\\right)}}$
+
+        $\\textbf{{\\small 2. Cálculo de x y y :}}$
+
+        ${{\hspace{{4mm}} {{F_x}} = F(\\lambda_x) = {f[1]} = {f[0]}\\left(\\dfrac{{x -{d[9]}}}{{{d[0]}}}\\right):.2f}}$
+
+        ${{\hspace{{4mm}} {{x}} = (\\left(\\dfrac{{{f[1]}}}{{{f[0]}}}\\right){d[0]})+ {d[9]} = {((f[1]/f[0])*d[0])+ d[9]:.2f}}}$
+
+        ${{\hspace{{4mm}} (\\lambda_x)^2 + (\\lambda_y)^2 + (\\lambda_z)^2 = 1}}$
+
+        ${{\hspace{{4mm}} \\left(\\dfrac{{ x -u }}{{|AB|}}\\right)^2 + \\left(\\dfrac{{y -0}}{{|AB|}}\\right)^2 + \\left(\\dfrac{{0- z}}{{|AB|}}\\right)^2 = 1}}$
+
+        ${{\hspace{{4mm}} {(((((f[1]/f[0])*d[0])+ d[9])-d[9])/d[0])**2:.2f} + \\left(\\dfrac{{y}}{{{d[0]}}}\\right)^2 + {(-d[3]/d[0])**2:.2f} = 1}}$
+
+        ${{\hspace{{4mm}} {{y}} = {math.sqrt(abs(1-(((((f[1]/f[0])*d[0])+ d[9])-d[9])/d[0])**2-((-d[3]/d[0])**2)))*10:.2f}}}$
+        
+        """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"", 
+        calculos='operations'
+        ),
 
     #=================================================EQUILIBRIO DE PARTÍCULAS===================================================
     #-------------------------------------------------       Vectores 3D       --------------------------------------------------
@@ -1965,6 +2972,198 @@ preguntas = [
         calculos='operations'
         ),
 
+    Questionary(#6_1
+        code = 1230061,
+        no_pregunta = 6,
+        complexity = D,
+        topic = EQ,
+        subtopic = V3D,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"En un instante dado, las posiciones de un aeroplano en $A$ y de un tren en $B$ se miden con respecto a una antena de radar en $O$. Determine la distancia  entre $A$ y $B$ en ese instante. Sabiendo que la distancia $OA$ = ${d[0]:.0f} \\text{{ km}}$ , $OB$ = ${d[3]:.0f} \\text{{ km}}$ y su ángulos son $\\sigma_1 = {a[0]:.0f}\\degree$, $\\sigma_2 = {a[4]:.0f}\\degree$, $\\theta_1 = {a[8]:.0f}\\degree$ y $\\theta_2 = {a[1]-90:.0f}\\degree$ .",
+        no_answers = 1,
+        a1_name = "Distancia de AB (km)",
+        a2_name = "",
+        a3_name = "",
+        answer1 = lambda f, a, calc, c, d, m: np.round(Calculations.magnitude3D(((d[0])*Calculations.cosine(a[8])*Calculations.sine(a[1]-90))-(-(d[0])*Calculations.cosine(a[4])*Calculations.cosine(a[0])),((d[0])*Calculations.cosine(a[8])*Calculations.cosine(a[1]-90))-(-(d[0])*Calculations.cosine(a[4])*Calculations.sine(a[0])),((d[0])*Calculations.sine(a[8]))-((d[0])*Calculations.sine(a[4]))),2),
+        answer2 = lambda f, a, calc, c, d, m: "",
+        answer3 = lambda f, a, calc, c, d, m: "",
+        ayuda1 = "Las componentes se pueden hallar a partir de la proyeccción de las fuerzas",
+        ayuda2 = A34,
+        ayuda3 = A33,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        A continuación se presenta la solución sugerida para el ejercicio:
+
+        $\\textbf{{\\small 1. Cálculo de las componentes X, Y y Z de AO y BO:}}$
+
+        ${{\hspace{{4mm}}  OA_{{x}} = -OAcos(\\sigma_2)cos(\\sigma_1) = {-(d[0])*Calculations.cosine(a[4])*Calculations.cosine(a[0]):.2f} }}$  
+
+        ${{\hspace{{4mm}}  OA_{{y}} = -OAcos(\\sigma_2)sen(\\sigma_1) = {-(d[0])*Calculations.cosine(a[4])*Calculations.sine(a[0]):.2f} }}$  
+
+        ${{\hspace{{4mm}}  OA_{{z}} = OAsen(\\sigma_2) = {(d[0])*Calculations.sine(a[4]):.2f} }}$  
+
+        ${{\hspace{{4mm}}  OB_{{x}} = OBcos(\\theta_1)sen(\\theta_2) = {(d[0])*Calculations.cosine(a[8])*Calculations.sine(a[1]-90):.2f} }}$  
+
+        ${{\hspace{{4mm}}  OB_{{y}} = OBcos(\\theta_1)cos(\\theta_2) = {(d[0])*Calculations.cosine(a[8])*Calculations.cosine(a[1]-90):.2f} }}$  
+
+        ${{\hspace{{4mm}}  OB_{{z}} = -OBsen(\\theta_1) = {(d[0])*Calculations.sine(a[8]):.2f} }}$
+
+        Para obtener la distancia entre A y B:
+        
+        ${{\hspace{{4mm}}  r_{{AB}} = OB - OA }}$  
+
+        ${{\hspace{{4mm}}  r_{{ABx}} = OBcos(\\theta_1)sen(\\theta_2) - (-OAcos(\\sigma_2)cos(\\sigma_1)) = {((d[0])*Calculations.cosine(a[8])*Calculations.sine(a[1]-90))-(-(d[0])*Calculations.cosine(a[4])*Calculations.cosine(a[0])):.2f} }}$ 
+
+        ${{\hspace{{4mm}}  r_{{ABy}} = OBcos(\\theta_1)cos(\\theta_2) - (-OAcos(\\sigma_2)sen(\\sigma_1)) = {((d[0])*Calculations.cosine(a[8])*Calculations.cosine(a[1]-90))-(-(d[0])*Calculations.cosine(a[4])*Calculations.sine(a[0])):.2f} }}$ 
+
+        ${{\hspace{{4mm}}  r_{{ABz}} = -OBsen(\\theta_1) - OAsen(\\sigma_2) = {((d[0])*Calculations.sine(a[8]))-((d[0])*Calculations.sine(a[4])):.2f} }}$ 
+        
+        ${{\hspace{{4mm}} r_{{AB}} = \\sqrt{{r_{{ABx}}^2+r_{{ABy}}^2+r_{{ABz}}^2}} = {Calculations.magnitude3D(((d[0])*Calculations.cosine(a[8])*Calculations.sine(a[1]-90))-(-(d[0])*Calculations.cosine(a[4])*Calculations.cosine(a[0])),((d[0])*Calculations.cosine(a[8])*Calculations.cosine(a[1]-90))-(-(d[0])*Calculations.cosine(a[4])*Calculations.sine(a[0])),((d[0])*Calculations.sine(a[8]))-((d[0])*Calculations.sine(a[4]))):.2f}}}$.
+
+       """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"", 
+        calculos='operations'
+        ),
+    
+    Questionary(#7_1
+        code = 1230071,
+        no_pregunta = 7,
+        complexity = D,
+        topic = EQ,
+        subtopic = V3D,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Cada una de las cuatro fuerzas que actúan en $E$ tiene una magnitud de ${f[0]:.0f} \\text{{ kN}}$. Determine la fuerza resultante y expréselo como vector cartesiano. Considere $x$ = ${d[0]:.0f} \\text{{ m}}$, $y$ = ${d[3]:.0f} \\text{{ m}}$ y $z$ = ${d[6]:.0f} \\text{{ m}}$ ",
+        no_answers = 3,
+        a1_name = "Componente vectorial en X (i)",
+        a2_name = "Componente vectorial en Y (j)",
+        a3_name = "Componente vectorial en Z (k)",
+        answer1 = lambda f, a, calc, c, d, m: np.round((f[0]*(-d[0]-0)/(Calculations.magnitude3D(-d[0]-0,-d[3]-0,0-d[6])))+(f[0]*(-d[0]-0)/(Calculations.magnitude3D(-d[0]-0,d[3]-0,0-d[6])))+ (f[0]*(d[0]-0)/(Calculations.magnitude3D(d[0]-0,d[3]-0,0-d[6])))+  (f[0]*(d[0]-0)/(Calculations.magnitude3D(d[0]-0,-d[3]-0,0-d[6]))),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round((f[0]*(-d[3]-0)/(Calculations.magnitude3D(-d[0]-0,-d[3]-0,0-d[6])))+(f[0]*(d[3]-0)/(Calculations.magnitude3D(-d[0]-0,d[3]-0,0-d[6])))+(f[0]*(d[3]-0)/(Calculations.magnitude3D(d[0]-0,d[3]-0,0-d[6])))+ (f[0]*(-d[3]-0)/(Calculations.magnitude3D(d[0]-0,-d[3]-0,0-d[6]))),2),
+        answer3 = lambda f, a, calc, c, d, m: np.round((f[0]*(0-d[6])/(Calculations.magnitude3D(-d[0]-0,-d[3]-0,0-d[6])))+(f[0]*(0-d[6])/(Calculations.magnitude3D(-d[0]-0,d[3]-0,0-d[6])))+ (f[0]*(0-d[6])/(Calculations.magnitude3D(d[0]-0,d[3]-0,0-d[6])))+ (f[0]*(0-d[6])/(Calculations.magnitude3D(d[0]-0,-d[3]-0,0-d[6]))),2),
+        ayuda1 = A60,
+        ayuda2 = A57,
+        ayuda3 = A39,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        A continuación se presenta la solución sugerida para el ejercicio:
+
+        $\\textbf{{\\small 1. Cálculo de vectores unitarios:}}$
+
+        ${{\hspace{{4mm}}  {{uF1_x}} = (-x-0 )= {-d[0]-0} }}$ 
+        ${{\hspace{{4mm}}  {{uF1_y}} = (-y-0 )= {-d[3]-0} }}$
+        ${{\hspace{{4mm}}  {{uF1_z}} = (0 -z )= {0-d[6]}}}$
+        ${{\hspace{{4mm}}  {{uF1}} = \\sqrt(uF1_x^2+uF1_y^2+uF1_z^2)= {Calculations.magnitude3D(-d[0]-0,-d[3]-0,0-d[6]):.2f}}}$
+
+        ${{\hspace{{4mm}}  {{uF2_x}} = (-x-0 )= {-d[0]-0} }}$ 
+        ${{\hspace{{4mm}}  {{uF2_y}} = (y-0 )= {d[3]-0} }}$
+        ${{\hspace{{4mm}}  {{uF2_z}} = (0 -z )= {0-d[6]}}}$
+        ${{\hspace{{4mm}}  {{uF2}} = \\sqrt(uF2_x^2+uF2_y^2+uF2_z^2)= {Calculations.magnitude3D(-d[0]-0,d[3]-0,0-d[6]):.2f}}}$
+
+        ${{\hspace{{4mm}}  {{uF3_x}} = (x-0 )= {d[0]-0} }}$ 
+        ${{\hspace{{4mm}}  {{uF3_y}} = (y-0 )= {d[3]-0} }}$
+        ${{\hspace{{4mm}}  {{uF3_z}} = (0 -z )= {0-d[6]}}}$
+        ${{\hspace{{4mm}}  {{uF3}} = \\sqrt(uF3_x^2+uF3_y^2+uF3_z^2)= {Calculations.magnitude3D(d[0]-0,d[3]-0,0-d[6]):.2f}}}$
+
+        ${{\hspace{{4mm}}  {{uF4_x}} = (x-0 )= {d[0]-0} }}$ 
+        ${{\hspace{{4mm}}  {{uF4_y}} = (-y-0 )= {-d[3]-0} }}$
+        ${{\hspace{{4mm}}  {{uF4_z}} = (0 -z )= {0-d[6]}}}$
+        ${{\hspace{{4mm}}  {{uF3}} = \\sqrt(uF4_x^2+uF4_y^2+uF4_z^2)= {Calculations.magnitude3D(d[0]-0,-d[3]-0,0-d[6]):.2f}}}$
+
+        ${{\hspace{{4mm}}  {{\\lambda F1}} = \\left(\\dfrac{{uF1_x}}{{uF1}}\\right),\\left(\\dfrac{{uF1_y}}{{uF1}}\\right), \\left(\\dfrac{{uF1_z}}{{uF1}}\\right) = {(-d[0]-0)/(Calculations.magnitude3D(-d[0]-0,-d[3]-0,0-d[6])):.2f} \\hat{{i}},{(-d[3]-0)/(Calculations.magnitude3D(-d[0]-0,-d[3]-0,0-d[6])):.2f} \\hat{{j}}, {(0-d[6])/(Calculations.magnitude3D(-d[0]-0,-d[3]-0,0-d[6])):.2f} \\hat{{k}} }}$
+        
+        ${{\hspace{{4mm}}  {{\\lambda F2}} = \\left(\\dfrac{{uF2_x}}{{uF2}}\\right),\\left(\\dfrac{{uF2_y}}{{uF2}}\\right), \\left(\\dfrac{{uF2_z}}{{uF1}}\\right) = {(-d[0]-0)/(Calculations.magnitude3D(-d[0]-0,d[3]-0,0-d[6])):.2f} \\hat{{i}},{(d[3]-0)/(Calculations.magnitude3D(-d[0]-0,d[3]-0,0-d[6])):.2f} \\hat{{j}}, {(0-d[6])/(Calculations.magnitude3D(-d[0]-0,d[3]-0,0-d[6])):.2f} \\hat{{k}} }}$
+        
+        ${{\hspace{{4mm}}  {{\\lambda F3}} = \\left(\\dfrac{{uF3_x}}{{uF3}}\\right),\\left(\\dfrac{{uF3_y}}{{uF3}}\\right), \\left(\\dfrac{{uF3_z}}{{uF1}}\\right) = {(d[0]-0)/(Calculations.magnitude3D(d[0]-0,d[3]-0,0-d[6])):.2f} \\hat{{i}},{(d[3]-0)/(Calculations.magnitude3D(d[0]-0,d[3]-0,0-d[6])):.2f} \\hat{{j}}, {(0-d[6])/(Calculations.magnitude3D(d[0]-0,d[3]-0,0-d[6])):.2f} \\hat{{k}} }}$
+        
+        ${{\hspace{{4mm}}  {{\\lambda F4}} = \\left(\\dfrac{{uF4_x}}{{uF4}}\\right),\\left(\\dfrac{{uF4_y}}{{uF4}}\\right), \\left(\\dfrac{{uF4_z}}{{uF1}}\\right) = {(d[0]-0)/(Calculations.magnitude3D(d[0]-0,-d[3]-0,0-d[6])):.2f} \\hat{{i}},{(-d[3]-0)/(Calculations.magnitude3D(d[0]-0,-d[3]-0,0-d[6])):.2f} \\hat{{j}}, {(0-d[6])/(Calculations.magnitude3D(d[0]-0,-d[3]-0,0-d[6])):.2f} \\hat{{k}} }}$
+        
+        Componentes en X, Y y Z
+
+        ${{\hspace{{4mm}}  {{ F1}} = F1 (\\lambda F1) = {f[0]*(-d[0]-0)/(Calculations.magnitude3D(-d[0]-0,-d[3]-0,0-d[6])):.2f} \\hat{{i}},{f[0]*(-d[3]-0)/(Calculations.magnitude3D(-d[0]-0,-d[3]-0,0-d[6])):.2f} \\hat{{j}}, {f[0]*(0-d[6])/(Calculations.magnitude3D(-d[0]-0,-d[3]-0,0-d[6])):.2f} \\hat{{k}} }}$
+        
+        ${{\hspace{{4mm}}  {{ F2}} = F2 (\\lambda F2) = {f[0]*(-d[0]-0)/(Calculations.magnitude3D(-d[0]-0,d[3]-0,0-d[6])):.2f} \\hat{{i}},{f[0]*(d[3]-0)/(Calculations.magnitude3D(-d[0]-0,d[3]-0,0-d[6])):.2f} \\hat{{j}}, {f[0]*(0-d[6])/(Calculations.magnitude3D(-d[0]-0,d[3]-0,0-d[6])):.2f} \\hat{{k}} }}$
+        
+        ${{\hspace{{4mm}}  {{ F3}} = F3 (\\lambda F3) = {f[0]*(d[0]-0)/(Calculations.magnitude3D(d[0]-0,d[3]-0,0-d[6])):.2f} \\hat{{i}},{f[0]*(d[3]-0)/(Calculations.magnitude3D(d[0]-0,d[3]-0,0-d[6])):.2f} \\hat{{j}}, {f[0]*(0-d[6])/(Calculations.magnitude3D(d[0]-0,d[3]-0,0-d[6])):.2f} \\hat{{k}} }}$
+        
+        ${{\hspace{{4mm}}  {{ F4}} = F3 (\\lambda F3) = {f[0]*(d[0]-0)/(Calculations.magnitude3D(d[0]-0,-d[3]-0,0-d[6])):.2f} \\hat{{i}},{f[0]*(-d[3]-0)/(Calculations.magnitude3D(d[0]-0,-d[3]-0,0-d[6])):.2f} \\hat{{j}}, {f[0]*(0-d[6])/(Calculations.magnitude3D(d[0]-0,-d[3]-0,0-d[6])):.2f} \\hat{{k}} }}$
+        
+        Sumatoria de fuerzas en cada eje:
+        
+        ${{\hspace{{4mm}} \\sum{{F_x}} = FR_{{x}} = F1_x + F2_x + F3_x + F4_x = {(f[0]*(-d[0]-0)/(Calculations.magnitude3D(-d[0]-0,-d[3]-0,0-d[6])))+(f[0]*(-d[0]-0)/(Calculations.magnitude3D(-d[0]-0,d[3]-0,0-d[6])))+ (f[0]*(d[0]-0)/(Calculations.magnitude3D(d[0]-0,d[3]-0,0-d[6])))+ (f[0]*(d[0]-0)/(Calculations.magnitude3D(d[0]-0,-d[3]-0,0-d[6]))):.2f}}}$  
+        
+        ${{\hspace{{4mm}} \\sum{{F_y}} = FR_{{y}} = F1_y + F2_y + F3_y + F4_y = {(f[0]*(-d[3]-0)/(Calculations.magnitude3D(-d[0]-0,-d[3]-0,0-d[6])))+(f[0]*(d[3]-0)/(Calculations.magnitude3D(-d[0]-0,d[3]-0,0-d[6])))+ (f[0]*(d[3]-0)/(Calculations.magnitude3D(d[0]-0,d[3]-0,0-d[6])))+(f[0]*(-d[3]-0)/(Calculations.magnitude3D(d[0]-0,-d[3]-0,0-d[6]))):.2f}}}$  
+        
+        ${{\hspace{{4mm}} \\sum{{F_z}} = FR_{{z}} = F1_z + F2_z + F3_z + F4_z = {(f[0]*(0-d[6])/(Calculations.magnitude3D(-d[0]-0,-d[3]-0,0-d[6])))+(f[0]*(0-d[6])/(Calculations.magnitude3D(-d[0]-0,d[3]-0,0-d[6])))+ (f[0]*(0-d[6])/(Calculations.magnitude3D(d[0]-0,d[3]-0,0-d[6])))+ (f[0]*(0-d[6])/(Calculations.magnitude3D(d[0]-0,-d[3]-0,0-d[6]))):.2f}}}$
+
+        
+       """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"", 
+        calculos='operations'
+        ),
+    
+    Questionary(#8_1
+        code = 1230081,
+        no_pregunta = 8,
+        complexity = D,
+        topic = EQ,
+        subtopic = V3D,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"La broca está sometido a las tres fuerzas mostradas. Determine los cosenos direccionales de $\\alpha$, $\\beta$ 𝑦 $\\gamma$ de $F1$ de manera que la fuerza resultante que actúa sobre la broca sea cero. Considere $F1$ = ${f[2]:.0f} \\text{{ kN}}$, $F2$ = ${f[1]:.0f} \\text{{ kN}}$, $F3$ = ${f[0]:.0f} \\text{{ kN}}$.",
+        no_answers = 3,
+        a1_name = A3X,
+        a2_name = A3Y,
+        a3_name = A3Z,
+        answer1 = lambda f, a, calc, c, d, m: np.round((0,f[0]),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(((f[0]),f[2]),2),
+        answer3 = lambda f, a, calc, c, d, m: np.round((f[1],f[2]),2),
+        ayuda1 = A36,
+        ayuda2 = A67,
+        ayuda3 = A53,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        A continuación se presenta la solución sugerida para el ejercicio:
+
+        $\\textbf{{\\small 1. Cálculo de las componentes X, Y y Z de cada fuerza:}}$
+
+        ${{\hspace{{4mm}}  {{F1_x}} = F1(cos(\\alpha))}}$ 
+        ${{\hspace{{4mm}}  {{F1_y}} = F1(cos(\\beta)) }}$
+        ${{\hspace{{4mm}}  {{F1_z}} = F1(cos(\\gamma))}}$
+
+        ${{\hspace{{4mm}}  {{F2_x}} = 0}}$ 
+        ${{\hspace{{4mm}}  {{F2_y}} = 0 }}$
+        ${{\hspace{{4mm}}  {{F2_z}} = -F2}}$
+
+        ${{\hspace{{4mm}}  {{F3_x}} = 0}}$ 
+        ${{\hspace{{4mm}}  {{F3_y}} = -F3 }}$
+        ${{\hspace{{4mm}}  {{F3_z}} = 0}}$
+
+        Sumatoria de fuerzas en cada eje
+
+        ${{\hspace{{4mm}} \\sum{{F_x}} = FR_{{x}} = F1_x + F2_x + F3_x = 0 }}$  
+
+        ${{\hspace{{4mm}} \\sum{{F_x}} = FR_{{x}} = {f[2]}cos(\\alpha) + 0 + 0 = 0 }}$ 
+
+        ${{\hspace{{4mm}} \\sum{{F_y}} = FR_{{y}} = F1_y + F2_y + F3_y = 0 }}$  
+
+        ${{\hspace{{4mm}} \\sum{{F_y}} = FR_{{y}} = {f[2]}cos(\\beta) + 0 - {(f[0])} = 0 }}$
+        
+        ${{\hspace{{4mm}} \\sum{{F_z}} = FR_{{z}} = F1_z + F2_z + F3_z = 0 }}$  
+
+        ${{\hspace{{4mm}} \\sum{{F_z}} = FR_{{z}} = {f[2]}cos(\\gamma) - {(f[1])} + 0 = 0 }}$
+
+        Despejar incognitas
+
+        ${{\hspace{{4mm}}  {{cos(\\alpha)}} = ({0/f[2]:.2f})= {(0/f[0]):.2f}}}$ 
+
+        ${{\hspace{{4mm}}  {{cos(\\beta)}} =  ({(f[0])/f[2]:.2f})= {((f[0])/f[2]):.2f} }}$
+
+        ${{\hspace{{4mm}}  {{cos(\\gamma)}} =  ({f[1]/f[2]:.2f})= {(f[1]/f[2]):.2f}}}$
+
+    
+       """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"", 
+        calculos='operations'
+        ),
     #=================================================EQUILIBRIO DE PARTÍCULAS===================================================
     #-------------------------------------------------     Vector unitario     ---------------------------------------------------
     #-------------------------------------------------       Nivel fácil       ---------------------------------------------------
@@ -2486,7 +3685,132 @@ preguntas = [
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",    
         calculos='operations'
         ),
+
+    Questionary(#6_1
+        code = 1310061,
+        no_pregunta = 6,
+        complexity ="Fácil",
+        topic = "Equilibrio de partículas",
+        subtopic ="Vector unitario",
+        version = 2,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine los cosenos directores del vector cartesiano $[({c[0]:.0f}) i + ({c[1]:.0f}) j + ({c[2]:.0f}) k] N$.",
+        no_answers = 3,
+        a1_name = "Coseno director de X $(cos(\\alpha))$",
+        a2_name = "Coseno director de Y $(cos(\\beta))$ ",
+        a3_name = "Coseno director de Z $(cos(\\gamma))$ ",
+        answer1=lambda f, a, calc, c, d, m: np.round((c[0]/Calculations.magnitude3D(c[0],c[1],c[2])),2),
+        answer2=lambda f, a, calc, c, d, m: np.round((c[1]/Calculations.magnitude3D(c[0],c[1],c[2])),2),
+        answer3=lambda f, a, calc, c, d, m: np.round((c[2]/Calculations.magnitude3D(c[0],c[1],c[2])),2),
+        ayuda1 = A36,
+        ayuda2= A55,  
+        ayuda3= A40,
+        respuesta_P1=lambda f, a, calc, c, d, m:f"""
+        A continuación se presenta la solución sugerida para el ejercicio:
+
+        $\\textbf{{\\small 1. Cálculo de la magnitud del vector cartesiano:}}$
+
+        ${{\hspace{{4mm}} |\\overrightarrow{{F}}| = \\sqrt{{F_x^2 + F_y^2 + F_z^2}} = \\sqrt{{({c[0]})^2 + ({c[1]})^2 + ({c[2]})^2}} = {Calculations.magnitude3D(c[0],c[1],c[2]):.2f} \\text{{N}}}}$
+
+        $\\textbf{{\\small 2. Cálculo de los cosenos direccionales:}}$
+
+        Para el cálculo de los cosenos direccionales se determina la componente en x, y y z y se divide por la magnitud de $\\overrightarrow{{F}}$.
+
+        ${{\hspace{{4mm}} \\text{{Ángulo respecto a X: }} cos(\\alpha) = \\left(\\dfrac{{F_x}}{{|\\overrightarrow{{F}}|}}\\right)={(c[0]/Calculations.magnitude3D(c[0],c[1],c[2])):.2f}}}$
+        ${{\hspace{{4mm}} \\text{{Ángulo respecto a Y: }} cos(\\beta) = \\left(\\dfrac{{F_y}}{{|\\overrightarrow{{F}}|}}\\right)={(c[1]/Calculations.magnitude3D(c[0],c[1],c[2])):.2f}}}$
+        ${{\hspace{{4mm}} \\text{{Ángulo respecto a Z: }} cos(\\gamma) = \\left(\\dfrac{{F_z}}{{|\\overrightarrow{{F}}|}}\\right)={(c[2]/Calculations.magnitude3D(c[0],c[1],c[2])):.2f}}}$
+        """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",    
+        calculos='operations'
+        ),
     
+    Questionary(#7_1
+        code = 1310071,
+        no_pregunta = 7,
+        complexity ="Fácil",
+        topic = "Equilibrio de partículas",
+        subtopic ="Vector unitario",
+        version = 5,
+        pregunta = lambda f, a, calc, c, d, m: f"¿Cual es la longitud de la barra AB de la cercha ? Considere $\\alpha_x = {a[0]:.0f}\\degree$ , $x_1$ = ${ d[0]:.0f} m$, $x_2$ = ${d[3]:.0f} m$, $x_3$ = ${d[6]:.0f} m$ , $y_1$ = ${d[9]+d[12]:.0f} m$   $y_2$ = ${d[12]:.0f} m$.",
+        no_answers = 1,
+        a1_name = "Longitud de la barra AB (m)",
+        a2_name = " ",
+        a3_name = "",
+        answer1=lambda f, a, calc, c, d, m: np.round(math.sqrt((d[0]+d[3]+d[6]-d[0])**2+(d[9]+d[12]-d[12])**2),2),
+        answer2=lambda f, a, calc, c, d, m: "",
+        answer3=lambda f, a, calc, c, d, m: "",
+        ayuda1 = A52,
+        ayuda2= "¿Qué representa la longitud de la barra?",  
+        ayuda3= "Encuentre el vector unitario de la barra AB.",
+        respuesta_P1=lambda f, a, calc, c, d, m:f"""
+        A continuación se presenta la solución sugerida para el ejercicio:
+
+        $\\textbf{{\\small 1. Cálculo del vector unitario :}}$
+
+        A partir de las medidas de la cercha se obtiene que:
+
+        ${{\hspace{{4mm}} A = (x_1,y_2) = ({d[0], d[12]}) }}$
+
+        ${{\hspace{{4mm}} B = (x_1 + x_2 + x_3, y_1) = ({d[0]+d[3]+d[6], d[9]+d[12]}) }}$
+
+        Por lo cual el lado AB corresponde a u vector:
+
+        ${{\hspace{{4mm}} AB = (B_x-A_x, B_y-A_y) = ({d[0]+d[3]+d[6]-d[0]} \\hat{{i}} , {d[9]+d[12]-d[12]} \\hat{{j}}) }}$
+
+        $\\textbf{{\\small 2. Cálculo la magnitud (longitud):}}$
+
+        ${{\hspace{{4mm}} |\\overrightarrow{{AB}}| = \\sqrt(AB_x^2 + AB_y^2)={math.sqrt((d[0]+d[3]+d[6]-d[0])**2+(d[9]+d[12]-d[12])**2):.2f}°}}$
+        
+        """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",    
+        calculos='operations'
+        ),
+    
+    Questionary(#8_1
+        code = 1310081,
+        no_pregunta = 8,
+        complexity ="Fácil",
+        topic = "Equilibrio de partículas",
+        subtopic ="Vector unitario",
+        version = 2,
+        pregunta = lambda f, a, calc, c, d, m: f"Halle el vector unitario en las coordenadas X, Y. Considere las coordenadas del Punto A $({c[0]:.0f} , {c[4]:.0f})$ y del Punto B $({c[3]:.0f} , {c[1]:.0f})$.",
+        no_answers = 2,
+        a1_name = "Vector unitario en X $(i)$",
+        a2_name = "Vector unitario en Y $(j)$ ",
+        a3_name = " ",
+        answer1=lambda f, a, calc, c, d, m: np.round((c[3]-c[0])/(math.sqrt((c[3]-c[0])**2+(c[1]-c[4])**2)),2),
+        answer2=lambda f, a, calc, c, d, m: np.round((c[1]-c[4])/(math.sqrt((c[3]-c[0])**2+(c[1]-c[4])**2)),2),
+        answer3=lambda f, a, calc, c, d, m: "",
+        ayuda1 = A56,
+        ayuda2= A52,  
+        ayuda3= A45,
+        respuesta_P1=lambda f, a, calc, c, d, m:f"""
+        A continuación se presenta la solución sugerida para el ejercicio:
+
+        $\\textbf{{\\small 1. Cálculo del vector unitario :}}$
+
+        A partir de las coordenadas se conoce:
+
+        ${{\hspace{{4mm}} A = (x_1,y_1) = ({c[0], c[4]}) }}$
+
+        ${{\hspace{{4mm}} B = (x_2, y_2) = ({c[3], c[1]}) }}$
+
+        Por lo cual el lado AB corresponde a u vector:
+
+        ${{\hspace{{4mm}} AB = (x_2-x_1, y_2-y_1) = ({c[3]-c[0]} \\hat{{i}} , {c[1]-c[4]} \\hat{{j}}) }}$
+
+        ${{\hspace{{4mm}} |AB| = \\sqrt(AB_x^2 + AB_y^2)={math.sqrt((c[3]-c[0])**2+(c[1]-c[4])**2):.2f}°}}$
+
+        ${{\hspace{{4mm}} u = \\left(\\dfrac{{AB_x}}{{|AB|}}\\right) \\hat{{i}}, \\left(\\dfrac{{AB_y}}{{|AB|}}\\right) \\hat{{j}} = ({(c[3]-c[0])/(math.sqrt((c[3]-c[0])**2+(c[1]-c[4])**2)):.2f} \\hat{{i}}, {(c[1]-c[4])/(math.sqrt((c[3]-c[0])**2+(c[1]-c[4])**2)):.2f} \\hat{{j}}) }}$
+
+
+        
+        """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",    
+        calculos='operations'
+        ),
     #=================================================EQUILIBRIO DE PARTÍCULAS===================================================
     #-------------------------------------------------     Vector unitario    ---------------------------------------------------
     #-------------------------------------------------       Nivel medio      ---------------------------------------------------
@@ -2734,6 +4058,309 @@ preguntas = [
         respuesta_P3 = lambda f, a, calc, c, d, m: f"", 
         calculos='operations' 
         ),
+    
+    Questionary(#6_1 
+        code = 1320061, 
+        no_pregunta = 6, 
+        complexity = M, 
+        topic = EQ, 
+        subtopic = VU, 
+        version = 1, 
+        pregunta = lambda f, a, calc, c, d, m: f"Especifique los ángulos coordenados de dirección de $FR$. Considere $F1 = {f[0]:.0f} \\text{{ N}}$ , $F2 = {f[1]:.0f} \\text{{ N}}$ , $\\theta_1 = {a[0]:.0f}\\degree$  y $\\theta_2 = {a[4]:.0f}\\degree$.", 
+        no_answers = 3, 
+        a1_name = A3X, 
+        a2_name = A3Y, 
+        a3_name = A3Z, 
+        answer1=lambda f, a, calc, c, d, m: np.round(math.degrees(math.acos(f[0]*Calculations.cosine(a[0])*Calculations.cosine(a[4])/(Calculations.magnitude3D(f[0]*Calculations.cosine(a[0])*Calculations.cosine(a[4]),f[0]*Calculations.cosine(a[0])*Calculations.sine(a[4]), f[0]*Calculations.sine(a[0])+ (-(f[1])))))), 2), 
+        answer2=lambda f, a, calc, c, d, m: np.round(math.degrees(math.acos(f[0]*Calculations.cosine(a[0])*Calculations.sine(a[4])/(Calculations.magnitude3D(f[0]*Calculations.cosine(a[0])*Calculations.cosine(a[4]),f[0]*Calculations.cosine(a[0])*Calculations.sine(a[4]), f[0]*Calculations.sine(a[0])+ (-(f[1])))))), 2), 
+        answer3=lambda f, a, calc, c, d, m: np.round(math.degrees(math.acos((f[0]*Calculations.sine(a[0])-(f[1]))/(Calculations.magnitude3D(f[0]*Calculations.cosine(a[0])*Calculations.cosine(a[4]),f[0]*Calculations.cosine(a[0])*Calculations.sine(a[4]), f[0]*Calculations.sine(a[0])+ (-(f[1])))))), 2), 
+        ayuda1 = A40, 
+        ayuda2 = A63, 
+        ayuda3 = A36, 
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        A continuación se presenta la solución sugerida para el ejercicio:
+
+        $\\textbf{{\\small 1. Cálculo de las componentes de las fuerzas F1 y F2:}}$
+
+        ${{\hspace{{4mm}} {{F1_x}} = F1cos(\\theta_1)cos(\\theta_2) = {f[0]*Calculations.cosine(a[0])*Calculations.cosine(a[4]):.2f} }}$
+
+        ${{\hspace{{4mm}} {{F1_y}} = -F1cos(\\theta_1)sen(\\theta_2) = {-(f[0])*Calculations.cosine(a[0])*Calculations.sine(a[4]):.2f} }}$
+
+        ${{\hspace{{4mm}} {{F1_z}} = F1sen(\\theta_1) = {f[0]*Calculations.sine(a[0]):.2f} }}$
+
+        ${{\hspace{{4mm}} {{F2_x}} = 0  }}$
+
+        ${{\hspace{{4mm}} {{F2_y}} = 0  }}$
+
+        ${{\hspace{{4mm}} {{F2_z}} = -F2 = {-(f[1])} }}$ 
+
+        ${{\hspace{{4mm}} \\sum{{FR_x}} = F1cos(\\theta_1)cos(\\theta_2) + 0 = {f[0]*Calculations.cosine(a[0])*Calculations.cosine(a[4]):.2f} }}$
+
+        ${{\hspace{{4mm}} \\sum{{FR_y}} = F1cos(\\theta_1)sen(\\theta_2) + 0 = {f[0]*Calculations.cosine(a[0])*Calculations.sine(a[4]):.2f} }}$
+
+        ${{\hspace{{4mm}} \\sum{{FR_z}} = -F1sen(\\theta_1) - F2 = {f[0]*Calculations.sine(a[0])+ (-(f[1])):.2f} }}$
+
+        ${{\hspace{{4mm}} \\sum{{FR}} = \\sqrt(FR_x^2+ FR_y^2 + FR_x^2) = {Calculations.magnitude3D(f[0]*Calculations.cosine(a[0])*Calculations.cosine(a[4]),f[0]*Calculations.cosine(a[0])*Calculations.sine(a[4]), f[0]*Calculations.sine(a[0])+ (-(f[1]))):.2f} }}$
+
+        $\\textbf{{\\small 2. Cálculo de los ángulos:}}$
+
+        Para el cálculo de los ángulos se determina el coseno inverso de cada una de las componentes del vector unitario en la dirección del vector $\\overrightarrow{{FR}}$.
+        
+        ${{\hspace{{4mm}} \\alpha = cos^-1(\\dfrac{{FR_x}}{{FR}}) ={math.degrees(math.acos(f[0]*Calculations.cosine(a[0])*Calculations.cosine(a[4])/(Calculations.magnitude3D(f[0]*Calculations.cosine(a[0])*Calculations.cosine(a[4]),f[0]*Calculations.cosine(a[0])*Calculations.sine(a[4]), f[0]*Calculations.sine(a[0])+ (-(f[1])))))):.2f} }}$
+
+        ${{\hspace{{4mm}} \\beta = cos^-1(\\dfrac{{FR_y}}{{FR}}) ={math.degrees(math.acos(f[0]*Calculations.cosine(a[0])*Calculations.sine(a[4])/(Calculations.magnitude3D(f[0]*Calculations.cosine(a[0])*Calculations.cosine(a[4]),f[0]*Calculations.cosine(a[0])*Calculations.sine(a[4]), f[0]*Calculations.sine(a[0])+ (-(f[1])))))):.2f} }}$
+
+        ${{\hspace{{4mm}} \\gamma = cos^-1(\\dfrac{{FR_z}}{{FR}}) ={math.degrees(math.acos((f[0]*Calculations.sine(a[0])-(f[1]))/(Calculations.magnitude3D(f[0]*Calculations.cosine(a[0])*Calculations.cosine(a[4]),f[0]*Calculations.cosine(a[0])*Calculations.sine(a[4]), f[0]*Calculations.sine(a[0])+ (-(f[1])))))):.2f} }}$
+    
+        """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"", 
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"", 
+        calculos='operations' 
+        ),
+    
+    Questionary(#7_1 
+        code = 1320071, 
+        no_pregunta = 7, 
+        complexity = M, 
+        topic = EQ, 
+        subtopic = VU, 
+        version = 1, 
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud y los ángulos coordenados en $x$ y $y$ de la fuerza resultante $FR$ sabiendo que $F1 = {f[0]:.0f} \\text{{ N}}$ y $F2 = {f[1]:.0f} \\text{{ N}}$ . Considere $\\alpha = {a[0]:.0f}\\degree$ , $\\beta = {a[4]:.0f}\\degree$, $\\gamma = {a[8]:.0f}\\degree$ , $\\theta_1 = {abs(a[1]-95):.0f}\\degree$, $\\theta_2 = {abs(a[2]-185):.0f}\\degree$.", 
+        no_answers = 3, 
+        a1_name = "Magnitud de FR $[N]$", 
+        a2_name = A3X, 
+        a3_name = A3Y, 
+        answer1=lambda f, a, calc, c, d, m: np.round(Calculations.magnitude3D(f[0]*Calculations.cosine(abs(a[1]-95))*Calculations.sine(abs(a[2]-185))+ f[1]*Calculations.cosine(a[0]),(f[0])*Calculations.cosine(abs(a[1]-95))*Calculations.cosine(abs(a[2]-185))+f[1]*Calculations.cosine(a[4]), -(f[0])*Calculations.sine(abs(a[1]-95))+f[1]*Calculations.cosine(a[8])), 2), 
+        answer2=lambda f, a, calc, c, d, m: np.round(math.degrees(math.acos(((f[0]*Calculations.cosine(abs(a[1]-95))*Calculations.sine(abs(a[2]-185))+ f[1]*Calculations.cosine(a[0])))/Calculations.magnitude3D(f[0]*Calculations.cosine(abs(a[1]-95))*Calculations.sine(abs(a[2]-185))+ f[1]*Calculations.cosine(a[0]),(f[0])*Calculations.cosine(abs(a[1]-95))*Calculations.cosine(abs(a[2]-185))+f[1]*Calculations.cosine(a[4]), -(f[0])*Calculations.sine(abs(a[1]-95))+f[1]*Calculations.cosine(a[8])))),2), 
+        answer3=lambda f, a, calc, c, d, m: np.round(math.degrees(math.acos((((f[0])*Calculations.cosine(abs(a[1]-95))*Calculations.cosine(abs(a[2]-185)))+(f[1]*Calculations.cosine(a[4])))/(Calculations.magnitude3D(f[0]*Calculations.cosine(abs(a[1]-95))*Calculations.sine(abs(a[2]-185))+ f[1]*Calculations.cosine(a[0]),(f[0])*Calculations.cosine(abs(a[1]-95))*Calculations.cosine(abs(a[2]-185))+f[1]*Calculations.cosine(a[4]), -(f[0])*Calculations.sine(abs(a[1]-95))+f[1]*Calculations.cosine(a[8]))))),2), 
+        ayuda1 = A40, 
+        ayuda2 = A63, 
+        ayuda3 = A36,  
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        A continuación se presenta la solución sugerida para el ejercicio:
+
+        $\\textbf{{\\small 1. Cálculo de las componentes de las fuerzas F1 y F2:}}$
+
+        ${{\hspace{{4mm}} {{F1_x}} = F1cos(\\theta_1)sen(\\theta_2) = {f[0]*Calculations.cosine(abs(a[1]-95))*Calculations.sine(abs(a[2]-185)):.2f} }}$
+
+        ${{\hspace{{4mm}} {{F1_y}} = F1cos(\\theta_1)cos(\\theta_2) = {(f[0])*Calculations.cosine(abs(a[1]-95))*Calculations.cosine(abs(a[2]-185)):.2f} }}$
+
+        ${{\hspace{{4mm}} {{F1_z}} = -F1sen(\\theta_1) = {-(f[0])*Calculations.sine(abs(a[1]-95)):.2f} }}$
+
+        ${{\hspace{{4mm}} {{F2_x}} = F2cos(\\alpha) = {f[1]*Calculations.cosine(a[0]):.2f}}}$
+
+        ${{\hspace{{4mm}} {{F2_y}} = F2cos(\\beta) = {f[1]*Calculations.cosine(a[4]):.2f} }}$
+
+        ${{\hspace{{4mm}} {{F2_z}} = F2cos(\\gamma) = {f[1]*Calculations.cosine(a[8]):.2f} }}$ 
+
+        ${{\hspace{{4mm}} \\sum{{FR_x}} = F1cos(\\theta_1)sen(\\theta_2) + F2cos(\\alpha) = {f[0]*Calculations.cosine(abs(a[1]-95))*Calculations.sine(abs(a[2]-185))+ f[1]*Calculations.cosine(a[0]):.2f} }}$
+
+        ${{\hspace{{4mm}} \\sum{{FR_y}} = F1cos(\\theta_1)sen(\\theta_2) + F2cos(\\beta) = {((f[0])*Calculations.cosine(abs(a[1]-95))*Calculations.cosine(abs(a[2]-185)))+(f[1]*Calculations.cosine(a[4])):.2f} }}$
+
+        ${{\hspace{{4mm}} \\sum{{FR_z}} = -F1sen(\\theta_1) + F2cos(\\gamma) = {(-(f[0])*Calculations.sine(abs(a[1]-95)))+(f[1]*Calculations.cosine(a[8])):.2f} }}$
+
+        ${{\hspace{{4mm}} \\sum{{FR}} = \\sqrt(FR_x^2+ FR_y^2 + FR_x^2) = {Calculations.magnitude3D(f[0]*Calculations.cosine(abs(a[1]-95))*Calculations.sine(abs(a[2]-185))+ f[1]*Calculations.cosine(a[0]),(f[0])*Calculations.cosine(abs(a[1]-95))*Calculations.cosine(abs(a[2]-185))+f[1]*Calculations.cosine(a[4]), -(f[0])*Calculations.sine(abs(a[1]-95))+f[1]*Calculations.cosine(a[8])):.2f} }}$
+
+        $\\textbf{{\\small 2. Cálculo de los ángulos:}}$
+
+        Para el cálculo de los ángulos se determina el coseno inverso de cada una de las componentes del vector unitario en la dirección del vector $\\overrightarrow{{FR}}$.
+        
+        ${{\hspace{{4mm}} \\alpha = cos^-1(\\dfrac{{FR_x}}{{FR}})={math.degrees(math.acos(((f[0]*Calculations.cosine(abs(a[1]-95))*Calculations.sine(abs(a[2]-185))+ f[1]*Calculations.cosine(a[0])))/Calculations.magnitude3D(f[0]*Calculations.cosine(abs(a[1]-95))*Calculations.sine(abs(a[2]-185))+ f[1]*Calculations.cosine(a[0]),(f[0])*Calculations.cosine(abs(a[1]-95))*Calculations.cosine(abs(a[2]-185))+f[1]*Calculations.cosine(a[4]), -(f[0])*Calculations.sine(abs(a[1]-95))+f[1]*Calculations.cosine(a[8])))):.2f}  }}$
+
+        ${{\hspace{{4mm}} \\beta = cos^-1(\\dfrac{{FR_y}}{{FR}}) = {math.degrees(math.acos((((f[0])*Calculations.cosine(abs(a[1]-95))*Calculations.cosine(abs(a[2]-185)))+(f[1]*Calculations.cosine(a[4])))/(Calculations.magnitude3D(f[0]*Calculations.cosine(abs(a[1]-95))*Calculations.sine(abs(a[2]-185))+ f[1]*Calculations.cosine(a[0]),(f[0])*Calculations.cosine(abs(a[1]-95))*Calculations.cosine(abs(a[2]-185))+f[1]*Calculations.cosine(a[4]), -(f[0])*Calculations.sine(abs(a[1]-95))+f[1]*Calculations.cosine(a[8]))))):.2f} }}$
+
+        ${{\hspace{{4mm}} \\gamma = cos^-1(\\dfrac{{FR_z}}{{FR}}) = {math.degrees(math.acos(((-(f[0])*Calculations.sine(abs(a[1]-95)))+(f[1]*Calculations.cosine(a[8])))/(Calculations.magnitude3D(f[0]*Calculations.cosine(abs(a[1]-95))*Calculations.sine(abs(a[2]-185))+ f[1]*Calculations.cosine(a[0]),(f[0])*Calculations.cosine(abs(a[1]-95))*Calculations.cosine(abs(a[2]-185))+f[1]*Calculations.cosine(a[4]), -(f[0])*Calculations.sine(abs(a[1]-95))+f[1]*Calculations.cosine(a[8]))))):.2f}}}$
+    
+        """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"", 
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"", 
+        calculos='operations' 
+        ),
+    
+    Questionary(#7_2 
+        code = 1320072, 
+        no_pregunta = 7, 
+        complexity = M, 
+        topic = EQ, 
+        subtopic = VU, 
+        version = 2, 
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud y los ángulos coordenados en $x$ y $z$ de la fuerza resultante $FR$ sabiendo que $F1 = {f[0]:.0f} \\text{{ N}}$ y $F2 = {f[1]:.0f} \\text{{ N}}$ . Considere $\\alpha = {a[0]:.0f}\\degree$ , $\\beta = {a[4]:.0f}\\degree$, $\\gamma = {a[8]:.0f}\\degree$ , $\\theta_1 = {abs(a[1]-95):.0f}\\degree$, $\\theta_2 = {abs(a[2]-185):.0f}\\degree$.", 
+        no_answers = 3, 
+        a1_name = "Magnitud de FR $[N]$", 
+        a2_name = A3X, 
+        a3_name = A3Z, 
+        answer1=lambda f, a, calc, c, d, m: np.round(Calculations.magnitude3D(f[0]*Calculations.cosine(abs(a[1]-95))*Calculations.sine(abs(a[2]-185))+ f[1]*Calculations.cosine(a[0]),(f[0])*Calculations.cosine(abs(a[1]-95))*Calculations.cosine(abs(a[2]-185))+f[1]*Calculations.cosine(a[4]), -(f[0])*Calculations.sine(abs(a[1]-95))+f[1]*Calculations.cosine(a[8])), 2), 
+        answer2=lambda f, a, calc, c, d, m: np.round(math.degrees(math.acos(((f[0]*Calculations.cosine(abs(a[1]-95))*Calculations.sine(abs(a[2]-185))+ f[1]*Calculations.cosine(a[0])))/Calculations.magnitude3D(f[0]*Calculations.cosine(abs(a[1]-95))*Calculations.sine(abs(a[2]-185))+ f[1]*Calculations.cosine(a[0]),(f[0])*Calculations.cosine(abs(a[1]-95))*Calculations.cosine(abs(a[2]-185))+f[1]*Calculations.cosine(a[4]), -(f[0])*Calculations.sine(abs(a[1]-95))+f[1]*Calculations.cosine(a[8])))), 2), 
+        answer3=lambda f, a, calc, c, d, m: np.round(math.degrees(math.acos(((-(f[0])*Calculations.sine(abs(a[1]-95)))+(f[1]*Calculations.cosine(a[8])))/(Calculations.magnitude3D(f[0]*Calculations.cosine(abs(a[1]-95))*Calculations.sine(abs(a[2]-185))+ f[1]*Calculations.cosine(a[0]),(f[0])*Calculations.cosine(abs(a[1]-95))*Calculations.cosine(abs(a[2]-185))+f[1]*Calculations.cosine(a[4]), -(f[0])*Calculations.sine(abs(a[1]-95))+f[1]*Calculations.cosine(a[8]))))), 2), 
+        ayuda1 = A40, 
+        ayuda2 = A63, 
+        ayuda3 = A36,  
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        A continuación se presenta la solución sugerida para el ejercicio:
+
+        $\\textbf{{\\small 1. Cálculo de las componentes de las fuerzas F1 y F2:}}$
+
+        ${{\hspace{{4mm}} {{F1_x}} = F1cos(\\theta_1)sen(\\theta_2) = {f[0]*Calculations.cosine(abs(a[1]-95))*Calculations.sine(abs(a[2]-185)):.2f} }}$
+
+        ${{\hspace{{4mm}} {{F1_y}} = F1cos(\\theta_1)cos(\\theta_2) = {(f[0])*Calculations.cosine(abs(a[1]-95))*Calculations.cosine(abs(a[2]-185)):.2f} }}$
+
+        ${{\hspace{{4mm}} {{F1_z}} = -F1sen(\\theta_1) = {-(f[0])*Calculations.sine(abs(a[1]-95)):.2f} }}$
+
+        ${{\hspace{{4mm}} {{F2_x}} = F2cos(\\alpha) = {f[1]*Calculations.cosine(a[0]):.2f}}}$
+
+        ${{\hspace{{4mm}} {{F2_y}} = F2cos(\\beta) = {f[1]*Calculations.cosine(a[4]):.2f} }}$
+
+        ${{\hspace{{4mm}} {{F2_z}} = F2cos(\\gamma) = {f[1]*Calculations.cosine(a[8]):.2f} }}$ 
+
+        ${{\hspace{{4mm}} \\sum{{FR_x}} = F1cos(\\theta_1)sen(\\theta_2) + F2cos(\\alpha) = {f[0]*Calculations.cosine(abs(a[1]-95))*Calculations.sine(abs(a[2]-185))+ f[1]*Calculations.cosine(a[0]):.2f} }}$
+
+        ${{\hspace{{4mm}} \\sum{{FR_y}} = F1cos(\\theta_1)sen(\\theta_2) + F2cos(\\beta) = {((f[0])*Calculations.cosine(abs(a[1]-95))*Calculations.cosine(abs(a[2]-185)))+(f[1]*Calculations.cosine(a[4])):.2f} }}$
+
+        ${{\hspace{{4mm}} \\sum{{FR_z}} = -F1sen(\\theta_1) + F2cos(\\gamma) = {(-(f[0])*Calculations.sine(abs(a[1]-95)))+(f[1]*Calculations.cosine(a[8])):.2f} }}$
+
+        ${{\hspace{{4mm}} \\sum{{FR}} = \\sqrt(FR_x^2+ FR_y^2 + FR_x^2) = {Calculations.magnitude3D(f[0]*Calculations.cosine(abs(a[1]-95))*Calculations.sine(abs(a[2]-185))+ f[1]*Calculations.cosine(a[0]),(f[0])*Calculations.cosine(abs(a[1]-95))*Calculations.cosine(abs(a[2]-185))+f[1]*Calculations.cosine(a[4]), -(f[0])*Calculations.sine(abs(a[1]-95))+f[1]*Calculations.cosine(a[8])):.2f} }}$
+
+        $\\textbf{{\\small 2. Cálculo de los ángulos:}}$
+
+        Para el cálculo de los ángulos se determina el coseno inverso de cada una de las componentes del vector unitario en la dirección del vector $\\overrightarrow{{FR}}$.
+        
+        ${{\hspace{{4mm}} \\alpha = cos^-1(\\dfrac{{FR_x}}{{FR}})={math.degrees(math.acos(((f[0]*Calculations.cosine(abs(a[1]-95))*Calculations.sine(abs(a[2]-185))+ f[1]*Calculations.cosine(a[0])))/Calculations.magnitude3D(f[0]*Calculations.cosine(abs(a[1]-95))*Calculations.sine(abs(a[2]-185))+ f[1]*Calculations.cosine(a[0]),(f[0])*Calculations.cosine(abs(a[1]-95))*Calculations.cosine(abs(a[2]-185))+f[1]*Calculations.cosine(a[4]), -(f[0])*Calculations.sine(abs(a[1]-95))+f[1]*Calculations.cosine(a[8])))):.2f}  }}$
+
+        ${{\hspace{{4mm}} \\beta = cos^-1(\\dfrac{{FR_y}}{{FR}}) = {math.degrees(math.acos((((f[0])*Calculations.cosine(abs(a[1]-95))*Calculations.cosine(abs(a[2]-185)))+(f[1]*Calculations.cosine(a[4])))/(Calculations.magnitude3D(f[0]*Calculations.cosine(abs(a[1]-95))*Calculations.sine(abs(a[2]-185))+ f[1]*Calculations.cosine(a[0]),(f[0])*Calculations.cosine(abs(a[1]-95))*Calculations.cosine(abs(a[2]-185))+f[1]*Calculations.cosine(a[4]), -(f[0])*Calculations.sine(abs(a[1]-95))+f[1]*Calculations.cosine(a[8]))))):.2f} }}$
+
+        ${{\hspace{{4mm}} \\gamma = cos^-1(\\dfrac{{FR_z}}{{FR}}) = {math.degrees(math.acos(((-(f[0])*Calculations.sine(abs(a[1]-95)))+(f[1]*Calculations.cosine(a[8])))/(Calculations.magnitude3D(f[0]*Calculations.cosine(abs(a[1]-95))*Calculations.sine(abs(a[2]-185))+ f[1]*Calculations.cosine(a[0]),(f[0])*Calculations.cosine(abs(a[1]-95))*Calculations.cosine(abs(a[2]-185))+f[1]*Calculations.cosine(a[4]), -(f[0])*Calculations.sine(abs(a[1]-95))+f[1]*Calculations.cosine(a[8]))))):.2f}}}$
+    
+        """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"", 
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"", 
+        calculos='operations' 
+        ),
+    
+    Questionary(#7_3
+        code = 1320073, 
+        no_pregunta = 7, 
+        complexity = M, 
+        topic = EQ, 
+        subtopic = VU, 
+        version = 3, 
+        pregunta = lambda f, a, calc, c, d, m: f"Determine la magnitud y los ángulos coordenados en $y$ y $z$ de la fuerza resultante $FR$ sabiendo que $F1 = {f[0]:.0f} \\text{{ N}}$ y $F2 = {f[1]:.0f} \\text{{ N}}$ . Considere $\\alpha = {a[0]:.0f}\\degree$ , $\\beta = {a[4]:.0f}\\degree$, $\\gamma = {a[8]:.0f}\\degree$ , $\\theta_1 = {abs(a[1]-95):.0f}\\degree$, $\\theta_2 = {abs(a[2]-185):.0f}\\degree$.", 
+        no_answers = 3, 
+        a1_name = "Magnitud de FR $[N]$", 
+        a2_name = A3Y, 
+        a3_name = A3Z, 
+        answer1=lambda f, a, calc, c, d, m: np.round(Calculations.magnitude3D(f[0]*Calculations.cosine(abs(a[1]-95))*Calculations.sine(abs(a[2]-185))+ f[1]*Calculations.cosine(a[0]),(f[0])*Calculations.cosine(abs(a[1]-95))*Calculations.cosine(abs(a[2]-185))+f[1]*Calculations.cosine(a[4]), -(f[0])*Calculations.sine(abs(a[1]-95))+f[1]*Calculations.cosine(a[8])), 2), 
+        answer2=lambda f, a, calc, c, d, m: np.round(math.degrees(math.acos((((f[0])*Calculations.cosine(abs(a[1]-95))*Calculations.cosine(abs(a[2]-185)))+(f[1]*Calculations.cosine(a[4])))/(Calculations.magnitude3D(f[0]*Calculations.cosine(abs(a[1]-95))*Calculations.sine(abs(a[2]-185))+ f[1]*Calculations.cosine(a[0]),(f[0])*Calculations.cosine(abs(a[1]-95))*Calculations.cosine(abs(a[2]-185))+f[1]*Calculations.cosine(a[4]), -(f[0])*Calculations.sine(abs(a[1]-95))+f[1]*Calculations.cosine(a[8]))))), 2), 
+        answer3=lambda f, a, calc, c, d, m: np.round(math.degrees(math.acos(((-(f[0])*Calculations.sine(abs(a[1]-95)))+(f[1]*Calculations.cosine(a[8])))/(Calculations.magnitude3D(f[0]*Calculations.cosine(abs(a[1]-95))*Calculations.sine(abs(a[2]-185))+ f[1]*Calculations.cosine(a[0]),(f[0])*Calculations.cosine(abs(a[1]-95))*Calculations.cosine(abs(a[2]-185))+f[1]*Calculations.cosine(a[4]), -(f[0])*Calculations.sine(abs(a[1]-95))+f[1]*Calculations.cosine(a[8]))))), 2), 
+        ayuda1 = A40, 
+        ayuda2 = A63, 
+        ayuda3 = A36,  
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        A continuación se presenta la solución sugerida para el ejercicio:
+
+        $\\textbf{{\\small 1. Cálculo de las componentes de las fuerzas F1 y F2:}}$
+
+        ${{\hspace{{4mm}} {{F1_x}} = F1cos(\\theta_1)sen(\\theta_2) = {f[0]*Calculations.cosine(abs(a[1]-95))*Calculations.sine(abs(a[2]-185)):.2f} }}$
+
+        ${{\hspace{{4mm}} {{F1_y}} = F1cos(\\theta_1)cos(\\theta_2) = {(f[0])*Calculations.cosine(abs(a[1]-95))*Calculations.cosine(abs(a[2]-185)):.2f} }}$
+
+        ${{\hspace{{4mm}} {{F1_z}} = -F1sen(\\theta_1) = {-(f[0])*Calculations.sine(abs(a[1]-95)):.2f} }}$
+
+        ${{\hspace{{4mm}} {{F2_x}} = F2cos(\\alpha) = {f[1]*Calculations.cosine(a[0]):.2f}}}$
+
+        ${{\hspace{{4mm}} {{F2_y}} = F2cos(\\beta) = {f[1]*Calculations.cosine(a[4]):.2f} }}$
+
+        ${{\hspace{{4mm}} {{F2_z}} = F2cos(\\gamma) = {f[1]*Calculations.cosine(a[8]):.2f} }}$ 
+
+        ${{\hspace{{4mm}} \\sum{{FR_x}} = F1cos(\\theta_1)sen(\\theta_2) + F2cos(\\alpha) = {f[0]*Calculations.cosine(abs(a[1]-95))*Calculations.sine(abs(a[2]-185))+ f[1]*Calculations.cosine(a[0]):.2f} }}$
+
+        ${{\hspace{{4mm}} \\sum{{FR_y}} = F1cos(\\theta_1)sen(\\theta_2) + F2cos(\\beta) = {((f[0])*Calculations.cosine(abs(a[1]-95))*Calculations.cosine(abs(a[2]-185)))+(f[1]*Calculations.cosine(a[4])):.2f} }}$
+
+        ${{\hspace{{4mm}} \\sum{{FR_z}} = -F1sen(\\theta_1) + F2cos(\\gamma) = {(-(f[0])*Calculations.sine(abs(a[1]-95)))+(f[1]*Calculations.cosine(a[8])):.2f} }}$
+
+        ${{\hspace{{4mm}} \\sum{{FR}} = \\sqrt(FR_x^2+ FR_y^2 + FR_x^2) = {Calculations.magnitude3D(f[0]*Calculations.cosine(abs(a[1]-95))*Calculations.sine(abs(a[2]-185))+ f[1]*Calculations.cosine(a[0]),(f[0])*Calculations.cosine(abs(a[1]-95))*Calculations.cosine(abs(a[2]-185))+f[1]*Calculations.cosine(a[4]), -(f[0])*Calculations.sine(abs(a[1]-95))+f[1]*Calculations.cosine(a[8])):.2f} }}$
+
+        $\\textbf{{\\small 2. Cálculo de los ángulos:}}$
+
+        Para el cálculo de los ángulos se determina el coseno inverso de cada una de las componentes del vector unitario en la dirección del vector $\\overrightarrow{{FR}}$.
+        
+        ${{\hspace{{4mm}} \\alpha = cos^-1(\\dfrac{{FR_x}}{{FR}})={math.degrees(math.acos(((f[0]*Calculations.cosine(abs(a[1]-95))*Calculations.sine(abs(a[2]-185))+ f[1]*Calculations.cosine(a[0])))/Calculations.magnitude3D(f[0]*Calculations.cosine(abs(a[1]-95))*Calculations.sine(abs(a[2]-185))+ f[1]*Calculations.cosine(a[0]),(f[0])*Calculations.cosine(abs(a[1]-95))*Calculations.cosine(abs(a[2]-185))+f[1]*Calculations.cosine(a[4]), -(f[0])*Calculations.sine(abs(a[1]-95))+f[1]*Calculations.cosine(a[8])))):.2f}  }}$
+
+        ${{\hspace{{4mm}} \\beta = cos^-1(\\dfrac{{FR_y}}{{FR}}) = {math.degrees(math.acos((((f[0])*Calculations.cosine(abs(a[1]-95))*Calculations.cosine(abs(a[2]-185)))+(f[1]*Calculations.cosine(a[4])))/(Calculations.magnitude3D(f[0]*Calculations.cosine(abs(a[1]-95))*Calculations.sine(abs(a[2]-185))+ f[1]*Calculations.cosine(a[0]),(f[0])*Calculations.cosine(abs(a[1]-95))*Calculations.cosine(abs(a[2]-185))+f[1]*Calculations.cosine(a[4]), -(f[0])*Calculations.sine(abs(a[1]-95))+f[1]*Calculations.cosine(a[8]))))):.2f} }}$
+
+        ${{\hspace{{4mm}} \\gamma = cos^-1(\\dfrac{{FR_z}}{{FR}}) = {math.degrees(math.acos(((-(f[0])*Calculations.sine(abs(a[1]-95)))+(f[1]*Calculations.cosine(a[8])))/(Calculations.magnitude3D(f[0]*Calculations.cosine(abs(a[1]-95))*Calculations.sine(abs(a[2]-185))+ f[1]*Calculations.cosine(a[0]),(f[0])*Calculations.cosine(abs(a[1]-95))*Calculations.cosine(abs(a[2]-185))+f[1]*Calculations.cosine(a[4]), -(f[0])*Calculations.sine(abs(a[1]-95))+f[1]*Calculations.cosine(a[8]))))):.2f}}}$
+    
+        """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"", 
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"", 
+        calculos='operations' 
+        ),
+    
+    Questionary(#8_1
+        code = 1320081, 
+        no_pregunta = 8, 
+        complexity = M, 
+        topic = EQ, 
+        subtopic = VU, 
+        version = 1, 
+        pregunta = lambda f, a, calc, c, d, m: f"Tres fuerzas actúan sobre el punto O donde $F1 = {f[0]:.0f} \\text{{ kN}}$, $F2 = {f[1]:.0f} \\text{{ kN}}$ y $F3 = {f[2]:.0f} \\text{{ kN}}$. Determine los ángulos coordenados de dirección de $FR$. También considere $\\theta _1 = {a[0]:.0f}\\degree$ y $\\theta_2 = {a[4]:.0f}\\degree$.", 
+        no_answers = 3, 
+        a1_name = A3X, 
+        a2_name = A3Y, 
+        a3_name = A3Z, 
+        answer1=lambda f, a, calc, c, d, m: np.round(math.degrees(math.acos((f[0]*(4/5)+ f[2]*Calculations.cosine(a[0])*Calculations.sine(a[4]))/(Calculations.magnitude3D(f[0]*(4/5)+ f[2]*Calculations.cosine(a[0])*Calculations.sine(a[4]),f[2]*Calculations.cosine(a[0])*Calculations.cosine(a[4]), f[0]*(3/5)-(f[1])+f[2]*Calculations.sine(a[0]))))), 2), 
+        answer2=lambda f, a, calc, c, d, m: np.round(math.degrees(math.acos((f[2]*Calculations.cosine(a[0])*Calculations.cosine(a[4]))/(Calculations.magnitude3D(f[0]*(4/5)+ f[2]*Calculations.cosine(a[0])*Calculations.sine(a[4]),f[2]*Calculations.cosine(a[0])*Calculations.cosine(a[4]), f[0]*(3/5)-(f[1])+f[2]*Calculations.sine(a[0]))))), 2), 
+        answer3=lambda f, a, calc, c, d, m: np.round(math.degrees(math.acos((f[0]*(3/5)-(f[1])+f[2]*Calculations.sine(a[0]))/(Calculations.magnitude3D(f[0]*(4/5)+ f[2]*Calculations.cosine(a[0])*Calculations.sine(a[4]),f[2]*Calculations.cosine(a[0])*Calculations.cosine(a[4]), f[0]*(3/5)-(f[1])+f[2]*Calculations.sine(a[0]))))), 2), 
+        ayuda1 = A40, 
+        ayuda2 = A63, 
+        ayuda3 = A36,  
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        A continuación se presenta la solución sugerida para el ejercicio:
+
+        $\\textbf{{\\small 1. Cálculo de las componentes de las fuerzas F1 , F2 y F3:}}$
+
+        ${{\hspace{{4mm}} {{F1_x}} = F1(\\dfrac{{4}}{{5}}) = {f[0]*(4/5):.2f} }}$
+
+        ${{\hspace{{4mm}} {{F1_y}} = 0  }}$
+
+        ${{\hspace{{4mm}} {{F1_z}} = F1(\\dfrac{{3}}{{5}}) = {f[0]*(3/5):.2f} }}$
+
+        ${{\hspace{{4mm}} {{F2_x}} = 0 }}$
+
+        ${{\hspace{{4mm}} {{F2_y}} = 0 }}$
+
+        ${{\hspace{{4mm}} {{F2_z}} = -F2 = {-(f[1]):.2f} }}$ 
+
+        ${{\hspace{{4mm}} {{F3_x}} = F3cos(\\theta_1)sen(\\theta_2) = {f[2]*Calculations.cosine(a[0])*Calculations.sine(a[4]):.2f}}}$
+
+        ${{\hspace{{4mm}} {{F3_y}} = F3cos(\\theta_1)cos(\\theta_2) = {f[2]*Calculations.cosine(a[0])*Calculations.cosine(a[4]):.2f} }}$
+
+        ${{\hspace{{4mm}} {{F3_z}} = F3sen(\\theta_1) = {f[2]*Calculations.sine(a[0]):.2f} }}$
+
+        Sumatoria de fuerzas en cada eje:
+
+        ${{\hspace{{4mm}} \\sum{{FR_x}} = F1(\\dfrac{{4}}{{5}})+ 0 + F3cos(\\theta_1)sen(\\theta_2) = {f[0]*(4/5)+ f[2]*Calculations.cosine(a[0])*Calculations.sine(a[4]):.2f} }}$
+
+        ${{\hspace{{4mm}} \\sum{{FR_y}} = 0 + 0 + F3cos(\\theta_1)cos(\\theta_2) = {f[2]*Calculations.cosine(a[0])*Calculations.cosine(a[4]):.2f} }}$
+
+        ${{\hspace{{4mm}} \\sum{{FR_z}} = F1(\\dfrac{{3}}{{5}}) - F2 + F3sen(\\theta_1) = {f[0]*(3/5)-(f[1])+f[2]*Calculations.sine(a[0]):.2f} }}$
+
+        ${{\hspace{{4mm}} \\sum{{FR}} = \\sqrt(FR_x^2+ FR_y^2 + FR_x^2) = {Calculations.magnitude3D(f[0]*(4/5)+ f[2]*Calculations.cosine(a[0])*Calculations.sine(a[4]),f[2]*Calculations.cosine(a[0])*Calculations.cosine(a[4]), f[0]*(3/5)-(f[1])+f[2]*Calculations.sine(a[0])):.2f} }}$
+
+        $\\textbf{{\\small 2. Cálculo de los ángulos:}}$
+
+        Para el cálculo de los ángulos se determina el coseno inverso de cada una de las componentes del vector unitario en la dirección del vector $\\overrightarrow{{FR}}$.
+        
+        ${{\hspace{{4mm}} \\alpha = cos^-1(\\dfrac{{FR_x}}{{FR}})={math.degrees(math.acos((f[0]*(4/5)+ f[2]*Calculations.cosine(a[0])*Calculations.sine(a[4]))/(Calculations.magnitude3D(f[0]*(4/5)+ f[2]*Calculations.cosine(a[0])*Calculations.sine(a[4]),f[2]*Calculations.cosine(a[0])*Calculations.cosine(a[4]), f[0]*(3/5)-(f[1])+f[2]*Calculations.sine(a[0]))))):.2f}  }}$
+
+        ${{\hspace{{4mm}} \\beta = cos^-1(\\dfrac{{FR_y}}{{FR}}) = {math.degrees(math.acos((f[2]*Calculations.cosine(a[0])*Calculations.cosine(a[4]))/(Calculations.magnitude3D(f[0]*(4/5)+ f[2]*Calculations.cosine(a[0])*Calculations.sine(a[4]),f[2]*Calculations.cosine(a[0])*Calculations.cosine(a[4]), f[0]*(3/5)-(f[1])+f[2]*Calculations.sine(a[0]))))):.2f} }}$
+
+        ${{\hspace{{4mm}} \\gamma = cos^-1(\\dfrac{{FR_z}}{{FR}}) = {math.degrees(math.acos((f[0]*(3/5)-(f[1])+f[2]*Calculations.sine(a[0]))/(Calculations.magnitude3D(f[0]*(4/5)+ f[2]*Calculations.cosine(a[0])*Calculations.sine(a[4]),f[2]*Calculations.cosine(a[0])*Calculations.cosine(a[4]), f[0]*(3/5)-(f[1])+f[2]*Calculations.sine(a[0]))))):.2f}}}$
+    
+        """, 
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"", 
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"", 
+        calculos='operations' 
+        ),
 
     #=================================================EQUILIBRIO DE PARTÍCULAS===================================================
     #-------------------------------------------------     Vector unitario     ---------------------------------------------------
@@ -2945,6 +4572,289 @@ preguntas = [
         respuesta_P3 = lambda f, a, calc, c, d, m: f"",
         calculos='operations'
         ),  
+    
+    Questionary(#5_1
+        code = 1330051,
+        no_pregunta = 5,
+        complexity = D,
+        topic = EQ,
+        subtopic = VU,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Determine los ángulos coordenados de dirección de la fuerza resultante que actúa en el punto A. Considere $F1 = {f[0]:.0f} \\text{{ kN}}$, $F2 = {f[1]:.0f} \\text{{ kN}}$ , $\\theta _1 = {a[0]:.0f}\\degree$ , $x1 = {d[0]} \\text{{ m}}$ ,  $y1 = {d[3]} \\text{{ m}}$ , $y2 = {d[6]} \\text{{ m}}$ , $z1 = {d[9]} \\text{{ m}}$ , $u1 = {d[12]} \\text{{ m}}$.",
+        no_answers = 3,
+        a1_name = A3X,
+        a2_name = A3Y,
+        a3_name = A3Z,
+        answer1 = lambda f, a, calc, c, d, m: np.round(math.degrees(math.acos(((d[0]-0) + (d[12]*Calculations.cosine(a[0])-0))/(Calculations.magnitude3D((d[0]-0) + (d[12]*Calculations.cosine(a[0])-0), (-(d[3])-(-(d[6]))) + (d[12]*Calculations.sine(a[0])-(-(d[6]))), (0-(d[9])) + (0-(d[9])))))),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(math.degrees(math.acos(((-(d[3])-(-(d[6]))) + (d[12]*Calculations.sine(a[0])-(-(d[6]))))/(Calculations.magnitude3D((d[0]-0) + (d[12]*Calculations.cosine(a[0])-0), (-(d[3])-(-(d[6]))) + (d[12]*Calculations.sine(a[0])-(-(d[6]))), (0-(d[9])) + (0-(d[9])))))),2),
+        answer3 = lambda f, a, calc, c, d, m: np.round(math.degrees(math.acos(((0-(d[9])) + (0-(d[9])))/(Calculations.magnitude3D((d[0]-0) + (d[12]*Calculations.cosine(a[0])-0), (-(d[3])-(-(d[6]))) + (d[12]*Calculations.sine(a[0])-(-(d[6]))), (0-(d[9])) + (0-(d[9])))))),2),
+        ayuda1 = A36,
+        ayuda2 = A55,
+        ayuda3 = A69,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        Para hallar las distancias en X, Y y Z, se plantean las ecuaciones de cada una de las componentes de la fuerza como el vector unitario en dicha componente.
+        
+        $\\textbf{{\\small 1. Despeje de las componentes en x y y de u1:}}$
+
+        ${{\hspace{{4mm}} u1_x = u1cos(\\theta_1) = {d[12]*Calculations.cosine(a[0]):.2f} }}$
+
+        ${{\hspace{{4mm}} u1_y = u1sen(\\theta_1) ={d[12]*Calculations.sine(a[0]):.2f} }}$
+
+        $\\textbf{{\\small 2. Componentes de la fuerza F1 y F2:}}$
+
+        ${{\hspace{{4mm}} uF1_x = (x1-0) = {(d[0]-0):.2f}}}$
+
+        ${{\hspace{{4mm}} uF1_y = (-y1-(-y2)) = {(-(d[3])-(-(d[6]))):.2f}}}$
+
+        ${{\hspace{{4mm}} uF1_z = (0-z1) = {(0-(d[9])):.2f}}}$
+
+        ${{\hspace{{4mm}} uF2_x = (u1x-0) = {(d[12]*Calculations.cosine(a[0])-0):.2f}}}$
+
+        ${{\hspace{{4mm}} uF2_y = (u1y-(-y2)) = {(d[12]*Calculations.sine(a[0])-(-(d[6]))):.2f}}}$
+
+        ${{\hspace{{4mm}} uF2_z = (0-z1) = {(0-(d[9])):.2f}}}$
+
+        Componentes de la fuerza FR
+
+        ${{\hspace{{4mm}} uFR_x = (x1-0) + (u1x-0) = {(d[0]-0) + (d[12]*Calculations.cosine(a[0])-0):.2f}}}$
+
+        ${{\hspace{{4mm}} uFR_y = (-y1-(-y2)) + (u1y-(-y2)) = {(-(d[3])-(-(d[6]))) + (d[12]*Calculations.sine(a[0])-(-(d[6]))):.2f}}}$
+
+        ${{\hspace{{4mm}} uFR_z = (0-z1) + (0-z1) = {(0-(d[9])) + (0-(d[9])):.2f}}}$
+
+        ${{\hspace{{4mm}} uFR = \\sqrt{{(FR_x)^2 + (FR_y)^2 + (FR_z)^2}} = {Calculations.magnitude3D((d[0]-0) + (d[12]*Calculations.cosine(a[0])-0), (-(d[3])-(-(d[6]))) + (d[12]*Calculations.sine(a[0])-(-(d[6]))), (0-(d[9])) + (0-(d[9]))):.2f}}}$
+
+        $\\textbf{{\\small 2. Despeje angulos coordenados:}}$
+
+        ${{\hspace{{4mm}} \\alpha = cos^-1(\\dfrac{{FR_x}}{{FR}})={math.degrees(math.acos(((d[0]-0) + (d[12]*Calculations.cosine(a[0])-0))/(Calculations.magnitude3D((d[0]-0) + (d[12]*Calculations.cosine(a[0])-0), (-(d[3])-(-(d[6]))) + (d[12]*Calculations.sine(a[0])-(-(d[6]))), (0-(d[9])) + (0-(d[9])))))):.2f}  }}$
+
+        ${{\hspace{{4mm}} \\beta = cos^-1(\\dfrac{{FR_y}}{{FR}}) = {math.degrees(math.acos(((-(d[3])-(-(d[6]))) + (d[12]*Calculations.sine(a[0])-(-(d[6]))))/(Calculations.magnitude3D((d[0]-0) + (d[12]*Calculations.cosine(a[0])-0), (-(d[3])-(-(d[6]))) + (d[12]*Calculations.sine(a[0])-(-(d[6]))), (0-(d[9])) + (0-(d[9])))))):.2f} }}$
+
+        ${{\hspace{{4mm}} \\gamma = cos^-1(\\dfrac{{FR_z}}{{FR}}) = {math.degrees(math.acos(((0-(d[9])) + (0-(d[9])))/(Calculations.magnitude3D((d[0]-0) + (d[12]*Calculations.cosine(a[0])-0), (-(d[3])-(-(d[6]))) + (d[12]*Calculations.sine(a[0])-(-(d[6]))), (0-(d[9])) + (0-(d[9])))))):.2f}}}$
+    
+
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
+    
+    Questionary(#6_1
+        code = 1330061,
+        no_pregunta = 6,
+        complexity = D,
+        topic = EQ,
+        subtopic = VU,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"Las retenidas de alambre se usan para dar soporte al poste telefónico. Represente la fuerza resultante en forma vectorial cartesiana. Considere $F1 = {f[0]:.0f} \\text{{ kN}}$, $F2 = {f[1]:.0f} \\text{{ kN}}$, $x1 = {d[0]} \\text{{ m}}$ ,  $x2 = {d[3]} \\text{{ m}}$ , $y1 = {d[6]} \\text{{ m}}$ , $y2 = {d[9]} \\text{{ m}}$ , $z1 = {d[12]} \\text{{ m}}$, $z2 = {d[15]} \\text{{ m}}$.",
+        no_answers = 3,
+        a1_name = Ci,
+        a2_name = Cj,
+        a3_name = Ck,
+        answer1 = lambda f, a, calc, c, d, m: np.round((((d[0]-0)/Calculations.magnitude3D((d[0]-0),(-(d[6])-(0)),(0-(d[12]+d[15]))))*f[0])+(((-d[3]-0)/(Calculations.magnitude3D((-d[3]-0),(d[9]-0),(0-(d[12])))))*f[1]),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(((-(d[6])-(0))/(Calculations.magnitude3D((d[0]-0),(-(d[6])-(0)),(0-(d[12]+d[15]))))*f[0])+(((d[9]-0)/(Calculations.magnitude3D((-d[3]-0),(d[9]-0),(0-(d[12])))))*f[1]),2),
+        answer3 = lambda f, a, calc, c, d, m: np.round((((0-(d[12]+d[15])))/(Calculations.magnitude3D((d[0]-0),(-(d[6])-(0)),(0-(d[12]+d[15]))))*f[0])+(((0-(d[12]))/(Calculations.magnitude3D((-d[3]-0),(d[9]-0),(0-(d[12])))))*f[1]),2),
+        ayuda1 = A67,
+        ayuda2 = A54,
+        ayuda3 = A40,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        Para hallar las distancias en X, Y y Z, se plantean las ecuaciones de cada una de las componentes de la fuerza como la multiplicación de la magnitud de la fuerza y el vector unitario en dicha componente.
+        
+        $\\textbf{{\\small 1. Despeje de las componentes en x y y de u1:}}$
+
+        ${{\hspace{{4mm}} uF1_x = (x1-0) = {(d[0]-0):.2f}}}$
+        ${{\hspace{{4mm}} uF1_y = (-y1-0) = {(-(d[6])-(0)):.2f}}}$
+        ${{\hspace{{4mm}} uF1_z = (0-(z1+z2)) = {(0-(d[12]+d[15])):.2f}}}$
+
+        ${{\hspace{{4mm}} uF1 = \\sqrt((x1-0)^2+(-y1-0)^2+(0-(z1+z2))^2) = {Calculations.magnitude3D((d[0]-0),(-(d[6])-(0)),(0-(d[12]+d[15]))):.2f}}}$
+
+        ${{\hspace{{4mm}} uF2_x = (-x2-0) = {(-d[3]-0):.2f}}}$
+        ${{\hspace{{4mm}} uF2_y = (y2-0) = {(d[9]-0):.2f}}}$
+        ${{\hspace{{4mm}} uF2_z = (0-z1) = {(0-(d[12])):.2f}}}$
+
+        ${{\hspace{{4mm}} uF1 = \\sqrt((-x2-0)^2+(y2-0)^2+(0-z1)^2) = {Calculations.magnitude3D((-d[3]-0),(d[9]-0),(0-(d[12]))):.2f}}}$
+
+        $\\textbf{{\\small 2. Componentes de la fuerza F1 y F2:}}$
+
+        ${{\hspace{{4mm}} F1_x = F1(\\dfrac{{(x1-0)}}{{\\sqrt((x1-0)^2+(-y1-0)^2+(0-(z1+z2))^2)}}) = {((d[0]-0)/Calculations.magnitude3D((d[0]-0),(-(d[6])-(0)),(0-(d[12]+d[15]))))*f[0]:.2f}}}$
+
+        ${{\hspace{{4mm}} F1_y = F1(\\dfrac{{(-y1-0)}}{{\\sqrt((x1-0)^2+(-y1-0)^2+(0-(z1+z2))^2)}} = {(-(d[6])-(0))/(Calculations.magnitude3D((d[0]-0),(-(d[6])-(0)),(0-(d[12]+d[15]))))*f[0]:.2f}}}$
+
+        ${{\hspace{{4mm}} F1_z = F1(\\dfrac{{(0-(z1+z2))}}{{\\sqrt((x1-0)^2+(-y1-0)^2+(0-(z1+z2))^2)}} = {((0-(d[12]+d[15])))/(Calculations.magnitude3D((d[0]-0),(-(d[6])-(0)),(0-(d[12]+d[15]))))*f[0]:.2f}}}$
+
+        ${{\hspace{{4mm}} F2_x = F2(\\dfrac{{(-x2-0)}}{{\\sqrt((-x2-0)^2+(y2-0)^2+(0-z1)^2)}}) = {((-d[3]-0)/(Calculations.magnitude3D((-d[3]-0),(d[9]-0),(0-(d[12])))))*f[1]:.2f}}}$
+
+        ${{\hspace{{4mm}} F2_y = F2(\\dfrac{{(y2-0)}}{{\\sqrt((-x2-0)^2+(y2-0)^2+(0-z1)^2)}}) = {((d[9]-0)/(Calculations.magnitude3D((-d[3]-0),(d[9]-0),(0-(d[12])))))*f[1]:.2f}}}$
+
+        ${{\hspace{{4mm}} F2_z = F2(\\dfrac{{(0-z1)}}{{\\sqrt((-x2-0)^2+(y2-0)^2+(0-z1)^2)}}) = {((0-(d[12]))/(Calculations.magnitude3D((-d[3]-0),(d[9]-0),(0-(d[12])))))*f[1]:.2f}}}$
+
+        Componentes de la fuerza FR
+
+        ${{\hspace{{4mm}} FR_x = F1_x + F2_x = {(((d[0]-0)/Calculations.magnitude3D((d[0]-0),(-(d[6])-(0)),(0-(d[12]+d[15]))))*f[0])+(((-d[3]-0)/(Calculations.magnitude3D((-d[3]-0),(d[9]-0),(0-(d[12])))))*f[1]):.2f}}}$
+
+        ${{\hspace{{4mm}} FR_y = F1_y + F2_y = {((-(d[6])-(0))/(Calculations.magnitude3D((d[0]-0),(-(d[6])-(0)),(0-(d[12]+d[15]))))*f[0])+(((d[9]-0)/(Calculations.magnitude3D((-d[3]-0),(d[9]-0),(0-(d[12])))))*f[1]):.2f}}}$
+
+        ${{\hspace{{4mm}} FR_z = F1_z + F2_z = {(((0-(d[12]+d[15])))/(Calculations.magnitude3D((d[0]-0),(-(d[6])-(0)),(0-(d[12]+d[15]))))*f[0])+(((0-(d[12]))/(Calculations.magnitude3D((-d[3]-0),(d[9]-0),(0-(d[12])))))*f[1]):.2f}}}$
+
+        
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
+    
+    Questionary(#7_1
+        code = 1330071,
+        no_pregunta = 7,
+        complexity = D,
+        topic = EQ,
+        subtopic = VU,
+        version = 1,
+        pregunta = lambda f, a, calc, c, d, m: f"La ventana se mantiene abierta por medio de la cadena $AB$. Determine la longitud de la cadena, y determine los ángulos coordenados de dirección en $x$ y $y$ de la fuerza $F = {f[0]:.0f} \\text{{ kN}}$ que actúa en el punto $A$. También considere $\\theta  = {a[0]:.0f}\\degree$, $x1 = {d[0]} \\text{{ m}}$ ,  $y1 = {d[3]+ d[6]} \\text{{ m}}$ , $y2 = {d[6]} \\text{{ m}}$ , $z1 = {d[9]} \\text{{ m}}$ , $u1 = {d[12]} \\text{{ m}}$.",
+        no_answers = 3,
+        a1_name = "Longitud de la cadena $(m)$",
+        a2_name = A3X,
+        a3_name = A3Y,
+        answer1 = lambda f, a, calc, c, d, m: np.round( Calculations.magnitude3D((0-d[12]*Calculations.cosine(a[0])), (d[6]-(d[3]+d[6])), ((d[9])-d[12]*Calculations.sine(a[0]))),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(math.degrees(math.acos(((0-d[12]*Calculations.cosine(a[0])))/(Calculations.magnitude3D((0-d[12]*Calculations.cosine(a[0])), (d[6]-(d[3]+d[6])), ((d[9])-d[12]*Calculations.sine(a[0])))))),2),
+        answer3 = lambda f, a, calc, c, d, m: np.round(math.degrees(math.acos(((d[6]-(d[3]+d[6])))/(Calculations.magnitude3D((0-d[12]*Calculations.cosine(a[0])), (d[6]-(d[3]+d[6])), ((d[9])-d[12]*Calculations.sine(a[0])))))),2),
+        ayuda1 = A67,
+        ayuda2 = A68,
+        ayuda3 = A69,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        Para hallar las distancias en X, Y y Z, se plantean las ecuaciones de cada una de las componentes de la fuerza como el vector unitario en dicha componente.
+        
+        $\\textbf{{\\small 1. Despeje de las componentes en x y y de u1:}}$
+
+        ${{\hspace{{4mm}} u1_x = u1cos(\\theta) = {d[12]*Calculations.cosine(a[0]):.2f} }}$
+
+        ${{\hspace{{4mm}} u1_z = u1sen(\\theta) ={d[12]*Calculations.sine(a[0]):.2f} }}$
+
+        $\\textbf{{\\small 2. Longitud de A a B:}}$
+
+        ${{\hspace{{4mm}} AB_x = (0-u1_x) = {(0-d[12]*Calculations.cosine(a[0])):.2f}}}$
+
+        ${{\hspace{{4mm}} AB_y = (y2-y1) = {(d[6]-(d[3]+d[6])):.2f}}}$
+
+        ${{\hspace{{4mm}} AB_z = (z1-u1_z) = {((d[9])-d[12]*Calculations.sine(a[0])):.2f}}}$
+
+        ${{\hspace{{4mm}} AB = \\sqrt{{(AB_x)^2 + (AB_y)^2 + (AB_z)^2}} = {Calculations.magnitude3D((0-d[12]*Calculations.cosine(a[0])), (d[6]-(d[3]+d[6])), ((d[9])-d[12]*Calculations.sine(a[0]))):.2f}}}$
+
+        $\\textbf{{\\small 2. Despeje angulos coordenados:}}$
+
+        ${{\hspace{{4mm}} \\alpha = cos^-1(\\dfrac{{FR_x}}{{FR}})={math.degrees(math.acos(((0-d[12]*Calculations.cosine(a[0])))/(Calculations.magnitude3D((0-d[12]*Calculations.cosine(a[0])), (d[6]-(d[3]+d[6])), ((d[9])-d[12]*Calculations.sine(a[0])))))):.2f}  }}$
+
+        ${{\hspace{{4mm}} \\beta = cos^-1(\\dfrac{{FR_y}}{{FR}}) = {math.degrees(math.acos(((d[6]-(d[3]+d[6])))/(Calculations.magnitude3D((0-d[12]*Calculations.cosine(a[0])), (d[6]-(d[3]+d[6])), ((d[9])-d[12]*Calculations.sine(a[0])))))):.2f} }}$
+
+        ${{\hspace{{4mm}} \\gamma = cos^-1(\\dfrac{{FR_z}}{{FR}}) = {math.degrees(math.acos((((d[9])-d[12]*Calculations.sine(a[0])))/(Calculations.magnitude3D((0-d[12]*Calculations.cosine(a[0])), (d[6]-(d[3]+d[6])), ((d[9])-d[12]*Calculations.sine(a[0])))))):.2f}}}$
+    
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
+    
+    Questionary(#7_2
+        code = 1330072,
+        no_pregunta = 7,
+        complexity = D,
+        topic = EQ,
+        subtopic = VU,
+        version = 2,
+        pregunta = lambda f, a, calc, c, d, m: f"La ventana se mantiene abierta por medio de la cadena $AB$. Determine la longitud de la cadena, y determine los ángulos coordenados de dirección en $x$ y $z$ de la fuerza $F = {f[0]:.0f} \\text{{ kN}}$ que actúa en el punto $A$. También considere $\\theta  = {a[0]:.0f}\\degree$, $x1 = {d[0]} \\text{{ m}}$ ,  $y1 = {d[3]+ d[6]} \\text{{ m}}$ , $y2 = {d[6]} \\text{{ m}}$ , $z1 = {d[9]} \\text{{ m}}$ , $u1 = {d[12]} \\text{{ m}}$.",
+        no_answers = 3,
+        a1_name = "Longitud de la cadena $(m)$",
+        a2_name = A3X,
+        a3_name = A3Z,
+        answer1 = lambda f, a, calc, c, d, m: np.round( Calculations.magnitude3D((0-d[12]*Calculations.cosine(a[0])), (d[6]-(d[3]+d[6])), ((d[9])-d[12]*Calculations.sine(a[0]))),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(math.degrees(math.acos(((0-d[12]*Calculations.cosine(a[0])))/(Calculations.magnitude3D((0-d[12]*Calculations.cosine(a[0])), (d[6]-(d[3]+d[6])), ((d[9])-d[12]*Calculations.sine(a[0])))))),2),
+        answer3 = lambda f, a, calc, c, d, m: np.round(math.degrees(math.acos((((d[9])-d[12]*Calculations.sine(a[0])))/(Calculations.magnitude3D((0-d[12]*Calculations.cosine(a[0])), (d[6]-(d[3]+d[6])), ((d[9])-d[12]*Calculations.sine(a[0])))))),2),
+        ayuda1 = A67,
+        ayuda2 = A68,
+        ayuda3 = A69,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        Para hallar las distancias en X, Y y Z, se plantean las ecuaciones de cada una de las componentes de la fuerza como el vector unitario en dicha componente.
+        
+        $\\textbf{{\\small 1. Despeje de las componentes en x y y de u1:}}$
+
+        ${{\hspace{{4mm}} u1_x = u1cos(\\theta) = {d[12]*Calculations.cosine(a[0]):.2f} }}$
+
+        ${{\hspace{{4mm}} u1_z = u1sen(\\theta) ={d[12]*Calculations.sine(a[0]):.2f} }}$
+
+        $\\textbf{{\\small 2. Longitud de A a B:}}$
+
+        ${{\hspace{{4mm}} AB_x = (0-u1_x) = {(0-d[12]*Calculations.cosine(a[0])):.2f}}}$
+
+        ${{\hspace{{4mm}} AB_y = (y2-y1) = {(d[6]-(d[3]+d[6])):.2f}}}$
+
+        ${{\hspace{{4mm}} AB_z = (z1-u1_z) = {((d[9])-d[12]*Calculations.sine(a[0])):.2f}}}$
+
+        ${{\hspace{{4mm}} AB = \\sqrt{{(AB_x)^2 + (AB_y)^2 + (AB_z)^2}} = {Calculations.magnitude3D((0-d[12]*Calculations.cosine(a[0])), (d[6]-(d[3]+d[6])), ((d[9])-d[12]*Calculations.sine(a[0]))):.2f}}}$
+
+        $\\textbf{{\\small 2. Despeje angulos coordenados:}}$
+
+        ${{\hspace{{4mm}} \\alpha = cos^-1(\\dfrac{{FR_x}}{{FR}})={math.degrees(math.acos(((0-d[12]*Calculations.cosine(a[0])))/(Calculations.magnitude3D((0-d[12]*Calculations.cosine(a[0])), (d[6]-(d[3]+d[6])), ((d[9])-d[12]*Calculations.sine(a[0])))))):.2f}  }}$
+
+        ${{\hspace{{4mm}} \\beta = cos^-1(\\dfrac{{FR_y}}{{FR}}) = {math.degrees(math.acos(((d[6]-(d[3]+d[6])))/(Calculations.magnitude3D((0-d[12]*Calculations.cosine(a[0])), (d[6]-(d[3]+d[6])), ((d[9])-d[12]*Calculations.sine(a[0])))))):.2f} }}$
+
+        ${{\hspace{{4mm}} \\gamma = cos^-1(\\dfrac{{FR_z}}{{FR}}) = {math.degrees(math.acos((((d[9])-d[12]*Calculations.sine(a[0])))/(Calculations.magnitude3D((0-d[12]*Calculations.cosine(a[0])), (d[6]-(d[3]+d[6])), ((d[9])-d[12]*Calculations.sine(a[0])))))):.2f}}}$
+    
+        """,   
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
+    
+    Questionary(#7_3
+        code = 1330073,
+        no_pregunta = 7,
+        complexity = D,
+        topic = EQ,
+        subtopic = VU,
+        version = 3,
+        pregunta = lambda f, a, calc, c, d, m: f"La ventana se mantiene abierta por medio de la cadena $AB$. Determine la longitud de la cadena, y determine los ángulos coordenados de dirección en $y$ y $z$ de la fuerza $F = {f[0]:.0f} \\text{{ kN}}$ que actúa en el punto $A$. También considere $\\theta = {a[0]:.0f}\\degree$,  $x1 = {d[0]} \\text{{ m}}$ ,  $y1 = {d[3]+ d[6]} \\text{{ m}}$ , $y2 = {d[6]} \\text{{ m}}$ , $z1 = {d[9]} \\text{{ m}}$ , $u1 = {d[12]} \\text{{ m}}$.",
+        no_answers = 3,
+        a1_name = "Longitud de la cadena $(m)$",
+        a2_name = A3Y,
+        a3_name = A3Z,
+        answer1 = lambda f, a, calc, c, d, m: np.round( Calculations.magnitude3D((0-d[12]*Calculations.cosine(a[0])), (d[6]-(d[3]+d[6])), ((d[9])-d[12]*Calculations.sine(a[0]))),2),
+        answer2 = lambda f, a, calc, c, d, m: np.round(math.degrees(math.acos(((d[6]-(d[3]+d[6])))/(Calculations.magnitude3D((0-d[12]*Calculations.cosine(a[0])), (d[6]-(d[3]+d[6])), ((d[9])-d[12]*Calculations.sine(a[0])))))),2),
+        answer3 = lambda f, a, calc, c, d, m: np.round(math.degrees(math.acos((((d[9])-d[12]*Calculations.sine(a[0])))/(Calculations.magnitude3D((0-d[12]*Calculations.cosine(a[0])), (d[6]-(d[3]+d[6])), ((d[9])-d[12]*Calculations.sine(a[0])))))),2),
+        ayuda1 = A67,
+        ayuda2 = A68,
+        ayuda3 = A69,
+        respuesta_P1 = lambda f, a, calc, c, d, m: f"""
+        Para hallar las distancias en X, Y y Z, se plantean las ecuaciones de cada una de las componentes de la fuerza como el vector unitario en dicha componente.
+        
+        $\\textbf{{\\small 1. Despeje de las componentes en x y y de u1:}}$
+
+        ${{\hspace{{4mm}} u1_x = u1cos(\\theta) = {d[12]*Calculations.cosine(a[0]):.2f} }}$
+
+        ${{\hspace{{4mm}} u1_z = u1sen(\\theta) ={d[12]*Calculations.sine(a[0]):.2f} }}$
+
+        $\\textbf{{\\small 2. Longitud de A a B:}}$
+
+        ${{\hspace{{4mm}} AB_x = (0-u1_x) = {(0-d[12]*Calculations.cosine(a[0])):.2f}}}$
+
+        ${{\hspace{{4mm}} AB_y = (y2-y1) = {(d[6]-(d[3]+d[6])):.2f}}}$
+
+        ${{\hspace{{4mm}} AB_z = (z1-u1_z) = {((d[9])-d[12]*Calculations.sine(a[0])):.2f}}}$
+
+        ${{\hspace{{4mm}} AB = \\sqrt{{(AB_x)^2 + (AB_y)^2 + (AB_z)^2}} = {Calculations.magnitude3D((0-d[12]*Calculations.cosine(a[0])), (d[6]-(d[3]+d[6])), ((d[9])-d[12]*Calculations.sine(a[0]))):.2f}}}$
+
+        $\\textbf{{\\small 2. Despeje angulos coordenados:}}$
+
+        ${{\hspace{{4mm}} \\alpha = cos^-1(\\dfrac{{FR_x}}{{FR}})={math.degrees(math.acos(((0-d[12]*Calculations.cosine(a[0])))/(Calculations.magnitude3D((0-d[12]*Calculations.cosine(a[0])), (d[6]-(d[3]+d[6])), ((d[9])-d[12]*Calculations.sine(a[0])))))):.2f}  }}$
+
+        ${{\hspace{{4mm}} \\beta = cos^-1(\\dfrac{{FR_y}}{{FR}}) = {math.degrees(math.acos(((d[6]-(d[3]+d[6])))/(Calculations.magnitude3D((0-d[12]*Calculations.cosine(a[0])), (d[6]-(d[3]+d[6])), ((d[9])-d[12]*Calculations.sine(a[0])))))):.2f} }}$
+
+        ${{\hspace{{4mm}} \\gamma = cos^-1(\\dfrac{{FR_z}}{{FR}}) = {math.degrees(math.acos((((d[9])-d[12]*Calculations.sine(a[0])))/(Calculations.magnitude3D((0-d[12]*Calculations.cosine(a[0])), (d[6]-(d[3]+d[6])), ((d[9])-d[12]*Calculations.sine(a[0])))))):.2f}}}$
+    
+        """,  
+        respuesta_P2 = lambda f, a, calc, c, d, m: f"",
+        respuesta_P3 = lambda f, a, calc, c, d, m: f"",
+        calculos='operations'
+        ),
 
     #=================================================EQUILIBRIO DE PARTÍCULAS===================================================
     #-------------------------------------------------     Equilibrio 2D      ---------------------------------------------------
